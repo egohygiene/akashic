@@ -10,8 +10,11 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 ## Contents
 
 - [Artificial Intelligence](#artificial-intelligence)
+  - [Agent Skills and Standards](#agent-skills-and-standards)
   - [Agents and Developer Tools](#agents-and-developer-tools)
+  - [Evaluation and Safety](#evaluation-and-safety)
   - [Frameworks and Organizations](#frameworks-and-organizations)
+  - [Memory and Context](#memory-and-context)
   - [Models and Providers](#models-and-providers)
   - [Research](#research)
 - [Containers and Cloud](#containers-and-cloud)
@@ -23,13 +26,20 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Creative Resources](#creative-resources)
   - [3D Assets and Materials](#3d-assets-and-materials)
   - [Audio and Music](#audio-and-music)
+  - [Image, Video, and Visualization](#image-video-and-visualization)
 - [Developer Tools](#developer-tools)
   - [Application Development](#application-development)
   - [Data and Databases](#data-and-databases)
   - [Documentation and Publishing](#documentation-and-publishing)
+  - [Knowledge Management](#knowledge-management)
   - [Package Management](#package-management)
   - [Shell, Terminal, and Environments](#shell-terminal-and-environments)
   - [Web Capture and Community Features](#web-capture-and-community-features)
+- [Health and Well-Being](#health-and-well-being)
+  - [Digital Health and Technology](#digital-health-and-technology)
+  - [Mental Health and Well-Being](#mental-health-and-well-being)
+  - [Regulatory and Professional Bodies](#regulatory-and-professional-bodies)
+  - [Treatment Platforms](#treatment-platforms)
 - [Open Source](#open-source)
   - [Collections](#collections)
   - [Community and Governance](#community-and-governance)
@@ -39,13 +49,22 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
   - [Programs and Support](#programs-and-support)
 - [Public Services and Support](#public-services-and-support)
   - [Benefits and Emergency Assistance](#benefits-and-emergency-assistance)
+  - [Community, Volunteering, and Preparedness](#community-volunteering-and-preparedness)
   - [Consumer and Transportation Safety](#consumer-and-transportation-safety)
   - [Debt, Finance, and Taxes](#debt-finance-and-taxes)
   - [Employment and Education](#employment-and-education)
   - [Government, Civics, and Culture](#government-civics-and-culture)
   - [Health Care and Medication](#health-care-and-medication)
+- [Research Funding and Grants](#research-funding-and-grants)
+  - [Application and Review](#application-and-review)
+  - [Federal Funding Portals and Data](#federal-funding-portals-and-data)
+  - [Mental Health and Substance Use Funding](#mental-health-and-substance-use-funding)
+  - [Policy and Funding Strategy](#policy-and-funding-strategy)
+  - [Small Business and Innovation](#small-business-and-innovation)
+  - [Transformative and Cross-Cutting Research](#transformative-and-cross-cutting-research)
 - [Security](#security)
   - [Organizations, Tools, and Learning](#organizations-tools-and-learning)
+  - [Privacy and Personal Data](#privacy-and-personal-data)
   - [Supply Chain and Software Assurance](#supply-chain-and-software-assurance)
   - [Vulnerability Data](#vulnerability-data)
 - [Self-Hosting and Homelab](#self-hosting-and-homelab)
@@ -69,35 +88,107 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
   - [Organizations and Open Science](#organizations-and-open-science)
   - [Scientific Computing](#scientific-computing)
   - [Scholarly Publishing](#scholarly-publishing)
+- [Web Development](#web-development)
+  - [Authentication and Identity](#authentication-and-identity)
+  - [Core Frameworks and Build Tools](#core-frameworks-and-build-tools)
+  - [Data Fetching and APIs](#data-fetching-and-apis)
+  - [Developer Tooling and Quality](#developer-tooling-and-quality)
+  - [File and Media Handling](#file-and-media-handling)
+  - [Forms and Validation](#forms-and-validation)
+  - [Motion and Interaction](#motion-and-interaction)
+  - [State Management](#state-management)
+  - [Styling and Theming](#styling-and-theming)
+  - [Testing and Component Development](#testing-and-component-development)
+  - [UI Components and Design Systems](#ui-components-and-design-systems)
+  - [Utilities](#utilities)
+  - [Visualization and Maps](#visualization-and-maps)
 - [Work and Learning](#work-and-learning)
+  - [Business and Entrepreneurship](#business-and-entrepreneurship)
+  - [Career Platforms and Job Search](#career-platforms-and-job-search)
   - [Communities and Events](#communities-and-events)
   - [Learning and Careers](#learning-and-careers)
-  - [Well-Being](#well-being)
   - [Writing and Publishing](#writing-and-publishing)
   - [Workspace](#workspace)
 - [Meta](#meta)
 
 ## Artificial Intelligence
 
+### Agent Skills and Standards
+
+- [ADK Agent Skills](https://adk.dev/skills/) - Official Agent Development Kit guide to discovering, loading, authoring, and using Agent Skills.
+- [Agent Skill Index](https://www.agent-skill.co/) - Searchable index of Agent Skills, tutorials, examples, and compatible agent platforms.
+- [Agent Skills Reference Library](https://github.com/agentskills/agentskills/tree/main/skills-ref) - Reference library and validation tooling for reading, parsing, and checking Agent Skills packages.
+- [Agent Skills Repository](https://github.com/agentskills/agentskills) - Source repository for the Agent Skills specification, documentation, examples, and reference tooling.
+- [Agent Skills Specification](https://agentskills.io/specification) - Open specification for portable skill directories built around SKILL.md metadata, instructions, scripts, references, and assets.
+- [Awesome Agent Skills by Heilcheng](https://github.com/heilcheng/awesome-agent-skills) - Curated directory of Agent Skills tutorials, authoring guides, registries, and collections.
+- [Awesome Agent Skills by VoltAgent](https://github.com/VoltAgent/awesome-agent-skills) - Large cross-agent collection of skills from official development teams and the broader community.
+- [Awesome Claude Skills](https://github.com/ComposioHQ/awesome-claude-skills) - Curated collection of reusable Claude skills, plugins, integrations, templates, and agent-workflow resources.
+- [Awesome GitHub Copilot Custom Agents](https://awesome-copilot.github.com/agents/) - Catalog of reusable custom agents for GitHub Copilot, organized by domain and development workflow.
+- [Awesome Skills](https://awesome-skills.com/) - Searchable catalog of skills and plugins for Claude Code and other compatible coding agents.
+- [Building ADK Agents with Skills](https://developers.googleblog.com/developers-guide-to-building-adk-agents-with-skills/) - Google developer guide to packaging reusable instructions and resources as skills for Agent Development Kit agents.
+- [Gangsta Agents](https://gangsta.page/) - Cross-platform skill framework for spec-driven agent development with explicit roles, phase gates, approvals, budgets, and persistent memory.
+- [Garden Skills](https://github.com/ConardLi/garden-skills) - Open collection of skills for web design, knowledge retrieval, image generation, and other agent workflows.
+- [GitHub CLI Skill Publish](https://cli.github.com/manual/gh_skill_publish) - GitHub CLI command for validating Agent Skills and publishing them through versioned GitHub releases.
+- [Official Skills Directory](https://officialskills.sh/) - Directory focused on Agent Skills published by official product, framework, and platform teams.
+- [Skill Registry](https://github.com/andrewhowdencom/skr) - CLI and GitHub Action for validating, building, installing, and publishing Agent Skills through Git or OCI registries.
+- [Skills.sh](https://www.skills.sh/) - Agent Skills directory and command-line installer for discovering and adding reusable skills from public repositories.
+- [Vercel Skills CLI](https://github.com/vercel-labs/skills) - Open command-line tool for installing and managing Agent Skills across supported coding agents.
+
 ### Agents and Developer Tools
 
 - [Agentic](https://github.com/Cluster444/agentic) - Workflow tool for OpenCode that supplies structured context engineering, planning, memory, and project commands.
+- [AI Coding Agents Configuration](https://github.com/jjmartres/ai-coding-agents) - Shared source of truth for skills, commands, rules, and configuration across OpenCode and Pi coding agents.
+- [Awesome Harness Engineering](https://github.com/ai-boost/awesome-harness-engineering) - Curated collection of agent-harness tools and resources spanning memory, permissions, MCP, evaluation, observability, and orchestration.
 - [Awesome OpenCode](https://github.com/awesome-opencode/awesome-opencode) - Curated collection of OpenCode plugins, themes, agents, projects, tooling, and learning resources.
+- [CLI-Anything Hub](https://clianything.cc/) - Registry and installer for agent-friendly command-line interfaces that expose applications, services, and creative tools to automation.
+- [CodeNomad](https://github.com/NeuralNomadsAI/CodeNomad) - Open-source web and desktop command center for managing OpenCode workspaces, sessions, sidecars, terminals, and remote access.
+- [Cynative Deep Research Agent](https://www.helpnetsecurity.com/2026/07/13/cynative-open-source-deep-research-agent/) - Overview of Cynative's open-source autonomous research agent for multi-source investigation, synthesis, and cited reporting.
+- [Deep Agents Frontend with CopilotKit](https://dev.to/copilotkit/how-to-build-a-frontend-for-langchain-deep-agents-with-copilotkit-52kd) - Tutorial for pairing a LangChain Deep Agent backend with a CopilotKit-based interactive frontend.
 - [exe.dev](https://exe.dev/) - API-first service providing durable, private, shareable virtual-machine sandboxes for developers and software agents.
+- [Fractal](https://github.com/plasma-ai/fractal) - Hierarchical agent-loop runtime that uses bounded recursive worktrees, local state, budgets, and operator controls for separable tasks.
+- [GitHub Spec Kit](https://github.github.com/spec-kit/index.html) - Extensible, agent-agnostic harness for spec-driven development through structured specification, planning, task, and implementation phases.
+- [Herdr](https://github.com/herdrdev/herdr) - Open-source Rust runtime and terminal workspace for running, multiplexing, supervising, and remotely accessing coding-agent sessions.
+- [Kiro Autonomous Agent](https://kiro.dev/blog/introducing-kiro-autonomous-agent/) - Introduction to Kiro's remotely running coding agent, including steering, pull-request workflows, and GitHub issue assignment.
+- [LangChain Deep Agents](https://docs.langchain.com/oss/python/deepagents/overview) - Batteries-included agent harness with planning, file-system context, subagents, long-term memory, and human-in-the-loop capabilities.
+- [Loop Engineering Toolkit](https://github.com/cobusgreyling/loop-engineering) - Practical patterns, starter assets, checklists, and CLI tools for designing and auditing iterative AI coding-agent loops.
+- [Meridian OS](https://github.com/codejunkie99/meridian-company-os) - Open-source operational control plane for coordinating company goals, ownership, approvals, budgets, and work across humans and AI agents.
+- [Oh My OpenAgent](https://omo.dev/) - Agent harness for complex codebases with an orchestration-rich OpenCode edition and portable Codex CLI components.
+- [Oh My OpenCode DeepWiki](https://deepwiki.com/code-yeongyu/oh-my-opencode) - Generated architectural documentation and codebase guide for the project now known as Oh My OpenAgent.
 - [Ollama OpenCode Integration](https://docs.ollama.com/integrations/opencode) - Official guide to configuring OpenCode to run against local or remote models served by Ollama.
+- [Open SWE](https://www.langchain.com/blog/open-swe-an-open-source-framework-for-internal-coding-agents) - Overview of LangChain's open-source framework for repository-aware internal coding agents triggered from team workflows.
 - [OpenAgentsControl](https://github.com/darrenhinde/OpenAgentsControl) - Plan-first AI-agent framework with approval gates, testing, review, validation, and multi-language workflow support for OpenCode.
 - [OpenChamber](https://github.com/openchamber/openchamber) - Open-source desktop and web workspace for running, supervising, reviewing, and remotely steering OpenCode agent sessions.
+- [OpenChamber Documentation](https://docs.openchamber.dev/) - Documentation for installing, configuring, customizing, remotely accessing, and steering OpenCode through OpenChamber.
+- [OpenChamber Themes](https://docs.openchamber.dev/themes/) - Guide to installing and authoring custom JSON themes for the OpenChamber agent workspace.
+- [OpenCode Agents](https://opencode.ai/docs/agents/) - Official reference for defining primary agents and subagents, model settings, tools, permissions, prompts, modes, and colors.
+- [OpenCode Cafe](https://www.opencode.cafe/) - Community marketplace for discovering and sharing OpenCode plugins, themes, commands, tools, hooks, and extensions.
+- [OpenCode Ecosystem](https://opencode.ai/docs/ecosystem/) - Official directory of community projects, plugins, applications, providers, and integrations built around OpenCode.
+- [OpenCode Obsidian](https://www.opencode.cafe/plugin/opencode-obsidian) - OpenCode plugin that embeds the coding assistant in Obsidian for vault-centered writing, research, and knowledge work.
+- [OpenCode Plugins](https://opencode.ai/docs/plugins) - Official guide to installing and developing OpenCode plugins with hooks, tools, dependencies, and lifecycle events.
+- [OpenCode Rules](https://opencode.ai/docs/rules/) - Official guide to supplying project and global instructions through AGENTS.md files and reusable rule references.
+- [OpenCode WakaTime](https://www.opencode.cafe/plugin/opencode-wakatime) - OpenCode plugin that records coding-agent usage and activity through WakaTime.
+- [OpenSession](https://www.opencode.cafe/plugin/opensession) - OpenCode Cafe listing for an extension focused on preserving and working with OpenCode sessions.
 - [OpenSpec](https://openspec.dev/) - Lightweight, open-source framework for keeping agent-generated proposals, designs, tasks, and specification deltas beside the code.
 - [OpenWork](https://github.com/different-ai/openwork) - Open-source desktop workspace for agentic work, powered by OpenCode and designed as an alternative to proprietary cowork tools.
+- [Optimizing GitHub Copilot Cost](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/optimizing-github-copilot-cost-in-the-usage-based-billing-era/4534186) - Microsoft guidance for measuring, governing, and reducing GitHub Copilot consumption under usage-based billing.
 - [Pi Agent Toolkit](https://github.com/earendil-works/pi) - Toolkit providing a unified LLM API, agent loop, terminal UI, coding-agent CLI, and extensible packages.
-- [Supermemory](https://supermemory.ai/) - Context infrastructure for agents with persistent memory, retrieval, profiles, connectors, extractors, and model-independent APIs.
+- [Spec Kit Community Presets](https://github.github.com/spec-kit/community/presets.html) - Catalog of community presets that customize Spec Kit templates, commands, terminology, governance, and delivery workflows.
+- [yutu](https://yutu.ifor.dev/) - Open-source YouTube automation toolkit combining a CLI, MCP server, skills, and multi-agent workflows for channel operations.
+
+### Evaluation and Safety
+
+- [DeepTeam](https://www.helpnetsecurity.com/2025/11/26/deepteam-open-source-llm-red-teaming-framework/) - Overview of an open-source framework for red-teaming LLM applications against prompt injection and other adversarial behaviors.
+- [Qualifire](https://qualifire.ai/) - LLM reliability control plane combining evaluations, observability, policy enforcement, guardrails, prompt management, and data curation.
 
 ### Frameworks and Organizations
 
 - [AI SDK](https://ai-sdk.dev/) - Open-source, framework-agnostic TypeScript toolkit for multi-provider AI applications, agents, streaming, tools, and generative interfaces.
 - [AutoGluon](https://github.com/autogluon/autogluon) - AutoML toolkit for training and deploying accurate models across tabular, multimodal, and time-series data.
+- [Chunkr](https://github.com/lumina-ai-inc/chunkr) - Open-source document-intelligence service for layout analysis, OCR, and semantic chunking into RAG- and LLM-ready data.
 - [DeepPavlov](https://github.com/deeppavlov/DeepPavlov) - Open-source framework and model collection for conversational AI, natural-language processing, and deployable assistants.
+- [DeepTutor Source](https://github.com/HKUDS/DeepTutor) - Source repository for DeepTutor's lifelong personalized tutoring platform, agent runtime, memory, RAG, and learning tools.
 - [DocArray](https://github.com/docarray/docarray) - Library for representing, sending, storing, and searching multimodal data in machine-learning and generative-AI applications.
+- [DocsGPT Cloud](https://app.docsgpt.cloud/) - Hosted DocsGPT workspace for chatting with documents and building source-grounded assistants over uploaded knowledge.
 - [FLAML](https://github.com/microsoft/FLAML) - Lightweight library for automated machine learning and efficient LLM workflow optimization.
 - [HumanSignal](https://github.com/HumanSignal) - Open-source organization behind Label Studio and related data-labeling integrations, SDKs, and examples.
 - [Imagen PyTorch](https://github.com/lucidrains/imagen-pytorch) - PyTorch implementation of Google's text-to-image Imagen architecture for research and experimentation.
@@ -108,6 +199,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [LangChain](https://github.com/langchain-ai/langchain) - Agent-engineering framework and ecosystem for building applications powered by language models.
 - [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR) - Image-to-markup model and command-line tooling that converts images of mathematical formulas into LaTeX.
 - [Lightning AI](https://github.com/Lightning-AI) - Open-source organization behind PyTorch Lightning and tools for training, deploying, and operating AI systems.
+- [LLaMA Cookbook](https://github.com/meta-llama/llama-cookbook) - Official examples, recipes, and reference implementations for building, fine-tuning, evaluating, and deploying applications with Meta LLaMA models.
 - [LLaMA Model Access](https://llama.meta.com/llama-downloads/) - Official access and download portal for Meta's LLaMA model weights and license terms.
 - [Mem0](https://github.com/mem0ai/mem0) - Memory layer for AI applications and agents that extracts, stores, and retrieves useful conversational context.
 - [Meta LLaMA](https://github.com/meta-llama) - Official organization for Meta's LLaMA models, recipes, tools, and reference implementations.
@@ -121,17 +213,46 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Replicate](https://github.com/replicate) - Open-source organization for Cog, model packaging, inference tooling, examples, and related machine-learning infrastructure.
 - [Replicate Cog](https://github.com/replicate/cog) - Tool for packaging machine-learning models in reproducible containers with a predictable API.
 
+### Memory and Context
+
+- [Context Layer and Company Brain](https://towardsdatascience.com/how-to-build-a-context-layer-and-a-company-brain/) - Architecture article on turning fragmented organizational knowledge into a governed context layer that agents can retrieve and use.
+- [Context7](https://github.com/upstash/context7) - Platform and MCP server supplying version-aware, up-to-date library documentation to LLMs and coding agents.
+- [Elastic Atlas Agent Memory](https://www.infoq.com/news/2026/06/elastic-atlas-agent-memory/) - Report on Elastic's Atlas approach to layered memory for durable, evolving agent context and retrieval.
+- [Google Cloud Knowledge Catalog](https://github.com/GoogleCloudPlatform/knowledge-catalog) - Tools and samples for building, validating, serving, and consuming agent-oriented knowledge catalogs and OKF packages.
+- [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) - Karpathy's compact, evolving technical wiki of language-model concepts, terminology, scaling, training, inference, and agent systems.
+- [Memora](https://github.com/microsoft/Memora) - Agent-memory framework using harmonic representations to balance high-fidelity details with structured abstractions and retrieval cues.
+- [Open Knowledge Format Explained](https://www.mariehaynes.com/okf/) - Accessible overview of Google's Open Knowledge Format and its role in structuring agent-readable knowledge.
+- [Open Knowledge Format Specification](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md) - Specification for packaging structured, versioned, inspectable knowledge that agents can discover and consume progressively.
+- [OpenCode Mem](https://www.opencode.cafe/plugin/opencode-mem) - Local vector-database plugin that gives OpenCode persistent memories across sessions and projects.
+- [OpenCode Supermemory](https://github.com/supermemoryai/opencode-supermemory) - OpenCode plugin that injects persistent user, project, and semantically retrieved memories into coding sessions.
+- [OpenViking](https://github.com/volcengine/OpenViking) - Self-evolving context database unifying agent memory, knowledge retrieval, skills, and progressively disclosed file-system resources.
+- [ReasoningBank](https://www.marktechpost.com/2025/10/01/google-ai-proposes-reasoningbank-a-strategy-level-i-agent-memory-framework-that-makes-llm-agents-self-evolve-at-test-time/) - Summary of an agent-memory approach that converts successful and failed trajectories into reusable reasoning strategies.
+- [Supermemory](https://supermemory.ai/) - Context infrastructure for agents with persistent memory, retrieval, profiles, connectors, extractors, and model-independent APIs.
+
 ### Models and Providers
 
+- [Microsoft Mage](https://github.com/microsoft/Mage) - Official source for Microsoft's lightweight 4B-parameter Mage family for visual understanding, generation, and multimodal research.
+- [Microsoft Mage Flow](https://microsoft.github.io/Mage/flow/) - Interactive research page for Mage-Flow, Microsoft's compact text-to-image generation and instruction-based editing model.
 - [Models.dev](https://models.dev/) - Open-source database comparing AI models, providers, context windows, capabilities, pricing, and release metadata.
 - [OpenRouter](https://openrouter.ai/) - Unified API and routing platform for accessing models across many inference providers with shared billing and compatibility layers.
 
 ### Research
 
+- [A2UI Agent-to-User Interface](https://www.marktechpost.com/2025/12/22/google-introduces-a2ui-agent-to-user-interface-an-open-sourc-protocol-for-agent-driven-interfaces/) - Overview of Google's declarative protocol for streaming agent-generated interfaces through trusted native component catalogs.
+- [Agent Harness Engineering](https://www.oreilly.com/radar/agent-harness-engineering/) - Essay defining the prompts, tools, state, orchestration, constraints, infrastructure, and observability that turn models into agents.
 - [An Image Is Worth 16×16 Words](https://arxiv.org/abs/2010.11929) - Paper introducing the Vision Transformer approach of applying a pure Transformer to sequences of image patches.
+- [AngelSpec](https://www.marktechpost.com/2026/07/30/tencent-open-sources-angelspec-a-unified-training-framework-for-mtp-and-block-parallel-speculative-decoding-on-hy3-models/) - Overview of Tencent's unified training framework for multi-token prediction and block-parallel speculative decoding on Hunyuan models.
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762) - Foundational paper introducing the Transformer architecture based entirely on attention mechanisms.
+- [Circuit Sparsity](https://www.marktechpost.com/2025/12/13/openai-has-released-the-circuit-sparsity-a-set-of-open-tools-for-connecting-weight-sparse-models-and-dense-baselines-through-activation-bridges/) - Overview of OpenAI tools connecting interpretable weight-sparse transformer circuits with comparable dense model baselines.
+- [Continuous AI in Practice](https://github.blog/ai-and-ml/generative-ai/continuous-ai-in-practice-what-developers-can-automate-today-with-agentic-ci/) - GitHub guide to event-driven agentic CI for maintenance, review, triage, documentation, and repository automation.
 - [Enhanced Reverberation as Supervision](https://arxiv.org/abs/2408.03438) - Paper introducing an enhanced unsupervised training method for monaural speech separation from multichannel mixtures.
 - [Image-to-Markup Generation with Coarse-to-Fine Attention](https://arxiv.org/abs/1609.04938) - Research on neural conversion of rendered mathematical expressions into LaTeX and other presentational markup.
+- [LLM Wiki Tutorial](https://datasciencedojo.com/blog/llm-wiki-tutorial/) - Tutorial on building an LLM-powered wiki for knowledge ingestion, retrieval, question answering, and source-grounded exploration.
+- [MedASR](https://www.marktechpost.com/2025/12/23/google-health-ai-releases-medasr-a-conformer-based-medical-speech-to-text-model-for-clinical-dictation/) - Overview of Google's open-weight Conformer speech-recognition model for English clinical dictation and medical conversations.
+- [OpenHarness-Style Agent Runtime](https://www.marktechpost.com/2026/06/24/how-to-design-an-openharness-style-agent-runtime-with-tools-memory-permissions-skills-and-multi-agent-coordination/) - Architecture guide to agent runtimes combining tools, memory, permissions, skills, observability, and multi-agent coordination.
+- [Seventeen Agentic AI Patterns](https://levelup.gitconnected.com/building-17-agentic-ai-patterns-and-their-role-in-large-scale-ai-systems-f4915b5615ce) - Survey of agent architectures including multi-agent, ensemble, tree-of-thought, reflexive, ReAct, and control patterns.
+- [The Art of Loop Engineering](https://www.langchain.com/blog/the-art-of-loop-engineering) - Framework for progressing agent loops from basic tool use through verification, event-driven execution, and durable operation.
+- [Tool Selection in AI Agents](https://machinelearningmastery.com/the-complete-guide-to-tool-selection-in-ai-agents/) - Guide to designing tool catalogs, routing strategies, retrieval, evaluation, and failure handling for tool-using agents.
 
 ## Containers and Cloud
 
@@ -201,6 +322,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Docker Engine Security](https://docs.docker.com/engine/security/#linux-kernel-capabilities) - Security overview covering namespaces, control groups, daemon exposure, Linux capabilities, and hardening considerations.
 - [Docker Extensions](https://www.docker.com/products/extensions/) - Catalog and platform for integrating third-party developer tools into Docker Desktop.
 - [Docker GitHub Actions](https://docs.docker.com/build/ci/github-actions/) - Official patterns for building, testing, signing, and publishing images with GitHub Actions.
+- [Docker Hardened Images Become Open Source](https://thenewstack.io/dockers-sets-free-the-hardened-container-images/) - Article covering Docker's release of hardened, minimal, security-maintained container images under an open-source model.
 - [Docker Language Guides](https://docs.docker.com/language/) - Official language-specific guides for containerizing, developing, testing, and deploying applications.
 - [Docker Metadata Action](https://github.com/docker/metadata-action) - Official GitHub Action for generating normalized image tags and Open Container Initiative labels.
 - [Docker Object Labels](https://docs.docker.com/engine/manage-resources/labels/) - Guide to attaching, querying, and managing metadata labels on images, containers, volumes, networks, and other Docker objects.
@@ -332,6 +454,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 
 - [AlmaLinux](https://almalinux.org/) - Community-owned, enterprise-focused Linux distribution compatible with the Red Hat Enterprise Linux ecosystem.
 - [KubeSphere](https://github.com/kubesphere) - Cloud-native platform and project organization for managing Kubernetes workloads across clusters and environments.
+- [LitmusChaos](https://github.com/litmuschaos/litmus) - Cloud-native chaos-engineering platform for defining, scheduling, and observing resilience experiments in Kubernetes environments.
 - [MinIO](https://min.io/) - S3-compatible object store for private clouds, Kubernetes, and local infrastructure.
 - [MinIO Drivers](https://min.io/docs/minio/linux/developers/minio-drivers.html#minio-drivers) - Official index of SDKs and language drivers for applications using MinIO and S3-compatible storage.
 - [MinIO S3 API Compatibility](https://min.io/docs/minio/linux/reference/s3-api-compatibility.html) - Reference for Amazon S3 API operations and behaviors supported by MinIO object storage.
@@ -381,13 +504,35 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [3Dassets.one](https://3dassets.one/) - Search engine for finding 3D assets across multiple libraries with filters for license, source, tags, and asset type.
 - [ambientCG](https://ambientcg.com/) - Library of freely downloadable CC0 materials, textures, HDRIs, models, and terrain assets for 3D workflows.
 - [FreePBR](https://freepbr.com/) - Collection of free physically based rendering materials and texture maps for 3D art and game-development workflows.
+- [img2threejs](https://github.com/img2threejs/img2threejs) - Tool for rebuilding objects from reference images as procedural, animation-ready, quality-gated Three.js models.
+- [img2threejs Showcase](https://github.com/img2threejs/img2threejs-showcase) - Live gallery of procedural, code-only Three.js models generated from reference images by img2threejs.
 - [Sketchfab Free 3D Models](https://sketchfab.com/tags/free) - Tag-based catalog of free downloadable 3D models on Sketchfab; individual asset licenses and attribution terms vary.
 - [TurboSquid](https://www.turbosquid.com/) - Commercial 3D-model marketplace that also includes free models; licensing and usage terms vary by asset.
 
 ### Audio and Music
 
 - [Matchering](https://github.com/sergree/matchering) - Open-source audio matching and mastering library for shaping a target track from the tonal and dynamic profile of a reference.
+- [Voicebox](https://github.com/jamiepine/voicebox) - Open-source AI voice studio for local voice cloning, dictation, transcription, and speech generation.
 - [WhatBPM](https://github.com/sergree/whatbpm) - Open-source EDM tempo, key, label, genre, and track-length analytics project; its published dataset may be stale.
+
+### Image, Video, and Visualization
+
+- [Bento4](https://www.bento4.com/) - Cross-platform C++ SDK and command-line toolkit for reading, writing, inspecting, encrypting, and packaging MP4, DASH, HLS, and CMAF media.
+- [Faceswap](https://github.com/deepfakes/faceswap) - Open-source deep-learning application for training and producing face-swap media across supported hardware backends.
+- [Flourish](https://flourish.studio/) - No-code platform for building interactive data visualizations, maps, stories, presentations, and embeddable graphics.
+- [Freeze](https://github.com/charmbracelet/freeze) - Command-line tool for rendering code, terminal output, and interactive terminal sessions as polished images.
+- [Gemini Video Watermark Remover](https://geminiwatermarkremover.io/video) - Browser-based service for removing visible Gemini and Veo watermarks from uploaded videos.
+- [Gemini Watermark Remover](https://github.com/GargantuaX/gemini-watermark-remover) - Client-side JavaScript tool for removing Gemini image and video watermarks through reverse alpha blending.
+- [image_optim](https://github.com/toy/image_optim) - Ruby library and command-line interface that coordinates multiple utilities to compress JPEG, PNG, GIF, and SVG assets.
+- [Imagineer](https://github.com/foresterre/imagineer) - Rust command-line frontend for image-rs that converts, batch-processes, and transforms static and animated images.
+- [Leonardo AI](https://leonardo.ai/) - Generative creative platform for producing and editing images, illustrations, design assets, and video.
+- [Manim](https://github.com/3b1b/manim) - Animation engine created by 3Blue1Brown for programmatically producing precise mathematical explanations and visualizations.
+- [OpenMontage](https://github.com/calesthio/OpenMontage) - Open-source agentic video-production system packaging pipelines, tools, skills, and production knowledge for coding assistants.
+- [Palmier Pro](https://github.com/palmier-io/palmier-pro) - Open-source macOS video editor with an agent-accessible timeline, MCP integration, and optional generative features.
+- [Shutter Encoder](https://github.com/paulpacifico/shutter-encoder) - Cross-platform media conversion and processing application built around FFmpeg with editing, analysis, and delivery workflows.
+- [SVGO](https://github.com/svg/svgo) - Node.js library and command-line optimizer that applies configurable transformations to SVG files.
+- [Upscayl NCNN](https://github.com/upscayl/upscayl-ncnn) - Upscayl's NCNN and Real-ESRGAN-powered backend for GPU-accelerated image upscaling.
+- [video-cli](https://github.com/wkentaro/video-cli) - Collection of command-line tools for quick video trimming, cropping, concatenation, conversion, and inspection.
 
 ## Developer Tools
 
@@ -403,11 +548,15 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Chef](https://github.com/chef) - Open-source organization for Chef infrastructure automation, configuration management, compliance, and supporting tools.
 - [CMake Make Program Troubleshooting](https://stackoverflow.com/questions/6141608/cmake-make-program-not-found) - Community troubleshooting reference for missing build generators and compiler toolchains in CMake.
 - [Code Climate](https://github.com/codeclimate/codeclimate) - Open-source analysis engine for maintainability, test coverage, and repository quality workflows.
+- [Code Review Graph](https://github.com/tirth8205/code-review-graph) - Local-first code-intelligence graph and MCP server that narrows repository context for AI reviews and large-codebase workflows.
 - [EPAM Open Source](https://github.com/epam) - Open-source organization for EPAM projects spanning engineering platforms, data, cloud, and developer tooling.
 - [FastAPI](https://github.com/fastapi) - Open-source organization maintaining FastAPI and adjacent Python web-development projects.
 - [Figma Community](https://www.figma.com/community) - Community library of reusable design files, plugins, widgets, templates, and UI resources for Figma.
+- [Full Stack FastAPI Template](https://github.com/fastapi/full-stack-fastapi-template) - Production-oriented FastAPI, React, SQLModel, PostgreSQL, Docker, HTTPS, testing, and GitHub Actions application template.
+- [FVM](https://fvm.app/) - Flutter version manager for pinning per-project SDK releases, sharing configuration, and testing across Flutter channels.
 - [Gitee](https://gitee.com/) - Git-based software collaboration and repository-hosting platform with code review, CI, project management, and enterprise services.
 - [GitHub Marketplace Apps](https://github.com/marketplace?type=apps) - Catalog of GitHub Apps for code quality, project management, deployment, security, collaboration, and developer workflows.
+- [GitHub1s](https://github1s.com/) - Browser-based Visual Studio Code interface for exploring public GitHub repositories by changing a repository URL.
 - [GNOME Apps](https://apps.gnome.org/) - Official catalog of applications designed for the GNOME desktop and its human-interface conventions.
 - [GNU libtasn1](https://www.gnu.org/software/libtasn1/) - C library for parsing and serializing ASN.1 structures using DER encoding rules.
 - [go-sysinfo](https://github.com/elastic/go-sysinfo) - Go library for collecting host, process, operating-system, network, and container environment information.
@@ -424,7 +573,9 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [oneAPI Projects](https://github.com/oneapi-src) - Open-source organization for oneAPI programming models, performance libraries, compilers, and heterogeneous-computing tools.
 - [oneTBB](https://github.com/oneapi-src/oneTBB) - Cross-platform C++ library for task parallelism, concurrent containers, memory allocation, and flow graphs.
 - [oneTBB Linux Installation](https://www.intel.com/content/www/us/en/docs/onetbb/get-started-guide/2021-6/install-onetbb-on-linux-os.html) - Intel guide to installing oneAPI Threading Building Blocks packages on Linux.
+- [Open Code Review](https://github.com/alibaba/open-code-review) - Alibaba's hybrid code-review system combining deterministic pipelines, language-specific rules, and LLM agents for line-level feedback.
 - [OpenEMR](https://github.com/openemr/openemr) - Open-source electronic health records and medical-practice management system.
+- [Pumpkin](https://pumpkinmc.org/) - High-performance, open-source Minecraft server implementation written in Rust for modern protocol and server experimentation.
 - [Pyodide](https://github.com/pyodide) - Python distribution for browsers and Node.js built on WebAssembly.
 - [QEMU](https://www.qemu.org/) - Open-source machine emulator and virtualizer supporting full-system emulation, user-mode execution, and hardware acceleration.
 - [Qt for Open Source Development](https://www.qt.io/development/download-open-source) - Qt downloads and guidance for choosing and complying with its open-source licenses.
@@ -434,9 +585,11 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Sentry](https://sentry.io/welcome/) - Application-monitoring platform for error tracking, performance diagnostics, logs, traces, profiling, and release health.
 - [SourceForge Mac Development Software](https://sourceforge.net/directory/software-development/mac/) - Directory of open-source developer tools and software-development projects available for macOS.
 - [spdlog](https://github.com/gabime/spdlog) - Fast, header-only or compiled C++ logging library with asynchronous logging and multiple sink types.
+- [Steam Web API Documentation](https://steamcommunity.com/dev) - Official documentation and key-registration portal for integrating applications with the Steam Web API.
 - [Suno CLI](https://github.com/paperfoot/suno-cli) - Rust command-line client for interacting with Suno workspaces and downloading generated music assets.
 - [Tokio](https://github.com/tokio-rs/tokio) - Asynchronous Rust runtime providing networking, scheduling, synchronization, timers, and ecosystem primitives.
 - [vcpkg ARM64 Linux Bootstrap Failure](https://github.com/microsoft/vcpkg/issues/39663) - Closed troubleshooting issue showing missing compiler and Ninja prerequisites while bootstrapping vcpkg on ARM64 Linux.
+- [VSCode Project Manager](https://github.com/alefragnani/vscode-project-manager) - Visual Studio Code extension for organizing, tagging, discovering, and switching between development projects.
 - [Windows Permissions Calculator](https://wintelguy.com/permissions-calc.pl) - Interactive calculator for converting Windows file and registry access masks into individual permission flags.
 - [Zope Component Architecture Guide](https://github.com/baijum/zcadoc) - Book-length guide to component-based Python development with the Zope Component Architecture.
 
@@ -450,6 +603,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Elasticsearch](https://github.com/elastic) - Open-source organization behind Elasticsearch and related search, observability, and data tooling.
 - [GeoLite Databases](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data/) - MaxMind documentation and access information for free GeoLite IP geolocation and autonomous-system databases.
 - [Great Expectations](https://github.com/great-expectations) - Open-source organization behind tools for declarative data-quality validation, documentation, and pipeline checks.
+- [Investing Algorithm Framework](https://coding-kitties.github.io/investing-algorithm-framework/) - Documentation for a modular framework for researching, composing, and evaluating algorithmic-investing strategies.
 - [Loading SQLite Extensions with Homebrew](https://stackoverflow.com/questions/41994449/symbol-not-found-sqlite3-enable-load-extension-sqlite-installed-via-homebrew/60046923#60046923) - Community troubleshooting reference for Python SQLite extension-loading errors on macOS Homebrew installations.
 - [ODMantic](https://github.com/art049/odmantic) - Asynchronous MongoDB object-document mapper built around Python type hints and Pydantic models.
 - [OpenBB](https://openbb.co/pricing/) - Financial-data and analytics ecosystem with an open-source data platform plus hosted and self-managed workspace editions.
@@ -459,19 +613,36 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [s3cmd](https://s3tools.org/s3cmd) - Command-line client for Amazon S3 and compatible object-storage services.
 - [SQLFluff](https://github.com/sqlfluff) - SQL linter and formatter organization supporting multiple dialects, templaters, plugins, and continuous integration.
 - [SQLModel](https://github.com/fastapi/sqlmodel) - Python library combining SQLAlchemy and Pydantic models for typed database applications.
+- [WorldMonitor](https://github.com/koala73/worldmonitor) - Open-source real-time intelligence dashboard combining news, geopolitical events, markets, infrastructure, and map-based situational awareness.
+- [YaFF](https://github.com/yandex/yaff) - High-performance C++ serialization library providing a zero-copy wire format that preserves Protobuf schemas and interoperability.
 
 ### Documentation and Publishing
 
 - [Ant Design Open Source Design System](https://www.figma.com/community/file/831698976089873405/ant-design-open-source) - Figma community resource exposing Ant Design components and patterns for interface design work.
+- [Beautify GitHub README](https://github.com/oil-oil/beautify-github-readme) - Collection of badges, components, statistics, and layout ideas for improving GitHub profile and project README files.
+- [Best README Template](https://github.com/othneildrew/Best-README-Template) - Structured, reusable project README template with sections for setup, usage, roadmap, contributing, licensing, and contact details.
 - [cocoAspell](https://github.com/leuski/cocoAspell) - macOS interface and service for using GNU Aspell spell-checking dictionaries in Cocoa applications.
 - [CommonMark](https://commonmark.org/) - Strongly defined, highly compatible specification and test suite for Markdown.
 - [GNU Wget Manual](https://www.gnu.org/software/wget/manual/wget.html) - Official manual for the non-interactive network downloader and its recursive retrieval features.
+- [llms.txt Sites Directory](https://llmstxt.site/) - Searchable directory of websites publishing llms.txt and llms-full.txt files, with location and token-count metadata.
+- [OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) - Open-source command-line suite for agents to read, edit, and automate Word, Excel, and PowerPoint-compatible files without Microsoft Office.
 - [Open Journals](https://github.com/openjournals) - Open-source organization maintaining publishing infrastructure for the Journal of Open Source Software and related journals.
 - [Pandoc](https://pandoc.org/) - Universal document converter for translating between markup, office, publication, slide, ebook, and typesetting formats.
+- [Pandoc Default Templates](https://github.com/jgm/pandoc-templates) - Versioned source repository for Pandoc's default document templates.
 - [Pandoc Installation](https://pandoc.org/installing.html) - Official installation options for the Pandoc document converter across operating systems and package managers.
 - [Pandoc Manual](https://pandoc.org/MANUAL.html) - Complete reference for Pandoc input formats, output formats, extensions, templates, filters, and command options.
+- [Pandoc Templates Directory](https://pandoc-templates.org/) - Searchable community gallery of templates for producing PDFs, slides, books, articles, and other formats with Pandoc.
 - [PySpelling](https://facelessuser.github.io/pyspelling/) - Spell-checking framework for source repositories that extracts words from markup and code through configurable filters and dictionaries.
 - [Requarks](https://github.com/requarks) - Open-source organization behind Wiki.js and supporting documentation-platform tooling.
+
+### Knowledge Management
+
+- [Awesome Obsidian](https://github.com/kmaasrud/awesome-obsidian) - Curated collection of Obsidian plugins, themes, templates, tools, workflows, and learning resources.
+- [Awesome Quartz](https://github.com/quartz-community/awesome-quartz) - Curated collection of Quartz plugins, tools, themes, templates, guides, and digital gardens.
+- [OpenWiki](https://github.com/langchain-ai/openwiki) - CLI that generates and maintains linked codebase or personal wikis for agent memory and human exploration.
+- [Quartz Configuration](https://quartz.jzhao.xyz/configuration) - Reference for configuring Quartz digital gardens, plugins, themes, analytics, localization, and generated sites.
+- [Quartz Showcase](https://quartz.jzhao.xyz/showcase) - Gallery of public digital gardens and knowledge sites built with Quartz.
+- [Software Engineering Philosophy](https://gist.github.com/discountry/fdf6d1137b46c363af132dfc8ba36677) - Collected principles and quotations about simplicity, correctness, maintenance, architecture, testing, and software-engineering judgment.
 
 ### Package Management
 
@@ -515,11 +686,13 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Shellharden](https://github.com/anordal/shellharden) - Corrective shell syntax highlighter that can rewrite scripts toward ShellCheck conformance.
 - [sysinfo](https://pkg.go.dev/github.com/zcalusic/sysinfo) - Go library for collecting Linux host, hardware, operating-system, network, storage, and container information.
 - [Systemd Is Not PID 1 in Containers](https://stackoverflow.com/questions/59466250/docker-system-has-not-been-booted-with-systemd-as-init-system) - Community explanation of the common `systemd`-not-running error in containers and subsystem environments.
+- [Tabby](https://tabby.sh/) - Cross-platform, open-source terminal application with SSH, serial, theming, profiles, and extensibility.
 - [Warp](https://www.warp.dev/) - Terminal-based agentic development environment with modern command editing and workflow features.
 - [YuH25JP Dotfiles](https://github.com/YuH25JP/dotfiles) - Personal development-environment and Unix configuration repository.
 
 ### Web Capture and Community Features
 
+- [ChatGPT Conversation Extractor](https://github.com/slyubarskiy/chatgpt-conversation-extractor) - Tool for converting ChatGPT JSON data exports into readable Markdown conversations and metadata.
 - [GitHub `resolv.conf` Code Search](https://github.com/search?q=path%3A**%2Fresolv.conf&type=code&ref=advsearch) - Saved GitHub code search for real-world `resolv.conf` files across public repositories.
 - [GitHub Profile README Guestbook](https://gist.github.com/traumverloren/a7fa4c89c27fc3adedf1ff96b0514472) - Tutorial for building a nostalgic profile guestbook using a public GitHub Gist.
 - [GNU Wget Robot Exclusion](https://www.gnu.org/software/wget/manual/html_node/Robot-Exclusion.html) - GNU Wget manual section explaining robots.txt handling and crawler-exclusion behavior.
@@ -529,10 +702,46 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Vanilla Forums](https://open.vanillaforums.com/) - Open-source community discussion platform and project site for self-hosted forum software.
 - [wener Notes, Stories, and Awesomes](https://github.com/wenerme/wener) - Large multilingual knowledge repository spanning infrastructure, development, operations, and curated references.
 
+## Health and Well-Being
+
+### Digital Health and Technology
+
+- [Awesome Digital Health](https://github.com/brandonhimpfen/awesome-digital-health) - Curated collection of platforms, standards, tools, and resources for digital health systems and patient-centered technology.
+- [Awesome Health by JeromeCC](https://github.com/jeromecc/awesome-health) - Curated directory of open-health software, libraries, tools, and related resources.
+- [Awesome Health by Lalaithan](https://github.com/lalaithan/awesome-health) - Community collection of health information, services, tools, organizations, and self-care resources.
+- [Awesome Healthcare](https://github.com/kakoni/awesome-healthcare) - Curated collection of open-source healthcare software, libraries, tools, and developer resources.
+- [Awesome Healthcare AI](https://github.com/medtorch/awesome-healthcare-ai) - Collection of open-source healthcare algorithms, datasets, software, and research for medical AI.
+- [Awesome Healthmetrics](https://github.com/leandromineti/awesome-healthmetrics) - Collection of healthcare-and-AI articles, datasets, packages, competitions, courses, and research organized by clinical field.
+- [My Awesome Healthcare](https://github.com/jibrel/My-Awesome-healthcare) - Curated directory of healthcare applications grouped by clinical, administrative, research, and patient-facing use cases.
+- [NeovaHealth Awesome Health](https://github.com/NeovaHealth/awesome-health) - Curated collection of open-health applications, libraries, datasets, standards, and interoperability resources.
+- [OpenVitals Environmental Health](https://www.openvitals.net/) - Community-driven project developing open environmental monitoring devices and data to study relationships between surroundings and well-being.
+- [OpenVitals Platform](https://openvitals.io/) - Hosted interface for consolidating personal health records, tracking biomarkers, and exploring source-grounded trends.
+- [OpenVitals Source](https://github.com/zmeyer44/OpenVitals) - Source for a self-hostable platform that ingests, normalizes, traces, and explores labs, wearables, medications, and other health records.
+
+### Mental Health and Well-Being
+
+- [Choosing Therapy](https://www.choosingtherapy.com/) - Mental-health education, therapist directory, provider reviews, and guidance for comparing therapy options.
+- [Compassionate Coding](https://compassionatecoding.com/) - Training and resources for healthier engineering cultures through empathy, psychological safety, and humane technical leadership.
+- [One Mind](https://onemind.org/) - Mental-health nonprofit advancing research, early intervention, workplace programs, and open-science collaboration.
+- [Primal Trust](https://www.primaltrust.org/) - Membership-based brain-retraining and nervous-system-regulation program for people navigating chronic symptoms and stress-related patterns.
+- [The Pendulum Lifestyle](https://www.psychologytoday.com/us/blog/how-do-you-think-about-that/202408/tired-of-feeling-stuck-give-the-pendulum-lifestyle-a-shot) - Psychology Today article proposing flexible movement between effort and recovery instead of rigid balance.
+
+### Regulatory and Professional Bodies
+
+- [Massachusetts Board of Registration in Naturopathy](https://www.mass.gov/orgs/board-of-registration-in-naturopathy) - State board responsible for licensing and regulating naturopathic doctors practicing in Massachusetts.
+
+### Treatment Platforms
+
+- [Joyous](https://www.joyous.team/) - Commercial telehealth service providing clinician-evaluated, very-low-dose ketamine treatment and ongoing check-ins where available.
+- [Maximus](https://www.maximustribe.com/) - Commercial telehealth platform offering clinician-supervised men's health, hormone, and weight-management programs.
+- [Mindbloom](https://www.mindbloom.com/) - Clinician-guided at-home ketamine-therapy platform with preparation, sessions, coaching, and integration resources.
+- [Rythm Health](https://rythmhealth.com/) - Commercial at-home blood-testing service for collecting biomarkers and reviewing digital results.
+
 ## Open Source
 
 ### Collections
 
+- [Awesome CLI Apps](https://github.com/agarrharr/awesome-cli-apps) - Curated collection of command-line applications for development, productivity, files, media, networking, and system administration.
 - [Awesome Open Source Systems](https://github.com/ishanvyas22/awesome-open-source-systems) - Curated collection of free and open-source systems grouped by practical use case.
 - [Awesome Open-Source Software](https://github.com/sereneblue/awesome-oss) - Curated collection of open-source software organized by application and use case.
 - [Awesome Pydantic](https://github.com/Kludex/awesome-pydantic) - Curated collection of Pydantic libraries, integrations, tools, and learning resources.
@@ -540,9 +749,11 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [LibHunt](https://www.libhunt.com/) - Community-driven directory for comparing open-source libraries, frameworks, alternatives, activity, and popularity.
 - [Open Source Is Awesome Wiki](https://wiki.opensourceisawesome.com/) - Community-maintained wiki collecting open-source software, self-hosting, and infrastructure guidance.
 - [Open-Source Organizations Directory](https://opensource.com/resources/organizations) - Archived directory of foundations, companies, communities, and institutions participating in open source.
+- [Open-source Projects](https://www.opensourceprojects.dev/) - Discovery directory for finding open-source repositories by topic, language, popularity, and project activity.
 - [Open-Source Projects Every Developer Should Know](https://www.freecodecamp.org/news/open-source-projects-every-dev-should-know/) - FreeCodeCamp survey of notable open-source tools and platforms across development, infrastructure, data, and learning.
 - [opensource.com Archive](https://opensource.com/) - Archived collection of articles, tutorials, interviews, and community stories about open-source technology.
 - [OSPO Landscape](https://landscape.todogroup.org/) - Interactive TODO Group landscape of Open Source Program Offices, tooling, research, communities, and ecosystem resources.
+- [Trendshift](https://trendshift.io/) - Daily momentum rankings and discovery views for trending GitHub repositories and open-source projects.
 
 ### Community and Governance
 
@@ -644,6 +855,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Debian Free Software Guidelines](https://www.debian.org/social_contract#guidelines) - Debian's criteria for determining whether software licenses satisfy the distribution's free-software commitments.
 - [Document Foundation Trademark Policy](https://wiki.documentfoundation.org/TDF/Policies/Trademark_Policy) - Rules for using LibreOffice and Document Foundation names, marks, logos, and community identifiers.
 - [Handling License Information with SPDX](https://spdx.dev/learn/handling-license-info/) - SPDX guidance for representing copyright, license expressions, notices, and package-level licensing data.
+- [mklicense](https://github.com/cezaraugusto/mklicense) - Interactive Node.js command-line tool that generates local LICENSE files from Choose a License templates.
 - [NASA Open Source Agreement](https://en.wikipedia.org/wiki/NASA_Open_Source_Agreement) - Background on NASA's open-source license, its reciprocity terms, and debates about source-origin restrictions.
 - [Open Font License](https://ctan.org/license/ofl) - CTAN reference for the SIL Open Font License used by many freely redistributable typefaces.
 - [Open Font License Font Catalog](https://openfontlicense.org/ofl-fonts/) - Catalog and specimens of font families released under the SIL Open Font License.
@@ -711,6 +923,8 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [211](https://www.211.org/) - Nationwide referral network connecting people with local food, housing, utility, health, crisis, and social-service programs.
 - [Findhelp](https://www.findhelp.org/) - Searchable directory of free and reduced-cost local programs for food, housing, health care, employment, legal help, and other needs.
 - [HUD](https://www.hud.gov/) - Official U.S. Department of Housing and Urban Development portal for housing assistance, counseling, fair-housing rights, and program information.
+- [Massachusetts DTA Policy Online](https://dtapolicyguide.qa.eohhs.mass.gov/index.htm) - Searchable policy manual for Massachusetts Department of Transitional Assistance benefit programs and eligibility rules.
+- [Massachusetts SNAP Asset Policy](https://dtapolicyguide.qa.eohhs.mass.gov/SNAP/Eligibility/Assets_SNAPGuide.htm) - Massachusetts Department of Transitional Assistance policy guide explaining how assets affect SNAP eligibility.
 - [TEFAP](https://www.fns.usda.gov/tefap/emergency-food-assistance-program) - USDA overview of The Emergency Food Assistance Program, which supplies federally purchased food through state and local organizations.
 - [USA.gov Emergency Food Assistance](https://www.usa.gov/emergency-food-assistance) - Official guide to immediate food help, food banks, meal programs, and longer-term nutrition benefits.
 - [USA.gov Emergency Housing Assistance](https://www.usa.gov/emergency-housing) - Official starting point for emergency shelters, temporary housing, homelessness assistance, and related local services.
@@ -721,10 +935,16 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [USA.gov Utility Bill Assistance](https://www.usa.gov/help-with-utility-bills) - Official guide to energy assistance, weatherization, shutoff protections, and local help with utility bills.
 - [USA.gov Welfare Benefits](https://www.usa.gov/welfare-benefits) - Official overview of benefit programs for food, housing, health care, child care, and other basic needs.
 
+### Community, Volunteering, and Preparedness
+
+- [Ready.gov](https://www.ready.gov/) - Official United States preparedness guidance for emergencies, disasters, response plans, alerts, and recovery.
+- [Volunteer.gov](https://www.volunteer.gov/s/) - Official portal for discovering volunteer opportunities with United States public-land and natural-resource agencies.
+
 ### Consumer and Transportation Safety
 
 - [Consumer Product Safety Commission](https://www.cpsc.gov/) - Federal product-safety agency providing recall notices, incident reporting, safety standards, and consumer guidance.
 - [NHTSA Recalls](https://www.nhtsa.gov/recalls) - Official lookup for vehicle, tire, car-seat, and equipment safety recalls using a VIN or product information.
+- [SAVE](https://www.save.com/) - Local coupon and circular platform for finding retailer promotions and managing delivery preferences.
 
 ### Debt, Finance, and Taxes
 
@@ -745,6 +965,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Department of Labor Employment Services](https://www.dol.gov/agencies/eta/employment-services) - Federal Employment and Training Administration programs supporting job search, reemployment, workforce services, and state partners.
 - [USA.gov Student Financial Aid](https://www.usa.gov/student-aid) - Official guide to FAFSA, federal grants, loans, work-study, scholarships, and avoiding student-aid scams.
 - [USA.gov Workers' Compensation](https://www.usa.gov/workers-compensation) - Official guide to federal and state workers' compensation programs for job-related injuries and occupational illness.
+- [USAGov Job Training](https://www.usa.gov/job-training) - Federal guide to free and subsidized job training, American Job Centers, apprenticeships, and programs for eligible workers.
 
 ### Government, Civics, and Culture
 
@@ -770,6 +991,61 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [USA.gov Mental Health Help](https://www.usa.gov/mental-health) - Official directory of crisis, treatment, insurance, veteran, youth, and disaster-related mental-health resources.
 - [USA.gov Substance Use Help](https://www.usa.gov/substance-abuse) - Official guide to treatment locators, crisis support, overdose resources, and help for substance-use disorders.
 
+## Research Funding and Grants
+
+### Application and Review
+
+- [Communicating Research Intent and Value](https://grants.nih.gov/grants-process/write-application/general-grant-writing-tips/communicating-research-intent-and-value-in-nih-applications) - NIH guidance and before-and-after examples for expressing a proposal's purpose, public-health value, and impact in clear language.
+- [CONSORT and SPIRIT](https://www.consort-spirit.org/) - International reporting standards, checklists, and implementation resources for randomized-trial protocols and completed trial reports.
+- [NIH Grants Process](https://grants.nih.gov/grants-process) - Official lifecycle guide covering application planning, submission, peer review, award, management, reporting, and closeout.
+- [NIH Peer Review: First Level](https://grants.nih.gov/grants-process/review/first-level) - Detailed guide to NIH scientific peer review, scoring, review criteria, study sections, conflicts, and applicant communication.
+- [NIH Plan to Apply](https://grants.nih.gov/grants-process/plan-to-apply) - Early-stage checklist for matching an opportunity, assembling collaborators and resources, understanding policies, and building an application timeline.
+- [NIMH Grant Mechanisms and Funding Opportunities](https://www.nimh.nih.gov/funding/grant-writing-and-application-process/grant-mechanisms-and-funding-opportunities) - Guide to NIMH research, career, fellowship, training, center, program-announcement, and request-for-application mechanisms.
+- [NIMH Grant Writing and Approval Process](https://www.nimh.nih.gov/funding/grant-writing-and-application-process) - NIMH application hub for mechanism selection, writing, submission, peer review, resubmission, and research-rigor guidance.
+- [NIMH NIH-Wide Grants Information](https://www.nimh.nih.gov/funding/grant-writing-and-application-process/nih-wide-grants-information) - NIMH-curated index of NIH opportunities, application forms, training programs, policies, award data, meetings support, and appeals.
+- [NIMH Research Grants](https://www.nimh.nih.gov/funding/grant-writing-and-application-process/research-grants-r) - Reference to NIMH-supported R-series mechanisms including R01, R03, R15, R21, R24, R25, R34, and R36 awards.
+- [NIMH Things to Consider Before Applying](https://www.nimh.nih.gov/funding/grant-writing-and-application-process/things-to-consider-before-applying) - Pre-application questions covering significance, fit, feasibility, preliminary evidence, collaborators, budget, career stage, and mechanism choice.
+
+### Federal Funding Portals and Data
+
+- [Data.gov](https://data.gov/) - U.S. government's open-data catalog for discovering federal, state, local, tribal, and research datasets and APIs.
+- [Grants.gov](https://www.grants.gov/) - Central federal portal for discovering organizational funding opportunities, checking eligibility, registering, and submitting applications.
+- [NIH Grants and Funding](https://grants.nih.gov/) - NIH's central source for funding opportunities, application guidance, grant policies, compliance, training, events, and award information.
+- [NIH RePORTER](https://reporter.nih.gov/) - Search and analysis system for NIH-funded projects, investigators, publications, patents, funding patterns, and research portfolios.
+- [NSF Funding Opportunities](https://www.nsf.gov/funding/opportunities) - Official catalog of National Science Foundation programs, solicitations, deadlines, and proposal opportunities.
+- [Research.gov](https://www.research.gov/research-web/) - NSF grants-management workspace for proposal preparation, submission, reviews, awards, reporting, and organizational administration.
+- [SAMHSA Grants Dashboard](https://www.samhsa.gov/grants/grants-dashboard) - Interactive dashboard for exploring SAMHSA grant awards, recipients, programs, locations, and funding totals.
+
+### Mental Health and Substance Use Funding
+
+- [NIDA](https://nida.nih.gov/) - National Institute on Drug Abuse portal for addiction-science research, data, health information, programs, and policy resources.
+- [NIDA Funding](https://nida.nih.gov/funding) - Official hub for opportunities, application guidance, training, small-business programs, notices, and grant-management resources.
+- [NIMH Approved Concept Clearances](https://www.nimh.nih.gov/about/advisory-boards-and-groups/namhc/namhc-concept-clearances) - National Advisory Mental Health Council concepts that signal possible future NIMH initiatives before formal funding announcements.
+- [NIMH Funding](https://www.nimh.nih.gov/funding) - Official portal for NIMH opportunities, grant strategy, application guidance, clinical-research policies, training, and small-business support.
+- [NIMH Research Training and Career Development](https://www.nimh.nih.gov/funding/training) - NIMH opportunities organized by career stage and program type, including fellowships, career awards, institutional programs, and loan repayment.
+- [NIMH Strategic Plan](https://www.nimh.nih.gov/about/strategic-planning-reports) - NIMH research priorities, strategic objectives, progress reports, and planning framework for mental-health science.
+- [SAMHSA](https://www.samhsa.gov/) - Federal agency portal for behavioral-health data, treatment resources, policy, programs, grants, and substance-use and mental-health services.
+
+### Policy and Funding Strategy
+
+- [NIH Grants Policy Statement](https://grants.nih.gov/policy-and-compliance/nihgps) - Authoritative policy requirements, terms, conditions, and administrative rules governing NIH grant awards.
+- [NIMH Budget and Legislative Activities](https://www.nimh.nih.gov/about/budget) - Congressional justifications, appropriations history, legislation, and budget context for NIMH research and support activities.
+- [NIMH Funding Policies and Considerations](https://grants.nih.gov/policy-and-compliance/policy-topics/nih-fiscal-policies/ico-funding-policies-and-considerations/NIMH) - Current institute-specific factors used alongside peer review, strategic priorities, portfolio balance, investigator status, and available funds.
+- [NIMH Research Rigor and Reporting](https://www.nimh.nih.gov/research/research-funded-by-nimh/policies/enhancing-the-reliability-of-nimh-supported-research-through-rigorous-study-design-and-reporting) - Expectations for robust experimental design, transparent reporting, reproducibility, data analysis, and clinical-research registration.
+
+### Small Business and Innovation
+
+- [NIMH Small Business Research](https://www.nimh.nih.gov/funding/sbir) - NIMH guidance and opportunities for mental-health-focused Small Business Innovation Research and Technology Transfer projects.
+- [SBIR.gov](https://www.sbir.gov/) - Government-wide portal for Small Business Innovation Research and Small Business Technology Transfer opportunities, awards, and participating agencies.
+- [Small Business Administration](https://www.sba.gov/) - Federal portal for business planning, counseling, contracting, financing, disaster assistance, and local support.
+- [USA.gov Small Business](https://www.usa.gov/small-business) - Official starting point for launching, funding, registering, contracting, and operating a U.S. small business.
+
+### Transformative and Cross-Cutting Research
+
+- [NIH Common Fund](https://commonfund.nih.gov/) - NIH-wide funding entity supporting bold, collaborative programs that address cross-cutting biomedical and behavioral research challenges.
+- [NIH Common Fund Funding Opportunities](https://commonfund.nih.gov/funding-opportunities) - Current and forecast opportunities associated with NIH Common Fund programs and trans-NIH initiatives.
+- [NIH High-Risk, High-Reward Research](https://commonfund.nih.gov/highrisk) - Common Fund program supporting unusually innovative research through Pioneer, New Innovator, Transformative Research, and Early Independence awards.
+
 ## Security
 
 ### Organizations, Tools, and Learning
@@ -788,6 +1064,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Metasploit](https://www.metasploit.com/) - Official project and product site for the Metasploit penetration-testing ecosystem.
 - [Metasploit Framework](https://github.com/rapid7/metasploit-framework) - Open-source penetration-testing framework and exploit-development platform.
 - [MISP](https://www.misp-project.org/) - Open-source platform for collecting, sharing, correlating, and analyzing threat intelligence.
+- [NopeCHA Extension](https://github.com/NopeCHALLC/nopecha-extension) - Browser extension and automation integration for recognizing and solving supported CAPTCHA challenges.
 - [Open Cybersecurity Alliance](https://opencybersecurityalliance.org/) - OASIS Open project building standards-based interfaces and reusable components for interoperable cybersecurity tools.
 - [OpenSCAP](https://www.open-scap.org/features/open-source-community/) - Open-source ecosystem implementing Security Content Automation Protocol compliance and vulnerability assessment.
 - [OpenVPN Community](https://openvpn.net/community/) - Community edition, source, documentation, and participation resources for OpenVPN.
@@ -796,12 +1073,19 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Privacy-Enhanced Mail](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) - Historical overview of the PEM standards for encrypted and authenticated email.
 - [Rapid7](https://github.com/rapid7) - Open-source organization behind security tools, libraries, vulnerability research, and Metasploit-related projects.
 - [Recog](https://github.com/rapid7/recog/) - Fingerprint database and recognition framework for identifying products, services, and operating systems from responses.
+- [Serus](https://www.serus.ai/) - Personal-data privacy service combining removal requests, surface and dark-web monitoring, alerts, and AI-assisted OSINT tools.
 - [Social-Engineer Toolkit](https://trustedsec.com/resources/tools/the-social-engineer-toolkit-set) - TrustedSec project for authorized social-engineering simulations, awareness exercises, and penetration-testing workflows.
 - [Social-Engineer Toolkit Guide](https://www.stationx.net/social-engineer-toolkit/) - Educational overview of the Social-Engineer Toolkit, its modules, and safe lab-oriented usage.
 - [TrustedSec](https://github.com/trustedsec) - Open-source security tools and research from the TrustedSec team.
 - [TrustedSec Tools](https://trustedsec.com/resources?sections=tools) - Catalog of offensive-security, assessment, testing, and research tools released by TrustedSec.
 - [Turbinia](https://github.com/google/turbinia) - Distributed digital-forensics platform that automates evidence processing across scalable worker infrastructure.
 - [Velociraptor](https://docs.velociraptor.app/) - Documentation for the open-source endpoint visibility, digital forensics, and incident-response platform.
+
+### Privacy and Personal Data
+
+- [Block Ads](https://blockads.pwhs.app/) - Browser-based resource for reducing or blocking advertising and tracking exposure across supported environments.
+- [SAVE Delivery Options](https://www.save.com/delivery-options) - Consumer controls for starting, stopping, or changing delivery of SAVE direct-mail advertising.
+- [Valpak Address Removal](https://www.valpak.com/remove-address) - Request form for removing an address from Valpak's mailed advertising-envelope distribution list.
 
 ### Supply Chain and Software Assurance
 
@@ -875,19 +1159,26 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [10 Apps for Your Homelab](https://levelup.gitconnected.com/10-apps-for-your-homelab-in-2022-867957bc9b2f) - Older survey of useful self-hosted applications and service categories for building a personal homelab.
 - [Awesome Self-Hosted](https://github.com/awesome-selfhosted/awesome-selfhosted) - Curated catalog of free software network services and web applications that can be hosted on personal servers.
 - [Awesome Sysadmin](https://github.com/awesome-foss/awesome-sysadmin) - Curated collection of open-source system-administration software and operational resources.
+- [SearXNG Documentation](https://docs.searxng.org/) - Official installation, configuration, administration, development, and search-engine documentation for SearXNG.
 
 ### Core Infrastructure and Operations
 
 - [Dashy](https://github.com/lissy93/dashy) - Self-hostable dashboard with service links, status checks, widgets, themes, icons, authentication, and a visual editor.
+- [lazydocker](https://lazydocker.com/) - Terminal user interface for inspecting and managing Docker containers, services, images, volumes, logs, and Compose projects.
 - [Netdata](https://github.com/netdata/netdata) - Real-time infrastructure-monitoring and observability platform for systems, containers, applications, and network services.
 - [Netdata Docker Installation](https://learn.netdata.cloud/docs/netdata-agent/installation/docker) - Official guide to running the Netdata Agent in Docker with the volumes, capabilities, sockets, and permissions needed for host monitoring.
+- [Openship](https://github.com/oblien/openship) - Open-source, self-hosted deployment platform for applications, databases, domains, logs, and infrastructure operations.
 - [Organizr](https://github.com/causefx/Organizr) - PHP-based dashboard for placing homelab and media services behind a unified, tabbed interface.
 - [Pi-hole](https://pi-hole.net/) - Network-wide DNS sinkhole for blocking advertising and tracking domains while providing local DNS and query visibility.
 - [Pi-hole Docker Image](https://github.com/pi-hole/docker-pi-hole) - Official Pi-hole container image and deployment documentation for Docker and Docker Compose environments.
 - [Portainer Community Edition Image](https://hub.docker.com/r/portainer/portainer-ce) - Official container image for Portainer Community Edition, a web interface for managing Docker and related container environments.
+- [SearXNG](https://github.com/searxng/searxng) - Source repository for a privacy-respecting, hackable metasearch engine that can be self-hosted.
+- [Tailscale](https://tailscale.com/) - WireGuard-based mesh networking service for securely connecting devices, users, applications, and private infrastructure.
 
 ### Media and Creative
 
+- [BookLore Overview](https://www.xda-developers.com/booklore-is-jellyfin-for-ebooks/) - Article introducing BookLore as a self-hosted ebook and document library with metadata, reading, and device-sync features.
+- [Invidious](https://invidious.io/) - Open-source alternative front end for browsing YouTube with fewer trackers and self-hosting support.
 - [Jellyfin Hardware Acceleration](https://jellyfin.org/docs/general/administration/hardware-acceleration/) - Official configuration guide for GPU-accelerated transcoding across supported Jellyfin platforms, devices, drivers, and container runtimes.
 - [Matchering Web](https://github.com/sergree/matchering-web) - Self-hosted web interface for the Matchering audio matching and mastering engine.
 - [Plex Media Server Docker](https://github.com/plexinc/pms-docker) - Official Docker image sources and deployment guidance for running Plex Media Server in a container.
@@ -899,6 +1190,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Bitwarden](https://bitwarden.com/) - Open-source password manager with applications, browser extensions, organization features, and a self-hosting option.
 - [Budget App](https://github.com/paukiatwee/budgetapp) - Older open-source personal budgeting application with category tracking, reports, and container-oriented deployment files.
 - [Home Assistant](https://www.home-assistant.io/) - Open-source home-automation platform emphasizing local control, privacy, integrations, dashboards, and extensible automations.
+- [SimpliSafe](https://simplisafe.com/) - Commercial home-security platform offering sensors, cameras, alarms, professional monitoring, and mobile controls.
 
 ### Productivity and Collaboration
 
@@ -1233,14 +1525,23 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 ### Data and Literature
 
 - [arXiv Bulk Data Access](https://info.arxiv.org/help/bulk_data_s3.html) - Official instructions for accessing arXiv article source and PDF collections through requester-pays Amazon S3 buckets.
+- [ClinicalTrials.gov](https://clinicaltrials.gov/) - Official United States registry and results database for publicly and privately supported clinical studies worldwide.
+- [Connected Papers](https://www.connectedpapers.com/) - Visual literature-discovery tool that maps related academic papers around a chosen seed work.
+- [Consensus](https://consensus.app/) - AI-powered academic search engine for finding, synthesizing, and tracing claims to research papers.
+- [Daily arXiv](https://mill413.github.io/daily-arxiv/) - Automatically generated feed of recent arXiv papers matching the maintainer's configured research topics.
 - [Dogs Breed Dataset](https://www.kaggle.com/datasets/gauravduttakiit/dogs-breed-dataset) - Kaggle image dataset organized for dog-breed recognition and machine-learning experiments.
 - [Dryad](https://datadryad.org/stash) - Curated general-purpose repository for publishing, preserving, and discovering research data.
 - [French Bulldog Research on PubMed](https://pubmed.ncbi.nlm.nih.gov/?term=French%20Bulldog) - Live PubMed literature search for research related to French Bulldogs.
 - [Google Scholar](https://scholar.google.com/) - Search engine for scholarly articles, theses, books, court opinions, citations, authors, and research profiles.
 - [im2latex-100k](https://zenodo.org/records/56198) - Dataset of approximately 100,000 rendered mathematical formulas paired with LaTeX source.
 - [Kaggle Datasets](https://www.kaggle.com/datasets) - Browsable catalog of public datasets for analysis, machine learning, competitions, and notebooks.
+- [Library Genesis Mirror](https://libgen.im/) - Unofficial shadow-library mirror; copyright status varies by work and jurisdiction, so prefer lawful or library-provided access.
 - [Mendeley Data](https://data.mendeley.com/research-data/) - Open research-data repository for discovering, publishing, versioning, and citing datasets.
 - [Mendeley Literature Search](https://www.mendeley.com/search/) - Search interface for discovering scholarly literature indexed by Mendeley.
+- [ResearchGate](https://www.researchgate.net/) - Professional network for researchers to discover publications, share work, ask questions, track impact, and collaborate.
+- [ScienceOpen](https://www.scienceopen.com/) - Research discovery network for searching publications, exploring citations, creating collections, and supporting open scholarly communication.
+- [SciSpace](https://scispace.com/) - AI-assisted research workspace for paper search, literature reviews, PDF questions, drafting, citations, and data extraction.
+- [Semantic Scholar](https://www.semanticscholar.org/) - Free, AI-powered scholarly search engine from the Allen Institute for AI with citations and research recommendations.
 - [Shared Google Colab Notebook](https://colab.research.google.com/drive/1_fOv3dDiEq-0HvU5g6IY7Omv24ApgQ-8) - Saved cloud notebook whose title and contents depend on the owner's sharing permissions.
 - [UCI Machine Learning Repository](https://archive.ics.uci.edu/) - Long-running repository of datasets used for machine-learning education, benchmarking, and empirical research.
 - [Veterinary Clinics of North America: Small Animal Practice](https://www.sciencedirect.com/journal/veterinary-clinics-of-north-america-small-animal-practice) - Peer-reviewed veterinary review journal focused on clinical care for small animals.
@@ -1249,6 +1550,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 
 - [Animals in NIH Research](https://grants.nih.gov/policy-and-compliance/policy-topics/air) - NIH policies and resources governing humane care, alternatives, and compliance for animals in funded research.
 - [Authorea](https://www.authorea.com/) - Collaborative authoring and publishing platform for scholarly documents, data, code, and versioned research artifacts.
+- [Center for Open Science](https://www.cos.io/) - Nonprofit organization advancing transparent and reproducible research through infrastructure, policy, communities, and open-science practices.
 - [Open Bioinformatics Foundation](https://www.open-bio.org/) - Volunteer nonprofit supporting open-source bioinformatics projects, events, standards, and developer communities.
 - [Open Education Global](https://www.oeglobal.org/) - International member organization advancing open education, openly licensed resources, and collaborative learning practices.
 - [Open Energy Modelling Initiative](https://openmod-initiative.org/) - Community promoting open models, data, and practices for energy-system research.
@@ -1284,8 +1586,10 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 ### Scholarly Publishing
 
 - [Alan Szmyt on Authorea](https://www.authorea.com/users/828443-alan-szmyt) - Public Authorea profile collecting Alan Szmyt's scholarly authoring and publication activity.
+- [Crossref](https://www.crossref.org/) - Nonprofit scholarly-infrastructure organization registering DOIs and connecting research metadata, citations, funding, and provenance.
 - [ENSAI FGAM Internship Project](https://github.com/allemand-instable/ENSAI-2A-stage-FGAM) - Code, data analysis, and report sources for an actuarial internship project using generalized additive models.
 - [EOlang Paper](https://github.com/objectionary/eolang-paper) - Reproducible LaTeX sources, experiments, and publication assets for research on the EO object-oriented language.
+- [IRE Journals](https://www.irejournals.com/) - Open-access engineering and science journal publisher; evaluate journal scope, policies, indexing, and review practices before submitting.
 - [JOSS Documentation](https://joss.readthedocs.io/en/latest/) - Author, reviewer, and editor documentation for submitting and evaluating research software in the Journal of Open Source Software.
 - [Journal of Open Source Software](https://joss.theoj.org/) - Developer-friendly, peer-reviewed journal for research software packages and their scholarly metadata.
 - [Journal of Open Source Software on GitHub](https://github.com/openjournals/joss) - Source, editorial tooling, and issue workflows for the Journal of Open Source Software.
@@ -1293,10 +1597,165 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Zenodo on GitHub](https://github.com/zenodo) - Open-source organization for Zenodo's research repository, integrations, metadata, and infrastructure.
 - [ZenodoRDM](https://github.com/zenodo/zenodo-rdm) - Turnkey research-data repository platform built from the software and practices behind Zenodo.
 
+## Web Development
+
+### Authentication and Identity
+
+- [Auth.js](https://authjs.dev/) - Open-source authentication toolkit, formerly NextAuth.js, for integrating providers, sessions, adapters, and authorization into web applications.
+- [Auth0](https://auth0.com/) - Managed identity platform for authentication, authorization, user management, social login, multifactor authentication, and enterprise federation.
+- [Clerk](https://clerk.com/) - Authentication and user-management platform with prebuilt components, organizations, sessions, billing integrations, and developer SDKs.
+- [Firebase Authentication](https://firebase.google.com/docs/auth) - Google Firebase service and SDKs for password, federated, phone, anonymous, and custom-token authentication.
+- [Supabase Auth](https://supabase.com/auth) - Authentication and authorization service built around PostgreSQL, JWTs, row-level security, social providers, and passwordless sign-in.
+
+### Core Frameworks and Build Tools
+
+- [AI Website Cloner Template](https://github.com/JCodesMore/ai-website-cloner-template) - Agent-oriented template for analyzing and recreating website structure, styling, and interactions from a supplied URL.
+- [Blitz.js](https://blitzjs.com/) - Full-stack toolkit for Next.js applications with type-safe data access, authentication conventions, and code-generation workflows.
+- [Gatsby](https://www.gatsbyjs.com/) - React-based framework and data layer for building content-driven websites with static generation and server rendering.
+- [Next.js](https://nextjs.org/) - React framework for full-stack web applications with file-based routing, server components, rendering strategies, and deployment tooling.
+- [React](https://react.dev/) - Component-based library for building web and native user interfaces.
+- [Remix](https://remix.run/) - Web framework emphasizing standards-based routing, data loading, mutations, nested interfaces, and progressive enhancement.
+- [TypeScript](https://www.typescriptlang.org/) - Strongly typed language that extends JavaScript with static analysis and compiles to portable JavaScript.
+- [Vite](https://vite.dev/) - Fast frontend development server and build tool with native modules, hot updates, plugins, and optimized production bundling.
+
+### Data Fetching and APIs
+
+- [Apollo Client](https://www.apollographql.com/docs/react) - GraphQL client for React with normalized caching, local state, queries, mutations, subscriptions, and developer tooling.
+- [Axios](https://axios-http.com/) - Promise-based HTTP client for browsers and Node.js with interceptors, request configuration, transforms, and cancellation.
+- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) - Native web-platform interface for making HTTP requests and processing responses with promises and streams.
+- [Relay](https://relay.dev/) - GraphQL client and compiler optimized for declarative data dependencies, colocated fragments, caching, and large React applications.
+- [SWR](https://swr.vercel.app/) - React data-fetching hooks implementing stale-while-revalidate caching, focus revalidation, mutation, and request deduplication.
+- [TanStack Query](https://tanstack.com/query/latest) - Async-state and server-data toolkit for fetching, caching, synchronizing, mutating, and paginating data across frontend frameworks.
+
+### Developer Tooling and Quality
+
+- [Commitlint](https://commitlint.js.org/) - Extensible linter for enforcing structured commit-message conventions in local and continuous-integration workflows.
+- [ESLint](https://eslint.org/) - Pluggable static-analysis engine for identifying and enforcing JavaScript and TypeScript code patterns.
+- [GitHub Actions](https://github.com/features/actions) - Repository-native automation platform for continuous integration, delivery, scheduled jobs, and event-driven workflows.
+- [Husky](https://typicode.github.io/husky/) - Lightweight manager for configuring Git hooks that run project checks before commits and pushes.
+- [lint-staged](https://github.com/lint-staged/lint-staged) - Tool for running configured commands only against files staged for a Git commit.
+- [Nx](https://nx.dev/) - Build system and monorepo platform with project graphs, task caching, affected analysis, generators, and distributed execution.
+- [Prettier](https://prettier.io/) - Opinionated formatter for JavaScript, TypeScript, CSS, Markdown, JSON, and other web-development formats.
+
+### File and Media Handling
+
+- [FilePond](https://pqina.nl/filepond/) - Extensible file-upload library with previews, validation, image transforms, asynchronous processing, and framework adapters.
+- [React Cropper](https://github.com/react-cropper/react-cropper) - React wrapper around Cropper.js for interactive image cropping, zooming, rotation, and canvas export.
+- [React Dropzone](https://react-dropzone.js.org/) - Hook-based primitives for accessible drag-and-drop file selection and upload interfaces.
+- [React PDF Viewer](https://react-pdf-viewer.dev/) - Pluggable React component for rendering, searching, navigating, zooming, and annotating PDF documents.
+- [React Webcam](https://github.com/mozmorris/react-webcam) - React component for accessing a device camera, displaying live video, and capturing screenshots.
+
+### Forms and Validation
+
+- [Formik](https://formik.org/) - React form library for managing values, validation, errors, submission, and field-level state.
+- [React Final Form](https://final-form.org/react) - Subscription-based React bindings for Final Form with fine-grained state updates and framework-independent form logic.
+- [React Hook Form](https://react-hook-form.com/) - Performant hook-based form library emphasizing uncontrolled inputs, minimal rerenders, and schema-validator integration.
+- [React JSON Schema Form](https://rjsf-team.github.io/react-jsonschema-form/) - React framework for generating customizable forms from JSON Schema definitions and UI schemas.
+- [Yup](https://github.com/jquense/yup) - Schema builder for parsing, transforming, and validating JavaScript values with TypeScript inference.
+- [Zod](https://zod.dev/) - TypeScript-first schema validation library with static type inference, parsing, transformations, and composable data contracts.
+
+### Motion and Interaction
+
+- [GSAP](https://gsap.com/) - High-performance JavaScript animation platform for timelines, transforms, scrolling, SVG, canvas, and complex interaction sequences.
+- [Motion](https://motion.dev/) - Production animation library, formerly Framer Motion, for declarative React motion, gestures, layout transitions, and scroll effects.
+- [React Beautiful DnD](https://github.com/atlassian/react-beautiful-dnd) - Archived, accessible drag-and-drop library for list interactions in React; preserved as a historical implementation reference.
+- [React Draggable](https://github.com/react-grid-layout/react-draggable) - React components for making elements draggable through mouse and touch interactions.
+- [React Flip Toolkit](https://github.com/aholachek/react-flip-toolkit) - Configurable FLIP-animation toolkit for animating element position, size, and appearance changes in React.
+- [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/) - Native-driven gesture-recognition and interaction primitives for React Native applications.
+- [React Spring](https://www.react-spring.dev/) - Spring-physics animation library for expressive, interruptible motion across React platforms.
+- [React Transition Group](https://reactcommunity.org/react-transition-group/) - Low-level React components for managing enter, exit, and transition states without prescribing animation styles.
+
+### State Management
+
+- [Effector](https://effector.dev/) - Reactive state manager built around explicit events, stores, effects, scopes, and deterministic data flow.
+- [Jotai](https://jotai.org/) - Atomic state-management library for React with composable primitives, derived state, utilities, and asynchronous atoms.
+- [MobX](https://mobx.js.org/) - Reactive state-management library using observable data, computed values, actions, and automatic dependency tracking.
+- [Recoil](https://github.com/facebookexperimental/Recoil) - Archived experimental React state-management library based on atoms, selectors, and derived dependency graphs.
+- [Redux Toolkit](https://redux-toolkit.js.org/) - Official batteries-included toolset for predictable Redux state, reducers, immutable updates, middleware, and store configuration.
+- [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) - Redux Toolkit data-fetching and caching layer with generated hooks, endpoint definitions, invalidation, polling, and streaming updates.
+- [Valtio](https://valtio.dev/) - Proxy-based state-management library that exposes mutable JavaScript objects through reactive React snapshots.
+- [XState](https://stately.ai/docs/xstate) - Actor and state-machine library for modeling explicit application behavior, transitions, effects, and orchestration.
+- [Zustand](https://zustand.docs.pmnd.rs/) - Small hook-based React state manager with an unopinionated store API, middleware, selectors, and persistence options.
+
+### Styling and Theming
+
+- [Emotion](https://emotion.sh/docs/introduction) - CSS-in-JS library for styling applications with string or object styles, theming, and framework integrations.
+- [PostCSS](https://postcss.org/) - JavaScript tool for transforming CSS through a configurable ecosystem of syntax, compatibility, linting, and optimization plugins.
+- [Stitches](https://github.com/stitchesjs/stitches) - Archived CSS-in-JS library with near-zero runtime, variants, server rendering, tokens, and typed styling APIs.
+- [styled-components](https://styled-components.com/) - CSS-in-JS library for attaching dynamic, scoped styles to React components through tagged template literals.
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework that generates styles from classes detected across application source files.
+- [Theme UI](https://theme-ui.com/) - Theme-oriented styling library for React with design tokens, responsive values, variants, and an `sx` prop.
+- [vanilla-extract](https://vanilla-extract.style/) - Zero-runtime, type-safe CSS framework for authoring styles, themes, recipes, and tokens in TypeScript.
+
+### Testing and Component Development
+
+- [Cypress](https://www.cypress.io/) - Browser-based testing platform for end-to-end, component, accessibility, and application workflow testing.
+- [Jest](https://jestjs.io/) - JavaScript testing framework with assertions, mocking, snapshots, coverage, and parallel test execution.
+- [Mock Service Worker](https://mswjs.io/) - API-mocking library that intercepts network requests through service workers in browsers and request interceptors in Node.js.
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - User-centered React testing utilities that encourage queries and assertions based on rendered behavior and accessibility.
+- [Storybook](https://storybook.js.org/) - Isolated component-development environment for examples, documentation, interaction tests, accessibility checks, and visual review.
+- [Vitest](https://vitest.dev/) - Vite-native testing framework with Jest-compatible APIs, TypeScript support, watch mode, mocking, and coverage.
+
+### UI Components and Design Systems
+
+- [Ant Design](https://ant.design/) - Enterprise-oriented React design system with a broad component catalog, tokens, themes, and internationalization.
+- [Astryx](https://astryx.atmeta.com/) - Meta's public design system with accessible React components, templates, themes, command-line tooling, and agent-ready documentation.
+- [Blueprint](https://blueprintjs.com/) - React component toolkit optimized for dense, data-heavy desktop web interfaces.
+- [Chakra UI](https://chakra-ui.com/) - Accessible React component system with composable style props, semantic tokens, recipes, and theming.
+- [Flowbite React](https://flowbite-react.com/) - Open-source React components built on Tailwind CSS with theming and dark-mode support.
+- [Mantine](https://mantine.dev/) - React component and hooks library with accessible primitives, forms, notifications, dates, charts, and customizable themes.
+- [Material UI](https://mui.com/) - React component ecosystem implementing Material Design with advanced theming, data grids, and design-system tooling.
+- [Semantic UI React](https://react.semantic-ui.com/) - React integration for Semantic UI components using declarative props and jQuery-free behavior.
+
+### Utilities
+
+- [Day.js](https://day.js.org/) - Small immutable date-and-time library with a Moment-compatible API and plugin-based extensions.
+- [Faker](https://fakerjs.dev/) - JavaScript and TypeScript library for generating realistic synthetic names, addresses, commerce data, dates, and test fixtures.
+- [Lodash](https://lodash.com/) - Modular JavaScript utility library for working with arrays, objects, strings, functions, collections, and data transformations.
+- [React Helmet Async](https://github.com/staylor/react-helmet-async) - Thread-safe React component for managing document head metadata in client-rendered and server-rendered applications.
+- [React Icons](https://react-icons.github.io/react-icons/) - Tree-shakable React wrappers around many popular open-source icon collections.
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction/) - Customizable React notification library with accessible toast containers, transitions, promises, and lifecycle controls.
+
+### Visualization and Maps
+
+- [deck.gl](https://deck.gl/) - WebGL-powered framework for high-performance geospatial visualization and composable large-data layers.
+- [Nebula.gl](https://nebula.gl/) - Suite of editable, three-dimensional geospatial overlays designed to integrate with deck.gl.
+- [Nivo](https://nivo.rocks/) - React charting library built on D3 with responsive SVG, canvas, and server-rendering components.
+- [React Chart.js 2](https://react-chartjs-2.js.org/) - React component wrappers for building Chart.js visualizations with typed datasets and options.
+- [React Flow](https://reactflow.dev/) - Customizable React component for node-based editors, interactive diagrams, workflow builders, and graph interfaces.
+- [React Simple Maps](https://www.react-simple-maps.io/) - Lightweight React components for composing SVG maps from geographic data.
+- [React Three Fiber](https://r3f.docs.pmnd.rs/) - React renderer for Three.js that expresses 3D scenes, objects, animation, and interaction as components.
+- [Unovis](https://unovis.dev/) - Framework-independent visualization library with modular charting components and React integrations.
+- [Victory](https://commerce.nearform.com/open-source/victory/) - Composable React components for interactive, cross-platform charts and data visualizations.
+
 ## Work and Learning
+
+### Business and Entrepreneurship
+
+- [Celonis](https://www.celonis.com/) - Commercial process-intelligence platform for modeling operations, identifying execution gaps, and automating enterprise workflows.
+- [iCode Franchise](https://icodefranchise.com/) - Commercial franchise program for operating youth STEM, coding, robotics, and technology-education centers.
+- [Pomelli](https://labs.google.com/u/0/pomelli/onboarding) - Google Labs experiment for generating on-brand marketing campaigns and creative assets from a business website.
+- [SCORE](https://www.score.org/) - United States nonprofit network providing free small-business mentoring, workshops, templates, and educational resources.
+
+### Career Platforms and Job Search
+
+- [AI Job Search](https://github.com/MadsLorentzen/ai-job-search) - Local Claude Code framework for evaluating job postings, tailoring application materials, and preparing for interviews.
+- [AIApply](https://aiapply.co/) - Commercial AI job-search service for resumes, cover letters, interview preparation, job matching, and application automation.
+- [Greenhouse Candidate Portal](https://my.greenhouse.io/dashboard) - Candidate dashboard for tracking and managing job applications submitted through participating Greenhouse employers.
+- [Intch](https://futureofwork.intch.org/) - Professional networking and opportunity-matching platform organized around requests, introductions, jobs, and collaboration.
+- [Levels.fyi](https://www.levels.fyi/) - Career intelligence platform for comparing compensation, leveling, benefits, negotiation data, and company information.
+- [Product-Testing.com](https://product-testing.com/) - Market-research platform listing surveys, product samples, app tests, and focus-group opportunities for participants.
+- [RemoteJobsFinder](https://remotejobsfinder.co/en) - Job-search aggregator for remote, hybrid, and location-based roles across employers and job boards.
+- [Sonara](https://www.sonara.ai/) - Commercial AI job-search tool for discovering matching roles and automating applications.
+- [UIS Australia Skilled Migration](https://www.uisaustralia.com/lp/en/global/skilled/) - Commercial assessment and guidance service for exploring skilled-migration pathways to Australia.
+- [Wellfound Jobs](https://wellfound.com/jobs) - Job marketplace focused on startup and technology roles, including remote opportunities and company profiles.
 
 ### Communities and Events
 
+- [FAN Expo HQ](https://fanexpohq.com/home/) - Convention network and event directory for comics, anime, gaming, science fiction, cosplay, and fandom communities.
+- [Greenway Artisan Market](https://www.greenwayartisanmarket.com/) - Boston-area open-air market featuring independent artists, makers, and local creative businesses.
+- [Leap Event Technology](https://leapevent.tech/) - Event-technology platform for ticketing, commerce, fan engagement, experiential events, and venue operations.
+- [Linux DO](https://linux.do/) - Chinese-language technology community discussing Linux, software development, open source, AI, and related engineering topics.
 - [Mastodon Explore](https://mastodon.social/explore) - Public discovery page for trending posts, tags, news, and profiles on the Mastodon social network.
 - [WAGO Community](https://www.wago.community/) - Community forum and knowledge hub for industrial automation, control systems, and WAGO products.
 
@@ -1305,16 +1764,22 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Architecture of Open Source Applications: Bash](https://aosabook.org/en/v1/bash.html) - Chet Ramey's architectural tour of Bash internals, parsing, expansion, execution, job control, and lessons from a long-lived shell.
 - [Buy Me a Coffee](https://buymeacoffee.com/) - Creator-support platform for memberships, one-time contributions, and digital products.
 - [Collaborative Development Environments](https://www.igi-global.com/dictionary/collaborative-development-environments/21213) - Reference definition for integrated digital environments that support coordinated software and knowledge work.
+- [DeepTutor](https://deeptutor.info/) - Open-source, agent-native learning companion with shared context across tutoring, writing, memory, knowledge, and interactive-book surfaces.
+- [Formation](https://formation.dev/) - Structured software-engineering interview preparation with adaptive practice, mentorship, and job-search support.
+- [Google AI Professional Certificate](https://grow.google/enroll-certificates/ai-professional-certificate-mid/) - Seven-course certificate with practical activities covering AI fundamentals, research, communication, content, data, and app building.
+- [HackerRank Dashboard](https://www.hackerrank.com/dashboard) - Personal HackerRank workspace for coding practice, skills assessments, certifications, competitions, and interview preparation.
+- [LeetCode Problemset](https://leetcode.com/problemset/) - Large collection of programming problems, study plans, contests, and interview-preparation exercises.
 - [Linux Professional Institute](https://www.lpi.org/) - Vendor-neutral Linux and open-source certification, learning, and professional-development organization.
+- [Massachusetts AI Hub Google Certificates](https://aihub.masstech.org/google-certificates) - No-cost Google AI and career-certificate training offered to Massachusetts residents through December 31, 2027.
+- [roadmap.sh](https://roadmap.sh/) - Community-maintained roadmaps, guides, projects, and skill trees for learning software-engineering roles and technologies.
+- [Software Architecture Books](https://github.com/mhadidg/software-architecture-books) - Curated collection of freely available books and learning resources about software architecture and systems design.
+- [Strawberry](https://strawberry.me/) - Online career and personal coaching platform offering structured goals, sessions, and ongoing coach support.
 - [Wonderlic Test Practice](https://wonderlictestpractice.com/) - Practice questions and preparation material for Wonderlic-style cognitive ability assessments.
-
-### Well-Being
-
-- [Mindbloom](https://www.mindbloom.com/) - Clinician-guided at-home ketamine-therapy platform with preparation, sessions, coaching, and integration resources.
-- [The Pendulum Lifestyle](https://www.psychologytoday.com/us/blog/how-do-you-think-about-that/202408/tired-of-feeling-stuck-give-the-pendulum-lifestyle-a-shot) - Psychology Today article proposing flexible movement between effort and recovery instead of rigid balance.
+- [Zenfy](https://zenfy.ac/) - Professional-learning platform offering courses and career-oriented skill development.
 
 ### Writing and Publishing
 
+- [Lulu Comic Books](https://www.lulu.com/create/comic-books) - Print-on-demand service and production guidance for creating, printing, and distributing comics and graphic novels.
 - [Wikisource](https://wikisource.org/wiki/Main_Page) - Wikimedia library for collaboratively transcribing, proofreading, and publishing free primary-source texts.
 - [Writer Beware](https://www.sfwa.org/other-resources/for-authors/writer-beware/overview/) - Science Fiction and Fantasy Writers Association resource documenting publishing scams, deceptive contracts, and author risks.
 
@@ -1327,7 +1792,9 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 ## Meta
 
 - [Awesome](https://github.com/sindresorhus/awesome#readme) - The original index of curated awesome lists.
+- [Awesome Bot](https://github.com/dkhamsing/awesome_bot) - Link checker for Awesome lists that reports unavailable, redirected, duplicated, and rate-limited resources.
 - [Awesome Lint](https://github.com/sindresorhus/awesome-lint#readme) - A linter for maintaining consistent, high-quality awesome lists.
+- [Awesome Lists Directory](https://awesomelists.io/) - Browsable directory and discovery site for curated Awesome lists across technical and general-interest subjects.
 - [Awesome Manifesto](https://github.com/sindresorhus/awesome/blob/main/awesome.md) - Principles for thoughtful and useful curation.
 
 ## Contributing
