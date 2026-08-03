@@ -1,0 +1,46 @@
+name: Category suggestion
+description: Propose a new branch for resources that belong together.
+title: "[Category]: "
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Category name
+      placeholder: Developer Tooling
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Define what belongs in this category and what does not.
+    validations:
+      required: true
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: Example resources
+      description: Include several representative links that would make the category useful.
+      placeholder: |
+        https://example.com
+        https://example.org
+    validations:
+      required: true
+
+  - type: textarea
+    id: overlap
+    attributes:
+      label: Relationship to existing categories
+      description: Explain any overlap and why a distinct category is still helpful.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: The proposed category has a clear, distinct scope.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true

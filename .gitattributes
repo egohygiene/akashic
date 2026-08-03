@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+*.md diff=markdown
+*.gif binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.zip binary

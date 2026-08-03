@@ -1,0 +1,64 @@
+name: Resource suggestion
+description: Suggest one resource or a related batch for the collection.
+title: "[Resource]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the collection. Please search for duplicates and use canonical URLs without tracking parameters.
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: Resource links
+      description: Add one URL per line. Related resources may be submitted together.
+      placeholder: |
+        https://example.com
+        https://example.org
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Suggested descriptions
+      description: Briefly explain what each resource is and why it is useful.
+    validations:
+      required: true
+
+  - type: input
+    id: category
+    attributes:
+      label: Proposed category
+      description: Suggest a category if one is apparent. Leave this blank when unsure.
+
+  - type: dropdown
+    id: resource_type
+    attributes:
+      label: Primary resource type
+      options:
+        - Website or web service
+        - Tool or application
+        - Library or framework
+        - Documentation or reference
+        - Learning resource
+        - Community
+        - Media or publication
+        - Inspiration or showcase
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Quality checks
+      options:
+        - label: I searched the repository for duplicates.
+          required: true
+        - label: I opened the links and confirmed they work.
+          required: true
+        - label: I believe these resources are exceptional enough to recommend.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true
