@@ -7,12 +7,14 @@ on:
     paths:
       - "**/*.md"
       - ".github/workflows/awesome-lint.yml"
+      - "scripts/validate-collection.mjs"
   push:
     branches:
       - main
     paths:
       - "**/*.md"
       - ".github/workflows/awesome-lint.yml"
+      - "scripts/validate-collection.mjs"
   workflow_dispatch:
 
 permissions:
@@ -33,5 +35,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Run awesome-lint
-        run: npx --yes awesome-lint@2.3.0
+      - name: Validate collection
+        run: node scripts/validate-collection.mjs
+
+      - name: Lint all lists
+        run: |
+          for awesome_list_directory in "." lists/*/; do
+            (
+              cd "${awesome_list_directory}"
+              npx --yes "awesome-lint@2.3.0"
+            )
+          done
