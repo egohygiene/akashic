@@ -10,7 +10,9 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 ## Contents
 
 - [Artificial Intelligence](#artificial-intelligence)
+  - [Agents and Developer Tools](#agents-and-developer-tools)
   - [Frameworks and Organizations](#frameworks-and-organizations)
+  - [Models and Providers](#models-and-providers)
   - [Research](#research)
 - [Containers and Cloud](#containers-and-cloud)
   - [Docker](#docker)
@@ -18,6 +20,9 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
   - [Package Management and Reproducibility](#package-management-and-reproducibility)
   - [Platforms and Storage](#platforms-and-storage)
   - [Runtimes and Specifications](#runtimes-and-specifications)
+- [Creative Resources](#creative-resources)
+  - [3D Assets and Materials](#3d-assets-and-materials)
+  - [Audio and Music](#audio-and-music)
 - [Developer Tools](#developer-tools)
   - [Application Development](#application-development)
   - [Data and Databases](#data-and-databases)
@@ -32,10 +37,23 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
   - [History and Perspectives](#history-and-perspectives)
   - [Licensing and Compliance](#licensing-and-compliance)
   - [Programs and Support](#programs-and-support)
+- [Public Services and Support](#public-services-and-support)
+  - [Benefits and Emergency Assistance](#benefits-and-emergency-assistance)
+  - [Consumer and Transportation Safety](#consumer-and-transportation-safety)
+  - [Debt, Finance, and Taxes](#debt-finance-and-taxes)
+  - [Employment and Education](#employment-and-education)
+  - [Government, Civics, and Culture](#government-civics-and-culture)
+  - [Health Care and Medication](#health-care-and-medication)
 - [Security](#security)
   - [Organizations, Tools, and Learning](#organizations-tools-and-learning)
   - [Supply Chain and Software Assurance](#supply-chain-and-software-assurance)
   - [Vulnerability Data](#vulnerability-data)
+- [Self-Hosting and Homelab](#self-hosting-and-homelab)
+  - [Collections and Guides](#collections-and-guides)
+  - [Core Infrastructure and Operations](#core-infrastructure-and-operations)
+  - [Media and Creative](#media-and-creative)
+  - [Personal and Household](#personal-and-household)
+  - [Productivity and Collaboration](#productivity-and-collaboration)
 - [TeX and Typesetting](#tex-and-typesetting)
   - [Accessibility and Web](#accessibility-and-web)
   - [Authoring and Editing](#authoring-and-editing)
@@ -61,8 +79,22 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 
 ## Artificial Intelligence
 
+### Agents and Developer Tools
+
+- [Agentic](https://github.com/Cluster444/agentic) - Workflow tool for OpenCode that supplies structured context engineering, planning, memory, and project commands.
+- [Awesome OpenCode](https://github.com/awesome-opencode/awesome-opencode) - Curated collection of OpenCode plugins, themes, agents, projects, tooling, and learning resources.
+- [exe.dev](https://exe.dev/) - API-first service providing durable, private, shareable virtual-machine sandboxes for developers and software agents.
+- [Ollama OpenCode Integration](https://docs.ollama.com/integrations/opencode) - Official guide to configuring OpenCode to run against local or remote models served by Ollama.
+- [OpenAgentsControl](https://github.com/darrenhinde/OpenAgentsControl) - Plan-first AI-agent framework with approval gates, testing, review, validation, and multi-language workflow support for OpenCode.
+- [OpenChamber](https://github.com/openchamber/openchamber) - Open-source desktop and web workspace for running, supervising, reviewing, and remotely steering OpenCode agent sessions.
+- [OpenSpec](https://openspec.dev/) - Lightweight, open-source framework for keeping agent-generated proposals, designs, tasks, and specification deltas beside the code.
+- [OpenWork](https://github.com/different-ai/openwork) - Open-source desktop workspace for agentic work, powered by OpenCode and designed as an alternative to proprietary cowork tools.
+- [Pi Agent Toolkit](https://github.com/earendil-works/pi) - Toolkit providing a unified LLM API, agent loop, terminal UI, coding-agent CLI, and extensible packages.
+- [Supermemory](https://supermemory.ai/) - Context infrastructure for agents with persistent memory, retrieval, profiles, connectors, extractors, and model-independent APIs.
+
 ### Frameworks and Organizations
 
+- [AI SDK](https://ai-sdk.dev/) - Open-source, framework-agnostic TypeScript toolkit for multi-provider AI applications, agents, streaming, tools, and generative interfaces.
 - [AutoGluon](https://github.com/autogluon/autogluon) - AutoML toolkit for training and deploying accurate models across tabular, multimodal, and time-series data.
 - [DeepPavlov](https://github.com/deeppavlov/DeepPavlov) - Open-source framework and model collection for conversational AI, natural-language processing, and deployable assistants.
 - [DocArray](https://github.com/docarray/docarray) - Library for representing, sending, storing, and searching multimodal data in machine-learning and generative-AI applications.
@@ -88,6 +120,11 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Rasa](https://github.com/RasaHQ) - Open-source organization developing conversational AI and agent infrastructure.
 - [Replicate](https://github.com/replicate) - Open-source organization for Cog, model packaging, inference tooling, examples, and related machine-learning infrastructure.
 - [Replicate Cog](https://github.com/replicate/cog) - Tool for packaging machine-learning models in reproducible containers with a predictable API.
+
+### Models and Providers
+
+- [Models.dev](https://models.dev/) - Open-source database comparing AI models, providers, context windows, capabilities, pricing, and release metadata.
+- [OpenRouter](https://openrouter.ai/) - Unified API and routing platform for accessing models across many inference providers with shared billing and compatibility layers.
 
 ### Research
 
@@ -182,6 +219,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Dockerfile Frontend Image](https://hub.docker.com/r/docker/dockerfile) - Official container image distributing versioned Dockerfile syntax frontends for BuildKit.
 - [Dockerfile Reference](https://docs.docker.com/reference/dockerfile/) - Canonical reference for Dockerfile syntax, instructions, parser directives, and build checks.
 - [Forcing Docker to Use `linux/amd64` on macOS](https://stackoverflow.com/questions/65612411/forcing-docker-to-use-linux-amd64-platform-by-default-on-macos) - Community solutions for controlling the default image platform on Apple Silicon.
+- [Hadolint](https://github.com/hadolint/hadolint) - Dockerfile linter that applies image-building best practices and uses ShellCheck to inspect shell code in RUN instructions.
 - [Installing or Changing Locales on Debian](https://serverfault.com/questions/54591/how-to-install-change-locale-on-debian) - Long-running community reference for installing locale data and setting Debian's default locale.
 - [Installing Specific APT Versions in Docker](https://www.reddit.com/r/docker/comments/kvhc3m/best_practices_for_install_specific_version_from/) - Community discussion of version pinning, repository snapshots, and reproducibility tradeoffs in Debian-based images.
 - [Making Better Docker Images](https://medium.com/@chamilad/lets-make-your-docker-image-better-than-90-of-existing-ones-8b1e5de950d) - Community article on improving container-image layering, caching, dependency installation, and runtime design.
@@ -206,12 +244,14 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Akuity Guestbook](https://github.com/akuity/guestbook) - GitOps guestbook example used to demonstrate Argo CD and declarative Kubernetes delivery.
 - [Apt-Cacher NG Container Repository](https://github.com/ashang/apt-cacher-ng) - Container packaging and configuration for running Apt-Cacher NG.
 - [Balena Dockerfile Tips and Tricks](https://blog.balena.io/our-dockerfile-tips-tricks/) - Practical container-image techniques collected from building and operating Balena device images.
+- [CNCF Distribution Registry Deployment](https://distribution.github.io/distribution/about/deploying/) - Current deployment guide for running and configuring the open-source CNCF Distribution container registry server.
+- [Cron in Alpine Docker Containers](https://devopscell.com/cron/docker/alpine/linux/2017/10/30/run-cron-docker-alpine.html) - Older walkthrough for configuring BusyBox cron and foreground process handling in an Alpine-based container.
 - [Debuerreotype](https://github.com/debuerreotype/debuerreotype) - Reproducible tooling used to create Debian root filesystems and Docker base images.
 - [Depot Dockerfile Explorer](https://depot.dev/dockerfile-explorer) - Interactive visualization tool for inspecting Dockerfile stages, dependencies, and build structure.
 - [Docker AWS SDK for C++ Example](https://github.com/ingomueller-net/docker-aws-sdk-cpp) - Docker-based example for building and packaging the AWS SDK for C++ with its native dependencies.
 - [Docker Bake Action](https://github.com/docker/bake-action) - Official GitHub Action for executing Buildx Bake definitions in continuous integration.
 - [Docker Buildpack Dependencies](https://github.com/docker-library/buildpack-deps) - Source for Docker Official Images that bundle common build and runtime dependencies.
-- [Docker Compose Samples](https://docs.docker.com/compose/samples-for-compose/) - Official collection of sample applications and service stacks for Docker Compose.
+- [Docker Compose Samples](https://github.com/docker/awesome-compose) - Official collection of Docker Compose samples for common application stacks, databases, frameworks, and service combinations.
 - [Docker Docs Dockerfile](https://github.com/docker/docs/blob/main/Dockerfile) - Production Dockerfile used to build the official Docker documentation site.
 - [Docker Login Action](https://github.com/docker/login-action) - Official GitHub Action for authenticating workflows to Docker Hub and other container registries.
 - [Docker Official Images](https://github.com/docker-library) - Source, metadata, and automation repositories behind Docker Official Images.
@@ -234,6 +274,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Moby Debian Root Filesystem Builder](https://github.com/moby/moby/blob/03e2923e42446dbb830c654d0eec323a0b4ef02a/contrib/mkimage/debootstrap#L82-L105) - Historical Moby script section for producing Debian root filesystems and importing them as base images.
 - [Mockerfile](https://github.com/r2d4/mockerfile) - Experimental Dockerfile-compatible builder implemented with a mock-oriented development approach.
 - [Quay Clair Compose Example](https://github.com/quay/clair/blob/main/docker-compose.yaml) - Reference Compose stack for running the Clair container-vulnerability scanner and its dependencies.
+- [Running Cron in a Docker Container](https://stackoverflow.com/questions/37015624/how-to-run-a-cron-job-inside-a-docker-container) - Community discussion of cron process models, foreground execution, logging, and alternatives for scheduled work in containers.
 - [TileDB Dockerfile Example](https://github.com/TileDB-Inc/TileDB/blob/dev/examples/Dockerfile/Dockerfile) - Reference Dockerfile for building TileDB and its development dependencies.
 - [TileDB MariaDB Container Example](https://github.com/TileDB-Inc/TileDB-MariaDB/blob/master/docker/Dockerfile-server) - Historical Dockerfile for packaging the TileDB MariaDB integration as a server image.
 - [Using BuildKit from Docker Compose](https://yuki-nakamura.com/2024/01/20/use-buildkit-from-docker-compose/) - Practical walkthrough for selecting BuildKit behavior and build features from Docker Compose workflows.
@@ -333,6 +374,21 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Wasmtime](https://wasmtime.dev/) - Fast, secure WebAssembly runtime built by the Bytecode Alliance.
 - [youki](https://github.com/containers/youki) - Open Container Initiative runtime written in Rust with a focus on memory safety and container isolation.
 
+## Creative Resources
+
+### 3D Assets and Materials
+
+- [3Dassets.one](https://3dassets.one/) - Search engine for finding 3D assets across multiple libraries with filters for license, source, tags, and asset type.
+- [ambientCG](https://ambientcg.com/) - Library of freely downloadable CC0 materials, textures, HDRIs, models, and terrain assets for 3D workflows.
+- [FreePBR](https://freepbr.com/) - Collection of free physically based rendering materials and texture maps for 3D art and game-development workflows.
+- [Sketchfab Free 3D Models](https://sketchfab.com/tags/free) - Tag-based catalog of free downloadable 3D models on Sketchfab; individual asset licenses and attribution terms vary.
+- [TurboSquid](https://www.turbosquid.com/) - Commercial 3D-model marketplace that also includes free models; licensing and usage terms vary by asset.
+
+### Audio and Music
+
+- [Matchering](https://github.com/sergree/matchering) - Open-source audio matching and mastering library for shaping a target track from the tonal and dynamic profile of a reference.
+- [WhatBPM](https://github.com/sergree/whatbpm) - Open-source EDM tempo, key, label, genre, and track-length analytics project; its published dataset may be stale.
+
 ## Developer Tools
 
 ### Application Development
@@ -351,6 +407,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [FastAPI](https://github.com/fastapi) - Open-source organization maintaining FastAPI and adjacent Python web-development projects.
 - [Figma Community](https://www.figma.com/community) - Community library of reusable design files, plugins, widgets, templates, and UI resources for Figma.
 - [Gitee](https://gitee.com/) - Git-based software collaboration and repository-hosting platform with code review, CI, project management, and enterprise services.
+- [GitHub Marketplace Apps](https://github.com/marketplace?type=apps) - Catalog of GitHub Apps for code quality, project management, deployment, security, collaboration, and developer workflows.
 - [GNOME Apps](https://apps.gnome.org/) - Official catalog of applications designed for the GNOME desktop and its human-interface conventions.
 - [GNU libtasn1](https://www.gnu.org/software/libtasn1/) - C library for parsing and serializing ASN.1 structures using DER encoding rules.
 - [go-sysinfo](https://github.com/elastic/go-sysinfo) - Go library for collecting host, process, operating-system, network, and container environment information.
@@ -391,6 +448,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Data Warehouse Systems](https://github.com/reitermarkus/data-warehouse-systems) - Course repository with dimensional-modeling exercises, ETL examples, schemas, and analytical database material.
 - [Databricks Community](https://community.databricks.com/) - Community forum for Databricks data engineering, analytics, machine learning, and platform questions.
 - [Elasticsearch](https://github.com/elastic) - Open-source organization behind Elasticsearch and related search, observability, and data tooling.
+- [GeoLite Databases](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data/) - MaxMind documentation and access information for free GeoLite IP geolocation and autonomous-system databases.
 - [Great Expectations](https://github.com/great-expectations) - Open-source organization behind tools for declarative data-quality validation, documentation, and pipeline checks.
 - [Loading SQLite Extensions with Homebrew](https://stackoverflow.com/questions/41994449/symbol-not-found-sqlite3-enable-load-extension-sqlite-installed-via-homebrew/60046923#60046923) - Community troubleshooting reference for Python SQLite extension-loading errors on macOS Homebrew installations.
 - [ODMantic](https://github.com/art049/odmantic) - Asynchronous MongoDB object-document mapper built around Python type hints and Pydantic models.
@@ -412,6 +470,7 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Pandoc](https://pandoc.org/) - Universal document converter for translating between markup, office, publication, slide, ebook, and typesetting formats.
 - [Pandoc Installation](https://pandoc.org/installing.html) - Official installation options for the Pandoc document converter across operating systems and package managers.
 - [Pandoc Manual](https://pandoc.org/MANUAL.html) - Complete reference for Pandoc input formats, output formats, extensions, templates, filters, and command options.
+- [PySpelling](https://facelessuser.github.io/pyspelling/) - Spell-checking framework for source repositories that extracts words from markup and code through configurable filters and dictionaries.
 - [Requarks](https://github.com/requarks) - Open-source organization behind Wiki.js and supporting documentation-platform tooling.
 
 ### Package Management
@@ -645,6 +704,72 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [Tor Project Style Guide](https://styleguide.torproject.org/) - Design-system reference for Tor Project colors, typography, components, iconography, and brand usage.
 - [VMware Open Source](https://www.vmware.com/opensource) - Portal for VMware-originated projects, source distributions, compliance notices, and community participation.
 
+## Public Services and Support
+
+### Benefits and Emergency Assistance
+
+- [211](https://www.211.org/) - Nationwide referral network connecting people with local food, housing, utility, health, crisis, and social-service programs.
+- [Findhelp](https://www.findhelp.org/) - Searchable directory of free and reduced-cost local programs for food, housing, health care, employment, legal help, and other needs.
+- [HUD](https://www.hud.gov/) - Official U.S. Department of Housing and Urban Development portal for housing assistance, counseling, fair-housing rights, and program information.
+- [TEFAP](https://www.fns.usda.gov/tefap/emergency-food-assistance-program) - USDA overview of The Emergency Food Assistance Program, which supplies federally purchased food through state and local organizations.
+- [USA.gov Emergency Food Assistance](https://www.usa.gov/emergency-food-assistance) - Official guide to immediate food help, food banks, meal programs, and longer-term nutrition benefits.
+- [USA.gov Emergency Housing Assistance](https://www.usa.gov/emergency-housing) - Official starting point for emergency shelters, temporary housing, homelessness assistance, and related local services.
+- [USA.gov Emergency Rent Assistance](https://www.usa.gov/emergency-pay-rent) - Official guide to emergency rental assistance, eviction help, subsidized housing, and local support resources.
+- [USA.gov Financial Hardship Assistance](https://www.usa.gov/financial-hardship) - Official hub for government programs and practical starting points when income does not cover essential expenses.
+- [USA.gov Government Grants and Loans](https://www.usa.gov/government-grants-and-loans) - Official explanation of legitimate government grants and loans, eligibility, application paths, and common grant scams.
+- [USA.gov Phone and Internet Bill Assistance](https://www.usa.gov/help-with-phone-internet-bills) - Official guide to programs that may reduce phone or internet costs for qualifying households.
+- [USA.gov Utility Bill Assistance](https://www.usa.gov/help-with-utility-bills) - Official guide to energy assistance, weatherization, shutoff protections, and local help with utility bills.
+- [USA.gov Welfare Benefits](https://www.usa.gov/welfare-benefits) - Official overview of benefit programs for food, housing, health care, child care, and other basic needs.
+
+### Consumer and Transportation Safety
+
+- [Consumer Product Safety Commission](https://www.cpsc.gov/) - Federal product-safety agency providing recall notices, incident reporting, safety standards, and consumer guidance.
+- [NHTSA Recalls](https://www.nhtsa.gov/recalls) - Official lookup for vehicle, tire, car-seat, and equipment safety recalls using a VIN or product information.
+
+### Debt, Finance, and Taxes
+
+- [American Consumer Credit Counseling](https://www.consumercredit.com/debt-help/) - Nonprofit organization offering credit counseling, budgeting guidance, debt-management plans, and bankruptcy education.
+- [Daffy](https://www.daffy.org/) - Donor-advised-fund platform for organizing tax-deductible charitable contributions and grants to eligible nonprofits.
+- [Family Credit Management](https://www.familycredit.org/) - Nonprofit provider of credit counseling, debt-management plans, financial education, and selected debt-resolution services.
+- [Financial Counseling Association of America](https://fcaa.org/) - Industry association and locator for nonprofit credit-counseling agencies offering debt, housing, student-loan, and financial guidance.
+- [IRS Earned Income Tax Credit Help](https://www.usa.gov/earned-income-credit) - USA.gov guide to Earned Income Tax Credit eligibility, filing, refund status, and IRS resources.
+- [IRS Tax Debt Help](https://www.irs.gov/payments/get-help-with-tax-debt) - Official options for payment plans, offers in compromise, temporary collection delays, and help resolving federal tax debt.
+- [National Debt Relief](https://www.nationaldebtrelief.com/) - Commercial debt-settlement service whose programs can involve fees, missed creditor payments, credit effects, and tax consequences.
+- [National Foundation for Credit Counseling](https://www.nfcc.org/) - Nonprofit network connecting consumers with certified member agencies for budgeting, debt, housing, and student-loan counseling.
+- [NerdWallet](https://www.nerdwallet.com/) - Commercial personal-finance publisher and comparison platform covering banking, credit, loans, insurance, taxes, and investing.
+- [Taxpayer Advocate Service](https://www.irs.gov/taxpayer-advocate) - Independent organization within the IRS that helps eligible taxpayers resolve problems and understand taxpayer rights.
+- [U.S. Trustee Approved Credit Counseling Agencies](https://www.justice.gov/ust/list-credit-counseling-agencies-approved-pursuant-11-usc-111) - Official state-by-state list of agencies approved to provide the pre-bankruptcy credit counseling required under federal law.
+
+### Employment and Education
+
+- [Department of Labor Employment Services](https://www.dol.gov/agencies/eta/employment-services) - Federal Employment and Training Administration programs supporting job search, reemployment, workforce services, and state partners.
+- [USA.gov Student Financial Aid](https://www.usa.gov/student-aid) - Official guide to FAFSA, federal grants, loans, work-study, scholarships, and avoiding student-aid scams.
+- [USA.gov Workers' Compensation](https://www.usa.gov/workers-compensation) - Official guide to federal and state workers' compensation programs for job-related injuries and occupational illness.
+
+### Government, Civics, and Culture
+
+- [ACLU](https://www.aclu.org/) - Nonprofit civil-liberties organization combining litigation, advocacy, education, and nationwide affiliate work.
+- [Library of Congress](https://www.loc.gov/) - U.S. national library providing digitized collections, research services, legislative information, preservation programs, and cultural resources.
+- [Meeting Your Elected Representatives](https://www.aclu.org/meeting-your-elected-representatives) - ACLU practical guide to requesting, preparing for, conducting, and following up after a meeting with an elected official.
+- [National Endowment for the Arts](https://www.arts.gov/) - Independent federal agency supporting arts participation, grants, research, creative placemaking, and cultural programs.
+- [Peace Corps](https://www.peacecorps.gov/) - Federal service program placing volunteers with international communities and supporting returned-volunteer resources and careers.
+- [USA.gov Elected Officials Directory](https://www.usa.gov/elected-officials) - Official directory for finding federal, state, and local elected representatives and their contact information.
+
+### Health Care and Medication
+
+- [CMS FQHC Information Center](https://www.cms.gov/fqhc-information-center) - CMS reference for Medicare payment, billing, enrollment, policy, and educational materials for Federally Qualified Health Centers.
+- [FQHC Associates](https://www.fqhc.org/) - Consulting and educational resource focused on Federally Qualified Health Center operations, compliance, grants, and development.
+- [HealthCare.gov FQHC Glossary](https://www.healthcare.gov/glossary/federally-qualified-health-center-fqhc/) - Plain-language definition of Federally Qualified Health Centers and their role in providing care regardless of ability to pay.
+- [HRSA Find a Health Center](https://findahealthcenter.hrsa.gov/) - Official locator for federally funded health centers that provide primary care with fees adjusted according to income.
+- [NACHC Community Health Center Guide](https://www.nachc.org/community-health-centers/what-is-a-health-center/) - Overview of community health centers, their services, governance, patients, funding model, and role in underserved communities.
+- [NeedyMeds](https://www.needymeds.org/) - Nonprofit information resource for medication assistance programs, low-cost clinics, coupons, diagnosis-based help, and related savings.
+- [NEXT Distro](https://nextdistro.org/) - Mail-based harm-reduction service offering naloxone, supplies, safer-use information, and support intended to reduce overdose and disease transmission.
+- [RxAssist](https://www.rxassist.org/) - Database of pharmaceutical patient-assistance programs, eligibility information, application resources, and medication-access tools.
+- [USA.gov Health Insurance Marketplace](https://www.usa.gov/health-insurance-marketplace) - Official guide to Marketplace enrollment, eligibility, plan changes, subsidies, and state or federal application routes.
+- [USA.gov Help With Medical Bills](https://www.usa.gov/help-with-medical-bills) - Official guide to hospital financial assistance, medical-debt support, Medicaid, community clinics, and billing resources.
+- [USA.gov Mental Health Help](https://www.usa.gov/mental-health) - Official directory of crisis, treatment, insurance, veteran, youth, and disaster-related mental-health resources.
+- [USA.gov Substance Use Help](https://www.usa.gov/substance-abuse) - Official guide to treatment locators, crisis support, overdose resources, and help for substance-use disorders.
+
 ## Security
 
 ### Organizations, Tools, and Learning
@@ -742,6 +867,46 @@ This repository is the root index for the Ego Hygiene awesome collection. Catego
 - [RubySec](https://github.com/rubysec) - Community-maintained Ruby security advisories and tooling, including the Ruby Advisory Database.
 - [RustSec](https://github.com/rustsec) - Rust security organization maintaining the advisory database, auditing tools, and related projects.
 - [RustSec Advisory Database](https://github.com/RustSec/advisory-db) - Community-maintained security advisories for Rust crates in a machine-readable repository.
+
+## Self-Hosting and Homelab
+
+### Collections and Guides
+
+- [10 Apps for Your Homelab](https://levelup.gitconnected.com/10-apps-for-your-homelab-in-2022-867957bc9b2f) - Older survey of useful self-hosted applications and service categories for building a personal homelab.
+- [Awesome Self-Hosted](https://github.com/awesome-selfhosted/awesome-selfhosted) - Curated catalog of free software network services and web applications that can be hosted on personal servers.
+- [Awesome Sysadmin](https://github.com/awesome-foss/awesome-sysadmin) - Curated collection of open-source system-administration software and operational resources.
+
+### Core Infrastructure and Operations
+
+- [Dashy](https://github.com/lissy93/dashy) - Self-hostable dashboard with service links, status checks, widgets, themes, icons, authentication, and a visual editor.
+- [Netdata](https://github.com/netdata/netdata) - Real-time infrastructure-monitoring and observability platform for systems, containers, applications, and network services.
+- [Netdata Docker Installation](https://learn.netdata.cloud/docs/netdata-agent/installation/docker) - Official guide to running the Netdata Agent in Docker with the volumes, capabilities, sockets, and permissions needed for host monitoring.
+- [Organizr](https://github.com/causefx/Organizr) - PHP-based dashboard for placing homelab and media services behind a unified, tabbed interface.
+- [Pi-hole](https://pi-hole.net/) - Network-wide DNS sinkhole for blocking advertising and tracking domains while providing local DNS and query visibility.
+- [Pi-hole Docker Image](https://github.com/pi-hole/docker-pi-hole) - Official Pi-hole container image and deployment documentation for Docker and Docker Compose environments.
+- [Portainer Community Edition Image](https://hub.docker.com/r/portainer/portainer-ce) - Official container image for Portainer Community Edition, a web interface for managing Docker and related container environments.
+
+### Media and Creative
+
+- [Jellyfin Hardware Acceleration](https://jellyfin.org/docs/general/administration/hardware-acceleration/) - Official configuration guide for GPU-accelerated transcoding across supported Jellyfin platforms, devices, drivers, and container runtimes.
+- [Matchering Web](https://github.com/sergree/matchering-web) - Self-hosted web interface for the Matchering audio matching and mastering engine.
+- [Plex Media Server Docker](https://github.com/plexinc/pms-docker) - Official Docker image sources and deployment guidance for running Plex Media Server in a container.
+
+### Personal and Household
+
+- [Akaunting](https://akaunting.com/) - Open-source accounting platform for invoices, expenses, banking, reports, and small-business financial management, with self-hosted and hosted options.
+- [Baby Buddy](https://github.com/babybuddy/babybuddy) - Self-hosted application for caregivers to track feedings, sleep, diaper changes, growth, tummy time, and related baby-care data.
+- [Bitwarden](https://bitwarden.com/) - Open-source password manager with applications, browser extensions, organization features, and a self-hosting option.
+- [Budget App](https://github.com/paukiatwee/budgetapp) - Older open-source personal budgeting application with category tracking, reports, and container-oriented deployment files.
+- [Home Assistant](https://www.home-assistant.io/) - Open-source home-automation platform emphasizing local control, privacy, integrations, dashboards, and extensible automations.
+
+### Productivity and Collaboration
+
+- [draw.io Docker Image](https://hub.docker.com/r/jgraph/drawio) - Official container image for self-hosting the draw.io web application for diagrams, architecture maps, and flowcharts.
+- [Markdown Edit](https://github.com/georgeOsdDev/markdown-edit) - Legacy self-hostable web editor and viewer for Markdown documents with GitHub-backed rendering and storage integrations.
+- [Nextcloud](https://nextcloud.com/) - Open-source content-collaboration platform for self-hosted file sync, sharing, communication, calendars, contacts, and groupware.
+- [Rocket.Chat](https://www.rocket.chat/) - Open-source communications platform for self-hosted team chat, messaging, omnichannel support, and controlled deployments.
+- [Rocket.Chat Docker Official Image](https://hub.docker.com/_/rocket.chat) - Docker Official Image and usage reference for containerized Rocket.Chat deployments.
 
 ## TeX and Typesetting
 
