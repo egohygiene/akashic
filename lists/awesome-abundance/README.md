@@ -15,16 +15,16 @@ Part of the [Ego Hygiene Awesome collection](../../README.md).
 
 ## Explore Awesome Abundance
 
-- [Books, Knowledge, and Archives](books-knowledge-and-archives/README.md) - Public-domain books, open-access monographs, reference works, historical collections, newspapers, and government archiv[...]
-- [Community Sharing and Material Resources](community-sharing-and-material-resources/README.md) - Local gifting, reuse networks, food sharing, repair help, lending libraries, clothing, and essent[...]
+- [Books, Knowledge, and Archives](books-knowledge-and-archives/README.md) - Public-domain books, open-access monographs, reference works, historical collections, newspapers, and government archives. **56 resources.**
+- [Community Sharing and Material Resources](community-sharing-and-material-resources/README.md) - Local gifting, reuse networks, food sharing, repair help, lending libraries, clothing, and essential goods. **45 resources.**
 - [Creative Commons and Media](creative-commons-and-media/README.md) - Reusable images, art, audio, music, video, fonts, icons, 3D assets, and cultural collections. **76 resources.**
-- [Culture, Travel, and Participation](culture-travel-and-participation/README.md) - Free museums, public lands, cultural experiences, self-guided exploration, volunteering, and citizen participat[...]
-- [Developer and Digital Resources](developer-and-digital-resources/README.md) - Permanent free tiers, student and nonprofit programs, hosting, databases, observability, design tools, and internet[...]
+- [Culture, Travel, and Participation](culture-travel-and-participation/README.md) - Free museums, public lands, cultural experiences, self-guided exploration, volunteering, and citizen participation. **65 resources.**
+- [Developer and Digital Resources](developer-and-digital-resources/README.md) - Permanent free tiers, student and nonprofit programs, hosting, databases, observability, design tools, and internet access. **86 resources.**
 - [Education and Learning](education-and-learning/README.md) - Open courseware, self-paced education, textbooks, computing, languages, and career learning. **55 resources.**
-- [Free and Open-Source Software](free-and-open-source-software/README.md) - No-cost software whose source can be inspected, modified, and shared across everyday and specialist workflows. **134 re[...]
-- [Health, Well-Being, and Accessibility](health-well-being-and-accessibility/README.md) - Free clinics, evidence-based public tools, treatment locators, accessibility technology, and disability s[...]
-- [Libraries and Local Access](libraries-and-local-access/README.md) - Library discovery, digital borrowing, databases, media, learning platforms, devices, museum passes, and libraries of things. [...]
-- [Public Programs and Services](public-programs-and-services/README.md) - Government and nonprofit programs for food, housing, utilities, education, taxes, legal help, communications, and daily n[...]
+- [Free and Open-Source Software](free-and-open-source-software/README.md) - No-cost software whose source can be inspected, modified, and shared across everyday and specialist workflows. **134 resources.**
+- [Health, Well-Being, and Accessibility](health-well-being-and-accessibility/README.md) - Free clinics, evidence-based public tools, treatment locators, accessibility technology, and disability services. **61 resources.**
+- [Libraries and Local Access](libraries-and-local-access/README.md) - Library discovery, digital borrowing, databases, media, learning platforms, devices, museum passes, and libraries of things. **49 resources.**
+- [Public Programs and Services](public-programs-and-services/README.md) - Government and nonprofit programs for food, housing, utilities, education, taxes, legal help, communications, and daily needs. **59 resources.**
 - [Research and Open Science](research-and-open-science/README.md) - Legal scholarly access, preprints, repositories, datasets, protocols, scientific tools, and citizen science. **65 resources.**
 
 ## Access Key

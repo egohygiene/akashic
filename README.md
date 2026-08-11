@@ -15,15 +15,15 @@ This repository is the root index for the **Ego Hygiene Awesome** collection —
 
 ## Explore the Collection
 
-- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **362 resources.**
+- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **751 resources.**
 - [Artificial Intelligence](lists/artificial-intelligence/README.md) - Agent engineering, models, providers, memory systems, evaluation, safety, and AI research. **120 resources.**
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **226 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **26 resources.**
 - [Developer Tools](lists/developer-tools/README.md) - Application development, databases, documentation, knowledge management, shell environments, and developer utilities. **145 resources.**
 - [Health and Well-Being](lists/health-and-well-being/README.md) - Digital health, mental health resources, regulatory bodies, and treatment platforms. **21 resources.**
 - [Open Source](lists/open-source/README.md) - Open source collections, community governance, foundations, history, licensing, and support programs. **159 resources.**
-- [Public Services and Support](lists/public-services-and-support/README.md) - Benefits, emergency assistance, community volunteering, consumer safety, finance, employment, and government services. **83 resources.**
-- [Research Funding and Grants](lists/research-funding-and-grants/README.md) - Federal funding portals, grant applications, mental health funding, small business innovation, and research policy. **37 resources.**
+- [Public Services and Support](lists/public-services-and-support/README.md) - Benefits, emergency assistance, community volunteering, consumer safety, finance, employment, and government services. **52 resources.**
+- [Research Funding and Grants](lists/research-funding-and-grants/README.md) - Federal funding portals, grant applications, mental health funding, small business innovation, and research policy. **34 resources.**
 - [Scientific Research](lists/scientific-research/README.md) - Animal health, scientific data, open science organizations, scientific computing, and scholarly publishing. **77 resources.**
 - [Security](lists/security/README.md) - Organizations, tools, privacy, personal data protection, supply chain security, and vulnerability data. **92 resources.**
 - [Self-Hosting and Homelab](lists/self-hosting-and-homelab/README.md) - Collections, guides, infrastructure operations, media, personal tools, and productivity platforms. **31 resources.**
