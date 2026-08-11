@@ -38,6 +38,7 @@ This repository is the root index for the **Ego Hygiene Awesome** collection —
 - [Awesome Lint](https://github.com/sindresorhus/awesome-lint#readme) - A linter for maintaining consistent, high-quality awesome lists.
 - [Awesome Lists Directory](https://awesomelists.io/) - Browsable directory and discovery site for curated Awesome lists across technical and general-interest subjects.
 - [Awesome Manifesto](https://github.com/sindresorhus/awesome/blob/main/awesome.md) - Principles for thoughtful and useful curation.
+- [Awesome Lists](https://awesomelists.io/) - Discover curated Awesome lists across software, learning, research, creative work, and other specialized topics.
 
 ## Contributing
 
