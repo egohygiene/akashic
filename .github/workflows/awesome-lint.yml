@@ -38,11 +38,26 @@ jobs:
       - name: Validate collection
         run: node scripts/validate-collection.mjs
 
-      - name: Lint all lists
+      - name: Lint all resource lists
+        shell: bash
         run: |
-          for awesome_list_directory in "." lists/*/; do
-            (
-              cd "${awesome_list_directory}"
-              npx --yes "awesome-lint@2.3.0"
-            )
-          done
+          while IFS= read -r awesome_list_readme; do
+            awesome_list_directory="$(dirname "${awesome_list_readme}")"
+            awesome_lint_input="${awesome_list_directory}/.awesome-lint-input.md"
+
+            {
+              # These collection-wide concerns are validated from the repository root.
+              printf '%s\n' '<!--lint disable awesome-contributing awesome-github double-link-->'
+              sed '1{/^<!--lint disable awesome-git-repo-age-->$/d;}' "${awesome_list_readme}"
+            } > "${awesome_lint_input}"
+
+            if ! npx --yes "awesome-lint@2.3.0" "${awesome_lint_input}"; then
+              rm "${awesome_lint_input}"
+              exit 1
+            fi
+
+            rm "${awesome_lint_input}"
+          done < <(
+            find "lists" -name "README.md" \
+              -not -path "lists/awesome-abundance/README.md" | sort
+          )
