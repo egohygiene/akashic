@@ -46,6 +46,11 @@ These resources provide information, access, or support—not diagnosis or indiv
 - [Medito](https://meditofoundation.org/medito-app) - Nonprofit free and open-source meditation app with guided courses, sleep content, breathing exercises, and no advertising or subscription.
 - [Smiling Mind](https://www.smilingmind.com.au/smiling-mind-app) - Free nonprofit mindfulness app and programs for individuals, families, schools, and workplaces.
 - [Therapist Aid](https://www.therapistaid.com/) - Library of free printable psychoeducation and therapy worksheets, with additional resources reserved for paid members.
+- [NAMI](https://www.nami.org/) - National Alliance on Mental Illness offering free education, support groups, local affiliate services, and a nationwide helpline.
+- [Mental Health America Screening](https://screening.mhanational.org/) - Free anonymous validated screening questionnaires for depression, anxiety, and related concerns, followed by referral information.
+- [NIMH Health Topics](https://www.nimh.nih.gov/health/topics) - National Institute of Mental Health explanations of mental-health conditions, treatments, statistics, and clinical-trial participation.
+- [SMART Recovery](https://smartrecovery.org/) - Free science-based mutual-support meetings, tools, and worksheets for people changing addictive behaviors, available in person and online.
+- [Alcoholics Anonymous Meeting Finder](https://www.aa.org/find-aa) - Official directory for locating free local and online Alcoholics Anonymous meetings and service offices worldwide.
 
 ## Crisis and Immediate Support
 
@@ -57,6 +62,7 @@ These resources provide information, access, or support—not diagnosis or indiv
 - [SAMHSA National Helpline](https://www.samhsa.gov/find-help/helplines/national-helpline) - Free confidential 24-hour treatment referral and information service for mental-health and substance-use concerns in English and Spanish.
 - [FindTreatment.gov](https://findtreatment.gov/) - Confidential official locator for mental-health and substance-use treatment facilities across the United States and its territories.
 - [Poison Help](https://www.poisonhelp.org/) - Free United States poison-center hotline and prevention information staffed around the clock by medical experts.
+- [Alzheimer's Association Helpline](https://www.alz.org/help-support) - Free around-the-clock helpline, care navigation, local programs, and caregiver education for dementia-related concerns.
 
 ## Health Information and Everyday Well-Being
 

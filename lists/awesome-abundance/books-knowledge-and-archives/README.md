@@ -14,6 +14,7 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [Libraries, Museums, and Cultural Archives](#libraries-museums-and-cultural-archives)
 - [Newspapers and Periodicals](#newspapers-and-periodicals)
 - [Government and Declassified Archives](#government-and-declassified-archives)
+- [Shadow Libraries and Legal Risk](#shadow-libraries-and-legal-risk)
 
 ## Books and Long-Form Reading
 
@@ -30,6 +31,9 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [Online Library of Liberty](https://oll.libertyfund.org/) - Free scholarly editions of historically significant works about individual liberty, government, economics, law, and political thought.
 - [Marxists Internet Archive](https://www.marxists.org/) - Volunteer nonprofit archive providing free access to multilingual texts by Marxist and related writers under varied copyright permissions.
 - [Alice and Books](https://aliceandbooks.com/) - Browser-based library of public-domain classics with readable typography and free EPUB downloads.
+- [Open Library](https://openlibrary.org/) - Internet Archive catalog aiming to describe every published book, with public-domain reading and controlled digital lending for other titles.
+- [ManyBooks](https://manybooks.net/) - Long-running catalog of public-domain and author-authorized ebooks organized by genre, with free downloads in common formats.
+- [Feedbooks Public Domain](https://www.feedbooks.com/catalog/public_domain) - Curated catalog of public-domain literature prepared for e-readers and downloadable without charge.
 
 ## Open-Access Books and Monographs
 
@@ -61,6 +65,9 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [Gallica](https://gallica.bnf.fr/) - Bibliothèque nationale de France digital library offering millions of freely accessible books, manuscripts, maps, images, newspapers, and recordings.
 - [DigitalNZ](https://digitalnz.org/) - Free search across New Zealand digital collections from libraries, museums, government agencies, media organizations, and community groups.
 - [Biodiversity Heritage Library](https://www.biodiversitylibrary.org/) - Consortium library providing free access to digitized biodiversity literature, illustrations, field notes, and scientific archives.
+- [Internet Archive](https://archive.org/) - Nonprofit digital library offering free access to archived web pages, texts, audio, moving images, and software, with rights varying by item.
+- [Wellcome Collection](https://wellcomecollection.org/collections) - Free searchable library and museum collections on health and human experience, with many digitized items openly licensed for reuse.
+- [Deutsche Digitale Bibliothek](https://www.deutsche-digitale-bibliothek.de/) - German national portal aggregating digitized books, archives, images, recordings, and museum objects from cultural institutions.
 
 ## Newspapers and Periodicals
 
@@ -69,6 +76,7 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [Elephind](https://elephind.com/) - Free federated search across digitized historical newspaper collections hosted by libraries and archives around the world.
 - [World Radio History](https://www.worldradiohistory.com/) - Free research library of scanned broadcasting, electronics, music, and communications periodicals and books.
 - [Internet Archive Scholar](https://scholar.archive.org/) - Experimental full-text search across scholarly literature preserved in Internet Archive collections, including older journals and proceedings.
+- [Papers Past](https://paperspast.natlib.govt.nz/) - National Library of New Zealand collection of digitized newspapers, magazines, letters, diaries, and parliamentary papers available free online.
 
 ## Government and Declassified Archives
 
@@ -77,6 +85,15 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [CIA FOIA Reading Room](https://www.cia.gov/readingroom/) - Public database of declassified and frequently requested Central Intelligence Agency records released through FOIA processes.
 - [FBI Vault](https://vault.fbi.gov/) - Free collection of FBI records and media released proactively or through Freedom of Information Act requests.
 - [National Security Archive](https://nsarchive.gwu.edu/) - George Washington University repository publishing curated sets of declassified United States government documents and analysis.
+- [The National Archives](https://www.nationalarchives.gov.uk/) - United Kingdom national archive with free catalogue searching, research guides, and many digitized records available to download without charge.
+
+## Shadow Libraries and Legal Risk
+
+Shadow libraries distribute copyrighted material without permission from rights holders. They are not endorsed or linked here. The entries below point only to encyclopedia articles for readers who need neutral background on how these services work, the litigation surrounding them, and why their legal status differs by jurisdiction.
+
+- [Sci-Hub](https://en.wikipedia.org/wiki/Sci-Hub) - Encyclopedia article describing the Sci-Hub article repository, its history, court rulings against it, and the access debates that surround it.
+- [Library Genesis](https://en.wikipedia.org/wiki/Library_Genesis) - Encyclopedia article documenting the Library Genesis file collection, its mirrors, and the copyright litigation and blocking orders it has faced.
+- [Anna's Archive](https://en.wikipedia.org/wiki/Anna%27s_Archive) - Encyclopedia article covering the Anna's Archive metadata and file aggregator, its relationship to other shadow libraries, and its contested legal position.
 
 Suggestions and improvements are welcome. See the [contribution guidelines](../../../contributing.md).
 

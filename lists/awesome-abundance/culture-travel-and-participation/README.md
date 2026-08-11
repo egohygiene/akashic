@@ -35,6 +35,10 @@ Admission policies, reservations, residency rules, event dates, transportation, 
 - [Frye Art Museum](https://fryemuseum.org/visit) - Always-free Seattle art museum with exhibitions, collection access, tours, and many public programs.
 - [Bronx Museum](https://bronxmuseum.org/visit/) - Free admission to contemporary art exhibitions and community programs in New York City.
 - [Timken Museum of Art](https://www.timkenmuseum.org/visit/) - Free admission to a focused collection of European old masters, American art, and Russian icons in San Diego.
+- [British Museum](https://www.britishmuseum.org/visit) - Free admission to the permanent collection in London, with timed booking recommended and separate charges for special exhibitions.
+- [National Gallery](https://www.nationalgallery.org.uk/visit) - Free entry to the national collection of Western European paintings in London, with ticketed special exhibitions and events.
+- [Tate](https://www.tate.org.uk/visit) - Free admission to the collection displays at Tate Modern, Tate Britain, Tate Liverpool, and Tate St Ives, with paid exhibitions separate.
+- [Victoria and Albert Museum](https://www.vam.ac.uk/visit) - Free entry to the permanent design, art, and performance collections in London, with some exhibitions requiring paid tickets.
 
 ## Admission Programs and Passes
 
@@ -56,6 +60,8 @@ Admission policies, reservations, residency rules, event dates, transportation, 
 - [National Trails System](https://www.nps.gov/subjects/nationaltrailssystem/index.htm) - Information about scenic, historic, and recreation trails managed across public and partner lands, with access costs varying by segment.
 - [NPS App](https://www.nps.gov/subjects/digital/nps-apps.htm) - Free official app with offline park information, maps, accessibility details, alerts, and ranger-authored self-guided tours.
 - [Recreation.gov Free Activities](https://www.recreation.gov/search?q=free) - Search starting point for free federal recreation activities and events, though reservations, parking, permits, or amenities may still cost extra.
+- [National Park Service](https://www.nps.gov/) - Official agency site for park planning, alerts, passes, education, and history, with most park units charging no entrance fee.
+- [Parks Canada](https://parks.canada.ca/) - Official information for national parks and historic sites, where admission is free for youth aged 17 and under and on published free-entry days.
 
 ## Self-Guided Tours and Cultural Apps
 
@@ -67,6 +73,7 @@ Admission policies, reservations, residency rules, event dates, transportation, 
 - [National Park Service Boston App](https://www.nps.gov/bost/planyourvisit/app.htm) - Free offline audio tours and maps for Boston's Freedom Trail, Black Heritage Trail, Bunker Hill, and related historic sites.
 - [Freedom Trail Map](https://www.thefreedomtrail.org/visit) - Free self-guided access to Boston's marked historic route, while admission to individual partner sites may vary.
 - [GPSmyCity Free Walking Tours](https://www.gpsmycity.com/) - Free basic self-guided walks and article-based tours for many cities, with offline maps and advanced functions offered as paid upgrades.
+- [Atlas Obscura](https://www.atlasobscura.com/) - Free community-built guide to unusual places, with entries describing location, access, and whether a site charges admission.
 
 ## Free Performances and Events
 
@@ -88,6 +95,8 @@ Admission policies, reservations, residency rules, event dates, transportation, 
 - [Smithsonian Digital Volunteers](https://transcription.si.edu/) - Free account-supported transcription projects that make Smithsonian manuscripts, field notes, labels, and records searchable and accessible.
 - [National Park Service Volunteer With Us](https://www.nps.gov/getinvolved/volunteer.htm) - Official information for one-day, recurring, youth, group, campground-host, and long-term service opportunities in national parks.
 - [United States Fish and Wildlife Service Volunteers](https://www.fws.gov/volunteer-opportunity) - Searchable volunteer opportunities supporting refuges, hatcheries, wildlife, education, visitor services, and conservation projects.
+- [VolunteerMatch](https://www.volunteermatch.org/) - Free matching service listing in-person and virtual volunteer roles from nonprofits across the United States.
+- [Vote.gov](https://vote.gov/) - Official United States site for registering to vote, checking registration, and finding state election rules and deadlines.
 
 ## Hospitality and Cultural Exchange
 

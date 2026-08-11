@@ -28,6 +28,9 @@ Physical-resource availability is inherently local and inventory-dependent. Conf
 - [Facebook Marketplace Free Listings](https://www.facebook.com/marketplace/category/free/) - Account-based local marketplace filter for zero-price listings, with availability, trustworthiness, and pickup safety left to participants.
 - [Little Free Library World Map](https://littlefreelibrary.org/map/) - Map for finding volunteer-run book-sharing boxes where visitors can take or leave books without membership or checkout.
 - [Free Stores and Really Really Free Markets](https://localwiki.org/main/Really_Really_Free_Market) - Community-maintained starting point for finding or organizing gift-economy events where goods and skills are shared without payment.
+- [Mutual Aid Hub](https://www.mutualaidhub.org/) - Map and directory of community mutual-aid networks that share food, supplies, transportation, and neighbor-to-neighbor support.
+- [Shareable](https://www.shareable.net/) - Nonprofit news and how-to library about sharing economies, cooperatives, mutual aid, and community-run resource projects.
+- [Falling Fruit](https://fallingfruit.org/) - Collaborative world map of publicly accessible edible plants, community orchards, and municipal foraging data.
 
 ## Food and Household Essentials
 
@@ -41,6 +44,8 @@ Physical-resource availability is inherently local and inventory-dependent. Conf
 - [Meals on Wheels America Find Meals](https://www.mealsonwheelsamerica.org/find-meals/) - Locator for local meal-delivery programs serving older adults, with eligibility, availability, and suggested contributions varying by provider.
 - [National Diaper Bank Network Member Directory](https://nationaldiaperbanknetwork.org/member-directory/) - Finds local member organizations distributing free diapers and related basic necessities through community partners.
 - [Alliance for Period Supplies Member Directory](https://allianceforperiodsupplies.org/member-directory/) - Directory of community programs distributing free period products through local partner organizations.
+- [AmpleHarvest.org](https://ampleharvest.org/) - Free directory connecting home gardeners with nearby food pantries that accept surplus fresh produce donations.
+- [Food Rescue US](https://foodrescue.us/) - Volunteer-driven network that redirects surplus food from businesses to social-service agencies serving people facing hunger.
 
 ## Repair and Maintenance
 
@@ -50,6 +55,7 @@ Physical-resource availability is inherently local and inventory-dependent. Conf
 - [Fixit Clinic](https://fixitclinic.blogspot.com/) - Volunteer-run repair events and online coaching that help participants troubleshoot and repair broken household items.
 - [Bike Collectives Network](https://bikecollectives.org/wiki/Community_Bicycle_Organizations) - Community-maintained directory of nonprofit bicycle kitchens and collectives offering tools, workspace, used parts, education, and earn-a-bike programs.
 - [Repair.org Community](https://www.repair.org/community) - Right-to-repair coalition directory and guidance connecting people with repair groups, events, policy work, and educational resources.
+- [Precious Plastic](https://preciousplastic.com/) - Open-source plastic-recycling machines, build documentation, and a community map of local workspaces that share equipment and knowledge.
 
 ## Clothing, Furniture, and Family Supplies
 

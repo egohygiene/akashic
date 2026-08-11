@@ -45,7 +45,7 @@ An awesome resource should be:
 
 Commercial resources are welcome when they provide exceptional value. A resource does not need to be open source or free, but its pricing or access limitations should be clear when relevant.
 
-Resources proposed for `lists/awesome-abundance/` must provide a legitimate no-cost access path. Continuing free tiers, library access, eligibility-based programs, and locally available resources qualify when the relevant constraint is explicit. Temporary trials, piracy, referral funnels, and deceptive "free" offers do not.
+Resources proposed for `lists/awesome-abundance/` must provide a legitimate no-cost access path. Continuing free tiers, library access, eligibility-based programs, and locally available resources qualify when the relevant constraint is explicit. Temporary trials, piracy, referral funnels, and deceptive "free" offers do not. Shadow libraries are documented only through neutral encyclopedia references in the [Shadow Libraries and Legal Risk](lists/awesome-abundance/books-knowledge-and-archives/README.md#shadow-libraries-and-legal-risk) section, never through direct access links.
 
 ## Before Suggesting a Resource
 

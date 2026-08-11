@@ -25,6 +25,8 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [Creative Commons Platform Toolkit](https://creativecommons.org/platform/toolkit/) - Official guidance and links for discovering, attributing, and using Creative Commons content across major platforms.
 - [Public Domain Review](https://publicdomainreview.org/) - Curated essays and collections highlighting unusual public-domain art, literature, film, audio, and historical material.
 - [Public Domain Image Archive](https://pdimagearchive.org/) - Curated high-resolution collection of historical public-domain images organized for creative discovery and reuse.
+- [Creative Commons](https://creativecommons.org/) - Nonprofit steward of the Creative Commons licenses, with free tools and plain-language explanations for sharing and reusing work legally.
+- [Library of Congress Free to Use](https://www.loc.gov/free-to-use/) - Rotating curated sets of Library of Congress items with no known copyright restrictions, prepared for free download and reuse.
 
 ## Photography and Illustration
 
@@ -40,6 +42,7 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [NASA Image and Video Library](https://images.nasa.gov/) - Searchable NASA collection of images, video, and audio; most NASA-created material is reusable under agency media guidelines.
 - [NOAA Photo Library](https://photolib.noaa.gov/) - Free collection of weather, ocean, coast, climate, fisheries, and environmental imagery with source and credit information.
 - [USGS Multimedia Gallery](https://www.usgs.gov/products/multimedia-gallery) - Public science images, video, audio, maps, and animations, with item-level usage guidance and most USGS-created works in the public domain.
+- [Flickr Commons](https://www.flickr.com/commons) - Program where participating archives and museums publish photographs identified as having no known copyright restrictions.
 
 ## Museums and Public-Domain Art
 
@@ -68,6 +71,9 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [NASA Sounds](https://www.nasa.gov/audio-and-ringtones/) - Free downloads of mission audio, spacecraft sounds, historic speech, and ringtones subject to NASA media-usage guidelines.
 - [YouTube Audio Library](https://www.youtube.com/audiolibrary) - Account-based catalog of music and sound effects cleared for YouTube creation, with attribution requirements shown per track.
 - [FreePD](https://freepd.com/) - Music explicitly dedicated to the public domain through CC0 for unrestricted reuse.
+- [Jamendo Music](https://www.jamendo.com/) - Community platform where independent artists publish tracks under Creative Commons licenses for free personal listening and download.
+- [Incompetech](https://incompetech.com/music/royalty-free/) - Kevin MacLeod's library of original production music released under a Creative Commons attribution license.
+- [Live Music Archive](https://archive.org/details/etree) - Internet Archive collection of concert recordings shared with the permission of artists who allow taping and free distribution.
 
 ## Video
 
@@ -93,6 +99,10 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [OpenMoji](https://openmoji.org/) - Open-source emoji and symbol library from Hochschule der Medien released under CC BY-SA.
 - [Material Symbols](https://fonts.google.com/icons) - Google's Apache-licensed variable icon family with adjustable fill, weight, grade, and optical size.
 - [The Noun Project](https://thenounproject.com/) - Massive icon library with free downloads available under Creative Commons attribution terms; paid plans remove attribution requirements.
+- [Fontsource](https://fontsource.org/) - Open-source packages that let developers self-host freely licensed font families without third-party font services.
+- [Fontshare](https://www.fontshare.com/) - Free font service from the Indian Type Foundry offering professional typefaces licensed for personal and commercial use.
+- [SVG Repo](https://www.svgrepo.com/) - Searchable collection of hundreds of thousands of SVG icons and vectors with per-item license information, including many open licenses.
+- [Bootstrap Icons](https://icons.getbootstrap.com/) - Free MIT-licensed SVG icon library from the Bootstrap team, usable with or without the Bootstrap framework.
 
 ## 3D and Game Assets
 
