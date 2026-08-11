@@ -33,6 +33,12 @@ Free and open-source software is about user freedom as well as price. Hosted ser
 - [Awesome Selfhosted](https://awesome-selfhosted.net/) - Community-maintained catalog of free software network services and web applications that can be hosted independently.
 - [PRISM Break](https://prism-break.org/) - Curated directory of free and open-source alternatives intended to reduce reliance on proprietary surveillance platforms.
 - [switching.software](https://switching.software/) - Practical directory of ethical, privacy-conscious, and open alternatives to widely used online services and applications.
+- [Awesome Curated Lists](https://awesome.re/) - Entry point to the Awesome ecosystem of community-curated lists, including many catalogs of free and open-source software.
+- [AlternativeTo](https://alternativeto.net/) - Crowdsourced software-recommendation site with license filters for finding free and open-source replacements for specific applications.
+- [Free Programming Books](https://github.com/EbookFoundation/free-programming-books) - Multilingual community list of freely available programming books, courses, cheat sheets, and interactive tutorials.
+- [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets) - Community-maintained index of openly available datasets grouped by discipline and linked to their original sources.
+- [Awesome Free Software](https://github.com/johnjago/awesome-free-software) - Curated list of software that respects user freedom, organized by category with license information.
+- [Software Heritage](https://www.softwareheritage.org/) - Nonprofit archive that collects and preserves publicly available source code and makes it browsable and citable at no cost.
 
 ## Operating Systems
 
@@ -46,6 +52,7 @@ Free and open-source software is about user freedom as well as price. Hosted ser
 - [FreeBSD](https://www.freebsd.org/) - Free and open-source Unix-like operating system for servers, desktops, networking, storage, and embedded systems.
 - [OpenBSD](https://www.openbsd.org/) - Free Unix-like operating system emphasizing correctness, proactive security, cryptography, and integrated documentation.
 - [Raspberry Pi OS](https://www.raspberrypi.com/software/) - Debian-based operating system provided free for Raspberry Pi computers, with desktop and minimal editions.
+- [GNU Project](https://www.gnu.org/) - Home of the free software operating system and utilities that established copyleft licensing, with source available for every component.
 
 ## Office, Notes, and Everyday Work
 
@@ -104,6 +111,8 @@ Free and open-source software is about user freedom as well as price. Hosted ser
 - [Organic Maps](https://organicmaps.app/) - Privacy-focused open-source offline maps and navigation using OpenStreetMap data without tracking or advertising.
 - [OsmAnd](https://osmand.net/) - Open-source offline maps and navigation with downloadable OpenStreetMap data; the F-Droid build provides the community edition.
 - [Termux](https://termux.dev/) - Open-source Android terminal environment and package ecosystem that runs Linux command-line tools without rooting the device.
+- [Thunderbird](https://www.thunderbird.net/) - Free open-source desktop client for email, calendars, contacts, chat, and feeds, maintained by the Thunderbird project at MZLA.
+- [Kodi](https://kodi.tv/) - Open-source media center for organizing and playing local and networked video, music, photos, and add-on content across platforms.
 
 ## Privacy and Security
 

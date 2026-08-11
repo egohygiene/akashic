@@ -40,6 +40,8 @@ Library services vary by system, consortium, residency, age, and current vendor 
 - [Freegal Music](https://www.freegalmusic.com/) - Music streaming and downloads offered to cardholders where a library subscribes, with allowances determined by the local institution.
 - [PressReader](https://www.pressreader.com/catalog) - Digital newspapers and magazines from around the world available through participating library cards or on-site library access.
 - [Flipster](https://www.ebsco.com/products/flipster) - Digital magazine platform whose participating libraries provide cardholders free issue reading and mobile downloads.
+- [Sora](https://www.soraapp.com/) - Student reading app for borrowing ebooks and audiobooks supplied by a participating school, with public-library cards linkable where allowed.
+- [TumbleBook Library](https://www.tumblebooklibrary.com/) - Animated talking picture books, read-alongs, and children's ebooks licensed by participating schools and public libraries.
 
 ## Learning and Research Platforms
 
@@ -53,6 +55,9 @@ Library services vary by system, consortium, residency, age, and current vendor 
 - [Tutor.com for Libraries](https://www.tutor.com/libraries) - On-demand tutoring, writing review, test preparation, and career support supplied through participating libraries.
 - [Morningstar Investment Research Center](https://www.morningstar.com/products/direct/investment-analysis-platforms/investment-research-center) - Investment research platform commonly licensed by libraries for patron access; coverage and remote-login rules vary locally.
 - [Gale Presents: Udemy](https://www.gale.com/elearning/udemy) - On-demand Udemy business and technology courses available to patrons through participating public libraries.
+- [NoveList](https://www.ebsco.com/products/novelist) - Readers' advisory database of book recommendations, read-alikes, series lists, and reading guides licensed by participating libraries.
+- [Beanstack](https://www.beanstack.com/) - Reading-challenge and tracking platform that libraries and schools license so patrons can join free summer and year-round reading programs.
+- [DigitalLearn](https://www.digitallearn.org/) - Public Library Association courses and coaching materials that teach basic computer, internet, and online-service skills at no cost.
 
 ## Devices, Tools, and Things
 

@@ -26,6 +26,10 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [SWAYAM](https://swayam.gov.in/) - Government of India learning platform with free enrollment in university and school courses, while proctored certification may cost extra.
 - [University of Helsinki MOOC Center](https://www.mooc.fi/en/) - Free university courses in programming, artificial intelligence, cybersecurity, data, and education, many with exercises and credits.
 - [OpenCourseWare Consortium Search](https://www.oercommons.org/hubs/ocw) - OER Commons hub for discovering openly licensed courseware from institutions around the world.
+- [Stanford Online Free Courses](https://online.stanford.edu/free-courses) - Catalog of Stanford courses, lectures, and short programs that can be taken online without tuition, with paid credit options listed separately.
+- [edX](https://www.edx.org/) - Course platform where many university and industry courses can be audited without charge, while certificates and graded assignments are paid.
+- [Coursera](https://www.coursera.org/) - Course platform whose audit option gives free access to many lecture videos and readings, with certificates, graded work, and degrees priced separately.
+- [Class Central](https://www.classcentral.com/) - Independent search engine and review site for online courses, highlighting free and audit-eligible offerings from universities and providers.
 
 ## General Learning
 
@@ -39,6 +43,7 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [SkillsCommons](https://www.skillscommons.org/) - Repository of openly licensed workforce-training materials created through United States Department of Labor grant programs.
 - [IBM SkillsBuild](https://skillsbuild.org/) - Free account-based courses and credentials in technology, job readiness, sustainability, and professional skills for eligible learners and organizations.
 - [Microsoft Learn](https://learn.microsoft.com/training/) - Free interactive learning paths, modules, sandboxes, and exam preparation for Microsoft technologies and general development skills.
+- [Alison](https://alison.com/) - Free online courses and career-skill certificates supported by advertising, with optional paid certificates and diplomas for documentation.
 
 ## Computing and Technology
 
@@ -52,6 +57,8 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [Cisco Skills for All](https://skillsforall.com/) - Free account-based courses and career paths in networking, cybersecurity, Python, data science, and digital skills.
 - [Google for Developers Learning](https://developers.google.com/learn) - Free codelabs, pathways, documentation, and training for Android, web, cloud, AI, and other Google developer technologies.
 - [AWS Educate](https://aws.amazon.com/education/awseducate/) - Free account-based cloud-learning content and hands-on labs for students and new learners, with no credit card required.
+- [MDN Web Docs](https://developer.mozilla.org/) - Free open documentation, guides, and compatibility data for HTML, CSS, JavaScript, and web platform APIs.
+- [W3Schools](https://www.w3schools.com/) - Free advertising-supported web-development tutorials with editable examples and references, alongside optional paid certifications.
 
 ## Open Textbooks and Teaching Materials
 

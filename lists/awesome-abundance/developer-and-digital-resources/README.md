@@ -26,6 +26,8 @@ Free tiers change frequently. Verify current quotas, acceptable-use rules, comme
 - [Free-Tier Comparison](https://github.com/ripienaar/free-for-dev) - Source repository behind free-for.dev with contribution history, category organization, and discussion of provider changes.
 - [Public APIs](https://publicapis.dev/) - Directory of public APIs searchable by category, authentication model, HTTPS support, and usage details.
 - [APIs.guru](https://apis.guru/) - Open directory and machine-readable collection of public OpenAPI definitions for exploring and testing available services.
+- [DevDocs](https://devdocs.io/) - Free open-source browser interface that combines many programming and API documentation sets with offline reading and fast search.
+- [Google Developers](https://developers.google.com/) - Central hub for Google's free developer documentation, SDKs, sample code, and technical guides across its platforms and APIs.
 
 ## Students, Educators, Open Source, and Nonprofits
 
@@ -53,6 +55,11 @@ Free tiers change frequently. Verify current quotas, acceptable-use rules, comme
 - [Firebase Spark Plan](https://firebase.google.com/pricing) - No-cost Firebase plan with quotas for hosting, databases, authentication, functions-related products, and development tools; some features require billing.
 - [Azure Static Web Apps Free](https://azure.microsoft.com/pricing/details/app-service/static/) - Free plan for static web apps with managed SSL, custom domains, authentication, staging environments, and limited serverless APIs.
 - [Surge](https://surge.sh/) - Command-line static web publishing with free projects, custom-domain support, HTTPS on platform subdomains, and optional paid upgrades.
+- [GitHub Free](https://github.com/pricing) - Continuing free plan with unlimited public and private repositories, issues, pull requests, and monthly Actions and Packages allowances.
+- [GitLab Free](https://about.gitlab.com/pricing/) - Free plan for public and private projects with repositories, issue tracking, and a monthly allowance of shared CI/CD compute minutes.
+- [Cloudflare Workers Free](https://developers.cloudflare.com/workers/platform/pricing/) - Daily free allowance of serverless requests and CPU time for edge functions, with documented limits and optional paid plans.
+- [Deno Deploy](https://deno.com/deploy/pricing) - Serverless JavaScript and TypeScript hosting at the edge with a continuing free tier limited by requests, compute, and bandwidth.
+- [PythonAnywhere](https://www.pythonanywhere.com/pricing/) - Browser-based Python hosting with a free beginner account offering a console, scheduled task, and one restricted web application.
 
 ## Databases and Backends
 
@@ -90,6 +97,9 @@ Free tiers change frequently. Verify current quotas, acceptable-use rules, comme
 - [Photopea](https://www.photopea.com/) - Free ad-supported browser image editor for layered raster and vector files, including PSD, with optional premium access.
 - [Obsidian Free](https://obsidian.md/license) - Desktop and mobile knowledge-base application free for all purposes, while publishing, synchronization, and commercial support are optional paid services.
 - [Miro Free](https://miro.com/pricing/) - Free collaborative whiteboard plan with limited editable boards and core visual-workspace features.
+- [CodePen](https://codepen.io/) - Free browser environment for writing and sharing front-end code demos, with public pens, embeds, and community discovery.
+- [StackBlitz](https://stackblitz.com/) - Free in-browser development environment that runs Node.js and front-end projects locally in the browser without server provisioning.
+- [CodeSandbox](https://codesandbox.io/pricing) - Free personal plan for cloud development sandboxes and prototypes, with limits on virtual machine credits and shared workspaces.
 
 ## APIs, Email, and Automation
 
@@ -101,6 +111,8 @@ Free tiers change frequently. Verify current quotas, acceptable-use rules, comme
 - [Buttondown Free](https://buttondown.com/pricing) - Free newsletter plan for the first published subscriber allowance, with email, archives, RSS, and Markdown authoring.
 - [Pipedream Free](https://pipedream.com/pricing) - Free workflow-automation allowance for API integrations, scheduled jobs, event sources, and hosted code within credit and account limits.
 - [n8n Community Edition](https://docs.n8n.io/hosting/) - Free self-hosted source-available workflow automation with local control, while n8n Cloud and some enterprise capabilities are paid.
+- [Postman Free](https://www.postman.com/pricing/) - Free plan for API design, testing, and collaboration with limited collection runs, mock servers, and monitoring calls.
+- [ngrok Free](https://ngrok.com/pricing) - Free developer plan for exposing local services through secure public endpoints, with limits on domains, agents, and monthly data transfer.
 
 ## Domains, Certificates, Storage, and Compute
 
@@ -113,6 +125,9 @@ Free tiers change frequently. Verify current quotas, acceptable-use rules, comme
 - [Oracle Cloud Free Tier](https://www.oracle.com/cloud/free/) - Always Free cloud resources plus a time-limited trial credit, with account verification, capacity, reclamation, and regional availability constraints.
 - [Google AI Studio](https://aistudio.google.com/) - Account-based browser workspace and API-key access with free Gemini model quotas whose limits, data terms, and regional availability vary.
 - [Hugging Face](https://huggingface.co/pricing) - Free account tier for model, dataset, and Space hosting plus limited shared compute, with paid hardware and organization features optional.
+- [AWS Free Tier](https://aws.amazon.com/free/) - Documented catalog of always-free AWS service allowances alongside introductory credits that expire, so verify which category a service falls into.
+- [Google Cloud Free Program](https://cloud.google.com/free) - Lists Google Cloud products with continuing monthly free usage limits, separate from the time-limited trial credit for new accounts.
+- [Azure Free Account](https://azure.microsoft.com/free/) - Publishes the Azure services that remain free every month, alongside the separate introductory credit granted to new accounts.
 
 Suggestions and improvements are welcome. See the [contribution guidelines](../../../contributing.md).
 

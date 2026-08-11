@@ -29,6 +29,8 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [PubMed](https://pubmed.ncbi.nlm.nih.gov/) - Free National Library of Medicine search service for biomedical citations and abstracts, with links to full text where available.
 - [Science.gov](https://www.science.gov/) - Federated search across United States federal science databases, websites, reports, data, patents, and research results.
 - [WorldWideScience](https://worldwidescience.org/) - Multilingual federated search across national and international scientific databases and portals.
+- [SciELO](https://www.scielo.org/) - Open-access publishing and indexing network providing free full-text journals from Latin America, the Caribbean, Spain, Portugal, and South Africa.
+- [Europe PMC](https://europepmc.org/) - Free life-sciences literature database with abstracts, full text, preprints, patents, clinical guidelines, and linked data resources.
 
 ## Preprints and Research Repositories
 
@@ -44,6 +46,7 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [PsyArXiv](https://osf.io/preprints/psyarxiv) - Free psychology preprint service for sharing manuscripts before or alongside journal publication.
 - [EarthArXiv](https://eartharxiv.org/) - Community preprint service for Earth science, planetary science, environmental science, and related research.
 - [HAL](https://hal.science/) - French national multidisciplinary open archive for research papers, theses, reports, preprints, and institutional collections.
+- [ChemRxiv](https://chemrxiv.org/) - Free preprint server for chemistry and related sciences operated by international chemical societies.
 
 ## Open Data
 
@@ -57,6 +60,7 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [Registry of Open Data on AWS](https://registry.opendata.aws/) - Catalog of public datasets hosted on AWS for scientific, geospatial, genomic, climate, machine-learning, and public-interest use.
 - [Google Cloud Public Datasets](https://cloud.google.com/datasets) - Catalog of public datasets accessible through Google Cloud tools, with querying or compute beyond free allowances potentially billable.
 - [Our World in Data](https://ourworldindata.org/) - Openly licensed research and datasets about global health, economics, population, energy, environment, and social conditions.
+- [GBIF](https://www.gbif.org/) - Global Biodiversity Information Facility providing free access to species occurrence records, datasets, and derived citable downloads.
 
 ## Methods and Reproducibility
 
@@ -79,6 +83,7 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 - [GLOBE Observer](https://observer.globe.gov/) - Free mobile citizen-science program for collecting environmental observations used by NASA and the broader GLOBE community.
 - [CitSci.org](https://www.citsci.org/) - Free platform for finding, creating, managing, and analyzing community and citizen-science projects and datasets.
 - [Project Sidewalk](https://sidewalk-chicago.cs.washington.edu/) - Browser-based citizen-science project for remotely auditing pedestrian accessibility in participating cities using street imagery.
+- [Foldit](https://fold.it/) - Free protein-folding puzzle game whose player solutions contribute to biochemistry and structural-biology research.
 
 ## Scientific Tools and Reference Data
 

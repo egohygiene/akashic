@@ -28,6 +28,8 @@ Most entries in this initial edition are United States resources. Programs may d
 - [Medicaid and CHIP Renewals](https://www.medicaid.gov/resources-for-states/coronavirus-disease-2019-covid-19/unwinding-and-returning-regular-operations-after-covid-19/renew-your-medicaid-or-chip-coverage/index.html) - Official starting point for finding state Medicaid and CHIP contacts, renewal instructions, and coverage alternatives.
 - [Social Security Benefit Eligibility Screening Tool](https://www.ssa.gov/prepare/check-eligibility-for-benefits) - Official questionnaire for exploring Social Security retirement, disability, survivor, family, and Supplemental Security Income benefits.
 - [Veterans Benefits Administration](https://www.benefits.va.gov/benefits/) - Official portal for disability compensation, pensions, education, training, home loans, insurance, employment, and survivor benefits for eligible veterans and families.
+- [Benefits.gov](https://www.benefits.gov/) - Official federal directory and eligibility questionnaire covering hundreds of assistance programs administered by United States agencies.
+- [USA.gov](https://www.usa.gov/) - Official guide to United States government services, agencies, benefits, complaints, and public information in English and Spanish.
 
 ## Food and Nutrition
 
@@ -65,6 +67,7 @@ Most entries in this initial edition are United States resources. Programs may d
 - [AnnualCreditReport.com](https://www.annualcreditreport.com/) - Federally authorized site for obtaining free credit reports from Equifax, Experian, and TransUnion without purchasing monitoring.
 - [CFPB Consumer Complaint](https://www.consumerfinance.gov/complaint/) - Free official process for submitting complaints about financial products and receiving company responses through the Consumer Financial Protection Bureau.
 - [IdentityTheft.gov](https://www.identitytheft.gov/) - Free Federal Trade Commission recovery-plan generator, reporting workflow, letters, and checklists for identity theft victims.
+- [FTC Consumer Advice](https://consumer.ftc.gov/) - Free Federal Trade Commission guidance on scams, credit, debt collection, contracts, and consumer rights, with a fraud-reporting pathway.
 
 ## Legal Assistance
 
@@ -78,10 +81,14 @@ Most entries in this initial edition are United States resources. Programs may d
 ## Health and Family Programs
 
 - [InsureKidsNow](https://www.insurekidsnow.gov/) - Official information and state contacts for free or low-cost Medicaid and Children's Health Insurance Program coverage for eligible children and pregnant people.
+- [Eldercare Locator](https://eldercare.acl.gov/) - Free public service of the Administration for Community Living connecting older adults and caregivers with local aging, transportation, meal, and caregiver services.
 - [Vaccines for Children Program](https://www.cdc.gov/vaccines-for-children/about/index.html) - Provides recommended vaccines at no cost to eligible children through enrolled health-care providers, though administration rules may vary.
 - [Hill-Burton Free and Reduced-Cost Care](https://www.hrsa.gov/get-health-care/affordable/hill-burton) - Official list and application guidance for facilities that still owe free or reduced-cost services under the Hill-Burton program.
 - [Child Care and Development Fund Contacts](https://www.acf.hhs.gov/occ/contact-information/state-and-territory-child-care-and-development-fund-administrators) - Official state and territory contacts for child-care subsidies and assistance for eligible families.
 - [Head Start Center Locator](https://headstart.gov/center-locator) - Finds free early-learning, health, nutrition, and family-support programs for eligible infants, children, pregnant people, and families.
+- [HealthCare.gov](https://www.healthcare.gov/) - Official Health Insurance Marketplace for comparing plans, checking subsidy eligibility, and applying during open or special enrollment periods.
+- [Medicaid.gov](https://www.medicaid.gov/) - Official federal source for Medicaid and CHIP policy, covered benefits, and links to the state agencies that process applications.
+- [Medicare.gov](https://www.medicare.gov/) - Official Medicare site for enrollment, plan comparison, provider search, coverage rules, and assistance programs for people with limited income.
 
 ## Disaster and Safety Support
 
