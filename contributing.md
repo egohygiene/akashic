@@ -11,6 +11,9 @@ README.md                    ← collection hub and index
 contributing.md              ← these guidelines
 lists/
   artificial-intelligence/README.md
+  awesome-abundance/
+    README.md               ← nested collection hub
+    */README.md             ← focused no-cost resource lists
   containers-and-cloud/README.md
   creative-resources/README.md
   developer-tools/README.md
@@ -28,7 +31,7 @@ scripts/
   validate-collection.mjs    ← repository-wide collection validator
 ```
 
-Each list under `lists/` is independently readable and lintable.
+Each list under `lists/` is independently readable and lintable. A large topic may use a nested collection hub when distinct sub-lists make it materially easier to browse.
 
 ## What Belongs Here
 
@@ -41,6 +44,8 @@ An awesome resource should be:
 - Described clearly enough for readers to understand why it is worth visiting.
 
 Commercial resources are welcome when they provide exceptional value. A resource does not need to be open source or free, but its pricing or access limitations should be clear when relevant.
+
+Resources proposed for `lists/awesome-abundance/` must provide a legitimate no-cost access path. Continuing free tiers, library access, eligibility-based programs, and locally available resources qualify when the relevant constraint is explicit. Temporary trials, piracy, referral funnels, and deceptive "free" offers do not.
 
 ## Before Suggesting a Resource
 
@@ -71,7 +76,9 @@ Entries should follow these rules:
 After adding a resource to a sublist:
 
 - Update the `Contents` section in the affected sublist if a new subsection was added.
-- Update the resource count for that sublist in the root `README.md`.
+- Update the resource count for that sublist in its immediate collection hub.
+- If the list is nested, update the nested collection's aggregate resource count in the root `README.md`.
+- Otherwise, update the resource count for that sublist in the root `README.md`.
 - Avoid editing unrelated sublists.
 
 ## Suggesting Multiple Resources
@@ -97,7 +104,8 @@ Before submitting a pull request:
 - Confirm that every changed link works.
 - Confirm that every new entry follows the required format.
 - Update the sublist `Contents` when headings change.
-- Update the root index resource count for the affected sublist.
+- Update the immediate collection hub count and the root aggregate count when a nested list changes.
+- Update the root index resource count when a top-level list changes.
 - Run `node scripts/validate-collection.mjs` and resolve any findings.
 - Run `npx --yes awesome-lint` from the affected sublist directory and resolve applicable findings.
 - Explain what changed and why the proposed resources belong.
@@ -106,4 +114,4 @@ Small, focused pull requests are easiest to review, but a cohesive import batch 
 
 ## Removing or Updating a Resource
 
-Resources may be updated or removed when they become unavailable, abandoned, misleading, unsafe, or no longer exceptional. Include the reason for the change so the decision is easy to understand later. Remember to update the resource count in the root index after removing an entry.
+Resources may be updated or removed when they become unavailable, abandoned, misleading, unsafe, or no longer exceptional. Include the reason for the change so the decision is easy to understand later. Remember to update every affected count after removing an entry.

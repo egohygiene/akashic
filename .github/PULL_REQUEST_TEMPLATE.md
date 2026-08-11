@@ -6,9 +6,9 @@
 
 <!-- Explain why these resources or structural changes improve the collection. -->
 
-## Affected Sublist
+## Affected List
 
-<!-- Name the sublist(s) under lists/ that this pull request changes (e.g. lists/developer-tools). -->
+<!-- Name the list(s) under lists/ that this pull request changes (e.g. lists/developer-tools or lists/awesome-abundance/books-knowledge-and-archives). -->
 
 ## Checklist
 
@@ -18,7 +18,7 @@
 - [ ] New entries include concise descriptions ending with proper punctuation.
 - [ ] Resources are placed in the narrowest appropriate subsection of the correct sublist.
 - [ ] The `Contents` section of the affected sublist matches its current headings.
-- [ ] The resource count for the affected sublist is updated in the root `README.md`.
+- [ ] Every affected resource count is updated in the immediate collection hub and root `README.md` where applicable.
 - [ ] `node scripts/validate-collection.mjs` passes locally.
-- [ ] `npx --yes awesome-lint` passes from the affected sublist directory.
+- [ ] `npx --yes awesome-lint@2.3.0` passes from every affected list directory.
 - [ ] I have read and agree to follow the Code of Conduct.
