@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A curated portal to tools, knowledge, support, creativity, and the open web from Ego Hygiene.">
+    <meta name="theme-color" content="#0a0814">
+    <title>Ego Hygiene · Awesome Portal</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#catalog">Skip to the catalog</a>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Ego Hygiene Awesome home">
+        <span class="brand-mark" aria-hidden="true">∞</span>
+        <span><strong>Ego Hygiene</strong><small>Awesome Portal</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#collections">Collections</a>
+        <a href="https://github.com/egohygiene/awesome" target="_blank" rel="noreferrer">GitHub</a>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch color theme">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="eyebrow"><span></span> A living map of useful things</div>
+        <h1 id="hero-title">Knowledge should feel<br><em>open, human, and alive.</em></h1>
+        <p class="hero-copy">Explore a hand-curated constellation of tools, public resources, research, creative fuel, and practical support—organized for people, not repositories.</p>
+        <form class="hero-search" id="search-form" role="search">
+          <label class="sr-only" for="search-input">Search all resources</label>
+          <span aria-hidden="true">⌕</span>
+          <input id="search-input" name="q" type="search" placeholder="Search tools, topics, descriptions…" autocomplete="off">
+          <kbd>/</kbd>
+        </form>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#catalog">Explore the portal <span aria-hidden="true">↓</span></a>
+          <a class="button button-quiet" href="https://awesomelists.top/" target="_blank" rel="noreferrer">Inspired by Awesome Search <span aria-hidden="true">↗</span></a>
+        </div>
+        <dl class="stats" aria-label="Collection statistics">
+          <div><dt id="resource-total">—</dt><dd>resources</dd></div>
+          <div><dt id="collection-total">—</dt><dd>collections</dd></div>
+          <div><dt>∞</dt><dd>ways to learn</dd></div>
+        </dl>
+      </section>
+
+      <section class="collections-section" id="collections" aria-labelledby="collections-title">
+        <div class="section-heading">
+          <div><p class="kicker">Choose a path</p><h2 id="collections-title">Browse collections</h2></div>
+          <p>Start broad, then follow your curiosity.</p>
+        </div>
+        <div class="collection-grid" id="collection-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="catalog-section" id="catalog" aria-labelledby="catalog-title">
+        <div class="catalog-heading">
+          <div><p class="kicker">The whole constellation</p><h2 id="catalog-title">Explore resources</h2></div>
+          <p id="result-summary" role="status">Loading the collection…</p>
+        </div>
+        <div class="catalog-toolbar">
+          <div class="filter-row" id="filter-row" aria-label="Filter by collection"></div>
+          <label class="sort-control">Sort
+            <select id="sort-select">
+              <option value="featured">Curated order</option>
+              <option value="az">A–Z</option>
+              <option value="za">Z–A</option>
+            </select>
+          </label>
+        </div>
+        <div class="resource-grid" id="resource-grid" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <span aria-hidden="true">✦</span><h3>No matching stars yet</h3><p>Try another phrase or choose a different collection.</p>
+          <button class="button button-primary" id="clear-search" type="button">Clear filters</button>
+        </div>
+        <button class="load-more" id="load-more" type="button" hidden>Show more resources</button>
+      </section>
+
+      <section class="more-knowledge" aria-labelledby="more-title">
+        <div><p class="kicker">Beyond this collection</p><h2 id="more-title">There is always more to discover.</h2></div>
+        <p>This portal is one lovingly tended corner of a much larger open-knowledge ecosystem. Explore thousands of community-curated lists through the project that inspired this experience.</p>
+        <a class="button button-light" href="https://awesomelists.top/" target="_blank" rel="noreferrer">Visit Awesome Search <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand"><span class="brand-mark" aria-hidden="true">∞</span><div><strong>Ego Hygiene</strong><p>Tools for a more conscious, capable, and connected life.</p></div></div>
+      <div class="footer-links"><a href="https://github.com/egohygiene/awesome">Source</a><a href="https://github.com/egohygiene/awesome/blob/main/contributing.md">Contribute</a><a href="https://github.com/egohygiene">Ego Hygiene</a></div>
+      <p class="love-note">Made with <span aria-label="love">♥</span> by the Ego Hygiene hygienists.</p>
+    </footer>
+    <noscript><p class="noscript">This portal needs JavaScript for search and filtering. The complete collection remains available on <a href="https://github.com/egohygiene/awesome">GitHub</a>.</p></noscript>
+  </body>
+</html>
