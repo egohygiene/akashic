@@ -5,7 +5,7 @@
 
 > A curated collection of focused awesome lists for tools, resources, knowledge, inspiration, and the open web.
 
-This repository is the root index for the **Ego Hygiene Awesome** collection — a set of focused domain lists covering artificial intelligence, developer tools, open source, security, and more. Each list is independently maintained to ensure high quality, relevance, and comprehensiveness.
+🌌 **[Explore the visual knowledge portal](https://egohygiene.github.io/awesome/)** — search and browse the complete collection in a friendly, responsive interface.\n\nThis repository is the root index for the **Ego Hygiene Awesome** collection — a set of focused domain lists covering artificial intelligence, developer tools, open source, security, and more. Each list is independently maintained to ensure high quality, relevance, and comprehensiveness.
 
 ## Contents
 
