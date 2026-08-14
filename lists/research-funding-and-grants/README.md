@@ -12,7 +12,7 @@ Funding availability, deadlines, eligibility, geographic scope, and application 
 
 - [Funding Discovery and Aggregators](#funding-discovery-and-aggregators)
 - [Award and Funder Intelligence](#award-and-funder-intelligence)
-- [U.S. Federal Funding](#u-s-federal-funding)
+- [U.S. Federal Funding](#us-federal-funding)
 - [State and Local Funding](#state-and-local-funding)
 - [International and Regional Funding](#international-and-regional-funding)
 - [Mental Health and Neuroscience](#mental-health-and-neuroscience)
@@ -110,7 +110,7 @@ Funding availability, deadlines, eligibility, geographic scope, and application 
 - [European Innovation Council Funding](https://eic.ec.europa.eu/eic-funding-opportunities_en) - EU grants, equity, accelerators, transition support, and prizes for high-risk innovations and deep technology.
 - [European Research Council Grants](https://erc.europa.eu/apply-grant) - Frontier-research grants for principal investigators establishing or leading teams at eligible European host institutions.
 - [FAPESP Calls for Proposals](https://fapesp.br/en/calls) - Research opportunities from the São Paulo Research Foundation, including international and industry partnerships.
-- [French National Research Agency Calls](https://anr.fr/en/call-for-proposals/) - French National Research Agency calls covering fundamental, collaborative, applied, and international research.
+- [French National Research Agency Calls](https://anr.fr/en/call-for-proposals/) - Calls covering fundamental, collaborative, applied, and international research in France.
 - [French Research Calls Portal](https://www.appelsprojetsrecherche.fr/) - Unified search for calls from major French health, environment, cancer, safety, and research agencies.
 - [Grand Challenges](https://www.grandchallenges.org/) - Global network of funders posting calls for health and development innovations.
 - [Grand Challenges Canada Funding](https://www.grandchallenges.ca/apply-for-funding/) - Open calls supporting health and development innovations, especially in low- and middle-income settings.
