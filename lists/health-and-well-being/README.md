@@ -2,13 +2,13 @@
 
 # Awesome Health and Well-Being [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Mental-health education, trauma-informed support, care navigation, digital health, and evidence-aware treatment resources.
+> Mental-health education, trauma-informed support, care navigation, digital health, supplements, pharmacology, and evidence-aware treatment resources.
 
 Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
-<!-- site-advisory: Educational, directory, and peer-support resources—not diagnosis, treatment, or emergency care. Verify a provider's credentials, licensure, privacy practices, cost, and fit. If you or someone else may be in immediate danger, contact local emergency services; in the United States, call or text 988. Peer-support services are not substitutes for crisis care. -->
+<!-- site-advisory: Educational, directory, and peer-support resources—not diagnosis, treatment, prescribing, or emergency care. Do not start, stop, combine, or change medicines, supplements, peptides, or other treatments based on this list. Supplements and compounded drugs are not FDA-approved before marketing, and many research peptides lack adequate human safety data. Consult a licensed clinician or pharmacist about benefits, interactions, contraindications, and product quality. If you or someone else may be in immediate danger, contact local emergency services; in the United States, call or text 988. -->
 
-These links are for education, care navigation, and support—not diagnosis or individualized medical advice. Verify a provider's credentials, licensure, privacy practices, cost, and fit. If you or someone else may be in immediate danger, contact local emergency services; in the United States, call or text 988. Peer-support services are not substitutes for crisis care.
+These links are for education, care navigation, and support—not diagnosis, prescribing, or individualized medical advice. Do not start, stop, combine, or change medicines, supplements, peptides, or other treatments based on this list. Supplements and compounded drugs are not FDA-approved before marketing, and many research peptides lack adequate human safety data. Consult a licensed clinician or pharmacist about benefits, interactions, contraindications, and product quality. Verify a provider's credentials, licensure, privacy practices, cost, and fit. If you or someone else may be in immediate danger, contact local emergency services; in the United States, call or text 988. Peer-support services are not substitutes for crisis care.
 
 For additional no-cost apps, self-help materials, accessibility tools, and U.S. crisis services, see [Awesome Abundance: Health, Well-Being, and Accessibility](../awesome-abundance/health-well-being-and-accessibility/README.md).
 
@@ -23,6 +23,11 @@ For additional no-cost apps, self-help materials, accessibility tools, and U.S. 
 - [Culturally Responsive and Identity-Affirming Care](#culturally-responsive-and-identity-affirming-care)
 - [Peer Support, Relationships, and Grief](#peer-support-relationships-and-grief)
 - [Self-Guided Skills and Well-Being](#self-guided-skills-and-well-being)
+- [Structured Mind-Body and Digital Programs](#structured-mind-body-and-digital-programs)
+- [Supplements, Evidence, and Quality](#supplements-evidence-and-quality)
+- [Medication and Pharmacology References](#medication-and-pharmacology-references)
+- [Peptides, Compounding, and Research Safety](#peptides-compounding-and-research-safety)
+- [Emerging Treatments and Trial Discovery](#emerging-treatments-and-trial-discovery)
 - [Crisis and Immediate Support](#crisis-and-immediate-support)
 - [Regulatory and Professional Bodies](#regulatory-and-professional-bodies)
 - [Treatment Platforms](#treatment-platforms)
@@ -146,9 +151,76 @@ For additional no-cost apps, self-help materials, accessibility tools, and U.S. 
 - [MindSpot](https://www.mindspot.org.au/) - Australian digital mental-health clinic offering free assessment and therapist-supported online treatment to eligible residents, plus public resources.
 - [MoodGYM](https://moodgym.com.au/) - Interactive cognitive behavioral skills program for preventing and managing anxiety and depressive symptoms; access terms vary by country and institution.
 - [Palouse Mindfulness](https://palousemindfulness.com/) - Free self-paced mindfulness-based stress reduction course assembled by a retired MBSR instructor; not a replacement for clinical treatment.
-- [Primal Trust](https://www.primaltrust.org/) - Paid membership program teaching nervous-system regulation and brain-retraining practices; health claims should be evaluated with a qualified clinician.
 - [Self-Compassion](https://self-compassion.org/) - Research summaries, guided practices, exercises, and paid training developed by self-compassion researcher Kristin Neff.
 - [The Pendulum Lifestyle](https://www.psychologytoday.com/us/blog/how-do-you-think-about-that/202408/tired-of-feeling-stuck-give-the-pendulum-lifestyle-a-shot) - Psychology Today article proposing flexible movement between effort and recovery instead of rigid balance.
+
+## Structured Mind-Body and Digital Programs
+
+These programs vary substantially in regulatory status, clinical oversight, price, and evidence. A commercial program's presence here is not an endorsement of its health claims; verify the evidence for the specific condition and involve a qualified clinician when symptoms may have a medical cause.
+
+- [Big Health](https://www.bighealth.com/) - Developer of prescription digital therapeutics for insomnia and anxiety; access, authorization, and regulatory status vary by product and location.
+- [Curable](https://www.curable.com/) - Paid chronic-pain education and skills app combining approaches such as cognitive behavioral therapy, mindfulness, expressive writing, and pain reprocessing; not a diagnostic service.
+- [Dynamic Neural Retraining System](https://retrainingthebrain.com/) - Paid brain-retraining program marketed for chronic symptoms; independently assess condition-specific evidence and rule out medical causes with a clinician.
+- [EndeavorRx](https://www.endeavorrx.com/) - Prescription digital therapeutic authorized in the United States to improve attention function in eligible children and adolescents with ADHD as part of a broader care plan.
+- [Gupta Program](https://guptaprogram.com/) - Paid brain-retraining and nervous-system-regulation program for chronic conditions; available studies are limited and do not establish effectiveness for every marketed use.
+- [Primal Trust](https://www.primaltrust.org/) - Paid membership program teaching nervous-system regulation and brain-retraining practices; health claims should be evaluated with a qualified clinician.
+- [re-origin](https://www.re-origin.com/program) - Paid self-directed neuroplasticity and brain-retraining program; published marketing outcomes are not a substitute for independent clinical evidence.
+- [Rejoyn](https://www.rejoyn.com/) - Prescription digital therapeutic used alongside clinician-managed care for eligible adults with major depressive disorder; availability and prescribing requirements apply.
+
+## Supplements, Evidence, and Quality
+
+There is no universal supplement stack that is safe and effective for everyone. Evidence, dose, formulation, contamination risk, medicines, health conditions, pregnancy, and sport rules all matter; use these resources to investigate claims and prepare questions for a clinician or pharmacist.
+
+- [Australian Institute of Sport Supplements Framework](https://www.ausport.gov.au/ais/nutrition/supplements) - Evidence-based ABCD classification of sports foods and supplement ingredients by effectiveness, safety, and permissibility in sport.
+- [ConsumerLab](https://www.consumerlab.com/) - Independent testing and reviews of supplement identity, strength, contamination, and label claims; most detailed reports require a paid membership.
+- [Examine](https://examine.com/) - Independent evidence summaries on supplements and nutrition organized by outcome and study strength; some research tools require a paid membership.
+- [FDA Health Fraud Product Database](https://www.fda.gov/drugs/medication-health-fraud/health-fraud-product-database) - Searchable record of products cited in FDA warning letters for unapproved or fraudulent health claims; absence does not establish safety.
+- [Labdoor](https://labdoor.com/) - Commercial laboratory-testing reports and rankings for selected supplements; review its methods and do not treat rankings as clinical recommendations.
+- [LiverTox](https://www.ncbi.nlm.nih.gov/books/NBK547852/) - NLM reference on liver injury associated with prescription medicines, over-the-counter drugs, herbs, and dietary supplements.
+- [Memorial Sloan Kettering About Herbs](https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs) - Clinician-edited monographs on herbs and supplements, including proposed uses, evidence, adverse effects, and interactions.
+- [NCCIH Herbs at a Glance](https://www.nccih.nih.gov/health/herbsataglance) - NIH fact sheets summarizing what is known about selected herbs and botanicals, including safety concerns and research gaps.
+- [NIH Office of Dietary Supplements Fact Sheets](https://ods.od.nih.gov/factsheets/list-all/) - Consumer and professional fact sheets on vitamins, minerals, botanicals, probiotics, and other supplement ingredients, including evidence and interactions.
+- [NSF Certified Products](https://www.nsf.org/certified-products-systems) - Search tools for products independently certified against selected public-health and sport standards; certification scope varies by program.
+- [Operation Supplement Safety](https://www.opss.org/) - U.S. Department of Defense education and tools for evaluating supplement labels, ingredients, evidence, and military-specific risk.
+- [USP Verified Products](https://www.quality-supplements.org/verified-products) - Directory of dietary supplements that have met the voluntary USP verification program's identity, strength, purity, and manufacturing criteria.
+
+## Medication and Pharmacology References
+
+These are reference and safety tools, not prescribing guidance. Do not start, stop, or change a medicine based on a database entry; use current labeling and discuss individual benefits, interactions, and contraindications with a licensed prescriber or pharmacist.
+
+- [ClinPGx](https://www.clinpgx.org/) - Curated pharmacogenomics knowledgebase integrating gene-drug evidence, annotations, and implementation guidelines from groups such as CPIC.
+- [CredibleMeds](https://www.crediblemeds.org/) - Evidence-reviewed lists classifying medicines by risk of QT prolongation and torsades de pointes; a free account may be required.
+- [DailyMed](https://dailymed.nlm.nih.gov/dailymed/) - National Library of Medicine source for current structured labeling submitted to the FDA for marketed drugs in the United States.
+- [DrugCentral](https://drugcentral.org/) - Open drug-information resource integrating approved uses, pharmacologic action, chemical structures, targets, and regulatory data.
+- [Drugs@FDA](https://www.accessdata.fda.gov/scripts/cder/daf/) - FDA database of approved drug products with approval history, labeling, and selected review documents.
+- [FDA Drug Safety Communications](https://www.fda.gov/drugs/drug-safety-and-availability/drug-safety-communications) - Current FDA notices about newly identified medicine risks, labeling changes, and recommended safety actions.
+- [MedlinePlus Drugs, Herbs, and Supplements](https://medlineplus.gov/druginformation.html) - Patient-facing NLM information on prescription and nonprescription medicines, herbs, supplements, use, precautions, and side effects.
+- [MedWatch](https://www.fda.gov/safety/medwatch-fda-safety-information-and-adverse-event-reporting-program) - FDA safety-information and adverse-event reporting program for medicines, biologics, devices, supplements, and other regulated products.
+- [openFDA](https://open.fda.gov/) - Public APIs for exploring selected FDA datasets such as drug labels, adverse-event reports, recalls, and device records; reports alone do not prove causation.
+- [Orange Book](https://www.fda.gov/drugs/drug-approvals-and-databases/approved-drug-products-therapeutic-equivalence-evaluations-orange-book) - FDA reference for approved small-molecule drug products, patents, exclusivity, and therapeutic-equivalence evaluations.
+- [RxNav](https://mor.nlm.nih.gov/RxNav/) - NLM tools for searching normalized drug names and exploring RxNorm concepts, ingredients, strengths, and relationships.
+
+## Peptides, Compounding, and Research Safety
+
+Research and status awareness only—not a sourcing guide. Do not buy or inject products sold as “research use only.” Compounded drugs are not FDA-approved, and FDA identifies limited human safety data, impurities, immunogenicity, and other concerns for many promoted peptides.
+
+- [FDA Compounding and FDA: Questions and Answers](https://www.fda.gov/drugs/human-drug-compounding/compounding-and-fda-questions-and-answers) - Explains when compounding may be appropriate and why compounded drugs do not receive FDA premarket review for safety, effectiveness, or quality.
+- [FDA Compounding Risk Alerts](https://www.fda.gov/drugs/human-drug-compounding/compounding-risk-alerts) - Safety communications about contamination, potency errors, insanitary conditions, and other risks involving compounded drugs.
+- [FDA Substances That May Present Significant Safety Risks](https://www.fda.gov/drugs/human-drug-compounding/certain-bulk-drug-substances-use-compounding-may-present-significant-safety-risks) - FDA safety summaries for bulk substances promoted for compounding, including multiple peptides with limited or absent human safety data.
+- [IUPHAR/BPS Guide to Pharmacology](https://www.guidetopharmacology.org/) - Expert-curated database of drug targets, ligands, mechanisms, and references, including peptide and protein ligands.
+- [PeptideAtlas](https://www.peptideatlas.org/) - Public proteomics resource integrating peptide and protein identifications from mass-spectrometry datasets across organisms and tissues.
+- [PRIDE Archive](https://www.ebi.ac.uk/pride/archive/) - EMBL-EBI repository for public mass-spectrometry proteomics datasets and their associated peptide and protein identifications.
+- [World Anti-Doping Agency Prohibited List](https://www.wada-ama.org/en/prohibited-list) - Current international list of substances and methods prohibited in sport, including relevant hormones, growth factors, and mimetics.
+
+## Emerging Treatments and Trial Discovery
+
+Being studied, registered, or described as promising does not mean a treatment is safe, effective, available, or approved. Verify regulatory status, distinguish trials from clinical care, and discuss participation risks and alternatives with an independent clinician.
+
+- [FDA Digital Health Technologies for Drug Development](https://www.fda.gov/science-research/science-and-research-special-topics/digital-health-technologies-dhts-drug-development) - FDA framework, guidance, meetings, and projects for using sensors, software, and other digital measurements in clinical drug research.
+- [FDA Drug Development and Approval Process](https://www.fda.gov/drugs/development-approval-process-drugs) - Official overview of discovery, preclinical testing, clinical research, review, approval, and postmarket monitoring.
+- [NIH HEAL Initiative](https://www.nih.gov/heal) - NIH-wide research initiative advancing evidence on pain management and prevention and treatment of opioid misuse and addiction.
+- [NIMH Brain Stimulation Therapies](https://www.nimh.nih.gov/health/topics/brain-stimulation-therapies/brain-stimulation-therapies) - Evidence-aware overview separating authorized treatments from experimental approaches and explaining risks, limitations, and research pathways.
+- [NIMH Clinical Trials](https://www.nimh.nih.gov/health/trials) - Participant-focused guidance on how mental-health trials work, possible benefits and risks, informed consent, and ways to find studies.
 
 ## Crisis and Immediate Support
 
@@ -164,10 +236,14 @@ For additional no-cost apps, self-help materials, accessibility tools, and U.S. 
 
 ## Treatment Platforms
 
+- [Field Trip Health](https://www.fieldtriphealth.com/) - Commercial clinic network offering ketamine-assisted and related mental-health services in selected regions; eligibility, modality, and clinician oversight vary by location.
+- [Innerwell](https://helloinnerwell.com/) - Commercial U.S. platform offering clinician-screened at-home ketamine treatment with coaching or therapy where available; state eligibility and medical exclusions apply.
 - [Joyous](https://www.joyous.team/) - Commercial telehealth service providing clinician-evaluated, very-low-dose ketamine treatment and ongoing check-ins where available.
 - [Maximus](https://www.maximustribe.com/) - Commercial telehealth platform offering clinician-supervised men's health, hormone, and weight-management programs.
 - [Mindbloom](https://www.mindbloom.com/) - Clinician-guided at-home ketamine-therapy platform with preparation, sessions, coaching, and integration resources.
+- [NeuroStar TMS](https://neurostar.com/) - Commercial transcranial magnetic stimulation system and U.S. provider locator for clinician-evaluated treatment; indication, insurance coverage, and suitability vary.
 - [Rythm Health](https://rythmhealth.com/) - Commercial at-home blood-testing service for collecting biomarkers and reviewing digital results.
+- [SPRAVATO Treatment Center Locator](https://www.spravato.com/spravato-available-treatment-centers/) - Manufacturer directory of U.S. centers certified to administer prescription esketamine under required observation; listing is not a clinical recommendation.
 
 Suggestions and improvements are welcome. See the [contribution guidelines](../../contributing.md).
 
