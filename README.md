@@ -22,7 +22,7 @@
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **227 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **45 resources.**
 - [Developer Tools](lists/developer-tools/README.md) - Application development, databases, documentation, knowledge management, shell environments, and developer utilities. **154 resources.**
-- [Health and Well-Being](lists/health-and-well-being/README.md) - Mental-health education, trauma-informed support, care navigation, digital health, and evidence-aware treatment resources. **105 resources.**
+- [Health and Well-Being](lists/health-and-well-being/README.md) - Mental-health education, trauma-informed support, care navigation, digital health, supplements, pharmacology, and evidence-aware treatment resources. **151 resources.**
 - [Neuroscience](lists/neuroscience/README.md) - Brain atlases, open data, neuroimaging, electrophysiology, computational models, standards, education, and research communities. **86 resources.**
 - [Open Source](lists/open-source/README.md) - Open source collections, community governance, foundations, history, licensing, and support programs. **166 resources.**
 - [Psychedelics](lists/psychedelics/README.md) - Evidence-forward research, open data, safety, regulated access, professional education, ethics, and cultural context. **74 resources.**
