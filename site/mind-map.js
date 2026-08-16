@@ -3,6 +3,22 @@ const DESKTOP = { width: 1200, height: 700 };
 const MOBILE = { width: 360, height: 520 };
 const MIN_SCALE = 0.72;
 const MAX_SCALE = 1.9;
+const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
+const ABSTRACT_GLYPHS = ["✦", "◇", "◎", "⌁", "◈", "△", "◌", "⬡", "✧", "◒"];
+const SEMANTIC_GLYPHS = [
+  [/neuro|brain|mind|conscious|psych|cognit|mental/i, "ψ"],
+  [/research|science|evidence|experiment|method|lab|clinical/i, "⚗"],
+  [/health|care|wellness|medical|therapy|support|accessib/i, "✚"],
+  [/book|library|archive|history|knowledge|learn|education|course/i, "▤"],
+  [/data|dataset|metadata|repository|registry|index|catalog/i, "▦"],
+  [/community|people|social|participation|sharing|collabor/i, "◎"],
+  [/security|privacy|identity|safety|protect/i, "◈"],
+  [/cloud|network|web|internet|hosting|container/i, "⌬"],
+  [/software|developer|tool|code|comput|automation/i, "◇"],
+  [/creative|media|music|audio|visual|art|design/i, "◒"],
+  [/grant|fund|finance|program|service|government/i, "✺"],
+  [/spirit|relig|sacred|mystic|occult|contempl/i, "☿"],
+];
 
 function svgElement(name, attributes = {}) {
   const element = document.createElementNS(SVG_NAMESPACE, name);
@@ -10,41 +26,12 @@ function svgElement(name, attributes = {}) {
   return element;
 }
 
-function labelLines(value, maximumLength = 20, maximumLines = 3) {
-  const words = value.split(/\s+/);
-  const lines = [];
-  let line = "";
-  for (const word of words) {
-    const candidate = line ? `${line} ${word}` : word;
-    if (candidate.length > maximumLength && line) {
-      lines.push(line);
-      line = word;
-    } else {
-      line = candidate;
-    }
-  }
-  if (line) lines.push(line);
-  if (lines.length <= maximumLines) return lines;
-  const visible = lines.slice(0, maximumLines);
-  visible[maximumLines - 1] = `${visible[maximumLines - 1].replace(/[.\s]+$/, "")}…`;
-  return visible;
-}
-
-function addText(group, text, options = {}) {
-  const lineHeight = options.lineHeight || 8;
-  const lines = labelLines(text, options.maximumLength, options.maximumLines);
-  const element = svgElement("text", {
-    class: options.className || "map-node-label",
-    "text-anchor": "middle",
-    x: options.x || 0,
-    y: (options.y || 0) - ((lines.length - 1) * lineHeight),
-  });
-  lines.forEach((line, index) => {
-    const span = svgElement("tspan", { x: options.x || 0, dy: index === 0 ? 0 : lineHeight * 2 });
-    span.textContent = line;
-    element.append(span);
-  });
-  group.append(element);
+function stableGlyph(title, fallback = "✦") {
+  const semantic = SEMANTIC_GLYPHS.find(([pattern]) => pattern.test(title));
+  if (semantic) return semantic[1];
+  let hash = 0;
+  for (const character of title) hash = ((hash << 5) - hash + character.codePointAt(0)) | 0;
+  return ABSTRACT_GLYPHS[Math.abs(hash) % ABSTRACT_GLYPHS.length] || fallback;
 }
 
 function valueForTopic(groupSlug, section) {
@@ -135,12 +122,19 @@ export function createMindMap({
     updateTransform();
   }
 
-  function edge(x1, y1, x2, y2, color, index) {
+  function edge(x1, y1, radius1, x2, y2, radius2, color, index) {
+    const distance = Math.hypot(x2 - x1, y2 - y1) || 1;
+    const directionX = (x2 - x1) / distance;
+    const directionY = (y2 - y1) / distance;
+    const startX = x1 + directionX * Math.max(0, radius1 - 5);
+    const startY = y1 + directionY * Math.max(0, radius1 - 5);
+    const endX = x2 - directionX * (radius2 + 7);
+    const endY = y2 - directionY * (radius2 + 7);
     const bend = index % 2 === 0 ? 0.065 : -0.065;
-    const middleX = (x1 + x2) / 2 + (y2 - y1) * bend;
-    const middleY = (y1 + y2) / 2 - (x2 - x1) * bend;
+    const middleX = (startX + endX) / 2 + (endY - startY) * bend;
+    const middleY = (startY + endY) / 2 - (endX - startX) * bend;
     stage.append(svgElement("path", {
-      d: `M ${x1} ${y1} Q ${middleX} ${middleY} ${x2} ${y2}`,
+      d: `M ${startX} ${startY} Q ${middleX} ${middleY} ${endX} ${endY}`,
       class: "map-edge",
       style: `--edge-color:${color};--node-index:${index};--node-delay:${index * 16}ms`,
       "data-edge": index,
@@ -169,7 +163,7 @@ export function createMindMap({
     showDetail(item);
   }
 
-  function node({ x, y, radius, title, subtitle, color, className = "", action, selected = false, index = -1, detailItem }) {
+  function node({ x, y, radius, title, subtitle, glyph, color, className = "", action, selected = false, index = -1, detailItem }) {
     const attributes = {
       class: `map-node ${action ? "is-actionable" : ""} ${selected ? "is-selected" : ""} ${className}`.trim(),
       transform: `translate(${x} ${y})`,
@@ -184,18 +178,16 @@ export function createMindMap({
     }
     const group = svgElement("g", attributes);
     const fullTitle = svgElement("title");
-    fullTitle.textContent = `${title}${subtitle ? ` — ${subtitle}` : ""}`;
+    fullTitle.textContent = `${title}${subtitle ? ` — ${subtitle} resources` : ""}`;
     group.append(fullTitle);
+    group.append(svgElement("circle", { r: radius + 13, class: "map-node-aura" }));
     group.append(svgElement("circle", { r: radius + (selected ? 5 : 0), class: "map-node-halo" }));
     group.append(svgElement("circle", { r: radius - 5, class: "map-node-core" }));
-    addText(group, title, {
-      maximumLength: dimensions === MOBILE ? (radius > 45 ? 15 : 11) : (radius > 70 ? 22 : 17),
-      maximumLines: 3,
-      lineHeight: dimensions === MOBILE ? 7 : 8,
-      y: subtitle ? -6 : 4,
-    });
+    const icon = svgElement("text", { class: "map-node-glyph", "text-anchor": "middle", x: 0, y: subtitle ? 4 : 7 });
+    icon.textContent = glyph || stableGlyph(title);
+    group.append(icon);
     if (subtitle) {
-      const detailText = svgElement("text", { class: "map-node-detail", "text-anchor": "middle", x: 0, y: radius > 70 ? 34 : radius - 13 });
+      const detailText = svgElement("text", { class: "map-node-count", "text-anchor": "middle", x: 0, y: radius - (dimensions === MOBILE ? 8 : 10) });
       detailText.textContent = subtitle;
       group.append(detailText);
     }
@@ -214,53 +206,85 @@ export function createMindMap({
     stage.append(group);
   }
 
-  function positions(count) {
+  function radiusForItem(item, items) {
+    const mobile = dimensions === MOBILE;
+    const minimum = mobile ? (items.length > 14 ? 24 : 28) : (items.length > 15 ? 37 : 42);
+    const maximum = mobile ? (items.length > 14 ? 37 : 43) : (items.length > 15 ? 58 : 68);
+    const values = items.map((candidate) => Math.log1p(candidate.count || 1));
+    const low = Math.min(...values);
+    const high = Math.max(...values);
+    const ratio = high === low ? 0.5 : (Math.log1p(item.count || 1) - low) / (high - low);
+    return minimum + Math.sqrt(Math.max(0, ratio)) * (maximum - minimum);
+  }
+
+  function positions(items, rootRadius) {
     const mobile = dimensions === MOBILE;
     const centerX = dimensions.width / 2;
     const centerY = dimensions.height / 2;
-    if (count <= (mobile ? 7 : 9)) {
-      const radiusX = mobile ? 142 : 430;
-      const radiusY = mobile ? 218 : 270;
-      return Array.from({ length: count }, (_, index) => ({
-        x: centerX + Math.cos(-Math.PI / 2 + index / count * Math.PI * 2) * radiusX,
-        y: centerY + Math.sin(-Math.PI / 2 + index / count * Math.PI * 2) * radiusY,
-        ring: 0,
-      }));
-    }
-    const innerCount = Math.min(mobile ? 6 : 7, Math.max(4, Math.round(count * 0.36)));
-    const outerCount = count - innerCount;
-    return Array.from({ length: count }, (_, index) => {
-      const inner = index < innerCount;
-      const ringIndex = inner ? index : index - innerCount;
-      const ringTotal = inner ? innerCount : outerCount;
-      const radiusX = mobile ? (inner ? 82 : 145) : (inner ? 245 : 495);
-      const radiusY = mobile ? (inner ? 118 : 224) : (inner ? 165 : 288);
-      const offset = inner ? 0.12 : 0;
-      const angle = -Math.PI / 2 + ringIndex / ringTotal * Math.PI * 2 + offset;
-      return { x: centerX + Math.cos(angle) * radiusX, y: centerY + Math.sin(angle) * radiusY, ring: inner ? 0 : 1 };
+    const horizontalRange = mobile ? 142 : 505;
+    const verticalRange = mobile ? 218 : 286;
+    const gap = mobile ? 10 : 19;
+    const points = items.map((item, index) => {
+      const radius = radiusForItem(item, items);
+      const angle = -Math.PI / 2 + index * GOLDEN_ANGLE;
+      const orbit = items.length <= 8 ? 0.9 : 0.58 + 0.42 * Math.sqrt((index + 0.65) / items.length);
+      const x = centerX + Math.cos(angle) * horizontalRange * orbit;
+      const y = centerY + Math.sin(angle) * verticalRange * orbit;
+      return { x, y, anchorX: x, anchorY: y, radius };
     });
-  }
 
-  function addOrbits(points, color) {
-    const rings = new Set(points.map((point) => point.ring));
-    for (const ring of rings) {
-      const mobile = dimensions === MOBILE;
-      const multiple = rings.size > 1;
-      const rx = mobile ? (multiple ? (ring === 0 ? 82 : 145) : 142) : (multiple ? (ring === 0 ? 245 : 495) : 430);
-      const ry = mobile ? (multiple ? (ring === 0 ? 118 : 224) : 218) : (multiple ? (ring === 0 ? 165 : 288) : 270);
-      stage.append(svgElement("ellipse", { cx: dimensions.width / 2, cy: dimensions.height / 2, rx, ry, class: "map-orbit", style: `--edge-color:${color}` }));
+    for (let iteration = 0; iteration < 180; iteration += 1) {
+      const attraction = iteration < 80 ? 0.022 : 0.01;
+      for (const point of points) {
+        point.x += (point.anchorX - point.x) * attraction;
+        point.y += (point.anchorY - point.y) * attraction;
+        const fromRootX = point.x - centerX;
+        const fromRootY = point.y - centerY;
+        const rootDistance = Math.hypot(fromRootX, fromRootY) || 1;
+        const rootMinimum = rootRadius + point.radius + gap + (mobile ? 4 : 9);
+        if (rootDistance < rootMinimum) {
+          const push = rootMinimum - rootDistance;
+          point.x += fromRootX / rootDistance * push;
+          point.y += fromRootY / rootDistance * push;
+        }
+      }
+      for (let first = 0; first < points.length; first += 1) {
+        for (let second = first + 1; second < points.length; second += 1) {
+          const a = points[first];
+          const b = points[second];
+          let dx = b.x - a.x;
+          let dy = b.y - a.y;
+          let distance = Math.hypot(dx, dy);
+          if (!distance) { dx = 0.01; dy = 0.01; distance = Math.hypot(dx, dy); }
+          const minimum = a.radius + b.radius + gap;
+          if (distance >= minimum) continue;
+          const push = (minimum - distance) / 2;
+          a.x -= dx / distance * push;
+          a.y -= dy / distance * push;
+          b.x += dx / distance * push;
+          b.y += dy / distance * push;
+        }
+      }
+      for (const point of points) {
+        const margin = mobile ? 8 : 22;
+        point.x = Math.max(point.radius + margin, Math.min(dimensions.width - point.radius - margin, point.x));
+        point.y = Math.max(point.radius + margin, Math.min(dimensions.height - point.radius - margin, point.y));
+      }
     }
+    return points;
   }
 
   function renderChildren(items, root, itemAction) {
-    const points = positions(items.length);
-    addOrbits(points, root.color);
+    const rootRadius = dimensions === MOBILE ? 54 : 80;
+    const points = positions(items, rootRadius);
+    stage.append(svgElement("ellipse", { cx: dimensions.width / 2, cy: dimensions.height / 2, rx: dimensions === MOBILE ? 146 : 515, ry: dimensions === MOBILE ? 224 : 296, class: "map-orbit map-orbit-outer", style: `--edge-color:${root.color}` }));
+    stage.append(svgElement("circle", { cx: dimensions.width / 2, cy: dimensions.height / 2, r: rootRadius + (dimensions === MOBILE ? 19 : 28), class: "map-pack-core", style: `--edge-color:${root.color}` }));
     items.forEach((item, index) => {
       const point = points[index];
-      edge(dimensions.width / 2, dimensions.height / 2, point.x, point.y, root.color, index);
-      const radius = dimensions === MOBILE ? (items.length > 12 ? 27 : 32) : (items.length > 14 ? 41 : 48);
+      edge(dimensions.width / 2, dimensions.height / 2, rootRadius, point.x, point.y, point.radius, root.color, index);
       node({
-        x: point.x, y: point.y, radius, title: item.title, subtitle: `${item.count.toLocaleString()}`,
+        x: point.x, y: point.y, radius: point.radius, title: item.title, subtitle: `${item.count.toLocaleString()}`,
+        glyph: item.glyph || stableGlyph(item.title, root.glyph),
         color: root.color, className: item.className, selected: item.selected, index,
         action: () => itemAction(item), detailItem: item.detail,
       });
@@ -293,11 +317,11 @@ export function createMindMap({
       return;
     }
     if (section) {
-      showDetail({ kicker: group?.slug ? group.title : category.title, glyph: category.glyph, color: category.color, title: section.title, description: `A focused topic within ${group?.slug ? `${group.title}, part of ` : ""}${category.title}.`, count: section.count, branches: 1, action: browseCurrent, actionLabel: `View ${section.count.toLocaleString()} resources ` });
+      showDetail({ kicker: group?.slug ? group.title : category.title, glyph: stableGlyph(section.title, category.glyph), color: category.color, title: section.title, description: `A focused topic within ${group?.slug ? `${group.title}, part of ` : ""}${category.title}.`, count: section.count, branches: 1, action: browseCurrent, actionLabel: `View ${section.count.toLocaleString()} resources ` });
       return;
     }
     if (group?.slug) {
-      showDetail({ kicker: category.title, glyph: category.glyph, color: category.color, title: group.title, description: `A focused subcollection inside ${category.title}, organized into ${group.sections.length.toLocaleString()} topics.`, count: group.count, branches: group.sections.length, action: browseCurrent, actionLabel: `View all ${group.count.toLocaleString()} resources ` });
+      showDetail({ kicker: category.title, glyph: stableGlyph(group.title, category.glyph), color: category.color, title: group.title, description: `A focused subcollection inside ${category.title}, organized into ${group.sections.length.toLocaleString()} topics.`, count: group.count, branches: group.sections.length, action: browseCurrent, actionLabel: `View all ${group.count.toLocaleString()} resources ` });
       return;
     }
     showDetail({ kicker: "Collection", glyph: category.glyph, color: category.color, title: category.title, description: category.description, count: category.count, branches: category.groups.length > 1 ? category.groups.length : category.sections.length, action: browseCurrent, actionLabel: `View all ${category.count.toLocaleString()} resources ` });
@@ -310,7 +334,7 @@ export function createMindMap({
       detail: { kicker: "Collection", glyph: category.glyph, color: category.color, title: category.title, description: category.description, count: category.count, branches: category.groups.length > 1 ? category.groups.length : category.sections.length, action: () => applySelection({ categorySlug: category.slug }, { emit: true }), actionLabel: "Open this collection " },
     }));
     renderChildren(items, { color: "#d1459f" }, (category) => applySelection({ categorySlug: category.slug }, { emit: true }));
-    node({ x: dimensions.width / 2, y: dimensions.height / 2, radius: dimensions === MOBILE ? 58 : 92, title: "akashic", subtitle: `${catalog.resourceCount.toLocaleString()} resources`, color: "#d1459f", className: "map-root-node" });
+    node({ x: dimensions.width / 2, y: dimensions.height / 2, radius: dimensions === MOBILE ? 54 : 80, title: "akashic", subtitle: `${catalog.resourceCount.toLocaleString()}`, glyph: "∞", color: "#d1459f", className: "map-root-node" });
     status.textContent = `${catalog.categories.length} collections orbit akashic. Select one to reveal its branches.`;
   }
 
@@ -320,13 +344,15 @@ export function createMindMap({
     const children = showingGroups ? category.groups : (group?.sections || category.sections);
     const items = children.map((item) => {
       const selected = !showingGroups && item.title === selection.section;
+      const glyph = stableGlyph(item.title, category.glyph);
       return {
         ...item,
+        glyph,
         selected,
         className: showingGroups ? "map-group-node" : "map-section-node",
         detail: showingGroups
-          ? { kicker: category.title, glyph: category.glyph, color: category.color, title: item.title, description: `A ${item.sections.length.toLocaleString()}-topic branch inside ${category.title}.`, count: item.count, branches: item.sections.length, action: () => applySelection({ categorySlug: category.slug, groupSlug: item.slug }, { emit: true }), actionLabel: "Open this branch " }
-          : { kicker: group?.slug ? group.title : category.title, glyph: category.glyph, color: category.color, title: item.title, description: `A focused topic within ${category.title}.`, count: item.count, branches: 1, action: () => applySelection({ categorySlug: category.slug, groupSlug: group?.slug || "", section: item.title }, { emit: true, browse: true }), actionLabel: `View ${item.count.toLocaleString()} resources ` },
+          ? { kicker: category.title, glyph, color: category.color, title: item.title, description: `A ${item.sections.length.toLocaleString()}-topic branch inside ${category.title}.`, count: item.count, branches: item.sections.length, action: () => applySelection({ categorySlug: category.slug, groupSlug: item.slug }, { emit: true }), actionLabel: "Open this branch " }
+          : { kicker: group?.slug ? group.title : category.title, glyph, color: category.color, title: item.title, description: `A focused topic within ${category.title}.`, count: item.count, branches: 1, action: () => applySelection({ categorySlug: category.slug, groupSlug: group?.slug || "", section: item.title }, { emit: true, browse: true }), actionLabel: `View ${item.count.toLocaleString()} resources ` },
       };
     });
     renderChildren(items, category, (item) => {
@@ -335,7 +361,7 @@ export function createMindMap({
     });
     const rootTitle = group?.slug ? group.title : category.title;
     const rootCount = group?.slug ? group.count : category.count;
-    node({ x: dimensions.width / 2, y: dimensions.height / 2, radius: dimensions === MOBILE ? 62 : 100, title: rootTitle, subtitle: `${rootCount.toLocaleString()} resources`, color: category.color, className: "map-root-node", action: browseRoot, detailItem: { title: rootTitle, count: rootCount, branches: children.length, color: category.color, glyph: category.glyph } });
+    node({ x: dimensions.width / 2, y: dimensions.height / 2, radius: dimensions === MOBILE ? 56 : 82, title: rootTitle, subtitle: `${rootCount.toLocaleString()}`, glyph: group?.slug ? stableGlyph(group.title, category.glyph) : category.glyph, color: category.color, className: "map-root-node", action: browseRoot, detailItem: { title: rootTitle, count: rootCount, branches: children.length, color: category.color, glyph: group?.slug ? stableGlyph(group.title, category.glyph) : category.glyph } });
     status.textContent = showingGroups ? `${category.title} contains ${children.length} subcollections. Choose one to reveal every topic.` : `${rootTitle} contains ${children.length} topics. Select one to explore its resources.`;
   }
 
@@ -403,11 +429,14 @@ export function createMindMap({
       const isGroup = category && category.groups.length > 1 && !selection.groupSlug;
       const button = document.createElement("button");
       button.type = "button";
+      const icon = document.createElement("i");
+      icon.setAttribute("aria-hidden", "true");
+      icon.textContent = isCategory ? item.glyph : stableGlyph(item.title, category?.glyph);
       const title = document.createElement("span");
       title.textContent = item.title;
       const count = document.createElement("b");
       count.textContent = item.count.toLocaleString();
-      button.append(title, count);
+      button.append(icon, title, count);
       if (!isCategory && !isGroup && selection.section === item.title) button.setAttribute("aria-pressed", "true");
       button.addEventListener("click", (event) => {
         if (isCategory) applySelection({ categorySlug: item.slug }, { emit: true });

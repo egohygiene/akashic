@@ -447,5 +447,5 @@ async function initialize() {
 initialize().catch((error) => {
   console.error(error);
   elements.summary.textContent = "The catalog could not be loaded. Please try again shortly.";
-  elements.collections.innerHTML = '<div class="load-error"><strong>The constellation is temporarily unavailable.</strong><p>You can still browse the complete collection on <a href="https://github.com/egohygiene/awesome">GitHub</a>.</p></div>';
+  elements.collections.innerHTML = '<div class="load-error"><strong>The constellation is temporarily unavailable.</strong><p>You can still browse the complete collection on <a href="https://github.com/egohygiene/akashic">GitHub</a>.</p></div>';
 });
