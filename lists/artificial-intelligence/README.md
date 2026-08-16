@@ -12,6 +12,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Agents and Developer Tools](#agents-and-developer-tools)
 - [Evaluation and Safety](#evaluation-and-safety)
 - [Frameworks and Organizations](#frameworks-and-organizations)
+- [Learning and Prompt Engineering](#learning-and-prompt-engineering)
 - [Memory and Context](#memory-and-context)
 - [Models and Providers](#models-and-providers)
 - [Research](#research)
@@ -44,6 +45,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Agentic](https://github.com/Cluster444/agentic) - Workflow tool for OpenCode that supplies structured context engineering, planning, memory, and project commands.
 - [AI Coding Agents Configuration](https://github.com/jjmartres/ai-coding-agents) - Shared source of truth for skills, commands, rules, and configuration across OpenCode and Pi coding agents.
 - [Awesome GitHub Copilot](https://awesome-copilot.github.com/) - Official community catalog of Copilot instructions, prompts, agents, skills, hooks, and reusable development configurations.
+- [Awesome GPTs](https://awesomegpt.vip/) - Community-curated directory of custom GPTs and open prompt collections across academic, writing, education, programming, image, and general tasks.
 - [Awesome Harness Engineering](https://github.com/ai-boost/awesome-harness-engineering) - Curated collection of agent-harness tools and resources spanning memory, permissions, MCP, evaluation, observability, and orchestration.
 - [Awesome OpenCode](https://github.com/awesome-opencode/awesome-opencode) - Curated collection of OpenCode plugins, themes, agents, projects, tooling, and learning resources.
 - [CLI-Anything Hub](https://clianything.cc/) - Registry and installer for agent-friendly command-line interfaces that expose applications, services, and creative tools to automation.
@@ -86,6 +88,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 - [DeepTeam](https://www.helpnetsecurity.com/2025/11/26/deepteam-open-source-llm-red-teaming-framework/) - Overview of an open-source framework for red-teaming LLM applications against prompt injection and other adversarial behaviors.
 - [Langfuse](https://langfuse.com/) - Open-source LLM engineering platform for traces, prompt management, evaluation, datasets, metrics, and collaborative debugging.
+- [Promptfoo](https://www.promptfoo.dev/) - Open-source toolkit for testing prompts and model outputs, comparing providers, automating evaluations, and red-teaming AI applications.
 - [Qualifire](https://qualifire.ai/) - LLM reliability control plane combining evaluations, observability, policy enforcement, guardrails, prompt management, and data curation.
 
 ## Frameworks and Organizations
@@ -100,6 +103,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [DocsGPT Cloud](https://app.docsgpt.cloud/) - Hosted DocsGPT workspace for chatting with documents and building source-grounded assistants over uploaded knowledge.
 - [FLAML](https://github.com/microsoft/FLAML) - Lightweight library for automated machine learning and efficient LLM workflow optimization.
 - [HumanSignal](https://github.com/HumanSignal) - Open-source organization behind Label Studio and related data-labeling integrations, SDKs, and examples.
+- [IBM](https://www.ibm.com/) - Global technology portal connecting IBM products, documentation, research, open-source work, learning, support, and developments in AI, quantum computing, and hybrid cloud.
 - [Imagen PyTorch](https://github.com/lucidrains/imagen-pytorch) - PyTorch implementation of Google's text-to-image Imagen architecture for research and experimentation.
 - [imaginAIry](https://github.com/brycedrennan/imaginAIry) - Python toolkit for image generation, editing, captioning, and enhancement with open models.
 - [IOPaint](https://www.iopaint.com/) - Open-source image inpainting and editing application with object removal, replacement, outpainting, and model plugins.
@@ -121,6 +125,14 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Rasa](https://github.com/RasaHQ) - Open-source organization developing conversational AI and agent infrastructure.
 - [Replicate Cog](https://github.com/replicate/cog) - Tool for packaging machine-learning models in reproducible containers with a predictable API.
 - [Replicate](https://github.com/replicate) - Open-source organization for Cog, model packaging, inference tooling, examples, and related machine-learning infrastructure.
+
+## Learning and Prompt Engineering
+
+- [Anthropic Prompt Engineering](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) - Official guidance for defining success criteria, building evaluations, and improving prompts for Claude with current best practices and tutorials.
+- [Google Prompt Design Strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies) - Official Gemini guide to clear instructions, examples, context, constraints, response formats, decomposition, and iterative prompt design.
+- [Learn Prompting](https://learnprompting.org/docs/introduction) - Free, structured curriculum covering generative-AI fundamentals, prompt engineering, reliability, security, agents, and applied techniques.
+- [OpenAI Cookbook](https://cookbook.openai.com/) - Official collection of practical examples, guides, and reusable patterns for building with OpenAI models and APIs.
+- [Prompt Engineering Guide](https://www.promptingguide.ai/) - Broad open guide to prompting techniques, agents, retrieval, model-specific practices, risks, research papers, tools, and datasets.
 
 ## Memory and Context
 

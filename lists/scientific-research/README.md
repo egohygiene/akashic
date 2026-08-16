@@ -2,7 +2,7 @@
 
 # Awesome Scientific Research [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Animal health, scientific data, open science organizations, scientific computing, and scholarly publishing.
+> Animal health, scientific data, geospatial and LiDAR resources, open science organizations, scientific computing, and scholarly publishing.
 
 Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
@@ -10,6 +10,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 - [Animal Health and Welfare](#animal-health-and-welfare)
 - [Data and Literature](#data-and-literature)
+- [Geospatial Data, Mapping, and LiDAR](#geospatial-data-mapping-and-lidar)
 - [Organizations and Open Science](#organizations-and-open-science)
 - [Scientific Computing](#scientific-computing)
 - [Scholarly Publishing](#scholarly-publishing)
@@ -45,6 +46,25 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Shared Google Colab Notebook](https://colab.research.google.com/drive/1_fOv3dDiEq-0HvU5g6IY7Omv24ApgQ-8) - Saved cloud notebook whose title and contents depend on the owner's sharing permissions.
 - [UCI Machine Learning Repository](https://archive.ics.uci.edu/) - Long-running repository of datasets used for machine-learning education, benchmarking, and empirical research.
 - [Veterinary Clinics of North America: Small Animal Practice](https://www.sciencedirect.com/journal/veterinary-clinics-of-north-america-small-animal-practice) - Peer-reviewed veterinary review journal focused on clinical care for small animals.
+
+## Geospatial Data, Mapping, and LiDAR
+
+- [CloudCompare](https://www.cloudcompare.org/) - Open-source desktop software for visualizing, comparing, registering, segmenting, and analyzing three-dimensional point clouds and meshes.
+- [Copernicus Data Space Ecosystem](https://dataspace.copernicus.eu/) - Free access to European Union Sentinel Earth-observation data, browser exploration, APIs, notebooks, and cloud processing services.
+- [GDAL](https://gdal.org/) - Open-source translation and processing library and command-line toolkit for raster and vector geospatial formats.
+- [GRASS](https://grass.osgeo.org/) - Open-source GIS with hundreds of modules for raster, vector, three-dimensional, temporal, image-processing, and spatial-modeling workflows.
+- [Natural Earth](https://www.naturalearthdata.com/) - Public-domain vector and raster map data prepared at small global scales for cartography and GIS projects.
+- [NOAA Digital Coast Data](https://coast.noaa.gov/digitalcoast/data/home.html) - Searches and downloads United States coastal elevation, imagery, land-cover, climate, habitat, socioeconomic, and ocean datasets.
+- [Open LiDAR Toolbox](https://stefaneichert.github.io/OpenLidarToolbox/) - Open-source QGIS plugin for turning airborne LAS or LAZ point clouds into classified terrain products and archaeological visualizations.
+- [OpenDroneMap](https://opendronemap.org/) - Open-source ecosystem for converting aerial imagery into maps, orthophotos, point clouds, meshes, and digital elevation models.
+- [OpenLiDAR](https://github.com/patriciogonzalezvivo/OpenLiDAR) - Experimental open-hardware and software design for building a rotating three-dimensional LiDAR scanner; review its older components before reuse.
+- [OpenStreetMap](https://www.openstreetmap.org/) - Community-maintained, openly licensed global geographic database for maps, analysis, routing, and humanitarian work.
+- [OpenTopography](https://opentopography.org/) - NSF-supported portal for discovering, processing, visualizing, and accessing high-resolution LiDAR and global topographic data.
+- [OPENGIS.ch](https://www.opengis.ch/) - Swiss open-geospatial engineering organization contributing to QGIS and QField while publishing project, training, and ecosystem resources.
+- [Overture Maps Foundation](https://overturemaps.org/) - Collaborative foundation publishing interoperable open map data, schemas, stable entity identifiers, documentation, and releases.
+- [PDAL](https://pdal.io/en/stable/) - Open-source C++ library, command-line toolkit, and Python interface for translating and processing LiDAR and other point-cloud data.
+- [QField](https://qfield.org/) - Open-source mobile fieldwork application for collecting, editing, validating, and synchronizing geospatial data with QGIS projects.
+- [USGS LidarExplorer](https://www.usgs.gov/tools/lidarexplorer) - Official browser application for searching, visualizing, cloud-processing, and downloading United States 3DEP LiDAR and elevation products.
 
 ## Organizations and Open Science
 
