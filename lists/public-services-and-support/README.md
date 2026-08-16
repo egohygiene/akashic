@@ -23,6 +23,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Findhelp](https://www.findhelp.org/) - Searchable directory of free and reduced-cost local programs for food, housing, health care, employment, legal help, and other needs.
 - [HUD](https://www.hud.gov/) - Official U.S. Department of Housing and Urban Development portal for housing assistance, counseling, fair-housing rights, and program information.
 - [Massachusetts DTA Policy Online](https://dtapolicyguide.qa.eohhs.mass.gov/index.htm) - Searchable policy manual for Massachusetts Department of Transitional Assistance benefit programs and eligibility rules.
+- [Massachusetts MyServices](https://myservices.mass.gov/) - Official portal for managing MassHealth and economic-assistance information, checking possible eligibility, applying, and scheduling support appointments.
 - [Massachusetts SNAP Asset Policy](https://dtapolicyguide.qa.eohhs.mass.gov/SNAP/Eligibility/Assets_SNAPGuide.htm) - Massachusetts policy guidance covering how assets affect Supplemental Nutrition Assistance Program eligibility.
 - [TEFAP](https://www.fns.usda.gov/tefap/emergency-food-assistance-program) - USDA overview of the Emergency Food Assistance Program, which distributes federally purchased food through state and local agencies.
 - [USA.gov Emergency Food Assistance](https://www.usa.gov/emergency-food-assistance) - Official guide to immediate food help, food banks, meal programs, and longer-term nutrition benefits.
@@ -42,8 +43,14 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 ## Consumer and Transportation Safety
 
 - [Consumer Product Safety Commission](https://www.cpsc.gov/) - Federal product-safety agency providing recall notices, incident reporting, safety standards, and consumer guidance.
+- [Consumer.gov](https://consumer.gov/) - Plain-language Federal Trade Commission guidance on money, credit, debt, education, vehicles, scams, and identity theft.
+- [MarineTraffic](https://marinetraffic.com/) - Freemium vessel-tracking service combining terrestrial and satellite AIS positions, port activity, voyage details, and maritime intelligence.
 - [NHTSA Recalls](https://www.nhtsa.gov/recalls) - Official lookup for vehicle, tire, car-seat, and equipment safety recalls using a VIN or product information.
+- [ReportFraud.ftc.gov](https://reportfraud.ftc.gov/) - Official Federal Trade Commission portal for reporting scams, fraud, and deceptive business practices and receiving next-step guidance.
 - [SAVE](https://www.save.com/) - Local coupon and circular platform for finding retailer promotions and managing delivery preferences.
+- [Take It Down](https://takeitdown.ftc.gov/) - Official Federal Trade Commission portal for reporting platform failures to remove non-consensual intimate images under applicable United States law.
+- [VesselFinder](https://www.vesselfinder.com/) - Tracks ships, voyage histories, port calls, schedules, fleet data, and AIS positions through free and paid services.
+- [WikiRoutes](https://wikiroutes.info/) - Community-edited public-transport route directory with stops, maps, schedules, and service information across many cities and countries.
 
 ## Debt, Finance, and Taxes
 
@@ -69,22 +76,37 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 ## Government, Civics, and Culture
 
 - [ACLU](https://www.aclu.org/) - Nonprofit civil-liberties organization combining litigation, advocacy, education, and nationwide affiliate work.
+- [Canada.ca](https://www.canada.ca/en.html) - Official Government of Canada gateway to benefits, taxes, immigration, jobs, travel, health, public safety, and departmental services.
+- [European Commission](https://commission.europa.eu/index_en) - Official European Commission gateway to policies, laws, funding, consultations, departments, news, and public services.
+- [Legal Services Corporation](https://www.lsc.gov/) - Finds locally funded civil legal-aid organizations and explains free legal help for eligible low-income people in the United States.
 - [Library of Congress](https://www.loc.gov/) - U.S. national library providing digitized collections, research services, legislative information, preservation programs, and cultural resources.
 - [Meeting Your Elected Representatives](https://www.aclu.org/meeting-your-elected-representatives) - ACLU guide to requesting, preparing for, conducting, and following up after a meeting with elected officials.
+- [myGov Australia](https://my.gov.au/en) - Official Australian account and service gateway connecting Medicare, Centrelink, tax, employment, disability, veteran, and other government services.
 - [National Endowment for the Arts](https://www.arts.gov/) - Independent federal agency supporting arts participation, grants, research, creative placemaking, and cultural programs.
+- [OCCRP](https://www.occrp.org/) - Nonprofit investigative-journalism network publishing cross-border reporting, data, and tools on organized crime and corruption.
 - [Peace Corps](https://www.peacecorps.gov/) - Federal service program placing volunteers with international communities and supporting returned-volunteer resources and careers.
+- [U.S. Department of Commerce](https://www.commerce.gov/) - Official gateway to United States programs and agencies supporting economic data, trade, patents, telecommunications, weather, standards, and business.
 - [USA.gov Elected Officials Directory](https://www.usa.gov/elected-officials) - Official directory for finding federal, state, and local elected representatives and their contact information.
 
 ## Health Care and Medication
 
+- [American Association of Naturopathic Physicians](https://naturopathic.org/) - Professional association directory and educational resource for licensed naturopathic physicians; verify licensure, evidence, and insurance coverage independently.
 - [CMS FQHC Information Center](https://www.cms.gov/fqhc-information-center) - CMS reference for Medicare payment, billing, enrollment, policy, and educational materials for Federally Qualified Health Centers.
 - [FQHC Associates](https://www.fqhc.org/) - Consulting and educational resource focused on Federally Qualified Health Center operations, compliance, grants, and development.
+- [Health Resources and Services Administration](https://www.hrsa.gov/) - Connects people with federally funded health centers, maternal and rural health programs, HIV care, workforce support, and low-cost services.
 - [HealthCare.gov FQHC Glossary](https://www.healthcare.gov/glossary/federally-qualified-health-center-fqhc/) - Plain-language definition of Federally Qualified Health Centers and their role in providing community care.
 - [HRSA Find a Health Center](https://findahealthcenter.hrsa.gov/) - Official locator for federally funded health centers that provide primary care with fees adjusted according to income.
+- [Johns Hopkins Medicine](https://www.hopkinsmedicine.org/) - Patient-care gateway and evidence-based health reference with clinicians, locations, appointments, trials, financial assistance, and research information.
+- [MAHIX Individual Coverage](https://www.mahix.org/individual/) - Massachusetts individual health-insurance information and enrollment resource; verify current plan eligibility, network, and costs before applying.
+- [Massachusetts Health Connector](https://www.mahealthconnector.org/) - Official Massachusetts marketplace for comparing and enrolling in health and dental coverage and checking financial-assistance eligibility.
+- [MyBILH Chart](https://mychart.bilh.org/) - Secure patient portal for Beth Israel Lahey Health records, appointments, messages, test results, refills, and billing.
 - [NACHC Community Health Center Guide](https://www.nachc.org/community-health-centers/what-is-a-health-center/) - Overview of community health centers, their services, governance, patients, funding, and impact.
 - [NeedyMeds](https://www.needymeds.org/) - Nonprofit information resource for medication assistance programs, low-cost clinics, coupons, diagnosis-based help, and related savings.
 - [NEXT Distro](https://nextdistro.org/) - Mail-based harm-reduction service offering naloxone, supplies, safer-use information, and support intended to reduce overdose and disease transmission.
+- [NHS](https://www.nhs.uk/) - Official United Kingdom health-service gateway for care, conditions, medicines, urgent help, appointments, records, and local services.
 - [RxAssist](https://www.rxassist.org/) - Database of pharmaceutical patient-assistance programs, eligibility information, application resources, and medication-access tools.
+- [Tufts Health Plan](https://tuftshealthplan.com/) - Member and plan information for commercial, Medicare, Medicaid, and Massachusetts public coverage administered by Point32Health.
+- [U.S. Department of Health and Human Services](https://www.hhs.gov/) - Official gateway to federal health agencies, programs, benefits, laws, civil-rights resources, public-health information, and services.
 - [USA.gov Health Insurance Marketplace](https://www.usa.gov/health-insurance-marketplace) - Official guide to Marketplace enrollment, eligibility, plan changes, subsidies, and state or federal application portals.
 - [USA.gov Help With Medical Bills](https://www.usa.gov/help-with-medical-bills) - Official guide to hospital financial assistance, medical-debt support, Medicaid, community clinics, and billing resources.
 - [USA.gov Mental Health Help](https://www.usa.gov/mental-health) - Official directory of crisis, treatment, insurance, veteran, youth, and disaster-related mental-health resources.

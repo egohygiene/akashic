@@ -27,29 +27,39 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [HackTricks Website Cloning Methodology](https://book.hacktricks.xyz/generic-methodologies-and-resources/phishing-methodology/clone-a-website) - Security-testing notes on reproducing websites for authorized phishing simulations and awareness exercises.
 - [Installing the Social-Engineer Toolkit on Ubuntu](https://askubuntu.com/questions/394141/how-to-install-social-engineering-toolkit) - Historical community Q&A about installing the penetration-testing toolkit on Ubuntu.
 - [iron-debian Post-Install Hardening](https://github.com/ironpeakservices/iron-debian/blob/master/post-install.sh) - Reference script for applying package, service, kernel, authentication, and auditing hardening to Debian systems.
-- [Metasploit](https://www.metasploit.com/) - Official project and product site for the Metasploit penetration-testing ecosystem.
 - [Metasploit Framework](https://github.com/rapid7/metasploit-framework) - Open-source penetration-testing framework and exploit-development platform.
+- [Metasploit](https://www.metasploit.com/) - Official project and product site for the Metasploit penetration-testing ecosystem.
 - [MISP](https://www.misp-project.org/) - Open-source platform for collecting, sharing, correlating, and analyzing threat intelligence.
+- [NIST Computer Security Resource Center](https://csrc.nist.gov/) - Authoritative NIST hub for cybersecurity publications, standards, frameworks, projects, glossaries, controls, and implementation resources.
+- [NIST SP 800-92](https://csrc.nist.gov/pubs/sp/800/92/final) - NIST guide to planning, deploying, operating, and maintaining computer-security log-management infrastructure and processes.
+- [NIST](https://nist.gov/) - United States standards and measurement agency publishing research, references, tools, calibration services, and technical guidance across science and industry.
 - [NopeCHA Extension](https://github.com/NopeCHALLC/nopecha-extension) - Browser extension and automation integration for recognizing and solving supported CAPTCHA challenges.
 - [Open Cybersecurity Alliance](https://opencybersecurityalliance.org/) - OASIS Open project building standards-based interfaces and reusable components for interoperable cybersecurity tools.
 - [OpenSCAP](https://www.open-scap.org/features/open-source-community/) - Open-source ecosystem implementing Security Content Automation Protocol compliance and vulnerability assessment.
 - [OpenVPN Community](https://openvpn.net/community/) - Community edition, source, documentation, and participation resources for OpenVPN.
-- [OWASP](https://owasp.org/) - Nonprofit foundation and global community improving application security through open projects and education.
 - [OWASP Dependency-Check Container Image](https://hub.docker.com/r/owasp/dependency-check) - Official container image for scanning application dependencies for publicly disclosed vulnerabilities.
+- [OWASP](https://owasp.org/) - Nonprofit foundation and global community improving application security through open projects and education.
 - [Privacy-Enhanced Mail](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) - Historical overview of the PEM standards for encrypted and authenticated email.
 - [Rapid7](https://github.com/rapid7) - Open-source organization behind security tools, libraries, vulnerability research, and Metasploit-related projects.
 - [Recog](https://github.com/rapid7/recog/) - Fingerprint database and recognition framework for identifying products, services, and operating systems from responses.
+- [RFC Editor](https://www.rfc-editor.org/) - Official archive, publication service, search interface, and errata system for the Internet Engineering Task Force's RFC series.
 - [Serus](https://www.serus.ai/) - Personal-data privacy service combining removal requests, surface and dark-web monitoring, alerts, and AI-assisted OSINT tools.
-- [Social-Engineer Toolkit](https://trustedsec.com/resources/tools/the-social-engineer-toolkit-set) - TrustedSec project for authorized social-engineering simulations, awareness exercises, and penetration-testing workflows.
 - [Social-Engineer Toolkit Guide](https://www.stationx.net/social-engineer-toolkit/) - Educational overview of the Social-Engineer Toolkit, its modules, and safe lab-oriented usage.
-- [TrustedSec](https://github.com/trustedsec) - Open-source security tools and research from the TrustedSec team.
+- [Social-Engineer Toolkit](https://trustedsec.com/resources/tools/the-social-engineer-toolkit-set) - TrustedSec project for authorized social-engineering simulations, awareness exercises, and penetration-testing workflows.
 - [TrustedSec Tools](https://trustedsec.com/resources?sections=tools) - Catalog of offensive-security, assessment, testing, and research tools released by TrustedSec.
+- [TrustedSec](https://github.com/trustedsec) - Open-source security tools and research from the TrustedSec team.
 - [Turbinia](https://github.com/google/turbinia) - Distributed digital-forensics platform that automates evidence processing across scalable worker infrastructure.
 - [Velociraptor](https://docs.velociraptor.app/) - Documentation for the open-source endpoint visibility, digital forensics, and incident-response platform.
 
 ## Privacy and Personal Data
 
 - [Block Ads](https://blockads.pwhs.app/) - Browser-based resource for reducing or blocking advertising and tracking exposure across supported environments.
+- [California Privacy Protection Agency](https://cppa.ca.gov/) - Official California privacy regulator with consumer rights, business obligations, rulemaking, enforcement, complaints, and public guidance.
+- [HHS HIPAA Cloud-Service-Provider Audit FAQ](https://www.hhs.gov/hipaa/for-professionals/faq/2084/do-the-hipaa-rules-require-csps-that-are-business-associates-to-provide-documentation-or-allow-auditing-of-their-security-practices-by-their-customers-who-are-covered-entities-or-business-associates/index.html) - Official answer on HIPAA documentation, assurance, and audit expectations between cloud service providers and covered entities or business associates.
+- [HHS HIPAA Cybersecurity Guidance](https://www.hhs.gov/hipaa/for-professionals/security/guidance/cybersecurity/index.html) - Official cybersecurity guidance and threat resources for organizations protecting electronic protected health information under HIPAA.
+- [HHS HIPAA Security Rule Guidance](https://www.hhs.gov/hipaa/for-professionals/security/guidance/index.html) - Official guidance on Security Rule risk analysis, safeguards, documentation, remote use, emergency access, and related compliance topics.
+- [ONC Health IT](https://healthit.gov) - Official United States hub for health-data interoperability, certification, privacy, security, information blocking, standards, research, and implementation tools.
+- [ONC Security Risk Assessment Tool](https://healthit.gov/privacy-security/security-risk-assessment-tool/) - Free desktop tool and guidance for health-care organizations assessing risks to electronic protected health information; it does not guarantee HIPAA compliance.
 - [SAVE Delivery Options](https://www.save.com/delivery-options) - Consumer controls for starting, stopping, or changing delivery of SAVE direct-mail advertising.
 - [Valpak Address Removal](https://www.valpak.com/remove-address) - Request form for removing an address from Valpak's mailed advertising-envelope distribution list.
 

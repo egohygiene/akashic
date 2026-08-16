@@ -43,6 +43,7 @@ Free search does not necessarily mean free full text. Verify AI-generated synthe
 - [ERIC](https://eric.ed.gov/) - Indexes education research, reports, journal articles, and policy literature through the United States Department of Education.
 - [Europe PMC](https://europepmc.org/) - Searches life-science articles, preprints, grants, patents, guidelines, citations, and available full text for free.
 - [NASA Astrophysics Data System](https://ui.adsabs.harvard.edu/) - Provides free literature and citation-network discovery for astronomy, physics, planetary science, and related fields.
+- [Patterns](https://www.cell.com/patterns/home) - Open-access Cell Press journal publishing data-science research, resources, perspectives, and cross-disciplinary applications.
 - [PhilPapers](https://philpapers.org/) - Maintains a free philosophy bibliography, repository, reading lists, author pages, and subject classifications.
 - [PubMed](https://pubmed.ncbi.nlm.nih.gov/) - Searches biomedical and life-science citations, abstracts, and linked full text through the National Library of Medicine.
 - [SciELO](https://www.scielo.org/) - Publishes and indexes open-access research with an emphasis on Latin America, Iberia, and the Global South.
@@ -117,19 +118,24 @@ Free search does not necessarily mean free full text. Verify AI-generated synthe
 
 ## Dataset Discovery and Repositories
 
+- [Berlin Open Data](https://daten.berlin.de/) - Official portal for discovering and reusing open datasets published by Berlin's government and public institutions.
 - [DataCite Commons](https://commons.datacite.org/) - Explores the open persistent-identifier graph connecting datasets, software, publications, people, organizations, and repositories.
 - [DataONE Search](https://search.dataone.org/data) - Provides free federated discovery for Earth, environmental, ecological, and related research data.
+- [datos.gob.mx](https://www.datos.gob.mx/) - Official Mexican open-data portal for discovering, downloading, and reusing datasets from federal public institutions.
 - [Dryad](https://datadryad.org/stash) - Publishes curated reusable data with persistent identifiers; discovery is free while deposits may cost.
 - [Figshare](https://figshare.com/) - Publishes datasets, figures, posters, code, presentations, and other outputs with DOIs through a freemium repository.
 - [Google Dataset Search](https://datasetsearch.research.google.com/) - Searches dataset metadata across government, academic, nonprofit, and commercial repositories for free.
 - [Harvard Dataverse](https://dataverse.harvard.edu/) - Publishes, cites, preserves, versions, and discovers research data through a free general repository.
 - [ICPSR](https://www.icpsr.umich.edu/) - Archives social and behavioral data, documentation, teaching datasets, and restricted-data services with mixed access.
+- [opendata.swiss](https://opendata.swiss/en) - Central Swiss government catalog for open datasets from federal, cantonal, municipal, and other public organizations.
+- [OpenML](https://www.openml.org/) - Open platform for sharing datasets, machine-learning tasks, runs, models, benchmarks, metadata, and reproducible experiments.
 - [re3data](https://www.re3data.org/) - Describes research-data repositories, policies, licenses, certifications, identifiers, and disciplinary coverage through an open registry.
 
 ## Protocols, Notebooks, and Reproducibility
 
 - [Binder](https://mybinder.org/) - Launches temporary reproducible computing environments from public version-controlled repositories through a free service.
 - [eLabFTW](https://www.elabftw.net/) - Provides a self-hostable electronic lab notebook with experiments, templates, inventory, timestamps, and team controls; managed hosting is paid.
+- [ESMira](https://esmira.kl.ac.at/) - Free decentralized open-source platform for anonymous experience-sampling, ambulatory-assessment, and ecological-momentary-assessment studies.
 - [Open Science Framework](https://osf.io/) - Organizes projects, files, collaborators, registrations, preregistrations, and preserved outputs through free open-source infrastructure.
 - [Project Jupyter](https://jupyter.org/) - Combines code, prose, equations, data, and visualizations in free open-source notebooks and computational environments.
 - [protocols.io](https://www.protocols.io/) - Creates, versions, discusses, and publicly shares stepwise laboratory and computational protocols through a freemium platform.

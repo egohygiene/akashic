@@ -40,8 +40,10 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Agents and Developer Tools
 
+- [Agenta](https://agenta.ai/) - Open-source LLM operations workspace for prompt management, evaluation, observability, human feedback, and production iteration.
 - [Agentic](https://github.com/Cluster444/agentic) - Workflow tool for OpenCode that supplies structured context engineering, planning, memory, and project commands.
 - [AI Coding Agents Configuration](https://github.com/jjmartres/ai-coding-agents) - Shared source of truth for skills, commands, rules, and configuration across OpenCode and Pi coding agents.
+- [Awesome GitHub Copilot](https://awesome-copilot.github.com/) - Official community catalog of Copilot instructions, prompts, agents, skills, hooks, and reusable development configurations.
 - [Awesome Harness Engineering](https://github.com/ai-boost/awesome-harness-engineering) - Curated collection of agent-harness tools and resources spanning memory, permissions, MCP, evaluation, observability, and orchestration.
 - [Awesome OpenCode](https://github.com/awesome-opencode/awesome-opencode) - Curated collection of OpenCode plugins, themes, agents, projects, tooling, and learning resources.
 - [CLI-Anything Hub](https://clianything.cc/) - Registry and installer for agent-friendly command-line interfaces that expose applications, services, and creative tools to automation.
@@ -50,8 +52,9 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Deep Agents Frontend with CopilotKit](https://dev.to/copilotkit/how-to-build-a-frontend-for-langchain-deep-agents-with-copilotkit-52kd) - Tutorial for pairing a LangChain Deep Agent backend with a CopilotKit-based interactive frontend.
 - [exe.dev](https://exe.dev/) - API-first service providing durable, private, shareable virtual-machine sandboxes for developers and software agents.
 - [Fractal](https://github.com/plasma-ai/fractal) - Hierarchical agent-loop runtime that uses bounded recursive worktrees, local state, budgets, and operator controls for separable tasks.
+- [Gangsta Framework Source](https://github.com/kucherenko/gangsta) - Source repository for the Gangsta spec-driven agent-skills framework, including roles, phase gates, persistent memory, and installation tooling.
 - [GitHub Spec Kit](https://github.github.com/spec-kit/index.html) - Extensible, agent-agnostic harness for spec-driven development through structured specification, planning, task, and implementation phases.
-- [Herdr](https://github.com/herdrdev/herdr) - Open-source Rust runtime and terminal workspace for running, multiplexing, supervising, and remotely accessing coding-agent sessions.
+- [Herdr](https://herdr.dev/) - Runtime platform for deploying, isolating, observing, and scaling coding agents across repositories and development environments.
 - [Kiro Autonomous Agent](https://kiro.dev/blog/introducing-kiro-autonomous-agent/) - Introduction to Kiro's remotely running coding agent, including steering, pull-request workflows, and GitHub issue assignment.
 - [LangChain Deep Agents](https://docs.langchain.com/oss/python/deepagents/overview) - Batteries-included agent harness with planning, file-system context, subagents, long-term memory, and human-in-the-loop capabilities.
 - [Loop Engineering Toolkit](https://github.com/cobusgreyling/loop-engineering) - Practical patterns, starter assets, checklists, and CLI tools for designing and auditing iterative AI coding-agent loops.
@@ -61,9 +64,9 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Ollama OpenCode Integration](https://docs.ollama.com/integrations/opencode) - Official guide to configuring OpenCode to run against local or remote models served by Ollama.
 - [Open SWE](https://www.langchain.com/blog/open-swe-an-open-source-framework-for-internal-coding-agents) - Overview of LangChain's open-source framework for repository-aware internal coding agents triggered from team workflows.
 - [OpenAgentsControl](https://github.com/darrenhinde/OpenAgentsControl) - Plan-first AI-agent framework with approval gates, testing, review, validation, and multi-language workflow support for OpenCode.
-- [OpenChamber](https://github.com/openchamber/openchamber) - Open-source desktop and web workspace for running, supervising, reviewing, and remotely steering OpenCode agent sessions.
 - [OpenChamber Documentation](https://docs.openchamber.dev/) - Documentation for installing, configuring, customizing, remotely accessing, and steering OpenCode through OpenChamber.
 - [OpenChamber Themes](https://docs.openchamber.dev/themes/) - Guide to installing and authoring custom JSON themes for the OpenChamber agent workspace.
+- [OpenChamber](https://github.com/openchamber/openchamber) - Open-source desktop and web workspace for running, supervising, reviewing, and remotely steering OpenCode agent sessions.
 - [OpenCode Agents](https://opencode.ai/docs/agents/) - Official reference for defining primary agents and subagents, model settings, tools, permissions, prompts, modes, and colors.
 - [OpenCode Cafe](https://www.opencode.cafe/) - Community marketplace for discovering and sharing OpenCode plugins, themes, commands, tools, hooks, and extensions.
 - [OpenCode Ecosystem](https://opencode.ai/docs/ecosystem/) - Official directory of community projects, plugins, applications, providers, and integrations built around OpenCode.
@@ -82,11 +85,13 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 ## Evaluation and Safety
 
 - [DeepTeam](https://www.helpnetsecurity.com/2025/11/26/deepteam-open-source-llm-red-teaming-framework/) - Overview of an open-source framework for red-teaming LLM applications against prompt injection and other adversarial behaviors.
+- [Langfuse](https://langfuse.com/) - Open-source LLM engineering platform for traces, prompt management, evaluation, datasets, metrics, and collaborative debugging.
 - [Qualifire](https://qualifire.ai/) - LLM reliability control plane combining evaluations, observability, policy enforcement, guardrails, prompt management, and data curation.
 
 ## Frameworks and Organizations
 
 - [AI SDK](https://ai-sdk.dev/) - Open-source, framework-agnostic TypeScript toolkit for multi-provider AI applications, agents, streaming, tools, and generative interfaces.
+- [Answer.AI](https://www.answer.ai/) - Practical AI research-and-development lab publishing open-source tools, education, policy analysis, and end-user research applications.
 - [AutoGluon](https://github.com/autogluon/autogluon) - AutoML toolkit for training and deploying accurate models across tabular, multimodal, and time-series data.
 - [Chunkr](https://github.com/lumina-ai-inc/chunkr) - Open-source document-intelligence service for layout analysis, OCR, and semantic chunking into RAG- and LLM-ready data.
 - [DeepPavlov](https://github.com/deeppavlov/DeepPavlov) - Open-source framework and model collection for conversational AI, natural-language processing, and deployable assistants.
@@ -114,8 +119,8 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [OpenProse](https://prose.md/) - Declarative language and runtime for defining durable AI-agent work as versioned Markdown contracts.
 - [PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP) - Natural-language-processing and large-model library built on PaddlePaddle with training, inference, and deployment tooling.
 - [Rasa](https://github.com/RasaHQ) - Open-source organization developing conversational AI and agent infrastructure.
-- [Replicate](https://github.com/replicate) - Open-source organization for Cog, model packaging, inference tooling, examples, and related machine-learning infrastructure.
 - [Replicate Cog](https://github.com/replicate/cog) - Tool for packaging machine-learning models in reproducible containers with a predictable API.
+- [Replicate](https://github.com/replicate) - Open-source organization for Cog, model packaging, inference tooling, examples, and related machine-learning infrastructure.
 
 ## Memory and Context
 

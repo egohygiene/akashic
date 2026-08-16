@@ -45,6 +45,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Guestbook App](https://github.com/Ikram-Maulana/guest-book) - Example guestbook built with Next.js, NextAuth, tRPC, Redis, Tailwind CSS, and the T3 stack.
 - [ImageMagick](https://github.com/imagemagick/imagemagick) - Comprehensive image-processing suite and libraries for converting, composing, and analyzing raster and vector formats.
 - [Jaeger](https://github.com/jaegertracing/jaeger) - Cloud-native distributed-tracing platform implementing OpenTelemetry and CNCF observability patterns.
+- [LibreTranslate](https://libretranslate.com/) - Free and open-source machine-translation API powered by open models, with hosted access and self-hosting support.
 - [librsvg](https://gitlab.gnome.org/GNOME/librsvg) - GNOME library and command-line tooling for rendering SVG content with Cairo.
 - [Matrix Synapse](https://github.com/matrix-org/synapse) - Matrix homeserver implementation for decentralized, federated real-time communication.
 - [Memento](https://github.com/ArtifexSoftware/memento) - C and C++ memory-debugging library that detects leaks, overruns, use-after-free, and double-free errors.
@@ -52,16 +53,16 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [next-sitemap](https://github.com/iamvishnusankar/next-sitemap) - Sitemap and robots.txt generator for Next.js applications.
 - [nilcons](https://github.com/nilcons/) - Open-source organization for presentation, editor, language, and developer-tool experiments.
 - [oneAPI Projects](https://github.com/oneapi-src) - Open-source organization for oneAPI programming models, performance libraries, compilers, and heterogeneous-computing tools.
-- [oneTBB](https://github.com/oneapi-src/oneTBB) - Cross-platform C++ library for task parallelism, concurrent containers, memory allocation, and flow graphs.
 - [oneTBB Linux Installation](https://www.intel.com/content/www/us/en/docs/onetbb/get-started-guide/2021-6/install-onetbb-on-linux-os.html) - Intel guide to installing oneAPI Threading Building Blocks packages on Linux.
+- [oneTBB](https://github.com/oneapi-src/oneTBB) - Cross-platform C++ library for task parallelism, concurrent containers, memory allocation, and flow graphs.
 - [Open Code Review](https://github.com/alibaba/open-code-review) - Alibaba's hybrid code-review system combining deterministic pipelines, language-specific rules, and LLM agents for line-level feedback.
 - [OpenEMR](https://github.com/openemr/openemr) - Open-source electronic health records and medical-practice management system.
 - [Pumpkin](https://pumpkinmc.org/) - High-performance, open-source Minecraft server implementation written in Rust for modern protocol and server experimentation.
 - [Pyodide](https://github.com/pyodide) - Python distribution for browsers and Node.js built on WebAssembly.
 - [QEMU](https://www.qemu.org/) - Open-source machine emulator and virtualizer supporting full-system emulation, user-mode execution, and hardware acceleration.
 - [Qt for Open Source Development](https://www.qt.io/development/download-open-source) - Qt downloads and guidance for choosing and complying with its open-source licenses.
-- [r-lib](https://github.com/r-lib) - R-focused organization maintaining reusable packages for development, testing, command-line interfaces, and package infrastructure.
 - [r-lib Actions](https://github.com/r-lib/actions) - Reusable GitHub Actions for testing, documenting, checking, and releasing R packages.
+- [r-lib](https://github.com/r-lib) - R-focused organization maintaining reusable packages for development, testing, command-line interfaces, and package infrastructure.
 - [Reflex](https://github.com/reflex-dev/reflex) - Python framework for building full-stack web applications with reactive user interfaces.
 - [Sentry](https://sentry.io/welcome/) - Application-monitoring platform for error tracking, performance diagnostics, logs, traces, profiling, and release health.
 - [SourceForge Mac Development Software](https://sourceforge.net/directory/software-development/mac/) - Directory of open-source developer tools and software-development projects available for macOS.
@@ -78,22 +79,28 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 - [Airbyte](https://github.com/airbytehq/airbyte) - Extensible data-integration platform for moving data between APIs, databases, warehouses, and lakes.
 - [Beanie ODM](https://github.com/BeanieODM/beanie) - Asynchronous Python object-document mapper for MongoDB built around Pydantic models and Motor or PyMongo.
+- [Chartbrew](https://chartbrew.com/) - Open-source dashboard builder that connects databases and APIs to live charts, filters, teams, embeds, and scheduled reports.
 - [Chroma](https://github.com/chroma-core/chroma) - Open-source embedding database for storing, indexing, and retrieving vector data in AI applications.
+- [CKAN](https://ckan.org/) - Open-source data-management system for publishing, cataloging, searching, federating, and accessing open datasets through portals and APIs.
+- [CollectiveAccess](https://collectiveaccess.org/) - Open-source collections-management and public-discovery software for museums, archives, libraries, and cultural organizations.
 - [Data Warehouse Systems](https://github.com/reitermarkus/data-warehouse-systems) - Course repository with dimensional-modeling exercises, ETL examples, schemas, and analytical database material.
 - [Databricks Community](https://community.databricks.com/) - Community forum for Databricks data engineering, analytics, machine learning, and platform questions.
+- [Datopian](https://www.datopian.com/) - Commercial open-data and CKAN consultancy providing portal development, data engineering, strategy, maintenance, and managed services.
 - [Elasticsearch](https://github.com/elastic) - Open-source organization behind Elasticsearch and related search, observability, and data tooling.
 - [GeoLite Databases](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data/) - MaxMind documentation and access information for free GeoLite IP geolocation and autonomous-system databases.
 - [Great Expectations](https://github.com/great-expectations) - Open-source organization behind tools for declarative data-quality validation, documentation, and pipeline checks.
 - [Investing Algorithm Framework](https://coding-kitties.github.io/investing-algorithm-framework/) - Documentation for a modular framework for researching, composing, and evaluating algorithmic-investing strategies.
+- [Link Digital](https://linkdigital.com.au/) - Commercial CKAN and open-data consultancy offering portal delivery, hosting, support, data services, and public-sector integrations.
 - [Loading SQLite Extensions with Homebrew](https://stackoverflow.com/questions/41994449/symbol-not-found-sqlite3-enable-load-extension-sqlite-installed-via-homebrew/60046923#60046923) - Community troubleshooting reference for Python SQLite extension-loading errors on macOS Homebrew installations.
 - [ODMantic](https://github.com/art049/odmantic) - Asynchronous MongoDB object-document mapper built around Python type hints and Pydantic models.
 - [OpenBB](https://openbb.co/pricing/) - Financial-data and analytics ecosystem with an open-source data platform plus hosted and self-managed workspace editions.
 - [OpenSearch](https://opensearch.org/) - Open-source search and analytics suite for indexing, querying, visualizing, and monitoring large datasets.
-- [pysqlite3](https://github.com/coleifer/pysqlite3) - Separately packaged fork of Python's SQLite bindings with support for linking newer SQLite releases.
 - [pysqlite3 on macOS](https://til.simonwillison.net/sqlite/pysqlite3-on-macos) - Practical note on compiling and installing a newer SQLite-backed Python module on macOS.
+- [pysqlite3](https://github.com/coleifer/pysqlite3) - Separately packaged fork of Python's SQLite bindings with support for linking newer SQLite releases.
 - [s3cmd](https://s3tools.org/s3cmd) - Command-line client for Amazon S3 and compatible object-storage services.
 - [SQLFluff](https://github.com/sqlfluff) - SQL linter and formatter organization supporting multiple dialects, templaters, plugins, and continuous integration.
 - [SQLModel](https://github.com/fastapi/sqlmodel) - Python library combining SQLAlchemy and Pydantic models for typed database applications.
+- [Synthbrew](https://synthbrew.com/) - Generates realistic synthetic data and mock APIs from schemas for development, demonstrations, testing, and privacy-conscious workflows.
 - [WorldMonitor](https://github.com/koala73/worldmonitor) - Open-source real-time intelligence dashboard combining news, geopolitical events, markets, infrastructure, and map-based situational awareness.
 - [YaFF](https://github.com/yandex/yaff) - High-performance C++ serialization library providing a zero-copy wire format that preserves Protobuf schemas and interoperability.
 
@@ -173,7 +180,9 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Web Capture and Community Features
 
+- [changedetection.io](https://changedetection.io/) - Open-source website-change monitor with selectors, browser steps, alerts, restock tracking, and hosted or self-managed deployment.
 - [ChatGPT Conversation Extractor](https://github.com/slyubarskiy/chatgpt-conversation-extractor) - Tool for converting ChatGPT JSON data exports into readable Markdown conversations and metadata.
+- [CommaFeed](https://www.commafeed.com/) - Open-source Google Reader-style RSS and Atom reader available as a hosted service or self-hosted application.
 - [GitHub `resolv.conf` Code Search](https://github.com/search?q=path%3A**%2Fresolv.conf&type=code&ref=advsearch) - Saved GitHub code search for real-world `resolv.conf` files across public repositories.
 - [GitHub Profile README Guestbook](https://gist.github.com/traumverloren/a7fa4c89c27fc3adedf1ff96b0514472) - Tutorial for building a nostalgic profile guestbook using a public GitHub Gist.
 - [GNU Wget Robot Exclusion](https://www.gnu.org/software/wget/manual/html_node/Robot-Exclusion.html) - GNU Wget manual section explaining robots.txt handling and crawler-exclusion behavior.

@@ -50,12 +50,14 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 - [Animals in NIH Research](https://grants.nih.gov/policy-and-compliance/policy-topics/air) - NIH policies and resources governing humane care, alternatives, and compliance for animals in funded research.
 - [Center for Open Science](https://www.cos.io/) - Nonprofit organization advancing transparent and reproducible research through infrastructure, policy, communities, and open-science practices.
+- [CSIRO](https://www.csiro.au/) - Australia's national science agency, spanning research programs, facilities, data, partnerships, education, careers, and commercialization.
+- [CWI](https://www.cwi.nl/en/) - Netherlands national research institute for mathematics and computer science, publishing projects, software, data, events, and opportunities.
 - [Open Bioinformatics Foundation](https://www.open-bio.org/) - Volunteer nonprofit supporting open-source bioinformatics projects, events, standards, and developer communities.
 - [Open Education Global](https://www.oeglobal.org/) - International member organization advancing open education, openly licensed resources, and collaborative learning practices.
 - [Open Energy Modelling Initiative](https://openmod-initiative.org/) - Community promoting open models, data, and practices for energy-system research.
 - [Open Science](https://en.wikipedia.org/wiki/Open_science) - Overview of practices that make scientific research, data, methods, and communication openly accessible.
-- [Project Gutenberg](https://en.wikipedia.org/wiki/Project_Gutenberg) - Historical overview of the volunteer project digitizing and freely distributing public-domain books.
 - [Project Gutenberg Library](https://gutenberg.org/) - Volunteer digital library providing free public-domain ebooks in reusable formats.
+- [Project Gutenberg](https://en.wikipedia.org/wiki/Project_Gutenberg) - Historical overview of the volunteer project digitizing and freely distributing public-domain books.
 - [Royal Veterinary College Research](https://www.rvc.ac.uk/research) - Research programs, centers, facilities, and publications from the Royal Veterinary College.
 - [World Small Animal Veterinary Association Guidelines](https://wsava.org/global-guidelines/) - Global clinical guidelines and professional resources for companion-animal veterinary care.
 

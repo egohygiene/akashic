@@ -204,14 +204,14 @@ kbd { padding: 4px 8px; border: 1px solid var(--line-strong); border-radius: 7px
 .map-node.is-selected .map-node-halo { fill: color-mix(in srgb, var(--node-color), transparent 55%); stroke-width: 3; filter: drop-shadow(0 0 14px color-mix(in srgb, var(--node-color), transparent 25%)); }
 .map-node.is-dimmed, .map-edge.is-dimmed { opacity: .15; }
 .map-edge.is-highlighted { opacity: 1; stroke-width: 2.5; filter: drop-shadow(0 0 4px color-mix(in srgb, var(--edge-color), transparent 35%)); }
-.map-node-glyph { fill: var(--text); font-family: Georgia, "Times New Roman", serif; font-size: 26px; font-weight: 650; pointer-events: none; }
+.map-node-label { fill: var(--text); font-size: var(--map-label-size, 10px); font-weight: 760; letter-spacing: -.015em; pointer-events: none; }
 .map-node-count { fill: var(--muted); font-size: 9px; font-weight: 720; letter-spacing: .04em; pointer-events: none; }
-.map-root-node .map-node-glyph { font-size: 38px; }
+.map-root-node .map-node-label { font-weight: 820; }
 .map-root-node .map-node-count { font-size: 10px; }
 .map-stage.is-entering .map-node, .map-stage.is-entering .map-edge { animation: nodeEnter .42s both; animation-delay: var(--node-delay); }
 .map-detail { position: relative; align-self: stretch; display: flex; flex-direction: column; justify-content: center; padding: 32px 27px; border-left: 1px solid var(--line); background: color-mix(in srgb, var(--surface-solid), transparent 40%); backdrop-filter: blur(16px); }
 .map-detail-kicker { margin: 0 0 20px; color: var(--pink); font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .15em; }
-.map-detail-glyph { width: 52px; height: 52px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--detail-color), transparent 58%); border-radius: 17px; background: color-mix(in srgb, var(--detail-color), transparent 86%); color: var(--detail-color); font-size: 1.45rem; }
+.map-detail-glyph { display: none; }
 .map-detail h3 { margin: 22px 0 10px; font-size: 1.45rem; line-height: 1.16; letter-spacing: -.03em; }
 .map-detail > p:not(.map-detail-kicker) { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.65; }
 .map-detail dl { display: flex; gap: 24px; margin: 24px 0; }
@@ -222,7 +222,6 @@ kbd { padding: 4px 8px; border: 1px solid var(--line-strong); border-radius: 7px
 .map-branch-list { position: relative; z-index: 2; display: flex; gap: 8px; padding: 14px 18px; overflow-x: auto; border-top: 1px solid var(--line); background: color-mix(in srgb, var(--surface-solid), transparent 50%); scrollbar-width: thin; }
 .map-branch-list > p { margin: 0 8px 0 0; align-self: center; color: var(--faint); font-size: .61rem; font-weight: 780; text-transform: uppercase; letter-spacing: .1em; }
 .map-branch-list button { min-height: 44px; max-width: 235px; flex: 0 0 auto; display: flex; align-items: center; gap: 10px; padding: 0 11px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); color: var(--muted); cursor: pointer; font-size: .7rem; }
-.map-branch-list button i { width: 24px; height: 24px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; background: color-mix(in srgb, var(--violet), transparent 88%); color: var(--text); font-family: Georgia, "Times New Roman", serif; font-size: .8rem; font-style: normal; }
 .map-branch-list button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .map-branch-list button b { color: var(--faint); font-size: .62rem; }
 .map-branch-list button:hover, .map-branch-list button[aria-pressed="true"] { border-color: var(--violet); background: color-mix(in srgb, var(--violet), transparent 88%); color: var(--text); }
@@ -391,13 +390,10 @@ footer { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items:
   .map-back { align-self: start; }
   .mind-map-canvas, .mind-map-layout { min-height: 520px; }
   .mind-map-canvas svg { height: 520px; }
-  .map-node-glyph { font-size: 20px; }
   .map-node-count { font-size: 7px; }
-  .map-root-node .map-node-glyph { font-size: 30px; }
   .map-root-node .map-node-count { font-size: 8px; }
   .map-detail { min-height: 0; display: block; padding: 22px; }
   .map-detail-kicker { margin-bottom: 14px; }
-  .map-detail-glyph { float: left; width: 45px; height: 45px; margin: 0 14px 8px 0; }
   .map-detail h3 { margin: 0 0 7px; font-size: 1.2rem; }
   .map-detail dl { display: flex; margin: 18px 0; }
   .map-detail-action { width: 100%; }

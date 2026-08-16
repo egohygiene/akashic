@@ -53,12 +53,17 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Developer Tooling and Quality
 
+- [BuiltWith](https://builtwith.com/) - Identifies the frameworks, services, analytics, hosting, and other web technologies used by a site through a freemium lookup service.
 - [Commitlint](https://commitlint.js.org/) - Extensible linter for enforcing structured commit-message conventions in local and continuous-integration workflows.
 - [ESLint](https://eslint.org/) - Pluggable static-analysis engine for identifying and enforcing JavaScript and TypeScript code patterns.
+- [Flutter Gems](https://fluttergems.dev/) - Curates thousands of Dart and Flutter packages by practical feature area, platform, and development task.
 - [GitHub Actions](https://github.com/features/actions) - Repository-native automation platform for continuous integration, delivery, scheduled jobs, and event-driven workflows.
 - [Husky](https://typicode.github.io/husky/) - Lightweight manager for configuring Git hooks that run project checks before commits and pushes.
 - [lint-staged](https://github.com/lint-staged/lint-staged) - Tool for running configured commands only against files staged for a Git commit.
+- [Matomo](https://matomo.org/) - Open-source privacy-focused web and product analytics platform available through self-hosted software and commercial cloud hosting.
+- [Moz](https://moz.com/) - Provides freemium search-engine-optimization research, site analysis, keyword tools, link data, and learning resources.
 - [Nx](https://nx.dev/) - Build system and monorepo platform with project graphs, task caching, affected analysis, generators, and distributed execution.
+- [PostHog](https://posthog.com/) - Combines open-source product analytics, session replay, feature flags, experiments, surveys, and data tooling with hosted and self-managed options.
 - [Prettier](https://prettier.io/) - Opinionated formatter for JavaScript, TypeScript, CSS, Markdown, JSON, and other web-development formats.
 
 ## File and Media Handling
@@ -142,6 +147,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Visualization and Maps
 
+- [D3 Discovery](https://d3-discovery.net/) - Searches and categorizes community plugins, components, and extensions for the D3 visualization ecosystem.
 - [deck.gl](https://deck.gl/) - WebGL-powered framework for high-performance geospatial visualization and composable large-data layers.
 - [Nebula.gl](https://nebula.gl/) - Suite of editable, three-dimensional geospatial overlays designed to integrate with deck.gl.
 - [Nivo](https://nivo.rocks/) - React charting library built on D3 with responsive SVG, canvas, and server-rendering components.

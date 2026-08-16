@@ -212,11 +212,12 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 ## Platforms and Storage
 
 - [AlmaLinux](https://almalinux.org/) - Community-owned, enterprise-focused Linux distribution compatible with the Red Hat Enterprise Linux ecosystem.
+- [Coder](https://coder.com/) - Open-source platform for provisioning governed remote development environments on an organization's own infrastructure, with commercial enterprise features.
 - [KubeSphere](https://github.com/kubesphere) - Cloud-native platform and project organization for managing Kubernetes workloads across clusters and environments.
 - [LitmusChaos](https://github.com/litmuschaos/litmus) - Cloud-native chaos-engineering platform for defining, scheduling, and observing resilience experiments in Kubernetes environments.
-- [MinIO](https://min.io/) - S3-compatible object store for private clouds, Kubernetes, and local infrastructure.
 - [MinIO Drivers](https://min.io/docs/minio/linux/developers/minio-drivers.html#minio-drivers) - Official index of SDKs and language drivers for applications using MinIO and S3-compatible storage.
 - [MinIO S3 API Compatibility](https://min.io/docs/minio/linux/reference/s3-api-compatibility.html) - Reference for Amazon S3 API operations and behaviors supported by MinIO object storage.
+- [MinIO](https://min.io/) - S3-compatible object store for private clouds, Kubernetes, and local infrastructure.
 - [OpenDaylight](https://www.opendaylight.org/) - Linux Foundation project providing a modular software-defined networking controller platform.
 - [OpenStack](https://www.openstack.org/) - Open-source infrastructure platform for managing compute, storage, and networking resources.
 - [Quay on GitHub](https://github.com/quay) - Official organization for Quay container-registry projects including Clair, operators, and tooling.
