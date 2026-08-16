@@ -18,23 +18,38 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Business and Entrepreneurship
 
+- [AICPA and CIMA](https://www.aicpa-cima.com/home) - Professional accounting organization offering standards, credentials, continuing education, research, and member resources.
 - [Celonis](https://www.celonis.com/) - Commercial process-intelligence platform for modeling operations, identifying execution gaps, and automating enterprise workflows.
+- [Fourthwall](https://fourthwall.com) - Commercial creator platform for storefronts, print-on-demand products, memberships, supporter engagement, and fulfillment.
 - [iCode Franchise](https://icodefranchise.com/) - Commercial franchise program for operating youth STEM, coding, robotics, and technology-education centers.
+- [OpenCorporates](https://opencorporates.com/) - Searches standardized public company records and officer relationships from official registers around the world, with freemium data access.
 - [Pomelli](https://labs.google.com/u/0/pomelli/onboarding) - Google Labs experiment for generating on-brand marketing campaigns and creative assets from a business website.
+- [SCORE Academy](https://academy.score.org/) - Provides free self-paced courses plus live and on-demand webinars for starting, managing, and growing a United States small business.
 - [SCORE](https://www.score.org/) - United States nonprofit network providing free small-business mentoring, workshops, templates, and educational resources.
+- [Teal Media](https://tealmedia.com/) - Mission-driven design and development agency specializing in digital strategy, branding, websites, and campaigns for nonprofits and advocacy organizations.
+- [Wise People](https://wisepeople.pl/) - Polish digital-product agency providing strategy, UX, accessible web design, development, ecommerce, and ongoing support services.
+- [ZenBusiness](https://www.zenbusiness.com/) - Paid United States business-formation and compliance service with registered-agent, filing, website, finance, and educational tools.
 
 ## Career Platforms and Job Search
 
 - [AI Job Search](https://github.com/MadsLorentzen/ai-job-search) - Local Claude Code framework for evaluating job postings, tailoring application materials, and preparing for interviews.
 - [AIApply](https://aiapply.co/) - Commercial AI job-search service for resumes, cover letters, interview preparation, job matching, and application automation.
 - [Greenhouse Candidate Portal](https://my.greenhouse.io/dashboard) - Candidate dashboard for tracking and managing job applications submitted through participating Greenhouse employers.
+- [HiringCafe](https://hiringcafe.com/) - Searches jobs collected from employer career pages with unusually detailed filters for role, salary, experience, benefits, visa, and work environment.
+- [IND Highly Skilled Migrant Permit](https://ind.nl/en/residence-permits/work/highly-skilled-migrant) - Official Netherlands guidance on eligibility, recognized sponsors, income rules, applications, rights, and obligations for highly skilled migrants.
+- [IND Recognised Sponsors Register](https://ind.nl/en/public-register-recognised-sponsors/public-register-work) - Official searchable register of organizations recognized to sponsor migrant employees for work in the Netherlands.
 - [Intch](https://futureofwork.intch.org/) - Professional networking and opportunity-matching platform organized around requests, introductions, jobs, and collaboration.
 - [Levels.fyi](https://www.levels.fyi/) - Career intelligence platform for comparing compensation, leveling, benefits, negotiation data, and company information.
 - [Product-Testing.com](https://product-testing.com/) - Market-research platform listing surveys, product samples, app tests, and focus-group opportunities for participants.
+- [Relocate.me](https://relocate.me/) - International technology-job board and relocation guide covering visas, moving logistics, taxes, salaries, and destination comparisons.
 - [RemoteJobsFinder](https://remotejobsfinder.co/en) - Job-search aggregator for remote, hybrid, and location-based roles across employers and job boards.
+- [Resume Matcher](https://resumematcher.fyi/) - Free open-source tool that compares a resume with a job description and helps tailor keywords, structure, and application materials.
 - [Sonara](https://www.sonara.ai/) - Commercial AI job-search tool for discovering matching roles and automating applications.
+- [U.S. Bureau of Labor Statistics](https://www.bls.gov/) - Official occupational, wage, employment, inflation, productivity, and labor-market data with career outlook profiles and downloadable datasets.
 - [UIS Australia Skilled Migration](https://www.uisaustralia.com/lp/en/global/skilled/) - Commercial assessment and guidance service for exploring skilled-migration pathways to Australia.
+- [USAJOBS](https://www.usajobs.gov/) - Official United States federal employment portal for finding positions, understanding hiring paths, building profiles, and tracking applications.
 - [Wellfound Jobs](https://wellfound.com/jobs) - Job marketplace focused on startup and technology roles, including remote opportunities and company profiles.
+- [Work at a Startup](https://www.workatastartup.com/) - Y Combinator job platform for roles at startup companies across engineering, product, design, operations, and other functions.
 
 ## Communities and Events
 
@@ -65,7 +80,9 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Writing and Publishing
 
+- [LanguageTool](https://languagetool.org/) - Multilingual open-source spelling, grammar, punctuation, and style checker with browser, office, desktop, API, and self-hosted options.
 - [Lulu Comic Books](https://www.lulu.com/create/comic-books) - Print-on-demand service and production guidance for creating, printing, and distributing comics and graphic novels.
+- [Notocat](https://notocat.com/) - Commercial publishing platform that turns Notion pages into email newsletters with subscriber management and analytics.
 - [Wikisource](https://wikisource.org/wiki/Main_Page) - Wikimedia library for collaboratively transcribing, proofreading, and publishing free primary-source texts.
 - [Writer Beware](https://www.sfwa.org/other-resources/for-authors/writer-beware/overview/) - Science Fiction and Fantasy Writers Association resource documenting publishing scams, deceptive contracts, and author risks.
 

@@ -26,28 +26,33 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [LibHunt](https://www.libhunt.com/) - Community-driven directory for comparing open-source libraries, frameworks, alternatives, activity, and popularity.
 - [Open Source Is Awesome Wiki](https://wiki.opensourceisawesome.com/) - Community-maintained wiki collecting open-source software, self-hosting, and infrastructure guidance.
 - [Open-Source Organizations Directory](https://opensource.com/resources/organizations) - Archived directory of foundations, companies, communities, and institutions participating in open source.
-- [Open-source Projects](https://www.opensourceprojects.dev/) - Discovery directory for finding open-source repositories by topic, language, popularity, and project activity.
 - [Open-Source Projects Every Developer Should Know](https://www.freecodecamp.org/news/open-source-projects-every-dev-should-know/) - FreeCodeCamp survey of notable open-source tools and platforms across development, infrastructure, data, and learning.
+- [Open-source Projects](https://www.opensourceprojects.dev/) - Discovery directory for finding open-source repositories by topic, language, popularity, and project activity.
 - [opensource.com Archive](https://opensource.com/) - Archived collection of articles, tutorials, interviews, and community stories about open-source technology.
+- [OpenSource.net](https://opensource.net/) - Community publication supported by the Open Source Initiative with practical guides, perspectives, project stories, and contribution advice.
 - [OSPO Landscape](https://landscape.todogroup.org/) - Interactive TODO Group landscape of Open Source Program Offices, tooling, research, communities, and ecosystem resources.
 - [Trendshift](https://trendshift.io/) - Daily momentum rankings and discovery views for trending GitHub repositories and open-source projects.
 
 ## Community and Governance
 
 - [All In](https://github.com/AllInOpenSource) - Historical organization and project collection focused on advancing diversity, equity, and inclusion in open source.
+- [Aspiration](https://aspirationtech.org/) - Nonprofit technology partner helping civil-society organizations design tools, convene communities, strengthen capacity, and practice inclusive technology.
 - [Badging by CHAOSS](https://badging.chaoss.community/) - Peer-review badging program for recognizing inclusive open-source projects and events.
 - [Building an Inclusive Open Source Community](https://todogroup.org/resources/guides/building-an-inclusive-open-source-community/) - TODO Group guide to inclusive project foundations, governance, communication, events, and contributor experience.
 - [Building an Open-Source Community](http://oss-watch.ac.uk/resources/howtobuildcommunity) - Archived OSS Watch guidance for attracting contributors, setting expectations, and sustaining a project community.
 - [Cauldron](https://github.com/cauldronio/cauldron) - Open-source SaaS analytics platform built on GrimoireLab for studying software-development and community activity.
-- [CHAOSS](https://chaoss.community/about-chaoss/) - Linux Foundation project developing metrics, models, and software for understanding open-source community health.
 - [CHAOSS Badging on GitHub](https://github.com/badging) - Repositories and automation supporting CHAOSS diversity, equity, and inclusion badging.
+- [CHAOSS](https://chaoss.community/about-chaoss/) - Linux Foundation project developing metrics, models, and software for understanding open-source community health.
 - [Chef Book of Open Source](https://community.chef.io/book-of-open-source) - Chef's community handbook for project governance, contribution processes, maintainership, and sustainable open-source practices.
 - [Chef Open Source Practices](https://github.com/chef/chef-oss-practices) - Public documentation of Chef's open-source project expectations, contribution workflows, governance, and stewardship practices.
 - [Creative Commons Community Team](https://opensource.creativecommons.org/community/community-team/) - Participation hub for contributors supporting Creative Commons open-source projects and community operations.
+- [Digital Public Goods Alliance](https://www.digitalpublicgoods.net/) - Multistakeholder alliance and standard promoting discoverable open-source software, data, AI, content, and standards that advance sustainable development.
 - [EightKnot](https://eightknot.osci.io/) - Open-source analytics platform for exploring contributor activity and community health across repositories.
 - [Emergence of Governance in an Open Source Community](https://blog.iese.edu/ferraro/files/2011/05/The-emergence-of-governance-in-an-open-source-community.pdf) - Academic study of how governance structures and leadership emerge within an open-source project community.
 - [Four Open-Source Community Structures](https://opensource.com/business/13/6/four-types-organizational-structures-within-open-source-communities) - Article comparing common organizational structures and authority models in open-source communities.
+- [Keep Android Open](https://keepandroidopen.org/) - Campaign and reference hub advocating for Android's open ecosystem, interoperability, user choice, and competitive app distribution.
 - [Linux Foundation Guide to Participating in Open Source Communities](https://www.linuxfoundation.org/resources/open-source-guides/participating-in-open-source-communities) - Practical guide to contribution norms, communication, collaboration, and sustainable participation.
+- [Open Knowledge Foundation](https://okfn.org/en/) - Global nonprofit advancing open data, content, technology, digital public infrastructure, transparency, and collaborative knowledge.
 - [Open Source Community Self-Selection](https://opensauced.pizza/blog/open-source-community-self-selection) - OpenSauced essay about how community signals and contribution pathways shape who participates.
 - [Open Source Contributor Index](https://opensourceindex.io/) - Index comparing commercial organizations by the scale of their employees' open-source contributions.
 - [Open Source Governance Models](https://stackoverflow.blog/2020/09/09/open-source-governance-benevolent-dictator-or-decision-by-committee/) - Stack Overflow essay comparing benevolent-dictator and committee-oriented open-source governance.
@@ -56,6 +61,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Open Source Meetups](https://www.meetup.com/topics/opensource/us/) - Discovery page for local open-source groups and events across the United States.
 - [Open Source Project Management](https://www.zenhub.com/guides/open-source-project-management) - Guide to planning, contributor coordination, roadmaps, and sustainable workflows in open-source projects.
 - [Open Source University Meetup](https://en.wikipedia.org/wiki/Open_Source_University_Meetup) - Historical overview of Sun Microsystems' university open-source community program.
+- [Open Technology Research](https://opentechresearch.org/) - Research network and symposium connecting evidence, policy, funding, and communities around the societal impact of open technologies.
 - [Open-Source Developers' Conference](https://en.wikipedia.org/wiki/Open_Source_Developers%27_Conference) - History of the volunteer-run conference series for open-source developers in Australasia.
 - [OSDU Open Source Community](https://osduforum.org/about-us/communities/osdu-open-source-community/) - Open Group community developing an interoperable data platform and shared services for the energy industry.
 - [OSS Compass](https://oss-compass.org/) - Open-source community health platform offering metrics, dashboards, and evaluation models for software ecosystems.
@@ -74,15 +80,15 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Eclipse Foundation](https://www.eclipse.org/) - International nonprofit supporting vendor-neutral open-source projects, working groups, and communities.
 - [FINOS](https://www.finos.org/) - Linux Foundation organization advancing open-source collaboration and standards in financial services.
 - [Free Qt Foundation](https://kde.org/community/whatiskde/kdefreeqtfoundation/) - Independent body protecting the continued availability of Qt under free-software licenses.
-- [Free Software Foundation](https://www.fsf.org/about/) - Nonprofit organization advocating for computer-user freedom and free software.
 - [Free Software Foundation Europe](https://fsfe.org/index.en.html) - European charity advocating for software freedom, user rights, policy, and community education.
+- [Free Software Foundation](https://www.fsf.org/about/) - Nonprofit organization advocating for computer-user freedom and free software.
 - [GNOME Foundation](https://foundation.gnome.org/) - Nonprofit organization supporting the GNOME desktop, contributors, infrastructure, and community.
-- [KDE](https://kde.org/) - International free-software community developing the Plasma desktop and a broad application ecosystem.
 - [KDE e.V.](https://ev.kde.org/whatiskdeev/) - Nonprofit organization providing legal, financial, and organizational support to the KDE community.
+- [KDE](https://kde.org/) - International free-software community developing the Plasma desktop and a broad application ecosystem.
 - [LF AI & Data Foundation](https://lfaidata.foundation/) - Linux Foundation umbrella supporting open-source artificial-intelligence and data projects.
 - [LF Edge](https://lfedge.org/) - Linux Foundation umbrella for open-source edge-computing frameworks, interoperability, and collaborative projects.
-- [LF Energy](https://github.com/lf-energy) - Open-source foundation and project organization for power systems, energy markets, grid infrastructure, and sustainability software.
 - [LF Energy Foundation Repository](https://github.com/lf-energy/foundation) - Governance, charter, and operational materials for the LF Energy open-source community.
+- [LF Energy](https://github.com/lf-energy) - Open-source foundation and project organization for power systems, energy markets, grid infrastructure, and sustainability software.
 - [LF Engineering](https://github.com/LF-Engineering) - Linux Foundation engineering organization for project infrastructure, community data, elections, mentoring, and release services.
 - [Linux Foundation](https://www.linuxfoundation.org/) - Foundation providing governance, legal infrastructure, training, events, and collaborative services for major open-source ecosystems.
 - [Mozilla Foundation](https://foundation.mozilla.org/en/) - Nonprofit organization working toward a healthier internet through advocacy, research, programs, and movement building.
@@ -92,10 +98,10 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Open Source Automation Development Lab](https://www.osadl.org/) - Industry cooperative supporting open-source software for automation, real-time Linux, and embedded systems.
 - [Open Source Definition](https://opensource.org/osd) - Canonical criteria used by the Open Source Initiative to review and approve software licenses.
 - [Open Source Geospatial Foundation](https://www.osgeo.org/) - Nonprofit foundation supporting open geospatial software, standards, education, and communities.
-- [Open Source Initiative](https://opensource.org/about) - Steward of the Open Source Definition and advocate for open-source software and communities.
+- [Open Source Initiative](https://opensource.org/) - Steward of the Open Source Definition and approved-license process, with policy, education, standards, and community programs.
 - [Open Source Matters](https://www.opensourcematters.org/) - Volunteer-run nonprofit providing organizational, legal, and financial support for the Joomla project.
 - [OpenAPI Initiative](https://www.openapis.org/) - Linux Foundation project stewarding the vendor-neutral OpenAPI Specification for HTTP APIs.
-- [OpenForum Europe](https://openforumeurope.org/expertise/) - European nonprofit providing research and policy expertise on open source, standards, interoperability, and digital sovereignty.
+- [OpenForum Europe](https://openforumeurope.org/) - European nonprofit producing research, policy work, events, and advocacy for open technologies and competitive digital ecosystems.
 - [OpenInfra Foundation](https://openinfra.dev/about/) - Foundation supporting open-source infrastructure communities including OpenStack and related projects.
 - [OpenJS Foundation](https://openjsf.org/) - Vendor-neutral foundation providing governance and support for sustainable JavaScript ecosystem projects.
 - [OpenNetworking Foundation](https://opennetworking.org/) - Organization and project hub for software-defined networking and open networking platforms.
@@ -130,17 +136,18 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 - [CTAN Licenses](https://www.ctan.org/license/) - CTAN index of license identifiers and terms used to classify TeX packages in the archive.
 - [Debian Free Software Guidelines](https://www.debian.org/social_contract#guidelines) - Debian's criteria for determining whether software licenses satisfy the distribution's free-software commitments.
+- [Developer Certificate of Origin](https://developercertificate.org/) - Canonical text and background for the lightweight contributor sign-off used to certify the provenance of open-source contributions.
 - [Document Foundation Trademark Policy](https://wiki.documentfoundation.org/TDF/Policies/Trademark_Policy) - Rules for using LibreOffice and Document Foundation names, marks, logos, and community identifiers.
 - [Handling License Information with SPDX](https://spdx.dev/learn/handling-license-info/) - SPDX guidance for representing copyright, license expressions, notices, and package-level licensing data.
 - [mklicense](https://github.com/cezaraugusto/mklicense) - Interactive Node.js command-line tool that generates local LICENSE files from Choose a License templates.
 - [NASA Open Source Agreement](https://en.wikipedia.org/wiki/NASA_Open_Source_Agreement) - Background on NASA's open-source license, its reciprocity terms, and debates about source-origin restrictions.
-- [Open Font License](https://ctan.org/license/ofl) - CTAN reference for the SIL Open Font License used by many freely redistributable typefaces.
 - [Open Font License Font Catalog](https://openfontlicense.org/ofl-fonts/) - Catalog and specimens of font families released under the SIL Open Font License.
+- [Open Font License](https://ctan.org/license/ofl) - CTAN reference for the SIL Open Font License used by many freely redistributable typefaces.
 - [SIL Open Font License](https://openfontlicense.org/open-font-license-official-text/) - Official text of the SIL Open Font License for freely using, studying, modifying, and redistributing fonts.
-- [SPDX](https://github.com/spdx) - Open-source organization for SPDX specifications, tools, examples, and license-list infrastructure.
 - [SPDX License List Data](https://github.com/spdx/license-list-data) - Machine-readable SPDX License List data in JSON, RDFa, text, HTML, and other formats.
 - [SPDX License List XML](https://github.com/spdx/license-list-XML) - Machine-readable XML source for the SPDX License List and license exception metadata.
 - [SPDX Package Information](https://spdx.github.io/spdx-spec/v2.3/package-information/) - SPDX 2.3 specification fields for describing software packages and their provenance, licensing, and checksums.
+- [SPDX](https://github.com/spdx) - Open-source organization for SPDX specifications, tools, examples, and license-list infrastructure.
 
 ## Programs and Support
 

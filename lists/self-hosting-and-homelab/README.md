@@ -28,7 +28,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [lazydocker](https://lazydocker.com/) - Terminal user interface for inspecting and managing Docker containers, services, images, volumes, logs, and Compose projects.
 - [Netdata](https://github.com/netdata/netdata) - Real-time infrastructure-monitoring and observability platform for systems, containers, applications, and network services.
 - [Netdata Docker Installation](https://learn.netdata.cloud/docs/netdata-agent/installation/docker) - Official guide to running the Netdata Agent in Docker with the volumes, capabilities, sockets, and permissions needed for host monitoring.
-- [Openship](https://github.com/oblien/openship) - Open-source, self-hosted deployment platform for applications, databases, domains, logs, and infrastructure operations.
+- [OpenShip](https://openship.io/) - Open-source self-hostable deployment platform for shipping applications to servers with domains, TLS, databases, logs, and environment management.
 - [Organizr](https://github.com/causefx/Organizr) - PHP-based dashboard for placing homelab and media services behind a unified, tabbed interface.
 - [Pi-hole](https://pi-hole.net/) - Network-wide DNS sinkhole for blocking advertising and tracking domains while providing local DNS and query visibility.
 - [Pi-hole Docker Image](https://github.com/pi-hole/docker-pi-hole) - Official Pi-hole container image and deployment documentation for Docker and Docker Compose environments.
@@ -39,6 +39,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 ## Media and Creative
 
 - [BookLore Overview](https://www.xda-developers.com/booklore-is-jellyfin-for-ebooks/) - Article introducing BookLore as a self-hosted ebook and document library with metadata, reading, and device-sync features.
+- [DVinyl](https://kyonew.me/dvinyl) - Open-source self-hosted catalog for vinyl, CDs, cassettes, books, comics, films, and games with metadata, locations, wishlists, and valuations.
 - [Invidious](https://invidious.io/) - Open-source alternative front end for browsing YouTube with fewer trackers and self-hosting support.
 - [Jellyfin Hardware Acceleration](https://jellyfin.org/docs/general/administration/hardware-acceleration/) - Official configuration guide for GPU-accelerated transcoding across supported Jellyfin platforms, devices, drivers, and container runtimes.
 - [Matchering Web](https://github.com/sergree/matchering-web) - Self-hosted web interface for the Matchering audio matching and mastering engine.
@@ -50,6 +51,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Baby Buddy](https://github.com/babybuddy/babybuddy) - Self-hosted application for caregivers to track feedings, sleep, diaper changes, growth, tummy time, and related baby-care data.
 - [Bitwarden](https://bitwarden.com/) - Open-source password manager with applications, browser extensions, organization features, and a self-hosting option.
 - [Budget App](https://github.com/paukiatwee/budgetapp) - Older open-source personal budgeting application with category tracking, reports, and container-oriented deployment files.
+- [Drop](https://droposs.org/) - Open-source Steam alternative focused on owning, organizing, launching, and sharing games through an open ecosystem.
 - [Home Assistant](https://www.home-assistant.io/) - Open-source home-automation platform emphasizing local control, privacy, integrations, dashboards, and extensible automations.
 - [SimpliSafe](https://simplisafe.com/) - Commercial home-security platform offering sensors, cameras, alarms, professional monitoring, and mobile controls.
 

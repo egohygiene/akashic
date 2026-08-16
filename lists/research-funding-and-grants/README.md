@@ -187,15 +187,17 @@ Funding availability, deadlines, eligibility, geographic scope, and application 
 ## Science and Cross-Cutting Research
 
 - [Alfred P. Sloan Foundation Grants](https://sloan.org/grants) - Grantmaking in science, economics, technology, higher education, public understanding, and selected civic initiatives.
+- [Alfred P. Sloan Foundation](https://sloan.org/) - Private foundation funding research and public understanding in science, technology, economics, higher education, and selected cross-disciplinary programs.
 - [Burroughs Wellcome Fund Opportunities](https://www.bwfund.org/funding-opportunities/) - Career awards and research programs spanning biomedical science, infectious disease, climate and health, and science education.
 - [Chan Zuckerberg Initiative Science RFAs](https://chanzuckerberg.com/science/programs-resources/requests-for-applications/) - Requests for applications supporting biomedical science, open tools, imaging, cell biology, and collaborative research.
 - [HHMI Programs](https://www.hhmi.org/programs) - Investigator, faculty, student, education, and inclusive-science programs in biomedical research.
 - [John Templeton Foundation Grants](https://www.templeton.org/grants) - Open funding cycles for research and public engagement involving science, philosophy, character, and human purpose.
 - [National Geographic Grants and Investments](https://www.nationalgeographic.org/explore/grants-investments) - Project support for explorers working in science, conservation, storytelling, education, and technology.
-- [NIH Common Fund](https://commonfund.nih.gov/) - NIH-wide programs supporting bold, collaborative biomedical and behavioral research that crosses institute boundaries.
 - [NIH Common Fund Funding Opportunities](https://commonfund.nih.gov/funding-opportunities) - Current and forecast opportunities associated with Common Fund programs and trans-NIH initiatives.
+- [NIH Common Fund](https://commonfund.nih.gov/) - NIH-wide programs supporting bold, collaborative biomedical and behavioral research that crosses institute boundaries.
 - [NIH High-Risk, High-Reward Research](https://commonfund.nih.gov/highrisk) - Pioneer, New Innovator, Transformative Research, and Early Independence awards for unusually innovative work.
 - [Robert Wood Johnson Foundation Active Opportunities](https://www.rwjf.org/en/grants/active-funding-opportunities.html) - Current calls for research, policy, systems change, health equity, and community-led work.
+- [Schmidt Sciences](https://www.schmidtsciences.org/) - Philanthropic science organization supporting AI, computing, astrophysics, biosciences, climate, and science systems through programs and open calls.
 - [William T. Grant Foundation Funding](https://wtgrantfoundation.org/funding) - Research grants focused on reducing inequality and improving the use of evidence affecting young people.
 
 ## Humanities, Social Science, and Education
@@ -230,6 +232,7 @@ Funding availability, deadlines, eligibility, geographic scope, and application 
 
 ## Open Source and Digital Infrastructure
 
+- [Digital Infrastructure Insights Fund](https://infrastructureinsights.fund/) - Funds open research and commissions about the sustainability, governance, economics, and social impact of digital infrastructure.
 - [FOSS United Grants](https://fossunited.org/grants) - Funding for open-source projects, maintainers, communities, and events, with a focus on India's FOSS ecosystem.
 - [GitHub Accelerator](https://accelerator.github.com/) - Cohort-based funding, mentorship, and support for selected open-source maintainers and projects.
 - [Mozilla Technology Fund](https://foundation.mozilla.org/en/what-we-fund/awards/mozilla-technology-fund-mtf/) - Awards for open-source technology addressing internet health, trustworthy AI, and Mozilla's public-interest priorities.
@@ -266,8 +269,10 @@ Funding availability, deadlines, eligibility, geographic scope, and application 
 - [AARP Community Challenge](https://www.aarp.org/livable-communities/community-challenge/) - Annual quick-action grants for nonprofit and government projects improving community livability.
 - [Awesome Foundation](https://www.awesomefoundation.org/) - Independent chapters awarding simple, no-strings-attached microgrants to locally or globally awesome ideas.
 - [Conservation Leadership Programme Grants](https://www.conservationleadershipprogramme.org/grants/) - Team-based funding, training, and mentoring for early-career conservationists in priority regions.
+- [Ford Foundation](https://www.fordfoundation.org/) - Global philanthropy funding work on inequality, justice, civic engagement, creativity, technology, and social change; review current program strategies and eligibility.
 - [National Fish and Wildlife Foundation Grants](https://www.nfwf.org/apply-grant) - Competitive conservation programs funded with federal agencies, corporations, and philanthropic partners.
 - [Nature-Based Solutions Funding Database](https://fundingnaturebasedsolutions.nwf.org/) - Searchable federal funding and technical-assistance programs for community nature-based infrastructure.
+- [Omidyar Network](https://omidyar.com/) - Philanthropic investment organization supporting responsible technology, inclusive societies, economic opportunity, and public-interest initiatives.
 - [Rufford Small Grants](https://www.rufford.org/grants/) - Staged grants for early-career conservationists leading field projects in eligible developing countries.
 - [The Pollination Project](https://thepollinationproject.org/apply/) - Seed grants for individuals and informal groups beginning community-led social-change work.
 
