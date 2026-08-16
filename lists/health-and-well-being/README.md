@@ -2,14 +2,28 @@
 
 # Awesome Health and Well-Being [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Digital health, mental health resources, regulatory bodies, and treatment platforms.
+> Mental-health education, trauma-informed support, care navigation, digital health, and evidence-aware treatment resources.
 
 Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
+
+<!-- site-advisory: Educational, directory, and peer-support resources—not diagnosis, treatment, or emergency care. Verify a provider's credentials, licensure, privacy practices, cost, and fit. If you or someone else may be in immediate danger, contact local emergency services; in the United States, call or text 988. Peer-support services are not substitutes for crisis care. -->
+
+These links are for education, care navigation, and support—not diagnosis or individualized medical advice. Verify a provider's credentials, licensure, privacy practices, cost, and fit. If you or someone else may be in immediate danger, contact local emergency services; in the United States, call or text 988. Peer-support services are not substitutes for crisis care.
+
+For additional no-cost apps, self-help materials, accessibility tools, and U.S. crisis services, see [Awesome Abundance: Health, Well-Being, and Accessibility](../awesome-abundance/health-well-being-and-accessibility/README.md).
 
 ## Contents
 
 - [Digital Health and Technology](#digital-health-and-technology)
-- [Mental Health and Well-Being](#mental-health-and-well-being)
+- [Understanding Mental Health and Psychology](#understanding-mental-health-and-psychology)
+- [Trauma, PTSD, Abuse, and Recovery](#trauma-ptsd-abuse-and-recovery)
+- [Finding Therapy and Professional Care](#finding-therapy-and-professional-care)
+- [Therapy Approaches and Treatment Evidence](#therapy-approaches-and-treatment-evidence)
+- [Condition-Specific Education and Support](#condition-specific-education-and-support)
+- [Culturally Responsive and Identity-Affirming Care](#culturally-responsive-and-identity-affirming-care)
+- [Peer Support, Relationships, and Grief](#peer-support-relationships-and-grief)
+- [Self-Guided Skills and Well-Being](#self-guided-skills-and-well-being)
+- [Crisis and Immediate Support](#crisis-and-immediate-support)
 - [Regulatory and Professional Bodies](#regulatory-and-professional-bodies)
 - [Treatment Platforms](#treatment-platforms)
 
@@ -28,13 +42,121 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [OpenVitals Platform](https://openvitals.io/) - Hosted interface for consolidating personal health records, tracking biomarkers, and exploring source-grounded trends.
 - [OpenVitals Source](https://github.com/zmeyer44/OpenVitals) - Source for a self-hostable platform that ingests, normalizes, traces, and explores labs, wearables, medications, and other health records.
 
-## Mental Health and Well-Being
+## Understanding Mental Health and Psychology
 
-- [Choosing Therapy](https://www.choosingtherapy.com/) - Mental-health education, therapist directory, provider reviews, and guidance for comparing therapy options.
-- [Compassionate Coding](https://compassionatecoding.com/) - Training and resources for healthier engineering cultures through empathy, psychological safety, and humane technical leadership.
+- [American Psychological Association Clinical Practice Guidelines](https://www.apa.org/about/offices/directorates/guidelines/clinical-practice) - Evidence-based recommendations and supporting materials for selected psychological conditions and treatments.
+- [APA Dictionary of Psychology](https://dictionary.apa.org/) - Searchable definitions of psychological concepts, processes, conditions, therapies, and research terminology.
+- [APA Psychology Topics](https://www.apa.org/topics) - Public explainers and research-informed resources organized across psychology and human behavior topics.
+- [Beyond Blue](https://www.beyondblue.org.au/) - Australian mental-health information, screening tools, community resources, and support-service navigation.
+- [Black Dog Institute](https://www.blackdoginstitute.org.au/) - Australian medical-research institute publishing mental-health education, digital tools, research, and service pathways.
+- [Centre for Addiction and Mental Health](https://www.camh.ca/) - Canadian teaching hospital offering condition and treatment explainers, a mental-health toolkit, research, and Ontario care information.
+- [Mental Health Foundation](https://www.mentalhealth.org.uk/) - UK charity publishing A–Z information, prevention guidance, research, and resources about factors affecting mental health.
+- [Mind](https://www.mind.org.uk/) - UK mental-health charity offering condition explainers, rights information, practical guidance, and local-support navigation.
+- [National Institute for Health and Care Excellence Mental-Health Guidance](https://www.nice.org.uk/guidance/conditions-and-diseases/mental-health-behavioural-and-neurodevelopmental-conditions) - UK evidence-based clinical guidance covering mental, behavioral, and neurodevelopmental conditions.
 - [One Mind](https://onemind.org/) - Mental-health nonprofit advancing research, early intervention, workplace programs, and open-science collaboration.
-- [Primal Trust](https://www.primaltrust.org/) - Membership-based brain-retraining and nervous-system-regulation program for people navigating chronic symptoms and stress-related patterns.
+- [Royal College of Psychiatrists Mental-Health Information](https://www.rcpsych.ac.uk/mental-health) - Patient-facing information about conditions, treatments, medications, and seeking psychiatric care.
+- [World Health Organization Mental Health](https://www.who.int/health-topics/mental-health) - Global overview, fact sheets, data tools, policy initiatives, and human-rights-focused mental-health guidance.
+
+## Trauma, PTSD, Abuse, and Recovery
+
+- [1in6](https://1in6.org/) - Education, survivor stories, moderated peer groups, and support navigation for men who have experienced sexual abuse or assault.
+- [Beauty After Bruises](https://www.beautyafterbruises.org/) - Survivor-centered education and support resources for complex trauma and dissociative disorders; programs complement rather than replace clinical care.
+- [Blue Knot Foundation](https://blueknot.org.au/) - Australian complex-trauma charity providing education, recovery resources, professional referrals, and phone support with stated service boundaries.
+- [CDC Adverse Childhood Experiences](https://www.cdc.gov/aces/about/index.html) - Public-health overview of adverse childhood experiences, their possible long-term effects, and prevention strategies.
+- [CPTSD Foundation](https://cptsdfoundation.org/) - Complex-trauma education and between-appointment peer programs that explicitly supplement, not replace, professional treatment.
+- [International Society for the Study of Trauma and Dissociation](https://www.isst-d.org/) - Professional society with public fact sheets, treatment guidance, clinician education, and a member therapist directory for complex trauma and dissociation.
+- [International Society for Traumatic Stress Studies](https://istss.org/) - Research and professional organization offering public trauma resources, treatment information, guidelines, and clinician search tools.
+- [MaleSurvivor](https://malesurvivor.org/) - Moderated community, educational resources, webinars, and therapist information for men recovering from sexual trauma.
+- [Trauma Research Foundation](https://traumaresearchfoundation.org/) - Nonprofit supporting trauma research, public education, clinician training, and programs informed by mind-body science.
+- [VA National Center for PTSD](https://www.ptsd.va.gov/) - U.S. government center with current PTSD education, treatment comparisons, assessment information, and resources for the public as well as veterans.
+
+## Finding Therapy and Professional Care
+
+- [Alma](https://helloalma.com/) - Commercial U.S. directory and booking platform for insurance-eligible and private-pay mental-health providers; participation and network coverage vary.
+- [American Psychological Association Psychologist Locator](https://locator.apa.org/) - U.S. directory of participating licensed psychologists searchable by location, specialty, populations served, and treatment approach.
+- [British Association for Counselling and Psychotherapy Therapist Directory](https://www.bacp.co.uk/search/Therapists) - UK register and directory for checking participating counsellors and psychotherapists against BACP membership information.
+- [Choosing Therapy](https://www.choosingtherapy.com/) - Mental-health education, therapist directory, provider reviews, and guidance for comparing therapy options.
+- [GoodTherapy](https://www.goodtherapy.org/) - Commercial therapist directory plus education about therapy, common concerns, and questions to ask prospective providers.
+- [Grow Therapy](https://growtherapy.com/) - Commercial U.S. platform for finding and booking participating therapists and prescribers by insurance, specialty, identity, and availability.
+- [Headway](https://headway.co/) - Commercial U.S. directory for finding participating therapists and psychiatrists who accept supported insurance plans.
+- [Inclusive Therapists](https://www.inclusivetherapists.com/) - Social-justice-oriented directory emphasizing identity-affirming, culturally responsive, and neurodiversity-affirming care.
+- [Mental Health Match](https://mentalhealthmatch.com/) - Commercial U.S. matching service that filters therapists by needs, preferences, location, and payment options.
+- [NHS Talking Therapies](https://www.nhs.uk/nhs-services/mental-health-services/find-nhs-talking-therapies-for-anxiety-and-depression/) - Official England service finder for NHS talking therapies for anxiety and depression, including self-referral where available.
+- [Open Path Psychotherapy Collective](https://openpathcollective.org/) - U.S. and Canadian nonprofit network connecting eligible clients with participating therapists offering reduced-rate sessions after a one-time membership fee.
+- [Psychology Today Therapist Directory](https://www.psychologytoday.com/us/therapists) - Commercial directory searchable by location, concern, modality, insurance, identity, and telehealth availability; verify licensure independently.
+- [TherapyDen](https://www.therapyden.com/) - U.S. therapist directory with filters for specialties, identities, relationship structures, cost, insurance, and online or in-person care.
+- [UK Council for Psychotherapy Find a Therapist](https://www.psychotherapy.org.uk/find-a-therapist/) - UK directory of psychotherapists and psychotherapeutic counsellors on the UKCP register.
+- [Zencare](https://zencare.co/) - Commercial directory and booking service for participating therapists and psychiatrists, with insurance and availability filters in supported U.S. regions.
+
+## Therapy Approaches and Treatment Evidence
+
+- [Association for Contextual Behavioral Science](https://contextualscience.org/) - Professional community with introductory and research resources for Acceptance and Commitment Therapy and contextual behavioral science.
+- [Beck Institute for Cognitive Behavior Therapy](https://beckinstitute.org/) - Nonprofit source for cognitive behavioral therapy education, clinician training, certification, and a certified-clinician directory.
+- [Behavioral Tech Institute](https://behavioraltech.org/) - Clinician-focused dialectical behavior therapy training, evidence resources, and a therapist finder; most training is paid.
+- [EMDR International Association](https://www.emdria.org/) - Professional association offering EMDR education, standards, training information, and a member therapist directory.
+- [IFS Institute Practitioner Directory](https://ifs-institute.com/practitioners) - Directory of practitioners who report completing Internal Family Systems training; verify professional licensure and scope separately.
+- [Motivational Interviewing Network of Trainers](https://motivationalinterviewing.org/) - International professional network with motivational-interviewing resources, training events, and trainer listings.
+- [Sensorimotor Psychotherapy Therapist Directory](https://therapists.sensorimotorpsychotherapy.org/) - Directory of clinicians who report Sensorimotor Psychotherapy training; verify licensure, credentials, and fit independently.
+- [Society of Clinical Psychology Psychological Treatments](https://div12.org/treatments/) - Research summaries rating the evidence for psychological treatments by condition, maintained by APA Division 12.
+- [Somatic Experiencing Practitioner Directory](https://portal.traumahealing.org/s/searchdirectory?id=a2FVv0000008sOD) - International directory of practitioners listed by Somatic Experiencing International; listings do not by themselves establish mental-health licensure.
+- [VA PTSD Treatment Decision Aid](https://www.ptsd.va.gov/apps/decisionaid/) - Private-session comparison tool for learning about evidence-based PTSD treatments and preparing questions for shared decisions with a clinician.
+
+## Condition-Specific Education and Support
+
+- [Anxiety and Depression Association of America](https://adaa.org/) - Research-informed education, webinars, peer communities, and therapist listings for anxiety, depression, OCD, PTSD, and related conditions.
+- [Autistic Self Advocacy Network](https://autisticadvocacy.org/) - Autistic-led disability-rights organization publishing plain-language resources, policy guidance, and self-advocacy materials.
+- [Autistic Women and Nonbinary Network](https://awnnetwork.org/) - Autistic-led community publishing resources and advocacy focused on multiply marginalized autistic people.
+- [BPD Alliance](https://bpdalliance.org/) - Education, family programs, clinician resources, and treatment information for borderline personality disorder.
+- [Child Mind Institute](https://childmind.org/) - Independent nonprofit providing expert-reviewed information about children's mental health and learning, family guides, and U.S. clinical services.
+- [Children and Adults with Attention-Deficit/Hyperactivity Disorder](https://chadd.org/) - Evidence-informed ADHD education, local chapters, support groups, professional resources, and provider-directory tools.
+- [Depression and Bipolar Support Alliance](https://www.dbsalliance.org/) - Peer-led U.S. education, wellness tools, and online or local support groups for depression and bipolar disorder.
+- [International Bipolar Foundation](https://ibpf.org/) - Bipolar-disorder education, webinars, stories, caregiver material, and community resources.
+- [International OCD Foundation](https://iocdf.org/) - Evidence-based OCD and related-disorder education, treatment-provider directory, support groups, and research information.
+- [National Association of Anorexia Nervosa and Associated Disorders](https://anad.org/) - Free eating-disorder peer support, helpline, groups, recovery mentorship, and treatment-directory resources; not emergency care.
+- [National Eating Disorders Association](https://www.nationaleatingdisorders.org/) - Eating-disorder education, screening, treatment navigation, and support resources; availability and service scope can change.
+- [National Hearing Voices Network](https://www.hearing-voices.org/) - UK peer network offering groups and information for people who hear voices, see visions, or have other unusual perceptions.
+- [Postpartum Support International](https://postpartum.net/) - Perinatal mental-health education, provider directory, peer groups, and a non-emergency HelpLine with international resources.
+- [Schizophrenia and Psychosis Action Alliance](https://sczaction.org/) - U.S. education, peer and family programs, advocacy, and support navigation for schizophrenia-spectrum conditions and psychosis.
+- [Understood](https://www.understood.org/) - Nonprofit guidance and community resources for ADHD, dyslexia, and other learning or thinking differences across life stages.
+
+## Culturally Responsive and Identity-Affirming Care
+
+- [Asian Mental Health Collective](https://www.asianmhc.org/) - Community education, therapist directory, and support initiatives focused on Asian mental health in the United States.
+- [Latinx Therapy](https://latinxtherapy.com/) - U.S. directory, bilingual education, and podcast focused on reducing stigma and connecting Latinx communities with culturally responsive care.
+- [National Queer and Trans Therapists of Color Network](https://nqttcn.com/) - Healing-justice organization with a directory and support resources for queer and trans people of color.
+- [Therapy for Black Girls](https://www.therapyforblackgirls.com/) - Commercial directory, podcast, and educational community focused on Black women's mental health and therapist access.
+- [Therapy for Black Men](https://therapyforblackmen.org/) - Directory and educational resources designed to connect Black men with mental-health professionals and support.
+
+## Peer Support, Relationships, and Grief
+
+- [7 Cups](https://www.7cups.com/) - Online emotional-support platform offering trained volunteer listeners, peer communities, and paid therapy in supported locations; it is not emergency care.
+- [Adult Children of Alcoholics and Dysfunctional Families](https://adultchildren.org/) - Peer-led Twelve Step fellowship with meetings and literature for adults affected by family dysfunction; not a substitute for professional care.
+- [Co-Dependents Anonymous](https://coda.org/) - Peer-led Twelve Step fellowship with meetings and literature for people exploring codependent relationship patterns.
+- [The Dougy Center](https://www.dougy.org/) - Grief education, toolkits, and peer-support program resources for children, teens, young adults, and families.
+- [The Gottman Institute](https://www.gottman.com/) - Relationship education, clinician directory, assessments, and paid programs based on the Gottman research and therapy framework.
+- [Love Is Respect](https://www.loveisrespect.org/) - Relationship-health education, safety planning, and confidential support for teens and young adults affected by dating abuse.
+- [One Love Foundation](https://www.joinonelove.org/) - Free education and tools for recognizing healthy, unhealthy, and abusive relationship patterns.
+- [Refuge in Grief](https://refugeingrief.com/) - Grief education and paid programs centered on supporting loss without forcing quick recovery narratives.
+- [What's Your Grief](https://whatsyourgrief.com/) - Practical grief education, articles, courses, and community resources from mental-health professionals.
+
+## Self-Guided Skills and Well-Being
+
+- [Compassionate Coding](https://compassionatecoding.com/) - Training and resources for healthier engineering cultures through empathy, psychological safety, and humane technical leadership.
+- [Greater Good Science Center](https://greatergood.berkeley.edu/) - UC Berkeley articles, practices, courses, and research summaries about well-being, connection, compassion, and meaning.
+- [MindSpot](https://www.mindspot.org.au/) - Australian digital mental-health clinic offering free assessment and therapist-supported online treatment to eligible residents, plus public resources.
+- [MoodGYM](https://moodgym.com.au/) - Interactive cognitive behavioral skills program for preventing and managing anxiety and depressive symptoms; access terms vary by country and institution.
+- [Palouse Mindfulness](https://palousemindfulness.com/) - Free self-paced mindfulness-based stress reduction course assembled by a retired MBSR instructor; not a replacement for clinical treatment.
+- [Primal Trust](https://www.primaltrust.org/) - Paid membership program teaching nervous-system regulation and brain-retraining practices; health claims should be evaluated with a qualified clinician.
+- [Self-Compassion](https://self-compassion.org/) - Research summaries, guided practices, exercises, and paid training developed by self-compassion researcher Kristin Neff.
 - [The Pendulum Lifestyle](https://www.psychologytoday.com/us/blog/how-do-you-think-about-that/202408/tired-of-feeling-stuck-give-the-pendulum-lifestyle-a-shot) - Psychology Today article proposing flexible movement between effort and recovery instead of rigid balance.
+
+## Crisis and Immediate Support
+
+- [Befrienders Worldwide](https://befrienders.org/) - International directory of participating emotional-support centers; service hours and crisis capabilities vary by country.
+- [Childhelp National Child Abuse Hotline](https://childhelphotline.org/) - U.S. and Canadian call, text, and chat support from professional crisis counselors for people affected by or concerned about child abuse.
+- [Disaster Distress Helpline](https://www.samhsa.gov/find-help/disaster-distress-helpline) - U.S. 24/7 multilingual crisis counseling for emotional distress related to natural or human-caused disasters.
+- [StrongHearts Native Helpline](https://strongheartshelpline.org/) - Confidential U.S. domestic and sexual violence support designed for Native Americans and Alaska Natives, with call, text, and chat options.
+- [Veterans Crisis Line](https://www.veteranscrisisline.net/) - Free confidential 24/7 crisis support for U.S. veterans, service members, National Guard and Reserve members, and people who support them.
 
 ## Regulatory and Professional Bodies
 
