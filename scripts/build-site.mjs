@@ -6,6 +6,29 @@ const root = process.cwd();
 const sourceDirectory = path.join(root, "site");
 const outputDirectory = path.join(root, "dist");
 const listsDirectory = path.join(root, "lists");
+const ROOT_GROUP_SLUG = "__root__";
+
+const CATEGORY_IDENTITIES = {
+  "awesome-abundance": { color: "#d1459f", glyph: "✦" },
+  "artificial-intelligence": { color: "#7656d8", glyph: "⌘" },
+  "containers-and-cloud": { color: "#0b877f", glyph: "◌" },
+  "creative-resources": { color: "#c9542d", glyph: "△" },
+  "developer-tools": { color: "#508c32", glyph: "◇" },
+  "health-and-well-being": { color: "#2f72c4", glyph: "☼" },
+  neuroscience: { color: "#b23f91", glyph: "◎" },
+  "open-source": { color: "#6847bd", glyph: "∞" },
+  psychedelics: { color: "#087c76", glyph: "⚗" },
+  "public-services-and-support": { color: "#bd4b2a", glyph: "◈" },
+  research: { color: "#4d8430", glyph: "⌁" },
+  "research-funding-and-grants": { color: "#286bb8", glyph: "✺" },
+  "scientific-research": { color: "#b23882", glyph: "⬡" },
+  security: { color: "#6543b6", glyph: "◐" },
+  "self-hosting-and-homelab": { color: "#08766f", glyph: "✧" },
+  "spirituality-religion-and-occult": { color: "#b64827", glyph: "☿" },
+  "tex-and-typesetting": { color: "#477c2d", glyph: "∑" },
+  "web-development": { color: "#2867ad", glyph: "⌬" },
+  "work-and-learning": { color: "#a9387c", glyph: "◒" },
+};
 
 const slugify = (value) => value.toLocaleLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 const parseAdvisory = (markdown) => markdown.match(/^<!-- site-advisory: (.+) -->$/m)?.[1].trim() || "";
@@ -28,12 +51,18 @@ function parseRootCategories(markdown) {
     slug: match[3],
     description: match[4],
     declaredCount: Number(match[5].replaceAll(",", "")),
+    ...(CATEGORY_IDENTITIES[match[3]] || { color: "#7656d8", glyph: "✦" }),
   }));
 }
 
 function parseResources(markdown, category, filePath) {
   let section = category.title;
   const resources = [];
+  const relativeParts = path.relative(listsDirectory, filePath).split(path.sep);
+  const nested = relativeParts.length > 2;
+  const groupSlug = nested ? relativeParts.at(-2) : ROOT_GROUP_SLUG;
+  const heading = markdown.match(/^#\s+(.+?)(?:\s+\[!\[|$)/m)?.[1]?.trim() || category.title;
+  const groupTitle = nested ? heading.replace(/^Awesome\s+/i, "") : category.title;
   for (const line of markdown.split("\n")) {
     const heading = line.match(/^##\s+(.+)$/);
     if (heading && heading[1] !== "Contents") section = heading[1].trim();
@@ -49,6 +78,8 @@ function parseResources(markdown, category, filePath) {
       category: category.title,
       categorySlug: category.slug,
       section,
+      groupSlug,
+      groupTitle,
       source: path.relative(root, filePath).split(path.sep).join("/"),
     });
   }
@@ -87,6 +118,24 @@ async function build() {
     const sectionCounts = new Map();
     for (const resource of categoryResources) sectionCounts.set(resource.section, (sectionCounts.get(resource.section) || 0) + 1);
     category.sections = [...sectionCounts].map(([title, count]) => ({ title, count }));
+    const groupMap = new Map();
+    for (const resource of categoryResources) {
+      const key = resource.groupSlug || category.slug;
+      if (!groupMap.has(key)) groupMap.set(key, { slug: resource.groupSlug, title: resource.groupTitle, count: 0, sections: new Map() });
+      const group = groupMap.get(key);
+      group.count += 1;
+      group.sections.set(resource.section, (group.sections.get(resource.section) || 0) + 1);
+    }
+    category.groups = [...groupMap.values()].map((group) => ({
+      slug: group.slug,
+      title: group.title,
+      count: group.count,
+      sections: [...group.sections].map(([title, count]) => ({ title, count })),
+    }));
+    if (category.groups.length === 1 && category.groups[0].slug === ROOT_GROUP_SLUG) {
+      category.groups[0].slug = "";
+      for (const resource of categoryResources) resource.groupSlug = "";
+    }
   }
 
   const catalog = {

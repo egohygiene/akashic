@@ -5,7 +5,7 @@
 
 > Ego Hygiene's living constellation of curated knowledge, organized as focused Awesome lists.
 
-🌌 **[Explore akashic](https://egohygiene.github.io/akashic/)** — search, browse, and map the complete collection in a friendly, responsive interface.
+🌌 **[Explore akashic](https://egohygiene.github.io/awesome/)** — search, browse, and map the complete collection in a friendly, responsive interface.
 
 **akashic** is the Ego Hygiene knowledge collection: a growing set of focused lists spanning technology, science, public resources, creativity, well-being, and the deeper questions people use to understand their lives and world. Each list follows the Awesome framework while retaining its own narrow scope and curation standards.
 
