@@ -4,7 +4,7 @@
 
 > Free museums, public lands, cultural experiences, self-guided exploration, volunteering, civic participation, and hospitality communities.
 
-Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
 Admission policies, reservations, residency rules, event dates, transportation, parking, special exhibitions, and amenity fees can change. “Free admission” does not necessarily cover parking, camping, ticket processing, equipment, food, or separately priced experiences.
 

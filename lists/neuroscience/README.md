@@ -4,7 +4,7 @@
 
 > Open atlases, datasets, analysis tools, computational models, standards, learning resources, and communities for studying the brain and nervous system.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

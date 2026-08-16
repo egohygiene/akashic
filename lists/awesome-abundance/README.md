@@ -4,7 +4,7 @@
 
 > A curated atlas of legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and access people often already have without realizing it.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

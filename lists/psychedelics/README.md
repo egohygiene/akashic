@@ -4,7 +4,7 @@
 
 > Evidence-forward research centers, literature, open data, safety resources, policy trackers, professional education, and cultural context for psychedelics.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 <!-- site-advisory: Educational only—not medical or legal advice. Controlled-study findings do not establish that unsupervised use is safe. For severe symptoms or immediate danger, contact local emergency or poison-control services; peer-support lines are not emergency services. -->
 

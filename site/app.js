@@ -1,5 +1,18 @@
 import { createMindMap } from "./mind-map.js";
 
+const FAVORITES_KEY = "akashic-favorites";
+const LEGACY_FAVORITES_KEY = "ego-awesome-favorites";
+const THEME_KEY = "akashic-theme";
+const LEGACY_THEME_KEY = "ego-awesome-theme";
+
+function loadFavorites() {
+  try {
+    return new Set(JSON.parse(localStorage.getItem(FAVORITES_KEY) || localStorage.getItem(LEGACY_FAVORITES_KEY) || "[]"));
+  } catch {
+    return new Set();
+  }
+}
+
 const state = {
   catalog: null,
   query: "",
@@ -7,7 +20,7 @@ const state = {
   section: "",
   sort: "featured",
   limit: 48,
-  favorites: new Set(JSON.parse(localStorage.getItem("ego-awesome-favorites") || "[]")),
+  favorites: loadFavorites(),
 };
 let mindMap;
 
@@ -104,7 +117,7 @@ function renderCatalog() {
   elements.grid.querySelectorAll("[data-favorite]").forEach((button) => button.addEventListener("click", () => {
     const url = button.dataset.favorite;
     state.favorites.has(url) ? state.favorites.delete(url) : state.favorites.add(url);
-    localStorage.setItem("ego-awesome-favorites", JSON.stringify([...state.favorites]));
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify([...state.favorites]));
     renderCatalog();
   }));
   renderFilters();
@@ -122,13 +135,13 @@ function clearFilters() {
 }
 
 function initializeTheme() {
-  const saved = localStorage.getItem("ego-awesome-theme");
+  const saved = localStorage.getItem(THEME_KEY) || localStorage.getItem(LEGACY_THEME_KEY);
   const preferred = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
   document.documentElement.dataset.theme = saved || preferred;
   elements.theme.addEventListener("click", () => {
     const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = theme;
-    localStorage.setItem("ego-awesome-theme", theme);
+    localStorage.setItem(THEME_KEY, theme);
   });
 }
 

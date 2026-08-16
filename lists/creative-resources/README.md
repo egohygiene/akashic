@@ -4,7 +4,7 @@
 
 > Audio, music, 3D assets, image processing, video, and visualization.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

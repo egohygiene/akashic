@@ -128,10 +128,10 @@ export function createMindMap({ catalog, container, select, topicSelect, back, s
       });
     });
     node({
-      x: centerX, y: centerY, radius: 92, title: "Ego Hygiene Awesome", subtitle: `${catalog.resourceCount.toLocaleString()} resources`,
+      x: centerX, y: centerY, radius: 92, title: "akashic", subtitle: `${catalog.resourceCount.toLocaleString()} resources`,
       color: "#ff66c8", className: "map-root-node",
     });
-    status.textContent = `${categories.length} collections orbit the Ego Hygiene Awesome portal. Select one to reveal its topics.`;
+    status.textContent = `${categories.length} collections orbit akashic. Select one to reveal its topics.`;
     advisory.hidden = true;
   }
 

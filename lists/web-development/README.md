@@ -4,7 +4,7 @@
 
 > Authentication, frameworks, APIs, tooling, forms, state management, styling, testing, UI components, and visualization.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

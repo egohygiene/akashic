@@ -4,7 +4,7 @@
 
 > Accessibility, authoring, build automation, distributions, drawing, templates, learning resources, and packages.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

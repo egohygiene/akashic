@@ -4,7 +4,7 @@
 
 > Benefits, emergency assistance, community volunteering, consumer safety, finance, employment, and government services.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

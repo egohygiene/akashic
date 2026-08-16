@@ -4,7 +4,7 @@
 
 > Continuing free tiers, student and nonprofit programs, hosting, databases, observability, design tools, APIs, storage, and internet infrastructure.
 
-Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
 Free tiers change frequently. Verify current quotas, acceptable-use rules, commercial-use terms, data retention, inactivity policies, credit-card requirements, overage behavior, and deletion rules before depending on a service. Prefer hard spending caps and billing alerts whenever a provider can charge for usage.
 

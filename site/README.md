@@ -1,4 +1,4 @@
-# Knowledge portal
+# akashic knowledge portal
 
 The portal is a dependency-free static site generated from the repository's Markdown lists. The lists remain the canonical data source; do not edit generated catalog data by hand. Collection and section metadata also powers the interactive mind map, so every new list or subsection appears there automatically on the next build.
 

@@ -2,7 +2,7 @@
 /**
  * validate-collection.mjs
  *
- * Repository-wide collection validator for the Ego Hygiene Awesome collection.
+ * Repository-wide collection validator for akashic, the Ego Hygiene knowledge collection.
  * Uses only Node.js built-in modules. Exits with a nonzero status when any
  * invariant is violated.
  *
@@ -34,6 +34,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "scientific-research",
   "security",
   "self-hosting-and-homelab",
+  "spirituality-religion-and-occult",
   "tex-and-typesetting",
   "web-development",
   "work-and-learning",

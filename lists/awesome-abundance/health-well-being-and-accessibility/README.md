@@ -4,7 +4,7 @@
 
 > Free clinics, evidence-informed public tools, treatment locators, crisis support, accessibility technology, and disability services.
 
-Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
 These resources provide information, access, or support—not diagnosis or individualized medical advice. Eligibility, service scope, clinical evidence, privacy, and local availability vary. In an emergency, use the emergency service for your location; in the United States, call or text 988 for a suicide or mental-health crisis and 911 for immediate danger.
 
