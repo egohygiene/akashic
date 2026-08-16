@@ -22,6 +22,7 @@
       </a>
       <nav aria-label="Primary navigation">
         <a href="#collections">Collections</a>
+        <a href="#mind-map">Mind map</a>
         <a href="https://github.com/egohygiene/awesome" target="_blank" rel="noreferrer">GitHub</a>
         <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch color theme">
           <span aria-hidden="true">◐</span>
@@ -42,6 +43,7 @@
         </form>
         <div class="hero-actions">
           <a class="button button-primary" href="#catalog">Explore the portal <span aria-hidden="true">↓</span></a>
+          <a class="button button-quiet" href="#mind-map">Open the mind map <span aria-hidden="true">⌁</span></a>
           <a class="button button-quiet" href="https://awesomelists.top/" target="_blank" rel="noreferrer">Inspired by Awesome Search <span aria-hidden="true">↗</span></a>
         </div>
         <dl class="stats" aria-label="Collection statistics">
@@ -59,11 +61,41 @@
         <div class="collection-grid" id="collection-grid" aria-live="polite"></div>
       </section>
 
+      <section class="mind-map-section" id="mind-map" aria-labelledby="mind-map-title">
+        <div class="section-heading">
+          <div><p class="kicker">See the connections</p><h2 id="mind-map-title">Navigate the knowledge map</h2></div>
+          <p>Choose a collection to reveal its topics, then jump directly into that branch of the catalog.</p>
+        </div>
+        <div class="mind-map-shell">
+          <div class="mind-map-toolbar">
+            <label for="mind-map-collection">Collection</label>
+            <select id="mind-map-collection">
+              <option value="">All collections</option>
+            </select>
+            <label for="mind-map-topic">Topic</label>
+            <select id="mind-map-topic" disabled>
+              <option value="">Choose a collection first</option>
+            </select>
+            <button class="map-back" id="map-back" type="button" hidden>← All collections</button>
+            <div class="map-controls" aria-label="Mind map view controls">
+              <button type="button" id="map-zoom-out" aria-label="Zoom out">−</button>
+              <button type="button" id="map-reset" aria-label="Reset map view">Reset</button>
+              <button type="button" id="map-zoom-in" aria-label="Zoom in">+</button>
+            </div>
+          </div>
+          <div class="mind-map-canvas" id="mind-map-canvas" aria-hidden="true"></div>
+          <p class="mind-map-status" id="mind-map-status" role="status">Loading the knowledge map…</p>
+          <p class="collection-advisory" id="mind-map-advisory" hidden></p>
+          <p class="mind-map-help">Select a node or use the menus to explore. Drag empty space to pan; use the buttons or Ctrl/⌘ + scroll to zoom.</p>
+        </div>
+      </section>
+
       <section class="catalog-section" id="catalog" aria-labelledby="catalog-title">
         <div class="catalog-heading">
           <div><p class="kicker">The whole constellation</p><h2 id="catalog-title">Explore resources</h2></div>
           <p id="result-summary" role="status">Loading the collection…</p>
         </div>
+        <p class="collection-advisory" id="catalog-advisory" hidden></p>
         <div class="catalog-toolbar">
           <div class="filter-row" id="filter-row" aria-label="Filter by collection"></div>
           <label class="sort-control">Sort

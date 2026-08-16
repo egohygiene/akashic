@@ -35,23 +35,13 @@ Part of the [Ego Hygiene Awesome collection](../../README.md).
 ## Data and Literature
 
 - [arXiv Bulk Data Access](https://info.arxiv.org/help/bulk_data_s3.html) - Official instructions for accessing arXiv article source and PDF collections through requester-pays Amazon S3 buckets.
-- [ClinicalTrials.gov](https://clinicaltrials.gov/) - Official United States registry and results database for publicly and privately supported clinical studies worldwide.
-- [Connected Papers](https://www.connectedpapers.com/) - Visual literature-discovery tool that maps related academic papers around a chosen seed work.
-- [Consensus](https://consensus.app/) - AI-powered academic search engine for finding, synthesizing, and tracing claims to research papers.
 - [Daily arXiv](https://mill413.github.io/daily-arxiv/) - Automatically generated feed of recent arXiv papers matching the maintainer's configured research topics.
 - [Dogs Breed Dataset](https://www.kaggle.com/datasets/gauravduttakiit/dogs-breed-dataset) - Kaggle image dataset organized for dog-breed recognition and machine-learning experiments.
-- [Dryad](https://datadryad.org/stash) - Curated general-purpose repository for publishing, preserving, and discovering research data.
 - [French Bulldog Research on PubMed](https://pubmed.ncbi.nlm.nih.gov/?term=French%20Bulldog) - Live PubMed literature search for research related to French Bulldogs.
-- [Google Scholar](https://scholar.google.com/) - Search engine for scholarly articles, theses, books, court opinions, citations, authors, and research profiles.
 - [im2latex-100k](https://zenodo.org/records/56198) - Dataset of approximately 100,000 rendered mathematical formulas paired with LaTeX source.
 - [Kaggle Datasets](https://www.kaggle.com/datasets) - Browsable catalog of public datasets for analysis, machine learning, competitions, and notebooks.
 - [Library Genesis Mirror](https://libgen.im/) - Unofficial shadow-library mirror; copyright status varies by work and jurisdiction, so prefer lawful or library-provided access.
 - [Mendeley Data](https://data.mendeley.com/research-data/) - Open research-data repository for discovering, publishing, versioning, and citing datasets.
-- [Mendeley Literature Search](https://www.mendeley.com/search/) - Search interface for discovering scholarly literature indexed by Mendeley.
-- [ResearchGate](https://www.researchgate.net/) - Professional network for researchers to discover publications, share work, ask questions, track impact, and collaborate.
-- [ScienceOpen](https://www.scienceopen.com/) - Research discovery network for searching publications, exploring citations, creating collections, and supporting open scholarly communication.
-- [SciSpace](https://scispace.com/) - AI-assisted research workspace for paper search, literature reviews, PDF questions, drafting, citations, and data extraction.
-- [Semantic Scholar](https://www.semanticscholar.org/) - Free, AI-powered scholarly search engine from the Allen Institute for AI with citations and research recommendations.
 - [Shared Google Colab Notebook](https://colab.research.google.com/drive/1_fOv3dDiEq-0HvU5g6IY7Omv24ApgQ-8) - Saved cloud notebook whose title and contents depend on the owner's sharing permissions.
 - [UCI Machine Learning Repository](https://archive.ics.uci.edu/) - Long-running repository of datasets used for machine-learning education, benchmarking, and empirical research.
 - [Veterinary Clinics of North America: Small Animal Practice](https://www.sciencedirect.com/journal/veterinary-clinics-of-north-america-small-animal-practice) - Peer-reviewed veterinary review journal focused on clinical care for small animals.
@@ -59,7 +49,6 @@ Part of the [Ego Hygiene Awesome collection](../../README.md).
 ## Organizations and Open Science
 
 - [Animals in NIH Research](https://grants.nih.gov/policy-and-compliance/policy-topics/air) - NIH policies and resources governing humane care, alternatives, and compliance for animals in funded research.
-- [Authorea](https://www.authorea.com/) - Collaborative authoring and publishing platform for scholarly documents, data, code, and versioned research artifacts.
 - [Center for Open Science](https://www.cos.io/) - Nonprofit organization advancing transparent and reproducible research through infrastructure, policy, communities, and open-science practices.
 - [Open Bioinformatics Foundation](https://www.open-bio.org/) - Volunteer nonprofit supporting open-source bioinformatics projects, events, standards, and developer communities.
 - [Open Education Global](https://www.oeglobal.org/) - International member organization advancing open education, openly licensed resources, and collaborative learning practices.
@@ -96,14 +85,12 @@ Part of the [Ego Hygiene Awesome collection](../../README.md).
 ## Scholarly Publishing
 
 - [Alan Szmyt on Authorea](https://www.authorea.com/users/828443-alan-szmyt) - Public Authorea profile collecting Alan Szmyt's scholarly authoring and publication activity.
-- [Crossref](https://www.crossref.org/) - Nonprofit scholarly-infrastructure organization registering DOIs and connecting research metadata, citations, funding, and provenance.
 - [ENSAI FGAM Internship Project](https://github.com/allemand-instable/ENSAI-2A-stage-FGAM) - Code, data analysis, and report sources for an actuarial internship project using generalized additive models.
 - [EOlang Paper](https://github.com/objectionary/eolang-paper) - Reproducible LaTeX sources, experiments, and publication assets for research on the EO object-oriented language.
 - [IRE Journals](https://www.irejournals.com/) - Open-access engineering and science journal publisher; evaluate journal scope, policies, indexing, and review practices before submitting.
 - [JOSS Documentation](https://joss.readthedocs.io/en/latest/) - Author, reviewer, and editor documentation for submitting and evaluating research software in the Journal of Open Source Software.
 - [Journal of Open Source Software](https://joss.theoj.org/) - Developer-friendly, peer-reviewed journal for research software packages and their scholarly metadata.
 - [Journal of Open Source Software on GitHub](https://github.com/openjournals/joss) - Source, editorial tooling, and issue workflows for the Journal of Open Source Software.
-- [Mendeley](https://www.mendeley.com/) - Reference manager and research-discovery platform for organizing literature, annotations, citations, and collaboration.
 - [Zenodo on GitHub](https://github.com/zenodo) - Open-source organization for Zenodo's research repository, integrations, metadata, and infrastructure.
 - [ZenodoRDM](https://github.com/zenodo/zenodo-rdm) - Turnkey research-data repository platform built from the software and practices behind Zenodo.
 

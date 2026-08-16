@@ -5,7 +5,9 @@
 
 > A curated collection of focused awesome lists for tools, resources, knowledge, inspiration, and the open web.
 
-🌌 **[Explore the visual knowledge portal](https://egohygiene.github.io/awesome/)** — search and browse the complete collection in a friendly, responsive interface.\n\nThis repository is the root index for the **Ego Hygiene Awesome** collection — a set of focused domain lists covering artificial intelligence, developer tools, open source, security, and more. Each list is independently maintained to ensure high quality, relevance, and comprehensiveness.
+🌌 **[Explore the visual knowledge portal](https://egohygiene.github.io/awesome/)** — search, browse, and map the complete collection in a friendly, responsive interface.
+
+This repository is the root index for the **Ego Hygiene Awesome** collection — a set of focused domain lists covering artificial intelligence, developer tools, open source, security, and more. Each list is independently maintained to ensure high quality, relevance, and comprehensiveness.
 
 ## Contents
 
@@ -15,19 +17,22 @@
 
 ## Explore the Collection
 
-- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **751 resources.**
+- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **719 resources.**
 - [Artificial Intelligence](lists/artificial-intelligence/README.md) - Agent engineering, models, providers, memory systems, evaluation, safety, and AI research. **120 resources.**
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **226 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **26 resources.**
 - [Developer Tools](lists/developer-tools/README.md) - Application development, databases, documentation, knowledge management, shell environments, and developer utilities. **145 resources.**
 - [Health and Well-Being](lists/health-and-well-being/README.md) - Digital health, mental health resources, regulatory bodies, and treatment platforms. **21 resources.**
+- [Neuroscience](lists/neuroscience/README.md) - Brain atlases, open data, neuroimaging, electrophysiology, computational models, standards, education, and research communities. **86 resources.**
 - [Open Source](lists/open-source/README.md) - Open source collections, community governance, foundations, history, licensing, and support programs. **159 resources.**
+- [Psychedelics](lists/psychedelics/README.md) - Evidence-forward research, open data, safety, regulated access, professional education, ethics, and cultural context. **74 resources.**
 - [Public Services and Support](lists/public-services-and-support/README.md) - Benefits, emergency assistance, community volunteering, consumer safety, finance, employment, and government services. **52 resources.**
+- [Research](lists/research/README.md) - Scholarly discovery, AI-assisted understanding, citation mapping, evidence synthesis, legal access, repositories, and reproducible workflows. **100 resources.**
 - [Research Funding and Grants](lists/research-funding-and-grants/README.md) - Funding databases, government and international programs, mental-health and science grants, fellowships, arts, open source, nonprofits, commercialization, and application guidance. **232 resources.**
-- [Scientific Research](lists/scientific-research/README.md) - Animal health, scientific data, open science organizations, scientific computing, and scholarly publishing. **77 resources.**
+- [Scientific Research](lists/scientific-research/README.md) - Animal health, scientific data, open science organizations, scientific computing, and scholarly publishing. **64 resources.**
 - [Security](lists/security/README.md) - Organizations, tools, privacy, personal data protection, supply chain security, and vulnerability data. **92 resources.**
 - [Self-Hosting and Homelab](lists/self-hosting-and-homelab/README.md) - Collections, guides, infrastructure operations, media, personal tools, and productivity platforms. **31 resources.**
-- [TeX and Typesetting](lists/tex-and-typesetting/README.md) - Accessibility, authoring, build automation, distributions, drawing, templates, learning resources, and packages. **277 resources.**
+- [TeX and Typesetting](lists/tex-and-typesetting/README.md) - Accessibility, authoring, build automation, distributions, drawing, templates, learning resources, and packages. **274 resources.**
 - [Web Development](lists/web-development/README.md) - Authentication, frameworks, APIs, tooling, forms, state management, styling, testing, UI components, and visualization. **90 resources.**
 - [Work and Learning](lists/work-and-learning/README.md) - Business, career platforms, communities, learning resources, writing, and workspace tools. **41 resources.**
 
