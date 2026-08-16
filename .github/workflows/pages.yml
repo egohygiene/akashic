@@ -1,4 +1,4 @@
-name: Deploy knowledge portal
+name: Deploy akashic
 
 on:
   push:

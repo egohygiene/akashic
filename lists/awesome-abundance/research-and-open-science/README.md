@@ -4,7 +4,7 @@
 
 > No-cost public data, reproducible methods, scientific tools, reference databases, and citizen-science participation.
 
-Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
 For comprehensive scholarly discovery, literature review, citation mapping, reference management, and repositories, see [Awesome Research](../../research/README.md).
 

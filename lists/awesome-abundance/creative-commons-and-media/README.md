@@ -4,7 +4,7 @@
 
 > Reusable images, art, audio, music, video, fonts, icons, 3D assets, and cultural media with free access or open licensing.
 
-Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
 “Free to download” does not always mean “free to reuse.” Check the license attached to each individual asset, preserve required attribution, and confirm whether commercial use, modification, or redistribution is permitted.
 

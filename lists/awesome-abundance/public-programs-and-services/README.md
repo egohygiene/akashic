@@ -4,7 +4,7 @@
 
 > Official and nonprofit access paths for food, housing, utilities, education, employment, taxes, legal help, communications, health, and other daily needs.
 
-Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
 Most entries in this initial edition are United States resources. Programs may depend on income, household, residency, age, disability, education, service history, immigration rules, funding, or local capacity. Only an administering agency or authorized partner can determine eligibility. Government benefits do not require upfront gift cards, cryptocurrency, or payment to an unofficial “agent.”
 

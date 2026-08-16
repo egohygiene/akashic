@@ -1,13 +1,13 @@
 <!--lint disable awesome-git-repo-age-->
 <!-- Remove the rule override above after the repository is at least 30 days old. -->
 
-# Awesome [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# akashic [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> A curated collection of focused awesome lists for tools, resources, knowledge, inspiration, and the open web.
+> Ego Hygiene's living constellation of curated knowledge, organized as focused Awesome lists.
 
-🌌 **[Explore the visual knowledge portal](https://egohygiene.github.io/awesome/)** — search, browse, and map the complete collection in a friendly, responsive interface.
+🌌 **[Explore akashic](https://egohygiene.github.io/akashic/)** — search, browse, and map the complete collection in a friendly, responsive interface.
 
-This repository is the root index for the **Ego Hygiene Awesome** collection — a set of focused domain lists covering artificial intelligence, developer tools, open source, security, and more. Each list is independently maintained to ensure high quality, relevance, and comprehensiveness.
+**akashic** is the Ego Hygiene knowledge collection: a growing set of focused lists spanning technology, science, public resources, creativity, well-being, and the deeper questions people use to understand their lives and world. Each list follows the Awesome framework while retaining its own narrow scope and curation standards.
 
 ## Contents
 
@@ -32,6 +32,7 @@ This repository is the root index for the **Ego Hygiene Awesome** collection —
 - [Scientific Research](lists/scientific-research/README.md) - Animal health, scientific data, open science organizations, scientific computing, and scholarly publishing. **64 resources.**
 - [Security](lists/security/README.md) - Organizations, tools, privacy, personal data protection, supply chain security, and vulnerability data. **92 resources.**
 - [Self-Hosting and Homelab](lists/self-hosting-and-homelab/README.md) - Collections, guides, infrastructure operations, media, personal tools, and productivity platforms. **31 resources.**
+- [Spirituality, Religion, and Occult Knowledge](lists/spirituality-religion-and-occult/README.md) - Comparative religion, sacred texts, living traditions, contemplative practice, material history, esotericism, community, care, and critical inquiry. **201 resources.**
 - [TeX and Typesetting](lists/tex-and-typesetting/README.md) - Accessibility, authoring, build automation, distributions, drawing, templates, learning resources, and packages. **274 resources.**
 - [Web Development](lists/web-development/README.md) - Authentication, frameworks, APIs, tooling, forms, state management, styling, testing, UI components, and visualization. **90 resources.**
 - [Work and Learning](lists/work-and-learning/README.md) - Business, career platforms, communities, learning resources, writing, and workspace tools. **41 resources.**

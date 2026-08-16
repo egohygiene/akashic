@@ -4,7 +4,7 @@
 
 > High-quality software that costs nothing to use and publishes source code under a license permitting inspection, modification, and redistribution.
 
-Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
 Free and open-source software is about user freedom as well as price. Hosted services, proprietary plugins, support, storage, or convenient prebuilt packages may still have optional costs even when the listed software itself is free and open source.
 

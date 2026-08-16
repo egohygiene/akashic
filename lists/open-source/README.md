@@ -4,7 +4,7 @@
 
 > Open source collections, community governance, foundations, history, licensing, and support programs.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

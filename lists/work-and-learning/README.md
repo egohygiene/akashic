@@ -4,7 +4,7 @@
 
 > Business, career platforms, communities, learning resources, writing, and workspace tools.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

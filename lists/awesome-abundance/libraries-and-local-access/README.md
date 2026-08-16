@@ -4,7 +4,7 @@
 
 > Library discovery, digital borrowing, research databases, learning platforms, devices, museum passes, and surprising things available through local membership.
 
-Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
 Library services vary by system, consortium, residency, age, and current vendor contracts. A listed platform is free to patrons only when their library participates; always begin with the digital-resources and lending pages for the library that issued the card.
 

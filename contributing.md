@@ -4,7 +4,7 @@ Thank you for helping this collection become more useful. By participating, you 
 
 ## Repository Structure
 
-This repository is organized as a collection of focused Awesome lists:
+akashic is organized as a collection of focused Awesome lists:
 
 ```
 README.md                    ← collection hub and index
@@ -27,6 +27,7 @@ lists/
   scientific-research/README.md
   security/README.md
   self-hosting-and-homelab/README.md
+  spirituality-religion-and-occult/README.md
   tex-and-typesetting/README.md
   web-development/README.md
   work-and-learning/README.md

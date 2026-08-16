@@ -4,7 +4,7 @@
 
 > Open courseware, self-paced education, textbooks, computing curricula, language learning, and career skills available without tuition.
 
-Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

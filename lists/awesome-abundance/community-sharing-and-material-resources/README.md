@@ -4,7 +4,7 @@
 
 > Local gifting, reuse networks, food sharing, repair help, clothing, household goods, technology, and other physical resources available without ordinary retail cost.
 
-Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
 Physical-resource availability is inherently local and inventory-dependent. Confirm pickup rules, eligibility, safety, condition, transportation, and whether requested parts or materials carry a cost. Never send deposits, verification codes, gift cards, or sensitive identity information to strangers offering “free” goods.
 

@@ -4,7 +4,7 @@
 
 > A curated collection of resources for artificial intelligence, agent engineering, models, memory, evaluation, and research.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

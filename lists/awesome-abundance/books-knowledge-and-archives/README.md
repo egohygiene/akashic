@@ -4,7 +4,7 @@
 
 > Legitimate public-domain books, open-access monographs, reference works, historical collections, newspapers, and public archives.
 
-Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

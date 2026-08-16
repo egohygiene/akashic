@@ -4,7 +4,7 @@
 
 > Digital health, mental health resources, regulatory bodies, and treatment platforms.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 

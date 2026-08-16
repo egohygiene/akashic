@@ -4,7 +4,7 @@
 
 > Funding discovery for research, education, mental health, science, open source, creative work, journalism, nonprofits, community projects, startups, and public-interest innovation worldwide.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 Funding availability, deadlines, eligibility, geographic scope, and application requirements change frequently. Prefer the linked official source, verify the current call before preparing an application, and never pay an unsolicited fee to receive a government grant.
 

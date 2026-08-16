@@ -4,7 +4,7 @@
 
 > Scholarly search, AI-assisted discovery, citation mapping, evidence synthesis, reference management, legal access, repositories, reproducibility, and research integrity.
 
-Part of the [Ego Hygiene Awesome collection](../../README.md).
+Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 Free search does not necessarily mean free full text. Verify AI-generated synthesis against the underlying papers, methods, corrections, and retractions—especially for consequential decisions.
 
