@@ -2,14 +2,15 @@
 
 # Awesome Research and Open Science [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Legal scholarly access, preprints, repositories, open data, reproducible methods, scientific tools, and citizen-science participation.
+> No-cost public data, reproducible methods, scientific tools, reference databases, and citizen-science participation.
 
 Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collection](../../../README.md).
+
+For comprehensive scholarly discovery, literature review, citation mapping, reference management, and repositories, see [Awesome Research](../../research/README.md).
 
 ## Contents
 
 - [Scholarly Discovery and Legal Access](#scholarly-discovery-and-legal-access)
-- [Preprints and Research Repositories](#preprints-and-research-repositories)
 - [Open Data](#open-data)
 - [Methods and Reproducibility](#methods-and-reproducibility)
 - [Citizen Science](#citizen-science)
@@ -17,41 +18,12 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 
 ## Scholarly Discovery and Legal Access
 
-- [OpenAlex](https://openalex.org/) - Fully open catalog of scholarly works, authors, institutions, topics, sources, funders, and citation relationships with free data and APIs.
-- [CORE](https://core.ac.uk/) - Nonprofit aggregator for discovering open-access research papers collected from repositories and journals worldwide.
-- [Directory of Open Access Journals](https://doaj.org/) - Community-curated index of peer-reviewed open-access journals that meet published transparency and quality criteria.
-- [Unpaywall](https://unpaywall.org/) - Free browser extension and open database that locate legal open-access copies of research articles by DOI.
-- [Open Access Button](https://openaccessbutton.org/) - Free tool for finding legally available research copies and helping users request author sharing when none is found.
-- [BASE](https://www.base-search.net/) - Bielefeld University search engine indexing academic web resources and repository records, with open-access filters.
-- [OpenAIRE Explore](https://explore.openaire.eu/) - European open-science discovery graph connecting publications, datasets, software, projects, organizations, and funders.
 - [OpenDOAR](https://v2.sherpa.ac.uk/opendoar/) - Quality-controlled global directory of academic open-access repositories searchable by location, content, software, and repository type.
-- [Lens](https://www.lens.org/) - Free account-supported search and analysis platform connecting scholarly literature with patents, citations, biological sequences, and institutions.
-- [PubMed](https://pubmed.ncbi.nlm.nih.gov/) - Free National Library of Medicine search service for biomedical citations and abstracts, with links to full text where available.
 - [Science.gov](https://www.science.gov/) - Federated search across United States federal science databases, websites, reports, data, patents, and research results.
 - [WorldWideScience](https://worldwidescience.org/) - Multilingual federated search across national and international scientific databases and portals.
-- [SciELO](https://www.scielo.org/) - Open-access publishing and indexing network providing free full-text journals from Latin America, the Caribbean, Spain, Portugal, and South Africa.
-- [Europe PMC](https://europepmc.org/) - Free life-sciences literature database with abstracts, full text, preprints, patents, clinical guidelines, and linked data resources.
-
-## Preprints and Research Repositories
-
-- [arXiv](https://arxiv.org/) - Free open-access repository for preprints in physics, mathematics, computer science, statistics, economics, and related fields.
-- [bioRxiv](https://www.biorxiv.org/) - Free Cold Spring Harbor Laboratory repository for unpublished preprints across the biological sciences.
-- [medRxiv](https://www.medrxiv.org/) - Free preprint server for health-science manuscripts with screening, prominent non-peer-review notices, and version history.
-- [PubMed Central](https://pmc.ncbi.nlm.nih.gov/) - Free full-text archive of biomedical and life-sciences journal literature maintained by the National Library of Medicine.
-- [Zenodo](https://zenodo.org/) - CERN-operated general repository that lets researchers deposit publications, data, software, posters, and other outputs with persistent identifiers.
-- [OSF](https://osf.io/) - Free account-based platform for organizing, sharing, registering, and preserving research materials across a project's lifecycle.
-- [Figshare](https://figshare.com/) - General research repository offering free public deposits for datasets, figures, posters, code, and other outputs with DOIs.
-- [Harvard Dataverse](https://dataverse.harvard.edu/) - Free public repository for publishing, citing, preserving, and discovering research data across disciplines.
-- [SocArXiv](https://osf.io/preprints/socarxiv) - Free open archive for social-science preprints hosted on the Open Science Framework.
-- [PsyArXiv](https://osf.io/preprints/psyarxiv) - Free psychology preprint service for sharing manuscripts before or alongside journal publication.
-- [EarthArXiv](https://eartharxiv.org/) - Community preprint service for Earth science, planetary science, environmental science, and related research.
-- [HAL](https://hal.science/) - French national multidisciplinary open archive for research papers, theses, reports, preprints, and institutional collections.
-- [ChemRxiv](https://chemrxiv.org/) - Free preprint server for chemistry and related sciences operated by international chemical societies.
 
 ## Open Data
 
-- [Google Dataset Search](https://datasetsearch.research.google.com/) - Free search engine for datasets described across government, academic, nonprofit, and publisher repositories.
-- [re3data](https://www.re3data.org/) - Global registry describing research-data repositories, subject coverage, access policies, licenses, certificates, and persistent identifiers.
 - [World Bank Open Data](https://data.worldbank.org/) - Free access to global development indicators, country datasets, downloadable tables, visualizations, and APIs.
 - [NASA Earthdata](https://www.earthdata.nasa.gov/) - Open access to NASA Earth-observation data, search tools, visualizations, tutorials, and cloud analysis services, with an account required for many downloads.
 - [NOAA National Centers for Environmental Information](https://www.ncei.noaa.gov/) - Free public archive for weather, climate, oceanographic, geophysical, and environmental data from NOAA and partners.
@@ -64,11 +36,9 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 
 ## Methods and Reproducibility
 
-- [protocols.io](https://www.protocols.io/) - Free account-supported platform to discover, create, version, discuss, and publicly share detailed research protocols.
 - [OpenWetWare](https://openwetware.org/) - Community wiki for openly sharing laboratory protocols, notebooks, materials, courses, and biological research knowledge.
 - [Research Software Directory](https://research-software-directory.org/) - Open catalog connecting research software with documentation, contributors, institutions, publications, and impact.
 - [Code Ocean Open Capsules](https://codeocean.com/capsules) - Browsable reproducibility capsules that package published code, data, dependencies, and executable workflows; running resources may have limits.
-- [Binder](https://mybinder.org/) - Free public service that builds temporary interactive computing environments from version-controlled repositories without requiring an account.
 - [Renku](https://renkulab.io/) - Open-source collaborative data-science platform with a public free service for reproducible projects, notebooks, environments, and datasets.
 - [Whole Tale](https://wholetale.org/) - Free research environment for creating, running, publishing, and verifying reproducible computational narratives from data and code.
 - [Open Science Framework Registries](https://osf.io/registries) - Free discovery and creation of time-stamped research registrations and preregistrations across communities and disciplines.

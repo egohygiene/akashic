@@ -55,7 +55,6 @@ Part of the [Ego Hygiene Awesome collection](../../README.md).
 - [CodeCogs Equation Editor](https://editor.codecogs.com/) - Browser-based LaTeX equation editor with downloadable output, autocomplete, syntax highlighting, and an integration API.
 - [EqualX](https://equalx.sourceforge.io/) - Graphical equation editor that renders LaTeX formulas and exports them to common image and document formats.
 - [FlowframTk](https://www.dickimaw-books.com/software/flowframtk/) - Graphical editor for constructing frame-based page layouts and exporting them to the LaTeX flowfram package.
-- [JabRef](https://www.jabref.org/) - Cross-platform bibliography manager for BibTeX and BibLaTeX libraries, discovery, cleanup, and citation workflows.
 - [JaxEdit](https://zohooo.github.io/jaxedit/) - Browser-based LaTeX editor with live preview, sharing, and presentation support.
 - [KBibTeX](https://userbase.kde.org/KBibTeX) - KDE bibliography editor for BibTeX files, online searches, validation, and document integration.
 - [Kile](https://kile.sourceforge.io/) - Integrated LaTeX editing environment for KDE with build, preview, completion, and project support.
@@ -67,7 +66,6 @@ Part of the [Ego Hygiene Awesome collection](../../README.md).
 - [LaTeXiT](https://www.chachatelier.fr/latexit/latexit-downloads.php?lang=en) - macOS utility for typesetting LaTeX equations and exporting them into other applications.
 - [LTeX](https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex) - LanguageTool-powered grammar and spell checker for LaTeX, Markdown, and related formats in Visual Studio Code.
 - [nics](https://nics.nilcons.com/) - Code-first presentation system that produces browser-based slides and printable PDF output.
-- [Overleaf](https://www.overleaf.com/) - Collaborative browser-based LaTeX editor, successor to ShareLaTeX, with real-time editing and project templates.
 - [Overleaf on GitHub](https://github.com/overleaf) - Official organization for Overleaf's collaborative editor, Community Edition, LaTeX services, and supporting libraries.
 - [Papeeria](https://papeeria.com/) - Collaborative browser-based LaTeX and Markdown editor with live compilation, version history, and project sharing.
 - [Papis](https://github.com/papis/papis) - Command-line bibliography and document manager with scriptable storage and metadata workflows.
@@ -82,7 +80,6 @@ Part of the [Ego Hygiene Awesome collection](../../README.md).
 - [TikZiT](https://github.com/tikzit/tikzit) - Graphical editor for creating and maintaining TikZ diagrams based on nodes, edges, and reusable styles.
 - [VS Code LaTeX with Latexmk and Biber](https://nelsonaloysio.medium.com/setting-up-vs-code-to-write-in-latex-using-latexmk-and-biber-plus-extras-b4b37c844495) - Step-by-step setup for LaTeX Workshop, Latexmk, Biber, formatting, spell checking, and PDF viewing in Visual Studio Code.
 - [WinEdt](https://www.winedt.com/) - Configurable Windows text editor and integrated environment tailored to TeX, LaTeX, and related tools.
-- [Zotero](https://github.com/zotero) - Open-source organization for Zotero's reference manager, browser connectors, translators, and supporting services.
 
 ## Build, Conversion, and Automation
 

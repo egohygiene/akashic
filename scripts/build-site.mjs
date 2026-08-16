@@ -8,6 +8,7 @@ const outputDirectory = path.join(root, "dist");
 const listsDirectory = path.join(root, "lists");
 
 const slugify = (value) => value.toLocaleLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const parseAdvisory = (markdown) => markdown.match(/^<!-- site-advisory: (.+) -->$/m)?.[1].trim() || "";
 
 async function findReadmes(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -67,7 +68,9 @@ async function build() {
     const categorySlug = relative.split(path.sep)[0];
     const category = categoryBySlug.get(categorySlug);
     if (!category) continue;
-    resources.push(...parseResources(await readFile(filePath, "utf8"), category, filePath));
+    const markdown = await readFile(filePath, "utf8");
+    if (relative === path.join(categorySlug, "README.md")) category.advisory = parseAdvisory(markdown);
+    resources.push(...parseResources(markdown, category, filePath));
   }
 
   const seen = new Set();
@@ -77,7 +80,14 @@ async function build() {
     seen.add(key);
     return true;
   });
-  for (const category of categories) category.count = uniqueResources.filter((resource) => resource.categorySlug === category.slug).length;
+  for (const category of categories) {
+    category.advisory ||= "";
+    const categoryResources = uniqueResources.filter((resource) => resource.categorySlug === category.slug);
+    category.count = categoryResources.length;
+    const sectionCounts = new Map();
+    for (const resource of categoryResources) sectionCounts.set(resource.section, (sectionCounts.get(resource.section) || 0) + 1);
+    category.sections = [...sectionCounts].map(([title, count]) => ({ title, count }));
+  }
 
   const catalog = {
     generatedAt: new Date().toISOString(),

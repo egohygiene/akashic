@@ -38,7 +38,6 @@ Free and open-source software is about user freedom as well as price. Hosted ser
 - [Free Programming Books](https://github.com/EbookFoundation/free-programming-books) - Multilingual community list of freely available programming books, courses, cheat sheets, and interactive tutorials.
 - [Awesome Public Datasets](https://github.com/awesomedata/awesome-public-datasets) - Community-maintained index of openly available datasets grouped by discipline and linked to their original sources.
 - [Awesome Free Software](https://github.com/johnjago/awesome-free-software) - Curated list of software that respects user freedom, organized by category with license information.
-- [Software Heritage](https://www.softwareheritage.org/) - Nonprofit archive that collects and preserves publicly available source code and makes it browsable and citable at no cost.
 
 ## Operating Systems
 
@@ -148,7 +147,6 @@ Free and open-source software is about user freedom as well as price. Hosted ser
 - [PostgreSQL](https://www.postgresql.org/) - Advanced open-source relational database with transactional integrity, extensibility, indexing, JSON, geospatial extensions, and a global community.
 - [MariaDB Community Server](https://mariadb.org/) - Community-developed open-source relational database compatible with much of the MySQL ecosystem.
 - [SQLite](https://www.sqlite.org/) - Public-domain embedded SQL database engine distributed as a small library and included throughout operating systems and applications.
-- [JupyterLab](https://jupyter.org/) - Open-source interactive environment for notebooks, code, data, terminals, visualization, and reproducible computational documents.
 - [RStudio Desktop](https://posit.co/download/rstudio-desktop/) - Open-source integrated development environment for R and Python with free desktop builds from Posit.
 
 ## Science, Engineering, and Education

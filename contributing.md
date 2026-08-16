@@ -18,8 +18,11 @@ lists/
   creative-resources/README.md
   developer-tools/README.md
   health-and-well-being/README.md
+  neuroscience/README.md
   open-source/README.md
+  psychedelics/README.md
   public-services-and-support/README.md
+  research/README.md
   research-funding-and-grants/README.md
   scientific-research/README.md
   security/README.md

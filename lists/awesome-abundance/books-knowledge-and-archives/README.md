@@ -37,8 +37,6 @@ Part of [Awesome Abundance](../README.md) and the [Ego Hygiene Awesome collectio
 
 ## Open-Access Books and Monographs
 
-- [Directory of Open Access Books](https://www.doabooks.org/) - Community-governed discovery index for peer-reviewed scholarly books published under open-access licenses.
-- [OAPEN Library](https://library.oapen.org/) - Nonprofit repository of freely accessible, peer-reviewed academic books with clear licensing and downloadable files.
 - [National Academies Press](https://nap.nationalacademies.org/) - Makes thousands of authoritative science, engineering, health, and policy reports free to read online or download as PDFs.
 - [Open Book Publishers](https://www.openbookpublishers.com/) - Scholar-led nonprofit press publishing peer-reviewed books that can be read online and downloaded in open formats at no cost.
 - [JSTOR Open Content](https://about.jstor.org/oa-and-free/) - Collects open-access journals, books, research reports, images, and primary sources that can be used without an institutional subscription.
