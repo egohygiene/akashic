@@ -2,16 +2,63 @@
 
 # Awesome Security [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Organizations, tools, privacy, personal data protection, supply chain security, and vulnerability data.
+> Account defense, public-facing safety, privacy, personal protection, safer connectivity, supply chain security, and vulnerability data.
 
 Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
+> **Safety note:** These resources are educational and are not emergency, legal, or individualized security advice. A VPN does not make someone anonymous, a monitoring service cannot guarantee prevention, and changing access or sharing settings can sometimes alert an abusive person. If you face an immediate physical threat, contact local emergency services when it is safe to do so. For stalking, doxxing, or abuse, preserve evidence on a trusted device and consider a victim advocate or qualified professional before confronting the person targeting you.
+
 ## Contents
 
+- [Account Security and Incident Readiness](#account-security-and-incident-readiness)
+- [Creator, Public-Facing, and Harassment Safety](#creator-public-facing-and-harassment-safety)
+- [Home and Personal Safety](#home-and-personal-safety)
 - [Organizations, Tools, and Learning](#organizations-tools-and-learning)
 - [Privacy and Personal Data](#privacy-and-personal-data)
+- [Safer Connectivity and VPNs](#safer-connectivity-and-vpns)
 - [Supply Chain and Software Assurance](#supply-chain-and-software-assurance)
 - [Vulnerability Data](#vulnerability-data)
+
+
+## Account Security and Incident Readiness
+
+- [Apple Personal Safety User Guide](https://support.apple.com/guide/personal-safety/overview-ips1c3310dd2/web) - Official guide to reviewing device access, location sharing, connected accounts, unwanted tracking, Safety Check, and emergency-reset options on supported Apple devices.
+- [CISA Secure Our World](https://www.cisa.gov/secure-our-world) - United States government guidance on phishing, password managers, multifactor authentication, and software updates for everyday account safety.
+- [Consumer Reports Security Planner](https://securityplanner.consumerreports.org/) - Free questionnaire that produces a prioritized personal-security plan without requiring identifying information; recommendations should still be adapted to the user's threat model.
+- [Digital First Aid Kit](https://digitalfirstaid.org/) - Free diagnostic guide for account loss, impersonation, harassment, doxxing, suspicious devices, website attacks, and other digital emergencies, with referrals for at-risk civil society.
+- [Facebook Security Checkup](https://www.facebook.com/help/securitycheckup) - Official signed-in review for passwords, login alerts, active sessions, and two-factor authentication on a Facebook account.
+- [Fansly Management Sessions](https://help.fansly.com/en/articles/12328641-management-sessions) - Official creator guide to granting limited team or agency access without sharing the account password, payout controls, or two-factor codes.
+- [Fansly Two-Factor Authentication](https://help.fansly.com/en/articles/12328802-securing-account-with-2fa) - Official setup and recovery guidance for protecting Fansly logins and creator payout requests with an authenticator app.
+- [Google Advanced Protection Program](https://support.google.com/accounts/answer/7519408) - Free enhanced account-security mode for people at elevated risk of targeted attacks; enrollment requires passkeys or compatible security keys and careful recovery planning.
+- [Have I Been Pwned](https://haveibeenpwned.com/) - Free personal email-breach searches, verified notifications, and Pwned Passwords checks; a match reports historical exposure and is a prompt to rotate reused credentials.
+- [Instagram Hacked Account Recovery](https://www.facebook.com/help/149494825257596/) - Official recovery flow for compromised Instagram accounts, changed contact details, suspicious linked apps, and identity verification.
+- [Yubico Security Keys](https://www.yubico.com/products/security-key/) - Paid hardware security keys for phishing-resistant FIDO2 and WebAuthn authentication; buy a compatible current model and register a secure backup before relying on one.
+
+## Creator, Public-Facing, and Harassment Safety
+
+- [Access Now Digital Security Helpline](https://www.accessnow.org/help/) - Free 24/7 technical assistance for eligible at-risk civil-society members, including activists, journalists, bloggers, and human-rights defenders; it is not a general consumer help desk.
+- [Adult Performer Advocacy Committee](https://apacommittee.org/) - Performer-led organization publishing rights, conduct, health, safety, and professional-practice resources for people working in adult entertainment.
+- [BlackCloak](https://blackcloak.io/) - Commercial digital-executive-protection service for high-profile people and families, covering personal devices, home networks, exposed data, and incident response through a sales-led service.
+- [Committee to Protect Journalists Safety Kit](https://cpj.org/safety-kit/) - Practical digital, physical, and psychological safety guidance plus emergency resources for journalists and media workers.
+- [Cyber Civil Rights Initiative Safety Center](https://cybercivilrights.org/ccri-safety-center/) - Step-by-step resources for image-based sexual abuse, sextortion, and sexually explicit deepfakes, plus a free 24/7 United States helpline and international referrals.
+- [NNEDV Safety Net Project](https://nnedv.org/content/technology-safety/) - Survivor-centered guidance on technology-facilitated abuse, stalkerware, evidence, privacy, and safer device use; abrupt changes can increase risk when a device is monitored.
+- [PEN America Online Harassment Field Manual](https://onlineharassmentfieldmanual.pen.org/) - Free guide to preparing for and responding to doxxing, impersonation, hacking, threats, coordinated harassment, documentation, and employer support.
+- [Pineapple Support](https://pineapplesupport.org/) - Nonprofit connecting adult-industry performers and creators with stigma-free, free or low-cost therapy, support groups, and emotional-support resources.
+- [Right To Be](https://righttobe.org/) - Nonprofit offering free and paid training, response tools, storytelling support, and bystander-intervention strategies for online, public, and workplace harassment.
+- [Stalking Prevention, Awareness, and Resource Center](https://www.stalkingawareness.org/risk-and-safety/) - United States stalking education, risk-assessment, safety-planning, and incident-documentation materials; SPARC is not a direct service provider.
+- [StopNCII.org](https://stopncii.org/how-it-works/) - Free tool for adults that creates hashes of intimate images on-device so participating platforms can detect qualifying nonconsensual sharing; it cannot remove content from the whole internet.
+- [SWOP Behind Bars Community Support Line](https://www.swopbehindbars.org/programs-and-services) - Peer-staffed North American line connecting sex workers and survivors with safety planning, legal, health, housing, transportation, and other industry-friendly resources.
+- [VictimConnect Resource Center](https://victimconnect.org/get-help/) - Free confidential United States phone, text, and chat referral service for victims of crime seeking safety planning, emotional support, rights information, and local services.
+
+## Home and Personal Safety
+
+- [Abode](https://goabode.com/) - Commercial do-it-yourself alarm and smart-home system with subscription-free self-monitoring and optional paid recording, cellular backup, and professional monitoring; availability varies by region.
+- [FTC Home Security Sales Guidance](https://www.ftc.gov/news-events/news/press-releases/2011/04/ftc-offers-tips-help-people-avoid-being-scammed-door-door-sales-agents-pitching-home-security) - United States consumer checklist for comparing alarm vendors, licenses, monitoring costs, contracts, cancellation rights, permits, and false-alarm fees.
+- [Google Pixel Personal Safety](https://safety.google/intl/en_us/products/pixel/) - Built-in Pixel features for emergency sharing, Safety Check, Emergency SOS, and supported crash or incident response; device, country, and network availability varies.
+- [Noonlight](https://www.noonlight.com/noonlight-app) - Personal-safety app with a free emergency-response button and optional paid iPhone features; it relies on device connectivity, location access, and supported response coverage.
+- [SimpliSafe](https://simplisafe.com/) - Commercial do-it-yourself home-security system with sensors, cameras, self-monitoring, and optional paid professional monitoring; compare current plans, recording retention, connectivity, and local alarm rules.
+- [Snug Safety](https://www.snugsafe.com/) - Daily check-in app whose free tier alerts chosen contacts after a missed check-in, with optional paid dispatch and wellness-check coordination in supported United States locations.
+- [UL Security Alarm Service Certification](https://www.ul.com/services/security-alarm-service-certification) - Explains independent listing and annual-audit requirements for alarm installation and monitoring services, useful when evaluating professional providers.
 
 
 ## Organizations, Tools, and Learning
@@ -55,13 +102,25 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 - [Block Ads](https://blockads.pwhs.app/) - Browser-based resource for reducing or blocking advertising and tracking exposure across supported environments.
 - [California Privacy Protection Agency](https://cppa.ca.gov/) - Official California privacy regulator with consumer rights, business obligations, rulemaking, enforcement, complaints, and public guidance.
+- [EasyOptOuts](https://easyoptouts.com/) - Low-cost annual service that repeatedly removes personal listings from prominent United States people-search and data-broker sites; users must provide enough identifying data to match records.
+- [Google Results About You](https://support.google.com/websearch/answer/12719076) - Free signed-in tool for finding and requesting removal of eligible contact and identity information from Google Search; removing a result does not erase the source page.
 - [HHS HIPAA Cloud-Service-Provider Audit FAQ](https://www.hhs.gov/hipaa/for-professionals/faq/2084/do-the-hipaa-rules-require-csps-that-are-business-associates-to-provide-documentation-or-allow-auditing-of-their-security-practices-by-their-customers-who-are-covered-entities-or-business-associates/index.html) - Official answer on HIPAA documentation, assurance, and audit expectations between cloud service providers and covered entities or business associates.
 - [HHS HIPAA Cybersecurity Guidance](https://www.hhs.gov/hipaa/for-professionals/security/guidance/cybersecurity/index.html) - Official cybersecurity guidance and threat resources for organizations protecting electronic protected health information under HIPAA.
 - [HHS HIPAA Security Rule Guidance](https://www.hhs.gov/hipaa/for-professionals/security/guidance/index.html) - Official guidance on Security Rule risk analysis, safeguards, documentation, remote use, emergency access, and related compliance topics.
 - [ONC Health IT](https://healthit.gov) - Official United States hub for health-data interoperability, certification, privacy, security, information blocking, standards, research, and implementation tools.
 - [ONC Security Risk Assessment Tool](https://healthit.gov/privacy-security/security-risk-assessment-tool/) - Free desktop tool and guidance for health-care organizations assessing risks to electronic protected health information; it does not guarantee HIPAA compliance.
+- [Optery](https://www.optery.com/pricing/) - Data-broker exposure scanner with a free self-service report and paid recurring removal tiers in supported countries; coverage and automation vary by plan.
+- [Permission Slip by DeleteMe](https://joindeleteme.com/permission-slip/) - Free mobile app, originally created by Consumer Reports and now operated by DeleteMe, for supported company deletion and sale-opt-out requests, with optional paid data-broker automation.
+- [Privacy Rights Clearinghouse Data Brokers](https://privacyrights.org/data-brokers) - Explains data-broker practices, consolidates United States state registries, and links consumer opt-out paths, including California's region-limited DROP service.
 - [SAVE Delivery Options](https://www.save.com/delivery-options) - Consumer controls for starting, stopping, or changing delivery of SAVE direct-mail advertising.
 - [Valpak Address Removal](https://www.valpak.com/remove-address) - Request form for removing an address from Valpak's mailed advertising-envelope distribution list.
+
+## Safer Connectivity and VPNs
+
+- [IVPN](https://www.ivpn.net/) - Paid VPN provider with open-source apps and account-number signup; independently review its current audits, jurisdiction, server coverage, and feature limits before trusting it.
+- [Mullvad VPN](https://mullvad.net/) - Paid WireGuard-based VPN using numbered accounts without required email signup; it changes network routing but does not provide anonymity by itself.
+- [Privacy Guides VPN Services](https://www.privacyguides.org/en/vpn/) - Independent comparison criteria and a small provider shortlist emphasizing open clients, modern protocols, published audits, transparent ownership, and the limits of VPN protection.
+- [Proton VPN](https://protonvpn.com/free-vpn) - VPN with open-source apps and a limited free tier without data caps, plus paid plans; an account is required and a VPN still does not replace HTTPS, Tor, or sound account security.
 
 ## Supply Chain and Software Assurance
 
