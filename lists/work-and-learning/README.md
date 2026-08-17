@@ -2,15 +2,19 @@
 
 # Awesome Work and Learning [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Business, career platforms, communities, learning resources, writing, and workspace tools.
+> Business, career platforms, creator operations, audience growth, brand monitoring, learning resources, writing, and workspace tools.
 
 Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
+
+> **Creator-operations note:** Platform features, APIs, and prices change frequently. Never give an agency or collaborator your password, two-factor codes, payout access, or recovery keys; use scoped or delegated access where available. Monitoring and takedown services cannot guarantee removal or determine that a use is unlawful. Preserve original files and permissions, and remember that a DMCA notice is a legal declaration that may expose contact information—use qualified legal help for disputed or high-stakes cases.
 
 ## Contents
 
 - [Business and Entrepreneurship](#business-and-entrepreneurship)
+- [Brand Monitoring and Content Rights](#brand-monitoring-and-content-rights)
 - [Career Platforms and Job Search](#career-platforms-and-job-search)
 - [Communities and Events](#communities-and-events)
+- [Creator Operations and Audience Growth](#creator-operations-and-audience-growth)
 - [Learning and Careers](#learning-and-careers)
 - [Writing and Publishing](#writing-and-publishing)
 - [Workspace](#workspace)
@@ -29,6 +33,19 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Teal Media](https://tealmedia.com/) - Mission-driven design and development agency specializing in digital strategy, branding, websites, and campaigns for nonprofits and advocacy organizations.
 - [Wise People](https://wisepeople.pl/) - Polish digital-product agency providing strategy, UX, accessible web design, development, ecommerce, and ongoing support services.
 - [ZenBusiness](https://www.zenbusiness.com/) - Paid United States business-formation and compliance service with registered-agent, filing, website, finance, and educational tools.
+
+## Brand Monitoring and Content Rights
+
+- [Brand24](https://brand24.com/) - Commercial web and social mention-monitoring platform with sentiment, reach, alerting, and reporting tools; the trial is time-limited and ongoing plans are paid.
+- [Ceartas](https://www.ceartas.io/) - Paid creator-protection service for scanning and submitting search, social, impersonation, deepfake, and copyright removals; plans are costly and outcomes are not guaranteed.
+- [Copyright Claims Board](https://ccb.gov/) - Official United States voluntary remote tribunal for certain copyright disputes seeking up to $30,000; filing fees apply, respondents may opt out, and its materials are not legal advice.
+- [Google Alerts](https://www.google.com/alerts) - Free signed-in service for email or RSS alerts when Google finds new web, news, blog, video, book, or discussion results matching a name or keyword.
+- [Lumen Database](https://lumendatabase.co/) - Independent research database collecting and analyzing legal removal requests, including copyright and privacy complaints; it does not provide individualized legal advice.
+- [Rulta](https://www.rulta.com/) - Paid creator service for continuous piracy, impersonation, and repost monitoring plus takedown submissions across search, social, and creator platforms; results are not guaranteed.
+- [Talkwalker Alerts](https://www.talkwalker.com/alerts) - Free email and RSS alerts for new web, news, blog, forum, and social mentions of a chosen name, brand, phrase, or URL.
+- [TinEye](https://tineye.com/) - Reverse-image search engine for finding some reused or modified copies of an image; results are not exhaustive and commercial APIs are paid.
+- [U.S. Copyright Office DMCA Agent Directory](https://www.copyright.gov/dmca-directory/) - Official directory for locating a United States online service provider's designated copyright agent and reviewing notice requirements before submitting a takedown request.
+- [Volunteer Lawyers for the Arts](https://vlany.org/) - New York nonprofit providing eligible artists with legal education, consultations, and pro bono or low-cost help; services are appointment-based and geographically limited.
 
 ## Career Platforms and Job Search
 
@@ -59,6 +76,20 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Linux DO](https://linux.do/) - Chinese-language technology community discussing Linux, software development, open source, AI, and related engineering topics.
 - [Mastodon Explore](https://mastodon.social/explore) - Public discovery page for trending posts, tags, news, and profiles on the Mastodon social network.
 - [WAGO Community](https://www.wago.community/) - Community forum and knowledge hub for industrial automation, control systems, and WAGO products.
+
+## Creator Operations and Audience Growth
+
+- [Buffer](https://buffer.com/) - Freemium social-media workspace for planning, publishing, idea capture, engagement, and analytics; paid pricing scales with connected channels and team features.
+- [FTC Endorsements, Influencers, and Reviews](https://www.ftc.gov/business-guidance/advertising-marketing/endorsements-influencers-reviews) - Official United States guidance for clearly disclosing material connections, endorsements, affiliate relationships, gifted products, and incentivized reviews.
+- [Google Trends](https://trends.google.com/explore) - Free tool for comparing relative search interest across terms, places, and time ranges; values are normalized rather than absolute search counts.
+- [Later](https://later.com/) - Commercial visual content planning, scheduling, analytics, link-in-bio, and creator-brand collaboration platform; features and pricing vary by network and plan.
+- [Meta Business Suite](https://business.facebook.com/) - Official signed-in workspace for managing eligible Facebook and Instagram posts, messages, notifications, ads, and insights; features depend on account type and region.
+- [Metricool](https://metricool.com/) - Freemium social-media planning, publishing, analytics, inbox, advertising, and competitor-analysis workspace with limits that vary by plan and network.
+- [Planable](https://planable.io/) - Collaborative content calendar for drafting, previewing, approving, and scheduling social posts; the free allowance is limited and expanded use is paid.
+- [SAG-AFTRA Influencer Resources](https://www.sagaftra.org/get-involved/ads-go-union/influencer-resources) - Agreements, terminology, rate tools, disclosure guidance, and organizing resources for eligible influencers and sponsored-content creators.
+- [Social Blade](https://socialblade.com/) - Cross-platform public account statistics and historical growth estimates with free browsing and paid features; estimated earnings are not verified creator income.
+- [TikTok Studio](https://www.tiktok.com/tiktokstudio) - Official signed-in creator workspace for content management, analytics, comments, inspiration, and available monetization tools; features and eligibility vary by age, account, and region.
+- [YouTube Studio](https://studio.youtube.com/) - Official signed-in dashboard for managing videos, analytics, comments, subtitles, monetization, and copyright issues on a YouTube channel.
 
 ## Learning and Careers
 
