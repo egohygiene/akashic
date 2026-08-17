@@ -53,7 +53,6 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Budget App](https://github.com/paukiatwee/budgetapp) - Older open-source personal budgeting application with category tracking, reports, and container-oriented deployment files.
 - [Drop](https://droposs.org/) - Open-source Steam alternative focused on owning, organizing, launching, and sharing games through an open ecosystem.
 - [Home Assistant](https://www.home-assistant.io/) - Open-source home-automation platform emphasizing local control, privacy, integrations, dashboards, and extensible automations.
-- [SimpliSafe](https://simplisafe.com/) - Commercial home-security platform offering sensors, cameras, alarms, professional monitoring, and mobile controls.
 
 ## Productivity and Collaboration
 
