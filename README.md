@@ -17,7 +17,7 @@
 
 ## Explore the Collection
 
-- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **729 resources.**
+- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **851 resources.**
 - [Artificial Intelligence](lists/artificial-intelligence/README.md) - Agent engineering, models, providers, memory systems, evaluation, safety, and AI research. **133 resources.**
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **227 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **45 resources.**
@@ -30,7 +30,7 @@
 - [Research](lists/research/README.md) - Scholarly discovery, AI-assisted understanding, citation mapping, evidence synthesis, legal access, repositories, and reproducible workflows. **106 resources.**
 - [Research Funding and Grants](lists/research-funding-and-grants/README.md) - Funding databases, government and international programs, mental-health and science grants, fellowships, arts, open source, nonprofits, commercialization, and application guidance. **237 resources.**
 - [Scientific Research](lists/scientific-research/README.md) - Animal health, scientific data, geospatial and LiDAR resources, open science organizations, scientific computing, and scholarly publishing. **82 resources.**
-- [Security](lists/security/README.md) - Account defense, public-facing safety, privacy, personal protection, safer connectivity, supply chain security, and vulnerability data. **142 resources.**
+- [Security](lists/security/README.md) - Account defense, public-facing safety, privacy, personal protection, safer connectivity, supply chain security, and vulnerability data. **144 resources.**
 - [Self-Hosting and Homelab](lists/self-hosting-and-homelab/README.md) - Collections, guides, infrastructure operations, media, personal tools, and productivity platforms. **32 resources.**
 - [Spirituality, Religion, and Occult Knowledge](lists/spirituality-religion-and-occult/README.md) - Comparative religion, sacred texts, living traditions, contemplative practice, material history, esotericism, community, care, and critical inquiry. **201 resources.**
 - [TeX and Typesetting](lists/tex-and-typesetting/README.md) - Accessibility, authoring, build automation, distributions, drawing, templates, learning resources, and packages. **274 resources.**
