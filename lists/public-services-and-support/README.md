@@ -2,16 +2,24 @@
 
 # Awesome Public Services and Support [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Benefits, emergency assistance, community volunteering, consumer safety, finance, employment, and government services.
+> Benefits, emergency assistance, unclaimed money, financial resilience, legitimate flexible income, volunteering, giving, and government services.
 
 Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
+
+Financial, legal, tax, benefits, work, and directory information is educational, not individualized advice or guaranteed income. Legitimate government unclaimed-property and refund programs do not require gift cards, cryptocurrency, or upfront recovery fees. Verify settlement claims through court-approved notices or administrators, and review privacy, tax, insurance, and worker-classification implications before accepting paid work.
+
+A practical order is to stabilize essentials and benefits, recover money already owed, reduce banking, credit, tax, and debt friction, add earned income, and only then take on investment risk or recurring giving. For no-cost tax filing, credit reports, benefits screening, job centers, and everyday assistance, also see [Awesome Public Programs and Services](../awesome-abundance/public-programs-and-services/README.md).
 
 ## Contents
 
 - [Benefits and Emergency Assistance](#benefits-and-emergency-assistance)
+- [Unclaimed Money, Refunds, and Settlements](#unclaimed-money-refunds-and-settlements)
+- [Financial Foundations and Consumer Tools](#financial-foundations-and-consumer-tools)
 - [Community, Volunteering, and Preparedness](#community-volunteering-and-preparedness)
+- [Giving and Community Support](#giving-and-community-support)
 - [Consumer and Transportation Safety](#consumer-and-transportation-safety)
 - [Debt, Finance, and Taxes](#debt-finance-and-taxes)
+- [Paid Research and Flexible Income](#paid-research-and-flexible-income)
 - [Employment and Education](#employment-and-education)
 - [Government, Civics, and Culture](#government-civics-and-culture)
 - [Health Care and Medication](#health-care-and-medication)
@@ -35,10 +43,68 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [USA.gov Utility Bill Assistance](https://www.usa.gov/help-with-utility-bills) - Official guide to energy assistance, weatherization, shutoff protections, and local help with utility bills.
 - [USA.gov Welfare Benefits](https://www.usa.gov/welfare-benefits) - Official overview of benefit programs for food, housing, health care, child care, and other basic needs.
 
+## Unclaimed Money, Refunds, and Settlements
+
+- [CFPB Payments to Harmed Consumers](https://www.consumerfinance.gov/enforcement/payments-harmed-consumers/) - Official case directory for consumer redress and Civil Penalty Fund payments; the CFPB determines eligibility and consumers cannot apply to the fund generally.
+- [ClassAction.org Settlements](https://www.classaction.org/settlements) - Commercial, advertising-supported directory of open class-action settlements; independently confirm eligibility, deadlines, and administrators through court-approved notices and never pay to file a claim.
+- [DOL Retirement Savings Lost and Found](https://lostandfound.dol.gov/) - Official search for private-employer or union retirement plans that may still owe benefits; access requires identity verification through Login.gov.
+- [FDIC Unclaimed Funds](https://closedbanks.fdic.gov/funds/) - Official search for funds left unclaimed after an FDIC-insured bank or financial institution closed.
+- [FTC Refund Programs](https://www.ftc.gov/enforcement/refunds) - Official directory of current Federal Trade Commission refund distributions resulting from enforcement cases.
+- [FTC Refund and Recovery Scam Guide](https://consumer.ftc.gov/articles/refund-and-recovery-scams) - Explains how to verify refund contacts and recognize impersonators demanding fees, account access, gift cards, or cryptocurrency.
+- [HUD FHA Refund Search](https://entp.hud.gov/dsrs/refunds/) - Official lookup for possible mortgage-insurance premium refunds on eligible former FHA-insured mortgages.
+- [Massachusetts Find Unclaimed Property](https://www.mass.gov/how-to/find-unclaimed-property) - Official Massachusetts instructions and free search path for abandoned bank accounts, checks, securities, insurance proceeds, and other property.
+- [MissingMoney](https://www.missingmoney.com/) - Free national search managed by NAUPA across participating United States unclaimed-property programs; search other states directly when they do not participate.
+- [NAUPA State Unclaimed Property Directory](https://unclaimed.org/) - Official state and provincial program directory from the National Association of Unclaimed Property Administrators, with free search guidance.
+- [NCUA Unclaimed Deposits](https://ncua.gov/support-services/conservatorships-liquidations/unclaimed-deposits) - Official information and claim process for deposits from liquidated federally insured credit unions.
+- [PBGC Unclaimed Retirement Benefits](https://www.pbgc.gov/workers-retirees/find-unclaimed-retirement-benefits/search-unclaimed) - Official quarterly updated search for benefits held after eligible private-sector retirement plans ended; it requires a last name and partial Social Security number.
+- [SEC Distributions to Harmed Investors](https://www.sec.gov/enforcement-litigation/distributions-harmed-investors) - Official directory of fair funds, disgorgement plans, and other distributions created through SEC enforcement actions.
+- [Treasury Hunt](https://www.treasurydirect.gov/savings-bonds/treasury-hunt/) - Official search for matured savings bonds and missing interest payments recorded by TreasuryDirect.
+- [U.S. Courts Unclaimed Funds Locator](https://ucf.uscourts.gov/) - Searches participating federal bankruptcy courts for funds owed to creditors, debtors, or other parties; claims are filed with the individual court.
+- [USA.gov Unclaimed Money](https://www.usa.gov/unclaimed-money) - Official overview connecting state property searches with separate databases for wages, pensions, insurance, refunds, investments, failed banks, bonds, and bankruptcies.
+- [VA Unclaimed Insurance Funds](https://insurance.va.gov/UnclaimedFunds) - Official lookup for unclaimed dividend checks and insurance payments owed under qualifying Department of Veterans Affairs life-insurance programs.
+- [Workers Owed Wages](https://webapps.dol.gov/wow/) - Department of Labor search for back wages recovered from employers and held for workers the Wage and Hour Division could not locate.
+
+## Financial Foundations and Consumer Tools
+
+- [Bank On Certified Accounts](https://joinbankon.org/accounts/) - State-by-state directory of checking accounts certified against national standards for low costs, no overdraft fees, and core transaction features; availability and account terms vary.
+- [CFPB Consumer Tools](https://www.consumerfinance.gov/consumer-tools/) - Official guides, worksheets, and action paths for bank accounts, credit, debt collection, housing, student loans, vehicles, money transfers, and fraud.
+- [ChexSystems Consumer Disclosure](https://www.chexsystems.com/request-reports/consumer-disclosure) - Requests the free consumer file used by many banks for account decisions, with separate options to dispute information, obtain a score, or place a security freeze.
+- [Early Warning Consumer Report](https://www.earlywarning.com/consumer-information) - Requests a free file disclosure concerning deposit-account and payment history reported to Early Warning; identity documentation is required.
+- [FDIC BankFind Suite](https://banks.data.fdic.gov/bankfind-suite/bankfind) - Official lookup for confirming whether a bank is FDIC-insured and reviewing its history, locations, and financial information.
+- [FINRA BrokerCheck](https://brokercheck.finra.org/) - Free background search for current and former securities brokers, brokerage firms, and investment-adviser firms, including registrations and disclosures.
+- [GetYourRefund](https://www.getyourrefund.org/en) - Code for America service connecting eligible United States households with free, remote tax preparation by IRS-certified VITA volunteers; income and filing-situation limits apply.
+- [Investor.gov](https://www.investor.gov/) - SEC education portal with investment calculators, fraud warnings, professional-background checks, and plain-language explanations of products and risk.
+- [IRS EITC Assistant](https://www.irs.gov/credits-deductions/individuals/earned-income-tax-credit/use-the-eitc-assistant) - Official questionnaire for checking possible Earned Income Tax Credit eligibility and estimating the credit before filing.
+- [IRS Tax Withholding Estimator](https://www.irs.gov/individuals/tax-withholding-estimator) - Official calculator for reviewing federal income-tax withholding and preparing updated Form W-4 information; results depend on accurate current-year inputs.
+- [MyMoney.gov](https://www.mymoney.gov/) - Federal Financial Literacy and Education Commission portal organizing public financial education around earning, saving, investing, protecting, spending, and borrowing.
+- [my Social Security](https://www.ssa.gov/myaccount/) - Official account for reviewing earnings records, estimating future benefits, requesting documents, and managing eligible Social Security services; identity verification is required.
+- [NCUA Credit Union Locator](https://mapping.ncua.gov/) - Official map and research tool for locating federally insured credit unions and checking their insurance and institutional details.
+- [OptOutPrescreen](https://www.optoutprescreen.com/) - Official consumer-reporting-industry site for opting in or out of prescreened credit and insurance offers; permanent opt-out requires a signed mailed form.
+
 ## Community, Volunteering, and Preparedness
 
+- [AmeriCorps Member Benefits](https://www.americorps.gov/members-volunteers/your-benefits) - Official overview of living allowances, education awards, loan relief, training, health coverage, and child-care support that may accompany eligible AmeriCorps service terms.
+- [AmeriCorps NCCC](https://www.americorps.gov/serve/americorps/americorps-nccc) - Full-time, team-based national service program with age and citizenship requirements, housing, meals, limited health coverage, a modest living allowance, and an education award after successful completion.
+- [Public Service Loan Forgiveness](https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service) - Official Federal Student Aid tool and current rules for tracking qualifying public-service employment and federal student-loan payments; verify requirements before relying on forgiveness.
 - [Ready.gov](https://www.ready.gov/) - Official United States preparedness guidance for emergencies, disasters, response plans, alerts, and recovery.
 - [Volunteer.gov](https://www.volunteer.gov/s/) - Official portal for discovering volunteer opportunities with United States public-land and natural-resource agencies.
+
+## Giving and Community Support
+
+- [Charity Navigator](https://www.charitynavigator.org/) - Free nonprofit ratings and search based on financial health, accountability, transparency, impact, and related signals; ratings do not replace reviewing the charity and gift restrictions yourself.
+- [CharityWatch](https://www.charitywatch.org/) - Independent charity ratings, governance analysis, donor alerts, and giving guidance, with some detailed material reserved for members.
+- [Daffy](https://www.daffy.org/) - Donor-advised-fund platform for organizing tax-deductible contributions and grants to eligible nonprofits; review membership, investment, and processing fees before funding an account.
+- [DonorsChoose](https://www.donorschoose.org/) - Crowdfunding platform for verified United States public-school classroom projects, with project-level requests, fulfillment, reporting, and optional platform support.
+- [Double the Donation Matching-Gift Search](https://doublethedonation.com/matching-gift-database/) - Employer matching-gift and volunteer-grant lookup; confirm current eligibility, deadlines, and submission steps with the employer and nonprofit.
+- [Every.org](https://www.every.org/) - Nonprofit-operated search and donation platform for verified United States charities supporting cash and selected noncash gifts; processing options and tax treatment vary.
+- [Give.org](https://give.org/) - BBB Wise Giving Alliance reports assessing charities against governance, effectiveness, finances, solicitation, and transparency standards.
+- [GiveDirectly](https://www.givedirectly.org/) - Nonprofit delivering cash transfers to people experiencing poverty and publishing research, financials, and program information for donors to review.
+- [GiveWell](https://www.givewell.org/) - Research organization publishing evidence, cost-effectiveness analysis, uncertainties, and recommendations for a small set of global-health and poverty charities.
+- [GlobalGiving](https://www.globalgiving.org/) - Marketplace for vetted nonprofit projects around the world with project updates and disaster funds; review platform fees, local context, and tax treatment.
+- [Kiva](https://www.kiva.org/) - Crowdlending platform for funding borrowers through field partners; loans may be repaid without interest to the lender, but repayment, impact, liquidity, and tax treatment are not guaranteed.
+- [Open Collective](https://opencollective.com/) - Transparent budgets, transactions, expenses, and contribution tools for communities and projects; fiscal-hosting fees and tax deductibility depend on the collective and host.
+- [Undue Medical Debt](https://unduemedicaldebt.org/) - Nonprofit purchasing qualifying medical-debt portfolios and erasing them for eligible households, with donors funding community or national relief rather than selecting individual recipients.
+- [Zeffy Nonprofit Directory](https://www.zeffy.com/home/donate) - Search and donation portal for participating verified nonprofits where the platform covers transaction fees through optional donor contributions; independently evaluate recipients.
 
 ## Consumer and Transportation Safety
 
@@ -55,16 +121,24 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 ## Debt, Finance, and Taxes
 
 - [American Consumer Credit Counseling](https://www.consumercredit.com/debt-help/) - Nonprofit organization offering credit counseling, budgeting guidance, debt-management plans, and bankruptcy education.
-- [Daffy](https://www.daffy.org/) - Donor-advised-fund platform for organizing tax-deductible charitable contributions and grants to eligible nonprofits.
 - [Family Credit Management](https://www.familycredit.org/) - Nonprofit provider of credit counseling, debt-management plans, financial education, and selected debt-resolution services.
 - [Financial Counseling Association of America](https://fcaa.org/) - Association and locator for nonprofit agencies offering debt, housing, student-loan, and financial counseling.
-- [IRS Earned Income Tax Credit Help](https://www.usa.gov/earned-income-credit) - USA.gov guide to Earned Income Tax Credit eligibility, filing, refund status, and IRS resources.
 - [IRS Tax Debt Help](https://www.irs.gov/payments/get-help-with-tax-debt) - Official options for payment plans, offers in compromise, temporary collection delays, and help resolving federal tax debt.
 - [National Debt Relief](https://www.nationaldebtrelief.com/) - Commercial debt-settlement service whose programs can involve fees, missed creditor payments, credit effects, and tax consequences.
 - [National Foundation for Credit Counseling](https://www.nfcc.org/) - Nonprofit network connecting consumers with certified agencies for budgeting, debt, housing, and student-loan counseling.
 - [NerdWallet](https://www.nerdwallet.com/) - Commercial personal-finance publisher and comparison platform covering banking, credit, loans, insurance, taxes, and investing.
 - [Taxpayer Advocate Service](https://www.irs.gov/taxpayer-advocate) - Independent organization within the IRS that helps eligible taxpayers resolve problems and understand taxpayer rights.
 - [U.S. Trustee Approved Credit Counseling Agencies](https://www.justice.gov/ust/list-credit-counseling-agencies-approved-pursuant-11-usc-111) - Official state-by-state list of agencies approved to provide pre-bankruptcy credit counseling.
+
+## Paid Research and Flexible Income
+
+- [CloudResearch Connect](https://connect.cloudresearch.com/participant/) - Account-based platform for paid academic and market-research projects; screening, identity checks, project availability, compensation, and withdrawal methods vary.
+- [dscout](https://www.dscout.com/scouts) - Mobile and remote research platform offering paid interviews, diary missions, and product-feedback studies; applications and recording requirements do not guarantee selection.
+- [IRS Gig Work Tax Guide](https://www.irs.gov/businesses/small-businesses-self-employed/manage-taxes-for-your-gig-work) - Official guidance on records, estimated taxes, deductions, and filing responsibilities for platform, freelance, and other gig income.
+- [Prolific](https://www.prolific.com/participants) - Paid online research platform with cash compensation, voluntary studies, identity verification, geographic availability, and a possible waitlist; task volume is not guaranteed.
+- [Respondent](https://www.respondent.io/become-a-participant) - Paid remote and in-person interviews, focus groups, surveys, and diary studies; a verified profile and study-specific screening are required and invitations vary.
+- [User Interviews](https://www.userinterviews.com/hello) - Marketplace for paid product-research studies and focus groups; applications may be unpaid, selection is not guaranteed, and incentives can use different payment methods.
+- [UserTesting](https://www.usertesting.com/get-paid-to-test) - Paid surveys, recorded usability tests, and live interviews after an application and practice test; screeners, device requirements, recordings, and opportunity volume vary.
 
 ## Employment and Education
 
