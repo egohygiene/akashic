@@ -87,13 +87,23 @@ Admission policies, reservations, residency rules, event dates, transportation, 
 
 ## Volunteering and Civic Participation
 
+- [American Red Cross Volunteer Opportunities](https://www.redcross.org/volunteer/become-a-volunteer.html) - Local, remote, youth, blood-services, military-family, and disaster-response roles available through a free volunteer account, with screening and training depending on the position.
 - [AmeriCorps Volunteer Search](https://www.americorps.gov/join/find-volunteer-opportunity) - Free search across AmeriCorps and partner listings for local and remote volunteer opportunities.
-- [Idealist Volunteer Opportunities](https://www.idealist.org/en/volunteer) - Free search for nonprofit volunteer roles by cause, skill, location, schedule, and remote availability.
-- [Points of Light Engage](https://engage.pointsoflight.org/) - Volunteer-opportunity search connecting people with participating nonprofits and community organizations.
-- [JustServe](https://www.justserve.org/) - Free account-based volunteer matching by location, cause, project type, and organization.
 - [Catchafire](https://www.catchafire.org/volunteer/) - Skills-based remote volunteering where professionals help nonprofits with scoped projects and consultation calls without charging them.
-- [Smithsonian Digital Volunteers](https://transcription.si.edu/) - Free account-supported transcription projects that make Smithsonian manuscripts, field notes, labels, and records searchable and accessible.
+- [Community Emergency Response Team](https://www.ready.gov/cert) - FEMA program connecting residents with local training in disaster preparedness, fire safety, light search and rescue, team organization, and basic disaster medical operations.
+- [Create the Good](https://createthegood.aarp.org/) - AARP-supported search for local and virtual volunteer opportunities by skill and interest; browsing is free and an account enables matching features.
+- [Crisis Text Line Volunteer](https://www.crisistextline.org/volunteer/) - Remote crisis-support volunteering with required training, scheduling, technical, and eligibility commitments; the work can be emotionally demanding and is not emergency care for the volunteer.
+- [Feeding America Volunteer](https://www.feedingamerica.org/take-action/volunteer) - Connects people with local food-bank roles such as sorting, packing, distribution, delivery, and administrative support, with availability varying by member organization.
+- [Habitat for Humanity Volunteer](https://www.habitat.org/volunteer) - Finds local home-building, repair, ReStore, youth, group, and longer-term service opportunities; age, safety, travel, and cost requirements vary by program.
+- [Idealist Volunteer Opportunities](https://www.idealist.org/en/volunteer) - Free search for nonprofit volunteer roles by cause, skill, location, schedule, and remote availability.
+- [JustServe](https://www.justserve.org/) - Free account-based volunteer matching by location, cause, project type, and organization.
+- [Medical Reserve Corps](https://www.aspr.gov/readiness-response/response-operations/join-train-respond/mrc) - Official locator for local units where medical and nonmedical volunteers train for public-health, emergency-response, and community-resilience roles.
 - [National Park Service Volunteer With Us](https://www.nps.gov/getinvolved/volunteer.htm) - Official information for one-day, recurring, youth, group, campground-host, and long-term service opportunities in national parks.
+- [Points of Light Engage](https://engage.pointsoflight.org/) - Volunteer-opportunity search connecting people with participating nonprofits and community organizations.
+- [Smithsonian Digital Volunteers](https://transcription.si.edu/) - Free account-supported transcription projects that make Smithsonian manuscripts, field notes, labels, and records searchable and accessible.
+- [Taproot Plus](https://taprootfoundation.org/taproot-plus) - Free skills-based volunteer platform matching professionals with scoped projects and consultation needs from eligible social-good organizations in supported regions.
+- [Team Rubicon](https://teamrubiconusa.org/how-to-get-involved/volunteer-with-us/) - Disaster-response volunteer community offering training and deployment pathways, with background checks, physical demands, travel, and role requirements varying by mission.
+- [United Nations Volunteers](https://app.unv.org/) - Official opportunity platform for onsite and online United Nations volunteer assignments; accounts, qualifications, location, duration, and allowance terms vary by assignment.
 - [United States Fish and Wildlife Service Volunteers](https://www.fws.gov/volunteer-opportunity) - Searchable volunteer opportunities supporting refuges, hatcheries, wildlife, education, visitor services, and conservation projects.
 - [VolunteerMatch](https://www.volunteermatch.org/) - Free matching service listing in-person and virtual volunteer roles from nonprofits across the United States.
 - [Vote.gov](https://vote.gov/) - Official United States site for registering to vote, checking registration, and finding state election rules and deadlines.
