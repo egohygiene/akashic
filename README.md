@@ -30,12 +30,12 @@
 - [Research](lists/research/README.md) - Scholarly discovery, AI-assisted understanding, citation mapping, evidence synthesis, legal access, repositories, and reproducible workflows. **106 resources.**
 - [Research Funding and Grants](lists/research-funding-and-grants/README.md) - Funding databases, government and international programs, mental-health and science grants, fellowships, arts, open source, nonprofits, commercialization, and application guidance. **237 resources.**
 - [Scientific Research](lists/scientific-research/README.md) - Animal health, scientific data, geospatial and LiDAR resources, open science organizations, scientific computing, and scholarly publishing. **82 resources.**
-- [Security](lists/security/README.md) - Organizations, tools, privacy, personal data protection, supply chain security, and vulnerability data. **102 resources.**
-- [Self-Hosting and Homelab](lists/self-hosting-and-homelab/README.md) - Collections, guides, infrastructure operations, media, personal tools, and productivity platforms. **33 resources.**
+- [Security](lists/security/README.md) - Account defense, public-facing safety, privacy, personal protection, safer connectivity, supply chain security, and vulnerability data. **142 resources.**
+- [Self-Hosting and Homelab](lists/self-hosting-and-homelab/README.md) - Collections, guides, infrastructure operations, media, personal tools, and productivity platforms. **32 resources.**
 - [Spirituality, Religion, and Occult Knowledge](lists/spirituality-religion-and-occult/README.md) - Comparative religion, sacred texts, living traditions, contemplative practice, material history, esotericism, community, care, and critical inquiry. **201 resources.**
 - [TeX and Typesetting](lists/tex-and-typesetting/README.md) - Accessibility, authoring, build automation, distributions, drawing, templates, learning resources, and packages. **274 resources.**
 - [Web Development](lists/web-development/README.md) - Authentication, frameworks, APIs, tooling, forms, state management, styling, testing, UI components, and visualization. **96 resources.**
-- [Work and Learning](lists/work-and-learning/README.md) - Business, career platforms, communities, learning resources, writing, and workspace tools. **58 resources.**
+- [Work and Learning](lists/work-and-learning/README.md) - Business, career platforms, creator operations, audience growth, brand monitoring, learning resources, writing, and workspace tools. **79 resources.**
 
 ## Meta
 
