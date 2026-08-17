@@ -47,6 +47,7 @@ const NESTED_COLLECTIONS = new Map([
       "books-knowledge-and-archives",
       "community-sharing-and-material-resources",
       "creative-commons-and-media",
+      "creative-tools-and-production",
       "culture-travel-and-participation",
       "developer-and-digital-resources",
       "education-and-learning",

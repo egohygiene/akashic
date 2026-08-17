@@ -18,6 +18,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Books, Knowledge, and Archives](books-knowledge-and-archives/README.md) - Public-domain books, open-access monographs, reference works, historical collections, newspapers, and government archives. **54 resources.**
 - [Community Sharing and Material Resources](community-sharing-and-material-resources/README.md) - Local gifting, reuse networks, food sharing, repair help, lending libraries, clothing, and essential goods. **45 resources.**
 - [Creative Commons and Media](creative-commons-and-media/README.md) - Reusable images, art, audio, music, video, fonts, icons, 3D assets, and cultural collections. **76 resources.**
+- [Creative Tools and Production](creative-tools-and-production/README.md) - Legitimate no-cost paths for music, audio, video, animation, images, books, games, 3D work, publishing, accessible creation, and community equipment. **114 resources.**
 - [Culture, Travel, and Participation](culture-travel-and-participation/README.md) - Free museums, public lands, cultural experiences, self-guided exploration, volunteering, and citizen participation. **75 resources.**
 - [Developer and Digital Resources](developer-and-digital-resources/README.md) - Permanent free tiers, student and nonprofit programs, hosting, databases, observability, design tools, and internet access. **86 resources.**
 - [Education and Learning](education-and-learning/README.md) - Open courseware, self-paced education, textbooks, computing, languages, and career learning. **55 resources.**
