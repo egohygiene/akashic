@@ -17,7 +17,7 @@
 
 ## Explore the Collection
 
-- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **737 resources.**
+- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **851 resources.**
 - [Artificial Intelligence](lists/artificial-intelligence/README.md) - Agent engineering, models, providers, memory systems, evaluation, safety, and AI research. **133 resources.**
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **227 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **45 resources.**
