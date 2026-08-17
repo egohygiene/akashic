@@ -26,6 +26,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Libraries and Local Access](libraries-and-local-access/README.md) - Library discovery, digital borrowing, databases, media, learning platforms, devices, museum passes, and libraries of things. **49 resources.**
 - [Public Programs and Services](public-programs-and-services/README.md) - Government and nonprofit programs for food, housing, utilities, education, taxes, legal help, communications, and daily needs. **59 resources.**
 - [Research and Open Science](research-and-open-science/README.md) - No-cost public data, reproducible methods, scientific tools, reference databases, and citizen science. **37 resources.**
+- [Subscription Alternatives](subscription-alternatives/README.md) - Recurring-charge audits, cancellation controls, trustworthy no-cost replacements, and guidance for evaluating free services. **8 resources.**
 
 ## Access Key
 

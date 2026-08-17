@@ -117,10 +117,12 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Safer Connectivity and VPNs
 
+- [Cloudflare WARP](https://developers.cloudflare.com/warp-client/) - Free consumer tunnel that encrypts device traffic to Cloudflare's network; it is not intended for choosing a geographic exit location and does not provide anonymity by itself.
 - [IVPN](https://www.ivpn.net/) - Paid VPN provider with open-source apps and account-number signup; independently review its current audits, jurisdiction, server coverage, and feature limits before trusting it.
 - [Mullvad VPN](https://mullvad.net/) - Paid WireGuard-based VPN using numbered accounts without required email signup; it changes network routing but does not provide anonymity by itself.
 - [Privacy Guides VPN Services](https://www.privacyguides.org/en/vpn/) - Independent comparison criteria and a small provider shortlist emphasizing open clients, modern protocols, published audits, transparent ownership, and the limits of VPN protection.
 - [Proton VPN](https://protonvpn.com/free-vpn) - VPN with open-source apps and a limited free tier without data caps, plus paid plans; an account is required and a VPN still does not replace HTTPS, Tor, or sound account security.
+- [Windscribe Free](https://windscribe.com/features/use-for-free) - Free VPN tier with 2 GB of monthly data, or 10 GB after confirming an email address and accepting promotional emails; server choices and usage remain limited compared with paid access.
 
 ## Supply Chain and Software Assurance
 

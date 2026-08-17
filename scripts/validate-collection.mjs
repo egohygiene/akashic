@@ -55,6 +55,7 @@ const NESTED_COLLECTIONS = new Map([
       "libraries-and-local-access",
       "public-programs-and-services",
       "research-and-open-science",
+      "subscription-alternatives",
     ],
   ],
 ]);
