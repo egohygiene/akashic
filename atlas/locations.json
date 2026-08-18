@@ -18,7 +18,13 @@
       "kind": "country",
       "parentId": "world",
       "geometry": { "dataset": "world", "id": "840" },
-      "camera": { "center": [-98.5, 39.5], "zoom": 2.2 }
+      "camera": { "center": [-98.5, 39.5], "zoom": 2.2 },
+      "catalogResources": [
+        {
+          "url": "https://www.usa.gov/local-governments",
+          "section": "Government and civic life"
+        }
+      ]
     },
     {
       "id": "us-ma",
