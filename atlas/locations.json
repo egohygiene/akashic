@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "rootId": "world",
+  "locations": [
+    {
+      "id": "world",
+      "name": "World",
+      "shortName": "World",
+      "kind": "world",
+      "parentId": null,
+      "geometry": { "dataset": "world", "id": null },
+      "camera": { "center": [0, 12], "zoom": 1 }
+    },
+    {
+      "id": "us",
+      "name": "United States",
+      "shortName": "United States",
+      "kind": "country",
+      "parentId": "world",
+      "geometry": { "dataset": "world", "id": "840" },
+      "camera": { "center": [-98.5, 39.5], "zoom": 2.2 }
+    },
+    {
+      "id": "us-ma",
+      "name": "Massachusetts",
+      "shortName": "Massachusetts",
+      "kind": "region",
+      "parentId": "us",
+      "geometry": { "dataset": "us-states", "id": "25" },
+      "camera": { "center": [-71.8, 42.25], "zoom": 7 }
+    },
+    {
+      "id": "us-ma-wilmington",
+      "name": "Wilmington, Massachusetts",
+      "shortName": "Wilmington",
+      "kind": "locality",
+      "parentId": "us-ma",
+      "geometry": { "dataset": "point", "coordinates": [-71.1737, 42.5584] },
+      "camera": { "center": [-71.1737, 42.5584], "zoom": 12 }
+    }
+  ]
+}
