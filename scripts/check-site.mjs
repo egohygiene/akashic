@@ -26,6 +26,7 @@ const atlasUrls = atlas.resources.map((resource) => resource.url.toLocaleLowerCa
 if (new Set(atlasUrls).size !== atlasUrls.length) throw new Error("The atlas contains duplicate normalized URLs.");
 for (const resource of atlas.resources) {
   if (!resource.title || !resource.description || !resource.domain || !resource.section || !resource.locationId || !resource.source) throw new Error(`Incomplete atlas resource: ${resource.url}`);
+  if (!["resource", "index"].includes(resource.role)) throw new Error(`Unsupported atlas role: ${resource.role}`);
   if (!locations.has(resource.locationId)) throw new Error(`Atlas resource has unknown location: ${resource.url}`);
   new URL(resource.url);
 }

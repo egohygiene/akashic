@@ -22,7 +22,8 @@
       "catalogResources": [
         {
           "url": "https://www.usa.gov/local-governments",
-          "section": "Government and civic life"
+          "section": "Government and civic life",
+          "role": "index"
         }
       ]
     },
@@ -33,7 +34,43 @@
       "kind": "region",
       "parentId": "us",
       "geometry": { "dataset": "us-states", "id": "25" },
-      "camera": { "center": [-71.8, 42.25], "zoom": 7 }
+      "camera": { "center": [-71.8, 42.25], "zoom": 7 },
+      "catalogResources": [
+        {
+          "url": "https://www.masscap.org/agencies/",
+          "section": "Start here: statewide finders",
+          "role": "index"
+        },
+        {
+          "url": "https://myservices.mass.gov/",
+          "section": "Benefits, food, and housing"
+        },
+        {
+          "url": "https://www.mahix.org/individual/",
+          "section": "Benefits, food, and housing"
+        },
+        {
+          "url": "https://www.mass.gov/info-details/health-safety-net-for-patients",
+          "section": "Benefits, food, and housing"
+        },
+        {
+          "url": "https://www.mass.gov/how-to/find-unclaimed-property",
+          "section": "Benefits, food, and housing"
+        },
+        {
+          "url": "https://www.mass.gov/info-details/free-community-college",
+          "section": "Work, learning, and getting around"
+        },
+        {
+          "url": "https://www.mass.gov/ebt-card-to-culture",
+          "section": "Work, learning, and getting around"
+        },
+        {
+          "url": "https://www.masslegalhelp.org/",
+          "section": "Government, legal, and civic life",
+          "role": "index"
+        }
+      ]
     },
     {
       "id": "us-ma-wilmington",
