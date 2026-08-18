@@ -24,8 +24,8 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Education and Learning](education-and-learning/README.md) - Open courseware, self-paced education, textbooks, computing, languages, and career learning. **55 resources.**
 - [Free and Open-Source Software](free-and-open-source-software/README.md) - No-cost software whose source can be inspected, modified, and shared across everyday and specialist workflows. **132 resources.**
 - [Health, Well-Being, and Accessibility](health-well-being-and-accessibility/README.md) - Free clinics, evidence-based public tools, treatment locators, accessibility technology, and disability services. **61 resources.**
-- [Libraries and Local Access](libraries-and-local-access/README.md) - Library discovery, digital borrowing, databases, media, learning platforms, devices, museum passes, and libraries of things. **49 resources.**
-- [Public Programs and Services](public-programs-and-services/README.md) - Government and nonprofit programs for food, housing, utilities, education, taxes, legal help, communications, and daily needs. **59 resources.**
+- [Libraries and Local Access](libraries-and-local-access/README.md) - Library discovery, digital borrowing, databases, media, learning platforms, devices, museum passes, and libraries of things. **48 resources.**
+- [Public Programs and Services](public-programs-and-services/README.md) - Government and nonprofit programs for food, housing, utilities, education, taxes, communications, and daily needs. **53 resources.**
 - [Research and Open Science](research-and-open-science/README.md) - No-cost public data, reproducible methods, scientific tools, reference databases, and citizen science. **37 resources.**
 - [Subscription Alternatives](subscription-alternatives/README.md) - Recurring-charge audits, cancellation controls, trustworthy no-cost replacements, and guidance for evaluating free services. **8 resources.**
 
@@ -56,6 +56,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Related Lists
 
+- [Awesome Legal Help and Law](../legal-help-and-law/README.md) - Civil legal aid, lawyer verification, courts, rights, research, legal news, professional systems, and access-to-justice tools.
 - [Awesome Open Source](../open-source/README.md) - Foundations, governance, licensing, contributor programs, project discovery, and open-source community infrastructure.
 - [Awesome Public Services and Support](../public-services-and-support/README.md) - Broader public-service, emergency-assistance, finance, employment, government, and health-care resources.
 - [Awesome Scientific Research](../scientific-research/README.md) - Scientific organizations, data, computing, scholarly publishing, and research infrastructure.

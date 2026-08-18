@@ -17,17 +17,18 @@
 
 ## Explore the Collection
 
-- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **848 resources.**
+- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **841 resources.**
 - [Artificial Intelligence](lists/artificial-intelligence/README.md) - Agent engineering, models, providers, memory systems, evaluation, safety, and AI research. **133 resources.**
 - [Business and Entrepreneurship](lists/business-and-entrepreneurship/README.md) - Business structures, financial safety, registration, taxes, selling, operations, public support, and optional consolidation services. **217 resources.**
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **227 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **45 resources.**
 - [Developer Tools](lists/developer-tools/README.md) - Application development, databases, documentation, knowledge management, shell environments, and developer utilities. **154 resources.**
 - [Health and Well-Being](lists/health-and-well-being/README.md) - Mental-health education, trauma-informed support, care navigation, digital health, supplements, pharmacology, and evidence-aware treatment resources. **151 resources.**
+- [Legal Help and Law](lists/legal-help-and-law/README.md) - Free and low-cost legal help, courts, lawyers, rights, research, legal news, professional systems, and access-to-justice tools. **342 resources.**
 - [Neuroscience](lists/neuroscience/README.md) - Brain atlases, open data, neuroimaging, electrophysiology, computational models, standards, education, and research communities. **86 resources.**
 - [Open Source](lists/open-source/README.md) - Open source collections, community governance, foundations, history, licensing, and support programs. **166 resources.**
 - [Psychedelics](lists/psychedelics/README.md) - Evidence-forward research, open data, safety, regulated access, professional education, ethics, and cultural context. **74 resources.**
-- [Public Services and Support](lists/public-services-and-support/README.md) - Benefits, emergency assistance, unclaimed money, financial resilience, legitimate flexible income, volunteering, giving, and government services. **128 resources.**
+- [Public Services and Support](lists/public-services-and-support/README.md) - Benefits, emergency assistance, unclaimed money, financial resilience, legitimate flexible income, volunteering, giving, and government services. **127 resources.**
 - [Research](lists/research/README.md) - Scholarly discovery, AI-assisted understanding, citation mapping, evidence synthesis, legal access, repositories, and reproducible workflows. **106 resources.**
 - [Research Funding and Grants](lists/research-funding-and-grants/README.md) - Funding databases, government and international programs, mental-health and science grants, fellowships, arts, open source, nonprofits, commercialization, and application guidance. **237 resources.**
 - [Scientific Research](lists/scientific-research/README.md) - Animal health, scientific data, geospatial and LiDAR resources, open science organizations, scientific computing, and scholarly publishing. **82 resources.**
