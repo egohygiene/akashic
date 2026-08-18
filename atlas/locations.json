@@ -28,6 +28,25 @@
       ]
     },
     {
+      "id": "us-ca",
+      "name": "California",
+      "shortName": "California",
+      "kind": "region",
+      "parentId": "us",
+      "geometry": { "dataset": "us-states", "id": "06" },
+      "camera": { "center": [-119.5, 37.2], "zoom": 5.5 },
+      "catalogResources": [
+        {
+          "url": "https://www.parks.ca.gov/?page_id=30806",
+          "section": "Work, learning, and getting around"
+        },
+        {
+          "url": "https://cppa.ca.gov/",
+          "section": "Government, legal, and civic life"
+        }
+      ]
+    },
+    {
       "id": "us-ma",
       "name": "Massachusetts",
       "shortName": "Massachusetts",
@@ -78,7 +97,7 @@
       "shortName": "Wilmington",
       "kind": "locality",
       "parentId": "us-ma",
-      "geometry": { "dataset": "point", "coordinates": [-71.1737, 42.5584] },
+      "geometry": { "dataset": "point", "coordinates": [-71.1737, 42.5584], "mapPosition": [0.652, 0.199] },
       "camera": { "center": [-71.1737, 42.5584], "zoom": 12 }
     }
   ]

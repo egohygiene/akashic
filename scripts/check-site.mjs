@@ -15,6 +15,10 @@ const locations = new Map(atlas.locations.map((location) => [location.id, locati
 if (!locations.has(atlas.rootId)) throw new Error("The atlas root location is missing.");
 for (const location of atlas.locations) {
   if (!location.id || !location.name || !location.kind || !location.geometry || !location.camera || !Array.isArray(location.children)) throw new Error(`Incomplete atlas location: ${location.id || "unknown"}`);
+  if (location.geometry.dataset === "point") {
+    const validMapPosition = Array.isArray(location.geometry.mapPosition) && location.geometry.mapPosition.length === 2 && location.geometry.mapPosition.every((value) => Number.isFinite(value) && value >= 0 && value <= 1);
+    if (!validMapPosition) throw new Error(`Invalid atlas point map position for ${location.id}.`);
+  }
   if (location.parentId && !locations.has(location.parentId)) throw new Error(`Unknown atlas parent for ${location.id}.`);
   for (const childId of location.children) {
     if (locations.get(childId)?.parentId !== location.id) throw new Error(`Broken atlas hierarchy at ${location.id} / ${childId}.`);

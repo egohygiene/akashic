@@ -249,13 +249,21 @@ function drawWorld(location) {
   }
 }
 
-function massachusettsGeometry() {
-  return featureCollection(state.states, "states").find((geometry) => String(geometry.id).padStart(2, "0") === "25");
+function geometryForLocation(location) {
+  if (!location || location.geometry.dataset !== "us-states") return null;
+  const geometryId = String(location.geometry.id).padStart(2, "0");
+  return featureCollection(state.states, "states").find((geometry) => String(geometry.id).padStart(2, "0") === geometryId);
 }
 
 function drawUnitedStates(location) {
+  const byId = locationMap();
+  const country = byId.get("us");
   const selectedRegion = ancestors(location).find((item) => item.kind === "region");
   if (!selectedRegion) {
+    const regionsByGeometryId = new Map((country?.children || [])
+      .map((id) => byId.get(id))
+      .filter((region) => region?.covered && region.geometry.dataset === "us-states")
+      .map((region) => [String(region.geometry.id).padStart(2, "0"), region]));
     setBaseViewBox(0, 0, 975, 610);
     selectors.map.append(svgElement("rect", { class: "atlas-ocean", width: 975, height: 610 }));
     drawGrid(975, 610, 13, 8);
@@ -263,32 +271,36 @@ function drawUnitedStates(location) {
       const path = svgElement("path", { class: "atlas-shape", d: pathFromRings(ringsForGeometry(state.states, geometry)) });
       const name = geometry.properties?.name || `State ${geometry.id}`;
       addTitle(path, name);
-      if (String(geometry.id).padStart(2, "0") === "25") makeInteractive(path, "us-ma", "Massachusetts");
+      const coveredRegion = regionsByGeometryId.get(String(geometry.id).padStart(2, "0"));
+      if (coveredRegion) makeInteractive(path, coveredRegion.id, coveredRegion.name);
       selectors.map.append(path);
     }
     return;
   }
 
-  const geometry = massachusettsGeometry();
+  const geometry = geometryForLocation(selectedRegion);
+  if (!geometry) return;
   const rings = ringsForGeometry(state.states, geometry);
   const bbox = bboxForRings(rings);
   const padding = Math.max(bbox.width, bbox.height) * .22;
   setBaseViewBox(bbox.minX - padding, bbox.minY - padding, bbox.width + padding * 2, bbox.height + padding * 2);
   selectors.map.append(svgElement("rect", { class: "atlas-ocean", x: bbox.minX - padding, y: bbox.minY - padding, width: bbox.width + padding * 2, height: bbox.height + padding * 2 }));
   const path = svgElement("path", { class: "atlas-shape has-coverage is-selected", d: pathFromRings(rings) });
-  addTitle(path, "Massachusetts");
+  addTitle(path, selectedRegion.name);
   selectors.map.append(path);
 
-  const markerLocation = locationMap().get("us-ma-wilmington");
-  if (markerLocation) drawLocalityMarker(markerLocation, bbox, location.kind === "locality");
+  for (const childId of selectedRegion.children) {
+    const markerLocation = byId.get(childId);
+    if (markerLocation?.covered && markerLocation.geometry.dataset === "point") {
+      drawLocalityMarker(markerLocation, bbox, location.id === markerLocation.id);
+    }
+  }
 }
 
 function drawLocalityMarker(location, bbox, selected) {
-  const [longitude, latitude] = location.geometry.coordinates;
-  const longitudeRange = [-73.508, -69.928];
-  const latitudeRange = [41.237, 42.887];
-  const x = bbox.minX + (longitude - longitudeRange[0]) / (longitudeRange[1] - longitudeRange[0]) * bbox.width;
-  const y = bbox.minY + (latitudeRange[1] - latitude) / (latitudeRange[1] - latitudeRange[0]) * bbox.height;
+  const [normalizedX, normalizedY] = location.geometry.mapPosition;
+  const x = bbox.minX + normalizedX * bbox.width;
+  const y = bbox.minY + normalizedY * bbox.height;
   const radius = Math.max(bbox.width, bbox.height) * .025;
   const marker = svgElement("g", { class: `atlas-marker${selected ? " is-selected" : ""}`, transform: `translate(${x} ${y})` });
   marker.append(svgElement("circle", { class: "marker-halo", r: radius * 3.3 }));
