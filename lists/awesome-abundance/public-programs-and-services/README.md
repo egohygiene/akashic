@@ -2,7 +2,7 @@
 
 # Awesome Public Programs and Services [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Official and nonprofit access paths for food, housing, utilities, education, employment, taxes, legal help, communications, health, and other daily needs.
+> Official and nonprofit access paths for food, housing, utilities, education, employment, taxes, communications, health, and other daily needs.
 
 Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
@@ -15,7 +15,6 @@ Most entries in this initial edition are United States resources. Programs may d
 - [Housing, Energy, and Communications](#housing-energy-and-communications)
 - [Education, Training, and Employment](#education-training-and-employment)
 - [Taxes, Credit, and Consumer Help](#taxes-credit-and-consumer-help)
-- [Legal Assistance](#legal-assistance)
 - [Health and Family Programs](#health-and-family-programs)
 - [Disaster and Safety Support](#disaster-and-safety-support)
 - [Massachusetts](#massachusetts)
@@ -45,7 +44,7 @@ Most entries in this initial edition are United States resources. Programs may d
 - [LIHEAP](https://acf.gov/ocs/programs/liheap) - Federal program funding state, tribal, and territorial help with eligible household energy bills, crises, weatherization, and energy-related repairs.
 - [Weatherization Assistance Program](https://www.energy.gov/cmei/scep/wap/weatherization-assistance-program) - Funds no-cost energy-efficiency and health-and-safety improvements for qualifying low-income households through local providers.
 - [Lifeline Support](https://www.lifelinesupport.org/) - Official application and recertification site for the federal monthly phone or internet discount available to eligible households.
-- [HUD Housing Counseling](https://www.hud.gov/housing-counseling) - Official locator for HUD-approved agencies offering free or low-cost guidance on renting, buying, foreclosure prevention, reverse mortgages, and housing stability.
+- [HUD Housing Counseling](https://www.hud.gov/counseling) - Official locator for HUD-approved agencies offering free or low-cost guidance on renting, buying, foreclosure prevention, reverse mortgages, and housing stability.
 - [HUD Resource Locator](https://resources.hud.gov/) - Map of affordable housing, public-housing authorities, homeless resources, elderly and special-needs housing, and HUD field offices.
 - [USDA Section 504 Home Repair Program](https://www.rd.usda.gov/programs-services/single-family-housing-programs/single-family-housing-repair-loans-grants) - Loans and grants for eligible rural homeowners, including grants for qualifying older adults to remove health and safety hazards.
 - [National Energy and Utility Affordability Coalition Resources](https://neuac.org/state-utility-assistance/) - State-by-state links to utility-assistance agencies, consumer protections, energy offices, and local program information.
@@ -69,14 +68,7 @@ Most entries in this initial edition are United States resources. Programs may d
 - [IdentityTheft.gov](https://www.identitytheft.gov/) - Free Federal Trade Commission recovery-plan generator, reporting workflow, letters, and checklists for identity theft victims.
 - [FTC Consumer Advice](https://consumer.ftc.gov/) - Free Federal Trade Commission guidance on scams, credit, debt collection, contracts, and consumer rights, with a fraud-reporting pathway.
 
-## Legal Assistance
-
-- [Legal Services Corporation Find Legal Aid](https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help) - Official locator for LSC-funded organizations providing free civil legal help to eligible low-income people.
-- [LawHelp.org](https://www.lawhelp.org/) - State-by-state nonprofit directory for free legal-aid programs, court information, self-help materials, and rights guidance.
-- [ABA Free Legal Answers](https://www.abafreelegalanswers.org/) - Virtual clinic where income-eligible users in participating jurisdictions submit civil legal questions to volunteer attorneys.
-- [Immigration Advocates Network Legal Directory](https://www.immigrationadvocates.org/nonprofit/legaldirectory/) - Searchable directory of nonprofit organizations providing free or low-cost immigration legal services.
-- [Stateside Legal](https://www.statesidelegal.org/) - Free legal information and provider directory for United States military members, veterans, and their families.
-- [National Center for State Courts Self-Help Resources](https://www.ncsc.org/resources-courts/self-help-resources) - State-by-state links to court self-help centers, forms, legal information, and assistance for people without lawyers.
+For civil legal aid, court self-help, authorized immigration providers, lawyer verification, legal research, and issue-specific rights pathways, use [Legal Help and Law](../../legal-help-and-law/README.md).
 
 ## Health and Family Programs
 

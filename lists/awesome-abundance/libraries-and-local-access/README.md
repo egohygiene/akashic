@@ -79,10 +79,11 @@ Library services vary by system, consortium, residency, age, and current vendor 
 ## Specialized Library Services
 
 - [Ask a Librarian](https://ask.loc.gov/) - Free Library of Congress question service connecting the public with reference specialists across subjects and collection areas.
-- [Law Library of Congress Research Help](https://ask.loc.gov/law/) - Free legal-reference questions and research guidance from Law Library of Congress specialists, without providing legal advice.
 - [National Library Service for the Blind and Print Disabled](https://www.loc.gov/nls/) - Eligibility-based free braille and talking-book program with mailed materials, playback equipment, and downloadable BARD access.
 - [National Library of Medicine Customer Support](https://support.nlm.nih.gov/) - Free help using PubMed, MedlinePlus, clinical terminology, biomedical data resources, and other National Library of Medicine services.
 - [Foundation Center Funding Information Network](https://candid.org/find-us) - Libraries and partner organizations offering free on-site access to Candid's fundraising databases, training, and nonprofit research tools.
+
+For public law libraries, legal-reference help, citation guides, and primary-law research, use [Legal Help and Law](../../legal-help-and-law/README.md).
 
 Suggestions and improvements are welcome. See the [contribution guidelines](../../../contributing.md).
 

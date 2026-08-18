@@ -26,6 +26,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "creative-resources",
   "developer-tools",
   "health-and-well-being",
+  "legal-help-and-law",
   "neuroscience",
   "open-source",
   "psychedelics",

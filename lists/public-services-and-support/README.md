@@ -8,7 +8,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 Financial, legal, tax, benefits, work, and directory information is educational, not individualized advice or guaranteed income. Legitimate government unclaimed-property and refund programs do not require gift cards, cryptocurrency, or upfront recovery fees. Verify settlement claims through court-approved notices or administrators, and review privacy, tax, insurance, and worker-classification implications before accepting paid work.
 
-A practical order is to stabilize essentials and benefits, recover money already owed, reduce banking, credit, tax, and debt friction, add earned income, and only then take on investment risk or recurring giving. For no-cost tax filing, credit reports, benefits screening, job centers, and everyday assistance, also see [Awesome Public Programs and Services](../awesome-abundance/public-programs-and-services/README.md).
+A practical order is to stabilize essentials and benefits, recover money already owed, reduce banking, credit, tax, and debt friction, add earned income, and only then take on investment risk or recurring giving. For no-cost tax filing, credit reports, benefits screening, job centers, and everyday assistance, also see [Awesome Public Programs and Services](../awesome-abundance/public-programs-and-services/README.md). For civil legal aid, courts, lawyers, complaints, rights, and legal research, use [Legal Help and Law](../legal-help-and-law/README.md).
 
 ## Contents
 
@@ -152,7 +152,6 @@ A practical order is to stabilize essentials and benefits, recover money already
 - [ACLU](https://www.aclu.org/) - Nonprofit civil-liberties organization combining litigation, advocacy, education, and nationwide affiliate work.
 - [Canada.ca](https://www.canada.ca/en.html) - Official Government of Canada gateway to benefits, taxes, immigration, jobs, travel, health, public safety, and departmental services.
 - [European Commission](https://commission.europa.eu/index_en) - Official European Commission gateway to policies, laws, funding, consultations, departments, news, and public services.
-- [Legal Services Corporation](https://www.lsc.gov/) - Finds locally funded civil legal-aid organizations and explains free legal help for eligible low-income people in the United States.
 - [Library of Congress](https://www.loc.gov/) - U.S. national library providing digitized collections, research services, legislative information, preservation programs, and cultural resources.
 - [Meeting Your Elected Representatives](https://www.aclu.org/meeting-your-elected-representatives) - ACLU guide to requesting, preparing for, conducting, and following up after a meeting with elected officials.
 - [myGov Australia](https://my.gov.au/en) - Official Australian account and service gateway connecting Medicare, Centrelink, tax, employment, disability, veteran, and other government services.
