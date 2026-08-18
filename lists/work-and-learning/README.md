@@ -2,7 +2,7 @@
 
 # Awesome Work and Learning [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Business, career platforms, creator operations, audience growth, brand monitoring, learning resources, writing, and workspace tools.
+> Career platforms, creator operations, audience growth, brand monitoring, learning resources, writing, and workspace tools.
 
 Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
@@ -10,7 +10,6 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Contents
 
-- [Business and Entrepreneurship](#business-and-entrepreneurship)
 - [Brand Monitoring and Content Rights](#brand-monitoring-and-content-rights)
 - [Career Platforms and Job Search](#career-platforms-and-job-search)
 - [Communities and Events](#communities-and-events)
@@ -19,20 +18,6 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Writing and Publishing](#writing-and-publishing)
 - [Workspace](#workspace)
 
-
-## Business and Entrepreneurship
-
-- [AICPA and CIMA](https://www.aicpa-cima.com/home) - Professional accounting organization offering standards, credentials, continuing education, research, and member resources.
-- [Celonis](https://www.celonis.com/) - Commercial process-intelligence platform for modeling operations, identifying execution gaps, and automating enterprise workflows.
-- [Fourthwall](https://fourthwall.com) - Commercial creator platform for storefronts, print-on-demand products, memberships, supporter engagement, and fulfillment.
-- [iCode Franchise](https://icodefranchise.com/) - Commercial franchise program for operating youth STEM, coding, robotics, and technology-education centers.
-- [OpenCorporates](https://opencorporates.com/) - Searches standardized public company records and officer relationships from official registers around the world, with freemium data access.
-- [Pomelli](https://labs.google.com/u/0/pomelli/onboarding) - Google Labs experiment for generating on-brand marketing campaigns and creative assets from a business website.
-- [SCORE Academy](https://academy.score.org/) - Provides free self-paced courses plus live and on-demand webinars for starting, managing, and growing a United States small business.
-- [SCORE](https://www.score.org/) - United States nonprofit network providing free small-business mentoring, workshops, templates, and educational resources.
-- [Teal Media](https://tealmedia.com/) - Mission-driven design and development agency specializing in digital strategy, branding, websites, and campaigns for nonprofits and advocacy organizations.
-- [Wise People](https://wisepeople.pl/) - Polish digital-product agency providing strategy, UX, accessible web design, development, ecommerce, and ongoing support services.
-- [ZenBusiness](https://www.zenbusiness.com/) - Paid United States business-formation and compliance service with registered-agent, filing, website, finance, and educational tools.
 
 ## Brand Monitoring and Content Rights
 
