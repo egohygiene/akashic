@@ -72,4 +72,10 @@ for (const resource of catalog.resources) {
   new URL(resource.url);
 }
 
+const catalogUrls = new Set(catalog.resources.map((resource) => resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, "")));
+for (const resource of atlas.resources.filter((candidate) => candidate.catalogReference)) {
+  const normalizedUrl = resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, "");
+  if (!resource.atlasSource || !catalogUrls.has(normalizedUrl)) throw new Error(`Broken atlas catalog reference: ${resource.url}`);
+}
+
 console.log(`Verified ${catalog.resourceCount} resources across ${catalog.categories.length} collections and ${atlas.resourceCount} atlas resources.`);

@@ -4,7 +4,6 @@
 ## Government and civic life
 
 - [USA.gov State and Local Governments](https://www.usa.gov/state-local-governments) - Official directory for state and local services, agencies, elected officials, elections, courts, and public offices throughout the United States.
-- [USA.gov Local Governments](https://www.usa.gov/local-governments) - Find official municipal, county, town, and regional government websites organized by state.
 
 ## Geographic data
 

@@ -163,7 +163,32 @@ async function buildAtlas(catalogResources) {
   }
   const catalogUrls = new Set(catalogResources.map((resource) => normalizeUrl(resource.url)));
   const duplicatedCatalogUrl = resources.find((resource) => catalogUrls.has(normalizeUrl(resource.url)));
-  if (duplicatedCatalogUrl) throw new Error(`Atlas resource already belongs in the main catalog: ${duplicatedCatalogUrl.url}`);
+  if (duplicatedCatalogUrl) throw new Error(`Atlas resource already belongs in the main catalog; reference it from atlas/locations.json instead: ${duplicatedCatalogUrl.url}`);
+
+  const catalogResourceByUrl = new Map(catalogResources.map((resource) => [normalizeUrl(resource.url), resource]));
+  for (const location of hierarchy.locations) {
+    if (location.catalogResources !== undefined && !Array.isArray(location.catalogResources)) throw new Error(`Atlas catalogResources must be an array for ${location.id}.`);
+    for (const reference of location.catalogResources || []) {
+      if (!reference?.url || !reference?.section) throw new Error(`Incomplete atlas catalog reference for ${location.id}.`);
+      const key = normalizeUrl(reference.url);
+      if (seen.has(key)) throw new Error(`Duplicate atlas resource reference: ${reference.url}`);
+      const catalogResource = catalogResourceByUrl.get(key);
+      if (!catalogResource) throw new Error(`Atlas catalog reference does not exist in the main catalog: ${reference.url}`);
+      resources.push({
+        title: catalogResource.title,
+        url: catalogResource.url,
+        description: catalogResource.description,
+        domain: catalogResource.domain,
+        section: reference.section,
+        locationId: location.id,
+        source: catalogResource.source,
+        atlasSource: "atlas/locations.json",
+        catalogReference: true,
+      });
+      seen.add(key);
+      coveredLocations.add(location.id);
+    }
+  }
 
   const coverageCache = new Map();
   const isCovered = (location) => {

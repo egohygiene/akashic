@@ -347,7 +347,7 @@ function renderResources(location) {
       card.rel = "noreferrer";
       card.setAttribute("aria-label", `${resource.title} (opens in a new tab)`);
       const domain = document.createElement("span");
-      domain.textContent = resource.domain;
+      domain.textContent = resource.catalogReference ? `${resource.domain} · main catalog` : resource.domain;
       const title = document.createElement("strong");
       title.textContent = resource.title;
       const description = document.createElement("p");

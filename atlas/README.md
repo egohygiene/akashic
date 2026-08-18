@@ -10,7 +10,7 @@ This is a foundation, not a claim of comprehensive geographic coverage. The inte
 
 ## Data model
 
-- [`locations.json`](locations.json) defines the geographic hierarchy, stable identifiers, map geometry references, and camera hints.
+- [`locations.json`](locations.json) defines the geographic hierarchy, stable identifiers, map geometry references, camera hints, and references to resources already canonical in the main catalog.
 - [`places/`](places/) contains the canonical, human-reviewable Markdown resources for each covered place.
 - [`site/data/atlas-themes.json`](../site/data/atlas-themes.json) contains presentation-only map palettes.
 - [`scripts/build-site.mjs`](../scripts/build-site.mjs) compiles the hierarchy and place Markdown into `dist/data/atlas.json`.
@@ -23,7 +23,8 @@ Do not hand-edit `dist/data/atlas.json`. The Markdown files remain the source of
 2. Add `atlas/places/<location-id>.md` with an `atlas-location` metadata comment.
 3. Prefer official public agencies, public libraries, schools, civic organizations, and locally accountable services.
 4. Keep entries specific to the place. General-purpose resources belong in the main `lists/` catalog.
-5. Run the normal build and verification commands.
+5. When a useful place resource already exists in the main catalog, add its canonical URL and the Atlas section under the location's `catalogResources` array instead of duplicating its description in a place file.
+6. Run the normal build and verification commands.
 
 Each place file uses the same readable entry format as the main awesome lists:
 
