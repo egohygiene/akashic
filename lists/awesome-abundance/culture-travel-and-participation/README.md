@@ -2,7 +2,7 @@
 
 # Awesome Culture, Travel, and Participation [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Free museums, public lands, cultural experiences, self-guided exploration, volunteering, civic participation, and hospitality communities.
+> Free museums, public lands, cultural experiences, self-guided exploration, volunteering, and civic participation.
 
 Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the Ego Hygiene knowledge collection.
 
@@ -16,7 +16,6 @@ Admission policies, reservations, residency rules, event dates, transportation, 
 - [Self-Guided Tours and Cultural Apps](#self-guided-tours-and-cultural-apps)
 - [Free Performances and Events](#free-performances-and-events)
 - [Volunteering and Civic Participation](#volunteering-and-civic-participation)
-- [Hospitality and Cultural Exchange](#hospitality-and-cultural-exchange)
 
 ## Always-Free Museums and Culture
 
@@ -46,8 +45,8 @@ Admission policies, reservations, residency rules, event dates, transportation, 
 - [Blue Star Museums](https://www.arts.gov/initiatives/blue-star-museums) - Participating museums provide free summer admission to eligible active-duty military personnel and families during the published annual program window.
 - [Bank of America Museums on Us](https://about.bankofamerica.com/en/making-an-impact/museums-on-us-partners) - Eligible cardholders receive one free general admission at participating institutions on the first full weekend of each month.
 - [Every Kid Outdoors](https://www.everykidoutdoors.gov/) - Eligible United States fourth graders and their families can obtain a free annual pass to participating federal lands and waters.
-- [National Parks Access Pass](https://www.nps.gov/subjects/accessibility/interagency-access-pass.htm) - Free lifetime federal recreation pass for United States citizens or permanent residents with a permanent disability, with documentation requirements.
-- [National Parks Military Pass](https://www.nps.gov/planyourvisit/veterans-and-gold-star-families-free-access.htm) - Free federal recreation access for eligible current military members, dependents, veterans, and Gold Star Families under current pass rules.
+- [National Parks Access Pass](https://www.nps.gov/subjects/accessibility/interagency-access-pass.htm) - No-cost lifetime federal recreation pass issued in person to eligible United States citizens or residents with a permanent disability; documentation is required and online orders carry processing and handling fees.
+- [National Parks Military Pass](https://www.nps.gov/planyourvisit/veterans-and-gold-star-families-free-access.htm) - No-cost annual or lifetime federal recreation pass issued in person to eligible current military members, dependents, veterans, and Gold Star Families; online orders carry processing and handling fees.
 - [National Parks Volunteer Pass](https://store.usgs.gov/faq#Volunteer-Pass) - Free annual federal recreation pass for volunteers who complete the required service hours with participating agencies.
 - [National Park Fee-Free Days](https://www.nps.gov/planyourvisit/fee-free-parks.htm) - Official annual dates when participating National Park Service sites waive entrance fees, with residency and other rules stated for the current year.
 
@@ -108,11 +107,7 @@ Admission policies, reservations, residency rules, event dates, transportation, 
 - [VolunteerMatch](https://www.volunteermatch.org/) - Free matching service listing in-person and virtual volunteer roles from nonprofits across the United States.
 - [Vote.gov](https://vote.gov/) - Official United States site for registering to vote, checking registration, and finding state election rules and deadlines.
 
-## Hospitality and Cultural Exchange
-
-- [BeWelcome](https://www.bewelcome.org/) - Nonprofit, volunteer-run hospitality exchange where members offer free stays and local connection without mandatory hosting reciprocity.
-- [Trustroots](https://www.trustroots.org/) - Nonprofit open-source hospitality network for travelers and hosts, organized around trust, communities, and no-cost stays.
-- [Couchers](https://www.couchers.org/) - Nonprofit community platform for free hospitality exchange, local meetups, references, safety tools, and cultural connection.
+For door-to-door planning, transport, stays, hospitality exchange, digital nomad life, accessibility, and travel assistance, continue with [Awesome Travel and Mobility](../../travel-and-mobility/README.md).
 
 Suggestions and improvements are welcome. See the [contribution guidelines](../../../contributing.md).
 

@@ -19,7 +19,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Community Sharing and Material Resources](community-sharing-and-material-resources/README.md) - Local gifting, reuse networks, food sharing, repair help, lending libraries, clothing, and essential goods. **45 resources.**
 - [Creative Commons and Media](creative-commons-and-media/README.md) - Reusable images, art, audio, music, video, fonts, icons, 3D assets, and cultural collections. **76 resources.**
 - [Creative Tools and Production](creative-tools-and-production/README.md) - Legitimate no-cost paths for music, audio, video, animation, images, books, games, 3D work, publishing, accessible creation, and community equipment. **114 resources.**
-- [Culture, Travel, and Participation](culture-travel-and-participation/README.md) - Free museums, public lands, cultural experiences, self-guided exploration, volunteering, and citizen participation. **75 resources.**
+- [Culture, Travel, and Participation](culture-travel-and-participation/README.md) - Free museums, public lands, cultural experiences, self-guided exploration, volunteering, and citizen participation. **72 resources.**
 - [Developer and Digital Resources](developer-and-digital-resources/README.md) - Permanent free tiers, student and nonprofit programs, hosting, databases, observability, design tools, and internet access. **86 resources.**
 - [Education and Learning](education-and-learning/README.md) - Open courseware, self-paced education, textbooks, computing, languages, and career learning. **55 resources.**
 - [Free and Open-Source Software](free-and-open-source-software/README.md) - No-cost software whose source can be inspected, modified, and shared across everyday and specialist workflows. **132 resources.**
@@ -60,6 +60,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Awesome Public Services and Support](../public-services-and-support/README.md) - Broader public-service, emergency-assistance, finance, employment, government, and health-care resources.
 - [Awesome Scientific Research](../scientific-research/README.md) - Scientific organizations, data, computing, scholarly publishing, and research infrastructure.
 - [Awesome Self-Hosting and Homelab](../self-hosting-and-homelab/README.md) - Services and applications that can be operated on infrastructure you control.
+- [Awesome Travel and Mobility](../travel-and-mobility/README.md) - Cross-budget trip planning, transport, stays, hospitality exchange, nomad life, accessibility, assistance, rights, advisors, and premium travel.
 
 Suggestions and improvements are welcome. See the [contribution guidelines](../../contributing.md).
 
