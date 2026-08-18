@@ -2,9 +2,10 @@
 
 Akashic Atlas is the place-aware companion to the main knowledge catalog. It answers a different question: not only “what is useful?” but “what is useful **here**?”
 
-The first intentionally small coverage path is:
+The first coverage paths are:
 
-`World → United States → Massachusetts → Wilmington`
+- `World → United States → California`
+- `World → United States → Massachusetts → Wilmington`
 
 This is a foundation, not a claim of comprehensive geographic coverage. The interface and data model are global from the beginning so future country, region, county, city, town, and neighborhood additions do not require a redesign.
 
@@ -51,7 +52,7 @@ Catalog references in `locations.json` may use `"role": "index"` for the same pu
 
 - Countries use ISO 3166-1 numeric geometry identifiers where available.
 - U.S. states use two-digit Census FIPS codes.
-- Localities use stable repository-owned slugs and a representative point until municipal boundary data is added.
+- Localities use stable repository-owned slugs, a representative longitude/latitude, and a normalized `mapPosition` within their parent geometry until municipal boundary data is added.
 
 ## Privacy and operating boundaries
 
