@@ -19,6 +19,7 @@
 
 - [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **851 resources.**
 - [Artificial Intelligence](lists/artificial-intelligence/README.md) - Agent engineering, models, providers, memory systems, evaluation, safety, and AI research. **133 resources.**
+- [Business and Entrepreneurship](lists/business-and-entrepreneurship/README.md) - Business structures, financial safety, registration, taxes, selling, operations, public support, and optional consolidation services. **217 resources.**
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **227 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **45 resources.**
 - [Developer Tools](lists/developer-tools/README.md) - Application development, databases, documentation, knowledge management, shell environments, and developer utilities. **154 resources.**
@@ -35,7 +36,7 @@
 - [Spirituality, Religion, and Occult Knowledge](lists/spirituality-religion-and-occult/README.md) - Comparative religion, sacred texts, living traditions, contemplative practice, material history, esotericism, community, care, and critical inquiry. **201 resources.**
 - [TeX and Typesetting](lists/tex-and-typesetting/README.md) - Accessibility, authoring, build automation, distributions, drawing, templates, learning resources, and packages. **274 resources.**
 - [Web Development](lists/web-development/README.md) - Authentication, frameworks, APIs, tooling, forms, state management, styling, testing, UI components, and visualization. **96 resources.**
-- [Work and Learning](lists/work-and-learning/README.md) - Business, career platforms, creator operations, audience growth, brand monitoring, learning resources, writing, and workspace tools. **79 resources.**
+- [Work and Learning](lists/work-and-learning/README.md) - Career platforms, creator operations, audience growth, brand monitoring, learning resources, writing, and workspace tools. **68 resources.**
 
 ## Meta
 

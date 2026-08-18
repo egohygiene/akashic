@@ -21,6 +21,7 @@ const ROOT_README = join(ROOT, "README.md");
 const EXPECTED_TOP_LEVEL_LISTS = [
   "artificial-intelligence",
   "awesome-abundance",
+  "business-and-entrepreneurship",
   "containers-and-cloud",
   "creative-resources",
   "developer-tools",
