@@ -37,6 +37,16 @@ Each place file uses the same readable entry format as the main awesome lists:
 - [Example Town](https://example.gov/) - Official municipal information and services.
 ```
 
+### Directory and navigator links
+
+Atlas is a doorway into local knowledge, not a mirror of every changing listing on the internet. Prefer a trusted directory, locator, or service navigator when it already maintains the deeper inventory. Mark that role at the end of the entry so the portal can feature it clearly:
+
+```md
+- [Example Service Finder](https://example.gov/find/) - Search maintained local services by place and need. <!-- atlas-role: index -->
+```
+
+Catalog references in `locations.json` may use `"role": "index"` for the same purpose. Use the marker only for resources that actually help people discover multiple downstream services, organizations, places, or records.
+
 ## Identifier conventions
 
 - Countries use ISO 3166-1 numeric geometry identifiers where available.

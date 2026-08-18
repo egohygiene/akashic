@@ -8,6 +8,7 @@ const outputDirectory = path.join(root, "dist");
 const listsDirectory = path.join(root, "lists");
 const atlasDirectory = path.join(root, "atlas");
 const ROOT_GROUP_SLUG = "__root__";
+const ATLAS_ROLES = new Set(["resource", "index"]);
 
 const CATEGORY_IDENTITIES = {
   "awesome-abundance": { color: "#d1459f", glyph: "✦" },
@@ -108,12 +109,16 @@ function parseAtlasPlace(markdown, filePath) {
     const entry = line.match(/^- \[([^\]]+)]\((https?:\/\/[^)]+)\) - (.+)$/);
     if (!entry) continue;
     const url = entry[2].trim();
+    const roleMatch = entry[3].match(/\s*<!--\s*atlas-role:\s*([a-z-]+)\s*-->\s*$/);
+    const role = roleMatch?.[1] || "resource";
+    if (!ATLAS_ROLES.has(role)) throw new Error(`Unsupported atlas role ${role} in ${path.relative(root, filePath)}.`);
     resources.push({
       title: entry[1].trim(),
       url,
-      description: entry[3].trim(),
+      description: roleMatch ? entry[3].slice(0, roleMatch.index).trim() : entry[3].trim(),
       domain: new URL(url).hostname.replace(/^www\./, ""),
       section,
+      role,
       locationId,
       source: path.relative(root, filePath).split(path.sep).join("/"),
     });
@@ -170,6 +175,7 @@ async function buildAtlas(catalogResources) {
     if (location.catalogResources !== undefined && !Array.isArray(location.catalogResources)) throw new Error(`Atlas catalogResources must be an array for ${location.id}.`);
     for (const reference of location.catalogResources || []) {
       if (!reference?.url || !reference?.section) throw new Error(`Incomplete atlas catalog reference for ${location.id}.`);
+      if (reference.role && !ATLAS_ROLES.has(reference.role)) throw new Error(`Unsupported atlas catalog reference role ${reference.role} for ${location.id}.`);
       const key = normalizeUrl(reference.url);
       if (seen.has(key)) throw new Error(`Duplicate atlas resource reference: ${reference.url}`);
       const catalogResource = catalogResourceByUrl.get(key);
@@ -180,6 +186,7 @@ async function buildAtlas(catalogResources) {
         description: catalogResource.description,
         domain: catalogResource.domain,
         section: reference.section,
+        role: reference.role || "resource",
         locationId: location.id,
         source: catalogResource.source,
         atlasSource: "atlas/locations.json",

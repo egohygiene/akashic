@@ -17,6 +17,9 @@ const selectors = {
   childCount: document.querySelector("#atlas-child-count"),
   openChild: document.querySelector("#atlas-open-child"),
   resourceSummary: document.querySelector("#atlas-resource-summary"),
+  scopeNote: document.querySelector("#atlas-scope-note"),
+  indexCount: document.querySelector("#atlas-index-count"),
+  resourceNav: document.querySelector("#atlas-resource-nav"),
   resourceGroups: document.querySelector("#atlas-resource-groups"),
   empty: document.querySelector("#atlas-empty"),
   zoomOut: document.querySelector("#atlas-zoom-out"),
@@ -39,6 +42,7 @@ const state = {
   world: null,
   states: null,
   locationId: "world",
+  resourceSection: "",
   mapTheme: "cosmic",
   zoom: 1,
   baseViewBox: { x: 0, y: 0, width: 1000, height: 500 },
@@ -320,15 +324,44 @@ function renderPlacePanel(location) {
   }
 }
 
-function renderResources(location) {
+function renderResourceNavigation(resources) {
+  selectors.resourceNav.replaceChildren();
+  const sectionCounts = new Map();
+  for (const resource of resources) sectionCounts.set(resource.section, (sectionCounts.get(resource.section) || 0) + 1);
+  const choices = [["", "All", resources.length], ...[...sectionCounts].map(([section, count]) => [section, section, count])];
+  selectors.resourceNav.hidden = resources.length === 0;
+  for (const [section, label, count] of choices) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.dataset.section = section;
+    button.setAttribute("aria-pressed", String(section === state.resourceSection));
+    button.append(document.createTextNode(label));
+    const badge = document.createElement("span");
+    badge.textContent = count.toLocaleString();
+    button.append(badge);
+    button.addEventListener("click", () => {
+      if (state.resourceSection === section) return;
+      state.resourceSection = section;
+      renderResourceGroups(currentLocation());
+      writeUrl();
+    });
+    selectors.resourceNav.append(button);
+  }
+}
+
+function renderResourceGroups(location) {
   const resources = state.atlas.resources.filter((resource) => resource.locationId === location.id);
+  const visibleResources = state.resourceSection ? resources.filter((resource) => resource.section === state.resourceSection) : resources;
   selectors.resourceGroups.replaceChildren();
   selectors.empty.hidden = resources.length > 0;
   selectors.resourceSummary.textContent = resources.length
-    ? `${resources.length.toLocaleString()} reviewed ${resources.length === 1 ? "resource" : "resources"} specific to ${location.name}.`
+    ? state.resourceSection
+      ? `Showing ${visibleResources.length.toLocaleString()} of ${resources.length.toLocaleString()} reviewed resources for ${location.name}.`
+      : `${resources.length.toLocaleString()} reviewed ${resources.length === 1 ? "resource" : "resources"} specific to ${location.name}.`
     : `No place-specific resources at the ${location.kind} level yet.`;
+  for (const button of selectors.resourceNav.querySelectorAll("button")) button.setAttribute("aria-pressed", String(button.dataset.section === state.resourceSection));
   const grouped = new Map();
-  for (const resource of resources) {
+  for (const resource of visibleResources) {
     if (!grouped.has(resource.section)) grouped.set(resource.section, []);
     grouped.get(resource.section).push(resource);
   }
@@ -337,41 +370,66 @@ function renderResources(location) {
     group.className = "atlas-resource-group";
     const heading = document.createElement("h3");
     heading.textContent = section;
+    const hasIndexes = entries.some((resource) => resource.role === "index");
+    if (hasIndexes) group.classList.add("has-indexes");
     const grid = document.createElement("div");
     grid.className = "atlas-resource-grid";
     for (const resource of entries) {
       const card = document.createElement("a");
       card.className = "atlas-resource-card";
+      if (resource.role === "index") card.classList.add("is-index");
       card.href = resource.url;
       card.target = "_blank";
       card.rel = "noreferrer";
       card.setAttribute("aria-label", `${resource.title} (opens in a new tab)`);
       const domain = document.createElement("span");
-      domain.textContent = resource.catalogReference ? `${resource.domain} · main catalog` : resource.domain;
+      const labels = [];
+      if (resource.role === "index") labels.push("Directory");
+      if (resource.catalogReference) labels.push("Main catalog");
+      labels.push(resource.domain);
+      domain.textContent = labels.join(" · ");
       const title = document.createElement("strong");
       title.textContent = resource.title;
       const description = document.createElement("p");
       description.textContent = resource.description;
       const visit = document.createElement("span");
-      visit.textContent = "Visit resource ↗";
+      visit.textContent = resource.role === "index" ? "Explore directory ↗" : "Visit resource ↗";
       card.append(domain, title, description, visit);
       grid.append(card);
     }
-    group.append(heading, grid);
+    if (section.toLocaleLowerCase().startsWith("start here")) {
+      const context = document.createElement("p");
+      context.className = "atlas-resource-group-copy";
+      context.textContent = "These maintained gateways can take you further by place, need, eligibility, or service type.";
+      group.append(heading, context, grid);
+    } else group.append(heading, grid);
     selectors.resourceGroups.append(group);
   }
+}
+
+function renderResources(location, { requestedSection = "" } = {}) {
+  const resources = state.atlas.resources.filter((resource) => resource.locationId === location.id);
+  const sections = new Set(resources.map((resource) => resource.section));
+  state.resourceSection = sections.has(requestedSection) ? requestedSection : "";
+  const indexCount = resources.filter((resource) => resource.role === "index").length;
+  selectors.scopeNote.hidden = indexCount === 0;
+  selectors.indexCount.textContent = indexCount.toLocaleString();
+  renderResourceNavigation(resources);
+  renderResourceGroups(location);
 }
 
 function writeUrl({ push = true } = {}) {
   const url = new URL(location.href);
   if (state.locationId === state.atlas.rootId) url.searchParams.delete("place");
   else url.searchParams.set("place", state.locationId);
+  if (state.resourceSection) url.searchParams.set("section", state.resourceSection);
+  else url.searchParams.delete("section");
   if (state.mapTheme === state.themes.defaultTheme) url.searchParams.delete("mapTheme");
   else url.searchParams.set("mapTheme", state.mapTheme);
   history[push ? "pushState" : "replaceState"]({}, "", url);
 }
 
-function setLocation(id, { historyMode = "push", focus = false } = {}) {
+function setLocation(id, { historyMode = "push", focus = false, resourceSection = "" } = {}) {
   if (!locationMap().has(id)) id = state.atlas.rootId;
   state.locationId = id;
   const location = currentLocation();
@@ -379,7 +437,7 @@ function setLocation(id, { historyMode = "push", focus = false } = {}) {
   renderBreadcrumb(location);
   renderMap(location);
   renderPlacePanel(location);
-  renderResources(location);
+  renderResources(location, { requestedSection: resourceSection });
   selectors.back.hidden = !location.parentId;
   if (historyMode !== "none") writeUrl({ push: historyMode === "push" });
   if (focus) selectors.placeTitle.focus({ preventScroll: true });
@@ -442,7 +500,7 @@ function bindEvents() {
   window.addEventListener("popstate", () => {
     const params = new URLSearchParams(location.search);
     applyMapTheme(params.get("mapTheme") || state.themes.defaultTheme, { updateUrl: false });
-    setLocation(params.get("place") || state.atlas.rootId, { historyMode: "none" });
+    setLocation(params.get("place") || state.atlas.rootId, { historyMode: "none", resourceSection: params.get("section") || "" });
   });
 }
 
@@ -458,8 +516,9 @@ async function initialize() {
     Object.assign(state, { atlas, themes, world, states });
     setupThemes();
     bindEvents();
-    const requested = new URLSearchParams(location.search).get("place") || atlas.rootId;
-    setLocation(requested, { historyMode: "replace" });
+    const params = new URLSearchParams(location.search);
+    const requested = params.get("place") || atlas.rootId;
+    setLocation(requested, { historyMode: "replace", resourceSection: params.get("section") || "" });
     selectors.loading.hidden = true;
   } catch (error) {
     selectors.loading.replaceChildren();
