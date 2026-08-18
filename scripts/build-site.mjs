@@ -6,6 +6,7 @@ const root = process.cwd();
 const sourceDirectory = path.join(root, "site");
 const outputDirectory = path.join(root, "dist");
 const listsDirectory = path.join(root, "lists");
+const atlasDirectory = path.join(root, "atlas");
 const ROOT_GROUP_SLUG = "__root__";
 
 const CATEGORY_IDENTITIES = {
@@ -86,6 +87,106 @@ function parseResources(markdown, category, filePath) {
   return resources;
 }
 
+function normalizeUrl(url) {
+  const parsed = new URL(url);
+  parsed.hash = "";
+  for (const parameter of [...parsed.searchParams.keys()]) {
+    if (/^(utm_|ref$|source$)/i.test(parameter)) parsed.searchParams.delete(parameter);
+  }
+  const normalizedPath = parsed.pathname === "/" ? "/" : parsed.pathname.replace(/\/+$/, "");
+  return `${parsed.hostname.replace(/^www\./, "").toLocaleLowerCase()}${parsed.port ? `:${parsed.port}` : ""}${normalizedPath}${parsed.search}`;
+}
+
+function parseAtlasPlace(markdown, filePath) {
+  const locationId = markdown.match(/^<!-- atlas-location: ([a-z0-9-]+) -->$/m)?.[1];
+  if (!locationId) throw new Error(`Atlas place is missing atlas-location metadata: ${path.relative(root, filePath)}`);
+  let section = "Local resources";
+  const resources = [];
+  for (const line of markdown.split("\n")) {
+    const heading = line.match(/^##\s+(.+)$/);
+    if (heading) section = heading[1].trim();
+    const entry = line.match(/^- \[([^\]]+)]\((https?:\/\/[^)]+)\) - (.+)$/);
+    if (!entry) continue;
+    const url = entry[2].trim();
+    resources.push({
+      title: entry[1].trim(),
+      url,
+      description: entry[3].trim(),
+      domain: new URL(url).hostname.replace(/^www\./, ""),
+      section,
+      locationId,
+      source: path.relative(root, filePath).split(path.sep).join("/"),
+    });
+  }
+  return { locationId, resources };
+}
+
+async function buildAtlas(catalogResources) {
+  const hierarchy = JSON.parse(await readFile(path.join(atlasDirectory, "locations.json"), "utf8"));
+  if (hierarchy.schemaVersion !== 1 || !Array.isArray(hierarchy.locations)) throw new Error("Unsupported atlas location schema.");
+  const locationById = new Map(hierarchy.locations.map((location) => [location.id, location]));
+  if (locationById.size !== hierarchy.locations.length) throw new Error("The atlas contains duplicate location IDs.");
+  if (!locationById.has(hierarchy.rootId)) throw new Error("The atlas root location does not exist.");
+  for (const location of hierarchy.locations) {
+    if (!location.id || !location.name || !location.kind || !location.geometry || !location.camera) throw new Error(`Incomplete atlas location: ${location.id || "unknown"}`);
+    if (location.parentId && !locationById.has(location.parentId)) throw new Error(`Unknown atlas parent ${location.parentId} for ${location.id}.`);
+    location.children = hierarchy.locations.filter((candidate) => candidate.parentId === location.id).map((candidate) => candidate.id);
+    const visited = new Set([location.id]);
+    let parentId = location.parentId;
+    while (parentId) {
+      if (visited.has(parentId)) throw new Error(`Atlas hierarchy cycle detected at ${location.id}.`);
+      visited.add(parentId);
+      parentId = locationById.get(parentId).parentId;
+    }
+  }
+
+  const placeDirectory = path.join(atlasDirectory, "places");
+  const placeFiles = (await readdir(placeDirectory, { withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
+    .map((entry) => path.join(placeDirectory, entry.name))
+    .sort();
+  const resources = [];
+  const coveredLocations = new Set();
+  for (const filePath of placeFiles) {
+    const place = parseAtlasPlace(await readFile(filePath, "utf8"), filePath);
+    if (!locationById.has(place.locationId)) throw new Error(`Atlas place references unknown location: ${place.locationId}`);
+    if (coveredLocations.has(place.locationId)) throw new Error(`Multiple atlas files cover ${place.locationId}.`);
+    coveredLocations.add(place.locationId);
+    resources.push(...place.resources);
+  }
+
+  const seen = new Set();
+  for (const resource of resources) {
+    const key = normalizeUrl(resource.url);
+    if (seen.has(key)) throw new Error(`Duplicate atlas URL: ${resource.url}`);
+    seen.add(key);
+  }
+  const catalogUrls = new Set(catalogResources.map((resource) => normalizeUrl(resource.url)));
+  const duplicatedCatalogUrl = resources.find((resource) => catalogUrls.has(normalizeUrl(resource.url)));
+  if (duplicatedCatalogUrl) throw new Error(`Atlas resource already belongs in the main catalog: ${duplicatedCatalogUrl.url}`);
+
+  const coverageCache = new Map();
+  const isCovered = (location) => {
+    if (coverageCache.has(location.id)) return coverageCache.get(location.id);
+    const covered = coveredLocations.has(location.id) || location.children.some((childId) => isCovered(locationById.get(childId)));
+    coverageCache.set(location.id, covered);
+    return covered;
+  };
+  for (const location of hierarchy.locations) {
+    location.resourceCount = resources.filter((resource) => resource.locationId === location.id).length;
+    location.covered = isCovered(location);
+  }
+  return {
+    generatedAt: new Date().toISOString(),
+    schemaVersion: hierarchy.schemaVersion,
+    rootId: hierarchy.rootId,
+    locationCount: hierarchy.locations.length,
+    resourceCount: resources.length,
+    locations: hierarchy.locations,
+    resources,
+  };
+}
+
 async function build() {
   const rootReadme = await readFile(path.join(root, "README.md"), "utf8");
   const categories = parseRootCategories(rootReadme);
@@ -144,13 +245,15 @@ async function build() {
     categories,
     resources: uniqueResources,
   };
+  const atlas = await buildAtlas(uniqueResources);
 
   await rm(outputDirectory, { recursive: true, force: true });
   await cp(sourceDirectory, outputDirectory, { recursive: true });
   await mkdir(path.join(outputDirectory, "data"), { recursive: true });
   await writeFile(path.join(outputDirectory, "data", "catalog.json"), `${JSON.stringify(catalog)}\n`);
+  await writeFile(path.join(outputDirectory, "data", "atlas.json"), `${JSON.stringify(atlas)}\n`);
   await writeFile(path.join(outputDirectory, ".nojekyll"), "");
-  console.log(`Built ${catalog.resourceCount} resources across ${categories.length} collections.`);
+  console.log(`Built ${catalog.resourceCount} resources across ${categories.length} collections and ${atlas.resourceCount} place-aware atlas resources.`);
 }
 
 await build();

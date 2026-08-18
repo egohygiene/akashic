@@ -1,0 +1,85 @@
+{
+  "defaultTheme": "cosmic",
+  "themes": [
+    {
+      "id": "cosmic",
+      "name": "Cosmic",
+      "description": "The Akashic violet, pink, and cyan constellation.",
+      "colors": {
+        "ocean": "#0c0917",
+        "land": "#21182f",
+        "landHover": "#352346",
+        "available": "#7049bb",
+        "selected": "#ff8bd5",
+        "boundary": "#8d7ca0",
+        "grid": "#3c2e50",
+        "marker": "#6fe9df",
+        "label": "#f8f4fc"
+      }
+    },
+    {
+      "id": "midnight",
+      "name": "Midnight",
+      "description": "Cool moonlit blues for a quiet late-night atlas.",
+      "colors": {
+        "ocean": "#07111f",
+        "land": "#15283a",
+        "landHover": "#21445d",
+        "available": "#276b91",
+        "selected": "#74d7ff",
+        "boundary": "#7491a6",
+        "grid": "#18334a",
+        "marker": "#b4ffea",
+        "label": "#f2f9ff"
+      }
+    },
+    {
+      "id": "paper",
+      "name": "Field Notes",
+      "description": "A warm, light cartographic notebook.",
+      "colors": {
+        "ocean": "#f1eadc",
+        "land": "#d7cbb5",
+        "landHover": "#c7b594",
+        "available": "#916849",
+        "selected": "#7d295f",
+        "boundary": "#796f61",
+        "grid": "#cbbda7",
+        "marker": "#126d67",
+        "label": "#2a211b"
+      }
+    },
+    {
+      "id": "terrain",
+      "name": "Terrain",
+      "description": "Earthy greens and river blues inspired by field maps.",
+      "colors": {
+        "ocean": "#0c2529",
+        "land": "#284337",
+        "landHover": "#3d604b",
+        "available": "#65915e",
+        "selected": "#e9c96e",
+        "boundary": "#7ba28c",
+        "grid": "#214349",
+        "marker": "#f4da78",
+        "label": "#f3f7e9"
+      }
+    },
+    {
+      "id": "signal",
+      "name": "Signal",
+      "description": "High-contrast charcoal with electric location signals.",
+      "colors": {
+        "ocean": "#090b0f",
+        "land": "#242832",
+        "landHover": "#343b49",
+        "available": "#a13de2",
+        "selected": "#ff4fa8",
+        "boundary": "#a9b0bd",
+        "grid": "#2d333e",
+        "marker": "#36f1cd",
+        "label": "#ffffff"
+      }
+    }
+  ]
+}
