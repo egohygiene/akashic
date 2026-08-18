@@ -37,6 +37,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "self-hosting-and-homelab",
   "spirituality-religion-and-occult",
   "tex-and-typesetting",
+  "travel-and-mobility",
   "web-development",
   "work-and-learning",
 ];
