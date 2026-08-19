@@ -19,7 +19,8 @@
 
 - [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **841 resources.**
 - [Artificial Intelligence](lists/artificial-intelligence/README.md) - Agent engineering, models, providers, memory systems, evaluation, safety, and AI research. **133 resources.**
-- [Business and Entrepreneurship](lists/business-and-entrepreneurship/README.md) - Business structures, financial safety, registration, taxes, selling, operations, public support, and optional consolidation services. **217 resources.**
+- [Business and Entrepreneurship](lists/business-and-entrepreneurship/README.md) - Business structures, financial safety, registration, taxes, selling, operations, public support, and optional consolidation services. **198 resources.**
+- [Commerce and Marketplaces](lists/commerce-and-marketplaces/README.md) - Shopping discovery, independent marketplaces, creator storefronts, custom products, print-on-demand, manufacturing, wholesale, payments, and fulfillment. **214 resources.**
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **227 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **45 resources.**
 - [Developer Tools](lists/developer-tools/README.md) - Application development, databases, documentation, knowledge management, shell environments, and developer utilities. **154 resources.**
@@ -38,7 +39,7 @@
 - [TeX and Typesetting](lists/tex-and-typesetting/README.md) - Accessibility, authoring, build automation, distributions, drawing, templates, learning resources, and packages. **274 resources.**
 - [Travel and Mobility](lists/travel-and-mobility/README.md) - Cross-budget travel planning, transport, stays, nomad life, accessibility, assistance, rights, deals, advisors, and premium travel. **366 resources.**
 - [Web Development](lists/web-development/README.md) - Authentication, frameworks, APIs, tooling, forms, state management, styling, testing, UI components, and visualization. **96 resources.**
-- [Work and Learning](lists/work-and-learning/README.md) - Career platforms, creator operations, audience growth, brand monitoring, learning resources, writing, and workspace tools. **68 resources.**
+- [Work and Learning](lists/work-and-learning/README.md) - Career platforms, creator operations, audience growth, brand monitoring, learning resources, writing, and workspace tools. **67 resources.**
 
 ## Meta
 
