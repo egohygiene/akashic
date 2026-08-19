@@ -1,4 +1,5 @@
 import { createMindMap } from "./mind-map.js";
+import { buildSearchText, createAndSubstringMatcher } from "./search.js";
 
 const FAVORITES_KEY = "akashic-favorites";
 const LEGACY_FAVORITES_KEY = "ego-awesome-favorites";
@@ -181,13 +182,13 @@ function updateFilterControls() {
 }
 
 function filteredResources() {
-  const terms = state.query.toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  const matchesQuery = createAndSubstringMatcher(state.query);
   const matches = state.catalog.resources.filter((resource) => {
     if (state.savedOnly && !state.favorites.has(resource.url)) return false;
     if (state.category !== "all" && resource.categorySlug !== state.category) return false;
     if (state.group && resource.groupSlug !== state.group) return false;
     if (state.section && resource.section !== state.section) return false;
-    return terms.every((term) => resource.searchText.includes(term));
+    return matchesQuery(resource);
   });
   if (state.sort === "az") matches.sort((a, b) => a.title.localeCompare(b.title));
   if (state.sort === "za") matches.sort((a, b) => b.title.localeCompare(a.title));
@@ -400,7 +401,7 @@ async function initialize() {
   if (!response.ok) throw new Error(`Catalog request failed: ${response.status}`);
   state.catalog = await response.json();
   categoryBySlug = new Map(state.catalog.categories.map((category) => [category.slug, category]));
-  for (const resource of state.catalog.resources) resource.searchText = `${resource.title} ${resource.description} ${resource.category} ${resource.groupTitle} ${resource.section} ${resource.domain}`.toLocaleLowerCase();
+  for (const resource of state.catalog.resources) resource.searchText = buildSearchText(resource);
   const requested = readUrlState();
   const explorer = normalizeExplorer(requested);
   Object.assign(state, requested, explorer);

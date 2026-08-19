@@ -1,0 +1,76 @@
+name: Search research
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/search-research.yml"
+      - "package.json"
+      - "research/search/**"
+      - "scripts/build-site.mjs"
+      - "scripts/check-site.mjs"
+      - "scripts/evaluate-search.mjs"
+      - "site/app.js"
+      - "site/search.js"
+      - "site/search/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/search-research.yml"
+      - "package.json"
+      - "research/search/**"
+      - "scripts/build-site.mjs"
+      - "scripts/check-site.mjs"
+      - "scripts/evaluate-search.mjs"
+      - "site/app.js"
+      - "site/search.js"
+      - "site/search/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  baseline:
+    name: Reproduce search baseline
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20
+
+      - name: Protect the published v1 algorithm
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if git cat-file -e "${BASE_SHA}:site/search/and-substring-v1.js" 2>/dev/null \
+            && ! git diff --quiet "${BASE_SHA}" -- site/search/and-substring-v1.js; then
+            echo "and-substring-v1 is a published baseline; add a new versioned module instead of editing it."
+            exit 1
+          fi
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check site/app.js
+          node --check site/search.js
+          node --check site/search/and-substring-v1.js
+          node --check scripts/evaluate-search.mjs
+          node --check scripts/check-site.mjs
+
+      - name: Build static catalog
+        run: node scripts/build-site.mjs
+
+      - name: Verify browser build integration
+        run: node scripts/check-site.mjs
+
+      - name: Verify committed baseline
+        run: node scripts/evaluate-search.mjs --verify research/search/results/and-substring-v1.json

@@ -3,7 +3,7 @@ import path from "node:path";
 import process from "node:process";
 
 const output = path.join(process.cwd(), "dist");
-for (const relativePath of ["index.html", "atlas.html", "styles.css", "atlas.css", "app.js", "mind-map.js", "atlas.js", "assets/favicon.svg", "data/catalog.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
+for (const relativePath of ["index.html", "atlas.html", "styles.css", "atlas.css", "app.js", "search.js", "search/and-substring-v1.js", "mind-map.js", "atlas.js", "assets/favicon.svg", "data/catalog.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
   await access(path.join(output, relativePath));
 }
 
