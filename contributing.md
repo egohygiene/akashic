@@ -14,6 +14,8 @@ lists/
   awesome-abundance/
     README.md               ← nested collection hub
     */README.md             ← focused no-cost resource lists
+  business-and-entrepreneurship/README.md
+  commerce-and-marketplaces/README.md
   containers-and-cloud/README.md
   creative-resources/README.md
   developer-tools/README.md
