@@ -186,29 +186,7 @@ There is no single federal sales-tax rule. Check nexus, marketplace-facilitator 
 
 ## Sell and Get Paid
 
-Marketplaces, storefronts, payment processors, and shipping tools are distribution infrastructure, not permission to sell. Account review, reserves, holds, refunds, chargebacks, fraud, tax, product, and customer-service duties still belong in the plan. Export orders, customers, payouts, and product data regularly.
-
-### Local and online sales channels
-
-- [Big Cartel Gold](https://www.bigcartel.com/plans/gold) - Free-tier hosted storefront for up to five products; payment-processing fees and paid-plan limits still apply.
-- [eBay Seller Center](https://www.ebay.com/sellercenter) - Marketplace onboarding, listing, fulfillment, performance, and fee guidance for sellers; account, category, transaction, and advertising charges vary.
-- [Etsy Sell](https://www.etsy.com/sell) - Marketplace for eligible handmade, designed, vintage, and craft-supply products; listing, transaction, payment, advertising, and jurisdiction-specific fees apply.
-- [Fourthwall](https://fourthwall.com) - Creator storefront for products, print-on-demand fulfillment, memberships, and digital offerings; platform and payment economics vary by product and plan.
-- [Gumroad](https://gumroad.com/pricing) - No-monthly-base storefront for digital and physical products with per-sale platform and processing fees, including a higher discovery-channel fee.
-- [Ko-fi](https://help.ko-fi.com/hc/en-us/articles/360002506494-Does-Ko-fi-take-a-fee) - Creator page with a free plan, optional memberships and shop features, and category-dependent platform plus payment-processing fees.
-- [Payhip](https://payhip.com/pricing) - Hosted digital and physical product storefront with a free monthly plan, per-sale platform fee, and separate processor fees.
-- [Printful](https://www.printful.com/pricing) - Print-on-demand production and fulfillment with a no-monthly-base path; product, shipping, tax, returns, branding, and optional-plan costs remain.
-- [Shopify](https://www.shopify.com/pricing) - Hosted commerce platform with recurring plans, payment and app costs, and no durable full-store free tier; compare total operating cost and export options.
-- [Square Online](https://squareup.com/us/en/online-store/plans) - Hosted store with a limited free monthly plan and per-transaction processing; advanced features and some channels require paid plans.
-- [WooCommerce](https://woocommerce.com/pricing/) - Open-source WordPress commerce core without a platform revenue share; hosting, maintenance, security, payment processing, and extensions can still cost money.
-
-### Payments and invoicing
-
-- [Helcim Pricing](https://www.helcim.com/pricing/) - Account-based card and ACH processing with no base monthly fee and interchange-plus pricing; underwriting, hardware, chargeback, and transaction costs apply.
-- [PayPal Invoicing](https://pep.paypal.com/us/cshelp/article/how-much-does-it-cost-to-use-paypal-invoicing-help311) - No-cost invoice creation with charges when customers pay through supported PayPal methods; account review, holds, disputes, and method-specific fees apply.
-- [Square Point of Sale](https://squareup.com/us/en/point-of-sale/software/pricing) - Free-tier POS software with per-transaction processing and optional paid hardware and features for in-person, online, and invoice sales.
-- [Stripe Payment Links](https://stripe.com/payments/payment-links) - No-code hosted checkout links using a Stripe account; standard processing, dispute, currency, and optional-product fees apply.
-- [Stripe Pricing](https://stripe.com/pricing) - Public pricing for Stripe's standard pay-per-use payment stack; account approval, reserves, product-specific charges, and cross-border costs can apply.
+Marketplaces, storefronts, payment processors, and shipping tools are distribution infrastructure, not permission to sell. Account review, reserves, holds, refunds, chargebacks, fraud, tax, product, and customer-service duties still belong in the plan. Export orders, customers, payouts, and product data regularly. Use [Commerce and Marketplaces](../commerce-and-marketplaces/README.md) to compare shopper marketplaces, selling channels, creator storefronts, print-on-demand providers, manufacturing networks, wholesale systems, payment tools, and fulfillment services.
 
 ## Products, Food, and Regulated Sales
 
@@ -323,9 +301,7 @@ Free software does not make the surrounding responsibility free. Preserve local 
 
 ### Shipping and fulfillment
 
-- [Pirate Ship](https://www.pirateship.com/rates) - No-monthly-base USPS and UPS label service without added markup; postage, insurance, adjustments, international duties, and supplies still cost money.
-- [Shippo](https://goshippo.com/pricing) - Limited free shipping-software tier with postage and possible per-label or carrier-account charges; volume and automation features are paid.
-- [USPS Click-N-Ship](https://faq.usps.com/articles/FAQ/Pay-Print-and-Ship-Online) - Official no-added-service-fee online label path for supported USPS services; users pay postage and any extras.
+Compare label platforms, carrier tools, third-party logistics, fulfillment, tracking, and return systems in [Commerce and Marketplaces](../commerce-and-marketplaces/README.md#shipping-fulfillment-and-returns). Freight classification, export controls, customs, hazardous materials, packaging, insurance, delivery promises, and customer refunds remain separate obligations.
 
 ### Specialist and enterprise services
 

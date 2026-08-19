@@ -79,7 +79,6 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 ## Learning and Careers
 
 - [Architecture of Open Source Applications: Bash](https://aosabook.org/en/v1/bash.html) - Chet Ramey's architectural tour of Bash internals, parsing, expansion, execution, job control, and lessons from a long-lived shell.
-- [Buy Me a Coffee](https://buymeacoffee.com/) - Creator-support platform for memberships, one-time contributions, and digital products.
 - [Collaborative Development Environments](https://www.igi-global.com/dictionary/collaborative-development-environments/21213) - Reference definition for integrated digital environments that support coordinated software and knowledge work.
 - [DeepTutor](https://deeptutor.info/) - Open-source, agent-native learning companion with shared context across tutoring, writing, memory, knowledge, and interactive-book surfaces.
 - [Formation](https://formation.dev/) - Structured software-engineering interview preparation with adaptive practice, mentorship, and job-search support.
