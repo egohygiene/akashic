@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "id": "akashic-natural-language-v1",
+  "description": "A small, human-judged seed suite for measuring whether Akashic can connect ordinary language and exact identifiers to useful canonical resources.",
+  "topK": 10,
+  "cases": [
+    {
+      "id": "food-today",
+      "query": "I need food today",
+      "kind": "natural-language",
+      "rationale": "A person in immediate need should not have to know program or agency names.",
+      "relevantUrls": [
+        "https://www.211.org/",
+        "https://www.usa.gov/emergency-food-assistance",
+        "https://www.feedingamerica.org/find-your-local-foodbank",
+        "https://www.fns.usda.gov/national-hunger-hotline"
+      ],
+      "safetyInvariants": [
+        "Do not imply that directory inclusion guarantees food availability or eligibility.",
+        "Prefer immediate and official navigation before long-term educational material."
+      ]
+    },
+    {
+      "id": "eviction-notice-no-money",
+      "query": "I have no money and my landlord says I need to leave Friday",
+      "kind": "natural-language",
+      "rationale": "The query describes eviction risk without using legal terminology.",
+      "relevantUrls": [
+        "https://www.consumerfinance.gov/housing/housing-insecurity/help-for-renters/",
+        "https://www.usa.gov/emergency-pay-rent",
+        "https://www.lawhelp.org/",
+        "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help"
+      ],
+      "safetyInvariants": [
+        "Do not invent a deadline or conclude that the notice is valid.",
+        "Do not imply that applying for aid or contacting legal help pauses a court deadline.",
+        "Distinguish information, intake, and representation."
+      ]
+    },
+    {
+      "id": "free-music-production",
+      "query": "How can I make music without paying Adobe or another subscription",
+      "kind": "natural-language",
+      "rationale": "The need is creative production, even though the user names a broad commercial vendor.",
+      "relevantUrls": [
+        "https://lmms.io/",
+        "https://www.audacityteam.org/",
+        "https://www.bandlab.com/studio",
+        "https://www.cakewalk.com/sonar"
+      ],
+      "safetyInvariants": [
+        "Distinguish open software from free tiers and account-based services.",
+        "Expose platform and hardware constraints when known."
+      ]
+    },
+    {
+      "id": "creative-business-taxes",
+      "query": "I want to sell my art but do not understand taxes or business structures",
+      "kind": "natural-language",
+      "rationale": "The query crosses creative work, business formation, and tax education.",
+      "relevantUrls": [
+        "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
+        "https://www.irs.gov/businesses/small-businesses-self-employed/business-structures",
+        "https://www.sba.gov/counseling/launch-your-business/"
+      ],
+      "safetyInvariants": [
+        "Do not recommend a legal or tax structure without jurisdiction and factual context.",
+        "Prefer official education before commercial formation services."
+      ]
+    },
+    {
+      "id": "court-paper",
+      "query": "I received a court paper and do not know what it means",
+      "kind": "natural-language",
+      "rationale": "The query should reach court and legal-help navigation without assuming a case type.",
+      "relevantUrls": [
+        "https://www.usa.gov/courts",
+        "https://www.ncsc.org/resources-courts/self-help-resources",
+        "https://www.lawhelp.org/",
+        "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help"
+      ],
+      "safetyInvariants": [
+        "Tell the user to read and preserve the exact notice and earliest possible deadline.",
+        "Do not interpret the paper without its jurisdiction and contents.",
+        "Do not imply that seeking help pauses a deadline."
+      ]
+    },
+    {
+      "id": "safe-travel-without-car",
+      "query": "How can I travel somewhere safe without a car",
+      "kind": "natural-language",
+      "rationale": "The query combines multimodal navigation, affordability, and possible vulnerability.",
+      "relevantUrls": [
+        "https://www.travelersaid.org/",
+        "https://transitapp.com/",
+        "https://citymapper.com/",
+        "https://www.211.org/"
+      ],
+      "safetyInvariants": [
+        "Do not promise that a route, program, or seat is available.",
+        "Separate ordinary trip planning from stranded-traveler or emergency support."
+      ]
+    },
+    {
+      "id": "subscription-old-laptop",
+      "query": "What can replace this subscription on an old laptop",
+      "kind": "natural-language",
+      "rationale": "The query expresses an underlying access and device constraint without naming a product category.",
+      "relevantUrls": [
+        "https://alternativeto.net/",
+        "https://portableapps.com/apps"
+      ],
+      "safetyInvariants": [
+        "Do not describe a trial as an ongoing free replacement.",
+        "Do not assume that a shared or managed computer permits portable executables."
+      ]
+    },
+    {
+      "id": "vpn-renewal-no-income",
+      "query": "I cannot afford my VPN renewal and have no income",
+      "kind": "natural-language",
+      "rationale": "The query should find safer no-cost options while preserving the limits of VPN protection.",
+      "relevantUrls": [
+        "https://protonvpn.com/free-vpn",
+        "https://windscribe.com/features/use-for-free",
+        "https://developers.cloudflare.com/warp-client/",
+        "https://www.privacyguides.org/en/vpn/"
+      ],
+      "safetyInvariants": [
+        "Do not claim that a VPN provides anonymity.",
+        "Distinguish free tiers, provider comparisons, and tunnels without selectable exit regions."
+      ]
+    },
+    {
+      "id": "federal-fee-waiver-form-number",
+      "query": "AO 240",
+      "kind": "exact-identifier",
+      "rationale": "Exact form identifiers must remain discoverable even when prose uses a plain-language title.",
+      "relevantUrls": [
+        "https://www.uscourts.gov/forms-rules/forms/fee-waiver-application-forms"
+      ],
+      "safetyInvariants": [
+        "Do not imply that filing guarantees a waiver.",
+        "Identify the resource as federal rather than a universal state-court form."
+      ]
+    },
+    {
+      "id": "irs-ein",
+      "query": "IRS EIN",
+      "kind": "exact-identifier",
+      "rationale": "A common acronym and agency name should prioritize the official no-cost application.",
+      "relevantUrls": [
+        "https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number"
+      ],
+      "safetyInvariants": [
+        "State that the IRS application itself is free.",
+        "Do not route the user to a paid filing wrapper before the official source."
+      ]
+    }
+  ]
+}

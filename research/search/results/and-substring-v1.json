@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "suite": "akashic-natural-language-v1",
+  "searchAlgorithm": "and-substring-v1",
+  "catalogResourceCount": 4169,
+  "inputs": {
+    "catalogSha256": "f7b796040eda1801a8773dd5f88ad9be019e71f9ba2a53b28f1531ec7a46fd97",
+    "fixtureSha256": "dd20a3342f06cdc097972977e1beb7a10b2506330fbfa48352e4bab6ec71126a",
+    "implementationSha256": "ab5383002697e81edc6c424774f68c9644deace3feb69d4f85d0ebfc14907c71"
+  },
+  "topK": 10,
+  "summary": {
+    "caseCount": 10,
+    "zeroResultCount": 9,
+    "casesWithRelevantAtK": 1,
+    "meanRecallAtK": 0.1,
+    "meanReciprocalRank": 0.025
+  },
+  "cases": [
+    {
+      "id": "food-today",
+      "query": "I need food today",
+      "kind": "natural-language",
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "topResults": []
+    },
+    {
+      "id": "eviction-notice-no-money",
+      "query": "I have no money and my landlord says I need to leave Friday",
+      "kind": "natural-language",
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "topResults": []
+    },
+    {
+      "id": "free-music-production",
+      "query": "How can I make music without paying Adobe or another subscription",
+      "kind": "natural-language",
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "topResults": []
+    },
+    {
+      "id": "creative-business-taxes",
+      "query": "I want to sell my art but do not understand taxes or business structures",
+      "kind": "natural-language",
+      "resultCount": 0,
+      "relevantCount": 3,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "topResults": []
+    },
+    {
+      "id": "court-paper",
+      "query": "I received a court paper and do not know what it means",
+      "kind": "natural-language",
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "topResults": []
+    },
+    {
+      "id": "safe-travel-without-car",
+      "query": "How can I travel somewhere safe without a car",
+      "kind": "natural-language",
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "topResults": []
+    },
+    {
+      "id": "subscription-old-laptop",
+      "query": "What can replace this subscription on an old laptop",
+      "kind": "natural-language",
+      "resultCount": 0,
+      "relevantCount": 2,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "topResults": []
+    },
+    {
+      "id": "vpn-renewal-no-income",
+      "query": "I cannot afford my VPN renewal and have no income",
+      "kind": "natural-language",
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "topResults": []
+    },
+    {
+      "id": "federal-fee-waiver-form-number",
+      "query": "AO 240",
+      "kind": "exact-identifier",
+      "resultCount": 0,
+      "relevantCount": 1,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "topResults": []
+    },
+    {
+      "id": "irs-ein",
+      "query": "IRS EIN",
+      "kind": "exact-identifier",
+      "resultCount": 7,
+      "relevantCount": 1,
+      "relevantFoundAtK": 1,
+      "recallAtK": 1,
+      "reciprocalRank": 0.25,
+      "firstRelevantRank": 4,
+      "relevantRanks": [
+        4
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "VA Mental Health Apps",
+          "url": "https://mobile.va.gov/app-store/mental-health",
+          "collection": "Awesome Abundance",
+          "topic": "Mental Health and Self-Help Tools",
+          "relevant": false
+        },
+        {
+          "rank": 2,
+          "title": "Free Wheelchair Mission",
+          "url": "https://www.freewheelchairmission.org/receive-a-wheelchair/",
+          "collection": "Awesome Abundance",
+          "topic": "Assistive Technology and Disability Services",
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "title": "IRS Checklist for Starting a Business",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "title": "IRS Get an Employer Identification Number",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Register, Identify, and License",
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "title": "IRS When to Get a New EIN",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/when-to-get-a-new-ein",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Register, Identify, and License",
+          "relevant": false
+        },
+        {
+          "rank": 6,
+          "title": "IRS Businesses With Employees",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/businesses-with-employees",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Hire People and Work with Contractors",
+          "relevant": false
+        },
+        {
+          "rank": 7,
+          "title": "IRS If You No Longer Need Your EIN",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/if-you-no-longer-need-your-ein",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Change, Sell, or Close",
+          "relevant": false
+        }
+      ]
+    }
+  ]
+}

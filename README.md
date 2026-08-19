@@ -12,6 +12,7 @@
 ## Contents
 
 - [Explore the Collection](#explore-the-collection)
+- [Research and Architecture](#research-and-architecture)
 - [Meta](#meta)
 - [Contributing](#contributing)
 
@@ -39,6 +40,10 @@
 - [Travel and Mobility](lists/travel-and-mobility/README.md) - Cross-budget travel planning, transport, stays, nomad life, accessibility, assistance, rights, deals, advisors, and premium travel. **366 resources.**
 - [Web Development](lists/web-development/README.md) - Authentication, frameworks, APIs, tooling, forms, state management, styling, testing, UI components, and visualization. **96 resources.**
 - [Work and Learning](lists/work-and-learning/README.md) - Career platforms, creator operations, audience growth, brand monitoring, learning resources, writing, and workspace tools. **68 resources.**
+
+## Research and Architecture
+
+- [Browser-Native Search and Akashic Navigator Research](research/search/README.md) - Reproducible architecture, bibliography, human-judged evaluation queries, and experiments for browser-native semantic search and optional local agent guidance from a static GitHub Pages deployment.
 
 ## Meta
 
