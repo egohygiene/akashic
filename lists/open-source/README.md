@@ -168,7 +168,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Goldman Sachs Open Source](https://developer.gs.com/discover/open-source) - Catalog of Goldman Sachs open-source projects and its approach to contributing software publicly.
 - [Google Open Source Events](https://opensource.google/events) - Calendar and archive of Google's open-source conferences, programs, and community events.
 - [Google Open Source on GitHub](https://github.com/google) - Public organization for Google's open-source libraries, platforms, samples, research, and infrastructure projects.
-- [Google Summer of Code](https://buildyourfuture.withgoogle.com/programs/summer-of-code) - Global mentorship program that funds contributors to work with open-source organizations.
+- [Google Summer of Code](https://summerofcode.withgoogle.com/) - Global online mentorship program offering stipends for eligible adult students and open-source beginners to complete evaluated projects with participating organizations; it is not employment or a Google recruiting program.
 - [Hexops Graveyard](https://github.com/hexops-graveyard) - Archived organization preserving discontinued Hexops projects and engineering experiments.
 - [HPE Open Source](https://www.hpe.com/us/en/open-source.html) - HPE portal for open-source projects, compliance resources, source disclosures, and community participation.
 - [IBM Open Source](https://www.ibm.com/opensource/) - IBM portal for open-source projects, community participation, standards work, and contribution programs.
