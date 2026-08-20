@@ -1,0 +1,13 @@
+---
+# This repository-local configuration is the source of truth for both the
+# GitHub Sponsor button and the support badges generated into the Akashic site.
+
+buy_me_a_coffee: szmyty
+github: szmyty
+ko_fi: szmyty
+open_collective: szmyty
+thanks_dev: u/gh/szmyty
+
+# Patreon `szmyty` currently resolves to a 404. Restore it here when the
+# creator page is active so GitHub and the generated footer never send people
+# to a dead donation path.

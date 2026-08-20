@@ -28,13 +28,14 @@
           <span><strong>akashic</strong><small>by Ego Hygiene</small></span>
         </a>
         <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="dashboard.html">Overview</a>
           <a href="#collections" data-nav-section="collections">Collections</a>
           <a href="#mind-map" data-nav-section="mind-map">Mind map</a>
           <a href="#catalog" data-nav-section="catalog">Explore</a>
           <a href="atlas.html">Atlas</a>
           <a href="https://github.com/egohygiene/akashic" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
         </nav>
-        <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="Light theme" aria-pressed="false">
+        <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">
           <span aria-hidden="true">☼</span>
         </button>
       </div>
@@ -55,6 +56,7 @@
         </form>
         <div class="hero-actions">
           <a class="button button-primary" href="#catalog">Explore the catalog <span aria-hidden="true">↓</span></a>
+          <a class="button button-quiet" href="dashboard.html">See the overview <span aria-hidden="true">◫</span></a>
           <a class="button button-quiet" href="#mind-map">Enter the mind map <span aria-hidden="true">⌁</span></a>
           <a class="button button-quiet" href="atlas.html">Explore by place <span aria-hidden="true">◎</span></a>
         </div>
@@ -135,6 +137,10 @@
             <button class="search-submit" type="submit" aria-label="Search resources"><span aria-hidden="true">→</span></button>
           </form>
           <div class="catalog-actions">
+            <div class="view-switch" role="group" aria-label="Resource layout">
+              <button type="button" id="view-cards" data-catalog-view="cards" aria-pressed="true"><span aria-hidden="true">▦</span> Cards</button>
+              <button type="button" id="view-list" data-catalog-view="list" aria-pressed="false"><span aria-hidden="true">☷</span> Compact</button>
+            </div>
             <button class="saved-filter" id="saved-filter" type="button" aria-pressed="false"><span aria-hidden="true">♡</span> Saved <b id="saved-count">0</b></button>
             <label class="sort-control"><span>Sort</span><select id="sort-select"><option value="featured">Curated order</option><option value="az">A–Z</option><option value="za">Z–A</option></select></label>
           </div>
@@ -158,12 +164,16 @@
 
     <footer>
       <div class="footer-brand"><span class="brand-mark" aria-hidden="true">∞</span><div><strong>akashic</strong><p>Ego Hygiene's living constellation of curated knowledge.</p></div></div>
-      <div class="footer-links"><a href="https://github.com/egohygiene/akashic">Source</a><a href="intelligence/">Intelligence</a><a href="https://github.com/egohygiene/akashic/blob/main/contributing.md">Contribute</a><a href="https://github.com/egohygiene">Ego Hygiene</a></div>
+      <div class="footer-links"><a href="dashboard.html">Overview</a><a href="https://github.com/egohygiene/akashic">Source</a><a href="intelligence/">Intelligence</a><a href="https://github.com/egohygiene/akashic/blob/main/contributing.md">Contribute</a><a href="https://github.com/egohygiene">Ego Hygiene</a></div>
+      <section class="footer-support" aria-labelledby="footer-support-title">
+        <div><p class="kicker">Keep it open</p><h2 id="footer-support-title">Support the constellation</h2><p>If Akashic helps, these are the project's configured ways to contribute financially. Browsing will always remain open.</p></div>
+        <div class="funding-badges"><!-- akashic-funding-badges --></div>
+      </section>
       <p class="love-note">Made with <span class="love-word">love <span aria-hidden="true">♥</span></span> by ego hygienists.</p>
     </footer>
     <nav class="mobile-dock" aria-label="Mobile navigation">
       <a href="#top" data-nav-section="top"><span aria-hidden="true">∞</span><small>Home</small></a>
-      <a href="#collections" data-nav-section="collections"><span aria-hidden="true">◇</span><small>Collections</small></a>
+      <a href="dashboard.html"><span aria-hidden="true">◫</span><small>Overview</small></a>
       <a href="#mind-map" data-nav-section="mind-map"><span aria-hidden="true">⌁</span><small>Map</small></a>
       <a href="atlas.html"><span aria-hidden="true">◎</span><small>Atlas</small></a>
       <a href="#catalog" data-nav-section="catalog"><span aria-hidden="true">⌕</span><small>Explore</small></a>

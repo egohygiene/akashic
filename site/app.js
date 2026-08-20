@@ -5,6 +5,7 @@ const FAVORITES_KEY = "akashic-favorites";
 const LEGACY_FAVORITES_KEY = "ego-awesome-favorites";
 const THEME_KEY = "akashic-theme";
 const LEGACY_THEME_KEY = "ego-awesome-theme";
+const VIEW_KEY = "akashic-catalog-view";
 const PAGE_SIZE = 48;
 const prefersReducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -21,13 +22,19 @@ function loadFavorites() {
   catch { return new Set(); }
 }
 
+function loadViewPreference() {
+  return readStorage(VIEW_KEY) === "list" ? "list" : "cards";
+}
+
 const state = {
   catalog: null,
   query: "",
   category: "all",
   group: "",
   section: "",
+  domain: "",
   sort: "featured",
+  view: loadViewPreference(),
   limit: PAGE_SIZE,
   savedOnly: false,
   favorites: loadFavorites(),
@@ -62,6 +69,7 @@ const elements = {
   sort: document.querySelector("#sort-select"),
   summary: document.querySelector("#result-summary"),
   theme: document.querySelector("#theme-toggle"),
+  viewSwitch: document.querySelector(".view-switch"),
 };
 
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
@@ -103,7 +111,9 @@ function urlForState(hash = location.hash) {
   if (state.category !== "all") params.set("collection", state.category);
   if (state.group) params.set("branch", state.group);
   if (state.section) params.set("section", state.section);
+  if (state.domain) params.set("domain", state.domain);
   if (state.savedOnly) params.set("saved", "1");
+  params.set("view", state.view);
   return `${location.pathname}${params.size ? `?${params}` : ""}${hash || ""}`;
 }
 
@@ -112,14 +122,16 @@ function syncUrl(mode = "replace", hash = location.hash) {
   history[mode === "push" ? "pushState" : "replaceState"](null, "", urlForState(hash));
 }
 
-function readUrlState() {
+function readUrlState(usePreference = false) {
   const params = new URLSearchParams(location.search);
   return {
     query: params.get("q") || "",
     category: params.get("collection") || "all",
     group: params.get("branch") || "",
     section: params.get("section") || "",
+    domain: params.get("domain") || "",
     savedOnly: params.get("saved") === "1",
+    view: ["cards", "list"].includes(params.get("view")) ? params.get("view") : (usePreference ? loadViewPreference() : "cards"),
   };
 }
 
@@ -141,6 +153,11 @@ function applyState(next, options = {}) {
     state.query = next.query;
   }
   if (Object.hasOwn(next, "savedOnly")) state.savedOnly = next.savedOnly;
+  if (Object.hasOwn(next, "domain")) state.domain = next.domain;
+  if (Object.hasOwn(next, "view")) {
+    state.view = next.view === "list" ? "list" : "cards";
+    writeStorage(VIEW_KEY, state.view);
+  }
   state.limit = options.keepLimit ? state.limit : PAGE_SIZE;
   setSearchInputs(options.searchInputValue ?? state.query);
   renderCatalog({ suppressReveal: options.suppressReveal });
@@ -179,6 +196,7 @@ function updateFilterControls() {
   elements.savedFilter.setAttribute("aria-pressed", String(state.savedOnly));
   elements.savedFilter.querySelector("span").textContent = state.savedOnly ? "♥" : "♡";
   elements.savedCount.textContent = state.favorites.size.toLocaleString();
+  elements.viewSwitch.querySelectorAll("[data-catalog-view]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.catalogView === state.view)));
 }
 
 function filteredResources() {
@@ -188,6 +206,7 @@ function filteredResources() {
     if (state.category !== "all" && resource.categorySlug !== state.category) return false;
     if (state.group && resource.groupSlug !== state.group) return false;
     if (state.section && resource.section !== state.section) return false;
+    if (state.domain && resource.domain !== state.domain) return false;
     return matchesQuery(resource);
   });
   if (state.sort === "az") matches.sort((a, b) => a.title.localeCompare(b.title));
@@ -217,7 +236,7 @@ function addContextButton(parent, label, title, handler) {
 function renderContext() {
   const category = currentCategory();
   const group = currentGroup();
-  const active = category || state.query || state.savedOnly;
+  const active = category || state.query || state.domain || state.savedOnly;
   elements.catalogContext.hidden = !active;
   elements.catalogContext.replaceChildren();
   if (!active) return;
@@ -232,6 +251,7 @@ function renderContext() {
     if (state.section) addContextButton(path, state.section, "Clear this topic", () => applyState({ category: category.slug, group: state.group, section: "" }, { historyMode: "push" }));
   }
   if (state.query) addContextButton(path, `“${state.query}”`, "Clear search", () => applyState({ query: "" }, { historyMode: "push" }));
+  if (state.domain) addContextButton(path, state.domain, "Show every source domain", () => applyState({ domain: "" }, { historyMode: "push" }));
   if (state.savedOnly) addContextButton(path, "Saved", "Show all resources", () => applyState({ savedOnly: false }, { historyMode: "push" }));
   elements.catalogContext.append(path);
   if (category) {
@@ -250,6 +270,7 @@ function resultDescription(count, visibleCount) {
   if (currentGroup()?.slug) parts.push(currentGroup().title);
   if (state.section) parts.push(state.section);
   if (state.query) parts.push(`matching “${state.query}”`);
+  if (state.domain) parts.push(`from ${state.domain}`);
   const total = `${count.toLocaleString()} ${count === 1 ? "resource" : "resources"}`;
   const amount = visibleCount < count ? `Showing ${visibleCount.toLocaleString()} of ${total}` : total;
   return `${amount}${parts.length ? ` · ${parts.join(" · ")}` : ""}`;
@@ -259,6 +280,7 @@ function renderCatalog(options = {}) {
   const matches = filteredResources();
   const visible = matches.slice(0, state.limit);
   elements.grid.classList.toggle("suppress-reveal", options.suppressReveal === true);
+  elements.grid.classList.toggle("is-compact", state.view === "list");
   elements.grid.innerHTML = visible.map(resourceCard).join("");
   elements.empty.hidden = matches.length !== 0;
   elements.loadMore.hidden = visible.length >= matches.length;
@@ -273,15 +295,14 @@ function renderCatalog(options = {}) {
 }
 
 function clearFilters() {
-  applyState({ query: "", category: "all", group: "", section: "", savedOnly: false }, { historyMode: "push" });
+  applyState({ query: "", category: "all", group: "", section: "", domain: "", savedOnly: false }, { historyMode: "push" });
   document.querySelector("#catalog").focus();
 }
 
 function updateThemeControl() {
   const dark = document.documentElement.dataset.theme !== "light";
   elements.theme.querySelector("span").textContent = dark ? "☼" : "☾";
-  elements.theme.setAttribute("aria-label", "Light theme");
-  elements.theme.setAttribute("aria-pressed", String(!dark));
+  elements.theme.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
   document.querySelector('meta[name="theme-color"]').content = dark ? "#090711" : "#f7f3fb";
 }
 
@@ -369,6 +390,10 @@ function initializeEvents() {
   elements.heroSearchClear.addEventListener("click", () => { applyState({ query: "" }, { historyMode: "push" }); elements.search.focus(); });
   elements.catalogSearchClear.addEventListener("click", () => { applyState({ query: "" }, { historyMode: "push" }); elements.catalogSearch.focus(); });
   elements.savedFilter.addEventListener("click", () => applyState({ savedOnly: !state.savedOnly }, { historyMode: "push" }));
+  elements.viewSwitch.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-catalog-view]");
+    if (button && button.dataset.catalogView !== state.view) applyState({ view: button.dataset.catalogView }, { historyMode: "push", keepLimit: true, suppressReveal: true });
+  });
   elements.sort.addEventListener("change", () => { state.sort = elements.sort.value; state.limit = PAGE_SIZE; renderCatalog(); });
   elements.loadMore.addEventListener("click", () => {
     const previousVisible = elements.grid.children.length;
@@ -388,6 +413,7 @@ function initializeEvents() {
     const next = readUrlState();
     const explorer = normalizeExplorer(next);
     Object.assign(state, next, explorer, { limit: PAGE_SIZE });
+    writeStorage(VIEW_KEY, state.view);
     setSearchInputs(state.query);
     renderCatalog();
     mindMap?.setSelection({ categorySlug: state.category === "all" ? "" : state.category, groupSlug: state.group, section: state.section });
@@ -402,7 +428,7 @@ async function initialize() {
   state.catalog = await response.json();
   categoryBySlug = new Map(state.catalog.categories.map((category) => [category.slug, category]));
   for (const resource of state.catalog.resources) resource.searchText = buildSearchText(resource);
-  const requested = readUrlState();
+  const requested = readUrlState(true);
   const explorer = normalizeExplorer(requested);
   Object.assign(state, requested, explorer);
   elements.resourceTotal.textContent = state.catalog.resourceCount.toLocaleString();

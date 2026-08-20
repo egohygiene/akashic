@@ -3,7 +3,16 @@ import path from "node:path";
 import process from "node:process";
 
 const output = path.join(process.cwd(), "dist");
-for (const relativePath of ["index.html", "atlas.html", "styles.css", "atlas.css", "app.js", "search.js", "search/and-substring-v1.js", "mind-map.js", "atlas.js", "assets/favicon.svg", "data/catalog.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
+const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
+const rankedCounts = (values, limit = Infinity) => {
+  const counts = new Map();
+  for (const value of values) counts.set(value, (counts.get(value) || 0) + 1);
+  return [...counts]
+    .map(([name, count]) => ({ name, count }))
+    .sort((left, right) => right.count - left.count || left.name.localeCompare(right.name))
+    .slice(0, limit);
+};
+for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "styles.css", "dashboard.css", "atlas.css", "app.js", "dashboard.js", "search.js", "search/and-substring-v1.js", "mind-map.js", "atlas.js", "assets/favicon.svg", "data/catalog.json", "data/overview.json", "data/funding.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
   await access(path.join(output, relativePath));
 }
 
@@ -75,6 +84,59 @@ if (new Set(urls).size !== urls.length) throw new Error("The catalog contains du
 for (const resource of catalog.resources) {
   if (!resource.title || !resource.description || !resource.category || !resource.section || !resource.source || resource.groupSlug === undefined) throw new Error(`Incomplete resource: ${resource.url}`);
   new URL(resource.url);
+}
+
+const overview = JSON.parse(await readFile(path.join(output, "data/overview.json"), "utf8"));
+if (overview.schemaVersion !== 1) throw new Error("Unsupported overview schema.");
+if (overview.resourceCount !== catalog.resourceCount) throw new Error("The overview resource count is inconsistent.");
+if (overview.collectionCount !== catalog.categories.length || overview.categories.length !== catalog.categories.length) throw new Error("The overview collection count is inconsistent.");
+const expectedSourceFileCount = new Set(catalog.resources.map((resource) => resource.source)).size;
+const expectedTopicPathCount = catalog.categories.reduce((sum, category) => sum + category.groups.reduce((groupSum, group) => groupSum + group.sections.length, 0), 0);
+const expectedUniqueDomainCount = new Set(catalog.resources.map((resource) => resource.domain)).size;
+if (overview.sourceFileCount !== expectedSourceFileCount) throw new Error("The overview source-list count is inconsistent.");
+if (overview.topicPathCount !== expectedTopicPathCount) throw new Error("The overview topic-path count is inconsistent.");
+if (overview.uniqueDomainCount !== expectedUniqueDomainCount) throw new Error("The overview domain count is inconsistent.");
+if (overview.categories.reduce((sum, category) => sum + category.count, 0) !== catalog.resourceCount) throw new Error("The overview collection distribution is inconsistent.");
+const overviewCategoryBySlug = new Map(overview.categories.map((category) => [category.slug, category]));
+if (overviewCategoryBySlug.size !== overview.categories.length) throw new Error("The overview contains duplicate collection slugs.");
+for (const catalogCategory of catalog.categories) {
+  const category = overviewCategoryBySlug.get(catalogCategory.slug);
+  if (!category || category.title !== catalogCategory.title || category.count !== catalogCategory.count || category.color !== catalogCategory.color || category.glyph !== catalogCategory.glyph) throw new Error(`Overview collection mismatch: ${catalogCategory.title}.`);
+  const resources = catalog.resources.filter((resource) => resource.categorySlug === category.slug);
+  if (category.sourceFileCount !== new Set(resources.map((resource) => resource.source)).size) throw new Error(`Overview source-list mismatch: ${category.title}.`);
+  if (category.uniqueDomainCount !== new Set(resources.map((resource) => resource.domain)).size) throw new Error(`Overview domain mismatch: ${category.title}.`);
+  if (category.topicPathCount !== catalogCategory.groups.reduce((sum, group) => sum + group.sections.length, 0)) throw new Error(`Overview topic-path mismatch: ${category.title}.`);
+  if (!Array.isArray(category.groups) || category.groups.reduce((sum, group) => sum + group.count, 0) !== category.count) throw new Error(`Overview group mismatch: ${category.title}.`);
+}
+const expectedTopDomains = rankedCounts(catalog.resources.map((resource) => resource.domain), 12).map(({ name, count }) => ({ domain: name, count }));
+if (JSON.stringify(overview.topDomains) !== JSON.stringify(expectedTopDomains)) throw new Error("The overview domain ranking is inconsistent.");
+const expectedTopPaths = catalog.categories.flatMap((category) => category.groups.flatMap((group) => group.sections.map((section) => ({
+  title: section.title,
+  count: section.count,
+  categoryTitle: category.title,
+  categorySlug: category.slug,
+  categoryColor: category.color,
+  categoryGlyph: category.glyph,
+  groupTitle: group.title,
+  groupSlug: group.slug,
+})))).sort((left, right) => right.count - left.count || left.categoryTitle.localeCompare(right.categoryTitle) || left.title.localeCompare(right.title)).slice(0, 12);
+if (JSON.stringify(overview.topPaths) !== JSON.stringify(expectedTopPaths)) throw new Error("The overview topic ranking is inconsistent.");
+
+const funding = JSON.parse(await readFile(path.join(output, "data/funding.json"), "utf8"));
+if (funding.schemaVersion !== 1 || !Array.isArray(funding.sources) || funding.sources.length < 1) throw new Error("The funding data is invalid.");
+const fundingUrls = new Set();
+for (const source of funding.sources) {
+  if (!source.platform || !source.value || !source.label || !source.glyph || !source.url) throw new Error("A funding source is incomplete.");
+  const url = new URL(source.url);
+  if (url.protocol !== "https:" || fundingUrls.has(source.url)) throw new Error(`Invalid or duplicate funding URL: ${source.url}`);
+  fundingUrls.add(source.url);
+}
+for (const fileName of ["index.html", "dashboard.html", "atlas.html"]) {
+  const html = await readFile(path.join(output, fileName), "utf8");
+  if (html.includes("<!-- akashic-funding-badges -->")) throw new Error(`Funding badges were not generated in ${fileName}.`);
+  for (const source of funding.sources) {
+    if (!html.includes(`href="${escapeHtml(source.url)}"`)) throw new Error(`Funding source ${source.label} is missing from ${fileName}.`);
+  }
 }
 
 const catalogUrls = new Set(catalog.resources.map((resource) => resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, "")));

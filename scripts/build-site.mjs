@@ -7,16 +7,21 @@ const sourceDirectory = path.join(root, "site");
 const outputDirectory = path.join(root, "dist");
 const listsDirectory = path.join(root, "lists");
 const atlasDirectory = path.join(root, "atlas");
+const fundingFile = path.join(root, ".github", "FUNDING.yml");
 const ROOT_GROUP_SLUG = "__root__";
 const ATLAS_ROLES = new Set(["resource", "index"]);
+const FUNDING_PLACEHOLDER = "<!-- akashic-funding-badges -->";
 
 const CATEGORY_IDENTITIES = {
   "awesome-abundance": { color: "#d1459f", glyph: "✦" },
   "artificial-intelligence": { color: "#7656d8", glyph: "⌘" },
+  "business-and-entrepreneurship": { color: "#c4862d", glyph: "◫" },
+  "commerce-and-marketplaces": { color: "#c74b6f", glyph: "◧" },
   "containers-and-cloud": { color: "#0b877f", glyph: "◌" },
   "creative-resources": { color: "#c9542d", glyph: "△" },
   "developer-tools": { color: "#508c32", glyph: "◇" },
   "health-and-well-being": { color: "#2f72c4", glyph: "☼" },
+  "legal-help-and-law": { color: "#2d7f91", glyph: "§" },
   neuroscience: { color: "#b23f91", glyph: "◎" },
   "open-source": { color: "#6847bd", glyph: "∞" },
   psychedelics: { color: "#087c76", glyph: "⚗" },
@@ -28,12 +33,76 @@ const CATEGORY_IDENTITIES = {
   "self-hosting-and-homelab": { color: "#08766f", glyph: "✧" },
   "spirituality-religion-and-occult": { color: "#b64827", glyph: "☿" },
   "tex-and-typesetting": { color: "#477c2d", glyph: "∑" },
+  "travel-and-mobility": { color: "#3978c4", glyph: "⌖" },
   "web-development": { color: "#2867ad", glyph: "⌬" },
   "work-and-learning": { color: "#a9387c", glyph: "◒" },
 };
 
+const FUNDING_PLATFORMS = {
+  buy_me_a_coffee: { label: "Buy Me a Coffee", glyph: "☕", url: (value) => `https://www.buymeacoffee.com/${encodeURIComponent(value)}` },
+  community_bridge: { label: "Community Bridge", glyph: "◇", url: (value) => `https://funding.communitybridge.org/projects/${encodeURIComponent(value)}` },
+  custom: { label: "Support", glyph: "♥", url: (value) => value },
+  github: { label: "GitHub Sponsors", glyph: "♥", url: (value) => `https://github.com/sponsors/${encodeURIComponent(value)}` },
+  issuehunt: { label: "IssueHunt", glyph: "⌁", url: (value) => `https://issuehunt.io/r/${encodeURIComponent(value)}` },
+  ko_fi: { label: "Ko-fi", glyph: "☕", url: (value) => `https://ko-fi.com/${encodeURIComponent(value)}` },
+  lfx_crowdfunding: { label: "LFX Crowdfunding", glyph: "∞", url: (value) => `https://crowdfunding.lfx.linuxfoundation.org/projects/${encodeURIComponent(value)}` },
+  liberapay: { label: "Liberapay", glyph: "✦", url: (value) => `https://liberapay.com/${encodeURIComponent(value)}` },
+  open_collective: { label: "Open Collective", glyph: "◎", url: (value) => `https://opencollective.com/${encodeURIComponent(value)}` },
+  otechie: { label: "Otechie", glyph: "⌘", url: (value) => `https://otechie.com/${encodeURIComponent(value)}` },
+  patreon: { label: "Patreon", glyph: "✦", url: (value) => `https://www.patreon.com/${encodeURIComponent(value)}` },
+  polar: { label: "Polar", glyph: "◐", url: (value) => `https://polar.sh/${encodeURIComponent(value)}` },
+  thanks_dev: { label: "thanks.dev", glyph: "♥", url: (value) => `https://thanks.dev/${value.split("/").map(encodeURIComponent).join("/")}` },
+  tidelift: { label: "Tidelift", glyph: "△", url: (value) => `https://tidelift.com/subscription/pkg/${value.split("/").map(encodeURIComponent).join("/")}` },
+};
+
 const slugify = (value) => value.toLocaleLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 const parseAdvisory = (markdown) => markdown.match(/^<!-- site-advisory: (.+) -->$/m)?.[1].trim() || "";
+const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
+
+function parseFundingValues(value) {
+  const normalized = value.trim();
+  const values = normalized.startsWith("[") && normalized.endsWith("]")
+    ? normalized.slice(1, -1).split(",")
+    : [normalized];
+  return values.map((item) => item.trim().replace(/^(['"])(.*)\1$/, "$2")).filter(Boolean);
+}
+
+function buildFunding(markdown) {
+  const sources = [];
+  for (const line of markdown.split("\n")) {
+    const entry = line.match(/^([a-z_]+):\s*(.+?)\s*$/);
+    if (!entry) continue;
+    const platform = FUNDING_PLATFORMS[entry[1]];
+    if (!platform) throw new Error(`Unsupported funding platform: ${entry[1]}`);
+    for (const value of parseFundingValues(entry[2])) {
+      const url = platform.url(value);
+      const parsedUrl = new URL(url);
+      if (parsedUrl.protocol !== "https:") throw new Error(`Funding URLs must use HTTPS: ${url}`);
+      const label = entry[1] === "custom" ? parsedUrl.hostname.replace(/^www\./, "") : platform.label;
+      sources.push({ platform: entry[1], value, label, glyph: platform.glyph, url });
+    }
+  }
+  if (!sources.length) throw new Error("The funding configuration has no active sources.");
+  return { sources };
+}
+
+function fundingMarkup(funding) {
+  return funding.sources.map((source) => `<a class="funding-badge funding-badge-${escapeHtml(source.platform)}" href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer" aria-label="Support Akashic with ${escapeHtml(source.label)} (opens in a new tab)"><span aria-hidden="true">${escapeHtml(source.glyph)}</span><strong>${escapeHtml(source.label)}</strong><b aria-hidden="true">↗</b></a>`).join("");
+}
+
+async function injectFundingBadges(directory, markup) {
+  const htmlFiles = (await readdir(directory, { withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".html"))
+    .map((entry) => path.join(directory, entry.name));
+  let replacements = 0;
+  for (const filePath of htmlFiles) {
+    const html = await readFile(filePath, "utf8");
+    if (!html.includes(FUNDING_PLACEHOLDER)) continue;
+    await writeFile(filePath, html.replaceAll(FUNDING_PLACEHOLDER, markup));
+    replacements += 1;
+  }
+  if (!replacements) throw new Error("No funding badge placeholders were found in the site HTML.");
+}
 
 async function findReadmes(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -224,6 +293,58 @@ async function buildAtlas(catalogResources) {
   };
 }
 
+function rankedCounts(values, limit = Infinity) {
+  const counts = new Map();
+  for (const value of values) counts.set(value, (counts.get(value) || 0) + 1);
+  return [...counts]
+    .map(([name, count]) => ({ name, count }))
+    .sort((left, right) => right.count - left.count || left.name.localeCompare(right.name))
+    .slice(0, limit);
+}
+
+function buildOverview(catalog) {
+  const categories = catalog.categories.map((category) => {
+    const resources = catalog.resources.filter((resource) => resource.categorySlug === category.slug);
+    return {
+      title: category.title,
+      slug: category.slug,
+      description: category.description,
+      color: category.color,
+      glyph: category.glyph,
+      count: category.count,
+      sourceFileCount: new Set(resources.map((resource) => resource.source)).size,
+      topicPathCount: category.groups.reduce((sum, group) => sum + group.sections.length, 0),
+      uniqueDomainCount: new Set(resources.map((resource) => resource.domain)).size,
+      topDomains: rankedCounts(resources.map((resource) => resource.domain), 5).map(({ name, count }) => ({ domain: name, count })),
+      groups: category.groups,
+    };
+  });
+  const topicPaths = categories.flatMap((category) => category.groups.flatMap((group) => group.sections.map((section) => ({
+    title: section.title,
+    count: section.count,
+    categoryTitle: category.title,
+    categorySlug: category.slug,
+    categoryColor: category.color,
+    categoryGlyph: category.glyph,
+    groupTitle: group.title,
+    groupSlug: group.slug,
+  }))));
+  const sourceFiles = new Set(catalog.resources.map((resource) => resource.source));
+  const uniqueDomains = new Set(catalog.resources.map((resource) => resource.domain));
+  return {
+    schemaVersion: 1,
+    generatedAt: catalog.generatedAt,
+    resourceCount: catalog.resourceCount,
+    collectionCount: categories.length,
+    sourceFileCount: sourceFiles.size,
+    topicPathCount: topicPaths.length,
+    uniqueDomainCount: uniqueDomains.size,
+    categories,
+    topDomains: rankedCounts(catalog.resources.map((resource) => resource.domain), 12).map(({ name, count }) => ({ domain: name, count })),
+    topPaths: topicPaths.sort((left, right) => right.count - left.count || left.categoryTitle.localeCompare(right.categoryTitle) || left.title.localeCompare(right.title)).slice(0, 12),
+  };
+}
+
 async function build() {
   const rootReadme = await readFile(path.join(root, "README.md"), "utf8");
   const categories = parseRootCategories(rootReadme);
@@ -276,21 +397,27 @@ async function build() {
     }
   }
 
+  const generatedAt = new Date().toISOString();
   const catalog = {
-    generatedAt: new Date().toISOString(),
+    generatedAt,
     resourceCount: uniqueResources.length,
     categories,
     resources: uniqueResources,
   };
   const atlas = await buildAtlas(uniqueResources);
+  const overview = buildOverview(catalog);
+  const funding = buildFunding(await readFile(fundingFile, "utf8"));
 
   await rm(outputDirectory, { recursive: true, force: true });
   await cp(sourceDirectory, outputDirectory, { recursive: true });
   await mkdir(path.join(outputDirectory, "data"), { recursive: true });
   await writeFile(path.join(outputDirectory, "data", "catalog.json"), `${JSON.stringify(catalog)}\n`);
   await writeFile(path.join(outputDirectory, "data", "atlas.json"), `${JSON.stringify(atlas)}\n`);
+  await writeFile(path.join(outputDirectory, "data", "overview.json"), `${JSON.stringify(overview)}\n`);
+  await writeFile(path.join(outputDirectory, "data", "funding.json"), `${JSON.stringify({ schemaVersion: 1, sources: funding.sources })}\n`);
+  await injectFundingBadges(outputDirectory, fundingMarkup(funding));
   await writeFile(path.join(outputDirectory, ".nojekyll"), "");
-  console.log(`Built ${catalog.resourceCount} resources across ${categories.length} collections and ${atlas.resourceCount} place-aware atlas resources.`);
+  console.log(`Built ${catalog.resourceCount} resources across ${categories.length} collections, ${overview.topicPathCount} topic paths, and ${atlas.resourceCount} place-aware atlas resources.`);
 }
 
 await build();
