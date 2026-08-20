@@ -20,4 +20,6 @@ Open `http://localhost:8000` in a browser. Changes to any list or atlas place wi
 
 `.github/workflows/pages.yml` builds and deploys the portal after every push to `main`. The deployment is intentionally independent of other lint and validation workflows. GitHub Pages must use **GitHub Actions** as its deployment source in the repository settings.
 
-The production portal is published at `https://akashic.egohygiene.io/`.
+The workflow composes the portal and Relay-generated repository intelligence into one Pages artifact. The ordinary local portal check remains independent of that CI-only surface; use `node scripts/check-intelligence.mjs` when validating a complete composed artifact.
+
+The production portal is published at `https://akashic.egohygiene.io/`, with repository intelligence at `https://akashic.egohygiene.io/intelligence/`.
