@@ -37,8 +37,6 @@
 ## Work, learning, and getting around
 
 - [Commonwealth Catalog](https://mblc.state.ma.us/resource-sharing/commonwealth-catalog.php) - Search and request materials from participating library networks for delivery to a local library; a participating library account is required to request. <!-- atlas-role: index -->
-- [MassHire Career Centers](https://www.mass.gov/orgs/masshire-department-of-career-services) - Find statewide career centers offering job-search, resume, interview, training, and unemployment-related support. <!-- atlas-role: index -->
-- [MassHire JobQuest](https://www.mass.gov/find-your-next-job-with-masshire-jobquest) - Search Massachusetts jobs, build a jobseeker profile, and register for workshops and hiring events; an account is needed for personalized tools.
 - [Massachusetts Libraries Statewide Databases](https://mblc.state.ma.us/resource-sharing/database-licensing.php) - Access research and reference databases licensed for Massachusetts residents, with availability varying by library and database.
 - [ORI Community Partners Directory](https://www.mass.gov/info-details/ori-community-partners-directory) - Find refugee and immigrant service providers by community, population served, language, and program. <!-- atlas-role: index -->
 - [Public Transportation in Massachusetts](https://www.mass.gov/info-details/public-transportation-in-massachusetts) - Find MBTA and regional transit-authority coverage, accessibility information, and reduced-fare resources. <!-- atlas-role: index -->

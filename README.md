@@ -40,7 +40,7 @@
 - [TeX and Typesetting](lists/tex-and-typesetting/README.md) - Accessibility, authoring, build automation, distributions, drawing, templates, learning resources, and packages. **274 resources.**
 - [Travel and Mobility](lists/travel-and-mobility/README.md) - Cross-budget travel planning, transport, stays, nomad life, accessibility, assistance, rights, deals, advisors, and premium travel. **366 resources.**
 - [Web Development](lists/web-development/README.md) - Authentication, frameworks, APIs, tooling, forms, state management, styling, testing, UI components, and visualization. **96 resources.**
-- [Work and Learning](lists/work-and-learning/README.md) - Career platforms, creator operations, audience growth, brand monitoring, learning resources, writing, and workspace tools. **67 resources.**
+- [Work and Learning](lists/work-and-learning/README.md) - Job discovery, research opportunities, open-source career tools, public support, creator operations, learning resources, writing, and workspace tools. **178 resources.**
 
 ## Research and Architecture
 
