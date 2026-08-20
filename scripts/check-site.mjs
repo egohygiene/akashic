@@ -139,6 +139,14 @@ for (const fileName of ["index.html", "dashboard.html", "atlas.html"]) {
   }
 }
 
+const homeHtml = await readFile(path.join(output, "index.html"), "utf8");
+for (const marker of ["overview-preview", "overview-preview-metrics", "overview-distribution-donut", "overview-collection-bars"]) {
+  if (!homeHtml.includes(`id="${marker}"`)) throw new Error(`The homepage overview is missing #${marker}.`);
+}
+const homeApp = await readFile(path.join(output, "app.js"), "utf8");
+if (!homeApp.includes("conic-gradient(from -90deg") || !homeApp.includes('class="overview-bar-row"')) throw new Error("The homepage overview charts are not rendered.");
+if (!homeApp.includes('class="collection-path"') || homeApp.includes('class="collection-card"')) throw new Error("The homepage collection directory is not using the compact layout.");
+
 const catalogUrls = new Set(catalog.resources.map((resource) => resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, "")));
 for (const resource of atlas.resources.filter((candidate) => candidate.catalogReference)) {
   const normalizedUrl = resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, "");

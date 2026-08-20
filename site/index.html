@@ -69,16 +69,45 @@
       </section>
 
       <nav class="journey-nav" aria-label="Ways to explore akashic">
-        <a href="#collections"><span>01</span><div><strong>Choose a constellation</strong><small>Start with a curated collection</small></div><b aria-hidden="true">→</b></a>
+        <a href="#overview-preview"><span>01</span><div><strong>See the shape</strong><small>Read the archive before choosing a path</small></div><b aria-hidden="true">→</b></a>
         <a href="#mind-map"><span>02</span><div><strong>Follow the connections</strong><small>Drill through the knowledge map</small></div><b aria-hidden="true">→</b></a>
         <a href="#catalog"><span>03</span><div><strong>Find your next resource</strong><small>Search, save, and open what matters</small></div><b aria-hidden="true">→</b></a>
         <a href="atlas.html"><span>04</span><div><strong>Explore knowledge by place</strong><small>Move from the world toward local resources</small></div><b aria-hidden="true">→</b></a>
       </nav>
 
+      <section class="overview-preview" id="overview-preview" aria-labelledby="overview-preview-title">
+        <div class="section-heading overview-preview-heading">
+          <div><p class="kicker">The archive at a glance</p><h2 id="overview-preview-title">See the whole constellation.</h2></div>
+          <div class="overview-preview-intro"><p>Counts describe the present curation—not importance, quality, or completeness.</p><a href="dashboard.html">Open the full Observatory <span aria-hidden="true">→</span></a></div>
+        </div>
+        <dl class="overview-preview-metrics" id="overview-preview-metrics" aria-label="Akashic overview metrics">
+          <div><dt>—</dt><dd>Resources</dd></div>
+          <div><dt>—</dt><dd>Collections</dd></div>
+          <div><dt>—</dt><dd>Topic paths</dd></div>
+          <div><dt>—</dt><dd>Domains</dd></div>
+        </dl>
+        <div class="overview-preview-charts">
+          <article class="overview-chart-panel overview-donut-panel">
+            <div class="overview-chart-heading"><div><p>Resource distribution</p><h3>Every collection has a gravity.</h3></div><span aria-hidden="true">✦</span></div>
+            <div class="overview-donut-stage">
+              <div class="overview-distribution-donut" id="overview-distribution-donut" role="img" aria-label="Loading resource distribution chart">
+                <div><strong id="overview-donut-total">—</strong><span>resources</span></div>
+              </div>
+              <p>All collections appear in the ring. Exact values continue in the full Observatory.</p>
+            </div>
+          </article>
+          <article class="overview-chart-panel overview-bars-panel">
+            <div class="overview-chart-heading"><div><p>Largest collections</p><h3>Where the archive is deepest.</h3></div><span id="overview-bars-count">—</span></div>
+            <ol class="overview-collection-bars" id="overview-collection-bars" aria-label="Largest collections by resource count"></ol>
+            <a class="overview-chart-action" href="dashboard.html#distribution">Compare all collections <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </section>
+
       <section class="collections-section" id="collections" aria-labelledby="collections-title">
         <div class="section-heading">
-          <div><p class="kicker">Choose a path</p><h2 id="collections-title">Browse collections</h2></div>
-          <p>Start broad, then follow your curiosity.</p>
+          <div><p class="kicker">Choose a path</p><h2 id="collections-title">Collection directory</h2></div>
+          <p>A compact way into every collection. Browse its resources or place it in the knowledge map.</p>
         </div>
         <div class="collection-grid" id="collection-grid"></div>
       </section>
