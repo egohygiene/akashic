@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="See the shape of Akashic through a calm, interactive overview of its resources, collections, topic paths, and source domains.">
+    <meta name="theme-color" content="#0a0814">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Akashic Observatory · Ego Hygiene">
+    <meta property="og:description" content="A visual, navigable overview of the Akashic knowledge constellation.">
+    <meta property="og:url" content="https://akashic.egohygiene.io/dashboard.html">
+    <title>Akashic Observatory · Ego Hygiene</title>
+    <link rel="canonical" href="https://akashic.egohygiene.io/dashboard.html">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem("akashic-theme")||localStorage.getItem("ego-awesome-theme")||(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark")}catch{}</script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script type="module" src="dashboard.js"></script>
+  </head>
+  <body class="dashboard-page">
+    <a class="skip-link" href="#dashboard">Skip to the overview</a>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    <div class="akashic-field" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <header class="site-header is-scrolled">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="akashic portal home">
+          <span class="brand-mark" aria-hidden="true">∞</span>
+          <span><strong>akashic</strong><small>The Observatory</small></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="index.html">Portal</a>
+          <a class="is-active" href="#dashboard" aria-current="page">Overview</a>
+          <a href="index.html#mind-map">Mind map</a>
+          <a href="atlas.html">Atlas</a>
+          <a href="index.html#catalog">Explore</a>
+          <a href="https://github.com/egohygiene/akashic" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </nav>
+        <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">
+          <span aria-hidden="true">☼</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="dashboard-hero" id="top" aria-labelledby="dashboard-hero-title">
+        <div class="dashboard-orbit" aria-hidden="true"><span></span><i></i><i></i><i></i></div>
+        <div class="eyebrow"><span></span> A quieter lens into Akashic</div>
+        <h1 id="dashboard-hero-title">See the shape of<br><em>the constellation.</em></h1>
+        <p>Step back from individual links and understand how the archive is distributed. Every chart has a complete text path, and every path leads back into the resources.</p>
+        <div class="dashboard-hero-actions">
+          <a class="button button-primary" href="#distribution">Read the landscape <span aria-hidden="true">↓</span></a>
+          <a class="button button-quiet" href="index.html#catalog">Open the catalog <span aria-hidden="true">→</span></a>
+        </div>
+        <p class="dashboard-data-note"><span aria-hidden="true">◇</span> Built from the curated Markdown at publish time—no analytics, account, live backend, or remote chart library.</p>
+      </section>
+
+      <nav class="dashboard-journey" aria-label="Observatory sections">
+        <a href="#distribution"><span>01</span><strong>Distribution</strong><small>See how the archive is spread</small></a>
+        <a href="#collection-lens"><span>02</span><strong>Collection lens</strong><small>Open branches and topic paths</small></a>
+        <a href="#signals"><span>03</span><strong>Signals</strong><small>Follow large paths and domains</small></a>
+        <a href="intelligence/"><span>04</span><strong>Repository view</strong><small>Inspect files, activity, and hotspots</small></a>
+      </nav>
+
+      <section class="dashboard-section dashboard-overview" id="dashboard" aria-labelledby="dashboard-title" tabindex="-1">
+        <div class="section-heading">
+          <div><p class="kicker">Current shape</p><h2 id="dashboard-title">The archive at a glance</h2></div>
+          <p>Counts describe the present curation—not importance, quality, or completeness.</p>
+        </div>
+        <dl class="dashboard-metrics" id="dashboard-metrics" aria-label="Akashic overview metrics">
+          <div><dt>—</dt><dd>Resources</dd></div>
+          <div><dt>—</dt><dd>Collections</dd></div>
+          <div><dt>—</dt><dd>Topic paths</dd></div>
+          <div><dt>—</dt><dd>Source lists</dd></div>
+          <div><dt>—</dt><dd>Domains</dd></div>
+        </dl>
+      </section>
+
+      <section class="dashboard-section" id="distribution" aria-labelledby="distribution-title">
+        <div class="section-heading">
+          <div><p class="kicker">Resource distribution</p><h2 id="distribution-title">Every collection has a gravity.</h2></div>
+          <p>The ring shows proportional size. The ranked navigator provides every exact value and the path forward.</p>
+        </div>
+        <div class="distribution-layout">
+          <article class="dashboard-panel donut-panel">
+            <div class="panel-heading">
+              <div><p class="panel-kicker">Entries by collection</p><h3>The full constellation</h3></div>
+              <span class="panel-signal" aria-hidden="true">✦</span>
+            </div>
+            <div class="donut-stage">
+              <div class="distribution-donut" id="distribution-donut" role="img" aria-label="Loading resource distribution chart">
+                <div><strong id="donut-total">—</strong><span>resources</span></div>
+              </div>
+              <p>All collections remain visible in the ring; the adjacent list carries the labels, counts, and controls.</p>
+            </div>
+          </article>
+
+          <article class="dashboard-panel landscape-panel">
+            <div class="panel-heading">
+              <div><p class="panel-kicker">Ranked navigator</p><h3>Collections by size</h3></div>
+              <span id="landscape-count">—</span>
+            </div>
+            <div class="collection-landscape" id="collection-landscape" role="list" aria-label="Collections ranked by resource count"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-section" id="collection-lens" aria-labelledby="collection-lens-title">
+        <div class="section-heading collection-lens-heading">
+          <div><p class="kicker">Change your scale</p><h2 id="collection-lens-title">Open one collection.</h2></div>
+          <label class="collection-lens-select"><span>Collection</span><select id="collection-select" aria-label="Choose a collection to inspect"></select></label>
+        </div>
+        <article class="collection-profile dashboard-panel" id="collection-profile">
+          <div class="profile-intro">
+            <span class="profile-glyph" id="profile-glyph" aria-hidden="true">✦</span>
+            <div><p class="panel-kicker">Selected collection</p><h3 id="profile-title" tabindex="-1">Loading the archive…</h3><p id="profile-copy">Preparing a focused view of its branches and topics.</p><p class="sr-only" id="profile-status" role="status" aria-live="polite" aria-atomic="true"></p></div>
+            <a class="button button-primary" id="profile-action" href="index.html#catalog">Explore resources <span aria-hidden="true">→</span></a>
+          </div>
+          <dl class="profile-metrics" id="profile-metrics"></dl>
+          <div class="branch-directory" id="branch-directory"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-section" id="signals" aria-labelledby="signals-title">
+        <div class="section-heading">
+          <div><p class="kicker">Other ways in</p><h2 id="signals-title">Follow the strongest signals.</h2></div>
+          <p>Large paths reveal depth, while repeated domains reveal where many resources originate. Neither is a quality score.</p>
+        </div>
+        <div class="signal-layout">
+          <article class="dashboard-panel signal-panel">
+            <div class="panel-heading"><div><p class="panel-kicker">Topic paths</p><h3>Largest curated branches</h3></div><span aria-hidden="true">⌁</span></div>
+            <div class="signal-bars" id="topic-paths"></div>
+          </article>
+          <article class="dashboard-panel signal-panel">
+            <div class="panel-heading"><div><p class="panel-kicker">Source domains</p><h3>Most represented origins</h3></div><span aria-hidden="true">◎</span></div>
+            <div class="signal-bars" id="domain-paths"></div>
+          </article>
+        </div>
+        <a class="intelligence-callout" href="intelligence/">
+          <span class="intelligence-icon" aria-hidden="true">◫</span>
+          <span><small>Looking for the code itself?</small><strong>Open Repository Intelligence</strong><p>See source-file distribution, activity, architecture hotspots, findings, and the generated tree.</p></span>
+          <b aria-hidden="true">→</b>
+        </a>
+      </section>
+
+      <section class="dashboard-cta" aria-labelledby="dashboard-cta-title">
+        <div><p class="kicker">Return to the stars</p><h2 id="dashboard-cta-title">The overview is a doorway, not a verdict.</h2></div>
+        <p>Use the landscape to orient yourself, then move back into the catalog and follow whatever feels useful now.</p>
+        <a class="button button-light" href="index.html#catalog">Explore all resources <span aria-hidden="true">→</span></a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand"><span class="brand-mark" aria-hidden="true">∞</span><div><strong>akashic</strong><p>Ego Hygiene's living constellation of curated knowledge.</p></div></div>
+      <div class="footer-links"><a href="index.html">Portal</a><a href="atlas.html">Atlas</a><a href="intelligence/">Intelligence</a><a href="https://github.com/egohygiene/akashic">Source</a><a href="https://github.com/egohygiene/akashic/blob/main/contributing.md">Contribute</a></div>
+      <section class="footer-support" aria-labelledby="footer-support-title">
+        <div><p class="kicker">Keep it open</p><h2 id="footer-support-title">Support the constellation</h2><p>If Akashic helps, these are the project's configured ways to contribute financially. Browsing will always remain open.</p></div>
+        <div class="funding-badges"><!-- akashic-funding-badges --></div>
+      </section>
+      <p class="love-note">Made with <span class="love-word">love <span aria-hidden="true">♥</span></span> by ego hygienists.</p>
+    </footer>
+    <nav class="mobile-dock" aria-label="Mobile navigation">
+      <a href="index.html"><span aria-hidden="true">∞</span><small>Portal</small></a>
+      <a class="is-active" href="#dashboard" aria-current="page"><span aria-hidden="true">◫</span><small>Overview</small></a>
+      <a href="#collection-lens"><span aria-hidden="true">◇</span><small>Lens</small></a>
+      <a href="atlas.html"><span aria-hidden="true">◎</span><small>Atlas</small></a>
+      <a href="index.html#catalog"><span aria-hidden="true">⌕</span><small>Explore</small></a>
+    </nav>
+    <noscript><p class="noscript">The Observatory needs JavaScript to draw its derived overview. The complete collection remains available in the <a href="index.html#catalog">resource catalog</a> and on <a href="https://github.com/egohygiene/akashic">GitHub</a>.</p></noscript>
+  </body>
+</html>

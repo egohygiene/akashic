@@ -481,8 +481,7 @@ function setupThemes() {
 function setupPageTheme() {
   const update = () => {
     const light = document.documentElement.dataset.theme === "light";
-    selectors.themeToggle.setAttribute("aria-pressed", String(light));
-    selectors.themeToggle.setAttribute("aria-label", "Light page theme");
+    selectors.themeToggle.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
     selectors.themeToggle.firstElementChild.textContent = light ? "☾" : "☼";
   };
   selectors.themeToggle.addEventListener("click", () => {
