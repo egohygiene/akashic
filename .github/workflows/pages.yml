@@ -42,21 +42,8 @@ jobs:
         run: node scripts/check-site.mjs
 
       - name: Generate repository intelligence
-        uses: egohygiene/relay/actions/repository-intelligence@ca6e9319d5133615c1b9e0b5ea5a4f5d3a113210 # v1.0.0
-        with:
-          output-directory: "dist/intelligence"
-          work-directory: ".cache/repository-intelligence"
-          reports-directory: ".reports"
-          excluded-paths: >-
-            .git,.staging,.cache,.venv,node_modules,vendor,dist,build,coverage,
-            __pycache__,.reports
-          analytics-excluded-paths: >-
-            .git,.staging,.cache,.venv,.tox,.mypy_cache,.pytest_cache,
-            .ruff_cache,node_modules,vendor,dist,build,coverage,__pycache__,
-            .reports,target
-          activity-since: "1 year ago"
-          max-depth: "10"
-          require-full-history: "true"
+        # egohygiene/relay repository-intelligence v1.1.0
+        uses: egohygiene/relay/actions/repository-intelligence@46cf1d66a7e66ca5a35d2c99cbaed5ccfb67573f
 
       - name: Verify complete Pages artifact
         run: node scripts/check-intelligence.mjs
