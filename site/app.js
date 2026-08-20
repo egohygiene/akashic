@@ -61,6 +61,11 @@ const elements = {
   grid: document.querySelector("#resource-grid"),
   heroSearchClear: document.querySelector("#hero-search-clear"),
   loadMore: document.querySelector("#load-more"),
+  overviewBars: document.querySelector("#overview-collection-bars"),
+  overviewBarsCount: document.querySelector("#overview-bars-count"),
+  overviewDonut: document.querySelector("#overview-distribution-donut"),
+  overviewDonutTotal: document.querySelector("#overview-donut-total"),
+  overviewMetrics: document.querySelector("#overview-preview-metrics"),
   progress: document.querySelector("#scroll-progress"),
   resourceTotal: document.querySelector("#resource-total"),
   savedCount: document.querySelector("#saved-count"),
@@ -171,12 +176,51 @@ function applyState(next, options = {}) {
 
 function renderCollections() {
   elements.collections.innerHTML = state.catalog.categories.map((category, index) => `
-    <article class="collection-card" style="--card-color:${category.color};--card-delay:${Math.min(index, 18) * 18}ms">
-      <div class="collection-card-top"><span class="collection-icon" aria-hidden="true">${category.glyph}</span><span class="collection-number">${String(index + 1).padStart(2, "0")}</span></div>
-      <div class="collection-copy"><h3>${escapeHtml(category.title)}</h3><p>${escapeHtml(category.description)}</p></div>
-      <div class="collection-meta"><span>${category.count.toLocaleString()} resources</span><span>${(category.groups.length > 1 ? category.groups.length : category.sections.length).toLocaleString()} branches</span></div>
-      <div class="collection-actions"><button type="button" data-browse-category="${escapeHtml(category.slug)}" aria-label="Browse ${escapeHtml(category.title)}">Browse <span aria-hidden="true">→</span></button><button type="button" data-map-category="${escapeHtml(category.slug)}" aria-label="View ${escapeHtml(category.title)} in the mind map">Map <span aria-hidden="true">⌁</span></button></div>
+    <article class="collection-path" style="--card-color:${category.color};--card-delay:${Math.min(index, 18) * 14}ms">
+      <div class="collection-path-heading"><span class="collection-icon" aria-hidden="true">${category.glyph}</span><div><span class="collection-number">${String(index + 1).padStart(2, "0")}</span><h3>${escapeHtml(category.title)}</h3></div></div>
+      <p>${escapeHtml(category.description)}</p>
+      <div class="collection-path-footer"><div class="collection-meta"><span>${category.count.toLocaleString()} resources</span><span>${(category.groups.length > 1 ? category.groups.length : category.sections.length).toLocaleString()} branches</span></div><div class="collection-actions"><button type="button" data-browse-category="${escapeHtml(category.slug)}" aria-label="Browse ${escapeHtml(category.title)}">Browse <span aria-hidden="true">→</span></button><button type="button" data-map-category="${escapeHtml(category.slug)}" aria-label="View ${escapeHtml(category.title)} in the mind map">Map <span aria-hidden="true">⌁</span></button></div></div>
     </article>`).join("");
+}
+
+function renderOverviewPreview() {
+  const categories = state.catalog.categories;
+  const resourceCount = state.catalog.resourceCount;
+  const topicPathCount = categories.reduce((sum, category) => sum + category.groups.reduce((groupSum, group) => groupSum + group.sections.length, 0), 0);
+  const uniqueDomainCount = new Set(state.catalog.resources.map((resource) => resource.domain)).size;
+  const metrics = [
+    [resourceCount, "Resources"],
+    [categories.length, "Collections"],
+    [topicPathCount, "Topic paths"],
+    [uniqueDomainCount, "Domains"],
+  ];
+  elements.overviewMetrics.innerHTML = metrics.map(([value, label]) => `<div><dt>${value.toLocaleString()}</dt><dd>${escapeHtml(label)}</dd></div>`).join("");
+
+  let cursor = 0;
+  const gap = 0.55;
+  const stops = categories.map((category) => {
+    const start = cursor;
+    const end = cursor + category.count / resourceCount * 360;
+    cursor = end;
+    return `${category.color} ${start.toFixed(3)}deg ${Math.max(start, end - gap).toFixed(3)}deg, transparent ${Math.max(start, end - gap).toFixed(3)}deg ${end.toFixed(3)}deg`;
+  });
+  elements.overviewDonut.style.background = `conic-gradient(from -90deg, ${stops.join(", ")})`;
+  elements.overviewDonutTotal.textContent = resourceCount.toLocaleString();
+
+  const ranked = [...categories].sort((left, right) => right.count - left.count || left.title.localeCompare(right.title));
+  const largest = ranked[0];
+  elements.overviewDonut.setAttribute("aria-label", `Donut chart of ${resourceCount.toLocaleString()} resources across ${categories.length.toLocaleString()} collections. The largest collection is ${largest.title} with ${largest.count.toLocaleString()} resources. Exact values and navigation are available in the adjacent bar chart and full Observatory.`);
+  const visible = ranked.slice(0, 6);
+  const maximum = visible[0]?.count || 1;
+  elements.overviewBarsCount.textContent = `Top ${visible.length.toLocaleString()}`;
+  elements.overviewBars.innerHTML = visible.map((category, index) => {
+    const percentage = resourceCount ? category.count / resourceCount * 100 : 0;
+    const label = percentage > 0 && percentage < 1 ? "<1%" : `${percentage.toFixed(percentage < 10 ? 1 : 0)}%`;
+    const params = new URLSearchParams({ collection: category.slug, view: state.view });
+    return `<li><a class="overview-bar-row" href="index.html?${params}#catalog" style="--bar-color:${category.color};--bar-width:${category.count / maximum * 100}%">
+      <span class="overview-bar-rank">${String(index + 1).padStart(2, "0")}</span><span class="overview-bar-glyph" aria-hidden="true">${category.glyph}</span><span class="overview-bar-copy"><strong>${escapeHtml(category.title)}</strong><i aria-hidden="true"><b></b></i></span><span class="overview-bar-value"><strong>${category.count.toLocaleString()}</strong><small>${label}</small></span><span aria-hidden="true">→</span>
+    </a></li>`;
+  }).join("");
 }
 
 function renderFilterControls() {
@@ -434,6 +478,7 @@ async function initialize() {
   elements.resourceTotal.textContent = state.catalog.resourceCount.toLocaleString();
   elements.categoryTotal.textContent = state.catalog.categories.length.toLocaleString();
   setSearchInputs(state.query);
+  renderOverviewPreview();
   renderCollections();
   renderFilterControls();
   renderCatalog();
