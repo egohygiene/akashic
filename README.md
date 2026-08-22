@@ -24,6 +24,7 @@
 - [Commerce and Marketplaces](lists/commerce-and-marketplaces/README.md) - Shopping discovery, independent marketplaces, creator storefronts, custom products, print-on-demand, manufacturing, wholesale, payments, and fulfillment. **214 resources.**
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **228 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **52 resources.**
+- [Design Systems and Branding](lists/design-systems-and-branding/README.md) - Design-system foundations, public implementations, design tokens, governance, accessibility, brand guidelines, content standards, and identity references. **96 resources.**
 - [Developer Tools](lists/developer-tools/README.md) - Application development, databases, documentation, knowledge management, shell environments, and developer utilities. **161 resources.**
 - [Health and Well-Being](lists/health-and-well-being/README.md) - Mental-health education, trauma-informed support, care navigation, digital health, supplements, pharmacology, and evidence-aware treatment resources. **153 resources.**
 - [Legal Help and Law](lists/legal-help-and-law/README.md) - Free and low-cost legal help, courts, lawyers, rights, research, legal news, professional systems, and access-to-justice tools. **343 resources.**
@@ -39,7 +40,7 @@
 - [Spirituality, Religion, and Occult Knowledge](lists/spirituality-religion-and-occult/README.md) - Comparative religion, sacred texts, living traditions, contemplative practice, material history, esotericism, community, care, and critical inquiry. **201 resources.**
 - [TeX and Typesetting](lists/tex-and-typesetting/README.md) - Accessibility, authoring, build automation, distributions, drawing, templates, learning resources, and packages. **274 resources.**
 - [Travel and Mobility](lists/travel-and-mobility/README.md) - Cross-budget travel planning, transport, stays, nomad life, accessibility, assistance, rights, deals, advisors, and premium travel. **366 resources.**
-- [Web Development](lists/web-development/README.md) - Authentication, frameworks, APIs, tooling, forms, state management, styling, testing, UI components, and visualization. **105 resources.**
+- [Web Development](lists/web-development/README.md) - Authentication, frameworks, APIs, tooling, forms, state management, styling, testing, UI components, and visualization. **98 resources.**
 - [Work and Learning](lists/work-and-learning/README.md) - Job discovery, research opportunities, open-source career tools, public support, creator operations, learning resources, writing, and workspace tools. **183 resources.**
 
 ## Research and Architecture
