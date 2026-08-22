@@ -110,6 +110,7 @@ A practical order is to stabilize essentials and benefits, recover money already
 
 - [Consumer Product Safety Commission](https://www.cpsc.gov/) - Federal product-safety agency providing recall notices, incident reporting, safety standards, and consumer guidance.
 - [Consumer.gov](https://consumer.gov/) - Plain-language Federal Trade Commission guidance on money, credit, debt, education, vehicles, scams, and identity theft.
+- [Fubox](https://fubox.net/) - Free vehicle fuse-box location and diagram directory organized by make and model; confirm the owner's manual, fuse rating, electrical safety, and manufacturer guidance before repairs.
 - [MarineTraffic](https://marinetraffic.com/) - Freemium vessel-tracking service combining terrestrial and satellite AIS positions, port activity, voyage details, and maritime intelligence.
 - [NHTSA Recalls](https://www.nhtsa.gov/recalls) - Official lookup for vehicle, tire, car-seat, and equipment safety recalls using a VIN or product information.
 - [ReportFraud.ftc.gov](https://reportfraud.ftc.gov/) - Official Federal Trade Commission portal for reporting scams, fraud, and deceptive business practices and receiving next-step guidance.

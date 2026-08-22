@@ -55,6 +55,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [GRASS](https://grass.osgeo.org/) - Open-source GIS with hundreds of modules for raster, vector, three-dimensional, temporal, image-processing, and spatial-modeling workflows.
 - [Natural Earth](https://www.naturalearthdata.com/) - Public-domain vector and raster map data prepared at small global scales for cartography and GIS projects.
 - [NOAA Digital Coast Data](https://coast.noaa.gov/digitalcoast/data/home.html) - Searches and downloads United States coastal elevation, imagery, land-cover, climate, habitat, socioeconomic, and ocean datasets.
+- [Old Maps Online](https://www.oldmapsonline.org/) - Geographic search interface for discovering digitized historical maps from libraries, archives, and collections around the world; access and reuse terms vary by holding institution.
 - [Open LiDAR Toolbox](https://stefaneichert.github.io/OpenLidarToolbox/) - Open-source QGIS plugin for turning airborne LAS or LAZ point clouds into classified terrain products and archaeological visualizations.
 - [OpenDroneMap](https://opendronemap.org/) - Open-source ecosystem for converting aerial imagery into maps, orthophotos, point clouds, meshes, and digital elevation models.
 - [OpenLiDAR](https://github.com/patriciogonzalezvivo/OpenLiDAR) - Experimental open-hardware and software design for building a rotating three-dimensional LiDAR scanner; review its older components before reuse.
@@ -75,6 +76,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Open Bioinformatics Foundation](https://www.open-bio.org/) - Volunteer nonprofit supporting open-source bioinformatics projects, events, standards, and developer communities.
 - [Open Education Global](https://www.oeglobal.org/) - International member organization advancing open education, openly licensed resources, and collaborative learning practices.
 - [Open Energy Modelling Initiative](https://openmod-initiative.org/) - Community promoting open models, data, and practices for energy-system research.
+- [Open Preservation Foundation](https://openpreservation.org/) - International nonprofit sustaining open-source digital-preservation tools, knowledge, standards work, and practitioner collaboration.
 - [Open Science](https://en.wikipedia.org/wiki/Open_science) - Overview of practices that make scientific research, data, methods, and communication openly accessible.
 - [Project Gutenberg Library](https://gutenberg.org/) - Volunteer digital library providing free public-domain ebooks in reusable formats.
 - [Project Gutenberg](https://en.wikipedia.org/wiki/Project_Gutenberg) - Historical overview of the volunteer project digitizing and freely distributing public-domain books.

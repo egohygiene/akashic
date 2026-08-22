@@ -21,6 +21,7 @@ Free tiers change frequently. Verify current quotas, acceptable-use rules, comme
 
 ## Directories and Comparisons
 
+- [Findly.tools](https://findly.tools/) - Free searchable directory of developer, creator, productivity, AI, and software-as-a-service tools organized by practical category.
 - [free-for.dev](https://free-for.dev/) - Community-maintained directory of developer products with continuing free tiers, organized by capability and linked to provider terms.
 - [Free Stuff Dev](https://freestuff.dev/) - Searchable collection of free developer tools, hosting, APIs, design resources, learning platforms, and service allowances.
 - [Free-Tier Comparison](https://github.com/ripienaar/free-for-dev) - Source repository behind free-for.dev with contribution history, category organization, and discussion of provider changes.

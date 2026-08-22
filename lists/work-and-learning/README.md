@@ -48,6 +48,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 ## Career Platforms and Job Search
 
 - [Built In Jobs](https://builtin.com/jobs) - Free technology-job search with company profiles, salary information, and role, location, experience, and work-model filters; coverage is strongest in United States technology markets.
+- [CandidateFirst](https://www.candidatefirst.ai/) - Account-based career marketplace using candidate-controlled profiles and recorded voice introductions to connect people with employers; review recording privacy, visibility, and employer-verification practices before sharing sensitive information.
 - [Dice Jobs](https://www.dice.com/jobs) - Free technology-job board with permanent and contract roles across software, infrastructure, data, security, and enterprise IT; recruiter-heavy listings and duplicates require employer verification.
 - [Greenhouse Candidate Portal](https://my.greenhouse.io/dashboard) - Candidate dashboard for tracking and managing job applications submitted through participating Greenhouse employers.
 - [HiringCafe](https://hiringcafe.com/) - Searches jobs collected from employer career pages with unusually detailed filters for role, salary, experience, benefits, visa, and work environment.
@@ -251,12 +252,16 @@ Use interview preparation in proportion to the role: research, university, nonpr
 - [Formation](https://formation.dev/) - Structured software-engineering interview preparation with adaptive practice, mentorship, and job-search support.
 - [Google AI Professional Certificate](https://grow.google/enroll-certificates/ai-professional-certificate-mid/) - Seven-course certificate with practical activities covering AI fundamentals, research, communication, content, data, and app building.
 - [HackerRank Dashboard](https://www.hackerrank.com/dashboard) - Personal HackerRank workspace for coding practice, skills assessments, certifications, competitions, and interview preparation.
+- [Jagran Josh](https://www.jagranjosh.com/) - India-focused education and career portal covering examinations, government-job notices, results, current affairs, study materials, and career guidance; verify deadlines and applications with the responsible official body.
 - [LeetCode Problemset](https://leetcode.com/problemset/) - Large collection of programming problems, study plans, contests, and interview-preparation exercises.
 - [Linux Professional Institute](https://www.lpi.org/) - Vendor-neutral Linux and open-source certification, learning, and professional-development organization.
 - [Massachusetts AI Hub Google Certificates](https://aihub.masstech.org/google-certificates) - No-cost Google AI and career-certificate training offered to Massachusetts residents through December 31, 2027.
+- [Readinglist.live](https://www.readinglist.live/) - Account-based service that converts submitted reading lists into spoken podcast-style episodes using synthetic voices; review source rights, privacy, and usage limits before uploading material.
 - [roadmap.sh](https://roadmap.sh/) - Community-maintained roadmaps, guides, projects, and skill trees for learning software-engineering roles and technologies.
+- [Samio Learning](https://samiolearning.com/) - Adaptive reading, mathematics, writing, and time-telling application for children ages four through twelve; guardians should review child-data, account, and platform terms before use.
 - [Software Architecture Books](https://github.com/mhadidg/software-architecture-books) - Curated collection of freely available books and learning resources about software architecture and systems design.
 - [Strawberry](https://strawberry.me/) - Online career and personal coaching platform offering structured goals, sessions, and ongoing coach support.
+- [TAGiT](https://tagit.video/) - Freemium YouTube learning companion for capturing timestamped notes, generating summaries and flashcards, and reviewing material with spaced repetition; account and AI feature limits apply.
 - [Wonderlic Test Practice](https://wonderlictestpractice.com/) - Practice questions and preparation material for Wonderlic-style cognitive ability assessments.
 - [Zenfy](https://zenfy.ac/) - Professional-learning platform offering courses and career-oriented skill development.
 

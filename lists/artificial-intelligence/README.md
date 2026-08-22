@@ -48,6 +48,8 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Awesome GPTs](https://awesomegpt.vip/) - Community-curated directory of custom GPTs and open prompt collections across academic, writing, education, programming, image, and general tasks.
 - [Awesome Harness Engineering](https://github.com/ai-boost/awesome-harness-engineering) - Curated collection of agent-harness tools and resources spanning memory, permissions, MCP, evaluation, observability, and orchestration.
 - [Awesome OpenCode](https://github.com/awesome-opencode/awesome-opencode) - Curated collection of OpenCode plugins, themes, agents, projects, tooling, and learning resources.
+- [Bolt.new](https://bolt.new/) - Account-based browser workspace for prompting, editing, previewing, and deploying full-stack web applications; model usage, hosting, and advanced features depend on the service plan.
+- [BrowserAct](https://www.browseract.com/) - Commercial agent-assisted service that builds reusable browser automations and web-data extractors from natural-language requests; account, target-site terms, and usage limits apply.
 - [CLI-Anything Hub](https://clianything.cc/) - Registry and installer for agent-friendly command-line interfaces that expose applications, services, and creative tools to automation.
 - [CodeNomad](https://github.com/NeuralNomadsAI/CodeNomad) - Open-source web and desktop command center for managing OpenCode workspaces, sessions, sidecars, terminals, and remote access.
 - [Cynative Deep Research Agent](https://www.helpnetsecurity.com/2026/07/13/cynative-open-source-deep-research-agent/) - Overview of Cynative's open-source autonomous research agent for multi-source investigation, synthesis, and cited reporting.
@@ -77,11 +79,13 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [OpenCode Rules](https://opencode.ai/docs/rules/) - Official guide to supplying project and global instructions through AGENTS.md files and reusable rule references.
 - [OpenCode WakaTime](https://www.opencode.cafe/plugin/opencode-wakatime) - OpenCode plugin that records coding-agent usage and activity through WakaTime.
 - [OpenSession](https://www.opencode.cafe/plugin/opensession) - OpenCode Cafe listing for an extension focused on preserving and working with OpenCode sessions.
+- [OpenSandbox](https://open-sandbox.ai/) - Open-source sandbox infrastructure for isolating code execution, browser automation, and agent workloads across local or scalable deployments.
 - [OpenSpec](https://openspec.dev/) - Lightweight, open-source framework for keeping agent-generated proposals, designs, tasks, and specification deltas beside the code.
 - [OpenWork](https://github.com/different-ai/openwork) - Open-source desktop workspace for agentic work, powered by OpenCode and designed as an alternative to proprietary cowork tools.
 - [Optimizing GitHub Copilot Cost](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/optimizing-github-copilot-cost-in-the-usage-based-billing-era/4534186) - Microsoft guidance for measuring, governing, and reducing GitHub Copilot consumption under usage-based billing.
 - [Pi Agent Toolkit](https://github.com/earendil-works/pi) - Toolkit providing a unified LLM API, agent loop, terminal UI, coding-agent CLI, and extensible packages.
 - [Spec Kit Community Presets](https://github.github.com/spec-kit/community/presets.html) - Catalog of community presets that customize Spec Kit templates, commands, terminology, governance, and delivery workflows.
+- [Understand Anything](https://understand-anything.com/) - Codebase exploration tool that generates interactive knowledge graphs for tracing architecture, symbols, and relationships; repository access and generated explanations should be reviewed before relying on them.
 - [yutu](https://yutu.ifor.dev/) - Open-source YouTube automation toolkit combining a CLI, MCP server, skills, and multi-agent workflows for channel operations.
 
 ## Evaluation and Safety
@@ -96,6 +100,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [AI SDK](https://ai-sdk.dev/) - Open-source, framework-agnostic TypeScript toolkit for multi-provider AI applications, agents, streaming, tools, and generative interfaces.
 - [Answer.AI](https://www.answer.ai/) - Practical AI research-and-development lab publishing open-source tools, education, policy analysis, and end-user research applications.
 - [AutoGluon](https://github.com/autogluon/autogluon) - AutoML toolkit for training and deploying accurate models across tabular, multimodal, and time-series data.
+- [BentoML](https://bentoml.com/) - Open-source framework and commercial platform for packaging, serving, optimizing, and scaling machine-learning and generative-AI inference workloads.
 - [Chunkr](https://github.com/lumina-ai-inc/chunkr) - Open-source document-intelligence service for layout analysis, OCR, and semantic chunking into RAG- and LLM-ready data.
 - [DeepPavlov](https://github.com/deeppavlov/DeepPavlov) - Open-source framework and model collection for conversational AI, natural-language processing, and deployable assistants.
 - [DeepTutor Source](https://github.com/HKUDS/DeepTutor) - Source repository for DeepTutor's lifelong personalized tutoring platform, agent runtime, memory, RAG, and learning tools.
@@ -138,6 +143,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 - [Context Layer and Company Brain](https://towardsdatascience.com/how-to-build-a-context-layer-and-a-company-brain/) - Architecture article on turning fragmented organizational knowledge into a governed context layer that agents can retrieve and use.
 - [Context7](https://github.com/upstash/context7) - Platform and MCP server supplying version-aware, up-to-date library documentation to LLMs and coding agents.
+- [EgonexAI](https://egonexai.com/) - Commercial knowledge and identity platform for building structured understanding layers across people, content, and agents; review privacy, access, and model-processing terms before connecting sensitive sources.
 - [Elastic Atlas Agent Memory](https://www.infoq.com/news/2026/06/elastic-atlas-agent-memory/) - Report on Elastic's Atlas approach to layered memory for durable, evolving agent context and retrieval.
 - [Google Cloud Knowledge Catalog](https://github.com/GoogleCloudPlatform/knowledge-catalog) - Tools and samples for building, validating, serving, and consuming agent-oriented knowledge catalogs and OKF packages.
 - [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) - Karpathy's compact, evolving technical wiki of language-model concepts, terminology, scaling, training, inference, and agent systems.
@@ -147,6 +153,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [OpenCode Mem](https://www.opencode.cafe/plugin/opencode-mem) - Local vector-database plugin that gives OpenCode persistent memories across sessions and projects.
 - [OpenCode Supermemory](https://github.com/supermemoryai/opencode-supermemory) - OpenCode plugin that injects persistent user, project, and semantically retrieved memories into coding sessions.
 - [OpenViking](https://github.com/volcengine/OpenViking) - Self-evolving context database unifying agent memory, knowledge retrieval, skills, and progressively disclosed file-system resources.
+- [PipesHub](https://pipeshub.com/) - Open-source workplace-search and agent platform for connecting organizational applications, indexing governed knowledge, and serving retrieval and automation workflows.
 - [ReasoningBank](https://www.marktechpost.com/2025/10/01/google-ai-proposes-reasoningbank-a-strategy-level-i-agent-memory-framework-that-makes-llm-agents-self-evolve-at-test-time/) - Summary of an agent-memory approach that converts successful and failed trajectories into reusable reasoning strategies.
 - [Supermemory](https://supermemory.ai/) - Context infrastructure for agents with persistent memory, retrieval, profiles, connectors, extractors, and model-independent APIs.
 

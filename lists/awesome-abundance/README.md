@@ -20,7 +20,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Creative Commons and Media](creative-commons-and-media/README.md) - Reusable images, art, audio, music, video, fonts, icons, 3D assets, and cultural collections. **76 resources.**
 - [Creative Tools and Production](creative-tools-and-production/README.md) - Legitimate no-cost paths for music, audio, video, animation, images, books, games, 3D work, publishing, accessible creation, and community equipment. **114 resources.**
 - [Culture, Travel, and Participation](culture-travel-and-participation/README.md) - Free museums, public lands, cultural experiences, self-guided exploration, volunteering, and citizen participation. **72 resources.**
-- [Developer and Digital Resources](developer-and-digital-resources/README.md) - Permanent free tiers, student and nonprofit programs, hosting, databases, observability, design tools, and internet access. **86 resources.**
+- [Developer and Digital Resources](developer-and-digital-resources/README.md) - Permanent free tiers, student and nonprofit programs, hosting, databases, observability, design tools, and internet access. **87 resources.**
 - [Education and Learning](education-and-learning/README.md) - Open courseware, self-paced education, textbooks, computing, languages, and career learning. **55 resources.**
 - [Free and Open-Source Software](free-and-open-source-software/README.md) - No-cost software whose source can be inspected, modified, and shared across everyday and specialist workflows. **132 resources.**
 - [Health, Well-Being, and Accessibility](health-well-being-and-accessibility/README.md) - Free clinics, evidence-based public tools, treatment locators, accessibility technology, and disability services. **61 resources.**

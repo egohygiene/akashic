@@ -212,6 +212,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 ## Platforms and Storage
 
 - [AlmaLinux](https://almalinux.org/) - Community-owned, enterprise-focused Linux distribution compatible with the Red Hat Enterprise Linux ecosystem.
+- [CNCF Landscape](https://landscape.cncf.io/) - Official interactive map of cloud-native projects, products, members, categories, and project maturity across the Cloud Native Computing Foundation ecosystem.
 - [Coder](https://coder.com/) - Open-source platform for provisioning governed remote development environments on an organization's own infrastructure, with commercial enterprise features.
 - [KubeSphere](https://github.com/kubesphere) - Cloud-native platform and project organization for managing Kubernetes workloads across clusters and environments.
 - [LitmusChaos](https://github.com/litmuschaos/litmus) - Cloud-native chaos-engineering platform for defining, scheduling, and observing resilience experiments in Kubernetes environments.

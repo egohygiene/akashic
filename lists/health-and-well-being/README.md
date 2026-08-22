@@ -138,6 +138,7 @@ For additional no-cost apps, self-help materials, accessibility tools, and U.S. 
 - [Adult Children of Alcoholics and Dysfunctional Families](https://adultchildren.org/) - Peer-led Twelve Step fellowship with meetings and literature for adults affected by family dysfunction; not a substitute for professional care.
 - [Co-Dependents Anonymous](https://coda.org/) - Peer-led Twelve Step fellowship with meetings and literature for people exploring codependent relationship patterns.
 - [The Dougy Center](https://www.dougy.org/) - Grief education, toolkits, and peer-support program resources for children, teens, young adults, and families.
+- [GoodDate](https://gooddate.org/) - Free nonprofit matchmaking platform emphasizing values-based compatibility, mutual messaging, privacy, and optional identity checks; online dating still requires independent safety judgment and careful protection of personal information.
 - [The Gottman Institute](https://www.gottman.com/) - Relationship education, clinician directory, assessments, and paid programs based on the Gottman research and therapy framework.
 - [Love Is Respect](https://www.loveisrespect.org/) - Relationship-health education, safety planning, and confidential support for teens and young adults affected by dating abuse.
 - [One Love Foundation](https://www.joinonelove.org/) - Free education and tools for recognizing healthy, unhealthy, and abusive relationship patterns.
@@ -148,6 +149,7 @@ For additional no-cost apps, self-help materials, accessibility tools, and U.S. 
 
 - [Compassionate Coding](https://compassionatecoding.com/) - Training and resources for healthier engineering cultures through empathy, psychological safety, and humane technical leadership.
 - [Greater Good Science Center](https://greatergood.berkeley.edu/) - UC Berkeley articles, practices, courses, and research summaries about well-being, connection, compassion, and meaning.
+- [Habo](https://habo.space/) - Free open-source mobile habit tracker for building and reviewing simple routines without advertising or a required account.
 - [MindSpot](https://www.mindspot.org.au/) - Australian digital mental-health clinic offering free assessment and therapist-supported online treatment to eligible residents, plus public resources.
 - [MoodGYM](https://moodgym.com.au/) - Interactive cognitive behavioral skills program for preventing and managing anxiety and depressive symptoms; access terms vary by country and institution.
 - [Palouse Mindfulness](https://palousemindfulness.com/) - Free self-paced mindfulness-based stress reduction course assembled by a retired MBSR instructor; not a replacement for clinical treatment.

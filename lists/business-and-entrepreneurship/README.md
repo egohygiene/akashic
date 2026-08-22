@@ -116,6 +116,7 @@ Record the official account owner, renewal date, cancellation method, price afte
 
 - [BLS Occupational Employment and Wage Statistics](https://www.bls.gov/oes/) - Official United States employment and wage estimates by occupation, industry, state, and metropolitan area for staffing and pricing context.
 - [Census Business Builder](https://www.census.gov/data/data-tools/cbb.html) - No-cost official maps and reports for exploring local customers, competitors, demographics, and industries.
+- [ramen.tools](https://ramen.tools/) - Searchable directory of products and technology stacks used by indie makers, solopreneurs, and startups for comparing practical ways to build and launch.
 - [SBA Calculate Startup Costs](https://www.sba.gov/counseling/plan-your-business/#startup-costs) - Official guide for separating one-time and monthly costs before estimating funding needs and break-even.
 - [SBA Market Research and Competitive Analysis](https://www.sba.gov/counseling/plan-your-business/#market-research) - Official guide to demand, market size, location, saturation, pricing, and direct customer research.
 - [SBA Write Your Business Plan](https://www.sba.gov/counseling/plan-your-business/#business-plan) - Explains traditional and lean plan formats with examples and prompts for financing, operations, and strategy.
@@ -295,9 +296,20 @@ Free software does not make the surrounding responsibility free. Preserve local 
 - [HubSpot Free CRM](https://www.hubspot.com/pricing/crm) - Account-based free tier for contact, deal, communication, and basic marketing workflows with user, contact, automation, and feature limits.
 - [Odoo Community](https://www.odoo.com/page/community) - Open-source core business applications with self-hosted deployment; Enterprise features, hosting, implementation, and some apps are paid.
 - [Plane](https://plane.so/pricing) - Free cloud and open-source Community project-management paths with paid limits and administration features for larger teams.
+- [Slottable](https://slottable.com/) - Commercial booking and payment platform for businesses running workshops, events, classes, and appointment-based sessions; features and transaction costs depend on the plan.
 - [SuiteCRM](https://suitecrm.com/pricing/) - Open-source self-hosted customer-relationship management with paid hosting and support options; deployment security and backups remain local responsibilities.
 - [Trello](https://trello.com/en/pricing) - Free-tier boards and simple workflows with workspace, collaborator, automation, storage, and view limits.
 - [Zoho CRM](https://www.zoho.com/crm/) - Limited free cloud CRM for small teams with paid automation, analytics, storage, customization, and support tiers.
+
+### Marketing and analytics
+
+- [heeb](https://heeb.ai/) - Pay-as-you-go API for measuring brand mentions, sentiment, citations, and visibility across supported language models; an account and API credits are required beyond the initial test allowance.
+- [ListDefender](https://listdefender.com/) - Commercial email-list hygiene service for identifying bots, invalid contacts, disposable addresses, and other deliverability risks; lawful collection, consent, and suppression duties remain with the sender.
+- [PlusThis](https://www.plusthis.com/) - Commercial marketing-automation toolkit adding campaign, segmentation, webinar, messaging, and customer-workflow integrations to supported platforms.
+- [RankSightAI](https://ranksightai.com/) - Account-based site-analysis service for technical SEO, content quality, and visibility in conventional and AI-mediated search; free analysis and paid features may differ.
+- [Semly](https://semly.ai/) - Commercial monitoring platform for tracking how brands, competitors, and sources appear in AI-generated answers and search experiences.
+- [TagGenie](https://taggenie.com/) - Commercial utility for creating, editing, auditing, and cleaning tags across supported customer-relationship and marketing-automation platforms.
+- [Windsor.ai](https://windsor.ai/) - No-code commercial data-integration platform for routing marketing and business data into analytics, databases, spreadsheets, and AI tools; connectors and usage vary by plan.
 
 ### Shipping and fulfillment
 
@@ -305,7 +317,10 @@ Compare label platforms, carrier tools, third-party logistics, fulfillment, trac
 
 ### Specialist and enterprise services
 
+- [Adam VisuAl+](https://adampetritsis.com/) - Commercial video and AI-production studio in Athens, Greece, offering corporate, event, documentary, animation, and post-production services.
 - [Celonis](https://www.celonis.com/) - Commercial process-intelligence platform for modeling operations, identifying execution gaps, and automating enterprise workflows.
+- [Cennso](https://www.cennso.com/) - Commercial European telecommunications vendor providing deployable mobile-core network infrastructure and related operational services.
+- [Evil Martians](https://evilmartians.com/) - Commercial product-development consultancy for developer tools, AI-native products, infrastructure, design systems, and open-source engineering.
 - [Teal Media](https://tealmedia.com/) - Mission-driven commercial design and development agency specializing in strategy, branding, websites, and campaigns for nonprofits and advocacy organizations.
 - [Wise People](https://wisepeople.pl/) - Polish commercial digital-product agency providing strategy, UX, accessible design, development, ecommerce, and ongoing support.
 

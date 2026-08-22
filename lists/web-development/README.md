@@ -35,6 +35,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 - [AI Website Cloner Template](https://github.com/JCodesMore/ai-website-cloner-template) - Agent-oriented template for analyzing and recreating website structure, styling, and interactions from a supplied URL.
 - [Blitz.js](https://blitzjs.com/) - Full-stack toolkit for Next.js applications with type-safe data access, authentication conventions, and code-generation workflows.
+- [Bun](https://bun.sh/) - All-in-one JavaScript and TypeScript runtime, package manager, bundler, and test runner designed for compatibility with the Node.js and npm ecosystems.
 - [Gatsby](https://www.gatsbyjs.com/) - React-based framework and data layer for building content-driven websites with static generation and server rendering.
 - [Next.js](https://nextjs.org/) - React framework for full-stack web applications with file-based routing, server components, rendering strategies, and deployment tooling.
 - [React](https://react.dev/) - Component-based library for building web and native user interfaces.
@@ -55,14 +56,17 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 - [BuiltWith](https://builtwith.com/) - Identifies the frameworks, services, analytics, hosting, and other web technologies used by a site through a freemium lookup service.
 - [Commitlint](https://commitlint.js.org/) - Extensible linter for enforcing structured commit-message conventions in local and continuous-integration workflows.
+- [ECMA-426 Source Map Format](https://tc39.es/ecma426/) - Ecma International specification for source-map files that connect transformed JavaScript and related output back to original source locations.
 - [ESLint](https://eslint.org/) - Pluggable static-analysis engine for identifying and enforcing JavaScript and TypeScript code patterns.
 - [Flutter Gems](https://fluttergems.dev/) - Curates thousands of Dart and Flutter packages by practical feature area, platform, and development task.
 - [GitHub Actions](https://github.com/features/actions) - Repository-native automation platform for continuous integration, delivery, scheduled jobs, and event-driven workflows.
+- [httptap](https://httptap.dev/) - Browser-based HTTP diagnostic service for inspecting DNS, TLS, redirects, headers, and response timing; anonymous use is limited to a small number of checks.
 - [Husky](https://typicode.github.io/husky/) - Lightweight manager for configuring Git hooks that run project checks before commits and pushes.
 - [lint-staged](https://github.com/lint-staged/lint-staged) - Tool for running configured commands only against files staged for a Git commit.
 - [Matomo](https://matomo.org/) - Open-source privacy-focused web and product analytics platform available through self-hosted software and commercial cloud hosting.
 - [Moz](https://moz.com/) - Provides freemium search-engine-optimization research, site analysis, keyword tools, link data, and learning resources.
 - [Nx](https://nx.dev/) - Build system and monorepo platform with project graphs, task caching, affected analysis, generators, and distributed execution.
+- [OpenPanel](https://openpanel.dev/) - Open-source product and web analytics platform with event tracking, funnels, retention, dashboards, and self-hosted or managed deployment paths.
 - [PostHog](https://posthog.com/) - Combines open-source product analytics, session replay, feature flags, experiments, surveys, and data tooling with hosted and self-managed options.
 - [Prettier](https://prettier.io/) - Opinionated formatter for JavaScript, TypeScript, CSS, Markdown, JSON, and other web-development formats.
 
@@ -87,6 +91,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 - [GSAP](https://gsap.com/) - High-performance JavaScript animation platform for timelines, transforms, scrolling, SVG, canvas, and complex interaction sequences.
 - [Motion](https://motion.dev/) - Production animation library, formerly Framer Motion, for declarative React motion, gestures, layout transitions, and scroll effects.
+- [party.js](https://party.js.org/) - Lightweight JavaScript library for adding configurable confetti and particle effects to interface events.
 - [React Beautiful DnD](https://github.com/atlassian/react-beautiful-dnd) - Archived, accessible drag-and-drop library for list interactions in React; preserved as a historical implementation reference.
 - [React Draggable](https://github.com/react-grid-layout/react-draggable) - React components for making elements draggable through mouse and touch interactions.
 - [React Flip Toolkit](https://github.com/aholachek/react-flip-toolkit) - Configurable FLIP-animation toolkit for animating element position, size, and appearance changes in React.
@@ -131,10 +136,13 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Astryx](https://astryx.atmeta.com/) - Meta's public design system with accessible React components, templates, themes, command-line tooling, and agent-ready documentation.
 - [Blueprint](https://blueprintjs.com/) - React component toolkit optimized for dense, data-heavy desktop web interfaces.
 - [Chakra UI](https://chakra-ui.com/) - Accessible React component system with composable style props, semantic tokens, recipes, and theming.
+- [Embla Carousel](https://www.embla-carousel.com/) - Lightweight, extensible carousel library with touch gestures, responsive behavior, plugins, and framework integrations.
+- [Floating UI](https://floating-ui.com/) - Positioning and interaction primitives for building tooltips, popovers, dropdowns, menus, and other floating interface elements.
 - [Flowbite React](https://flowbite-react.com/) - Open-source React components built on Tailwind CSS with theming and dark-mode support.
 - [Mantine](https://mantine.dev/) - React component and hooks library with accessible primitives, forms, notifications, dates, charts, and customizable themes.
 - [Material UI](https://mui.com/) - React component ecosystem implementing Material Design with advanced theming, data grids, and design-system tooling.
 - [Semantic UI React](https://react.semantic-ui.com/) - React integration for Semantic UI components using declarative props and jQuery-free behavior.
+- [Swiper](https://swiperjs.com/) - Touch-oriented slider and carousel library with responsive layouts, hardware-accelerated transitions, modules, and framework integrations.
 
 ## Utilities
 
@@ -151,6 +159,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [deck.gl](https://deck.gl/) - WebGL-powered framework for high-performance geospatial visualization and composable large-data layers.
 - [Nebula.gl](https://nebula.gl/) - Suite of editable, three-dimensional geospatial overlays designed to integrate with deck.gl.
 - [Nivo](https://nivo.rocks/) - React charting library built on D3 with responsive SVG, canvas, and server-rendering components.
+- [PixiJS](https://pixijs.com/) - Open-source WebGPU and WebGL renderer for high-performance two-dimensional graphics, games, visualizations, and interactive media in the browser.
 - [React Chart.js 2](https://react-chartjs-2.js.org/) - React component wrappers for building Chart.js visualizations with typed datasets and options.
 - [React Flow](https://reactflow.dev/) - Customizable React component for node-based editors, interactive diagrams, workflow builders, and graph interfaces.
 - [React Simple Maps](https://www.react-simple-maps.io/) - Lightweight React components for composing SVG maps from geographic data.
