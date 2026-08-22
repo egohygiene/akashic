@@ -21,6 +21,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 - [AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html) - Clang documentation for detecting memory corruption, use-after-free, stack errors, and related native-code bugs.
 - [Apache HTTP Server](https://httpd.apache.org/) - Mature extensible web server maintained by the Apache Software Foundation.
+- [APIstax](https://apistax.io/) - Account-based collection of European-hosted REST APIs for document conversion, invoice data, validation, geocoding, and other recurring application tasks; the initial free credits and paid usage require an API key.
 - [Arduino](https://www.arduino.cc/) - Open-source hardware and software ecosystem for interactive electronics and embedded development.
 - [AWS Lambda Powertools](https://github.com/aws-powertools) - Open-source libraries providing observability, idempotency, batch processing, and other patterns for serverless applications.
 - [AWS Serverless Application Model](https://github.com/aws/serverless-application-model) - Open specification and transformation model for defining serverless applications as infrastructure templates.
@@ -65,6 +66,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [r-lib](https://github.com/r-lib) - R-focused organization maintaining reusable packages for development, testing, command-line interfaces, and package infrastructure.
 - [Reflex](https://github.com/reflex-dev/reflex) - Python framework for building full-stack web applications with reactive user interfaces.
 - [Sentry](https://sentry.io/welcome/) - Application-monitoring platform for error tracking, performance diagnostics, logs, traces, profiling, and release health.
+- [Sourcebot](https://www.sourcebot.dev/) - Open-source, self-hostable code-search and navigation platform for searching large repositories and supplying codebase context to people and agents.
 - [SourceForge Mac Development Software](https://sourceforge.net/directory/software-development/mac/) - Directory of open-source developer tools and software-development projects available for macOS.
 - [spdlog](https://github.com/gabime/spdlog) - Fast, header-only or compiled C++ logging library with asynchronous logging and multiple sink types.
 - [Steam Web API Documentation](https://steamcommunity.com/dev) - Official documentation and key-registration portal for integrating applications with the Steam Web API.
@@ -111,6 +113,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Best README Template](https://github.com/othneildrew/Best-README-Template) - Structured, reusable project README template with sections for setup, usage, roadmap, contributing, licensing, and contact details.
 - [cocoAspell](https://github.com/leuski/cocoAspell) - macOS interface and service for using GNU Aspell spell-checking dictionaries in Cocoa applications.
 - [CommonMark](https://commonmark.org/) - Strongly defined, highly compatible specification and test suite for Markdown.
+- [Cosmic](https://www.cosmicjs.com/) - Commercial managed headless content-management system with APIs, visual editing, media, localization, and content workflows; usage and team capacity vary by plan.
 - [GNU Wget Manual](https://www.gnu.org/software/wget/manual/wget.html) - Official manual for the non-interactive network downloader and its recursive retrieval features.
 - [llms.txt Sites Directory](https://llmstxt.site/) - Searchable directory of websites publishing llms.txt and llms-full.txt files, with location and token-count metadata.
 - [OfficeCLI](https://github.com/iOfficeAI/OfficeCLI) - Open-source command-line suite for agents to read, edit, and automate Word, Excel, and PowerPoint-compatible files without Microsoft Office.
@@ -122,11 +125,14 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Pandoc Templates Directory](https://pandoc-templates.org/) - Searchable community gallery of templates for producing PDFs, slides, books, articles, and other formats with Pandoc.
 - [PySpelling](https://facelessuser.github.io/pyspelling/) - Spell-checking framework for source repositories that extracts words from markup and code through configurable filters and dictionaries.
 - [Requarks](https://github.com/requarks) - Open-source organization behind Wiki.js and supporting documentation-platform tooling.
+- [Zensical](https://zensical.org/) - Open-source static documentation system for publishing structured technical writing with fast local authoring, navigation, themes, and extensible build workflows.
 
 ## Knowledge Management
 
+- [Atomic](https://atomicapp.ai/) - Open-source, local-first personal knowledge base that connects freeform notes into a searchable semantic graph with optional AI-assisted exploration.
 - [Awesome Obsidian](https://github.com/kmaasrud/awesome-obsidian) - Curated collection of Obsidian plugins, themes, templates, tools, workflows, and learning resources.
 - [Awesome Quartz](https://github.com/quartz-community/awesome-quartz) - Curated collection of Quartz plugins, tools, themes, templates, guides, and digital gardens.
+- [IWE](https://iwe.md/) - Open-source, local-first Markdown knowledge graph that supports schema-aware querying, guarded edits, and structured access for people and agents.
 - [OpenWiki](https://github.com/langchain-ai/openwiki) - CLI that generates and maintains linked codebase or personal wikis for agent memory and human exploration.
 - [Quartz Configuration](https://quartz.jzhao.xyz/configuration) - Reference for configuring Quartz digital gardens, plugins, themes, analytics, localization, and generated sites.
 - [Quartz Showcase](https://quartz.jzhao.xyz/showcase) - Gallery of public digital gardens and knowledge sites built with Quartz.
@@ -180,6 +186,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Web Capture and Community Features
 
+- [Apify](https://apify.com/) - Commercial web-data and browser-automation platform with a marketplace of reusable actors, APIs, scheduling, storage, and integrations; account, target-site terms, and usage pricing apply.
 - [changedetection.io](https://changedetection.io/) - Open-source website-change monitor with selectors, browser steps, alerts, restock tracking, and hosted or self-managed deployment.
 - [ChatGPT Conversation Extractor](https://github.com/slyubarskiy/chatgpt-conversation-extractor) - Tool for converting ChatGPT JSON data exports into readable Markdown conversations and metadata.
 - [CommaFeed](https://www.commafeed.com/) - Open-source Google Reader-style RSS and Atom reader available as a hosted service or self-hosted application.

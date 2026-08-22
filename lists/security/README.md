@@ -67,6 +67,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [AttackerKB](https://attackerkb.com/) - Community knowledge base for ranking vulnerabilities by exploitability, value, and real-world attacker interest.
 - [BuildKit OpenTelemetry Debugging](https://docs.docker.com/build/debug/opentelemetry/) - Guide to exporting Buildx and BuildKit traces through OpenTelemetry for diagnostics and performance analysis.
 - [Cloud Security Alliance](https://github.com/CloudSecurityAlliance) - Open-source repositories for cloud-security research, controls, tools, and community projects.
+- [CybersecTools](https://cybersectools.com/) - Searchable directory for comparing commercial and open cybersecurity products across identity, endpoint, network, cloud, application, data, and security-operations categories.
 - [Cyber Threat Alliance](https://www.cyberthreatalliance.org/) - Nonprofit membership organization for sharing actionable cyber-threat intelligence across security providers and partners.
 - [Debian CIS Hardening Script](https://github.com/ovh/debian-cis/blob/master/bin/hardening.sh) - Shell implementation of Debian hardening checks and remediation inspired by CIS benchmark controls.
 - [Docker Apt Version Pinning Rule](https://docs.datadoghq.com/code_analysis/static_analysis_rules/docker-best-practices/apt-pin-version/) - Datadog static-analysis rule explaining why Dockerfiles should pin apt-installed package versions.

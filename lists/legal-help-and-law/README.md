@@ -395,6 +395,7 @@ The ADA, Rehabilitation Act, IDEA, Fair Housing Act, Air Carrier Access Act, Soc
 - [HHS OCR Complaints](https://www.hhs.gov/ocr/complaints/index.html) - Official civil-rights, conscience, health-information privacy, and substance-use-record complaint pathways; each authority has separate coverage and deadlines.
 - [HIPAA Complaint](https://www.hhs.gov/hipaa/filing-a-complaint/index.html) - Official complaint route for covered entities and business associates, generally within 180 days; HIPAA does not govern every app, employer, school, wearable, or data broker.
 - [Medicare Appeals](https://www.medicare.gov/providers-services/claims-appeals-complaints/appeals) - Official Original Medicare, Medicare Advantage, drug-plan, and fast-appeal pathways; follow the denial notice and plan-specific time limits.
+- [My Ombudsman](https://www.myombudsman.org/) - Free independent program for current MassHealth members seeking help understanding covered benefits, denials, grievances, appeals, or access problems; it mediates and refers but does not provide legal advice or hearing representation.
 - [Patient Advocate Foundation](https://www.patientadvocate.org/) - Nonprofit case management and financial-navigation programs for insurance, access, employment, and medical debt; diagnosis, insurance, income, and program criteria vary.
 - [SHIP Help](https://www.shiphelp.org/) - Free federally supported State Health Insurance Assistance Program counseling for Medicare choices, claims, appeals, costs, and fraud; counselors do not sell insurance.
 
