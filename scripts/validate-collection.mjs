@@ -25,6 +25,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "commerce-and-marketplaces",
   "containers-and-cloud",
   "creative-resources",
+  "design-systems-and-branding",
   "developer-tools",
   "health-and-well-being",
   "legal-help-and-law",

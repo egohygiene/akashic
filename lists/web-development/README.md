@@ -18,7 +18,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [State Management](#state-management)
 - [Styling and Theming](#styling-and-theming)
 - [Testing and Component Development](#testing-and-component-development)
-- [UI Components and Design Systems](#ui-components-and-design-systems)
+- [UI Components and Primitives](#ui-components-and-primitives)
 - [Utilities](#utilities)
 - [Visualization and Maps](#visualization-and-maps)
 
@@ -130,18 +130,11 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Storybook](https://storybook.js.org/) - Isolated component-development environment for examples, documentation, interaction tests, accessibility checks, and visual review.
 - [Vitest](https://vitest.dev/) - Vite-native testing framework with Jest-compatible APIs, TypeScript support, watch mode, mocking, and coverage.
 
-## UI Components and Design Systems
+## UI Components and Primitives
 
-- [Ant Design](https://ant.design/) - Enterprise-oriented React design system with a broad component catalog, tokens, themes, and internationalization.
-- [Astryx](https://astryx.atmeta.com/) - Meta's public design system with accessible React components, templates, themes, command-line tooling, and agent-ready documentation.
-- [Blueprint](https://blueprintjs.com/) - React component toolkit optimized for dense, data-heavy desktop web interfaces.
-- [Chakra UI](https://chakra-ui.com/) - Accessible React component system with composable style props, semantic tokens, recipes, and theming.
 - [Embla Carousel](https://www.embla-carousel.com/) - Lightweight, extensible carousel library with touch gestures, responsive behavior, plugins, and framework integrations.
 - [Floating UI](https://floating-ui.com/) - Positioning and interaction primitives for building tooltips, popovers, dropdowns, menus, and other floating interface elements.
 - [Flowbite React](https://flowbite-react.com/) - Open-source React components built on Tailwind CSS with theming and dark-mode support.
-- [Mantine](https://mantine.dev/) - React component and hooks library with accessible primitives, forms, notifications, dates, charts, and customizable themes.
-- [Material UI](https://mui.com/) - React component ecosystem implementing Material Design with advanced theming, data grids, and design-system tooling.
-- [Semantic UI React](https://react.semantic-ui.com/) - React integration for Semantic UI components using declarative props and jQuery-free behavior.
 - [Swiper](https://swiperjs.com/) - Touch-oriented slider and carousel library with responsive layouts, hardware-accelerated transitions, modules, and framework integrations.
 
 ## Utilities
