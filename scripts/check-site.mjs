@@ -83,8 +83,12 @@ const urls = catalog.resources.map((resource) => resource.url.toLocaleLowerCase(
 if (new Set(urls).size !== urls.length) throw new Error("The catalog contains duplicate normalized URLs.");
 for (const resource of catalog.resources) {
   if (!resource.title || !resource.description || !resource.category || !resource.section || !resource.source || resource.groupSlug === undefined) throw new Error(`Incomplete resource: ${resource.url}`);
+  if (!Array.isArray(resource.accessLabels)) throw new Error(`Resource access labels are invalid: ${resource.url}`);
+  if (resource.accessLabels.some((label) => !label || /[*_]/.test(label))) throw new Error(`Resource access label contains Markdown: ${resource.url}`);
   new URL(resource.url);
 }
+const creativeTools = catalog.resources.filter((resource) => resource.groupSlug === "creative-tools-and-production");
+if (!creativeTools.length || creativeTools.some((resource) => /^\*\*/.test(resource.description))) throw new Error("Creative Tools access labels were not structurally extracted.");
 
 const overview = JSON.parse(await readFile(path.join(output, "data/overview.json"), "utf8"));
 if (overview.schemaVersion !== 1) throw new Error("Unsupported overview schema.");
@@ -146,6 +150,14 @@ for (const marker of ["overview-preview", "overview-preview-metrics", "overview-
 const homeApp = await readFile(path.join(output, "app.js"), "utf8");
 if (!homeApp.includes("conic-gradient(from -90deg") || !homeApp.includes('class="overview-bar-row"')) throw new Error("The homepage overview charts are not rendered.");
 if (!homeApp.includes('class="collection-path"') || homeApp.includes('class="collection-card"')) throw new Error("The homepage collection directory is not using the compact layout.");
+if (!homeApp.includes('class="resource-labels"')) throw new Error("Structured resource access labels are not rendered.");
+
+const styles = await readFile(path.join(output, "styles.css"), "utf8");
+if (!styles.includes(".resource-card h3 a:focus-visible::after") || !styles.includes("outline: 3px solid var(--cyan)")) throw new Error("Primary resource-card links have no visible focus-ring contract.");
+for (const fileName of ["app.js", "dashboard.js", "atlas.js"]) {
+  const javascript = await readFile(path.join(output, fileName), "utf8");
+  if (!javascript.includes("Switch to light theme") || !javascript.includes("Switch to dark theme")) throw new Error(`Theme-toggle labels do not describe both actions in ${fileName}.`);
+}
 
 const catalogUrls = new Set(catalog.resources.map((resource) => resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, "")));
 for (const resource of atlas.resources.filter((candidate) => candidate.catalogReference)) {

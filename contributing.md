@@ -18,8 +18,10 @@ lists/
   commerce-and-marketplaces/README.md
   containers-and-cloud/README.md
   creative-resources/README.md
+  design-systems-and-branding/README.md
   developer-tools/README.md
   health-and-well-being/README.md
+  legal-help-and-law/README.md
   neuroscience/README.md
   open-source/README.md
   psychedelics/README.md
@@ -31,10 +33,18 @@ lists/
   self-hosting-and-homelab/README.md
   spirituality-religion-and-occult/README.md
   tex-and-typesetting/README.md
+  travel-and-mobility/README.md
   web-development/README.md
   work-and-learning/README.md
+atlas/
+  locations.json             ← place hierarchy and catalog references
+  places/*.md                ← canonical place-aware resource lists
 scripts/
   validate-collection.mjs    ← repository-wide collection validator
+  build-site.mjs             ← static portal and Atlas generator
+  check-site.mjs             ← generated-site contract checks
+site/                        ← dependency-free portal source
+test/                        ← dependency-free parser and schema tests
 ```
 
 Each list under `lists/` is independently readable and lintable. A large topic may use a nested collection hub when distinct sub-lists make it materially easier to browse.
@@ -112,8 +122,10 @@ Before submitting a pull request:
 - Update the sublist `Contents` when headings change.
 - Update the immediate collection hub count and the root aggregate count when a nested list changes.
 - Update the root index resource count when a top-level list changes.
-- Run `node scripts/validate-collection.mjs` and resolve any findings.
-- Run `npx --yes awesome-lint` from the affected sublist directory and resolve applicable findings.
+- Run `node --test` and `node scripts/validate-collection.mjs` and resolve any findings.
+- Run the repository's Awesome Lint wrapper from [`AGENTS.md`](AGENTS.md#collection-changes) for every affected list; it pins `awesome-lint@2.3.0` and disables only rules enforced by the repository-wide validator.
+- For list, Atlas, portal, script, JavaScript, CSS, or HTML changes, run `node scripts/build-site.mjs` followed by `node scripts/check-site.mjs`.
+- Run `node --check` for each edited JavaScript module.
 - Explain what changed and why the proposed resources belong.
 
 Small, focused pull requests are easiest to review, but a cohesive import batch is also welcome.

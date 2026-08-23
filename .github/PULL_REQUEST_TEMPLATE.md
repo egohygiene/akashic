@@ -6,9 +6,9 @@
 
 <!-- Explain why these resources or structural changes improve the collection. -->
 
-## Affected List
+## Affected Surface
 
-<!-- Name the list(s) under lists/ that this pull request changes (e.g. lists/developer-tools or lists/awesome-abundance/books-knowledge-and-archives). -->
+<!-- Name the affected lists, Atlas data, site files, scripts, documentation, or workflows. -->
 
 ## Checklist
 
@@ -20,5 +20,9 @@
 - [ ] The `Contents` section of the affected sublist matches its current headings.
 - [ ] Every affected resource count is updated in the immediate collection hub and root `README.md` where applicable.
 - [ ] `node scripts/validate-collection.mjs` passes locally.
-- [ ] `npx --yes awesome-lint@2.3.0` passes from every affected list directory.
+- [ ] The repository's pinned Awesome Lint wrapper passes for every affected resource list.
+- [ ] `node --test` and relevant `node --check` syntax checks pass locally.
+- [ ] `node scripts/build-site.mjs` and `node scripts/check-site.mjs` pass for list, Atlas, portal, or generator changes.
+- [ ] I did not commit generated `dist/` output or temporary `.awesome-lint-input.md` files.
+- [ ] Interface changes preserve keyboard focus, both themes, reduced motion, mobile use, and equivalent nonvisual navigation where applicable.
 - [ ] I have read and agree to follow the Code of Conduct.
