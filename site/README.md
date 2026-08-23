@@ -10,6 +10,8 @@ Creative Tools entries may begin their description with a bold access block such
 
 The repository-local `.github/FUNDING.yml` is the canonical funding configuration. During the build, active entries become `dist/data/funding.json` and locally styled footer links on the Portal, Observatory, and Atlas. No remote badge images, scripts, or trackers are used.
 
+English is the canonical and default portal language. The build also publishes a complete Russian reference interface under `/ru/` from stable-key catalogs in `site/i18n/`; it reuses the root scripts, styles, generated JSON, and geometry instead of duplicating the catalog. Locale-aware modules load messages relative to their own module URL, format numbers and plurals through browser-native `Intl` APIs, preserve explicit language choices and URL state, and fall back to English. Canonical resource and Atlas content remains English and is marked as such on Russian pages. See [`docs/localization.md`](../docs/localization.md) for the extension and review contract.
+
 The browser imports its active matcher through `site/search.js`. The preserved baseline implementation lives in `site/search/and-substring-v1.js`, so the browser and deterministic research runner exercise the same code without allowing later algorithms to rewrite v1. Browser-native semantic-search and optional local-agent research, fixtures, and baseline results live under `research/search/`; after building the site, verify the committed baseline with `node scripts/evaluate-search.mjs --verify research/search/results/and-substring-v1.json`.
 
 `atlas.html` is a separate place-aware explorer. Its hierarchy lives in `atlas/locations.json`, its reviewed resources remain canonical Markdown under `atlas/places/`, and its visual palettes live in `site/data/atlas-themes.json`. The build generates `dist/data/atlas.json`; do not edit that generated file. Compact checked-in TopoJSON keeps the atlas private, static, and independent of paid map services. Use `node scripts/fetch-atlas-geometry.mjs` only when intentionally refreshing the pinned upstream geometry.
@@ -20,7 +22,7 @@ The browser imports its active matcher through `site/search.js`. The preserved b
     node scripts/check-site.mjs
     python3 -m http.server 8000 --directory dist
 
-Open `http://localhost:8000` in a browser. Changes to any list or atlas place will appear after running the build command again.
+Open `http://localhost:8000` for English or `http://localhost:8000/ru/` for Russian. Changes to any list, Atlas place, or locale catalog will appear after running the build command again.
 
 ## Deployment
 

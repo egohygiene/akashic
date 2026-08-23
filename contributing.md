@@ -44,6 +44,8 @@ scripts/
   build-site.mjs             ← static portal and Atlas generator
   check-site.mjs             ← generated-site contract checks
 site/                        ← dependency-free portal source
+  i18n/                     ← locale registry and message catalogs
+docs/localization.md         ← locale architecture and review workflow
 test/                        ← dependency-free parser and schema tests
 ```
 
@@ -129,6 +131,17 @@ Before submitting a pull request:
 - Explain what changed and why the proposed resources belong.
 
 Small, focused pull requests are easiest to review, but a cohesive import batch is also welcome.
+
+## Translating the Portal
+
+English is the canonical source language. Russian is the reference locale, and new locales must follow the routing, fallback, placeholder, plural, accessibility, and human-review contract in [Localization architecture](docs/localization.md).
+
+- Translate interface messages through stable keys in `site/i18n/`; do not fork the HTML pages or canonical Markdown catalog.
+- Preserve every message key and named placeholder across locale catalogs.
+- Use native language names in navigation, not country flags.
+- Keep machine-generated translation in draft status until a person reviews it in context.
+- Do not translate resource facts or geographic names directly in JavaScript. Future reviewed content overlays will be keyed to stable canonical identifiers.
+- Test generated locale routes at narrow and wide widths, including keyboard navigation, both themes, and language changes for assistive technology.
 
 ## Removing or Updating a Resource
 

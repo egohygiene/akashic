@@ -3,6 +3,7 @@ import path from "node:path";
 import process from "node:process";
 import { normalizeUrl, parseResourceEntry, parseRootCategories } from "./lib/catalog.mjs";
 import { validateAtlasHierarchy } from "./lib/atlas.mjs";
+import { loadLocales, localizeHtml } from "./lib/i18n.mjs";
 
 const root = process.cwd();
 const sourceDirectory = path.join(root, "site");
@@ -61,22 +62,27 @@ function buildFunding(markdown) {
   return { sources };
 }
 
-function fundingMarkup(funding) {
-  return funding.sources.map((source) => `<a class="funding-badge funding-badge-${escapeHtml(source.platform)}" href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer" aria-label="Support Akashic with ${escapeHtml(source.label)} (opens in a new tab)"><span aria-hidden="true">${escapeHtml(source.glyph)}</span><strong>${escapeHtml(source.label)}</strong><b aria-hidden="true">↗</b></a>`).join("");
+function interpolate(message, values) {
+  return message.replace(/\{([a-z][a-z0-9]*)\}/gi, (_, key) => Object.hasOwn(values, key) ? String(values[key]) : `{${key}}`);
 }
 
-async function injectFundingBadges(directory, markup) {
-  const htmlFiles = (await readdir(directory, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && entry.name.endsWith(".html"))
-    .map((entry) => path.join(directory, entry.name));
-  let replacements = 0;
-  for (const filePath of htmlFiles) {
-    const html = await readFile(filePath, "utf8");
-    if (!html.includes(FUNDING_PLACEHOLDER)) continue;
-    await writeFile(filePath, html.replaceAll(FUNDING_PLACEHOLDER, markup));
-    replacements += 1;
+function fundingMarkup(funding, messages) {
+  return funding.sources.map((source) => `<a class="funding-badge funding-badge-${escapeHtml(source.platform)}" href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(interpolate(messages["runtime.funding.aria"], { label: source.label }))}"><span aria-hidden="true">${escapeHtml(source.glyph)}</span><strong>${escapeHtml(source.label)}</strong><b aria-hidden="true">↗</b></a>`).join("");
+}
+
+async function buildLocalizedPages(locales, funding) {
+  const pages = ["index.html", "dashboard.html", "atlas.html"];
+  for (const locale of locales.locales) {
+    const localeDirectory = locale.code === locales.defaultLocale ? outputDirectory : path.join(outputDirectory, locale.route.replace(/^\//, ""));
+    await mkdir(localeDirectory, { recursive: true });
+    const messages = locales.catalogs.get(locale.code);
+    for (const page of pages) {
+      const sourceHtml = await readFile(path.join(sourceDirectory, page), "utf8");
+      const localized = localizeHtml(sourceHtml, locale, page, locales).replace(FUNDING_PLACEHOLDER, fundingMarkup(funding, messages));
+      if (localized.includes(FUNDING_PLACEHOLDER)) throw new Error(`Funding badges were not generated for ${locale.code}/${page}.`);
+      await writeFile(path.join(localeDirectory, page), localized);
+    }
   }
-  if (!replacements) throw new Error("No funding badge placeholders were found in the site HTML.");
 }
 
 async function findReadmes(directory) {
@@ -334,6 +340,7 @@ async function build() {
   const atlas = await buildAtlas(uniqueResources);
   const overview = buildOverview(catalog);
   const funding = buildFunding(await readFile(fundingFile, "utf8"));
+  const locales = await loadLocales(sourceDirectory);
 
   await rm(outputDirectory, { recursive: true, force: true });
   await cp(sourceDirectory, outputDirectory, { recursive: true });
@@ -342,7 +349,7 @@ async function build() {
   await writeFile(path.join(outputDirectory, "data", "atlas.json"), `${JSON.stringify(atlas)}\n`);
   await writeFile(path.join(outputDirectory, "data", "overview.json"), `${JSON.stringify(overview)}\n`);
   await writeFile(path.join(outputDirectory, "data", "funding.json"), `${JSON.stringify({ schemaVersion: 1, sources: funding.sources })}\n`);
-  await injectFundingBadges(outputDirectory, fundingMarkup(funding));
+  await buildLocalizedPages(locales, funding);
   await writeFile(path.join(outputDirectory, ".nojekyll"), "");
   console.log(`Built ${catalog.resourceCount} resources across ${categories.length} collections, ${overview.topicPathCount} topic paths, and ${atlas.resourceCount} place-aware atlas resources.`);
 }

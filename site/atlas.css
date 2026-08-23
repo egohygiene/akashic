@@ -84,7 +84,7 @@
 .atlas-resource-nav button { min-height: 44px; display: inline-flex; align-items: center; gap: 9px; padding: 0 13px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); cursor: pointer; font-size: .72rem; font-weight: 760; text-align: left; }
 .atlas-resource-nav button:hover { border-color: color-mix(in srgb, var(--violet), transparent 35%); background: var(--surface-hover); color: var(--text); }
 .atlas-resource-nav button[aria-pressed="true"] { border-color: color-mix(in srgb, var(--pink), transparent 20%); background: color-mix(in srgb, var(--pink), transparent 88%); color: var(--text); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pink), transparent 72%); }
-.atlas-resource-nav button span { min-width: 23px; padding: 3px 6px; border-radius: 999px; background: var(--surface-raised); color: var(--faint); font-size: .63rem; text-align: center; }
+.atlas-resource-nav button .atlas-resource-count { min-width: 23px; padding: 3px 6px; border-radius: 999px; background: var(--surface-raised); color: var(--faint); font-size: .63rem; text-align: center; }
 .atlas-resource-groups { display: grid; gap: 42px; margin-top: 38px; }
 .atlas-resource-group h3 { display: flex; align-items: center; gap: 12px; margin: 0 0 15px; font-size: 1rem; }
 .atlas-resource-group h3::before { content: ""; width: 19px; height: 1px; background: var(--pink); box-shadow: 0 0 8px var(--pink); }

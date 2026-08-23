@@ -1,6 +1,7 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
+import { loadLocales, localePagePath } from "./lib/i18n.mjs";
 
 const output = path.join(process.cwd(), "dist");
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
@@ -12,7 +13,7 @@ const rankedCounts = (values, limit = Infinity) => {
     .sort((left, right) => right.count - left.count || left.name.localeCompare(right.name))
     .slice(0, limit);
 };
-for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "styles.css", "dashboard.css", "atlas.css", "app.js", "dashboard.js", "search.js", "search/and-substring-v1.js", "mind-map.js", "atlas.js", "assets/favicon.svg", "data/catalog.json", "data/overview.json", "data/funding.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
+for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "ru/index.html", "ru/dashboard.html", "ru/atlas.html", "styles.css", "dashboard.css", "atlas.css", "app.js", "dashboard.js", "search.js", "search/and-substring-v1.js", "mind-map.js", "atlas.js", "i18n.js", "i18n/locales.json", "i18n/en.json", "i18n/ru.json", "assets/favicon.svg", "data/catalog.json", "data/overview.json", "data/funding.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
   await access(path.join(output, relativePath));
 }
 
@@ -135,11 +136,29 @@ for (const source of funding.sources) {
   if (url.protocol !== "https:" || fundingUrls.has(source.url)) throw new Error(`Invalid or duplicate funding URL: ${source.url}`);
   fundingUrls.add(source.url);
 }
-for (const fileName of ["index.html", "dashboard.html", "atlas.html"]) {
-  const html = await readFile(path.join(output, fileName), "utf8");
-  if (html.includes("<!-- akashic-funding-badges -->")) throw new Error(`Funding badges were not generated in ${fileName}.`);
-  for (const source of funding.sources) {
-    if (!html.includes(`href="${escapeHtml(source.url)}"`)) throw new Error(`Funding source ${source.label} is missing from ${fileName}.`);
+const locales = await loadLocales(output);
+const pages = ["index.html", "dashboard.html", "atlas.html"];
+for (const locale of locales.locales) {
+  for (const fileName of pages) {
+    const relativePath = locale.code === locales.defaultLocale ? fileName : path.join(locale.route.replace(/^\//, ""), fileName);
+    const html = await readFile(path.join(output, relativePath), "utf8");
+    const pagePath = localePagePath(locale, fileName);
+    if (!html.includes(`<html lang="${locale.code}" dir="${locale.direction}">`)) throw new Error(`Locale metadata is incorrect in ${relativePath}.`);
+    if (!html.includes(`<link rel="canonical" href="https://akashic.egohygiene.io${pagePath}">`)) throw new Error(`Canonical locale URL is incorrect in ${relativePath}.`);
+    for (const alternate of locales.locales) {
+      if (!html.includes(`hreflang="${alternate.code}" href="https://akashic.egohygiene.io${localePagePath(alternate, fileName)}"`)) throw new Error(`Alternate locale ${alternate.code} is missing from ${relativePath}.`);
+    }
+    if (!html.includes('class="language-switcher"') || !html.includes(`data-locale="${locale.code}" aria-current="page"`)) throw new Error(`Language navigation is incomplete in ${relativePath}.`);
+    if (html.includes("<!-- akashic-locale-") || html.includes("<!-- akashic-language-switcher -->")) throw new Error(`Locale placeholders remain in ${relativePath}.`);
+    if (locale.code === locales.defaultLocale && html.includes('class="locale-coverage"')) throw new Error(`The canonical locale should not show a translation-coverage warning in ${relativePath}.`);
+    if (locale.code !== locales.defaultLocale) {
+      if (!html.includes('class="locale-coverage"') || !/[А-Яа-яЁё]/.test(html)) throw new Error(`The reference translation is incomplete in ${relativePath}.`);
+      if (!html.includes('href="../styles.css"') || !html.includes('src="../')) throw new Error(`Localized routes do not reuse root assets in ${relativePath}.`);
+    }
+    if (html.includes("<!-- akashic-funding-badges -->")) throw new Error(`Funding badges were not generated in ${fileName}.`);
+    for (const source of funding.sources) {
+      if (!html.includes(`href="${escapeHtml(source.url)}"`)) throw new Error(`Funding source ${source.label} is missing from ${fileName}.`);
+    }
   }
 }
 
@@ -156,7 +175,17 @@ const styles = await readFile(path.join(output, "styles.css"), "utf8");
 if (!styles.includes(".resource-card h3 a:focus-visible::after") || !styles.includes("outline: 3px solid var(--cyan)")) throw new Error("Primary resource-card links have no visible focus-ring contract.");
 for (const fileName of ["app.js", "dashboard.js", "atlas.js"]) {
   const javascript = await readFile(path.join(output, fileName), "utf8");
-  if (!javascript.includes("Switch to light theme") || !javascript.includes("Switch to dark theme")) throw new Error(`Theme-toggle labels do not describe both actions in ${fileName}.`);
+  if (!javascript.includes("runtime.theme.light") || !javascript.includes("runtime.theme.dark")) throw new Error(`Theme-toggle labels are not localized in ${fileName}.`);
+  if (!javascript.includes("new URL(\"./data/")) throw new Error(`Data requests are not module-relative in ${fileName}.`);
+}
+
+const i18nRuntime = await readFile(path.join(output, "i18n.js"), "utf8");
+if (!i18nRuntime.includes("Intl.NumberFormat") || !i18nRuntime.includes("Intl.PluralRules") || !i18nRuntime.includes("fallbackMessages")) throw new Error("The locale runtime is missing formatting or fallback support.");
+try {
+  await access(path.join(output, "ru", "data"));
+  throw new Error("Localized routes must not duplicate generated catalog data.");
+} catch (error) {
+  if (error.code !== "ENOENT") throw error;
 }
 
 const catalogUrls = new Set(catalog.resources.map((resource) => resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, "")));

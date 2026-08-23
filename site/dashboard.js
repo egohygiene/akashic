@@ -1,3 +1,5 @@
+import { canonicalContentLanguage, number, plural, t } from "./i18n.js";
+
 const THEME_KEY = "akashic-theme";
 const LEGACY_THEME_KEY = "ego-awesome-theme";
 const prefersReducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
@@ -29,7 +31,8 @@ const elements = {
 };
 
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
-const formatNumber = (value) => Number(value).toLocaleString();
+const formatNumber = (value) => number(Number(value));
+const canonicalLanguageAttribute = canonicalContentLanguage ? ` lang="${canonicalContentLanguage}"` : "";
 
 function readStorage(key) {
   try { return localStorage.getItem(key); } catch { return null; }
@@ -61,7 +64,7 @@ function currentCategory() {
 
 function updateThemeControl() {
   const light = document.documentElement.dataset.theme === "light";
-  elements.theme.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
+  elements.theme.setAttribute("aria-label", t(light ? "runtime.theme.dark" : "runtime.theme.light"));
   elements.theme.firstElementChild.textContent = light ? "☾" : "☼";
   document.querySelector('meta[name="theme-color"]').content = light ? "#f7f3fb" : "#090711";
 }
@@ -86,11 +89,11 @@ function initializeChrome() {
 
 function renderMetrics() {
   const metrics = [
-    [state.overview.resourceCount, "Resources"],
-    [state.overview.collectionCount, "Collections"],
-    [state.overview.topicPathCount, "Topic paths"],
-    [state.overview.sourceFileCount, "Source lists"],
-    [state.overview.uniqueDomainCount, "Domains"],
+    [state.overview.resourceCount, t("runtime.metric.resources")],
+    [state.overview.collectionCount, t("runtime.metric.collections")],
+    [state.overview.topicPathCount, t("runtime.metric.topicPaths")],
+    [state.overview.sourceFileCount, t("runtime.metric.sourceLists")],
+    [state.overview.uniqueDomainCount, t("runtime.metric.domains")],
   ];
   elements.metrics.innerHTML = metrics.map(([value, label]) => `<div><dt>${formatNumber(value)}</dt><dd>${escapeHtml(label)}</dd></div>`).join("");
 }
@@ -107,47 +110,47 @@ function renderDonut() {
   elements.donut.style.background = `conic-gradient(from -90deg, ${stops.join(", ")})`;
   elements.donutTotal.textContent = formatNumber(state.overview.resourceCount);
   const largest = [...state.overview.categories].sort((left, right) => right.count - left.count)[0];
-  elements.donut.setAttribute("aria-label", `Donut chart of ${formatNumber(state.overview.resourceCount)} resources across ${formatNumber(state.overview.collectionCount)} collections. The largest collection is ${largest.title} with ${formatNumber(largest.count)} resources. Exact values and navigation follow in the ranked list.`);
+  elements.donut.setAttribute("aria-label", t("runtime.app.donutAria", { resources: plural("runtime.unit.resource", state.overview.resourceCount), collections: plural("runtime.unit.collection", state.overview.collectionCount), title: largest.title, largest: plural("runtime.unit.resource", largest.count) }));
 }
 
 function renderLandscape() {
   const ranked = [...state.overview.categories].sort((left, right) => right.count - left.count || left.title.localeCompare(right.title));
   const maximum = ranked[0]?.count || 1;
-  elements.landscapeCount.textContent = `${formatNumber(ranked.length)} collections`;
+  elements.landscapeCount.textContent = plural("runtime.unit.collection", ranked.length);
   elements.collectionLandscape.innerHTML = ranked.map((category, index) => {
     const selected = category.slug === state.categorySlug;
     return `<div class="landscape-row${selected ? " is-selected" : ""}" role="listitem" style="--row-color:${category.color};--row-width:${category.count / maximum * 100}%">
-      <button type="button" data-select-category="${escapeHtml(category.slug)}" aria-pressed="${selected}" aria-label="Inspect ${escapeHtml(category.title)}, ${formatNumber(category.count)} resources, ${formatPercent(category.count, state.overview.resourceCount)} of Akashic">
+      <button type="button" data-select-category="${escapeHtml(category.slug)}" aria-pressed="${selected}" aria-label="${escapeHtml(t("runtime.dashboard.inspectAria", { title: category.title, resources: plural("runtime.unit.resource", category.count), percent: formatPercent(category.count, state.overview.resourceCount) }))}">
         <span class="landscape-rank" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>
         <span class="landscape-glyph" aria-hidden="true">${escapeHtml(category.glyph)}</span>
-        <span class="landscape-name"><strong>${escapeHtml(category.title)}</strong><i aria-hidden="true"><b></b></i></span>
+        <span class="landscape-name"${canonicalLanguageAttribute}><strong>${escapeHtml(category.title)}</strong><i aria-hidden="true"><b></b></i></span>
         <span class="landscape-value"><strong>${formatNumber(category.count)}</strong><small>${formatPercent(category.count, state.overview.resourceCount)}</small></span>
       </button>
-      <a href="${escapeHtml(catalogUrl({ categorySlug: category.slug }))}" aria-label="Browse ${escapeHtml(category.title)} resources"><span>Browse</span><b aria-hidden="true">→</b></a>
+      <a href="${escapeHtml(catalogUrl({ categorySlug: category.slug }))}" aria-label="${escapeHtml(t("runtime.dashboard.browseAria", { title: category.title }))}"><span>${escapeHtml(t("runtime.action.browse"))}</span><b aria-hidden="true">→</b></a>
     </div>`;
   }).join("");
 }
 
 function renderProfileMetrics(category) {
   const values = [
-    [category.count, "resources"],
-    [category.topicPathCount, "topic paths"],
-    [category.sourceFileCount, "source lists"],
-    [category.uniqueDomainCount, "domains"],
+    [category.count, t("runtime.metric.resources")],
+    [category.topicPathCount, t("runtime.metric.topicPaths")],
+    [category.sourceFileCount, t("runtime.metric.sourceLists")],
+    [category.uniqueDomainCount, t("runtime.metric.domains")],
   ];
   elements.profileMetrics.innerHTML = values.map(([value, label]) => `<div><dt>${formatNumber(value)}</dt><dd>${escapeHtml(label)}</dd></div>`).join("");
 }
 
 function renderBranchDirectory(category) {
   elements.branchDirectory.innerHTML = category.groups.map((group, index) => {
-    const title = category.groups.length === 1 ? "Topics" : group.title;
+    const title = category.groups.length === 1 ? t("runtime.dashboard.topics") : group.title;
     const branchUrl = catalogUrl({ categorySlug: category.slug, groupSlug: group.slug });
     return `<details class="branch-card"${index === 0 ? " open" : ""} style="--branch-color:${category.color}">
-      <summary><span><small>${group.slug ? "Branch" : "Directory"}</small><strong>${escapeHtml(title)}</strong></span><span><b>${formatNumber(group.count)}</b> resources <i aria-hidden="true">⌄</i></span></summary>
+      <summary><span><small>${escapeHtml(t(group.slug ? "runtime.dashboard.branch" : "runtime.dashboard.directory"))}</small><strong${category.groups.length === 1 ? "" : canonicalLanguageAttribute}>${escapeHtml(title)}</strong></span><span><b>${formatNumber(group.count)}</b> ${escapeHtml(plural("runtime.unit.resource", group.count).replace(formatNumber(group.count), "").trim())} <i aria-hidden="true">⌄</i></span></summary>
       <div class="topic-directory">
-        ${group.sections.map((section) => `<a href="${escapeHtml(catalogUrl({ categorySlug: category.slug, groupSlug: group.slug, section: section.title }))}"><span>${escapeHtml(section.title)}</span><strong>${formatNumber(section.count)}</strong></a>`).join("")}
+        ${group.sections.map((section) => `<a href="${escapeHtml(catalogUrl({ categorySlug: category.slug, groupSlug: group.slug, section: section.title }))}"><span${canonicalLanguageAttribute}>${escapeHtml(section.title)}</span><strong>${formatNumber(section.count)}</strong></a>`).join("")}
       </div>
-      <a class="branch-action" href="${escapeHtml(branchUrl)}">Browse this ${group.slug ? "branch" : "collection"} <span aria-hidden="true">→</span></a>
+      <a class="branch-action" href="${escapeHtml(branchUrl)}">${escapeHtml(t(group.slug ? "runtime.dashboard.browseBranch" : "runtime.dashboard.browseCollection"))} <span aria-hidden="true">→</span></a>
     </details>`;
   }).join("");
 }
@@ -159,10 +162,14 @@ function renderCollectionProfile() {
   elements.profileGlyph.style.setProperty("--profile-color", category.color);
   elements.profileGlyph.textContent = category.glyph;
   elements.profileTitle.textContent = category.title;
-  elements.profileStatus.textContent = `${category.title}: ${formatNumber(category.count)} resources.`;
+  elements.profileStatus.textContent = t("runtime.dashboard.profileStatus", { title: category.title, resources: plural("runtime.unit.resource", category.count) });
   elements.profileCopy.textContent = category.description;
+  if (canonicalContentLanguage) {
+    elements.profileTitle.lang = canonicalContentLanguage;
+    elements.profileCopy.lang = canonicalContentLanguage;
+  }
   elements.profileAction.href = catalogUrl({ categorySlug: category.slug });
-  elements.profileAction.setAttribute("aria-label", `Explore all ${category.title} resources`);
+  elements.profileAction.setAttribute("aria-label", t("runtime.dashboard.exploreAllAria", { title: category.title }));
   elements.collectionSelect.value = category.slug;
   renderProfileMetrics(category);
   renderBranchDirectory(category);
@@ -176,8 +183,8 @@ function renderSignalBars(container, items, options) {
     const title = options.title(item);
     return `<a class="signal-row" href="${escapeHtml(href)}" style="--signal-width:${item.count / maximum * 100}%;--signal-color:${escapeHtml(options.color(item))}">
       <span class="signal-rank">${String(index + 1).padStart(2, "0")}</span>
-      <span class="signal-copy"><small>${escapeHtml(eyebrow)}</small><strong>${escapeHtml(title)}</strong><i aria-hidden="true"><b></b></i></span>
-      <span class="signal-count">${formatNumber(item.count)}<small>resources</small></span>
+      <span class="signal-copy"${options.canonical ? canonicalLanguageAttribute : ""}><small>${escapeHtml(eyebrow)}</small><strong>${escapeHtml(title)}</strong><i aria-hidden="true"><b></b></i></span>
+      <span class="signal-count">${formatNumber(item.count)}<small>${escapeHtml(t("runtime.metric.resources"))}</small></span>
       <span aria-hidden="true">→</span>
     </a>`;
   }).join("");
@@ -189,12 +196,14 @@ function renderSignals() {
     eyebrow: (item) => item.groupSlug ? `${item.categoryTitle} · ${item.groupTitle}` : item.categoryTitle,
     title: (item) => item.title,
     color: (item) => item.categoryColor,
+    canonical: true,
   });
   renderSignalBars(elements.domainPaths, state.overview.topDomains, {
     href: (item) => catalogUrl({ domain: item.domain }),
-    eyebrow: () => "Source domain",
+    eyebrow: () => t("runtime.dashboard.sourceDomain"),
     title: (item) => item.domain,
     color: () => "var(--cyan)",
+    canonical: false,
   });
 }
 
@@ -231,7 +240,7 @@ function initializeEvents() {
 
 async function initialize() {
   initializeChrome();
-  const response = await fetch("data/overview.json");
+  const response = await fetch(new URL("./data/overview.json", import.meta.url));
   if (!response.ok) throw new Error(`Overview request failed: ${response.status}`);
   state.overview = await response.json();
   if (state.overview.schemaVersion !== 1 || !state.overview.categories?.length) throw new Error("Unsupported overview data.");
@@ -241,6 +250,7 @@ async function initialize() {
     const option = document.createElement("option");
     option.value = category.slug;
     option.textContent = `${category.title} · ${formatNumber(category.count)}`;
+    if (canonicalContentLanguage) option.lang = canonicalContentLanguage;
     elements.collectionSelect.append(option);
   }
   renderMetrics();
@@ -254,6 +264,6 @@ async function initialize() {
 
 initialize().catch((error) => {
   console.error(error);
-  elements.collectionLandscape.innerHTML = '<div class="dashboard-error"><strong>The overview could not be drawn.</strong><p>The complete catalog is still available on the main portal.</p><a class="button button-primary" href="index.html#catalog">Open the catalog</a></div>';
+  elements.collectionLandscape.innerHTML = `<div class="dashboard-error"><strong>${escapeHtml(t("runtime.dashboard.errorTitle"))}</strong><p>${escapeHtml(t("runtime.dashboard.errorCopy"))}</p><a class="button button-primary" href="index.html#catalog">${escapeHtml(t("static.dashboard.openCatalog"))}</a></div>`;
   elements.profile.hidden = true;
 });
