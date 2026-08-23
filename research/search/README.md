@@ -8,7 +8,7 @@ Can a static, privacy-preserving system built from a small browser-side embeddin
 
 The hypothesis is deliberately narrower than “run a general chatbot in GitHub Pages.” Akashic should first become excellent at retrieving and organizing its own reviewed evidence. Generative behavior is optional.
 
-## Current Baseline
+## Published Lexical Checkpoints
 
 The first seed suite contains ten ordinary-language and exact-identifier queries with human-judged relevant resources. The current `and-substring-v1` portal algorithm:
 
@@ -18,6 +18,15 @@ The first seed suite contains ten ordinary-language and exact-identifier queries
 - produces unrelated matches because `irs` can occur inside words such as `first` and `wheelchair`.
 
 These results are a baseline, not a release gate. The fixture is intentionally small and should grow through reviewed real-world questions, failure reports, and stratified coverage across collections.
+
+The active `weighted-lexical-v2` experiment normalizes query text, weights catalog fields, removes a small stop-word set, and applies reviewed ordinary-language concepts and exact aliases. On the same ten-query seed fixture it:
+
+- returns results for all ten queries;
+- places at least one judged resource first for every query;
+- retrieves all 31 judged resource-query pairs in the top ten; and
+- records mean Recall@10 and mean reciprocal rank of `1.0` on this seed.
+
+Those values describe this small, deliberately curated regression fixture only. They do not establish general search quality, comparative superiority, user outcomes, or safety. In particular, the current suite lacks negative judgments, graded relevance, multilingual queries, assessor agreement, and enough coverage to detect over-broad result sets.
 
 The seed uses binary URL-level relevance judgments: a reviewer selects existing canonical resources that should be discoverable for each question and records safety properties the eventual result presentation must preserve. The runner measures retrieval only; it does not automatically certify those safety properties. The suite presently has no graded relevance, explicit negative judgments, assessor-agreement measurement, or statistical power, so it must not support comparative or safety-performance claims until those are added through a documented multi-reviewer protocol.
 
@@ -32,7 +41,8 @@ research/search/
 ├── evaluations/
 │   └── natural-language-v1.json
 └── results/
-    └── and-substring-v1.json
+    ├── and-substring-v1.json
+    └── weighted-lexical-v2.json
 ```
 
 - `BIBLIOGRAPHY.bib` is the portable citation source for a future paper.
@@ -41,17 +51,17 @@ research/search/
 - `evaluations/` contains human-reviewed query fixtures rather than generated claims.
 - `results/` contains deterministic reports created by the evaluation runner.
 
-## Reproduce the Baseline
+## Reproduce the Checkpoints
 
 Run from the repository root:
 
 ```sh
 node scripts/build-site.mjs
-node scripts/evaluate-search.mjs --output research/search/results/and-substring-v1.json
 node scripts/evaluate-search.mjs --verify research/search/results/and-substring-v1.json
+node scripts/evaluate-search.mjs --algorithm site/search/weighted-lexical-v2.js --verify research/search/results/weighted-lexical-v2.json
 ```
 
-Optional runner arguments are `--catalog`, `--fixture`, `--output`, `--verify`, and `--top-k`. A report identifies its catalog, fixture, and exact algorithm source with SHA-256 digests and intentionally omits a timestamp so unchanged inputs and an unchanged versioned algorithm produce an unchanged file. The repository declares Node.js 20 or newer so the browser and runner can share ECMAScript modules without environment-dependent syntax detection. `and-substring-v1` is frozen; a new search implementation receives a new module, algorithm ID, and result file.
+Optional runner arguments are `--algorithm`, `--catalog`, `--fixture`, `--output`, `--verify`, and `--top-k`. A report identifies its catalog, fixture, and exact algorithm source with SHA-256 digests and intentionally omits a timestamp so unchanged inputs and an unchanged versioned algorithm produce an unchanged file. The repository declares Node.js 20 or newer so the browser and runner can share ECMAScript modules without environment-dependent syntax detection. `and-substring-v1` is frozen; a new search implementation receives a new module, algorithm ID, and result file.
 
 The committed report is a Git-versioned corpus checkpoint, not a generated ledger that every resource-only change must rewrite. Its catalog digest identifies the exact snapshot; check out the commit that recorded a report when reproducing it after the catalog has evolved. Search-research changes rerun the checkpoint in CI, and intentional corpus refreshes must regenerate and review the report. Pull-request CI also prevents edits to the published v1 algorithm so later work adds a new version instead of silently redefining the baseline.
 
@@ -68,13 +78,13 @@ The committed report is a Git-versioned corpus checkpoint, not a generated ledge
 
 ## Next Experiment
 
-The next implementation should improve the non-ML lexical baseline before choosing an embedding model:
+The next implementation should stress-test and explain the non-ML kernel before choosing an embedding model:
 
-1. normalize Unicode, punctuation, and word boundaries;
-2. weight exact title, title-token, section, collection, description, and domain matches differently;
-3. add a small reviewed alias and need vocabulary;
-4. decompose selected natural-language questions into multiple deterministic subqueries;
-5. merge rankings with a simple, explainable fusion method; and
-6. compare the result against this exact fixture.
+1. expand the fixture across collections, short queries, ambiguous terms, known negatives, and multilingual input;
+2. add per-result match explanations and explicit over-broad-query measurements;
+3. compare concept expansion with deterministic query decomposition and rank fusion;
+4. record latency on low-end mobile hardware and transfer-size behavior;
+5. document every model, embedding, dataset, and artifact license before a semantic experiment; and
+6. preserve negative results and aliases that create unacceptable false positives.
 
 Only after that baseline is understood should the project add static document embeddings and compare Matryoshka dimensions and numeric quantization.

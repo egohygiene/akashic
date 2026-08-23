@@ -48,6 +48,7 @@ site/
   i18n/                           Locale registry and stable-key message catalogs
   assets/                         Portal-owned static assets
 docs/localization.md              Locale architecture and human-review contract
+docs/navigation.md                Need-first paths, Markdown guide, and search contracts
 test/                             Dependency-free parser and Atlas schema tests
 dist/                             Generated local build output
 .github/workflows/
@@ -219,6 +220,13 @@ For every interface change:
 - Mark canonical English resource, taxonomy, advisory, place, and theme content with `lang="en"` when it appears inside a non-English document.
 - Never infer locale from IP address or use flags as language labels. Preserve a user's explicit language choice and URL state.
 - Treat machine translation as a draft requiring human review. Follow `docs/localization.md` when adding a locale or expanding the translation boundary.
+
+### Need-first navigation and guides
+
+- Follow `docs/navigation.md` when changing guide markers, need paths, search concepts, taxonomy controls, source links, or related paths.
+- Keep collection guidance inside canonical Markdown and generate its safe portal representation during the build.
+- Treat reviewed aliases as vocabulary bridges, not a second resource catalog or a place to restate resource facts.
+- Preserve the frozen search baseline when adding a versioned search algorithm and commit a deterministic comparison report.
 
 ### Mind-map behavior
 

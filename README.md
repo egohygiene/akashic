@@ -46,6 +46,7 @@
 ## Research and Architecture
 
 - [Browser-Native Search and Akashic Navigator Research](research/search/README.md) - Reproducible architecture, bibliography, human-judged evaluation queries, and experiments for browser-native semantic search and optional local agent guidance from a static GitHub Pages deployment.
+- [Need-First Navigation and Collection Guides](docs/navigation.md) - Markdown-owned orientation guides, situation paths, native taxonomy controls, versioned lexical search, and cognition/accessibility contracts.
 - [Localization Architecture](docs/localization.md) - English-default static routing, Russian reference translation, stable message catalogs, browser-native formatting, accessible language boundaries, and the workflow for adding reviewed locales without duplicating the canonical catalog.
 
 ## Meta

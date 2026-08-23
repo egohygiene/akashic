@@ -61,8 +61,11 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check site/app.js
+          node --check site/needs.js
           node --check site/search.js
           node --check site/search/and-substring-v1.js
+          node --check site/search/concepts-v1.js
+          node --check site/search/weighted-lexical-v2.js
           node --check scripts/evaluate-search.mjs
           node --check scripts/check-site.mjs
 
@@ -74,3 +77,6 @@ jobs:
 
       - name: Verify committed baseline
         run: node scripts/evaluate-search.mjs --verify research/search/results/and-substring-v1.json
+
+      - name: Verify active lexical experiment
+        run: node scripts/evaluate-search.mjs --algorithm site/search/weighted-lexical-v2.js --verify research/search/results/weighted-lexical-v2.json

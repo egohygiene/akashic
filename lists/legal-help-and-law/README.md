@@ -7,6 +7,8 @@
 
 Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
+<!-- site-guide:start -->
+
 > **Scope and safety:** This guide is primarily United States-oriented, with international and comparative gateways near the end. It provides legal information and navigation—not individualized legal advice, representation, or a prediction of outcome. Law changes across federal, state, tribal, territorial, local, and international systems, and small factual differences can change the answer. A hotline, intake form, complaint, negotiation, mediation, benefits application, or AI conversation usually does not pause a court, agency, eviction, immigration, election, appeal, or limitation deadline. Read every notice, calendar the earliest possible deadline, and use a qualified lawyer or authorized representative for consequential decisions.
 
 **Access language:** **Official** means a court, government, regulator, or intergovernmental source. **Nonprofit** describes the operator, not guaranteed free service. **Free** means no charge for the resource itself. **Eligibility** signals income, geography, issue, status, age, case-stage, or capacity limits. **Brief advice** is narrower than ongoing representation. **Directory** or **referral** does not endorse every provider or guarantee acceptance. **Commercial** may involve advertising, lead generation, subscriptions, transaction fees, or paid placement. **Library access** means a paid database may be available without direct charge through a participating institution. **Sensitive** signals that intake may request identity, financial, immigration, health, family, or case information.
@@ -115,6 +117,8 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 ### Phase boundary: national guide now, jurisdiction Atlas next
 
 This first pass builds the national and conceptual layer. The next phase should use one schema to map official federal, state, District of Columbia, territorial, tribal, and local law sources into both this collection and each relevant Akashic Atlas place. Each jurisdiction record should distinguish constitution or charter, legislature and code, regulations and register, courts and opinions, court self-help and forms, attorney licensing and discipline, legal aid, public defense, consumer and civil-rights enforcement, language and disability access, and authenticated or archival status. State-specific providers already in the Atlas remain there rather than being duplicated here.
+
+<!-- site-guide:end -->
 
 ## Start Here
 

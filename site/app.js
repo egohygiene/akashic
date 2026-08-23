@@ -1,5 +1,6 @@
 import { createMindMap } from "./mind-map.js";
-import { buildSearchText, createAndSubstringMatcher } from "./search.js";
+import { NEED_PATHS } from "./needs.js";
+import { buildSearchIndex, searchResources, suggestedQueries } from "./search.js";
 import { canonicalContentLanguage, number, plural, t } from "./i18n.js";
 
 const FAVORITES_KEY = "akashic-favorites";
@@ -24,7 +25,8 @@ function loadFavorites() {
 }
 
 function loadViewPreference() {
-  return readStorage(VIEW_KEY) === "list" ? "list" : "cards";
+  const saved = readStorage(VIEW_KEY);
+  return ["cards", "list", "text"].includes(saved) ? saved : "cards";
 }
 
 const state = {
@@ -47,27 +49,36 @@ let categoryBySlug = new Map();
 
 const elements = {
   catalogAdvisory: document.querySelector("#catalog-advisory"),
+  catalogBranch: document.querySelector("#catalog-branch-select"),
   catalogCollection: document.querySelector("#catalog-collection-select"),
   catalogContext: document.querySelector("#catalog-context"),
   catalogHeading: document.querySelector(".catalog-heading"),
   catalogSearch: document.querySelector("#catalog-search-input"),
   catalogSearchClear: document.querySelector("#catalog-search-clear"),
   catalogSearchForm: document.querySelector("#catalog-search-form"),
+  catalogTopic: document.querySelector("#catalog-topic-select"),
   categoryTotal: document.querySelector("#collection-total"),
   clear: document.querySelector("#clear-search"),
   collections: document.querySelector("#collection-grid"),
   empty: document.querySelector("#empty-state"),
+  emptySuggestions: document.querySelector("#empty-suggestions"),
   filters: document.querySelector("#filter-row"),
   form: document.querySelector("#search-form"),
   grid: document.querySelector("#resource-grid"),
+  guide: document.querySelector("#collection-guide"),
+  guideContent: document.querySelector("#collection-guide-content"),
+  guideSource: document.querySelector("#collection-guide-source"),
+  guideTitle: document.querySelector("#collection-guide-title"),
   heroSearchClear: document.querySelector("#hero-search-clear"),
   loadMore: document.querySelector("#load-more"),
+  needs: document.querySelector("#need-paths"),
   overviewBars: document.querySelector("#overview-collection-bars"),
   overviewBarsCount: document.querySelector("#overview-bars-count"),
   overviewDonut: document.querySelector("#overview-distribution-donut"),
   overviewDonutTotal: document.querySelector("#overview-donut-total"),
   overviewMetrics: document.querySelector("#overview-preview-metrics"),
   progress: document.querySelector("#scroll-progress"),
+  relatedPaths: document.querySelector("#related-paths"),
   resourceTotal: document.querySelector("#resource-total"),
   savedCount: document.querySelector("#saved-count"),
   savedFilter: document.querySelector("#saved-filter"),
@@ -80,6 +91,17 @@ const elements = {
 
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
 const canonicalLanguageAttribute = canonicalContentLanguage ? ` lang="${canonicalContentLanguage}"` : "";
+const headingSlug = (value) => value.toLocaleLowerCase("en-US").replace(/[^\p{Letter}\p{Number}\s-]/gu, "").trim().replace(/\s+/g, "-");
+
+function sourceUrl(source, section = "") {
+  return `https://github.com/egohygiene/akashic/blob/main/${source}${section ? `#${headingSlug(section)}` : ""}`;
+}
+
+function reportUrl(title = "") {
+  const params = new URLSearchParams({ template: "resource-update.yml" });
+  if (title) params.set("title", `Resource update: ${title}`);
+  return `https://github.com/egohygiene/akashic/issues/new?${params}`;
+}
 
 function currentCategory() {
   return categoryBySlug.get(state.category) || null;
@@ -138,7 +160,7 @@ function readUrlState(usePreference = false) {
     section: params.get("section") || "",
     domain: params.get("domain") || "",
     savedOnly: params.get("saved") === "1",
-    view: ["cards", "list"].includes(params.get("view")) ? params.get("view") : (usePreference ? loadViewPreference() : "cards"),
+    view: ["cards", "list", "text"].includes(params.get("view")) ? params.get("view") : (usePreference ? loadViewPreference() : "cards"),
   };
 }
 
@@ -162,7 +184,7 @@ function applyState(next, options = {}) {
   if (Object.hasOwn(next, "savedOnly")) state.savedOnly = next.savedOnly;
   if (Object.hasOwn(next, "domain")) state.domain = next.domain;
   if (Object.hasOwn(next, "view")) {
-    state.view = next.view === "list" ? "list" : "cards";
+    state.view = ["cards", "list", "text"].includes(next.view) ? next.view : "cards";
     writeStorage(VIEW_KEY, state.view);
   }
   state.limit = options.keepLimit ? state.limit : PAGE_SIZE;
@@ -176,12 +198,16 @@ function applyState(next, options = {}) {
   if (options.scroll) scrollToTarget(options.scroll, options.focusTarget);
 }
 
+function renderNeedPaths() {
+  elements.needs.innerHTML = NEED_PATHS.map((need) => `<button type="button" data-need-query="${escapeHtml(need.query)}"><span aria-hidden="true">${need.glyph}</span><span><strong>${escapeHtml(t(need.titleKey))}</strong><small>${escapeHtml(t(need.copyKey))}</small></span><b aria-hidden="true">→</b></button>`).join("");
+}
+
 function renderCollections() {
   elements.collections.innerHTML = state.catalog.categories.map((category, index) => `
     <article class="collection-path" style="--card-color:${category.color};--card-delay:${Math.min(index, 18) * 14}ms">
       <div class="collection-path-heading"><span class="collection-icon" aria-hidden="true">${category.glyph}</span><div><span class="collection-number">${String(index + 1).padStart(2, "0")}</span><h3${canonicalLanguageAttribute}>${escapeHtml(category.title)}</h3></div></div>
       <p${canonicalLanguageAttribute}>${escapeHtml(category.description)}</p>
-      <div class="collection-path-footer"><div class="collection-meta"><span>${plural("runtime.unit.resource", category.count)}</span><span>${plural("runtime.unit.branch", category.groups.length > 1 ? category.groups.length : category.sections.length)}</span></div><div class="collection-actions"><button type="button" data-browse-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.browseAria", { title: category.title }))}">${escapeHtml(t("runtime.action.browse"))} <span aria-hidden="true">→</span></button><button type="button" data-map-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.mapAria", { title: category.title }))}">${escapeHtml(t("runtime.action.map"))} <span aria-hidden="true">⌁</span></button></div></div>
+      <div class="collection-path-footer"><div class="collection-meta"><span>${plural("runtime.unit.resource", category.count)}</span><span>${plural("runtime.unit.branch", category.groups.length > 1 ? category.groups.length : category.sections.length)}</span></div><div class="collection-actions">${category.guide ? `<button type="button" data-guide-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.guideAria", { title: category.title }))}">${escapeHtml(t("runtime.action.guide"))} <span aria-hidden="true">↓</span></button>` : ""}<button type="button" data-browse-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.browseAria", { title: category.title }))}">${escapeHtml(t("runtime.action.browse"))} <span aria-hidden="true">→</span></button><button type="button" data-map-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.mapAria", { title: category.title }))}">${escapeHtml(t("runtime.action.map"))} <span aria-hidden="true">⌁</span></button></div></div>
     </article>`).join("");
 }
 
@@ -237,9 +263,39 @@ function renderFilterControls() {
   }
 }
 
+function replaceSelectOptions(select, options, value, disabled = false) {
+  select.replaceChildren(...options.map((item) => {
+    const option = document.createElement("option");
+    option.value = item.value;
+    option.textContent = item.label;
+    if (item.canonical && canonicalContentLanguage) option.lang = canonicalContentLanguage;
+    return option;
+  }));
+  select.disabled = disabled;
+  select.value = value;
+}
+
+function updateTaxonomyControls() {
+  const category = currentCategory();
+  elements.catalogCollection.value = state.category;
+  if (!category) {
+    replaceSelectOptions(elements.catalogBranch, [{ value: "", label: t("runtime.action.chooseCollectionFirst") }], "", true);
+    replaceSelectOptions(elements.catalogTopic, [{ value: "", label: t("runtime.action.chooseCollectionFirst") }], "", true);
+    return;
+  }
+  const hasBranches = category.groups.length > 1;
+  const branchOptions = hasBranches
+    ? [{ value: "", label: t("runtime.action.allBranches") }, ...category.groups.map((group) => ({ value: group.slug, label: `${group.title} · ${number(group.count)}`, canonical: true }))]
+    : [{ value: "", label: category.groups[0]?.title || category.title, canonical: true }];
+  replaceSelectOptions(elements.catalogBranch, branchOptions, state.group, !hasBranches);
+  const topics = currentGroup()?.sections || category.sections;
+  const topicOptions = [{ value: "", label: t("runtime.action.allTopics") }, ...topics.map((topic) => ({ value: topic.title, label: `${topic.title} · ${number(topic.count)}`, canonical: true }))];
+  replaceSelectOptions(elements.catalogTopic, topicOptions, state.section, false);
+}
+
 function updateFilterControls() {
   elements.filters.querySelectorAll("[data-filter]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.filter === state.category)));
-  elements.catalogCollection.value = state.category;
+  updateTaxonomyControls();
   elements.savedFilter.setAttribute("aria-pressed", String(state.savedOnly));
   elements.savedFilter.querySelector("span").textContent = state.savedOnly ? "♥" : "♡";
   elements.savedCount.textContent = number(state.favorites.size);
@@ -247,15 +303,15 @@ function updateFilterControls() {
 }
 
 function filteredResources() {
-  const matchesQuery = createAndSubstringMatcher(state.query);
-  const matches = state.catalog.resources.filter((resource) => {
+  const filtered = state.catalog.resources.filter((resource) => {
     if (state.savedOnly && !state.favorites.has(resource.url)) return false;
     if (state.category !== "all" && resource.categorySlug !== state.category) return false;
     if (state.group && resource.groupSlug !== state.group) return false;
     if (state.section && resource.section !== state.section) return false;
     if (state.domain && resource.domain !== state.domain) return false;
-    return matchesQuery(resource);
+    return true;
   });
+  const matches = state.query ? searchResources(filtered, state.query) : filtered;
   if (state.sort === "az") matches.sort((a, b) => a.title.localeCompare(b.title));
   if (state.sort === "za") matches.sort((a, b) => b.title.localeCompare(a.title));
   return matches;
@@ -267,10 +323,15 @@ function resourceCard(resource, index) {
   const accessLabels = resource.accessLabels?.length
     ? `<ul class="resource-labels" aria-label="${escapeHtml(t("runtime.app.accessPlatform"))}"${canonicalLanguageAttribute}>${resource.accessLabels.map((label) => `<li>${escapeHtml(label)}</li>`).join("")}</ul>`
     : "";
+  const taxonomy = [
+    `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" aria-label="${escapeHtml(t("runtime.app.filterCollectionAria", { title: resource.category }))}">${escapeHtml(resource.category)}</button>`,
+    resource.groupSlug ? `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" data-taxonomy-group="${escapeHtml(resource.groupSlug)}" aria-label="${escapeHtml(t("runtime.app.filterBranchAria", { title: resource.groupTitle }))}">${escapeHtml(resource.groupTitle)}</button>` : "",
+    `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" data-taxonomy-group="${escapeHtml(resource.groupSlug)}" data-taxonomy-section="${escapeHtml(resource.section)}" aria-label="${escapeHtml(t("runtime.app.filterTopicAria", { title: resource.section }))}">${escapeHtml(resource.section)}</button>`,
+  ].filter(Boolean).join("");
   return `<article class="resource-card" style="--category-color:${category?.color || "#7656d8"};--card-delay:${Math.min(index, 12) * 20}ms">
     <div class="resource-top"><span class="resource-domain">${escapeHtml(resource.domain)}</span><button class="favorite" type="button" data-favorite="${escapeHtml(resource.url)}" data-resource-title="${escapeHtml(resource.title)}" aria-label="${escapeHtml(t(favorite ? "runtime.app.favoriteRemove" : "runtime.app.favoriteAdd", { title: resource.title }))}" aria-pressed="${favorite}">${favorite ? "♥" : "♡"}</button></div>
     <h3${canonicalLanguageAttribute}><a href="${escapeHtml(resource.url)}" target="_blank" rel="noreferrer">${escapeHtml(resource.title)}<span class="sr-only">${escapeHtml(t("runtime.newTab"))}</span></a></h3>${accessLabels}<p${canonicalLanguageAttribute}>${escapeHtml(resource.description)}</p>
-    <div class="resource-footer"><div class="resource-taxonomy"${canonicalLanguageAttribute}><span>${escapeHtml(resource.category)}</span>${resource.groupSlug ? `<span>${escapeHtml(resource.groupTitle)}</span>` : ""}<span>${escapeHtml(resource.section)}</span></div><span class="visit-link" aria-hidden="true">↗</span></div>
+    <div class="resource-footer"><div class="resource-taxonomy"${canonicalLanguageAttribute}>${taxonomy}</div><span class="visit-link" aria-hidden="true">↗</span></div>
   </article>`;
 }
 
@@ -282,6 +343,18 @@ function addContextButton(parent, label, title, handler, { canonical = false } =
   if (canonical && canonicalContentLanguage) button.lang = canonicalContentLanguage;
   button.addEventListener("click", handler);
   parent.append(button);
+}
+
+function contextLink(label, href, { external = false } = {}) {
+  const link = document.createElement("a");
+  link.href = href;
+  link.textContent = label;
+  if (external) {
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    link.insertAdjacentHTML("beforeend", ' <span aria-hidden="true">↗</span>');
+  }
+  return link;
 }
 
 function renderContext() {
@@ -305,13 +378,43 @@ function renderContext() {
   if (state.domain) addContextButton(path, state.domain, t("runtime.action.showEveryDomain"), () => applyState({ domain: "" }, { historyMode: "push" }));
   if (state.savedOnly) addContextButton(path, t("runtime.action.saved"), t("runtime.action.showAllResources"), () => applyState({ savedOnly: false }, { historyMode: "push" }));
   elements.catalogContext.append(path);
+  const actions = document.createElement("div");
+  actions.className = "context-actions";
   if (category) {
     const mapLink = document.createElement("a");
     mapLink.href = "#mind-map";
     mapLink.innerHTML = `${escapeHtml(t("runtime.action.seePathMap"))} <span aria-hidden="true">⌁</span>`;
     mapLink.addEventListener("click", () => mindMap?.setSelection({ categorySlug: category.slug, groupSlug: state.group, section: state.section }));
-    elements.catalogContext.append(mapLink);
+    actions.append(mapLink);
+    const source = currentGroup()?.source || category.path;
+    actions.append(contextLink(t("runtime.action.readSource"), sourceUrl(source, state.section), { external: true }));
   }
+  actions.append(contextLink(t("runtime.action.reportUpdate"), reportUrl(category?.title || state.query), { external: true }));
+  elements.catalogContext.append(actions);
+}
+
+function renderCollectionGuide() {
+  const category = currentCategory();
+  const guide = category?.guide;
+  elements.guide.hidden = !guide;
+  if (!guide) {
+    elements.guide.open = false;
+    elements.guide.dataset.category = "";
+    elements.guideContent.replaceChildren();
+    return;
+  }
+  const changed = elements.guide.dataset.category !== category.slug;
+  elements.guide.dataset.category = category.slug;
+  if (changed) elements.guide.open = false;
+  elements.guideTitle.textContent = category.title;
+  if (canonicalContentLanguage) elements.guideTitle.lang = canonicalContentLanguage;
+  elements.guideContent.innerHTML = guide.html;
+  elements.guideSource.href = sourceUrl(guide.source);
+  const report = elements.guide.querySelector('a[href*="resource-update.yml"]');
+  if (report) report.href = reportUrl(category.title);
+  const related = category.relatedPaths || [];
+  elements.relatedPaths.hidden = related.length === 0;
+  elements.relatedPaths.querySelector("div").innerHTML = related.map((path) => `<button type="button" data-related-category="${escapeHtml(path.categorySlug)}" data-related-group="${escapeHtml(path.groupSlug)}" data-related-section="${escapeHtml(path.section)}"${canonicalLanguageAttribute}>${escapeHtml(path.title)} <span aria-hidden="true">→</span></button>`).join("");
 }
 
 function resultDescription(count, visibleCount) {
@@ -327,13 +430,24 @@ function resultDescription(count, visibleCount) {
   return `${amount}${parts.length ? ` · ${parts.join(" · ")}` : ""}`;
 }
 
+function renderEmptySuggestions() {
+  const suggestions = suggestedQueries(state.query);
+  elements.emptySuggestions.innerHTML = suggestions.map((query) => {
+    const need = NEED_PATHS.find((candidate) => candidate.query === query);
+    const label = need ? t(need.titleKey) : query;
+    return `<button type="button" data-suggested-query="${escapeHtml(query)}"${need || !canonicalContentLanguage ? "" : canonicalLanguageAttribute}>${escapeHtml(label)} <span aria-hidden="true">→</span></button>`;
+  }).join("");
+}
+
 function renderCatalog(options = {}) {
   const matches = filteredResources();
   const visible = matches.slice(0, state.limit);
   elements.grid.classList.toggle("suppress-reveal", options.suppressReveal === true);
   elements.grid.classList.toggle("is-compact", state.view === "list");
+  elements.grid.classList.toggle("is-text", state.view === "text");
   elements.grid.innerHTML = visible.map(resourceCard).join("");
   elements.empty.hidden = matches.length !== 0;
+  if (!matches.length) renderEmptySuggestions();
   elements.loadMore.hidden = visible.length >= matches.length;
   const remaining = Math.min(PAGE_SIZE, matches.length - visible.length);
   elements.loadMore.textContent = remaining > 0 ? t("runtime.action.showMore", { count: number(remaining) }) : t("runtime.action.showMoreResources");
@@ -343,6 +457,7 @@ function renderCatalog(options = {}) {
   elements.catalogAdvisory.hidden = !advisory;
   updateFilterControls();
   renderContext();
+  renderCollectionGuide();
 }
 
 function clearFilters() {
@@ -405,19 +520,40 @@ function submitSearch(value, focusTarget = false) {
 }
 
 function initializeEvents() {
+  elements.needs.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-need-query]");
+    if (button) submitSearch(button.dataset.needQuery, true);
+  });
   elements.collections.addEventListener("click", (event) => {
     const browse = event.target.closest("[data-browse-category]");
     const map = event.target.closest("[data-map-category]");
-    const slug = browse?.dataset.browseCategory || map?.dataset.mapCategory;
+    const guide = event.target.closest("[data-guide-category]");
+    const slug = browse?.dataset.browseCategory || map?.dataset.mapCategory || guide?.dataset.guideCategory;
     if (!slug) return;
-    applyState({ category: slug, group: "", section: "", savedOnly: false }, { historyMode: "push", hash: browse ? "#catalog" : "#mind-map", scroll: browse ? "#catalog" : "#mind-map", focusTarget: true });
+    const catalogIntent = browse || guide;
+    applyState({ category: slug, group: "", section: "", savedOnly: false }, { historyMode: "push", hash: catalogIntent ? "#catalog" : "#mind-map", scroll: catalogIntent ? (guide ? "#collection-guide" : "#catalog") : "#mind-map", focusTarget: true });
+    if (guide) {
+      elements.guide.open = true;
+      window.setTimeout(() => elements.guide.querySelector("summary")?.focus({ preventScroll: true }), prefersReducedMotion.matches ? 0 : 420);
+    }
   });
   elements.filters.addEventListener("click", (event) => {
     const button = event.target.closest("[data-filter]");
     if (button) applyState({ category: button.dataset.filter, group: "", section: "", savedOnly: false }, { historyMode: "push" });
   });
   elements.catalogCollection.addEventListener("change", () => applyState({ category: elements.catalogCollection.value, group: "", section: "", savedOnly: false }, { historyMode: "push" }));
+  elements.catalogBranch.addEventListener("change", () => applyState({ category: state.category, group: elements.catalogBranch.value, section: "", savedOnly: false }, { historyMode: "push" }));
+  elements.catalogTopic.addEventListener("change", () => applyState({ category: state.category, group: state.group, section: elements.catalogTopic.value, savedOnly: false }, { historyMode: "push" }));
+  elements.relatedPaths.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-related-category]");
+    if (button) applyState({ category: button.dataset.relatedCategory, group: button.dataset.relatedGroup, section: button.dataset.relatedSection, query: "", savedOnly: false }, { historyMode: "push", hash: "#catalog", scroll: "#catalog", focusTarget: true });
+  });
   elements.grid.addEventListener("click", (event) => {
+    const taxonomy = event.target.closest("[data-taxonomy-category]");
+    if (taxonomy) {
+      applyState({ category: taxonomy.dataset.taxonomyCategory, group: taxonomy.dataset.taxonomyGroup || "", section: taxonomy.dataset.taxonomySection || "", savedOnly: false }, { historyMode: "push" });
+      return;
+    }
     const button = event.target.closest("[data-favorite]");
     if (!button) return;
     const url = button.dataset.favorite;
@@ -433,6 +569,10 @@ function initializeEvents() {
       renderCatalog();
       (elements.grid.querySelectorAll("[data-favorite]")[Math.min(cardIndex, elements.grid.querySelectorAll("[data-favorite]").length - 1)] || elements.savedFilter).focus();
     }
+  });
+  elements.emptySuggestions.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-suggested-query]");
+    if (button) submitSearch(button.dataset.suggestedQuery, true);
   });
   elements.search.addEventListener("input", () => scheduleSearch(elements.search.value));
   elements.catalogSearch.addEventListener("input", () => scheduleSearch(elements.catalogSearch.value));
@@ -478,13 +618,14 @@ async function initialize() {
   if (!response.ok) throw new Error(`Catalog request failed: ${response.status}`);
   state.catalog = await response.json();
   categoryBySlug = new Map(state.catalog.categories.map((category) => [category.slug, category]));
-  for (const resource of state.catalog.resources) resource.searchText = buildSearchText(resource);
+  for (const resource of state.catalog.resources) resource.searchIndex = buildSearchIndex(resource);
   const requested = readUrlState(true);
   const explorer = normalizeExplorer(requested);
   Object.assign(state, requested, explorer);
   elements.resourceTotal.textContent = number(state.catalog.resourceCount);
   elements.categoryTotal.textContent = number(state.catalog.categories.length);
   setSearchInputs(state.query);
+  renderNeedPaths();
   renderOverviewPreview();
   renderCollections();
   renderFilterControls();

@@ -13,7 +13,7 @@ const rankedCounts = (values, limit = Infinity) => {
     .sort((left, right) => right.count - left.count || left.name.localeCompare(right.name))
     .slice(0, limit);
 };
-for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "ru/index.html", "ru/dashboard.html", "ru/atlas.html", "styles.css", "dashboard.css", "atlas.css", "app.js", "dashboard.js", "search.js", "search/and-substring-v1.js", "mind-map.js", "atlas.js", "i18n.js", "i18n/locales.json", "i18n/en.json", "i18n/ru.json", "assets/favicon.svg", "data/catalog.json", "data/overview.json", "data/funding.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
+for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "ru/index.html", "ru/dashboard.html", "ru/atlas.html", "styles.css", "dashboard.css", "atlas.css", "app.js", "dashboard.js", "needs.js", "search.js", "search/and-substring-v1.js", "search/concepts-v1.js", "search/weighted-lexical-v2.js", "mind-map.js", "atlas.js", "i18n.js", "i18n/locales.json", "i18n/en.json", "i18n/ru.json", "assets/favicon.svg", "data/catalog.json", "data/overview.json", "data/funding.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
   await access(path.join(output, relativePath));
 }
 
@@ -77,8 +77,15 @@ for (const category of catalog.categories) {
     if (groupResources.length !== group.count) throw new Error(`Mind-map group count is inconsistent for ${category.title} / ${group.title}.`);
     const groupSectionCount = group.sections.reduce((sum, section) => sum + section.count, 0);
     if (groupSectionCount !== group.count) throw new Error(`Mind-map group topics are inconsistent for ${category.title} / ${group.title}.`);
+    if (!group.source) throw new Error(`Collection branch has no canonical source: ${category.title} / ${group.title}.`);
+  }
+  if (category.guide && (!category.guide.source || !category.guide.html.includes("guide-warning") || !category.guide.html.includes("<h3>") || /<script/i.test(category.guide.html))) throw new Error(`Collection guide is incomplete or unsafe for ${category.title}.`);
+  if (!Array.isArray(category.relatedPaths)) throw new Error(`Related paths are invalid for ${category.title}.`);
+  for (const related of category.relatedPaths) {
+    if (!catalog.categories.some((candidate) => candidate.slug === related.categorySlug)) throw new Error(`Related path points to an unknown collection: ${category.title} / ${related.title}.`);
   }
 }
+if (catalog.categories.filter((category) => category.guide).length < 3) throw new Error("Business, Travel, and Legal collection guides were not published.");
 
 const urls = catalog.resources.map((resource) => resource.url.toLocaleLowerCase().replace(/\/$/, ""));
 if (new Set(urls).size !== urls.length) throw new Error("The catalog contains duplicate normalized URLs.");
@@ -163,16 +170,21 @@ for (const locale of locales.locales) {
 }
 
 const homeHtml = await readFile(path.join(output, "index.html"), "utf8");
-for (const marker of ["overview-preview", "overview-preview-metrics", "overview-distribution-donut", "overview-collection-bars"]) {
+for (const marker of ["need-paths", "overview-preview", "overview-preview-metrics", "overview-distribution-donut", "overview-collection-bars", "collection-guide", "catalog-branch-select", "catalog-topic-select", "empty-suggestions"]) {
   if (!homeHtml.includes(`id="${marker}"`)) throw new Error(`The homepage overview is missing #${marker}.`);
 }
 const homeApp = await readFile(path.join(output, "app.js"), "utf8");
 if (!homeApp.includes("conic-gradient(from -90deg") || !homeApp.includes('class="overview-bar-row"')) throw new Error("The homepage overview charts are not rendered.");
-if (!homeApp.includes('class="collection-path"') || homeApp.includes('class="collection-card"')) throw new Error("The homepage collection directory is not using the compact layout.");
+if (!homeApp.includes('class="collection-path"') || !homeApp.includes("renderCollectionGuide") || !homeApp.includes("updateTaxonomyControls")) throw new Error("The homepage collection navigation is incomplete.");
 if (!homeApp.includes('class="resource-labels"')) throw new Error("Structured resource access labels are not rendered.");
 
 const styles = await readFile(path.join(output, "styles.css"), "utf8");
 if (!styles.includes(".resource-card h3 a:focus-visible::after") || !styles.includes("outline: 3px solid var(--cyan)")) throw new Error("Primary resource-card links have no visible focus-ring contract.");
+for (const contract of [".need-paths", ".collection-guide", ".catalog-taxonomy-controls", ".resource-grid.is-text", "@media print", "gap: 15px"]) {
+  if (!styles.includes(contract)) throw new Error(`The need-first, guide, or spacious-card visual contract is missing: ${contract}`);
+}
+const activeSearch = await readFile(path.join(output, "search/weighted-lexical-v2.js"), "utf8");
+if (!activeSearch.includes('SEARCH_ALGORITHM_ID = "weighted-lexical-v2"') || !activeSearch.includes("normalize(\"NFKD\")") || !activeSearch.includes("SEARCH_CONCEPTS")) throw new Error("The weighted lexical search contract is incomplete.");
 for (const fileName of ["app.js", "dashboard.js", "atlas.js"]) {
   const javascript = await readFile(path.join(output, fileName), "utf8");
   if (!javascript.includes("runtime.theme.light") || !javascript.includes("runtime.theme.dark")) throw new Error(`Theme-toggle labels are not localized in ${fileName}.`);

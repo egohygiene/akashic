@@ -1,0 +1,59 @@
+name: Resource update or problem
+description: Report a dead link, changed access condition, inaccurate description, or stronger official source.
+title: "[Update]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep Akashic accurate. A report creates a human review task; automation does not silently remove or rewrite resources.
+
+  - type: input
+    id: resource
+    attributes:
+      label: Resource or Akashic path
+      description: Paste the resource URL, collection URL, or canonical Markdown source path.
+      placeholder: https://example.org/
+    validations:
+      required: true
+
+  - type: dropdown
+    id: change
+    attributes:
+      label: What changed?
+      options:
+        - Link is dead or redirects incorrectly
+        - Price, free tier, eligibility, or account requirement changed
+        - Description or safety warning is inaccurate
+        - Official source moved or a stronger canonical source exists
+        - Accessibility, privacy, region, language, or platform access changed
+        - Duplicate or wrong collection placement
+        - Other maintenance concern
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What did you observe?
+      description: Describe the current behavior and include a replacement or official evidence link when available. Do not post private case, health, identity, financial, or account information.
+    validations:
+      required: true
+
+  - type: input
+    id: checked
+    attributes:
+      label: Date checked
+      description: Use YYYY-MM-DD so reviewers can distinguish a current observation from an older one.
+      placeholder: 2026-08-23
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Review notes
+      options:
+        - label: I opened the resource or controlling source myself.
+          required: true
+        - label: This report does not include sensitive personal information.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true

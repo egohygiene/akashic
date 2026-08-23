@@ -46,6 +46,7 @@ scripts/
 site/                        ← dependency-free portal source
   i18n/                     ← locale registry and message catalogs
 docs/localization.md         ← locale architecture and review workflow
+docs/navigation.md           ← need-first paths, collection guides, and search conventions
 test/                        ← dependency-free parser and schema tests
 ```
 
@@ -142,6 +143,12 @@ English is the canonical source language. Russian is the reference locale, and n
 - Keep machine-generated translation in draft status until a person reviews it in context.
 - Do not translate resource facts or geographic names directly in JavaScript. Future reviewed content overlays will be keyed to stable canonical identifiers.
 - Test generated locale routes at narrow and wide widths, including keyboard navigation, both themes, and language changes for assistive technology.
+
+## Publishing Collection Guidance
+
+Important orientation, warnings, decision tables, and starting paths belong in the canonical collection Markdown. A top-level list may expose one coherent region in the portal with `<!-- site-guide:start -->` and `<!-- site-guide:end -->` markers. Do not copy the guide into HTML or JavaScript.
+
+Need-first paths and search aliases must reuse canonical catalog fields instead of maintaining another resource list. Read [Need-first navigation and collection guides](docs/navigation.md) before changing guide markers, `site/needs.js`, search concepts, related paths, or catalog taxonomy controls.
 
 ## Removing or Updating a Resource
 
