@@ -34,6 +34,7 @@ lists/
     README.md                     Nested collection hub
     <subcollection>/README.md     Focused Awesome Abundance lists
 scripts/
+  lib/                            Shared catalog and Atlas parsing/validation modules
   validate-collection.mjs         Repository-wide structural and duplicate checks
   build-site.mjs                  Markdown-to-static-catalog generator
   check-site.mjs                  Generated portal contract checks
@@ -43,9 +44,11 @@ site/
   app.js                          Catalog, filtering, search, favorites, and URL state
   mind-map.js                     Interactive collection and topic map
   assets/                         Portal-owned static assets
+test/                             Dependency-free parser and Atlas schema tests
 dist/                             Generated local build output
 .github/workflows/
   awesome-lint.yml                Collection validation and Awesome Lint
+  quality.yml                     Full PR syntax, test, lint, build, and site gate
   pages.yml                       Independent GitHub Pages build and deployment
 ```
 
@@ -264,6 +267,14 @@ node scripts/build-site.mjs
 node scripts/check-site.mjs
 ```
 
+### Dependency-free tests
+
+Run the focused parser, URL-identity, collection-identity, and Atlas schema suite:
+
+```sh
+node --test
+```
+
 ### JavaScript changes
 
 Run syntax checks for every edited script, for example:
@@ -318,4 +329,3 @@ A change is complete only when:
 - Relevant browser, responsive, keyboard, and accessibility behavior is verified for UI work.
 - No temporary lint input, generated clutter, secrets, or unrelated edits remain.
 - The pull request accurately documents the result and its live checks are green.
-

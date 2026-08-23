@@ -261,9 +261,12 @@ function filteredResources() {
 function resourceCard(resource, index) {
   const favorite = state.favorites.has(resource.url);
   const category = categoryBySlug.get(resource.categorySlug);
+  const accessLabels = resource.accessLabels?.length
+    ? `<ul class="resource-labels" aria-label="Access and platform">${resource.accessLabels.map((label) => `<li>${escapeHtml(label)}</li>`).join("")}</ul>`
+    : "";
   return `<article class="resource-card" style="--category-color:${category?.color || "#7656d8"};--card-delay:${Math.min(index, 12) * 20}ms">
     <div class="resource-top"><span class="resource-domain">${escapeHtml(resource.domain)}</span><button class="favorite" type="button" data-favorite="${escapeHtml(resource.url)}" data-resource-title="${escapeHtml(resource.title)}" aria-label="${favorite ? "Remove" : "Add"} ${escapeHtml(resource.title)} ${favorite ? "from" : "to"} saved resources" aria-pressed="${favorite}">${favorite ? "♥" : "♡"}</button></div>
-    <h3><a href="${escapeHtml(resource.url)}" target="_blank" rel="noreferrer">${escapeHtml(resource.title)}<span class="sr-only"> (opens in a new tab)</span></a></h3><p>${escapeHtml(resource.description)}</p>
+    <h3><a href="${escapeHtml(resource.url)}" target="_blank" rel="noreferrer">${escapeHtml(resource.title)}<span class="sr-only"> (opens in a new tab)</span></a></h3>${accessLabels}<p>${escapeHtml(resource.description)}</p>
     <div class="resource-footer"><div class="resource-taxonomy"><span>${escapeHtml(resource.category)}</span>${resource.groupSlug ? `<span>${escapeHtml(resource.groupTitle)}</span>` : ""}<span>${escapeHtml(resource.section)}</span></div><span class="visit-link" aria-hidden="true">↗</span></div>
   </article>`;
 }

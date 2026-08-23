@@ -1,0 +1,80 @@
+name: Akashic quality
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "quality-${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Syntax, tests, collections, and portal
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20
+
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          while IFS= read -r -d "" javascript_file; do
+            node --check "${javascript_file}"
+          done < <(find "scripts" "site" "test" -type f \( -name "*.js" -o -name "*.mjs" \) -print0 | sort --zero-terminated)
+
+      - name: Run dependency-free tests
+        run: node --test
+
+      - name: Validate collection
+        run: node scripts/validate-collection.mjs
+
+      - name: Lint all resource lists
+        shell: bash
+        run: |
+          while IFS= read -r awesome_list_readme; do
+            awesome_list_directory="$(dirname "${awesome_list_readme}")"
+            awesome_lint_input="${awesome_list_directory}/.awesome-lint-input.md"
+
+            {
+              printf "%s\n" "<!--lint disable awesome-contributing awesome-github double-link-->"
+              sed '1{/^<!--lint disable awesome-git-repo-age-->$/d;}' "${awesome_list_readme}"
+            } > "${awesome_lint_input}"
+
+            if ! npx --yes "awesome-lint@2.3.0" "${awesome_lint_input}"; then
+              rm "${awesome_lint_input}"
+              exit 1
+            fi
+
+            rm "${awesome_lint_input}"
+          done < <(find "lists" -name "README.md" -not -path "lists/awesome-abundance/README.md" | sort)
+
+      - name: Build and verify byte stability
+        shell: bash
+        run: |
+          node scripts/build-site.mjs
+          find "dist" -type f -print0 | sort --zero-terminated | xargs --null sha256sum > "${RUNNER_TEMP}/akashic-build-one.sha256"
+          node scripts/build-site.mjs
+          find "dist" -type f -print0 | sort --zero-terminated | xargs --null sha256sum > "${RUNNER_TEMP}/akashic-build-two.sha256"
+          diff --unified "${RUNNER_TEMP}/akashic-build-one.sha256" "${RUNNER_TEMP}/akashic-build-two.sha256"
+
+      - name: Verify generated portal
+        run: node scripts/check-site.mjs

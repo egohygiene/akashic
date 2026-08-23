@@ -1,6 +1,8 @@
 import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
+import { normalizeUrl, parseResourceEntry, parseRootCategories } from "./lib/catalog.mjs";
+import { validateAtlasHierarchy } from "./lib/atlas.mjs";
 
 const root = process.cwd();
 const sourceDirectory = path.join(root, "site");
@@ -11,32 +13,6 @@ const fundingFile = path.join(root, ".github", "FUNDING.yml");
 const ROOT_GROUP_SLUG = "__root__";
 const ATLAS_ROLES = new Set(["resource", "index"]);
 const FUNDING_PLACEHOLDER = "<!-- akashic-funding-badges -->";
-
-const CATEGORY_IDENTITIES = {
-  "awesome-abundance": { color: "#d1459f", glyph: "✦" },
-  "artificial-intelligence": { color: "#7656d8", glyph: "⌘" },
-  "business-and-entrepreneurship": { color: "#c4862d", glyph: "◫" },
-  "commerce-and-marketplaces": { color: "#c74b6f", glyph: "◧" },
-  "containers-and-cloud": { color: "#0b877f", glyph: "◌" },
-  "creative-resources": { color: "#c9542d", glyph: "△" },
-  "developer-tools": { color: "#508c32", glyph: "◇" },
-  "health-and-well-being": { color: "#2f72c4", glyph: "☼" },
-  "legal-help-and-law": { color: "#2d7f91", glyph: "§" },
-  neuroscience: { color: "#b23f91", glyph: "◎" },
-  "open-source": { color: "#6847bd", glyph: "∞" },
-  psychedelics: { color: "#087c76", glyph: "⚗" },
-  "public-services-and-support": { color: "#bd4b2a", glyph: "◈" },
-  research: { color: "#4d8430", glyph: "⌁" },
-  "research-funding-and-grants": { color: "#286bb8", glyph: "✺" },
-  "scientific-research": { color: "#b23882", glyph: "⬡" },
-  security: { color: "#6543b6", glyph: "◐" },
-  "self-hosting-and-homelab": { color: "#08766f", glyph: "✧" },
-  "spirituality-religion-and-occult": { color: "#b64827", glyph: "☿" },
-  "tex-and-typesetting": { color: "#477c2d", glyph: "∑" },
-  "travel-and-mobility": { color: "#3978c4", glyph: "⌖" },
-  "web-development": { color: "#2867ad", glyph: "⌬" },
-  "work-and-learning": { color: "#a9387c", glyph: "◒" },
-};
 
 const FUNDING_PLATFORMS = {
   buy_me_a_coffee: { label: "Buy Me a Coffee", glyph: "☕", url: (value) => `https://www.buymeacoffee.com/${encodeURIComponent(value)}` },
@@ -55,7 +31,6 @@ const FUNDING_PLATFORMS = {
   tidelift: { label: "Tidelift", glyph: "△", url: (value) => `https://tidelift.com/subscription/pkg/${value.split("/").map(encodeURIComponent).join("/")}` },
 };
 
-const slugify = (value) => value.toLocaleLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 const parseAdvisory = (markdown) => markdown.match(/^<!-- site-advisory: (.+) -->$/m)?.[1].trim() || "";
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
 
@@ -114,18 +89,6 @@ async function findReadmes(directory) {
   return files.flat();
 }
 
-function parseRootCategories(markdown) {
-  const categoryPattern = /^- \[([^\]]+)]\((lists\/([^/]+)\/README\.md)\) - (.+?) \*\*(\d[\d,]*) resources\.\*\*$/gm;
-  return [...markdown.matchAll(categoryPattern)].map((match) => ({
-    title: match[1],
-    path: match[2],
-    slug: match[3],
-    description: match[4],
-    declaredCount: Number(match[5].replaceAll(",", "")),
-    ...(CATEGORY_IDENTITIES[match[3]] || { color: "#7656d8", glyph: "✦" }),
-  }));
-}
-
 function parseResources(markdown, category, filePath) {
   let section = category.title;
   const resources = [];
@@ -137,14 +100,12 @@ function parseResources(markdown, category, filePath) {
   for (const line of markdown.split("\n")) {
     const heading = line.match(/^##\s+(.+)$/);
     if (heading && heading[1] !== "Contents") section = heading[1].trim();
-    const entry = line.match(/^- \[([^\]]+)]\((https?:\/\/[^)]+)\) - (.+)$/);
+    const entry = parseResourceEntry(line, { extractLeadingLabels: groupSlug === "creative-tools-and-production" });
     if (!entry) continue;
     let domain = "web";
-    try { domain = new URL(entry[2]).hostname.replace(/^www\./, ""); } catch {}
+    try { domain = new URL(entry.url).hostname.replace(/^www\./, ""); } catch {}
     resources.push({
-      title: entry[1].trim(),
-      url: entry[2].trim(),
-      description: entry[3].trim(),
+      ...entry,
       domain,
       category: category.title,
       categorySlug: category.slug,
@@ -155,16 +116,6 @@ function parseResources(markdown, category, filePath) {
     });
   }
   return resources;
-}
-
-function normalizeUrl(url) {
-  const parsed = new URL(url);
-  parsed.hash = "";
-  for (const parameter of [...parsed.searchParams.keys()]) {
-    if (/^(utm_|ref$|source$)/i.test(parameter)) parsed.searchParams.delete(parameter);
-  }
-  const normalizedPath = parsed.pathname === "/" ? "/" : parsed.pathname.replace(/\/+$/, "");
-  return `${parsed.hostname.replace(/^www\./, "").toLocaleLowerCase()}${parsed.port ? `:${parsed.port}` : ""}${normalizedPath}${parsed.search}`;
 }
 
 function parseAtlasPlace(markdown, filePath) {
@@ -197,27 +148,7 @@ function parseAtlasPlace(markdown, filePath) {
 
 async function buildAtlas(catalogResources) {
   const hierarchy = JSON.parse(await readFile(path.join(atlasDirectory, "locations.json"), "utf8"));
-  if (hierarchy.schemaVersion !== 1 || !Array.isArray(hierarchy.locations)) throw new Error("Unsupported atlas location schema.");
-  const locationById = new Map(hierarchy.locations.map((location) => [location.id, location]));
-  if (locationById.size !== hierarchy.locations.length) throw new Error("The atlas contains duplicate location IDs.");
-  if (!locationById.has(hierarchy.rootId)) throw new Error("The atlas root location does not exist.");
-  for (const location of hierarchy.locations) {
-    if (!location.id || !location.name || !location.kind || !location.geometry || !location.camera) throw new Error(`Incomplete atlas location: ${location.id || "unknown"}`);
-    if (location.geometry.dataset === "point") {
-      const validCoordinates = Array.isArray(location.geometry.coordinates) && location.geometry.coordinates.length === 2 && location.geometry.coordinates.every(Number.isFinite);
-      const validMapPosition = Array.isArray(location.geometry.mapPosition) && location.geometry.mapPosition.length === 2 && location.geometry.mapPosition.every((value) => Number.isFinite(value) && value >= 0 && value <= 1);
-      if (!validCoordinates || !validMapPosition) throw new Error(`Invalid atlas point geometry for ${location.id}.`);
-    }
-    if (location.parentId && !locationById.has(location.parentId)) throw new Error(`Unknown atlas parent ${location.parentId} for ${location.id}.`);
-    location.children = hierarchy.locations.filter((candidate) => candidate.parentId === location.id).map((candidate) => candidate.id);
-    const visited = new Set([location.id]);
-    let parentId = location.parentId;
-    while (parentId) {
-      if (visited.has(parentId)) throw new Error(`Atlas hierarchy cycle detected at ${location.id}.`);
-      visited.add(parentId);
-      parentId = locationById.get(parentId).parentId;
-    }
-  }
+  const locationById = validateAtlasHierarchy(hierarchy);
 
   const placeDirectory = path.join(atlasDirectory, "places");
   const placeFiles = (await readdir(placeDirectory, { withFileTypes: true }))
@@ -283,7 +214,6 @@ async function buildAtlas(catalogResources) {
     location.covered = isCovered(location);
   }
   return {
-    generatedAt: new Date().toISOString(),
     schemaVersion: hierarchy.schemaVersion,
     rootId: hierarchy.rootId,
     locationCount: hierarchy.locations.length,
@@ -333,7 +263,6 @@ function buildOverview(catalog) {
   const uniqueDomains = new Set(catalog.resources.map((resource) => resource.domain));
   return {
     schemaVersion: 1,
-    generatedAt: catalog.generatedAt,
     resourceCount: catalog.resourceCount,
     collectionCount: categories.length,
     sourceFileCount: sourceFiles.size,
@@ -397,9 +326,7 @@ async function build() {
     }
   }
 
-  const generatedAt = new Date().toISOString();
   const catalog = {
-    generatedAt,
     resourceCount: uniqueResources.length,
     categories,
     resources: uniqueResources,
