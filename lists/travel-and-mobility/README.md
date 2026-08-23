@@ -7,6 +7,8 @@
 
 Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
+<!-- site-guide:start -->
+
 > **Scope and safety:** Travel rules, prices, routes, border controls, advisories, accessibility, insurance, and platform terms change constantly. A marketplace listing or booking confirmation does not prove that a stay, job, vehicle, visa, or activity is legal or safe. Official border and transport authorities control admission and operation; a clinician should handle individualized health decisions; and legal, tax, employment, tenancy, and residency questions can require qualified local help. This guide is an orientation layer, not a guarantee, endorsement, or substitute for current official instructions.
 
 **Access language:** **Official** means a government, regulator, public operator, or intergovernmental source. **Open** means openly licensed software or knowledge. **Free** means no usage fee for the resource itself. **Freemium** means a continuing limited free path exists. **Metasearch** compares options and normally redirects elsewhere. **OTA/retailer** takes or services a booking as an intermediary. **Pay-per-use** has transaction or booking charges without a base subscription. **Membership** recurs or requires dues. **Advisor** may charge planning fees, earn supplier commission, or both. **Quote** means pricing is negotiated or itinerary-specific. **Eligibility** and **region** signal access limits.
@@ -89,6 +91,8 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 4. Save confirmations, policy wording, document copies, emergency contacts, and critical addresses somewhere available offline.
 5. Share an itinerary or check-in plan with a trusted person and keep backup money, identification, medication, and communications separate from the main set.
 6. Recheck official alerts, weather, strikes, schedule changes, and border requirements shortly before departure and while traveling.
+
+<!-- site-guide:end -->
 
 ## Official Starting Points
 

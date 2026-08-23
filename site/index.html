@@ -78,6 +78,14 @@
         <a href="atlas.html"><span>04</span><div><strong>Explore knowledge by place</strong><small>Move from the world toward local resources</small></div><b aria-hidden="true">→</b></a>
       </nav>
 
+      <section class="need-first-section" id="needs" aria-labelledby="needs-title">
+        <div class="section-heading">
+          <div><p class="kicker">Begin with real life</p><h2 id="needs-title">Start by what you need.</h2></div>
+          <p>You do not need to know the right agency, collection, product, or technical term. Choose the situation closest to yours.</p>
+        </div>
+        <div class="need-paths" id="need-paths" aria-label="Start by what you need"></div>
+      </section>
+
       <section class="overview-preview" id="overview-preview" aria-labelledby="overview-preview-title">
         <div class="section-heading overview-preview-heading">
           <div><p class="kicker">The archive at a glance</p><h2 id="overview-preview-title">See the whole constellation.</h2></div>
@@ -110,7 +118,7 @@
       <section class="collections-section" id="collections" aria-labelledby="collections-title">
         <div class="section-heading">
           <div><p class="kicker">Choose a path</p><h2 id="collections-title">Collection directory</h2></div>
-          <p>A compact way into every collection. Browse its resources or place it in the knowledge map.</p>
+          <p>A calmer doorway into every collection. Read its guide, browse its resources, or place it in the knowledge map.</p>
         </div>
         <div class="collection-grid" id="collection-grid"></div>
       </section>
@@ -161,6 +169,17 @@
         </div>
         <p class="collection-advisory" id="catalog-advisory" hidden></p>
         <div class="catalog-context" id="catalog-context" hidden></div>
+        <details class="collection-guide" id="collection-guide" hidden>
+          <summary><span>Collection guide</span><strong id="collection-guide-title">Orientation before links</strong><b aria-hidden="true">＋</b></summary>
+          <div class="collection-guide-panel">
+            <div class="collection-guide-meta">
+              <p>Preserved from the canonical Markdown guide.</p>
+              <div><a id="collection-guide-source" href="https://github.com/egohygiene/akashic" target="_blank" rel="noreferrer">Read the source <span aria-hidden="true">↗</span></a><a href="https://github.com/egohygiene/akashic/issues/new?template=resource-update.yml" target="_blank" rel="noreferrer">Report or update <span aria-hidden="true">↗</span></a></div>
+            </div>
+            <div class="collection-guide-content" id="collection-guide-content" lang="en"></div>
+            <nav class="related-paths" id="related-paths" aria-label="Related Akashic paths" hidden><span>Related paths</span><div></div></nav>
+          </div>
+        </details>
         <div class="catalog-toolbar" id="catalog-toolbar">
           <form class="catalog-search" id="catalog-search-form" role="search" aria-label="Search the resource catalog">
             <label class="sr-only" for="catalog-search-input">Search the resource catalog</label><span aria-hidden="true">⌕</span>
@@ -172,19 +191,26 @@
             <div class="view-switch" role="group" aria-label="Resource layout">
               <button type="button" id="view-cards" data-catalog-view="cards" aria-pressed="true"><span aria-hidden="true">▦</span> Cards</button>
               <button type="button" id="view-list" data-catalog-view="list" aria-pressed="false"><span aria-hidden="true">☷</span> Compact</button>
+              <button type="button" id="view-text" data-catalog-view="text" aria-pressed="false"><span aria-hidden="true">≡</span> Text</button>
             </div>
             <button class="saved-filter" id="saved-filter" type="button" aria-pressed="false"><span aria-hidden="true">♡</span> Saved <b id="saved-count">0</b></button>
             <label class="sort-control"><span>Sort</span><select id="sort-select"><option value="featured">Curated order</option><option value="az">A–Z</option><option value="za">Z–A</option></select></label>
           </div>
-          <label class="mobile-collection-select"><span>Collection</span><select id="catalog-collection-select"><option value="all">All collections</option></select></label>
+          <div class="catalog-taxonomy-controls">
+            <label><span>Collection</span><select id="catalog-collection-select"><option value="all">All collections</option></select></label>
+            <label><span>Branch</span><select id="catalog-branch-select" disabled><option value="">Choose a collection first</option></select></label>
+            <label><span>Topic</span><select id="catalog-topic-select" disabled><option value="">Choose a collection first</option></select></label>
+          </div>
           <div class="filter-row" id="filter-row" role="group" aria-label="Filter by collection"></div>
         </div>
         <div class="resource-grid" id="resource-grid"></div>
         <div class="empty-state" id="empty-state" hidden>
           <span aria-hidden="true">✦</span><h3>No matching stars yet</h3><p>Try another phrase or choose a different collection.</p>
+          <div class="empty-suggestions" id="empty-suggestions" aria-label="Suggested searches"></div>
           <button class="button button-primary" id="clear-search" type="button">Clear filters</button>
         </div>
         <button class="load-more" id="load-more" type="button" hidden>Show more resources</button>
+        <aside class="catalog-maintenance"><div><strong>Something changed?</strong><span>Report a dead link, changed price, access problem, or better official source.</span></div><a href="https://github.com/egohygiene/akashic/issues/new?template=resource-update.yml" target="_blank" rel="noreferrer">Report or update <span aria-hidden="true">↗</span></a></aside>
       </section>
 
       <section class="more-knowledge" aria-labelledby="more-title">

@@ -3,6 +3,7 @@ import path from "node:path";
 import process from "node:process";
 import { normalizeUrl, parseResourceEntry, parseRootCategories } from "./lib/catalog.mjs";
 import { validateAtlasHierarchy } from "./lib/atlas.mjs";
+import { parseRelatedPaths, parseSiteGuide } from "./lib/guide.mjs";
 import { loadLocales, localizeHtml } from "./lib/i18n.mjs";
 
 const root = process.cwd();
@@ -34,6 +35,7 @@ const FUNDING_PLATFORMS = {
 
 const parseAdvisory = (markdown) => markdown.match(/^<!-- site-advisory: (.+) -->$/m)?.[1].trim() || "";
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
+const headingSlug = (value) => value.toLocaleLowerCase("en-US").replace(/[^\p{Letter}\p{Number}\s-]/gu, "").trim().replace(/\s+/g, "-");
 
 function parseFundingValues(value) {
   const normalized = value.trim();
@@ -294,7 +296,11 @@ async function build() {
     const category = categoryBySlug.get(categorySlug);
     if (!category) continue;
     const markdown = await readFile(filePath, "utf8");
-    if (relative === path.join(categorySlug, "README.md")) category.advisory = parseAdvisory(markdown);
+    if (relative === path.join(categorySlug, "README.md")) {
+      category.advisory = parseAdvisory(markdown);
+      category.guide = parseSiteGuide(markdown, path.relative(root, filePath).split(path.sep).join("/"));
+      category.relatedPaths = parseRelatedPaths(markdown, path.relative(root, filePath).split(path.sep).join("/"));
+    }
     resources.push(...parseResources(markdown, category, filePath));
   }
 
@@ -315,21 +321,34 @@ async function build() {
     const groupMap = new Map();
     for (const resource of categoryResources) {
       const key = resource.groupSlug || category.slug;
-      if (!groupMap.has(key)) groupMap.set(key, { slug: resource.groupSlug, title: resource.groupTitle, count: 0, sections: new Map() });
+      if (!groupMap.has(key)) groupMap.set(key, { slug: resource.groupSlug, title: resource.groupTitle, count: 0, sections: new Map(), sources: new Set() });
       const group = groupMap.get(key);
       group.count += 1;
       group.sections.set(resource.section, (group.sections.get(resource.section) || 0) + 1);
+      group.sources.add(resource.source);
     }
     category.groups = [...groupMap.values()].map((group) => ({
       slug: group.slug,
       title: group.title,
       count: group.count,
+      source: group.sources.size === 1 ? [...group.sources][0] : category.path,
       sections: [...group.sections].map(([title, count]) => ({ title, count })),
     }));
     if (category.groups.length === 1 && category.groups[0].slug === ROOT_GROUP_SLUG) {
       category.groups[0].slug = "";
       for (const resource of categoryResources) resource.groupSlug = "";
     }
+  }
+  for (const category of categories) {
+    category.relatedPaths = (category.relatedPaths || []).map((related) => {
+      const relatedCategory = categoryBySlug.get(related.categorySlug);
+      const relatedGroup = relatedCategory?.groups?.find((group) => group.slug === related.groupSlug)
+        || (relatedCategory?.groups?.length === 1 ? relatedCategory.groups[0] : null);
+      const section = related.sectionHash
+        ? relatedGroup?.sections.find((candidate) => headingSlug(candidate.title) === related.sectionHash)?.title || ""
+        : "";
+      return relatedCategory ? { title: related.title, categorySlug: related.categorySlug, groupSlug: relatedGroup?.slug || "", section } : null;
+    }).filter(Boolean);
   }
 
   const catalog = {

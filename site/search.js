@@ -1,2 +1,2 @@
-// Active browser-search implementation. Future algorithms should use a new versioned module.
-export { buildSearchText, createAndSubstringMatcher, queryTerms, SEARCH_ALGORITHM_ID } from "./search/and-substring-v1.js";
+// Active browser-search implementation. Published algorithms remain versioned for research reproduction.
+export { buildSearchIndex, compileSearchQuery, normalizeSearchText, scoreResource, searchResources, suggestedQueries, SEARCH_ALGORITHM_ID } from "./search/weighted-lexical-v2.js";

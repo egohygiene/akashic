@@ -7,6 +7,8 @@
 
 Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
+<!-- site-guide:start -->
+
 > **Scope and safety:** Most resources below are United States-oriented, with country-specific gateways near the end. Business activity can create tax, licensing, consumer-protection, zoning, privacy, and employment duties before someone forms an LLC. An LLC or corporation can separate some risks, but it does not replace insurance, contracts, records, required filings, or professional advice, and it does not erase personal guarantees or liability for a person's own conduct. Rules change and vary by state, locality, industry, product, and facts; verify consequential decisions with the controlling agency and a qualified legal, tax, insurance, or financial professional. This guide is education, not individualized advice.
 
 **Access language:** **Official** means a government or regulator source. **No-cost** means the resource itself has no fee, although filing, tax, postage, payment-processing, or professional costs may still apply. **Free tier** means an ongoing limited plan. **Pay-per-use** means no recurring base subscription but charges attach to transactions or orders. **Paid** services should be treated as optional until the underlying obligation is understood.
@@ -81,6 +83,8 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 | Banking, books, payroll, or payments | Regulated accounts, records, calculations, filings, and movement of money. | Compare fees, data portability, holds, partner banks, support, security, and the cost of leaving. |
 
 Record the official account owner, renewal date, cancellation method, price after any introductory period, government login, recovery method, and export location for every service. Keep formation documents, signed agreements, tax filings, bank statements, and licenses somewhere the vendor cannot lock.
+
+<!-- site-guide:end -->
 
 ## Start Here
 

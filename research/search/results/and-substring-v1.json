@@ -4,7 +4,7 @@
   "searchAlgorithm": "and-substring-v1",
   "catalogResourceCount": 4619,
   "inputs": {
-    "catalogSha256": "5c4413487218755ca62c1d7d0c7fb914fa3990a51865ee153ebe4e13386c7b94",
+    "catalogSha256": "9737c3fe19c280ddf1ee1e782cabb5b5755be94932a73af79bbae89928f7ee29",
     "fixtureSha256": "dd20a3342f06cdc097972977e1beb7a10b2506330fbfa48352e4bab6ec71126a",
     "implementationSha256": "ab5383002697e81edc6c424774f68c9644deace3feb69d4f85d0ebfc14907c71"
   },

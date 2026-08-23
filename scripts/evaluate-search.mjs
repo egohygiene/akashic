@@ -2,12 +2,12 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
-import { createAndSubstringMatcher, SEARCH_ALGORITHM_ID } from "../site/search/and-substring-v1.js";
+import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
 const defaultCatalogPath = path.join(root, "dist/data/catalog.json");
 const defaultFixturePath = path.join(root, "research/search/evaluations/natural-language-v1.json");
-const algorithmPath = path.join(root, "site/search/and-substring-v1.js");
+const defaultAlgorithmPath = path.join(root, "site/search/and-substring-v1.js");
 
 function optionValue(name, fallback = "") {
   const index = process.argv.indexOf(name);
@@ -32,9 +32,15 @@ function digest(value) {
   return createHash("sha256").update(JSON.stringify(value)).digest("hex");
 }
 
-function evaluateCase(testCase, resources, topK) {
+function rankResources(algorithm, resources, query) {
+  if (typeof algorithm.searchResources === "function") return algorithm.searchResources(resources, query);
+  if (typeof algorithm.createAndSubstringMatcher === "function") return resources.filter(algorithm.createAndSubstringMatcher(query));
+  throw new Error("Search algorithm must export searchResources or createAndSubstringMatcher.");
+}
+
+function evaluateCase(testCase, resources, topK, algorithm) {
   const relevantUrls = new Set(testCase.relevantUrls.map(normalizedUrl));
-  const matches = resources.filter(createAndSubstringMatcher(testCase.query));
+  const matches = rankResources(algorithm, resources, testCase.query);
   const ranked = matches.slice(0, topK);
   const relevantRanks = [];
   for (const [index, resource] of matches.entries()) {
@@ -67,6 +73,7 @@ function evaluateCase(testCase, resources, topK) {
 async function main() {
   const catalogPath = path.resolve(optionValue("--catalog", defaultCatalogPath));
   const fixturePath = path.resolve(optionValue("--fixture", defaultFixturePath));
+  const algorithmPath = path.resolve(optionValue("--algorithm", defaultAlgorithmPath));
   const outputOption = optionValue("--output");
   const verifyOption = optionValue("--verify");
   if (outputOption && verifyOption) throw new Error("Use either --output or --verify, not both.");
@@ -75,6 +82,8 @@ async function main() {
     readFile(fixturePath, "utf8"),
     readFile(algorithmPath, "utf8"),
   ]);
+  const algorithm = await import(`${pathToFileURL(algorithmPath).href}?source=${digest(algorithmText)}`);
+  if (typeof algorithm.SEARCH_ALGORITHM_ID !== "string" || !algorithm.SEARCH_ALGORITHM_ID) throw new Error("Search algorithm must export SEARCH_ALGORITHM_ID.");
   const catalog = JSON.parse(catalogText);
   const fixture = JSON.parse(fixtureText);
   if (fixture.schemaVersion !== 1 || !Array.isArray(fixture.cases) || !fixture.cases.length) throw new Error("Unsupported or empty search evaluation fixture.");
@@ -98,11 +107,11 @@ async function main() {
     if (missingUrls.length) throw new Error(`Evaluation case ${testCase.id} references resources outside the catalog: ${missingUrls.join(", ")}`);
   }
 
-  const cases = fixture.cases.map((testCase) => evaluateCase(testCase, catalog.resources, topK));
+  const cases = fixture.cases.map((testCase) => evaluateCase(testCase, catalog.resources, topK, algorithm));
   const report = {
     schemaVersion: 1,
     suite: fixture.id,
-    searchAlgorithm: SEARCH_ALGORITHM_ID,
+    searchAlgorithm: algorithm.SEARCH_ALGORITHM_ID,
     catalogResourceCount: catalog.resources.length,
     inputs: {
       catalogSha256: digest({ categories: catalog.categories, resources: catalog.resources }),

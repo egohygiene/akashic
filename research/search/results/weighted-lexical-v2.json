@@ -1,0 +1,935 @@
+{
+  "schemaVersion": 1,
+  "suite": "akashic-natural-language-v1",
+  "searchAlgorithm": "weighted-lexical-v2",
+  "catalogResourceCount": 4619,
+  "inputs": {
+    "catalogSha256": "9737c3fe19c280ddf1ee1e782cabb5b5755be94932a73af79bbae89928f7ee29",
+    "fixtureSha256": "dd20a3342f06cdc097972977e1beb7a10b2506330fbfa48352e4bab6ec71126a",
+    "implementationSha256": "abf1a8d97657ada5816ccab0542eb05bf07d92489f3b5fa3eff41360b7df1485"
+  },
+  "topK": 10,
+  "summary": {
+    "caseCount": 10,
+    "zeroResultCount": 0,
+    "casesWithRelevantAtK": 10,
+    "meanRecallAtK": 1,
+    "meanReciprocalRank": 1
+  },
+  "cases": [
+    {
+      "id": "food-today",
+      "query": "I need food today",
+      "kind": "natural-language",
+      "resultCount": 67,
+      "relevantCount": 4,
+      "relevantFoundAtK": 4,
+      "recallAtK": 1,
+      "reciprocalRank": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "USA.gov Emergency Food Assistance",
+          "url": "https://www.usa.gov/emergency-food-assistance",
+          "collection": "Public Services and Support",
+          "topic": "Benefits and Emergency Assistance",
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "title": "Feeding America Food Bank Locator",
+          "url": "https://www.feedingamerica.org/find-your-local-foodbank",
+          "collection": "Awesome Abundance",
+          "topic": "Food and Household Essentials",
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "title": "USDA National Hunger Hotline",
+          "url": "https://www.fns.usda.gov/national-hunger-hotline",
+          "collection": "Awesome Abundance",
+          "topic": "Food and Nutrition",
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "title": "211",
+          "url": "https://www.211.org/",
+          "collection": "Public Services and Support",
+          "topic": "Benefits and Emergency Assistance",
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "title": "FDA How to Start a Food Business",
+          "url": "https://www.fda.gov/food/food-industry/how-start-food-business",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Products, Food, and Regulated Sales",
+          "relevant": false
+        },
+        {
+          "rank": 6,
+          "title": "Psilocybin for Mental Health and Addiction: What You Need To Know",
+          "url": "https://www.nccih.nih.gov/health/psilocybin-for-mental-health-and-addiction-what-you-need-to-know",
+          "collection": "Psychedelics",
+          "topic": "Harm Reduction, Safety, and Participant Support",
+          "relevant": false
+        },
+        {
+          "rank": 7,
+          "title": "Legal Services Corporation I Need Legal Help",
+          "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false
+        },
+        {
+          "rank": 8,
+          "title": "Food Rescue US",
+          "url": "https://foodrescue.us/",
+          "collection": "Awesome Abundance",
+          "topic": "Food and Household Essentials",
+          "relevant": false
+        },
+        {
+          "rank": 9,
+          "title": "ABA When You Need a Lawyer",
+          "url": "https://www.americanbar.org/groups/public_education/resources/public-information/when-you-need-a-lawyer/",
+          "collection": "Legal Help and Law",
+          "topic": "Working With a Lawyer",
+          "relevant": false
+        },
+        {
+          "rank": 10,
+          "title": "Lasagna Love",
+          "url": "https://lasagnalove.org/request/",
+          "collection": "Awesome Abundance",
+          "topic": "Food and Household Essentials",
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "eviction-notice-no-money",
+      "query": "I have no money and my landlord says I need to leave Friday",
+      "kind": "natural-language",
+      "resultCount": 175,
+      "relevantCount": 4,
+      "relevantFoundAtK": 4,
+      "recallAtK": 1,
+      "reciprocalRank": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "Legal Services Corporation I Need Legal Help",
+          "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "title": "USA.gov Emergency Rent Assistance",
+          "url": "https://www.usa.gov/emergency-pay-rent",
+          "collection": "Public Services and Support",
+          "topic": "Benefits and Emergency Assistance",
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "title": "CFPB Help for Renters",
+          "url": "https://www.consumerfinance.gov/housing/housing-insecurity/help-for-renters/",
+          "collection": "Legal Help and Law",
+          "topic": "Housing, Eviction, and Homelessness",
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "title": "LawHelp.org",
+          "url": "https://www.lawhelp.org/",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "title": "ImmigrationLawHelp.org",
+          "url": "https://www.immigrationlawhelp.org/",
+          "collection": "Legal Help and Law",
+          "topic": "Find Free and Low-Cost Legal Help",
+          "relevant": false
+        },
+        {
+          "rank": 6,
+          "title": "Leave No Trace Seven Principles",
+          "url": "https://lnt.org/why/7-principles/",
+          "collection": "Travel and Mobility",
+          "topic": "Sustainable and Respectful Travel",
+          "relevant": false
+        },
+        {
+          "rank": 7,
+          "title": "FEZIBO Triple-Motor L-Shaped Standing Desk",
+          "url": "https://www.fezibo.com/products/triple-motor-l-shaped-corner-ergonomic-standing-desk-fezibo",
+          "collection": "Work and Learning",
+          "topic": "Workspace",
+          "relevant": false
+        },
+        {
+          "rank": 8,
+          "title": "IRS If You No Longer Need Your EIN",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/if-you-no-longer-need-your-ein",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Change, Sell, or Close",
+          "relevant": false
+        },
+        {
+          "rank": 9,
+          "title": "IRS Checklist for Starting a Business",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": false
+        },
+        {
+          "rank": 10,
+          "title": "PBGC Unclaimed Retirement Benefits",
+          "url": "https://www.pbgc.gov/workers-retirees/find-unclaimed-retirement-benefits/search-unclaimed",
+          "collection": "Public Services and Support",
+          "topic": "Unclaimed Money, Refunds, and Settlements",
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "free-music-production",
+      "query": "How can I make music without paying Adobe or another subscription",
+      "kind": "natural-language",
+      "resultCount": 242,
+      "relevantCount": 4,
+      "relevantFoundAtK": 4,
+      "recallAtK": 1,
+      "reciprocalRank": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "Cakewalk Sonar Free Tier",
+          "url": "https://www.cakewalk.com/sonar",
+          "collection": "Awesome Abundance",
+          "topic": "Music Production and Recording",
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "title": "BandLab Studio",
+          "url": "https://www.bandlab.com/studio",
+          "collection": "Awesome Abundance",
+          "topic": "Browser, Phone, and Shared Computers",
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "title": "PortableApps.com App Directory",
+          "url": "https://portableapps.com/apps",
+          "collection": "Awesome Abundance",
+          "topic": "Browser, Phone, and Shared Computers",
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "title": "LMMS",
+          "url": "https://lmms.io/",
+          "collection": "Awesome Abundance",
+          "topic": "Creative Work",
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "title": "AlternativeTo",
+          "url": "https://alternativeto.net/",
+          "collection": "Awesome Abundance",
+          "topic": "Discovery and Distribution",
+          "relevant": false
+        },
+        {
+          "rank": 6,
+          "title": "Audacity",
+          "url": "https://www.audacityteam.org/",
+          "collection": "Awesome Abundance",
+          "topic": "Creative Work",
+          "relevant": true
+        },
+        {
+          "rank": 7,
+          "title": "How Red Hat Helped Make Open Source a Global Phenomenon",
+          "url": "https://www.inc.com/greg-satell/how-red-hat-scaled-from-an-unlikely-startup-to-a-major-global-enterprise.html",
+          "collection": "Open Source",
+          "topic": "History and Perspectives",
+          "relevant": false
+        },
+        {
+          "rank": 8,
+          "title": "ocenaudio",
+          "url": "https://www.ocenaudio.com/en/",
+          "collection": "Awesome Abundance",
+          "topic": "Music Production and Recording",
+          "relevant": false
+        },
+        {
+          "rank": 9,
+          "title": "Strudel",
+          "url": "https://strudel.cc/",
+          "collection": "Awesome Abundance",
+          "topic": "Music Production and Recording",
+          "relevant": false
+        },
+        {
+          "rank": 10,
+          "title": "Tenacity",
+          "url": "https://tenacityaudio.org/",
+          "collection": "Awesome Abundance",
+          "topic": "Music Production and Recording",
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "creative-business-taxes",
+      "query": "I want to sell my art but do not understand taxes or business structures",
+      "kind": "natural-language",
+      "resultCount": 369,
+      "relevantCount": 3,
+      "relevantFoundAtK": 3,
+      "recallAtK": 1,
+      "reciprocalRank": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1,
+        2,
+        3,
+        43,
+        89,
+        112,
+        113,
+        181
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "IRS Business Structures",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/business-structures",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Structures, Ownership, and Liability",
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "title": "SBA Launch Your Business",
+          "url": "https://www.sba.gov/counseling/launch-your-business/",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "title": "IRS Checklist for Starting a Business",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "title": "U.S. Tax Court Clinics",
+          "url": "https://www.ustaxcourt.gov/clinics/",
+          "collection": "Legal Help and Law",
+          "topic": "Business, Nonprofit, Tax, and Intellectual Property",
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "title": "U.S. Tax Court Petitioner Guide",
+          "url": "https://www.ustaxcourt.gov/petitioners-start/",
+          "collection": "Legal Help and Law",
+          "topic": "Business, Nonprofit, Tax, and Intellectual Property",
+          "relevant": false
+        },
+        {
+          "rank": 6,
+          "title": "U.S. Courts Chapter 11 Bankruptcy Basics",
+          "url": "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-11-bankruptcy-basics",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Change, Sell, or Close",
+          "relevant": false
+        },
+        {
+          "rank": 7,
+          "title": "U.S. Courts Bankruptcy Basics",
+          "url": "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Change, Sell, or Close",
+          "relevant": false
+        },
+        {
+          "rank": 8,
+          "title": "U.S. Copyright Office Registration Portal",
+          "url": "https://www.copyright.gov/registration/",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Names, Brands, and Intellectual Property",
+          "relevant": false
+        },
+        {
+          "rank": 9,
+          "title": "Kiva U.S. Borrower Loans",
+          "url": "https://www.kiva.org/borrow/us-businesses",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Funding Without Fantasy",
+          "relevant": false
+        },
+        {
+          "rank": 10,
+          "title": "IRS Self-Employed Individuals Tax Center",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Money, Records, and Taxes",
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "court-paper",
+      "query": "I received a court paper and do not know what it means",
+      "kind": "natural-language",
+      "resultCount": 273,
+      "relevantCount": 4,
+      "relevantFoundAtK": 4,
+      "recallAtK": 1,
+      "reciprocalRank": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "LawHelp.org",
+          "url": "https://www.lawhelp.org/",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "title": "National Center for State Courts Self-Help Resources",
+          "url": "https://www.ncsc.org/resources-courts/self-help-resources",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "title": "USA.gov Courts",
+          "url": "https://www.usa.gov/courts",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "title": "Legal Services Corporation I Need Legal Help",
+          "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "title": "ImmigrationLawHelp.org",
+          "url": "https://www.immigrationlawhelp.org/",
+          "collection": "Legal Help and Law",
+          "topic": "Find Free and Low-Cost Legal Help",
+          "relevant": false
+        },
+        {
+          "rank": 6,
+          "title": "USA.gov Legal Aid",
+          "url": "https://www.usa.gov/legal-aid",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false
+        },
+        {
+          "rank": 7,
+          "title": "International Criminal Court Legal Tools",
+          "url": "https://legal-tools.org/",
+          "collection": "Legal Help and Law",
+          "topic": "International, Comparative, and Human Rights Law",
+          "relevant": false
+        },
+        {
+          "rank": 8,
+          "title": "Federal Court Finder",
+          "url": "https://www.uscourts.gov/federal-court-finder/find",
+          "collection": "Legal Help and Law",
+          "topic": "Courts, Forms, and Self-Representation",
+          "relevant": false
+        },
+        {
+          "rank": 9,
+          "title": "Federal Court Fee Waiver Forms",
+          "url": "https://www.uscourts.gov/forms-rules/forms/fee-waiver-application-forms",
+          "collection": "Legal Help and Law",
+          "topic": "Courts, Forms, and Self-Representation",
+          "relevant": false
+        },
+        {
+          "rank": 10,
+          "title": "CourtListener Alerts",
+          "url": "https://www.courtlistener.com/help/alerts/",
+          "collection": "Legal Help and Law",
+          "topic": "Legal News, Feeds, and Change Tracking",
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "safe-travel-without-car",
+      "query": "How can I travel somewhere safe without a car",
+      "kind": "natural-language",
+      "resultCount": 432,
+      "relevantCount": 4,
+      "relevantFoundAtK": 4,
+      "recallAtK": 1,
+      "reciprocalRank": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "Travelers Aid International",
+          "url": "https://www.travelersaid.org/",
+          "collection": "Travel and Mobility",
+          "topic": "Work Exchange and Ways to Travel With Less Money",
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "title": "Citymapper",
+          "url": "https://citymapper.com/",
+          "collection": "Travel and Mobility",
+          "topic": "Maps, Language, Money, Time, and Weather",
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "title": "Transit",
+          "url": "https://transitapp.com/",
+          "collection": "Travel and Mobility",
+          "topic": "Maps, Language, Money, Time, and Weather",
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "title": "211",
+          "url": "https://www.211.org/",
+          "collection": "Public Services and Support",
+          "topic": "Benefits and Emergency Assistance",
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "title": "National Runaway Safeline",
+          "url": "https://www.1800runaway.org/",
+          "collection": "Travel and Mobility",
+          "topic": "Work Exchange and Ways to Travel With Less Money",
+          "relevant": false
+        },
+        {
+          "rank": 6,
+          "title": "CoolWorks Jobs With Housing",
+          "url": "https://www.coolworks.com/jobs-with-housing",
+          "collection": "Travel and Mobility",
+          "topic": "Work Exchange and Ways to Travel With Less Money",
+          "relevant": false
+        },
+        {
+          "rank": 7,
+          "title": "Amtrak Passengers with Disabilities Discount",
+          "url": "https://www.amtrak.com/deals-discounts/everyday-discounts/passengers-with-disabilities-discounts.html",
+          "collection": "Travel and Mobility",
+          "topic": "Accessibility and Additional Travel Needs",
+          "relevant": false
+        },
+        {
+          "rank": 8,
+          "title": "U.S. DOT Airline Passengers with Disabilities Bill of Rights",
+          "url": "https://www.transportation.gov/airconsumer/disabilitybillofrights",
+          "collection": "Travel and Mobility",
+          "topic": "Accessibility and Additional Travel Needs",
+          "relevant": false
+        },
+        {
+          "rank": 9,
+          "title": "FAA Flying with Children",
+          "url": "https://www.faa.gov/travelers/fly_children",
+          "collection": "Travel and Mobility",
+          "topic": "Family, Student, Senior, LGBTQ+, and Pet Travel",
+          "relevant": false
+        },
+        {
+          "rank": 10,
+          "title": "12Go",
+          "url": "https://12go.asia/",
+          "collection": "Travel and Mobility",
+          "topic": "Rail, Bus, Ferry, and Cruise",
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "subscription-old-laptop",
+      "query": "What can replace this subscription on an old laptop",
+      "kind": "natural-language",
+      "resultCount": 71,
+      "relevantCount": 2,
+      "relevantFoundAtK": 2,
+      "recallAtK": 1,
+      "reciprocalRank": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1,
+        2
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "AlternativeTo",
+          "url": "https://alternativeto.net/",
+          "collection": "Awesome Abundance",
+          "topic": "Discovery and Distribution",
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "title": "PortableApps.com App Directory",
+          "url": "https://portableapps.com/apps",
+          "collection": "Awesome Abundance",
+          "topic": "Browser, Phone, and Shared Computers",
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "title": "Amazon Memberships and Subscriptions",
+          "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GU8AWX4GDKM7QGTE",
+          "collection": "Awesome Abundance",
+          "topic": "Cancel and Control Renewals",
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "title": "Apple Subscription Cancellation",
+          "url": "https://support.apple.com/en-us/118428",
+          "collection": "Awesome Abundance",
+          "topic": "Cancel and Control Renewals",
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "title": "Google Play Subscription Management",
+          "url": "https://support.google.com/googleplay/answer/7018481",
+          "collection": "Awesome Abundance",
+          "topic": "Cancel and Control Renewals",
+          "relevant": false
+        },
+        {
+          "rank": 6,
+          "title": "Microsoft Subscription Cancellation",
+          "url": "https://support.microsoft.com/en-us/accounts-billing/subscriptions/cancel-your-microsoft-subscription",
+          "collection": "Awesome Abundance",
+          "topic": "Cancel and Control Renewals",
+          "relevant": false
+        },
+        {
+          "rank": 7,
+          "title": "Roku Subscription Management",
+          "url": "https://support.roku.com/article/manage-or-cancel-subscriptions",
+          "collection": "Awesome Abundance",
+          "topic": "Cancel and Control Renewals",
+          "relevant": false
+        },
+        {
+          "rank": 8,
+          "title": "U.S. Mobile Passport Control",
+          "url": "https://www.cbp.gov/travel/us-citizens/mobile-passport-control",
+          "collection": "Travel and Mobility",
+          "topic": "Passports, Visas, Borders, and Screening",
+          "relevant": false
+        },
+        {
+          "rank": 9,
+          "title": "IRS S Corporation Compensation and Medical Insurance",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Structures, Ownership, and Liability",
+          "relevant": false
+        },
+        {
+          "rank": 10,
+          "title": "IRS S Corporations",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Structures, Ownership, and Liability",
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "vpn-renewal-no-income",
+      "query": "I cannot afford my VPN renewal and have no income",
+      "kind": "natural-language",
+      "resultCount": 243,
+      "relevantCount": 4,
+      "relevantFoundAtK": 4,
+      "recallAtK": 1,
+      "reciprocalRank": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "Proton VPN",
+          "url": "https://protonvpn.com/free-vpn",
+          "collection": "Security",
+          "topic": "Safer Connectivity and VPNs",
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "title": "Privacy Guides VPN Services",
+          "url": "https://www.privacyguides.org/en/vpn/",
+          "collection": "Security",
+          "topic": "Safer Connectivity and VPNs",
+          "relevant": true
+        },
+        {
+          "rank": 3,
+          "title": "Windscribe Free",
+          "url": "https://windscribe.com/features/use-for-free",
+          "collection": "Security",
+          "topic": "Safer Connectivity and VPNs",
+          "relevant": true
+        },
+        {
+          "rank": 4,
+          "title": "Cloudflare WARP",
+          "url": "https://developers.cloudflare.com/warp-client/",
+          "collection": "Security",
+          "topic": "Safer Connectivity and VPNs",
+          "relevant": true
+        },
+        {
+          "rank": 5,
+          "title": "IRS Checklist for Starting a Business",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": false
+        },
+        {
+          "rank": 6,
+          "title": "Setting the Time Zone in a Docker Container",
+          "url": "https://stackoverflow.com/questions/57607381/how-do-i-change-timezone-in-a-docker-container",
+          "collection": "Containers and Cloud",
+          "topic": "Docker",
+          "relevant": false
+        },
+        {
+          "rank": 7,
+          "title": "Running Cron in a Docker Container",
+          "url": "https://stackoverflow.com/questions/37015624/how-to-run-a-cron-job-inside-a-docker-container",
+          "collection": "Containers and Cloud",
+          "topic": "Examples and Deployment",
+          "relevant": false
+        },
+        {
+          "rank": 8,
+          "title": "HRSA Find a Health Center",
+          "url": "https://findahealthcenter.hrsa.gov/",
+          "collection": "Public Services and Support",
+          "topic": "Health Care and Medication",
+          "relevant": false
+        },
+        {
+          "rank": 9,
+          "title": "DOL Filing a Claim for Your Health Benefits",
+          "url": "https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/publications/filing-a-claim-for-your-health-benefits",
+          "collection": "Legal Help and Law",
+          "topic": "Disability, Health Care, and Education Rights",
+          "relevant": false
+        },
+        {
+          "rank": 10,
+          "title": "A Brief History of Free and Open Source Software",
+          "url": "https://www.computer.org/csdl/magazine/co/2021/02/09353517/1r8kwgBjU9W",
+          "collection": "Open Source",
+          "topic": "History and Perspectives",
+          "relevant": false
+        }
+      ]
+    },
+    {
+      "id": "federal-fee-waiver-form-number",
+      "query": "AO 240",
+      "kind": "exact-identifier",
+      "resultCount": 1,
+      "relevantCount": 1,
+      "relevantFoundAtK": 1,
+      "recallAtK": 1,
+      "reciprocalRank": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "Federal Court Fee Waiver Forms",
+          "url": "https://www.uscourts.gov/forms-rules/forms/fee-waiver-application-forms",
+          "collection": "Legal Help and Law",
+          "topic": "Courts, Forms, and Self-Representation",
+          "relevant": true
+        }
+      ]
+    },
+    {
+      "id": "irs-ein",
+      "query": "IRS EIN",
+      "kind": "exact-identifier",
+      "resultCount": 44,
+      "relevantCount": 1,
+      "relevantFoundAtK": 1,
+      "recallAtK": 1,
+      "reciprocalRank": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "IRS Get an Employer Identification Number",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Register, Identify, and License",
+          "relevant": true
+        },
+        {
+          "rank": 2,
+          "title": "IRS Checklist for Starting a Business",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": false
+        },
+        {
+          "rank": 3,
+          "title": "IRS When to Get a New EIN",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/when-to-get-a-new-ein",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Register, Identify, and License",
+          "relevant": false
+        },
+        {
+          "rank": 4,
+          "title": "IRS If You No Longer Need Your EIN",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/if-you-no-longer-need-your-ein",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Change, Sell, or Close",
+          "relevant": false
+        },
+        {
+          "rank": 5,
+          "title": "IRS Businesses With Employees",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/businesses-with-employees",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Hire People and Work with Contractors",
+          "relevant": false
+        },
+        {
+          "rank": 6,
+          "title": "IRS Free File",
+          "url": "https://www.irs.gov/filing/irs-free-file-do-your-taxes-for-free",
+          "collection": "Awesome Abundance",
+          "topic": "Taxes, Credit, and Consumer Help",
+          "relevant": false
+        },
+        {
+          "rank": 7,
+          "title": "IRS Business Structures",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/business-structures",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Structures, Ownership, and Liability",
+          "relevant": false
+        },
+        {
+          "rank": 8,
+          "title": "IRS Creating an Exempt Organization",
+          "url": "https://www.irs.gov/charities-non-profits/creating-an-exempt-organization",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Structures, Ownership, and Liability",
+          "relevant": false
+        },
+        {
+          "rank": 9,
+          "title": "IRS Exempt Organization Life Cycle",
+          "url": "https://www.irs.gov/charities-non-profits/life-cycle-of-an-exempt-organization",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Structures, Ownership, and Liability",
+          "relevant": false
+        },
+        {
+          "rank": 10,
+          "title": "IRS Form 2553",
+          "url": "https://www.irs.gov/forms-pubs/about-form-2553",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Structures, Ownership, and Liability",
+          "relevant": false
+        }
+      ]
+    }
+  ]
+}
