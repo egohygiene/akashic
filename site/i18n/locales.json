@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "defaultLocale": "en",
+  "locales": [
+    {
+      "code": "en",
+      "name": "English",
+      "nativeName": "English",
+      "direction": "ltr",
+      "route": "/",
+      "status": "canonical",
+      "fallback": null
+    },
+    {
+      "code": "ru",
+      "name": "Russian",
+      "nativeName": "Русский",
+      "direction": "ltr",
+      "route": "/ru/",
+      "status": "reference",
+      "fallback": "en"
+    }
+  ]
+}

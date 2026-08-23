@@ -17,6 +17,7 @@ Protect both products. A change is incomplete when the Markdown is correct but t
 - The root `README.md` is the canonical top-level collection index and declared-count ledger.
 - A nested collection hub, currently `lists/awesome-abundance/README.md`, is the canonical index and count ledger for its child lists.
 - Files under `site/` are the canonical portal source.
+- `site/i18n/locales.json` and `site/i18n/*.json` are the canonical locale registry and interface message catalogs.
 - Files under `scripts/` define collection validation and portal generation.
 - Files under `dist/` are generated output. Never hand-edit them, and do not include regenerated output in a change unless explicitly requested.
 - `contributing.md` defines the public contribution policy. Keep agent behavior consistent with it.
@@ -43,7 +44,10 @@ site/
   styles.css                      Visual system and responsive behavior
   app.js                          Catalog, filtering, search, favorites, and URL state
   mind-map.js                     Interactive collection and topic map
+  i18n.js                         Browser locale, fallback, number, and plural runtime
+  i18n/                           Locale registry and stable-key message catalogs
   assets/                         Portal-owned static assets
+docs/localization.md              Locale architecture and human-review contract
 test/                             Dependency-free parser and Atlas schema tests
 dist/                             Generated local build output
 .github/workflows/
@@ -206,6 +210,15 @@ For every interface change:
 - Avoid redundant live regions and excessive announcements.
 - Ensure SVG or canvas visualizations have an equivalent native control or list path.
 - Test mobile scrolling so maps, drawers, and overlays do not trap wheel or touch gestures.
+
+### Localization
+
+- Keep English canonical and default. Generate locale routes from the shared source HTML and catalogs; never fork the portal or resource catalog by language.
+- Preserve locale key parity, named placeholders, fallback metadata, native language names, `lang`, `dir`, canonical URLs, and `hreflang` alternates.
+- Use `Intl.NumberFormat` and `Intl.PluralRules` instead of English-only count concatenation.
+- Mark canonical English resource, taxonomy, advisory, place, and theme content with `lang="en"` when it appears inside a non-English document.
+- Never infer locale from IP address or use flags as language labels. Preserve a user's explicit language choice and URL state.
+- Treat machine translation as a draft requiring human review. Follow `docs/localization.md` when adding a locale or expanding the translation boundary.
 
 ### Mind-map behavior
 

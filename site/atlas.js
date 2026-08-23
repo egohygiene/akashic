@@ -1,3 +1,5 @@
+import { canonicalContentLanguage, number, plural, t } from "./i18n.js";
+
 const SVG_NS = "http://www.w3.org/2000/svg";
 const selectors = {
   map: document.querySelector("#atlas-map"),
@@ -30,10 +32,10 @@ const selectors = {
 };
 
 const copyByKind = {
-  world: "Begin with a highlighted country, then move toward the public knowledge closest to daily life.",
-  country: "Choose a mapped state or region to find the institutions and public systems that change across the country.",
-  region: "Move from statewide services into a covered city or town for genuinely local links.",
-  locality: "A compact starting point for the official, civic, learning, and community resources closest to this place.",
+  world: t("runtime.atlas.copy.world"),
+  country: t("runtime.atlas.copy.country"),
+  region: t("runtime.atlas.copy.region"),
+  locality: t("runtime.atlas.copy.locality"),
 };
 
 const state = {
@@ -83,10 +85,11 @@ function descendantCount(location) {
   return location.children.filter((id) => byId.get(id)?.covered).length;
 }
 
-function option(value, label) {
+function option(value, label, { canonical = false } = {}) {
   const node = document.createElement("option");
   node.value = value;
   node.textContent = label;
+  if (canonical && canonicalContentLanguage) node.lang = canonicalContentLanguage;
   return node;
 }
 
@@ -98,18 +101,18 @@ function populatePlaceSelectors(location) {
   const selectedLocality = path.find((item) => item.kind === "locality");
   const root = byId.get(state.atlas.rootId);
 
-  selectors.country.replaceChildren(option("", "Choose a country"));
-  for (const id of root.children) selectors.country.append(option(id, byId.get(id).name));
+  selectors.country.replaceChildren(option("", t("static.atlas.chooseCountry")));
+  for (const id of root.children) selectors.country.append(option(id, byId.get(id).name, { canonical: true }));
   selectors.country.value = selectedCountry?.id || "";
 
-  selectors.region.replaceChildren(option("", selectedCountry ? "Choose a state or region" : "Choose a country first"));
+  selectors.region.replaceChildren(option("", selectedCountry ? t("runtime.atlas.chooseState") : t("static.atlas.chooseCountryFirst")));
   selectors.region.disabled = !selectedCountry;
-  for (const id of selectedCountry?.children || []) selectors.region.append(option(id, byId.get(id).name));
+  for (const id of selectedCountry?.children || []) selectors.region.append(option(id, byId.get(id).name, { canonical: true }));
   selectors.region.value = selectedRegion?.id || "";
 
-  selectors.locality.replaceChildren(option("", selectedRegion ? "Choose a city or town" : "Choose a region first"));
+  selectors.locality.replaceChildren(option("", selectedRegion ? t("runtime.atlas.chooseCity") : t("static.atlas.chooseRegionFirst")));
   selectors.locality.disabled = !selectedRegion;
-  for (const id of selectedRegion?.children || []) selectors.locality.append(option(id, byId.get(id).shortName));
+  for (const id of selectedRegion?.children || []) selectors.locality.append(option(id, byId.get(id).shortName, { canonical: true }));
   selectors.locality.value = selectedLocality?.id || "";
 }
 
@@ -121,6 +124,7 @@ function renderBreadcrumb(location) {
     const button = document.createElement("button");
     button.type = "button";
     button.textContent = item.shortName;
+    if (canonicalContentLanguage) button.lang = canonicalContentLanguage;
     if (item.id === location.id) button.setAttribute("aria-current", "location");
     else button.addEventListener("click", () => setLocation(item.id, { focus: true }));
     selectors.breadcrumb.append(button);
@@ -186,7 +190,7 @@ function makeInteractive(element, locationId, name) {
   element.classList.add("has-coverage");
   element.setAttribute("role", "button");
   element.setAttribute("tabindex", "0");
-  element.setAttribute("aria-label", `Open ${name}`);
+  element.setAttribute("aria-label", t("runtime.atlas.open", { name }));
   const activate = () => setLocation(locationId, { focus: true });
   element.addEventListener("click", activate);
   element.addEventListener("keydown", (event) => {
@@ -309,7 +313,7 @@ function drawLocalityMarker(location, bbox, selected) {
   const label = svgElement("text", { x: radius * 2.2, y: -radius * 1.7, "font-size": radius * 2.3, "stroke-width": radius * .55 });
   label.textContent = location.shortName;
   marker.append(label);
-  addTitle(marker, `${location.name}${selected ? ", selected" : ""}`);
+  addTitle(marker, selected ? t("runtime.atlas.selected", { name: location.name }) : location.name);
   if (!selected) makeInteractive(marker, location.id, location.name);
   selectors.map.append(marker);
 }
@@ -318,20 +322,25 @@ function renderMap(location) {
   selectors.map.replaceChildren();
   if (location.kind === "world") drawWorld(location);
   else drawUnitedStates(location);
-  selectors.level.textContent = `${location.kind === "region" ? "State / region" : location.kind} view`;
-  selectors.title.textContent = location.kind === "world" ? "Explore the map" : location.name;
+  const kind = t(`runtime.atlas.kind.${location.kind}`);
+  selectors.level.textContent = t("runtime.atlas.view", { kind });
+  selectors.title.textContent = location.kind === "world" ? t("static.atlas.exploreMap") : location.name;
+  if (canonicalContentLanguage && location.kind !== "world") selectors.title.lang = canonicalContentLanguage;
+  else selectors.title.removeAttribute("lang");
 }
 
 function renderPlacePanel(location) {
   const children = location.children.map((id) => locationMap().get(id)).filter((child) => child?.covered);
-  selectors.placeKind.textContent = location.kind;
-  selectors.placeTitle.textContent = location.kind === "world" ? "A growing atlas" : location.name;
+  selectors.placeKind.textContent = t(`runtime.atlas.kind.${location.kind}`);
+  selectors.placeTitle.textContent = location.kind === "world" ? t("static.atlas.growing") : location.name;
+  if (canonicalContentLanguage && location.kind !== "world") selectors.placeTitle.lang = canonicalContentLanguage;
+  else selectors.placeTitle.removeAttribute("lang");
   selectors.placeCopy.textContent = copyByKind[location.kind] || copyByKind.locality;
-  selectors.resourceCount.textContent = location.resourceCount.toLocaleString();
-  selectors.childCount.textContent = descendantCount(location).toLocaleString();
+  selectors.resourceCount.textContent = number(location.resourceCount);
+  selectors.childCount.textContent = number(descendantCount(location));
   selectors.openChild.hidden = children.length !== 1;
   if (children.length === 1) {
-    selectors.openChild.firstChild.textContent = `Open ${children[0].shortName} `;
+    selectors.openChild.firstChild.textContent = t("runtime.atlas.openChild", { name: children[0].shortName });
     selectors.openChild.onclick = () => setLocation(children[0].id, { focus: true });
   }
 }
@@ -340,16 +349,21 @@ function renderResourceNavigation(resources) {
   selectors.resourceNav.replaceChildren();
   const sectionCounts = new Map();
   for (const resource of resources) sectionCounts.set(resource.section, (sectionCounts.get(resource.section) || 0) + 1);
-  const choices = [["", "All", resources.length], ...[...sectionCounts].map(([section, count]) => [section, section, count])];
+  const choices = [["", t("runtime.atlas.all"), resources.length], ...[...sectionCounts].map(([section, count]) => [section, section, count])];
   selectors.resourceNav.hidden = resources.length === 0;
   for (const [section, label, count] of choices) {
     const button = document.createElement("button");
     button.type = "button";
     button.dataset.section = section;
     button.setAttribute("aria-pressed", String(section === state.resourceSection));
-    button.append(document.createTextNode(label));
+    const text = document.createElement("span");
+    text.className = "atlas-resource-label";
+    text.textContent = label;
+    if (section && canonicalContentLanguage) text.lang = canonicalContentLanguage;
+    button.append(text);
     const badge = document.createElement("span");
-    badge.textContent = count.toLocaleString();
+    badge.className = "atlas-resource-count";
+    badge.textContent = number(count);
     button.append(badge);
     button.addEventListener("click", () => {
       if (state.resourceSection === section) return;
@@ -368,9 +382,9 @@ function renderResourceGroups(location) {
   selectors.empty.hidden = resources.length > 0;
   selectors.resourceSummary.textContent = resources.length
     ? state.resourceSection
-      ? `Showing ${visibleResources.length.toLocaleString()} of ${resources.length.toLocaleString()} reviewed resources for ${location.name}.`
-      : `${resources.length.toLocaleString()} reviewed ${resources.length === 1 ? "resource" : "resources"} specific to ${location.name}.`
-    : `No place-specific resources at the ${location.kind} level yet.`;
+      ? t("runtime.atlas.summaryFiltered", { visible: number(visibleResources.length), total: number(resources.length), name: location.name })
+      : t("runtime.atlas.summary", { resources: plural("runtime.unit.resource", resources.length), name: location.name })
+    : t("runtime.atlas.summaryEmpty", { kind: t(`runtime.atlas.kind.${location.kind}`) });
   for (const button of selectors.resourceNav.querySelectorAll("button")) button.setAttribute("aria-pressed", String(button.dataset.section === state.resourceSection));
   const grouped = new Map();
   for (const resource of visibleResources) {
@@ -382,6 +396,7 @@ function renderResourceGroups(location) {
     group.className = "atlas-resource-group";
     const heading = document.createElement("h3");
     heading.textContent = section;
+    if (canonicalContentLanguage) heading.lang = canonicalContentLanguage;
     const hasIndexes = entries.some((resource) => resource.role === "index");
     if (hasIndexes) group.classList.add("has-indexes");
     const grid = document.createElement("div");
@@ -393,26 +408,28 @@ function renderResourceGroups(location) {
       card.href = resource.url;
       card.target = "_blank";
       card.rel = "noreferrer";
-      card.setAttribute("aria-label", `${resource.title} (opens in a new tab)`);
+      card.setAttribute("aria-label", t("runtime.atlas.resourceAria", { title: resource.title }));
       const domain = document.createElement("span");
       const labels = [];
-      if (resource.role === "index") labels.push("Directory");
-      if (resource.catalogReference) labels.push("Main catalog");
+      if (resource.role === "index") labels.push(t("runtime.atlas.directory"));
+      if (resource.catalogReference) labels.push(t("runtime.atlas.mainCatalog"));
       labels.push(resource.domain);
       domain.textContent = labels.join(" · ");
       const title = document.createElement("strong");
       title.textContent = resource.title;
+      if (canonicalContentLanguage) title.lang = canonicalContentLanguage;
       const description = document.createElement("p");
       description.textContent = resource.description;
+      if (canonicalContentLanguage) description.lang = canonicalContentLanguage;
       const visit = document.createElement("span");
-      visit.textContent = resource.role === "index" ? "Explore directory ↗" : "Visit resource ↗";
+      visit.textContent = t(resource.role === "index" ? "runtime.atlas.exploreDirectory" : "runtime.atlas.visitResource");
       card.append(domain, title, description, visit);
       grid.append(card);
     }
     if (section.toLocaleLowerCase().startsWith("start here")) {
       const context = document.createElement("p");
       context.className = "atlas-resource-group-copy";
-      context.textContent = "These maintained gateways can take you further by place, need, eligibility, or service type.";
+      context.textContent = t("runtime.atlas.gatewayCopy");
       group.append(heading, context, grid);
     } else group.append(heading, grid);
     selectors.resourceGroups.append(group);
@@ -425,7 +442,7 @@ function renderResources(location, { requestedSection = "" } = {}) {
   state.resourceSection = sections.has(requestedSection) ? requestedSection : "";
   const indexCount = resources.filter((resource) => resource.role === "index").length;
   selectors.scopeNote.hidden = indexCount === 0;
-  selectors.indexCount.textContent = indexCount.toLocaleString();
+  selectors.indexCount.textContent = number(indexCount);
   renderResourceNavigation(resources);
   renderResourceGroups(location);
 }
@@ -470,7 +487,7 @@ function applyMapTheme(id, { updateUrl = true } = {}) {
 function setupThemes() {
   selectors.theme.replaceChildren();
   for (const theme of state.themes.themes) {
-    const node = option(theme.id, theme.name);
+    const node = option(theme.id, theme.name, { canonical: true });
     node.title = theme.description;
     selectors.theme.append(node);
   }
@@ -481,7 +498,7 @@ function setupThemes() {
 function setupPageTheme() {
   const update = () => {
     const light = document.documentElement.dataset.theme === "light";
-    selectors.themeToggle.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
+    selectors.themeToggle.setAttribute("aria-label", t(light ? "runtime.theme.dark" : "runtime.theme.light"));
     selectors.themeToggle.firstElementChild.textContent = light ? "☾" : "☼";
   };
   selectors.themeToggle.addEventListener("click", () => {
@@ -519,10 +536,10 @@ async function initialize() {
   setupPageTheme();
   try {
     const [atlas, themes, world, states] = await Promise.all([
-      fetch("data/atlas.json").then((response) => response.ok ? response.json() : Promise.reject(new Error("Atlas data did not load."))),
-      fetch("data/atlas-themes.json").then((response) => response.ok ? response.json() : Promise.reject(new Error("Atlas themes did not load."))),
-      fetch("data/geometry/countries-110m.json").then((response) => response.ok ? response.json() : Promise.reject(new Error("World geometry did not load."))),
-      fetch("data/geometry/states-albers-10m.json").then((response) => response.ok ? response.json() : Promise.reject(new Error("U.S. geometry did not load."))),
+      fetch(new URL("./data/atlas.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("Atlas data did not load."))),
+      fetch(new URL("./data/atlas-themes.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("Atlas themes did not load."))),
+      fetch(new URL("./data/geometry/countries-110m.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("World geometry did not load."))),
+      fetch(new URL("./data/geometry/states-albers-10m.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("U.S. geometry did not load."))),
     ]);
     Object.assign(state, { atlas, themes, world, states });
     setupThemes();
@@ -534,10 +551,10 @@ async function initialize() {
   } catch (error) {
     selectors.loading.replaceChildren();
     const message = document.createElement("p");
-    message.textContent = "The atlas could not load right now. The reviewed place files are still available on GitHub.";
+    message.textContent = t("runtime.atlas.error");
     const link = document.createElement("a");
     link.href = "https://github.com/egohygiene/akashic/tree/main/atlas";
-    link.textContent = "Open the atlas source →";
+    link.textContent = t("runtime.atlas.openSource");
     selectors.loading.append(message, link);
     console.error(error);
   }

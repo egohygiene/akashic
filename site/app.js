@@ -1,5 +1,6 @@
 import { createMindMap } from "./mind-map.js";
 import { buildSearchText, createAndSubstringMatcher } from "./search.js";
+import { canonicalContentLanguage, number, plural, t } from "./i18n.js";
 
 const FAVORITES_KEY = "akashic-favorites";
 const LEGACY_FAVORITES_KEY = "ego-awesome-favorites";
@@ -78,6 +79,7 @@ const elements = {
 };
 
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
+const canonicalLanguageAttribute = canonicalContentLanguage ? ` lang="${canonicalContentLanguage}"` : "";
 
 function currentCategory() {
   return categoryBySlug.get(state.category) || null;
@@ -177,9 +179,9 @@ function applyState(next, options = {}) {
 function renderCollections() {
   elements.collections.innerHTML = state.catalog.categories.map((category, index) => `
     <article class="collection-path" style="--card-color:${category.color};--card-delay:${Math.min(index, 18) * 14}ms">
-      <div class="collection-path-heading"><span class="collection-icon" aria-hidden="true">${category.glyph}</span><div><span class="collection-number">${String(index + 1).padStart(2, "0")}</span><h3>${escapeHtml(category.title)}</h3></div></div>
-      <p>${escapeHtml(category.description)}</p>
-      <div class="collection-path-footer"><div class="collection-meta"><span>${category.count.toLocaleString()} resources</span><span>${(category.groups.length > 1 ? category.groups.length : category.sections.length).toLocaleString()} branches</span></div><div class="collection-actions"><button type="button" data-browse-category="${escapeHtml(category.slug)}" aria-label="Browse ${escapeHtml(category.title)}">Browse <span aria-hidden="true">→</span></button><button type="button" data-map-category="${escapeHtml(category.slug)}" aria-label="View ${escapeHtml(category.title)} in the mind map">Map <span aria-hidden="true">⌁</span></button></div></div>
+      <div class="collection-path-heading"><span class="collection-icon" aria-hidden="true">${category.glyph}</span><div><span class="collection-number">${String(index + 1).padStart(2, "0")}</span><h3${canonicalLanguageAttribute}>${escapeHtml(category.title)}</h3></div></div>
+      <p${canonicalLanguageAttribute}>${escapeHtml(category.description)}</p>
+      <div class="collection-path-footer"><div class="collection-meta"><span>${plural("runtime.unit.resource", category.count)}</span><span>${plural("runtime.unit.branch", category.groups.length > 1 ? category.groups.length : category.sections.length)}</span></div><div class="collection-actions"><button type="button" data-browse-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.browseAria", { title: category.title }))}">${escapeHtml(t("runtime.action.browse"))} <span aria-hidden="true">→</span></button><button type="button" data-map-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.mapAria", { title: category.title }))}">${escapeHtml(t("runtime.action.map"))} <span aria-hidden="true">⌁</span></button></div></div>
     </article>`).join("");
 }
 
@@ -189,12 +191,12 @@ function renderOverviewPreview() {
   const topicPathCount = categories.reduce((sum, category) => sum + category.groups.reduce((groupSum, group) => groupSum + group.sections.length, 0), 0);
   const uniqueDomainCount = new Set(state.catalog.resources.map((resource) => resource.domain)).size;
   const metrics = [
-    [resourceCount, "Resources"],
-    [categories.length, "Collections"],
-    [topicPathCount, "Topic paths"],
-    [uniqueDomainCount, "Domains"],
+    [resourceCount, t("runtime.metric.resources")],
+    [categories.length, t("runtime.metric.collections")],
+    [topicPathCount, t("runtime.metric.topicPaths")],
+    [uniqueDomainCount, t("runtime.metric.domains")],
   ];
-  elements.overviewMetrics.innerHTML = metrics.map(([value, label]) => `<div><dt>${value.toLocaleString()}</dt><dd>${escapeHtml(label)}</dd></div>`).join("");
+  elements.overviewMetrics.innerHTML = metrics.map(([value, label]) => `<div><dt>${number(value)}</dt><dd>${escapeHtml(label)}</dd></div>`).join("");
 
   let cursor = 0;
   const gap = 0.55;
@@ -205,31 +207,32 @@ function renderOverviewPreview() {
     return `${category.color} ${start.toFixed(3)}deg ${Math.max(start, end - gap).toFixed(3)}deg, transparent ${Math.max(start, end - gap).toFixed(3)}deg ${end.toFixed(3)}deg`;
   });
   elements.overviewDonut.style.background = `conic-gradient(from -90deg, ${stops.join(", ")})`;
-  elements.overviewDonutTotal.textContent = resourceCount.toLocaleString();
+  elements.overviewDonutTotal.textContent = number(resourceCount);
 
   const ranked = [...categories].sort((left, right) => right.count - left.count || left.title.localeCompare(right.title));
   const largest = ranked[0];
-  elements.overviewDonut.setAttribute("aria-label", `Donut chart of ${resourceCount.toLocaleString()} resources across ${categories.length.toLocaleString()} collections. The largest collection is ${largest.title} with ${largest.count.toLocaleString()} resources. Exact values and navigation are available in the adjacent bar chart and full Observatory.`);
+  elements.overviewDonut.setAttribute("aria-label", t("runtime.app.donutAria", { resources: plural("runtime.unit.resource", resourceCount), collections: plural("runtime.unit.collection", categories.length), title: largest.title, largest: plural("runtime.unit.resource", largest.count) }));
   const visible = ranked.slice(0, 6);
   const maximum = visible[0]?.count || 1;
-  elements.overviewBarsCount.textContent = `Top ${visible.length.toLocaleString()}`;
+  elements.overviewBarsCount.textContent = t("runtime.app.top", { count: number(visible.length) });
   elements.overviewBars.innerHTML = visible.map((category, index) => {
     const percentage = resourceCount ? category.count / resourceCount * 100 : 0;
     const label = percentage > 0 && percentage < 1 ? "<1%" : `${percentage.toFixed(percentage < 10 ? 1 : 0)}%`;
     const params = new URLSearchParams({ collection: category.slug, view: state.view });
     return `<li><a class="overview-bar-row" href="index.html?${params}#catalog" style="--bar-color:${category.color};--bar-width:${category.count / maximum * 100}%">
-      <span class="overview-bar-rank">${String(index + 1).padStart(2, "0")}</span><span class="overview-bar-glyph" aria-hidden="true">${category.glyph}</span><span class="overview-bar-copy"><strong>${escapeHtml(category.title)}</strong><i aria-hidden="true"><b></b></i></span><span class="overview-bar-value"><strong>${category.count.toLocaleString()}</strong><small>${label}</small></span><span aria-hidden="true">→</span>
+      <span class="overview-bar-rank">${String(index + 1).padStart(2, "0")}</span><span class="overview-bar-glyph" aria-hidden="true">${category.glyph}</span><span class="overview-bar-copy"${canonicalLanguageAttribute}><strong>${escapeHtml(category.title)}</strong><i aria-hidden="true"><b></b></i></span><span class="overview-bar-value"><strong>${number(category.count)}</strong><small>${label}</small></span><span aria-hidden="true">→</span>
     </a></li>`;
   }).join("");
 }
 
 function renderFilterControls() {
-  const options = [{ slug: "all", title: "All collections", color: "#d1459f" }, ...state.catalog.categories];
-  elements.filters.innerHTML = options.map((category) => `<button class="filter-chip" type="button" data-filter="${escapeHtml(category.slug)}" aria-pressed="false" style="--chip-color:${category.color}">${escapeHtml(category.title)}</button>`).join("");
+  const options = [{ slug: "all", title: t("runtime.action.allCollections"), color: "#d1459f" }, ...state.catalog.categories];
+  elements.filters.innerHTML = options.map((category) => `<button class="filter-chip" type="button" data-filter="${escapeHtml(category.slug)}" aria-pressed="false" style="--chip-color:${category.color}"${category.slug === "all" ? "" : canonicalLanguageAttribute}>${escapeHtml(category.title)}</button>`).join("");
   for (const category of state.catalog.categories) {
     const option = document.createElement("option");
     option.value = category.slug;
     option.textContent = category.title;
+    if (canonicalContentLanguage) option.lang = canonicalContentLanguage;
     elements.catalogCollection.append(option);
   }
 }
@@ -239,7 +242,7 @@ function updateFilterControls() {
   elements.catalogCollection.value = state.category;
   elements.savedFilter.setAttribute("aria-pressed", String(state.savedOnly));
   elements.savedFilter.querySelector("span").textContent = state.savedOnly ? "♥" : "♡";
-  elements.savedCount.textContent = state.favorites.size.toLocaleString();
+  elements.savedCount.textContent = number(state.favorites.size);
   elements.viewSwitch.querySelectorAll("[data-catalog-view]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.catalogView === state.view)));
 }
 
@@ -262,20 +265,21 @@ function resourceCard(resource, index) {
   const favorite = state.favorites.has(resource.url);
   const category = categoryBySlug.get(resource.categorySlug);
   const accessLabels = resource.accessLabels?.length
-    ? `<ul class="resource-labels" aria-label="Access and platform">${resource.accessLabels.map((label) => `<li>${escapeHtml(label)}</li>`).join("")}</ul>`
+    ? `<ul class="resource-labels" aria-label="${escapeHtml(t("runtime.app.accessPlatform"))}"${canonicalLanguageAttribute}>${resource.accessLabels.map((label) => `<li>${escapeHtml(label)}</li>`).join("")}</ul>`
     : "";
   return `<article class="resource-card" style="--category-color:${category?.color || "#7656d8"};--card-delay:${Math.min(index, 12) * 20}ms">
-    <div class="resource-top"><span class="resource-domain">${escapeHtml(resource.domain)}</span><button class="favorite" type="button" data-favorite="${escapeHtml(resource.url)}" data-resource-title="${escapeHtml(resource.title)}" aria-label="${favorite ? "Remove" : "Add"} ${escapeHtml(resource.title)} ${favorite ? "from" : "to"} saved resources" aria-pressed="${favorite}">${favorite ? "♥" : "♡"}</button></div>
-    <h3><a href="${escapeHtml(resource.url)}" target="_blank" rel="noreferrer">${escapeHtml(resource.title)}<span class="sr-only"> (opens in a new tab)</span></a></h3>${accessLabels}<p>${escapeHtml(resource.description)}</p>
-    <div class="resource-footer"><div class="resource-taxonomy"><span>${escapeHtml(resource.category)}</span>${resource.groupSlug ? `<span>${escapeHtml(resource.groupTitle)}</span>` : ""}<span>${escapeHtml(resource.section)}</span></div><span class="visit-link" aria-hidden="true">↗</span></div>
+    <div class="resource-top"><span class="resource-domain">${escapeHtml(resource.domain)}</span><button class="favorite" type="button" data-favorite="${escapeHtml(resource.url)}" data-resource-title="${escapeHtml(resource.title)}" aria-label="${escapeHtml(t(favorite ? "runtime.app.favoriteRemove" : "runtime.app.favoriteAdd", { title: resource.title }))}" aria-pressed="${favorite}">${favorite ? "♥" : "♡"}</button></div>
+    <h3${canonicalLanguageAttribute}><a href="${escapeHtml(resource.url)}" target="_blank" rel="noreferrer">${escapeHtml(resource.title)}<span class="sr-only">${escapeHtml(t("runtime.newTab"))}</span></a></h3>${accessLabels}<p${canonicalLanguageAttribute}>${escapeHtml(resource.description)}</p>
+    <div class="resource-footer"><div class="resource-taxonomy"${canonicalLanguageAttribute}><span>${escapeHtml(resource.category)}</span>${resource.groupSlug ? `<span>${escapeHtml(resource.groupTitle)}</span>` : ""}<span>${escapeHtml(resource.section)}</span></div><span class="visit-link" aria-hidden="true">↗</span></div>
   </article>`;
 }
 
-function addContextButton(parent, label, title, handler) {
+function addContextButton(parent, label, title, handler, { canonical = false } = {}) {
   const button = document.createElement("button");
   button.type = "button";
   button.title = title;
   button.textContent = label;
+  if (canonical && canonicalContentLanguage) button.lang = canonicalContentLanguage;
   button.addEventListener("click", handler);
   parent.append(button);
 }
@@ -290,21 +294,21 @@ function renderContext() {
   const path = document.createElement("div");
   path.className = "context-path";
   const label = document.createElement("span");
-  label.textContent = "Viewing";
+  label.textContent = t("runtime.action.viewing");
   path.append(label);
   if (category) {
-    addContextButton(path, category.title, "Show every collection", () => applyState({ category: "all", group: "", section: "" }, { historyMode: "push" }));
-    if (group?.slug) addContextButton(path, group.title, `View all ${category.title} resources`, () => applyState({ category: category.slug, group: "", section: "" }, { historyMode: "push" }));
-    if (state.section) addContextButton(path, state.section, "Clear this topic", () => applyState({ category: category.slug, group: state.group, section: "" }, { historyMode: "push" }));
+    addContextButton(path, category.title, t("runtime.action.showEveryCollection"), () => applyState({ category: "all", group: "", section: "" }, { historyMode: "push" }), { canonical: true });
+    if (group?.slug) addContextButton(path, group.title, t("runtime.action.viewAllCategory", { title: category.title }), () => applyState({ category: category.slug, group: "", section: "" }, { historyMode: "push" }), { canonical: true });
+    if (state.section) addContextButton(path, state.section, t("runtime.action.clearTopic"), () => applyState({ category: category.slug, group: state.group, section: "" }, { historyMode: "push" }), { canonical: true });
   }
-  if (state.query) addContextButton(path, `“${state.query}”`, "Clear search", () => applyState({ query: "" }, { historyMode: "push" }));
-  if (state.domain) addContextButton(path, state.domain, "Show every source domain", () => applyState({ domain: "" }, { historyMode: "push" }));
-  if (state.savedOnly) addContextButton(path, "Saved", "Show all resources", () => applyState({ savedOnly: false }, { historyMode: "push" }));
+  if (state.query) addContextButton(path, `“${state.query}”`, t("runtime.action.clearSearch"), () => applyState({ query: "" }, { historyMode: "push" }));
+  if (state.domain) addContextButton(path, state.domain, t("runtime.action.showEveryDomain"), () => applyState({ domain: "" }, { historyMode: "push" }));
+  if (state.savedOnly) addContextButton(path, t("runtime.action.saved"), t("runtime.action.showAllResources"), () => applyState({ savedOnly: false }, { historyMode: "push" }));
   elements.catalogContext.append(path);
   if (category) {
     const mapLink = document.createElement("a");
     mapLink.href = "#mind-map";
-    mapLink.innerHTML = `See this path in the map <span aria-hidden="true">⌁</span>`;
+    mapLink.innerHTML = `${escapeHtml(t("runtime.action.seePathMap"))} <span aria-hidden="true">⌁</span>`;
     mapLink.addEventListener("click", () => mindMap?.setSelection({ categorySlug: category.slug, groupSlug: state.group, section: state.section }));
     elements.catalogContext.append(mapLink);
   }
@@ -312,14 +316,14 @@ function renderContext() {
 
 function resultDescription(count, visibleCount) {
   const parts = [];
-  if (state.savedOnly) parts.push("saved");
+  if (state.savedOnly) parts.push(t("runtime.action.saved").toLocaleLowerCase());
   if (currentCategory()) parts.push(currentCategory().title);
   if (currentGroup()?.slug) parts.push(currentGroup().title);
   if (state.section) parts.push(state.section);
-  if (state.query) parts.push(`matching “${state.query}”`);
-  if (state.domain) parts.push(`from ${state.domain}`);
-  const total = `${count.toLocaleString()} ${count === 1 ? "resource" : "resources"}`;
-  const amount = visibleCount < count ? `Showing ${visibleCount.toLocaleString()} of ${total}` : total;
+  if (state.query) parts.push(t("runtime.app.matching", { query: state.query }));
+  if (state.domain) parts.push(t("runtime.app.fromDomain", { domain: state.domain }));
+  const total = plural("runtime.unit.resource", count);
+  const amount = visibleCount < count ? t("runtime.app.showing", { visible: number(visibleCount), total }) : total;
   return `${amount}${parts.length ? ` · ${parts.join(" · ")}` : ""}`;
 }
 
@@ -332,7 +336,7 @@ function renderCatalog(options = {}) {
   elements.empty.hidden = matches.length !== 0;
   elements.loadMore.hidden = visible.length >= matches.length;
   const remaining = Math.min(PAGE_SIZE, matches.length - visible.length);
-  elements.loadMore.textContent = remaining > 0 ? `Show ${remaining.toLocaleString()} more` : "Show more resources";
+  elements.loadMore.textContent = remaining > 0 ? t("runtime.action.showMore", { count: number(remaining) }) : t("runtime.action.showMoreResources");
   elements.summary.textContent = resultDescription(matches.length, visible.length);
   const advisory = currentCategory()?.advisory || "";
   elements.catalogAdvisory.textContent = advisory;
@@ -349,7 +353,7 @@ function clearFilters() {
 function updateThemeControl() {
   const dark = document.documentElement.dataset.theme !== "light";
   elements.theme.querySelector("span").textContent = dark ? "☼" : "☾";
-  elements.theme.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+  elements.theme.setAttribute("aria-label", t(dark ? "runtime.theme.light" : "runtime.theme.dark"));
   document.querySelector('meta[name="theme-color"]').content = dark ? "#090711" : "#f7f3fb";
 }
 
@@ -421,7 +425,7 @@ function initializeEvents() {
     favorite ? state.favorites.add(url) : state.favorites.delete(url);
     writeStorage(FAVORITES_KEY, JSON.stringify([...state.favorites]));
     button.setAttribute("aria-pressed", String(favorite));
-    button.setAttribute("aria-label", `${favorite ? "Remove" : "Add"} ${button.dataset.resourceTitle} ${favorite ? "from" : "to"} saved resources`);
+    button.setAttribute("aria-label", t(favorite ? "runtime.app.favoriteRemove" : "runtime.app.favoriteAdd", { title: button.dataset.resourceTitle }));
     button.textContent = favorite ? "♥" : "♡";
     updateFilterControls();
     if (state.savedOnly && !favorite) {
@@ -470,7 +474,7 @@ function initializeEvents() {
 async function initialize() {
   initializeTheme();
   initializeChrome();
-  const response = await fetch("data/catalog.json");
+  const response = await fetch(new URL("./data/catalog.json", import.meta.url));
   if (!response.ok) throw new Error(`Catalog request failed: ${response.status}`);
   state.catalog = await response.json();
   categoryBySlug = new Map(state.catalog.categories.map((category) => [category.slug, category]));
@@ -478,8 +482,8 @@ async function initialize() {
   const requested = readUrlState(true);
   const explorer = normalizeExplorer(requested);
   Object.assign(state, requested, explorer);
-  elements.resourceTotal.textContent = state.catalog.resourceCount.toLocaleString();
-  elements.categoryTotal.textContent = state.catalog.categories.length.toLocaleString();
+  elements.resourceTotal.textContent = number(state.catalog.resourceCount);
+  elements.categoryTotal.textContent = number(state.catalog.categories.length);
   setSearchInputs(state.query);
   renderOverviewPreview();
   renderCollections();
@@ -514,13 +518,18 @@ async function initialize() {
         scroll: next.intent === "browse" ? "#catalog" : undefined, focusTarget: next.intent === "browse",
       });
     },
+    i18n: { canonicalContentLanguage, number, plural, t },
   });
+  if (canonicalContentLanguage) {
+    elements.catalogAdvisory.lang = canonicalContentLanguage;
+    document.querySelector("#mind-map-advisory").lang = canonicalContentLanguage;
+  }
   initializeEvents();
   syncUrl("replace");
 }
 
 initialize().catch((error) => {
   console.error(error);
-  elements.summary.textContent = "The catalog could not be loaded. Please try again shortly.";
-  elements.collections.innerHTML = '<div class="load-error"><strong>The constellation is temporarily unavailable.</strong><p>You can still browse the complete collection on <a href="https://github.com/egohygiene/akashic">GitHub</a>.</p></div>';
+  elements.summary.textContent = t("runtime.app.errorSummary");
+  elements.collections.innerHTML = `<div class="load-error"><strong>${escapeHtml(t("runtime.app.errorTitle"))}</strong><p>${escapeHtml(t("runtime.app.errorCopy"))}</p></div>`;
 });
