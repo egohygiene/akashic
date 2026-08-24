@@ -169,7 +169,7 @@ issues: [19, 40, 41]
 ### Roadmap-to-issue handoff
 
 - A step is complete only when its exit criteria and required evidence are satisfied; commit count never determines progress.
-- Ready or planned steps without an issue are candidates for the private, duplicate-aware roadmap.issue-plan.json dry run.
+- Ready steps without an issue are candidates for the private, duplicate-aware roadmap.issue-plan.json dry run. Planned steps remain preview-only unless a reviewer explicitly opts them in with issue_policy: propose.
 - Issue creation or reconciliation requires human approval or an explicitly authorized Pace operation and returns issue references through a reviewable roadmap pull request.
 - Pull requests and commits should include Roadmap-Step: <ID>; historical evidence may be linked through existing issue and pull-request relationships.
 - Public rendering uses only allowlisted build-time evidence and never places a GitHub token or private issue plan in the browser artifact.
