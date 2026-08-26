@@ -46,7 +46,6 @@ Free and open-source software is about user freedom as well as price. Hosted ser
 - [Ubuntu Desktop](https://ubuntu.com/desktop) - No-cost Linux desktop distribution with open-source foundations, long-term-support releases, and optional commercial services.
 - [Linux Mint](https://linuxmint.com/) - Community-funded Linux desktop focused on familiar workflows, multimedia support, and ease of installation.
 - [Pop!_OS](https://pop.system76.com/) - Free Linux desktop from System76 with open-source workflow, graphics, and recovery tooling.
-- [Tails](https://tails.net/) - Free live operating system that routes internet traffic through Tor and is designed to minimize traces on the host computer.
 - [Qubes OS](https://www.qubes-os.org/) - Security-focused desktop operating system that isolates activities into disposable and persistent virtual machines.
 - [FreeBSD](https://www.freebsd.org/) - Free and open-source Unix-like operating system for servers, desktops, networking, storage, and embedded systems.
 - [OpenBSD](https://www.openbsd.org/) - Free Unix-like operating system emphasizing correctness, proactive security, cryptography, and integrated documentation.
@@ -94,7 +93,6 @@ Free and open-source software is about user freedom as well as price. Hosted ser
 ## Internet, Communication, and Media
 
 - [Firefox](https://www.mozilla.org/firefox/) - Open-source web browser from Mozilla with cross-platform synchronization, extensions, tracking protection, and developer tools.
-- [Tor Browser](https://www.torproject.org/download/) - Free browser configured to route traffic through the Tor network and reduce tracking and fingerprinting.
 - [Signal](https://signal.org/) - Free open-source messaging and calling application with end-to-end encryption by default and nonprofit stewardship.
 - [Element](https://element.io/) - Open-source Matrix client for decentralized messaging, rooms, encrypted calls, and self-hosted or public homeservers.
 - [Jitsi Meet](https://jitsi.org/jitsi-meet/) - Open-source video-conferencing software available through public instances or independent self-hosting.

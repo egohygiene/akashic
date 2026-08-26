@@ -25,6 +25,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "commerce-and-marketplaces",
   "containers-and-cloud",
   "creative-resources",
+  "dark-web-deep-web-and-anonymous-networks",
   "design-systems-and-branding",
   "developer-tools",
   "health-and-well-being",

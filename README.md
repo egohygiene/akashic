@@ -18,12 +18,13 @@
 
 ## Explore the Collection
 
-- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **842 resources.**
+- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **839 resources.**
 - [Artificial Intelligence](lists/artificial-intelligence/README.md) - Agent engineering, models, providers, memory systems, evaluation, safety, and AI research. **140 resources.**
 - [Business and Entrepreneurship](lists/business-and-entrepreneurship/README.md) - Business structures, financial safety, registration, taxes, selling, operations, public support, and optional consolidation services. **210 resources.**
 - [Commerce and Marketplaces](lists/commerce-and-marketplaces/README.md) - Shopping discovery, independent marketplaces, creator storefronts, custom products, print-on-demand, manufacturing, wholesale, payments, and fulfillment. **214 resources.**
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **228 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **52 resources.**
+- [Dark Web, Deep Web, and Anonymous Networks](lists/dark-web-deep-web-and-anonymous-networks/README.md) - Safety-first orientation, anonymous networks, protected publishing, ethical research, defensive intelligence, and harm reporting. **112 resources.**
 - [Design Systems and Branding](lists/design-systems-and-branding/README.md) - Design-system foundations, public implementations, design tokens, governance, accessibility, brand guidelines, content standards, and identity references. **96 resources.**
 - [Developer Tools](lists/developer-tools/README.md) - Application development, databases, documentation, knowledge management, shell environments, and developer utilities. **161 resources.**
 - [Health and Well-Being](lists/health-and-well-being/README.md) - Mental-health education, trauma-informed support, care navigation, digital health, supplements, pharmacology, and evidence-aware treatment resources. **153 resources.**
