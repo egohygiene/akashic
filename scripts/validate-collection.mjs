@@ -24,6 +24,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "artificial-intelligence",
   "awesome-abundance",
   "business-and-entrepreneurship",
+  "claims-conspiracies-and-epistemic-navigation",
   "commerce-and-marketplaces",
   "containers-and-cloud",
   "creative-resources",
