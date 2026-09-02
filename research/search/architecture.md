@@ -67,20 +67,26 @@ The first query compiler should be deterministic. It can normalize text and deri
 
 ```json
 {
-  "intents": ["housing", "legal-help", "financial-assistance"],
-  "urgency": "deadline-sensitive",
-  "concepts": ["eviction notice", "tenant defense", "rental assistance"],
-  "locationRequired": true,
-  "accessPreferences": ["free", "official", "local"],
+  "schemaVersion": 1,
+  "normalizedQuery": "i have no money and my landlord says i need to leave friday",
+  "intents": ["housing-risk", "no-income"],
+  "urgency": {
+    "level": "deadline-sensitive",
+    "signals": [{ "kind": "deadline", "text": "friday" }]
+  },
+  "location": null,
+  "accessNeeds": [{ "id": "no-cost", "signals": ["no money"] }],
   "subqueries": [
-    "eviction notice tenant legal help",
-    "free eviction defense",
-    "emergency rental assistance"
+    "no money landlord need leave friday",
+    "housing or eviction help",
+    "help with no income"
   ]
 }
 ```
 
-Curated rules, aliases, phrase recognition, and metadata can produce this before a language model is introduced. A future small local model may suggest additional subqueries or a hypothetical passage, following the HyDE and Query2doc research directions, but generated expansion is only a retrieval hint.
+`weighted-lexical-v2` now produces this record alongside its existing scoring inputs. The rules only record matched concept IDs and explicit query text: urgency is a signal classification rather than an asserted deadline, location is a conservative place or postal-code span rather than a claim of applicability, and access needs are not inferred from catalog metadata. Subqueries are bounded, deduplicated, and inspectable. They do not affect ranking until a separately evaluated fusion experiment uses them. The initial rule vocabulary is English-only.
+
+A future small local model may suggest additional subqueries or a hypothetical passage, following the HyDE and Query2doc research directions, but generated expansion is only a retrieval hint.
 
 ### Hybrid retriever
 
