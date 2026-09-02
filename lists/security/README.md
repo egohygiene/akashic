@@ -96,8 +96,8 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Social-Engineer Toolkit](https://trustedsec.com/resources/tools/the-social-engineer-toolkit-set) - TrustedSec project for authorized social-engineering simulations, awareness exercises, and penetration-testing workflows.
 - [TrustedSec Tools](https://trustedsec.com/resources?sections=tools) - Catalog of offensive-security, assessment, testing, and research tools released by TrustedSec.
 - [TrustedSec](https://github.com/trustedsec) - Open-source security tools and research from the TrustedSec team.
-- [Turbinia](https://github.com/google/turbinia) - Distributed digital-forensics platform that automates evidence processing across scalable worker infrastructure.
-- [Velociraptor](https://docs.velociraptor.app/) - Documentation for the open-source endpoint visibility, digital forensics, and incident-response platform.
+
+Digital-forensics acquisition, preservation, examination, and reporting tools now have a dedicated home in [Digital Forensics and Incident Evidence](../digital-forensics-and-incident-evidence/README.md). This collection retains personal, organizational, account, privacy, and defensive-security resources rather than duplicating the forensic catalog.
 
 ## Privacy and Personal Data
 

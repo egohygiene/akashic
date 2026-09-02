@@ -12,6 +12,8 @@ export const RESOURCE_METADATA_VALUES = Object.freeze({
   authorization: ["reference-only", "isolated-lab", "owned-systems", "explicit-scope"],
   operationalRisk: ["none", "low", "moderate", "high"],
   skillLevel: ["beginner", "intermediate", "advanced", "mixed"],
+  artifactDomain: ["multi-domain", "disk", "filesystem", "memory", "network", "browser", "mobile", "cloud", "container", "media", "logs", "malware"],
+  forensicRole: ["acquisition", "preservation", "examination", "analysis", "timeline", "indexing-search", "correlation-visualization", "validation", "case-management", "reporting", "education"],
   license: ["open-source", "open-content", "public-domain", "proprietary", "varies", "unknown"],
   status: ["active", "archived", "historical", "experimental", "deprecated"],
   volatility: ["low", "medium", "high"],
@@ -20,7 +22,7 @@ export const RESOURCE_METADATA_VALUES = Object.freeze({
   linkStatus: ["unknown", "ok", "redirected", "unavailable"],
 });
 
-const ARRAY_FIELDS = new Set(["access", "geography", "language", "platform", "authorization", "sensitive"]);
+const ARRAY_FIELDS = new Set(["access", "geography", "language", "platform", "authorization", "artifactDomain", "forensicRole", "sensitive"]);
 const DATE_FIELDS = new Set(["reviewed", "linkChecked"]);
 const ALLOWED_FIELDS = new Set(["id", "aliases", ...Object.keys(RESOURCE_METADATA_VALUES), ...ARRAY_FIELDS, ...DATE_FIELDS]);
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

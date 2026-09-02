@@ -12,6 +12,7 @@ export const CATEGORY_IDENTITIES = Object.freeze({
   "dark-web-deep-web-and-anonymous-networks": { color: "#39456e", glyph: "◑" },
   "design-systems-and-branding": { color: "#16827d", glyph: "◩" },
   "developer-tools": { color: "#508c32", glyph: "◇" },
+  "digital-forensics-and-incident-evidence": { color: "#8c4b75", glyph: "⌕" },
   "gaming-ecosystem-and-preservation": { color: "#a5572c", glyph: "⊞" },
   "hacking-and-cybersecurity": { color: "#a23f55", glyph: "⌾" },
   "health-and-well-being": { color: "#2f72c4", glyph: "☼" },

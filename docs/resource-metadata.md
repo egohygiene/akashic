@@ -41,6 +41,8 @@ All fields are optional except where the contribution policy requires an explici
 | `authorization` | array | `reference-only`, `isolated-lab`, `owned-systems`, `explicit-scope` |
 | `operationalRisk` | string | `none`, `low`, `moderate`, `high` |
 | `skillLevel` | string | `beginner`, `intermediate`, `advanced`, `mixed` |
+| `artifactDomain` | array | `multi-domain`, `disk`, `filesystem`, `memory`, `network`, `browser`, `mobile`, `cloud`, `container`, `media`, `logs`, `malware` |
+| `forensicRole` | array | `acquisition`, `preservation`, `examination`, `analysis`, `timeline`, `indexing-search`, `correlation-visualization`, `validation`, `case-management`, `reporting`, `education` |
 | `license` | string | `open-source`, `open-content`, `public-domain`, `proprietary`, `varies`, `unknown` |
 | `status` | string | `active`, `archived`, `historical`, `experimental`, `deprecated` |
 | `volatility` | string | `low`, `medium`, `high` |
@@ -53,6 +55,8 @@ All fields are optional except where the contribution policy requires an explici
 `reviewed` means a person assessed the resource's claims, authority, access constraints, and continuing suitability. `linkStatus` only describes machine-observable availability. A successful link check must never be presented as a human truth review, and an outage must not silently delete a resource.
 
 `authorization` records the minimum permission context in which a resource belongs in the catalog: reading a reference, working in a deliberately isolated lab, assessing systems the learner owns, or operating under an explicit written scope. Multiple values may apply. `operationalRisk` describes the potential for harm if the resource is used outside that context; it is not a claim that authorized use is unsafe. `skillLevel` records the audience the resource is designed to support. These fields are required by collections that curate dual-use security resources, but remain optional for legacy entries elsewhere.
+
+`artifactDomain` records the evidence or artifact families a forensic resource is designed to handle, while `forensicRole` records its place in a documented workflow. Both are multi-value fields because a suite can, for example, acquire memory and disk data, then examine and report on the result. They describe documented capabilities, not a claim of forensic soundness, legal admissibility, or fitness for a particular matter.
 
 Canonical metadata values remain in English in the current reference locale. Interface labels are localized separately; a future reviewed content overlay can use the stable ID.
 

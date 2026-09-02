@@ -33,16 +33,20 @@ test("rejects unknown values, incomplete link checks, and malformed dates", () =
   assert.throws(() => validateResourceMetadata({ authorization: ["permission-implied"] }), /authorization must use/);
   assert.throws(() => validateResourceMetadata({ operationalRisk: "extreme" }), /operationalRisk must use/);
   assert.throws(() => validateResourceMetadata({ skillLevel: "expert" }), /skillLevel must use/);
+  assert.throws(() => validateResourceMetadata({ artifactDomain: ["device"] }), /artifactDomain must use/);
+  assert.throws(() => validateResourceMetadata({ forensicRole: ["certification"] }), /forensicRole must use/);
   assert.throws(() => validateResourceMetadata({ surprise: true }), /unknown metadata field/);
   assert.throws(() => validateResourceMetadata({ linkStatus: "ok" }), /requires linkChecked/);
   assert.throws(() => validateResourceMetadata({ reviewed: "2026-02-31" }), /real YYYY-MM-DD/);
 });
 
-test("accepts controlled permission, risk, and skill classifications", () => {
+test("accepts controlled permission, risk, skill, artifact, and forensic-role classifications", () => {
   assert.doesNotThrow(() => validateResourceMetadata({
     authorization: ["isolated-lab", "explicit-scope"],
     operationalRisk: "high",
     skillLevel: "intermediate",
+    artifactDomain: ["disk", "memory"],
+    forensicRole: ["acquisition", "preservation", "analysis"],
   }));
 });
 

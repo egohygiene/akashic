@@ -23,6 +23,7 @@ lists/
   dark-web-deep-web-and-anonymous-networks/README.md
   design-systems-and-branding/README.md
   developer-tools/README.md
+  digital-forensics-and-incident-evidence/README.md
   gaming-ecosystem-and-preservation/README.md
   hacking-and-cybersecurity/README.md
   health-and-well-being/README.md
