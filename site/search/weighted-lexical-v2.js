@@ -2,6 +2,9 @@ import { SEARCH_CONCEPTS } from "./concepts-v1.js";
 
 export const SEARCH_ALGORITHM_ID = "weighted-lexical-v2";
 
+const MATCH_EXPLANATION_SCHEMA_VERSION = 1;
+const MINIMUM_SEARCH_SCORE = 6;
+
 const STOP_WORDS = new Set([
   "a", "an", "and", "another", "are", "be", "but", "can", "could", "do", "does", "for", "from", "have", "how", "i", "in", "is", "it", "me", "my", "of", "on", "or", "please", "says", "some", "somewhere", "that", "the", "this", "to", "want", "what", "where", "with", "would",
 ]);
@@ -177,48 +180,164 @@ export function buildSearchIndex(resource) {
   return Object.fromEntries(Object.keys(FIELD_WEIGHTS).map((field) => [field, normalizeSearchText(resource[field])]));
 }
 
-export function scoreResource(resource, compiled) {
+function termOrigin(term, compiled) {
+  return {
+    query: compiled.originalTerms.includes(term),
+    conceptIds: compiled.concepts
+      .filter((concept) => concept.expansions.some((expansion) => normalizeSearchText(expansion) === term))
+      .map((concept) => concept.id),
+  };
+}
+
+function buildMatchExplanation(compiled, scoreBeforeCoverage, finalScore, coverage, coverageMultiplier, matchedOriginalTerms, matchedTerms, boosts, excludedReason) {
+  return {
+    schemaVersion: MATCH_EXPLANATION_SCHEMA_VERSION,
+    searchAlgorithm: SEARCH_ALGORITHM_ID,
+    score: finalScore,
+    scoreBeforeCoverage,
+    minimumScore: MINIMUM_SEARCH_SCORE,
+    included: finalScore >= MINIMUM_SEARCH_SCORE,
+    coverage: {
+      matchedOriginalTerms,
+      unmatchedOriginalTerms: compiled.originalTerms.filter((term) => !matchedOriginalTerms.includes(term)),
+      ratio: coverage,
+      multiplier: coverageMultiplier,
+    },
+    matchedTerms,
+    boosts,
+    excludedReason,
+  };
+}
+
+function evaluateResource(resource, compiled, includeExplanation) {
   const index = resource.searchIndex || buildSearchIndex(resource);
   let score = 0;
   let matchedOriginalTerms = 0;
+  const matchedOriginalTermValues = includeExplanation ? [] : null;
+  const matchedTerms = includeExplanation ? [] : null;
+  const boosts = includeExplanation ? [] : null;
 
   for (const [term, termWeight] of compiled.weightedTerms) {
     let bestFieldWeight = 0;
+    let creditedField = null;
+    const matchedFields = includeExplanation ? [] : null;
     for (const [field, fieldWeight] of Object.entries(FIELD_WEIGHTS)) {
-      if (termMatches(index[field], term)) bestFieldWeight = Math.max(bestFieldWeight, fieldWeight);
+      if (!termMatches(index[field], term)) continue;
+      if (includeExplanation) matchedFields.push({ field, fieldWeight });
+      if (fieldWeight > bestFieldWeight) {
+        bestFieldWeight = fieldWeight;
+        creditedField = field;
+      }
     }
-    score += bestFieldWeight * termWeight;
-    if (compiled.originalTerms.includes(term) && bestFieldWeight > 0) matchedOriginalTerms += 1;
+    const contribution = bestFieldWeight * termWeight;
+    score += contribution;
+    const isOriginalTerm = compiled.originalTerms.includes(term);
+    if (isOriginalTerm && bestFieldWeight > 0) {
+      matchedOriginalTerms += 1;
+      if (includeExplanation) matchedOriginalTermValues.push(term);
+    }
+    if (includeExplanation && contribution > 0) {
+      matchedTerms.push({
+        term,
+        origin: termOrigin(term, compiled),
+        termWeight,
+        matchedFields,
+        creditedField,
+        contribution,
+      });
+    }
   }
 
   const coverage = compiled.originalTerms.length ? matchedOriginalTerms / compiled.originalTerms.length : 1;
-  if (!compiled.concepts.length && compiled.originalTerms.length > 2 && coverage < 0.34) return 0;
+  const coverageMultiplier = 0.62 + coverage * 0.38;
+  if (!compiled.normalized) {
+    return includeExplanation
+      ? buildMatchExplanation(compiled, score, 0, coverage, coverageMultiplier, matchedOriginalTermValues, matchedTerms, boosts, "empty-query")
+      : 0;
+  }
+  if (!compiled.concepts.length && compiled.originalTerms.length > 2 && coverage < 0.34) {
+    return includeExplanation
+      ? buildMatchExplanation(compiled, score, 0, coverage, coverageMultiplier, matchedOriginalTermValues, matchedTerms, boosts, "low-query-coverage")
+      : 0;
+  }
   if (compiled.normalized) {
-    if (index.title === compiled.normalized) score += 36;
-    else if (index.title.includes(compiled.normalized)) score += 22;
-    if (index.section.includes(compiled.normalized)) score += 14;
-    if (index.description.includes(compiled.normalized)) score += 5;
+    if (index.title === compiled.normalized) {
+      score += 36;
+      if (includeExplanation) boosts.push({ id: "exact-query-title", field: "title", contribution: 36 });
+    } else if (index.title.includes(compiled.normalized)) {
+      score += 22;
+      if (includeExplanation) boosts.push({ id: "query-title-substring", field: "title", contribution: 22 });
+    }
+    if (index.section.includes(compiled.normalized)) {
+      score += 14;
+      if (includeExplanation) boosts.push({ id: "query-topic-substring", field: "section", contribution: 14 });
+    }
+    if (index.description.includes(compiled.normalized)) {
+      score += 5;
+      if (includeExplanation) boosts.push({ id: "query-description-substring", field: "description", contribution: 5 });
+    }
   }
   for (const concept of compiled.concepts) {
     for (const priority of concept.priorities || []) {
       const normalizedPriority = normalizeSearchText(priority);
-      if (index.title === normalizedPriority) score += 90;
-      else if (normalizedPriority.length >= 8 && index.title.includes(normalizedPriority)) score += 64;
+      if (index.title === normalizedPriority) {
+        score += 90;
+        if (includeExplanation) boosts.push({ id: "concept-priority-exact-title", conceptId: concept.id, priority: normalizedPriority, field: "title", contribution: 90 });
+      } else if (normalizedPriority.length >= 8 && index.title.includes(normalizedPriority)) {
+        score += 64;
+        if (includeExplanation) boosts.push({ id: "concept-priority-title-substring", conceptId: concept.id, priority: normalizedPriority, field: "title", contribution: 64 });
+      }
     }
   }
-  if (!score) return 0;
-  if (index.section === "start here") score += 11;
-  return score * (0.62 + coverage * 0.38);
+  if (!score) {
+    return includeExplanation
+      ? buildMatchExplanation(compiled, score, 0, coverage, coverageMultiplier, matchedOriginalTermValues, matchedTerms, boosts, "no-weighted-match")
+      : 0;
+  }
+  if (index.section === "start here") {
+    score += 11;
+    if (includeExplanation) boosts.push({ id: "start-here-topic", field: "section", contribution: 11 });
+  }
+  const finalScore = score * coverageMultiplier;
+  return includeExplanation
+    ? buildMatchExplanation(compiled, score, finalScore, coverage, coverageMultiplier, matchedOriginalTermValues, matchedTerms, boosts, finalScore < MINIMUM_SEARCH_SCORE ? "below-minimum-score" : null)
+    : finalScore;
+}
+
+export function scoreResource(resource, compiled) {
+  return evaluateResource(resource, compiled, false);
+}
+
+export function explainResourceMatch(resource, queryOrCompiled) {
+  const compiled = typeof queryOrCompiled === "string" ? compileSearchQuery(queryOrCompiled) : queryOrCompiled;
+  if (!compiled || !Array.isArray(compiled.originalTerms) || !Array.isArray(compiled.weightedTerms)) throw new TypeError("A query string or compiled search query is required.");
+  return evaluateResource(resource, compiled, true);
+}
+
+function rankedResourceEntries(resources, compiled) {
+  return resources
+    .map((resource, index) => ({ resource, index, score: scoreResource(resource, compiled) }))
+    .filter((entry) => entry.score >= MINIMUM_SEARCH_SCORE)
+    .sort((left, right) => right.score - left.score || left.index - right.index);
 }
 
 export function searchResources(resources, query) {
   const compiled = compileSearchQuery(query);
   if (!compiled.normalized) return [...resources];
-  return resources
-    .map((resource, index) => ({ resource, index, score: scoreResource(resource, compiled) }))
-    .filter((entry) => entry.score >= 6)
-    .sort((left, right) => right.score - left.score || left.index - right.index)
-    .map((entry) => entry.resource);
+  return rankedResourceEntries(resources, compiled).map((entry) => entry.resource);
+}
+
+export function searchResourcesWithExplanations(resources, query, limit = 10) {
+  if (!Number.isInteger(limit) || limit < 1) throw new TypeError("Explanation limit must be a positive integer.");
+  const compiled = compileSearchQuery(query);
+  const ranked = compiled.normalized
+    ? rankedResourceEntries(resources, compiled).slice(0, limit)
+    : resources.slice(0, limit).map((resource, index) => ({ resource, index, score: 0 }));
+  return ranked.map(({ resource, score }) => ({
+    resource,
+    score,
+    explanation: explainResourceMatch(resource, compiled),
+  }));
 }
 
 export function suggestedQueries(query, limit = 4) {

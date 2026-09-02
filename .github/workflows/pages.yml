@@ -42,7 +42,7 @@ jobs:
         run: node scripts/check-site.mjs
 
       - name: Generate repository intelligence
-        # egohygiene/relay repository-intelligence v1.1.0
+        # egohygiene/relay repository-intelligence v1.3.0
         uses: egohygiene/relay/actions/repository-intelligence@55587de4ff322931d401e964f5af0716633dd675
 
       - name: Verify complete Pages artifact

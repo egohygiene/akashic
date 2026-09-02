@@ -66,7 +66,8 @@ Collection, branch, and topic selects operate on the same URL-backed `collection
 - removes a small set of nonsemantic English stop words;
 - weights title, topic, branch, collection, description, and domain matches differently;
 - expands reviewed concepts and exact aliases from `site/search/concepts-v1.js`;
-- boosts `Start Here` resources only after a real lexical or reviewed-alias match; and
+- boosts `Start Here` resources only after a real lexical or reviewed-alias match;
+- exposes opt-in score explanations without generating explanation objects during ordinary search; and
 - uses deterministic source order for equal scores.
 
 Concepts contain vocabulary and ranking aliases, not copied resource descriptions or generated facts. The frozen `and-substring-v1` module remains available for research comparison. Reproduce both reports with:
@@ -77,7 +78,7 @@ node scripts/evaluate-search.mjs --verify research/search/results/and-substring-
 node scripts/evaluate-search.mjs --algorithm site/search/weighted-lexical-v2.js --verify research/search/results/weighted-lexical-v2.json
 ```
 
-The ten-query seed fixture is a regression tool, not proof of broad retrieval quality or safety. Expand it through reviewed real questions, explicit relevant and negative judgments, and failure reports before making stronger claims.
+`explainResourceMatch` explains one resource against a query or compiled query. `searchResourcesWithExplanations` returns the first ten explained results by default and accepts an explicit positive limit. Both record matched query and concept terms, credited fields, boosts, coverage, thresholds, and exclusion reasons. They explain deterministic scoring behavior, not resource suitability or controlling facts. The ten-query seed fixture is a regression tool, not proof of broad retrieval quality or safety. Expand it through reviewed real questions, explicit relevant and negative judgments, and failure reports before making stronger claims.
 
 ## Source, Review, and Presentation
 

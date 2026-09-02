@@ -8,6 +8,7 @@ const root = process.cwd();
 const defaultCatalogPath = path.join(root, "dist/data/catalog.json");
 const defaultFixturePath = path.join(root, "research/search/evaluations/natural-language-v1.json");
 const defaultAlgorithmPath = path.join(root, "site/search/and-substring-v1.js");
+const EXPLANATION_REPORT_DEPTH = 1;
 
 function optionValue(name, fallback = "") {
   const index = process.argv.indexOf(name);
@@ -38,10 +39,22 @@ function rankResources(algorithm, resources, query) {
   throw new Error("Search algorithm must export searchResources or createAndSubstringMatcher.");
 }
 
+function explainRankedResources(algorithm, resources, query, ranked) {
+  if (!ranked.length || typeof algorithm.searchResourcesWithExplanations !== "function") return [];
+  const explained = algorithm.searchResourcesWithExplanations(resources, query, ranked.length);
+  if (explained.length !== ranked.length) throw new Error(`Match explanation count differs from ranked results for query: ${query}`);
+  for (const [index, entry] of explained.entries()) {
+    if (normalizedUrl(entry.resource.url) !== normalizedUrl(ranked[index].url)) throw new Error(`Match explanations changed result order for query: ${query}`);
+    if (entry.score !== entry.explanation.score) throw new Error(`Match explanation score differs from the ranking score for query: ${query}`);
+  }
+  return explained.map((entry) => entry.explanation);
+}
+
 function evaluateCase(testCase, resources, topK, algorithm) {
   const relevantUrls = new Set(testCase.relevantUrls.map(normalizedUrl));
   const matches = rankResources(algorithm, resources, testCase.query);
   const ranked = matches.slice(0, topK);
+  const explanations = explainRankedResources(algorithm, resources, testCase.query, ranked);
   const relevantRanks = [];
   for (const [index, resource] of matches.entries()) {
     if (relevantUrls.has(normalizedUrl(resource.url))) relevantRanks.push(index + 1);
@@ -59,14 +72,18 @@ function evaluateCase(testCase, resources, topK, algorithm) {
     reciprocalRank: firstRelevantRank ? rounded(1 / firstRelevantRank) : 0,
     firstRelevantRank,
     relevantRanks,
-    topResults: ranked.map((resource, index) => ({
-      rank: index + 1,
-      title: resource.title,
-      url: resource.url,
-      collection: resource.category,
-      topic: resource.section,
-      relevant: relevantUrls.has(normalizedUrl(resource.url)),
-    })),
+    topResults: ranked.map((resource, index) => {
+      const result = {
+        rank: index + 1,
+        title: resource.title,
+        url: resource.url,
+        collection: resource.category,
+        topic: resource.section,
+        relevant: relevantUrls.has(normalizedUrl(resource.url)),
+      };
+      if (index < EXPLANATION_REPORT_DEPTH && explanations[index]) result.matchExplanation = explanations[index];
+      return result;
+    }),
   };
 }
 

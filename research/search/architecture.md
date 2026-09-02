@@ -108,6 +108,16 @@ final score =
 
 Multiple subquery rankings can be combined using reciprocal rank fusion or another simple method before a more complex learned reranker is considered.
 
+The active lexical experiment exposes an explanation record separately from its fast scoring path. For each explicitly explained resource it records:
+
+- every matched weighted term and whether it came from the original query or a reviewed concept;
+- all matching fields and the highest-weight field credited by the scorer;
+- exact-query, reviewed-priority, and `Start Here` boosts;
+- matched and unmatched original terms, coverage, and the coverage multiplier;
+- the score before coverage, final score, inclusion threshold, and exclusion reason.
+
+The evaluator verifies this evidence for every top-ten result, persists the full breakdown for the first result per query, and fails if requesting explanations changes ranking order or scores. The record explains algorithm behavior; it is not a factual explanation, eligibility determination, deadline interpretation, or claim that a resource is appropriate for the visitor.
+
 ### Static vector index
 
 For 4,169 resources and 384 dimensions, exhaustive comparison is small enough to be the default research baseline.
