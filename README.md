@@ -21,6 +21,7 @@
 - [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **839 resources.**
 - [Artificial Intelligence](lists/artificial-intelligence/README.md) - Agent engineering, models, providers, memory systems, evaluation, safety, and AI research. **140 resources.**
 - [Business and Entrepreneurship](lists/business-and-entrepreneurship/README.md) - Business structures, financial safety, registration, taxes, selling, operations, public support, and optional consolidation services. **210 resources.**
+- [Claims, Conspiracies, and Epistemic Navigation](lists/claims-conspiracies-and-epistemic-navigation/README.md) - Method-first claim tracing, primary records, verification, propaganda analysis, documented cases, uncertainty, and compassionate support. **53 resources.**
 - [Commerce and Marketplaces](lists/commerce-and-marketplaces/README.md) - Shopping discovery, independent marketplaces, creator storefronts, custom products, print-on-demand, manufacturing, wholesale, payments, and fulfillment. **214 resources.**
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **228 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **52 resources.**
