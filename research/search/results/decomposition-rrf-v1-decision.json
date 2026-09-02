@@ -12,7 +12,7 @@
   },
   "baseline": {
     "searchAlgorithm": "weighted-lexical-v2",
-    "reportSha256": "da6a4a938a1eb2cd0f431e8f29496e46763943390a9109b0d91ce8d0af1f6772",
+    "reportSha256": "d0f9e30e035f81dccbdde91bd6ddcebd9badfdbe45ca3d910fd37b13e09315ce",
     "summary": {
       "caseCount": 18,
       "zeroResultCount": 1,

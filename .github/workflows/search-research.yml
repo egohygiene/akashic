@@ -9,6 +9,7 @@ on:
       - "package.json"
       - "research/search/**"
       - "scripts/build-site.mjs"
+      - "scripts/benchmark-search.mjs"
       - "scripts/check-site.mjs"
       - "scripts/compare-search-results.mjs"
       - "scripts/evaluate-search.mjs"
@@ -23,6 +24,7 @@ on:
       - "package.json"
       - "research/search/**"
       - "scripts/build-site.mjs"
+      - "scripts/benchmark-search.mjs"
       - "scripts/check-site.mjs"
       - "scripts/compare-search-results.mjs"
       - "scripts/evaluate-search.mjs"
@@ -69,6 +71,7 @@ jobs:
           node --check site/search/concepts-v1.js
           node --check site/search/weighted-lexical-v2.js
           node --check research/search/algorithms/decomposition-rrf-v1.js
+          node --check scripts/benchmark-search.mjs
           node --check scripts/compare-search-results.mjs
           node --check scripts/evaluate-search.mjs
           node --check scripts/lib/search-licenses.mjs
@@ -83,6 +86,9 @@ jobs:
 
       - name: Verify browser build integration
         run: node scripts/check-site.mjs
+
+      - name: Verify static search performance report
+        run: node scripts/benchmark-search.mjs --profile standard --warmup-passes 1 --measurement-passes 1 --static-verify research/search/results/weighted-lexical-v2-performance-v1.json
 
       - name: Verify committed baseline
         run: node scripts/evaluate-search.mjs --verify research/search/results/and-substring-v1.json

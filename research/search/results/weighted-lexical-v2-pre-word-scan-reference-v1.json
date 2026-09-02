@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "suite": "weighted-lexical-performance-v1",
+  "searchAlgorithm": "weighted-lexical-v2",
+  "inputs": {
+    "algorithmSha256": "1472b8ce64e66a02459d2125c99fff47c8caae77afb749ef603b8915771603d8",
+    "budgetSha256": "4a38f20a9715cc3a3f31b4a251883f93501a8986d1f55777b0939982e8d77e69",
+    "catalogSha256": "4b9877165c32bc06a050ae822302aa35e8b1bedb1af7d1916c2d64d1b9222b8e",
+    "fixtureSha256": "209f67722794fc103e69cdce20b1c6bdcc8e40187fafd1ab0da18f0b9f8de066",
+    "runnerSha256": "2f1958f56efada0df6d6aee6ff11038a10f60db7da160a2aafb1049d46b1d301"
+  },
+  "static": null,
+  "timing": {
+    "profile": "standard",
+    "profileDescription": "Normal Node.js CI smoke profile; not a browser or device claim.",
+    "environment": {
+      "node": "v24.19.0",
+      "platform": "linux",
+      "architecture": "x64",
+      "cpuModel": "AMD EPYC 9V74 80-Core Processor",
+      "logicalCpuCount": 9
+    },
+    "configuration": {
+      "warmupPasses": 3,
+      "measurementPasses": 10,
+      "queryCount": 18,
+      "catalogResourceCount": 5112
+    },
+    "catalogParseMilliseconds": 8.1094,
+    "indexBuildMilliseconds": 53.8661,
+    "memoryObservation": {
+      "heapAfterCatalogParseBytes": 26627256,
+      "heapAfterIndexBytes": 39590248,
+      "observedIndexHeapDeltaBytes": 12962992
+    },
+    "querySummary": {
+      "operationCount": 180,
+      "meanMilliseconds": 59.3376,
+      "medianMilliseconds": 46.2952,
+      "p95Milliseconds": 139.99,
+      "p99Milliseconds": 144.3629,
+      "maximumMilliseconds": 146.9652
+    },
+    "slowestCasesByP95": [
+      {
+        "id": "eviction-notice-no-money",
+        "p95Milliseconds": 146.9652
+      },
+      {
+        "id": "vpn-renewal-no-income",
+        "p95Milliseconds": 131.6158
+      },
+      {
+        "id": "creative-business-taxes",
+        "p95Milliseconds": 121.2722
+      },
+      {
+        "id": "free-music-production",
+        "p95Milliseconds": 112.3696
+      },
+      {
+        "id": "court-paper",
+        "p95Milliseconds": 95.5012
+      }
+    ],
+    "checks": [
+      {
+        "id": "catalog-parse-milliseconds",
+        "actual": 8.1094,
+        "operator": "<=",
+        "maximum": 100,
+        "passed": true
+      },
+      {
+        "id": "index-build-milliseconds",
+        "actual": 53.8661,
+        "operator": "<=",
+        "maximum": 500,
+        "passed": true
+      },
+      {
+        "id": "median-query-milliseconds",
+        "actual": 46.2952,
+        "operator": "<=",
+        "maximum": 125,
+        "passed": true
+      },
+      {
+        "id": "p95-query-milliseconds",
+        "actual": 139.99,
+        "operator": "<=",
+        "maximum": 300,
+        "passed": true
+      },
+      {
+        "id": "maximum-query-milliseconds",
+        "actual": 146.9652,
+        "operator": "<=",
+        "maximum": 600,
+        "passed": true
+      }
+    ],
+    "withinBudget": true
+  }
+}

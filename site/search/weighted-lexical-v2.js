@@ -17,6 +17,7 @@ const FIELD_WEIGHTS = Object.freeze({
   description: 2.25,
   domain: 1,
 });
+const FIELD_ENTRIES = Object.freeze(Object.entries(FIELD_WEIGHTS));
 
 const URGENCY_SIGNALS = Object.freeze([
   { kind: "immediate", phrases: ["today", "tonight", "right now", "now", "immediately", "urgent", "emergency", "stranded"] },
@@ -60,10 +61,27 @@ function terms(value) {
   return normalizeSearchText(value).split(" ").filter((term) => term && !STOP_WORDS.has(term));
 }
 
+function wordRangeMatches(text, start, end, term) {
+  const wordLength = end - start;
+  if (wordLength !== term.length && term.length < 5) return false;
+  const comparisonLength = Math.min(wordLength, term.length);
+  for (let index = 0; index < comparisonLength; index += 1) {
+    if (text[start + index] !== term[index]) return false;
+  }
+  return true;
+}
+
 function termMatches(text, term) {
   if (!term) return false;
   if (term.includes(" ")) return text.includes(term);
-  return text.split(" ").some((candidate) => candidate === term || (term.length >= 5 && (candidate.startsWith(term) || term.startsWith(candidate))));
+  let start = 0;
+  while (start < text.length) {
+    const boundary = text.indexOf(" ", start);
+    const end = boundary === -1 ? text.length : boundary;
+    if (wordRangeMatches(text, start, end, term)) return true;
+    start = end + 1;
+  }
+  return false;
 }
 
 function phraseIsPresent(normalized, phrase) {
@@ -177,7 +195,7 @@ export function compileSearchQuery(query) {
 }
 
 export function buildSearchIndex(resource) {
-  return Object.fromEntries(Object.keys(FIELD_WEIGHTS).map((field) => [field, normalizeSearchText(resource[field])]));
+  return Object.fromEntries(FIELD_ENTRIES.map(([field]) => [field, normalizeSearchText(resource[field])]));
 }
 
 function termOrigin(term, compiled) {
@@ -221,7 +239,7 @@ function evaluateResource(resource, compiled, includeExplanation) {
     let bestFieldWeight = 0;
     let creditedField = null;
     const matchedFields = includeExplanation ? [] : null;
-    for (const [field, fieldWeight] of Object.entries(FIELD_WEIGHTS)) {
+    for (const [field, fieldWeight] of FIELD_ENTRIES) {
       if (!termMatches(index[field], term)) continue;
       if (includeExplanation) matchedFields.push({ field, fieldWeight });
       if (fieldWeight > bestFieldWeight) {

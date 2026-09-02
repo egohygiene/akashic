@@ -219,6 +219,10 @@ Measure at least:
 
 The seed fixture is not statistically sufficient for a paper. Its known-irrelevant judgments are partial probes, so unmarked results remain unjudged and the resulting rate is not precision. It establishes the evaluation contract and exposes regressions while a larger, de-identified and deliberately sampled question set is developed.
 
+`weighted-lexical-performance-v1` establishes the first executable performance boundary. It measures generated catalog-page assets with deterministic raw, gzip, and Brotli byte counts; times catalog parsing, one-time lexical indexing, and the reviewed query fixture; and applies both a normal Node.js CI smoke profile and a JIT-disabled stress profile. The active scorer now scans normalized word ranges directly, removing repeated token-array allocation from the query hot path without retaining a second token representation while the retrieval checkpoints prove unchanged rankings.
+
+The committed static report is reproducible, while elapsed-time and heap observations are environment-tagged reference evidence. Neither Node.js profile emulates a phone, and compressed byte counts do not reproduce CDN cache behavior. Phase 1 still requires representative browser captures for main-thread blocking, low/middle/high-capability devices, and first versus repeat navigation before claiming low-end mobile responsiveness.
+
 ## Experiment Order
 
 1. Preserve the existing algorithm as an executable baseline.

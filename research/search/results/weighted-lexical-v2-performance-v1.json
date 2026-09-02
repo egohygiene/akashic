@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "suite": "weighted-lexical-performance-v1",
+  "searchAlgorithm": "weighted-lexical-v2",
+  "catalogResourceCount": 5112,
+  "inputs": {
+    "algorithmSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669",
+    "budgetSha256": "4a38f20a9715cc3a3f31b4a251883f93501a8986d1f55777b0939982e8d77e69",
+    "catalogSha256": "4b9877165c32bc06a050ae822302aa35e8b1bedb1af7d1916c2d64d1b9222b8e",
+    "fixtureSha256": "209f67722794fc103e69cdce20b1c6bdcc8e40187fafd1ab0da18f0b9f8de066",
+    "runnerSha256": "2f1958f56efada0df6d6aee6ff11038a10f60db7da160a2aafb1049d46b1d301"
+  },
+  "compression": {
+    "gzipLevel": 9,
+    "brotliQuality": 11
+  },
+  "assets": [
+    {
+      "path": "dist/app.js",
+      "sha256": "d41802bd0e826af8fafa657d00a06a0c42b6f44b52f14faf79e62ab6cefaf99c",
+      "rawBytes": 46888,
+      "gzipBytes": 11138,
+      "brotliBytes": 9572
+    },
+    {
+      "path": "dist/assets/favicon.svg",
+      "sha256": "e9dc48ddd8882d87126b1753a2f0ab811790076e4616d40c717d8a1bef9627d3",
+      "rawBytes": 464,
+      "gzipBytes": 319,
+      "brotliBytes": 289
+    },
+    {
+      "path": "dist/catalog-metadata.js",
+      "sha256": "bd93cd6ddb5b99d39b0903f03dbbc3d6855c663290a9035c02b153fca611d8c0",
+      "rawBytes": 2312,
+      "gzipBytes": 753,
+      "brotliBytes": 632
+    },
+    {
+      "path": "dist/data/catalog.json",
+      "sha256": "4b9877165c32bc06a050ae822302aa35e8b1bedb1af7d1916c2d64d1b9222b8e",
+      "rawBytes": 3369030,
+      "gzipBytes": 542896,
+      "brotliBytes": 417373
+    },
+    {
+      "path": "dist/favorites.js",
+      "sha256": "b296112ae9325e78b2e5a127379371aa7457ff527babc180082a7a919d4a18c2",
+      "rawBytes": 1357,
+      "gzipBytes": 586,
+      "brotliBytes": 512
+    },
+    {
+      "path": "dist/i18n.js",
+      "sha256": "70f522e70135f762583ec4b553338e2a0bdb149d83e3ce651d56cddae137f8be",
+      "rawBytes": 2347,
+      "gzipBytes": 951,
+      "brotliBytes": 791
+    },
+    {
+      "path": "dist/i18n/en.json",
+      "sha256": "52d6d4326fe84e943185f720ce411e30a4ba5d94b92aef228580ee3fa55132dc",
+      "rawBytes": 29719,
+      "gzipBytes": 7862,
+      "brotliBytes": 6570
+    },
+    {
+      "path": "dist/index.html",
+      "sha256": "6d48e329a9f59764981bbb1f03dee1b35f05bd7312b37b3fddc9dbc03e00302c",
+      "rawBytes": 22413,
+      "gzipBytes": 5581,
+      "brotliBytes": 4495
+    },
+    {
+      "path": "dist/mind-map.js",
+      "sha256": "62dcc75bf7139acc9f2ae98fdf026649f4d3bc5cc4772a6f1cf82ce8e14289e0",
+      "rawBytes": 32297,
+      "gzipBytes": 7857,
+      "brotliBytes": 6863
+    },
+    {
+      "path": "dist/needs.js",
+      "sha256": "148279fc5438702ca8ef269102a699d872a1e1348ab205d1e6ee986ec845995b",
+      "rawBytes": 1692,
+      "gzipBytes": 502,
+      "brotliBytes": 407
+    },
+    {
+      "path": "dist/search-query-state.js",
+      "sha256": "add79d82abe4c08832da05bea7de13e5aa3acdb5c9e4853e47d0b60b61ebe010",
+      "rawBytes": 1041,
+      "gzipBytes": 408,
+      "brotliBytes": 353
+    },
+    {
+      "path": "dist/search.js",
+      "sha256": "3371803c5fb1783b2df1d5c5d5c831c5bf0cb9c01ac2a08de3e9921d9e0904e4",
+      "rawBytes": 286,
+      "gzipBytes": 227,
+      "brotliBytes": 156
+    },
+    {
+      "path": "dist/search/concepts-v1.js",
+      "sha256": "c720d9a0b1b6d7ad4bf9651cd10e85f6b6ace074dc184ed681a8e3291649199f",
+      "rawBytes": 5152,
+      "gzipBytes": 1705,
+      "brotliBytes": 1424
+    },
+    {
+      "path": "dist/search/weighted-lexical-v2.js",
+      "sha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669",
+      "rawBytes": 15633,
+      "gzipBytes": 4387,
+      "brotliBytes": 3823
+    },
+    {
+      "path": "dist/styles.css",
+      "sha256": "1722e8467ca1886fe351608eb2505d51479fe2ddc11d0db60fd66134f1a155b2",
+      "rawBytes": 72847,
+      "gzipBytes": 12707,
+      "brotliBytes": 10695
+    }
+  ],
+  "transferGroups": [
+    {
+      "id": "lexical-search-runtime",
+      "paths": [
+        "dist/data/catalog.json",
+        "dist/search.js",
+        "dist/search/concepts-v1.js",
+        "dist/search/weighted-lexical-v2.js"
+      ],
+      "rawBytes": 3390101,
+      "gzipBytes": 549215,
+      "brotliBytes": 422776,
+      "checks": [
+        {
+          "id": "raw-bytes",
+          "actual": 3390101,
+          "operator": "<=",
+          "maximum": 3600000,
+          "passed": true
+        },
+        {
+          "id": "gzip-bytes",
+          "actual": 549215,
+          "operator": "<=",
+          "maximum": 600000,
+          "passed": true
+        },
+        {
+          "id": "brotli-bytes",
+          "actual": 422776,
+          "operator": "<=",
+          "maximum": 475000,
+          "passed": true
+        }
+      ],
+      "withinBudget": true
+    },
+    {
+      "id": "catalog-page-bootstrap",
+      "paths": [
+        "dist/index.html",
+        "dist/styles.css",
+        "dist/app.js",
+        "dist/mind-map.js",
+        "dist/needs.js",
+        "dist/search.js",
+        "dist/search-query-state.js",
+        "dist/i18n.js",
+        "dist/favorites.js",
+        "dist/catalog-metadata.js",
+        "dist/search/concepts-v1.js",
+        "dist/search/weighted-lexical-v2.js",
+        "dist/i18n/en.json",
+        "dist/data/catalog.json",
+        "dist/assets/favicon.svg"
+      ],
+      "rawBytes": 3603478,
+      "gzipBytes": 597879,
+      "brotliBytes": 463955,
+      "checks": [
+        {
+          "id": "raw-bytes",
+          "actual": 3603478,
+          "operator": "<=",
+          "maximum": 3900000,
+          "passed": true
+        },
+        {
+          "id": "gzip-bytes",
+          "actual": 597879,
+          "operator": "<=",
+          "maximum": 675000,
+          "passed": true
+        },
+        {
+          "id": "brotli-bytes",
+          "actual": 463955,
+          "operator": "<=",
+          "maximum": 525000,
+          "passed": true
+        }
+      ],
+      "withinBudget": true
+    }
+  ],
+  "withinBudget": true
+}
