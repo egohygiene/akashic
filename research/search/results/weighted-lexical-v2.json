@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "suite": "akashic-natural-language-v1",
   "searchAlgorithm": "weighted-lexical-v2",
-  "catalogResourceCount": 4619,
+  "catalogResourceCount": 4849,
   "inputs": {
-    "catalogSha256": "9737c3fe19c280ddf1ee1e782cabb5b5755be94932a73af79bbae89928f7ee29",
+    "catalogSha256": "2d4764a0dfdc57fc0051723c754e01ef74d91482b7f33900a322cc4b6aeaca31",
     "fixtureSha256": "dd20a3342f06cdc097972977e1beb7a10b2506330fbfa48352e4bab6ec71126a",
     "implementationSha256": "abf1a8d97657ada5816ccab0542eb05bf07d92489f3b5fa3eff41360b7df1485"
   },
@@ -21,7 +21,7 @@
       "id": "food-today",
       "query": "I need food today",
       "kind": "natural-language",
-      "resultCount": 67,
+      "resultCount": 94,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -84,34 +84,34 @@
         },
         {
           "rank": 7,
-          "title": "Legal Services Corporation I Need Legal Help",
-          "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
-          "collection": "Legal Help and Law",
-          "topic": "Start Here",
+          "title": "Four Steps to Food Safety",
+          "url": "https://www.foodsafety.gov/keep-food-safe/4-steps-to-food-safety",
+          "collection": "Recipes, Cooking, and Food Data",
+          "topic": "Food Safety",
           "relevant": false
         },
         {
           "rank": 8,
-          "title": "Food Rescue US",
-          "url": "https://foodrescue.us/",
-          "collection": "Awesome Abundance",
-          "topic": "Food and Household Essentials",
+          "title": "WHO Five Keys to Safer Food",
+          "url": "https://www.who.int/activities/promoting-safe-food-handling/five-key-to-safer-food",
+          "collection": "Recipes, Cooking, and Food Data",
+          "topic": "Food Safety",
           "relevant": false
         },
         {
           "rank": 9,
-          "title": "ABA When You Need a Lawyer",
-          "url": "https://www.americanbar.org/groups/public_education/resources/public-information/when-you-need-a-lawyer/",
-          "collection": "Legal Help and Law",
-          "topic": "Working With a Lawyer",
+          "title": "USDA Complete Guide to Home Canning",
+          "url": "https://nchfp.uga.edu/resources/category/usda-guide",
+          "collection": "Recipes, Cooking, and Food Data",
+          "topic": "Preservation and Food-Waste Reduction",
           "relevant": false
         },
         {
           "rank": 10,
-          "title": "Lasagna Love",
-          "url": "https://lasagnalove.org/request/",
-          "collection": "Awesome Abundance",
-          "topic": "Food and Household Essentials",
+          "title": "Legal Services Corporation I Need Legal Help",
+          "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
           "relevant": false
         }
       ]
@@ -120,7 +120,7 @@
       "id": "eviction-notice-no-money",
       "query": "I have no money and my landlord says I need to leave Friday",
       "kind": "natural-language",
-      "resultCount": 175,
+      "resultCount": 179,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -219,7 +219,7 @@
       "id": "free-music-production",
       "query": "How can I make music without paying Adobe or another subscription",
       "kind": "natural-language",
-      "resultCount": 242,
+      "resultCount": 245,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -318,7 +318,7 @@
       "id": "creative-business-taxes",
       "query": "I want to sell my art but do not understand taxes or business structures",
       "kind": "natural-language",
-      "resultCount": 369,
+      "resultCount": 372,
       "relevantCount": 3,
       "relevantFoundAtK": 3,
       "recallAtK": 1,
@@ -328,11 +328,11 @@
         1,
         2,
         3,
-        43,
-        89,
-        112,
+        44,
+        90,
         113,
-        181
+        114,
+        182
       ],
       "topResults": [
         {
@@ -421,7 +421,7 @@
       "id": "court-paper",
       "query": "I received a court paper and do not know what it means",
       "kind": "natural-language",
-      "resultCount": 273,
+      "resultCount": 274,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -520,7 +520,7 @@
       "id": "safe-travel-without-car",
       "query": "How can I travel somewhere safe without a car",
       "kind": "natural-language",
-      "resultCount": 432,
+      "resultCount": 434,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -619,7 +619,7 @@
       "id": "subscription-old-laptop",
       "query": "What can replace this subscription on an old laptop",
       "kind": "natural-language",
-      "resultCount": 71,
+      "resultCount": 72,
       "relevantCount": 2,
       "relevantFoundAtK": 2,
       "recallAtK": 1,
@@ -716,7 +716,7 @@
       "id": "vpn-renewal-no-income",
       "query": "I cannot afford my VPN renewal and have no income",
       "kind": "natural-language",
-      "resultCount": 243,
+      "resultCount": 255,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -787,6 +787,14 @@
         },
         {
           "rank": 8,
+          "title": "Security in a Box",
+          "url": "https://securityinabox.org/en/",
+          "collection": "Dark Web, Deep Web, and Anonymous Networks",
+          "topic": "Orientation and Safer Use",
+          "relevant": false
+        },
+        {
+          "rank": 9,
           "title": "HRSA Find a Health Center",
           "url": "https://findahealthcenter.hrsa.gov/",
           "collection": "Public Services and Support",
@@ -794,19 +802,11 @@
           "relevant": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "title": "DOL Filing a Claim for Your Health Benefits",
           "url": "https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/publications/filing-a-claim-for-your-health-benefits",
           "collection": "Legal Help and Law",
           "topic": "Disability, Health Care, and Education Rights",
-          "relevant": false
-        },
-        {
-          "rank": 10,
-          "title": "A Brief History of Free and Open Source Software",
-          "url": "https://www.computer.org/csdl/magazine/co/2021/02/09353517/1r8kwgBjU9W",
-          "collection": "Open Source",
-          "topic": "History and Perspectives",
           "relevant": false
         }
       ]
