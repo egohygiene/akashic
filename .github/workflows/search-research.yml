@@ -15,7 +15,9 @@ on:
       - "scripts/evaluate-search.mjs"
       - "site/app.js"
       - "site/search.js"
+      - "site/search-lab.*"
       - "site/search/**"
+      - "test/search-lab.test.mjs"
   push:
     branches:
       - main
@@ -30,7 +32,9 @@ on:
       - "scripts/evaluate-search.mjs"
       - "site/app.js"
       - "site/search.js"
+      - "site/search-lab.*"
       - "site/search/**"
+      - "test/search-lab.test.mjs"
   workflow_dispatch:
 
 permissions:
@@ -67,6 +71,8 @@ jobs:
           node --check site/app.js
           node --check site/needs.js
           node --check site/search.js
+          node --check site/search-lab.js
+          node --check site/search-lab-metrics.js
           node --check site/search/and-substring-v1.js
           node --check site/search/concepts-v1.js
           node --check site/search/weighted-lexical-v2.js

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Run Akashic's dependency-free lexical search benchmark in this browser and export a private, inspectable device report.">
+    <meta name="theme-color" content="#0a0814">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Akashic Search Lab · Ego Hygiene">
+    <meta property="og:description" content="Measure Akashic search timing, main-thread blocking, and catalog transfer behavior on a real browser.">
+    <meta property="og:url" content="https://akashic.egohygiene.io/search-lab.html">
+    <title>Akashic Search Lab · Ego Hygiene</title>
+    <link rel="canonical" href="https://akashic.egohygiene.io/search-lab.html">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem("akashic-theme")||localStorage.getItem("ego-awesome-theme")||(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark")}catch{}</script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search-lab.css">
+    <script type="module" src="search-lab.js"></script>
+  </head>
+  <body class="search-lab-page">
+    <a class="skip-link" href="#search-lab">Skip to the benchmark</a>
+    <div class="akashic-field" aria-hidden="true"><span></span><span></span><span></span></div>
+
+    <header class="site-header is-scrolled">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="akashic portal home">
+          <span class="brand-mark" aria-hidden="true">∞</span>
+          <span><strong>akashic</strong><small>Search Lab</small></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="index.html">Portal</a>
+          <a href="dashboard.html">Overview</a>
+          <a href="atlas.html">Atlas</a>
+          <a class="is-active" href="#search-lab" aria-current="page">Search Lab</a>
+          <a href="https://github.com/egohygiene/akashic/tree/main/research/search" target="_blank" rel="noreferrer">Research <span aria-hidden="true">↗</span></a>
+        </nav>
+        <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">
+          <span aria-hidden="true">☼</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="search-lab" tabindex="-1">
+      <section class="lab-hero" aria-labelledby="lab-title">
+        <div class="lab-orbit" aria-hidden="true"><span></span><i></i><i></i></div>
+        <p class="lab-kicker"><span aria-hidden="true">⌁</span> Real-browser evidence</p>
+        <h1 id="lab-title">Measure the search kernel<br><em>where it actually runs.</em></h1>
+        <p>Run Akashic’s versioned lexical-search fixture on this device. The lab records catalog transfer behavior, parse and index cost, query latency, and browser-supported main-thread and memory signals.</p>
+        <div class="lab-boundaries" aria-label="Search Lab boundaries">
+          <span>No account</span><span>No analytics</span><span>No typed questions</span><span>No remote submission</span>
+        </div>
+      </section>
+
+      <section class="lab-workbench" aria-labelledby="workbench-title">
+        <div class="lab-panel lab-controls">
+          <div class="lab-panel-heading">
+            <div><p class="lab-kicker">Measurement run</p><h2 id="workbench-title">Choose a sample depth.</h2></div>
+            <span class="lab-signal" aria-hidden="true">◫</span>
+          </div>
+          <div class="lab-control-body">
+            <label for="measurement-passes">
+              <span>Measured passes</span>
+              <select id="measurement-passes">
+                <option value="1">1 · quick signal</option>
+                <option value="3" selected>3 · balanced run</option>
+                <option value="5">5 · deeper sample</option>
+              </select>
+            </label>
+            <p>Each pass runs every public evaluation query. One additional warm-up pass is excluded from the timing summary.</p>
+            <button class="button button-primary" id="run-search-lab" type="button">Run browser benchmark <span aria-hidden="true">→</span></button>
+            <p class="lab-status" id="search-lab-status" role="status" aria-live="polite" aria-atomic="true">Ready. The benchmark starts only when you choose Run.</p>
+          </div>
+        </div>
+
+        <aside class="lab-panel lab-privacy" aria-labelledby="privacy-title">
+          <div class="lab-panel-heading">
+            <div><p class="lab-kicker">Local by design</p><h2 id="privacy-title">Your report stays with you.</h2></div>
+            <span class="lab-signal" aria-hidden="true">◇</span>
+          </div>
+          <div class="lab-privacy-body">
+            <p>The lab uses only the versioned, public research queries shipped with Akashic. It does not accept personal search text, use analytics, submit results, or store a report.</p>
+            <p>An exported report includes coarse browser and device capability details. Inspect it before sharing; downloading is always an explicit action.</p>
+            <a href="https://github.com/egohygiene/akashic/blob/main/research/search/evaluations/natural-language-v1.json" target="_blank" rel="noreferrer">Inspect the public fixture <span aria-hidden="true">↗</span></a>
+          </div>
+        </aside>
+      </section>
+
+      <section class="lab-results" id="lab-results" aria-labelledby="results-title" hidden>
+        <div class="lab-section-heading">
+          <div><p class="lab-kicker">Completed report</p><h2 id="results-title" tabindex="-1">This browser’s measurement</h2></div>
+          <p>Elapsed times are device- and environment-specific observations, not universal performance claims.</p>
+        </div>
+
+        <dl class="lab-metrics" id="lab-metrics"></dl>
+
+        <div class="lab-report-grid">
+          <article class="lab-panel lab-transfer" aria-labelledby="transfer-title">
+            <div class="lab-panel-heading"><div><p class="lab-kicker">Catalog request</p><h3 id="transfer-title">First and repeat transfer</h3></div><span class="lab-signal" aria-hidden="true">⇄</span></div>
+            <div class="lab-table-wrap">
+              <table>
+                <thead><tr><th scope="col">Request</th><th scope="col">Elapsed</th><th scope="col">Transferred</th><th scope="col">Encoded body</th><th scope="col">Cache signal</th></tr></thead>
+                <tbody id="transfer-rows"></tbody>
+              </table>
+            </div>
+            <p class="lab-note">“Reload” asks the browser to validate a network-first fetch. “Repeat” uses ordinary cache behavior. A reported 0-byte transfer with a nonzero decoded body is treated as a cache signal, not a missing measurement.</p>
+          </article>
+
+          <article class="lab-panel lab-capabilities" aria-labelledby="capabilities-title">
+            <div class="lab-panel-heading"><div><p class="lab-kicker">Context</p><h3 id="capabilities-title">Device and API signals</h3></div><span class="lab-signal" aria-hidden="true">◎</span></div>
+            <dl id="environment-details"></dl>
+          </article>
+        </div>
+
+        <article class="lab-panel lab-slowest" aria-labelledby="slowest-title">
+          <div class="lab-panel-heading"><div><p class="lab-kicker">Fixture detail</p><h3 id="slowest-title">Slowest measured queries</h3></div><span class="lab-signal" aria-hidden="true">⌕</span></div>
+          <div class="lab-table-wrap">
+            <table>
+              <thead><tr><th scope="col">Public case</th><th scope="col">Slowest run</th><th scope="col">Mean</th><th scope="col">Results</th></tr></thead>
+              <tbody id="slowest-rows"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <div class="lab-export">
+          <div><p class="lab-kicker">Portable evidence</p><h2>Keep the complete report.</h2><p>The JSON includes every timing sample, feature-detection outcome, public case ID, and method note shown here.</p></div>
+          <div class="lab-export-actions">
+            <button class="button button-primary" id="download-search-report" type="button" disabled>Download JSON <span aria-hidden="true">↓</span></button>
+            <button class="button button-quiet" id="clear-search-report" type="button">Clear report</button>
+          </div>
+        </div>
+
+        <details class="lab-raw-report">
+          <summary>Inspect report JSON</summary>
+          <pre id="report-json" tabindex="0"></pre>
+        </details>
+      </section>
+
+      <section class="lab-method" aria-labelledby="method-title">
+        <div><p class="lab-kicker">How to use it</p><h2 id="method-title">Compare context with context.</h2></div>
+        <ol>
+          <li><strong>Run on the intended hardware.</strong><span>Capture low-, middle-, and high-capability devices instead of treating a desktop runtime as a phone.</span></li>
+          <li><strong>Keep the full environment.</strong><span>Compare reports only with their browser, viewport, network, pass count, and capability fields intact.</span></li>
+          <li><strong>Repeat before concluding.</strong><span>Background work, heat, power mode, and cache state can move a single result. Preserve variation rather than hiding it.</span></li>
+        </ol>
+        <p class="lab-method-links">Method references: <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/transferSize" target="_blank" rel="noreferrer">Resource Timing</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver/supportedEntryTypes_static" target="_blank" rel="noreferrer">supported performance entries</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/measureUserAgentSpecificMemory" target="_blank" rel="noreferrer">browser memory measurement</a>.</p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand"><span class="brand-mark" aria-hidden="true">∞</span><div><strong>akashic</strong><p>Ego Hygiene’s living constellation of curated knowledge.</p></div></div>
+      <div class="footer-links"><a href="index.html">Portal</a><a href="dashboard.html">Overview</a><a href="atlas.html">Atlas</a><a href="https://github.com/egohygiene/akashic/issues/42">Research issue</a></div>
+      <p class="love-note">Measured locally. Shared deliberately.</p>
+    </footer>
+    <noscript><p class="noscript">The Search Lab needs JavaScript to run local measurements. The complete resource collection remains available in the <a href="index.html#catalog">catalog</a>.</p></noscript>
+  </body>
+</html>

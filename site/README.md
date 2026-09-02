@@ -14,6 +14,8 @@ English is the canonical and default portal language. The build also publishes a
 
 The browser imports its active matcher through `site/search.js`. The preserved baseline implementation lives in `site/search/and-substring-v1.js`, so the browser and deterministic research runner exercise the same code without allowing later algorithms to rewrite v1. Browser-native semantic-search and optional local-agent research, fixtures, and baseline results live under `research/search/`; after building the site, verify the committed baseline with `node scripts/evaluate-search.mjs --verify research/search/results/and-substring-v1.json`.
 
+`search-lab.html` is an explicit, dependency-free browser measurement surface for the active search kernel. The build copies the canonical public evaluation fixture to `dist/data/search-evaluation-v1.json`; the lab does not accept typed search text or maintain a second fixture. A run measures same-origin catalog reload and repeat-request behavior, JSON parsing, index construction, every fixture query, and feature-detected long-task and memory signals. Reports stay in memory until the visitor explicitly downloads JSON, and environment-specific results must keep their device, browser, viewport, network, and configuration context.
+
 `atlas.html` is a separate place-aware explorer. Its hierarchy lives in `atlas/locations.json`, its reviewed resources remain canonical Markdown under `atlas/places/`, and its visual palettes live in `site/data/atlas-themes.json`. The build generates `dist/data/atlas.json`; do not edit that generated file. Compact checked-in TopoJSON keeps the atlas private, static, and independent of paid map services. Use `node scripts/fetch-atlas-geometry.mjs` only when intentionally refreshing the pinned upstream geometry.
 
 ## Local preview
@@ -22,7 +24,7 @@ The browser imports its active matcher through `site/search.js`. The preserved b
     node scripts/check-site.mjs
     python3 -m http.server 8000 --directory dist
 
-Open `http://localhost:8000` for English or `http://localhost:8000/ru/` for Russian. Changes to any list, Atlas place, or locale catalog will appear after running the build command again.
+Open `http://localhost:8000` for English, `http://localhost:8000/ru/` for Russian, or `http://localhost:8000/search-lab.html` for the Search Lab. Changes to any list, Atlas place, search evaluation, or locale catalog will appear after running the build command again.
 
 ## Deployment
 

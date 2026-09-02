@@ -4,7 +4,8 @@ import process from "node:process";
 import { loadLocales, localePagePath } from "./lib/i18n.mjs";
 import { validateResourceIdentities, validateResourceMetadata } from "./lib/resource-metadata.mjs";
 
-const output = path.join(process.cwd(), "dist");
+const root = process.cwd();
+const output = path.join(root, "dist");
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
 const rankedCounts = (values, limit = Infinity) => {
   const counts = new Map();
@@ -14,7 +15,7 @@ const rankedCounts = (values, limit = Infinity) => {
     .sort((left, right) => right.count - left.count || left.name.localeCompare(right.name))
     .slice(0, limit);
 };
-for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "ru/index.html", "ru/dashboard.html", "ru/atlas.html", "styles.css", "dashboard.css", "atlas.css", "app.js", "favorites.js", "catalog-metadata.js", "dashboard.js", "needs.js", "search.js", "search-query-state.js", "search/and-substring-v1.js", "search/concepts-v1.js", "search/weighted-lexical-v2.js", "mind-map.js", "atlas.js", "i18n.js", "i18n/locales.json", "i18n/en.json", "i18n/ru.json", "assets/favicon.svg", "data/catalog.json", "data/overview.json", "data/funding.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
+for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "search-lab.html", "ru/index.html", "ru/dashboard.html", "ru/atlas.html", "styles.css", "dashboard.css", "atlas.css", "search-lab.css", "app.js", "favorites.js", "catalog-metadata.js", "dashboard.js", "needs.js", "search.js", "search-query-state.js", "search-lab.js", "search-lab-metrics.js", "search/and-substring-v1.js", "search/concepts-v1.js", "search/weighted-lexical-v2.js", "mind-map.js", "atlas.js", "i18n.js", "i18n/locales.json", "i18n/en.json", "i18n/ru.json", "assets/favicon.svg", "data/catalog.json", "data/overview.json", "data/funding.json", "data/search-evaluation-v1.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
   await access(path.join(output, relativePath));
 }
 
@@ -168,6 +169,7 @@ for (const locale of locales.locales) {
       if (!html.includes('href="../styles.css"') || !html.includes('src="../')) throw new Error(`Localized routes do not reuse root assets in ${relativePath}.`);
     }
     if (html.includes("<!-- akashic-funding-badges -->")) throw new Error(`Funding badges were not generated in ${fileName}.`);
+    if (!html.includes('href="/search-lab.html"')) throw new Error(`The browser Search Lab is not discoverable from ${relativePath}.`);
     for (const source of funding.sources) {
       if (!html.includes(`href="${escapeHtml(source.url)}"`)) throw new Error(`Funding source ${source.label} is missing from ${fileName}.`);
     }
@@ -187,6 +189,24 @@ if (!homeApp.includes("migrateFavoriteTokens") || !homeApp.includes("matchesMeta
 if (!homeApp.includes("createSearchShareUrl") || !homeApp.includes("readSharedSearchQuery") || !homeApp.includes("sharedSearchAnchor") || homeApp.includes('params.set("q", state.query)') || homeApp.includes("history.state.query")) throw new Error("Natural-language search is not private by default with explicit sharing.");
 const searchQueryState = await readFile(path.join(output, "search-query-state.js"), "utf8");
 if (!searchQueryState.includes("sharedUrl.searchParams.delete(\"q\")") || !searchQueryState.includes("new URLSearchParams({ q: normalizedQuery })")) throw new Error("Explicit search links do not keep the query in a fragment.");
+
+const canonicalSearchEvaluation = JSON.parse(await readFile(path.join(root, "research/search/evaluations/natural-language-v1.json"), "utf8"));
+const browserSearchEvaluation = JSON.parse(await readFile(path.join(output, "data/search-evaluation-v1.json"), "utf8"));
+if (JSON.stringify(browserSearchEvaluation) !== JSON.stringify(canonicalSearchEvaluation)) throw new Error("The browser Search Lab fixture diverges from the canonical research fixture.");
+if (browserSearchEvaluation.schemaVersion !== 1 || !browserSearchEvaluation.id || !Number.isInteger(browserSearchEvaluation.topK) || !Array.isArray(browserSearchEvaluation.cases) || browserSearchEvaluation.cases.length < 1) throw new Error("The browser Search Lab fixture is incomplete.");
+const browserCaseIds = new Set();
+for (const testCase of browserSearchEvaluation.cases) {
+  if (!testCase.id || !testCase.query || browserCaseIds.has(testCase.id)) throw new Error("The browser Search Lab fixture contains an invalid or duplicate case.");
+  browserCaseIds.add(testCase.id);
+}
+
+const searchLabHtml = await readFile(path.join(output, "search-lab.html"), "utf8");
+for (const marker of ["search-lab", "measurement-passes", "run-search-lab", "search-lab-status", "lab-results", "download-search-report", "clear-search-report", "report-json"]) {
+  if (!searchLabHtml.includes(`id="${marker}"`)) throw new Error(`The browser Search Lab is missing #${marker}.`);
+}
+if (!searchLabHtml.includes('type="module" src="search-lab.js"') || !searchLabHtml.includes("No typed questions") || !searchLabHtml.includes("No remote submission") || searchLabHtml.includes('name="q"')) throw new Error("The browser Search Lab privacy or module contract is incomplete.");
+const searchLabScript = await readFile(path.join(output, "search-lab.js"), "utf8");
+if (!searchLabScript.includes('new URL("./data/catalog.json", import.meta.url)') || !searchLabScript.includes('new URL("./data/search-evaluation-v1.json", import.meta.url)') || !searchLabScript.includes("PerformanceObserver.supportedEntryTypes") || !searchLabScript.includes("versioned-public-fixture-only") || !searchLabScript.includes("transmittedByLab: false") || searchLabScript.includes("sendBeacon") || searchLabScript.includes("XMLHttpRequest")) throw new Error("The browser Search Lab measurement or privacy boundary is incomplete.");
 
 const styles = await readFile(path.join(output, "styles.css"), "utf8");
 if (!styles.includes(".resource-card h3 a:focus-visible::after") || !styles.includes("outline: 3px solid var(--cyan)")) throw new Error("Primary resource-card links have no visible focus-ring contract.");
