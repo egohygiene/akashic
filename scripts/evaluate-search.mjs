@@ -50,24 +50,84 @@ function explainRankedResources(algorithm, resources, query, ranked) {
   return explained.map((entry) => entry.explanation);
 }
 
+function matchingRanks(matches, judgedUrls) {
+  const ranks = [];
+  for (const [index, resource] of matches.entries()) {
+    if (judgedUrls.has(normalizedUrl(resource.url))) ranks.push(index + 1);
+  }
+  return ranks;
+}
+
+function validateDecomposition(decomposition, query) {
+  if (!decomposition || decomposition.schemaVersion !== 1 || !Array.isArray(decomposition.subqueries) || !decomposition.subqueries.length || decomposition.subqueries.length > 6) throw new Error(`Invalid search decomposition for query: ${query}`);
+  if (decomposition.subqueries.some((subquery) => typeof subquery !== "string" || !subquery.trim())) throw new Error(`Search decomposition contains an empty subquery for query: ${query}`);
+  const normalizedSubqueries = decomposition.subqueries.map((subquery) => subquery.trim().toLocaleLowerCase("en-US"));
+  if (new Set(normalizedSubqueries).size !== normalizedSubqueries.length) throw new Error(`Search decomposition contains duplicate subqueries for query: ${query}`);
+}
+
+export function evaluateDecomposition(testCase, resources, topK, algorithm, originalRanked) {
+  if (typeof algorithm.decomposeSearchQuery !== "function") return null;
+
+  const relevantUrls = new Set(testCase.relevantUrls.map(normalizedUrl));
+  const knownIrrelevantUrls = new Set((testCase.knownIrrelevantUrls || []).map(normalizedUrl));
+  const decomposition = algorithm.decomposeSearchQuery(testCase.query);
+  validateDecomposition(decomposition, testCase.query);
+
+  const originalCandidates = new Set(originalRanked.map((resource) => normalizedUrl(resource.url)));
+  const candidatePool = new Set(originalCandidates);
+  const subqueries = decomposition.subqueries.map((query) => {
+    const matches = rankResources(algorithm, resources, query);
+    const ranked = matches.slice(0, topK);
+    for (const resource of ranked) candidatePool.add(normalizedUrl(resource.url));
+    const relevantRanks = matchingRanks(matches, relevantUrls);
+    const knownIrrelevantRanks = matchingRanks(matches, knownIrrelevantUrls);
+    const relevantFoundAtK = relevantRanks.filter((rank) => rank <= topK).length;
+    const knownIrrelevantFoundAtK = knownIrrelevantRanks.filter((rank) => rank <= topK).length;
+    return {
+      query,
+      resultCount: matches.length,
+      candidateCount: ranked.length,
+      relevantFoundAtK,
+      recallAtK: relevantUrls.size ? rounded(relevantFoundAtK / relevantUrls.size) : 0,
+      firstRelevantRank: relevantRanks[0] || null,
+      knownIrrelevantFoundAtK,
+      knownIrrelevantRateAtK: knownIrrelevantUrls.size ? rounded(knownIrrelevantFoundAtK / knownIrrelevantUrls.size) : null,
+      firstKnownIrrelevantRank: knownIrrelevantRanks[0] || null,
+    };
+  });
+
+  const relevantFoundInOriginal = [...relevantUrls].filter((url) => originalCandidates.has(url)).length;
+  const relevantFoundInCandidatePool = [...relevantUrls].filter((url) => candidatePool.has(url)).length;
+  const knownIrrelevantFoundInOriginal = [...knownIrrelevantUrls].filter((url) => originalCandidates.has(url)).length;
+  const knownIrrelevantFoundInCandidatePool = [...knownIrrelevantUrls].filter((url) => candidatePool.has(url)).length;
+  return {
+    schemaVersion: 1,
+    decomposition,
+    candidateDepth: topK,
+    originalCandidateCount: originalCandidates.size,
+    candidatePoolCount: candidatePool.size,
+    candidatePoolExpansionCount: candidatePool.size - originalCandidates.size,
+    relevantFoundInCandidatePool,
+    relevantCandidateGain: relevantFoundInCandidatePool - relevantFoundInOriginal,
+    knownIrrelevantFoundInCandidatePool,
+    knownIrrelevantCandidateGain: knownIrrelevantFoundInCandidatePool - knownIrrelevantFoundInOriginal,
+    subqueries,
+  };
+}
+
 export function evaluateCase(testCase, resources, topK, algorithm) {
   const relevantUrls = new Set(testCase.relevantUrls.map(normalizedUrl));
   const knownIrrelevantUrls = new Set((testCase.knownIrrelevantUrls || []).map(normalizedUrl));
   const matches = rankResources(algorithm, resources, testCase.query);
   const ranked = matches.slice(0, topK);
   const explanations = explainRankedResources(algorithm, resources, testCase.query, ranked);
-  const relevantRanks = [];
-  const knownIrrelevantRanks = [];
-  for (const [index, resource] of matches.entries()) {
-    const url = normalizedUrl(resource.url);
-    if (relevantUrls.has(url)) relevantRanks.push(index + 1);
-    if (knownIrrelevantUrls.has(url)) knownIrrelevantRanks.push(index + 1);
-  }
+  const relevantRanks = matchingRanks(matches, relevantUrls);
+  const knownIrrelevantRanks = matchingRanks(matches, knownIrrelevantUrls);
   const foundAtK = relevantRanks.filter((rank) => rank <= topK).length;
   const knownIrrelevantFoundAtK = knownIrrelevantRanks.filter((rank) => rank <= topK).length;
   const firstRelevantRank = relevantRanks[0] || null;
   const firstKnownIrrelevantRank = knownIrrelevantRanks[0] || null;
-  return {
+  const result = {
     id: testCase.id,
     query: testCase.query,
     kind: testCase.kind,
@@ -98,6 +158,9 @@ export function evaluateCase(testCase, resources, topK, algorithm) {
       return result;
     }),
   };
+  const decompositionEvaluation = evaluateDecomposition(testCase, resources, topK, algorithm, ranked);
+  if (decompositionEvaluation) result.decompositionEvaluation = decompositionEvaluation;
+  return result;
 }
 
 export function validateEvaluationFixture(fixture, resources) {
@@ -136,7 +199,7 @@ export function validateEvaluationFixture(fixture, resources) {
 
 export function summarizeCases(cases) {
   const casesWithKnownIrrelevantJudgments = cases.filter((testCase) => testCase.knownIrrelevantCount > 0);
-  return {
+  const summary = {
     caseCount: cases.length,
     zeroResultCount: cases.filter((testCase) => testCase.resultCount === 0).length,
     casesWithRelevantAtK: cases.filter((testCase) => testCase.relevantFoundAtK > 0).length,
@@ -150,6 +213,18 @@ export function summarizeCases(cases) {
       ? rounded(casesWithKnownIrrelevantJudgments.reduce((sum, testCase) => sum + testCase.knownIrrelevantRateAtK, 0) / casesWithKnownIrrelevantJudgments.length)
       : null,
   };
+  const decompositionCases = cases.filter((testCase) => testCase.decompositionEvaluation);
+  if (decompositionCases.length) {
+    summary.decompositionCaseCount = decompositionCases.length;
+    summary.decompositionSubqueryCount = decompositionCases.reduce((sum, testCase) => sum + testCase.decompositionEvaluation.subqueries.length, 0);
+    summary.meanDecompositionCandidatePoolCount = rounded(decompositionCases.reduce((sum, testCase) => sum + testCase.decompositionEvaluation.candidatePoolCount, 0) / decompositionCases.length);
+    summary.meanDecompositionCandidatePoolExpansionCount = rounded(decompositionCases.reduce((sum, testCase) => sum + testCase.decompositionEvaluation.candidatePoolExpansionCount, 0) / decompositionCases.length);
+    summary.decompositionRelevantCandidateGainCount = decompositionCases.reduce((sum, testCase) => sum + testCase.decompositionEvaluation.relevantCandidateGain, 0);
+    summary.casesWithDecompositionRelevantCandidateGain = decompositionCases.filter((testCase) => testCase.decompositionEvaluation.relevantCandidateGain > 0).length;
+    summary.decompositionKnownIrrelevantCandidateGainCount = decompositionCases.reduce((sum, testCase) => sum + testCase.decompositionEvaluation.knownIrrelevantCandidateGain, 0);
+    summary.casesWithDecompositionKnownIrrelevantCandidateGain = decompositionCases.filter((testCase) => testCase.decompositionEvaluation.knownIrrelevantCandidateGain > 0).length;
+  }
+  return summary;
 }
 
 async function main() {

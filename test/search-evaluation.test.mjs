@@ -48,6 +48,25 @@ const algorithm = {
   },
 };
 
+const decomposingAlgorithm = {
+  searchResources(candidates, query) {
+    return query === "broader query"
+      ? [candidates[0], candidates[2]]
+      : [candidates[0], candidates[1]];
+  },
+  decomposeSearchQuery() {
+    return {
+      schemaVersion: 1,
+      normalizedQuery: "example query",
+      intents: [],
+      urgency: { level: "unspecified", signals: [] },
+      location: null,
+      accessNeeds: [],
+      subqueries: ["broader query"],
+    };
+  },
+};
+
 test("search evaluation measures partial known-irrelevant judgments", () => {
   validateEvaluationFixture(fixture, resources);
   const result = evaluateCase(evaluationCase, resources, 3, algorithm);
@@ -92,5 +111,70 @@ test("search evaluation rejects known-irrelevant resources outside the catalog",
   assert.throws(
     () => validateEvaluationFixture(missingFixture, resources),
     /known-irrelevant resources outside the catalog/,
+  );
+});
+
+test("search evaluation measures decomposition candidate gains before fusion", () => {
+  const result = evaluateCase(evaluationCase, resources, 2, decomposingAlgorithm);
+
+  assert.deepEqual(result.decompositionEvaluation, {
+    schemaVersion: 1,
+    decomposition: {
+      schemaVersion: 1,
+      normalizedQuery: "example query",
+      intents: [],
+      urgency: { level: "unspecified", signals: [] },
+      location: null,
+      accessNeeds: [],
+      subqueries: ["broader query"],
+    },
+    candidateDepth: 2,
+    originalCandidateCount: 2,
+    candidatePoolCount: 3,
+    candidatePoolExpansionCount: 1,
+    relevantFoundInCandidatePool: 1,
+    relevantCandidateGain: 0,
+    knownIrrelevantFoundInCandidatePool: 1,
+    knownIrrelevantCandidateGain: 1,
+    subqueries: [
+      {
+        query: "broader query",
+        resultCount: 2,
+        candidateCount: 2,
+        relevantFoundAtK: 1,
+        recallAtK: 1,
+        firstRelevantRank: 1,
+        knownIrrelevantFoundAtK: 1,
+        knownIrrelevantRateAtK: 1,
+        firstKnownIrrelevantRank: 2,
+      },
+    ],
+  });
+
+  const summary = summarizeCases([result]);
+  assert.equal(summary.decompositionCaseCount, 1);
+  assert.equal(summary.decompositionSubqueryCount, 1);
+  assert.equal(summary.meanDecompositionCandidatePoolCount, 3);
+  assert.equal(summary.meanDecompositionCandidatePoolExpansionCount, 1);
+  assert.equal(summary.decompositionRelevantCandidateGainCount, 0);
+  assert.equal(summary.casesWithDecompositionRelevantCandidateGain, 0);
+  assert.equal(summary.decompositionKnownIrrelevantCandidateGainCount, 1);
+  assert.equal(summary.casesWithDecompositionKnownIrrelevantCandidateGain, 1);
+});
+
+test("search evaluation rejects duplicate decomposition subqueries", () => {
+  const duplicateSubqueryAlgorithm = {
+    ...decomposingAlgorithm,
+    decomposeSearchQuery() {
+      return {
+        schemaVersion: 1,
+        subqueries: ["broader query", "Broader Query"],
+      };
+    },
+  };
+
+  assert.throws(
+    () => evaluateCase(evaluationCase, resources, 2, duplicateSubqueryAlgorithm),
+    /duplicate subqueries/,
   );
 });
