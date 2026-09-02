@@ -339,7 +339,6 @@
     "runtime.metadata.sensitive": "Чувствительная область",
     "runtime.metadata.structuredLabels": "Структурированные метаданные ресурса",
     "runtime.metadata.humanReview": "Проверка человеком",
-    "runtime.metadata.programCheck": "Дата проверки фактов программы",
     "runtime.metadata.machineCheck": "Автоматическая проверка ссылки",
     "runtime.metadata.notRecorded": "Не указано",
     "runtime.metadata.details": "Доступ и происхождение",

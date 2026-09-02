@@ -339,7 +339,6 @@
     "runtime.metadata.sensitive": "Sensitive scope",
     "runtime.metadata.structuredLabels": "Structured resource metadata",
     "runtime.metadata.humanReview": "Human truth review",
-    "runtime.metadata.programCheck": "Program facts checked",
     "runtime.metadata.machineCheck": "Automated link check",
     "runtime.metadata.notRecorded": "Not recorded",
     "runtime.metadata.details": "Access and provenance",
