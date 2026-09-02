@@ -19,6 +19,7 @@ lists/
   commerce-and-marketplaces/README.md
   containers-and-cloud/README.md
   creative-resources/README.md
+  cryptocurrency-and-digital-assets/README.md
   dark-web-deep-web-and-anonymous-networks/README.md
   design-systems-and-branding/README.md
   developer-tools/README.md
