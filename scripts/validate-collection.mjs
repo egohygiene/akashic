@@ -33,6 +33,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "design-systems-and-branding",
   "developer-tools",
   "gaming-ecosystem-and-preservation",
+  "hacking-and-cybersecurity",
   "health-and-well-being",
   "legal-help-and-law",
   "neuroscience",
@@ -69,6 +70,32 @@ const NESTED_COLLECTIONS = new Map([
       "public-programs-and-services",
       "research-and-open-science",
       "subscription-alternatives",
+    ],
+  ],
+]);
+
+const REQUIRED_COLLECTION_METADATA = new Map([
+  [
+    "lists/hacking-and-cybersecurity/README.md",
+    [
+      "resourceType",
+      "role",
+      "authority",
+      "access",
+      "geography",
+      "language",
+      "platform",
+      "account",
+      "authorization",
+      "operationalRisk",
+      "skillLevel",
+      "license",
+      "status",
+      "volatility",
+      "reviewTier",
+      "sensitive",
+      "linkStatus",
+      "linkChecked",
     ],
   ],
 ]);
@@ -178,6 +205,7 @@ function validateList(relativePath, requiredLinks) {
   }
 
   let resourceCount = 0;
+  const requiredMetadata = REQUIRED_COLLECTION_METADATA.get(relativePath) || [];
   for (const [lineIndex, line] of content.split("\n").entries()) {
     let entry;
     try {
@@ -189,6 +217,12 @@ function validateList(relativePath, requiredLinks) {
     if (!entry) continue;
     resourceCount += 1;
     const source = `${relativePath}:${lineIndex + 1}`;
+    if (requiredMetadata.length && entry.idOrigin !== "explicit") {
+      fail(`${source}: an explicit stable resource ID is required.`);
+    }
+    for (const field of requiredMetadata) {
+      if (entry.metadata?.[field] === undefined) fail(`${source}: required metadata field is missing: ${field}`);
+    }
     recordExternalEntry(entry.title, entry.url, source);
     allResourceIdentities.push({ ...entry, source });
   }
