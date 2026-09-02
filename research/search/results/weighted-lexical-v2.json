@@ -5,27 +5,27 @@
   "catalogResourceCount": 5112,
   "inputs": {
     "catalogSha256": "bfda968cbf5ac6f66282afa99042b77bb63b8eb57683a41b07968c2580a07b55",
-    "fixtureSha256": "0d7a5715cd2b24ee2172d9a5cfb4643cb1d2cad61f28d1803f4766593e23310f",
+    "fixtureSha256": "f12c8aefc8f59b3f34e574c2529e1fcf2db315edaa99ec04693091f84b2e200a",
     "implementationSha256": "1472b8ce64e66a02459d2125c99fff47c8caae77afb749ef603b8915771603d8"
   },
   "topK": 10,
   "summary": {
-    "caseCount": 10,
-    "zeroResultCount": 0,
-    "casesWithRelevantAtK": 10,
-    "meanRecallAtK": 1,
-    "meanReciprocalRank": 1,
-    "knownIrrelevantJudgmentCount": 11,
-    "knownIrrelevantFoundAtK": 8,
-    "casesWithKnownIrrelevantJudgments": 10,
-    "casesWithKnownIrrelevantAtK": 8,
-    "meanKnownIrrelevantRateAtK": 0.8,
-    "decompositionCaseCount": 10,
-    "decompositionSubqueryCount": 26,
-    "meanDecompositionCandidatePoolCount": 16.8,
-    "meanDecompositionCandidatePoolExpansionCount": 7.7,
-    "decompositionRelevantCandidateGainCount": 0,
-    "casesWithDecompositionRelevantCandidateGain": 0,
+    "caseCount": 18,
+    "zeroResultCount": 1,
+    "casesWithRelevantAtK": 11,
+    "meanRecallAtK": 0.5694,
+    "meanReciprocalRank": 0.618,
+    "knownIrrelevantJudgmentCount": 19,
+    "knownIrrelevantFoundAtK": 14,
+    "casesWithKnownIrrelevantJudgments": 18,
+    "casesWithKnownIrrelevantAtK": 14,
+    "meanKnownIrrelevantRateAtK": 0.7778,
+    "decompositionCaseCount": 18,
+    "decompositionSubqueryCount": 36,
+    "meanDecompositionCandidatePoolCount": 13.3333,
+    "meanDecompositionCandidatePoolExpansionCount": 4.8889,
+    "decompositionRelevantCandidateGainCount": 1,
+    "casesWithDecompositionRelevantCandidateGain": 1,
     "decompositionKnownIrrelevantCandidateGainCount": 1,
     "casesWithDecompositionKnownIrrelevantCandidateGain": 1
   },
@@ -2841,6 +2841,1446 @@
             "knownIrrelevantFoundAtK": 0,
             "knownIrrelevantRateAtK": 0,
             "firstKnownIrrelevantRank": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "food-help-short",
+      "query": "food help",
+      "kind": "natural-language",
+      "resultCount": 157,
+      "relevantCount": 4,
+      "relevantFoundAtK": 1,
+      "recallAtK": 0.25,
+      "reciprocalRank": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1,
+        12,
+        87
+      ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": 19,
+      "knownIrrelevantRanks": [
+        19
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "USA.gov Emergency Food Assistance",
+          "url": "https://www.usa.gov/emergency-food-assistance",
+          "collection": "Public Services and Support",
+          "topic": "Benefits and Emergency Assistance",
+          "relevant": true,
+          "knownIrrelevant": false,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 19.25,
+            "scoreBeforeCoverage": 19.25,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "food",
+                "help"
+              ],
+              "unmatchedOriginalTerms": [],
+              "ratio": 1,
+              "multiplier": 1
+            },
+            "matchedTerms": [
+              {
+                "term": "food",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              },
+              {
+                "term": "help",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 2.25
+              }
+            ],
+            "boosts": [
+              {
+                "id": "query-description-substring",
+                "field": "description",
+                "contribution": 5
+              }
+            ],
+            "excludedReason": null
+          }
+        },
+        {
+          "rank": 2,
+          "title": "Legal Services Corporation I Need Legal Help",
+          "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 3,
+          "title": "National Center for State Courts Self-Help Resources",
+          "url": "https://www.ncsc.org/resources-courts/self-help-resources",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 4,
+          "title": "Pet Help Finder",
+          "url": "https://www.pethelpfinder.org/",
+          "collection": "Awesome Abundance",
+          "topic": "Pet Support",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 5,
+          "title": "ABA FindLegalHelp",
+          "url": "https://www.americanbar.org/groups/legal_services/flh-home/",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 6,
+          "title": "ABA Free Legal Answers",
+          "url": "https://www.abafreelegalanswers.org/",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 7,
+          "title": "LawHelp.org",
+          "url": "https://www.lawhelp.org/",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 8,
+          "title": "Law Library of Congress Researcher Resources",
+          "url": "https://www.loc.gov/research-centers/law-library-of-congress/researcher-resources/",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 9,
+          "title": "USA.gov Courts",
+          "url": "https://www.usa.gov/courts",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 10,
+          "title": "USA.gov Legal Aid",
+          "url": "https://www.usa.gov/legal-aid",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        }
+      ],
+      "decompositionEvaluation": {
+        "schemaVersion": 1,
+        "decomposition": {
+          "schemaVersion": 1,
+          "normalizedQuery": "food help",
+          "intents": [],
+          "urgency": {
+            "level": "unspecified",
+            "signals": []
+          },
+          "location": null,
+          "accessNeeds": [],
+          "subqueries": [
+            "food help"
+          ]
+        },
+        "candidateDepth": 10,
+        "originalCandidateCount": 10,
+        "candidatePoolCount": 10,
+        "candidatePoolExpansionCount": 0,
+        "relevantFoundInCandidatePool": 1,
+        "relevantCandidateGain": 0,
+        "knownIrrelevantFoundInCandidatePool": 0,
+        "knownIrrelevantCandidateGain": 0,
+        "subqueries": [
+          {
+            "query": "food help",
+            "resultCount": 157,
+            "candidateCount": 10,
+            "relevantFoundAtK": 1,
+            "recallAtK": 0.25,
+            "firstRelevantRank": 1,
+            "knownIrrelevantFoundAtK": 0,
+            "knownIrrelevantRateAtK": 0,
+            "firstKnownIrrelevantRank": 19
+          }
+        ]
+      }
+    },
+    {
+      "id": "federal-fee-waiver-compact-identifier",
+      "query": "AO240",
+      "kind": "exact-identifier",
+      "resultCount": 79,
+      "relevantCount": 1,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 1,
+      "knownIrrelevantRanks": [
+        1
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "IRS Checklist for Starting a Business",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 23,
+            "scoreBeforeCoverage": 23,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "ao240"
+              ],
+              "unmatchedOriginalTerms": [],
+              "ratio": 1,
+              "multiplier": 1
+            },
+            "matchedTerms": [
+              {
+                "term": "ao240",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              }
+            ],
+            "boosts": [
+              {
+                "id": "start-here-topic",
+                "field": "section",
+                "contribution": 11
+              }
+            ],
+            "excludedReason": null
+          }
+        },
+        {
+          "rank": 2,
+          "title": "America's Small Business Development Centers",
+          "url": "https://americassbdc.org/small-business-consulting-and-training/find-your-sbdc/",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 3,
+          "title": "SBA Business Guide",
+          "url": "https://www.sba.gov/counseling/#business-guide",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 4,
+          "title": "SCORE Academy",
+          "url": "https://academy.score.org/",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 5,
+          "title": "ABA Free Legal Answers",
+          "url": "https://www.abafreelegalanswers.org/",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 6,
+          "title": "Law Library of Congress Researcher Resources",
+          "url": "https://www.loc.gov/research-centers/law-library-of-congress/researcher-resources/",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 7,
+          "title": "USA.gov Legal Aid",
+          "url": "https://www.usa.gov/legal-aid",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 8,
+          "title": "NPS Find a Park",
+          "url": "https://www.nps.gov/findapark/index.htm",
+          "collection": "Awesome Abundance",
+          "topic": "Public Lands and Outdoor Access",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 9,
+          "title": "Give Kids A Smile",
+          "url": "https://www.adafoundation.org/give-kids-a-smile",
+          "collection": "Awesome Abundance",
+          "topic": "Free and Charitable Care",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 10,
+          "title": "Ask a Librarian",
+          "url": "https://ask.loc.gov/",
+          "collection": "Awesome Abundance",
+          "topic": "Specialized Library Services",
+          "relevant": false,
+          "knownIrrelevant": false
+        }
+      ],
+      "decompositionEvaluation": {
+        "schemaVersion": 1,
+        "decomposition": {
+          "schemaVersion": 1,
+          "normalizedQuery": "ao240",
+          "intents": [],
+          "urgency": {
+            "level": "unspecified",
+            "signals": []
+          },
+          "location": null,
+          "accessNeeds": [],
+          "subqueries": [
+            "ao240"
+          ]
+        },
+        "candidateDepth": 10,
+        "originalCandidateCount": 10,
+        "candidatePoolCount": 10,
+        "candidatePoolExpansionCount": 0,
+        "relevantFoundInCandidatePool": 0,
+        "relevantCandidateGain": 0,
+        "knownIrrelevantFoundInCandidatePool": 1,
+        "knownIrrelevantCandidateGain": 0,
+        "subqueries": [
+          {
+            "query": "ao240",
+            "resultCount": 79,
+            "candidateCount": 10,
+            "relevantFoundAtK": 0,
+            "recallAtK": 0,
+            "firstRelevantRank": null,
+            "knownIrrelevantFoundAtK": 1,
+            "knownIrrelevantRateAtK": 1,
+            "firstKnownIrrelevantRank": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "utility-heat-shutoff",
+      "query": "heat shutoff",
+      "kind": "natural-language",
+      "resultCount": 83,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 3,
+      "knownIrrelevantRanks": [
+        3
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "Skills.sh",
+          "url": "https://www.skills.sh/",
+          "collection": "Artificial Intelligence",
+          "topic": "Agent Skills and Standards",
+          "relevant": false,
+          "knownIrrelevant": false,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 9.72,
+            "scoreBeforeCoverage": 12,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "shutoff"
+              ],
+              "unmatchedOriginalTerms": [
+                "heat"
+              ],
+              "ratio": 0.5,
+              "multiplier": 0.81
+            },
+            "matchedTerms": [
+              {
+                "term": "shutoff",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "domain",
+                    "fieldWeight": 1
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              }
+            ],
+            "boosts": [],
+            "excludedReason": null
+          }
+        },
+        {
+          "rank": 2,
+          "title": "IRS S Corporation Compensation and Medical Insurance",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Structures, Ownership, and Liability",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 3,
+          "title": "IRS S Corporations",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Structures, Ownership, and Liability",
+          "relevant": false,
+          "knownIrrelevant": true
+        },
+        {
+          "rank": 4,
+          "title": "U.S. Census QuickFacts",
+          "url": "https://www.census.gov/quickfacts/",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Test the Idea and Plan",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 5,
+          "title": "U.S. Copyright Office Copyright Basics",
+          "url": "https://www.copyright.gov/what-is-copyright/",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Names, Brands, and Intellectual Property",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 6,
+          "title": "U.S. Copyright Office Registration Portal",
+          "url": "https://www.copyright.gov/registration/",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Names, Brands, and Intellectual Property",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 7,
+          "title": "U.S. Commercial Service",
+          "url": "https://www.trade.gov/us-commercial-service",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Mentoring, Procurement, and Export",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 8,
+          "title": "Kiva U.S. Borrower Loans",
+          "url": "https://www.kiva.org/borrow/us-businesses",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Funding Without Fantasy",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 9,
+          "title": "U.S. Courts Bankruptcy Basics",
+          "url": "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Change, Sell, or Close",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 10,
+          "title": "U.S. Courts Chapter 11 Bankruptcy Basics",
+          "url": "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-11-bankruptcy-basics",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Change, Sell, or Close",
+          "relevant": false,
+          "knownIrrelevant": false
+        }
+      ],
+      "decompositionEvaluation": {
+        "schemaVersion": 1,
+        "decomposition": {
+          "schemaVersion": 1,
+          "normalizedQuery": "heat shutoff",
+          "intents": [],
+          "urgency": {
+            "level": "unspecified",
+            "signals": []
+          },
+          "location": null,
+          "accessNeeds": [],
+          "subqueries": [
+            "heat shutoff"
+          ]
+        },
+        "candidateDepth": 10,
+        "originalCandidateCount": 10,
+        "candidatePoolCount": 10,
+        "candidatePoolExpansionCount": 0,
+        "relevantFoundInCandidatePool": 0,
+        "relevantCandidateGain": 0,
+        "knownIrrelevantFoundInCandidatePool": 1,
+        "knownIrrelevantCandidateGain": 0,
+        "subqueries": [
+          {
+            "query": "heat shutoff",
+            "resultCount": 83,
+            "candidateCount": 10,
+            "relevantFoundAtK": 0,
+            "recallAtK": 0,
+            "firstRelevantRank": null,
+            "knownIrrelevantFoundAtK": 1,
+            "knownIrrelevantRateAtK": 1,
+            "firstKnownIrrelevantRank": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "uninsured-doctor",
+      "query": "I need a doctor but have no insurance",
+      "kind": "natural-language",
+      "resultCount": 92,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 9,
+      "knownIrrelevantRanks": [
+        9
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "Legal Services Corporation I Need Legal Help",
+          "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 28.35,
+            "scoreBeforeCoverage": 35,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "need",
+                "insurance"
+              ],
+              "unmatchedOriginalTerms": [
+                "doctor",
+                "no"
+              ],
+              "ratio": 0.5,
+              "multiplier": 0.81
+            },
+            "matchedTerms": [
+              {
+                "term": "need",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              },
+              {
+                "term": "insurance",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              }
+            ],
+            "boosts": [
+              {
+                "id": "start-here-topic",
+                "field": "section",
+                "contribution": 11
+              }
+            ],
+            "excludedReason": null
+          }
+        },
+        {
+          "rank": 2,
+          "title": "IRS If You No Longer Need Your EIN",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/if-you-no-longer-need-your-ein",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Change, Sell, or Close",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 3,
+          "title": "ISC2 Certified in Cybersecurity",
+          "url": "https://www.isc2.org/certifications/cc",
+          "collection": "Hacking and Cybersecurity",
+          "topic": "Careers, Certifications, and Communities",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 4,
+          "title": "Massachusetts Board of Registration in Naturopathy",
+          "url": "https://www.mass.gov/orgs/board-of-registration-in-naturopathy",
+          "collection": "Health and Well-Being",
+          "topic": "Regulatory and Professional Bodies",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 5,
+          "title": "ABA Free Legal Answers",
+          "url": "https://www.abafreelegalanswers.org/",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 6,
+          "title": "CBT-i Coach",
+          "url": "https://www.ptsd.va.gov/appvid/mobile/cbticoach_app_public.asp",
+          "collection": "Awesome Abundance",
+          "topic": "Mental Health and Self-Help Tools",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 7,
+          "title": "NAMI: Responding to a Loved One in the Face of Uncertainty",
+          "url": "https://www.nami.org/Blogs/NAMI-Blog/June-2019/Psychosis-Responding-to-a-Loved-One-in-the-Face-of-Uncertainty",
+          "collection": "Claims, Conspiracies, and Epistemic Navigation",
+          "topic": "Distress, Paranoia, and Safer Support",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 8,
+          "title": "Justice in Aging",
+          "url": "https://justiceinaging.org/",
+          "collection": "Legal Help and Law",
+          "topic": "Veterans, Military Families, Older Adults, and Caregivers",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 9,
+          "title": "IRS Checklist for Starting a Business",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": true
+        },
+        {
+          "rank": 10,
+          "title": "SBA Launch Your Business",
+          "url": "https://www.sba.gov/counseling/launch-your-business/",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        }
+      ],
+      "decompositionEvaluation": {
+        "schemaVersion": 1,
+        "decomposition": {
+          "schemaVersion": 1,
+          "normalizedQuery": "i need a doctor but have no insurance",
+          "intents": [
+            "health-care"
+          ],
+          "urgency": {
+            "level": "unspecified",
+            "signals": []
+          },
+          "location": null,
+          "accessNeeds": [],
+          "subqueries": [
+            "need doctor no insurance",
+            "low-cost health care"
+          ]
+        },
+        "candidateDepth": 10,
+        "originalCandidateCount": 10,
+        "candidatePoolCount": 21,
+        "candidatePoolExpansionCount": 11,
+        "relevantFoundInCandidatePool": 1,
+        "relevantCandidateGain": 1,
+        "knownIrrelevantFoundInCandidatePool": 1,
+        "knownIrrelevantCandidateGain": 0,
+        "subqueries": [
+          {
+            "query": "need doctor no insurance",
+            "resultCount": 5,
+            "candidateCount": 5,
+            "relevantFoundAtK": 0,
+            "recallAtK": 0,
+            "firstRelevantRank": null,
+            "knownIrrelevantFoundAtK": 0,
+            "knownIrrelevantRateAtK": 0,
+            "firstKnownIrrelevantRank": null
+          },
+          {
+            "query": "low-cost health care",
+            "resultCount": 179,
+            "candidateCount": 10,
+            "relevantFoundAtK": 1,
+            "recallAtK": 0.25,
+            "firstRelevantRank": 2,
+            "knownIrrelevantFoundAtK": 0,
+            "knownIrrelevantRateAtK": 0,
+            "firstKnownIrrelevantRank": 117
+          }
+        ]
+      }
+    },
+    {
+      "id": "implicit-dementia-caregiver",
+      "query": "mom has dementia and I need a break",
+      "kind": "natural-language",
+      "resultCount": 0,
+      "relevantCount": 2,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "decompositionEvaluation": {
+        "schemaVersion": 1,
+        "decomposition": {
+          "schemaVersion": 1,
+          "normalizedQuery": "mom has dementia and i need a break",
+          "intents": [],
+          "urgency": {
+            "level": "unspecified",
+            "signals": []
+          },
+          "location": null,
+          "accessNeeds": [],
+          "subqueries": [
+            "mom has dementia need break"
+          ]
+        },
+        "candidateDepth": 10,
+        "originalCandidateCount": 0,
+        "candidatePoolCount": 0,
+        "candidatePoolExpansionCount": 0,
+        "relevantFoundInCandidatePool": 0,
+        "relevantCandidateGain": 0,
+        "knownIrrelevantFoundInCandidatePool": 0,
+        "knownIrrelevantCandidateGain": 0,
+        "subqueries": [
+          {
+            "query": "mom has dementia need break",
+            "resultCount": 0,
+            "candidateCount": 0,
+            "relevantFoundAtK": 0,
+            "recallAtK": 0,
+            "firstRelevantRank": null,
+            "knownIrrelevantFoundAtK": 0,
+            "knownIrrelevantRateAtK": 0,
+            "firstKnownIrrelevantRank": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "spanish-food-today",
+      "query": "Necesito comida hoy",
+      "kind": "natural-language",
+      "resultCount": 1,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 1,
+      "knownIrrelevantRanks": [
+        1
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "USPS Click-N-Ship",
+          "url": "https://faq.usps.com/articles/FAQ/Pay-Print-and-Ship-Online",
+          "collection": "Commerce and Marketplaces",
+          "topic": "Shipping, Fulfillment, and Returns",
+          "relevant": false,
+          "knownIrrelevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 11.353333333333333,
+            "scoreBeforeCoverage": 13,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "necesito",
+                "comida"
+              ],
+              "unmatchedOriginalTerms": [
+                "hoy"
+              ],
+              "ratio": 0.6666666666666666,
+              "multiplier": 0.8733333333333333
+            },
+            "matchedTerms": [
+              {
+                "term": "necesito",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              },
+              {
+                "term": "comida",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "domain",
+                    "fieldWeight": 1
+                  }
+                ],
+                "creditedField": "domain",
+                "contribution": 1
+              }
+            ],
+            "boosts": [],
+            "excludedReason": null
+          }
+        }
+      ],
+      "decompositionEvaluation": {
+        "schemaVersion": 1,
+        "decomposition": {
+          "schemaVersion": 1,
+          "normalizedQuery": "necesito comida hoy",
+          "intents": [],
+          "urgency": {
+            "level": "unspecified",
+            "signals": []
+          },
+          "location": null,
+          "accessNeeds": [],
+          "subqueries": [
+            "necesito comida hoy"
+          ]
+        },
+        "candidateDepth": 10,
+        "originalCandidateCount": 1,
+        "candidatePoolCount": 1,
+        "candidatePoolExpansionCount": 0,
+        "relevantFoundInCandidatePool": 0,
+        "relevantCandidateGain": 0,
+        "knownIrrelevantFoundInCandidatePool": 1,
+        "knownIrrelevantCandidateGain": 0,
+        "subqueries": [
+          {
+            "query": "necesito comida hoy",
+            "resultCount": 1,
+            "candidateCount": 1,
+            "relevantFoundAtK": 0,
+            "recallAtK": 0,
+            "firstRelevantRank": null,
+            "knownIrrelevantFoundAtK": 1,
+            "knownIrrelevantRateAtK": 1,
+            "firstKnownIrrelevantRank": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "ein-acronym-only",
+      "query": "EIN",
+      "kind": "exact-identifier",
+      "resultCount": 26,
+      "relevantCount": 1,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0.04,
+      "firstRelevantRank": 25,
+      "relevantRanks": [
+        25
+      ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 4,
+      "knownIrrelevantRanks": [
+        4
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "IRS When to Get a New EIN",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/when-to-get-a-new-ein",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Register, Identify, and License",
+          "relevant": false,
+          "knownIrrelevant": false,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 39,
+            "scoreBeforeCoverage": 39,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "ein"
+              ],
+              "unmatchedOriginalTerms": [],
+              "ratio": 1,
+              "multiplier": 1
+            },
+            "matchedTerms": [
+              {
+                "term": "ein",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              }
+            ],
+            "boosts": [
+              {
+                "id": "query-title-substring",
+                "field": "title",
+                "contribution": 22
+              },
+              {
+                "id": "query-description-substring",
+                "field": "description",
+                "contribution": 5
+              }
+            ],
+            "excludedReason": null
+          }
+        },
+        {
+          "rank": 2,
+          "title": "IRS If You No Longer Need Your EIN",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/if-you-no-longer-need-your-ein",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Change, Sell, or Close",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 3,
+          "title": "IRS Checklist for Starting a Business",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 4,
+          "title": "RCSB Protein Data Bank",
+          "url": "https://www.rcsb.org/",
+          "collection": "Awesome Abundance",
+          "topic": "Scientific Tools and Reference Data",
+          "relevant": false,
+          "knownIrrelevant": true
+        },
+        {
+          "rank": 5,
+          "title": "Seeing AI",
+          "url": "https://www.microsoft.com/en-us/ai/seeing-ai",
+          "collection": "Awesome Abundance",
+          "topic": "Vision, Reading, and Communication Access",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 6,
+          "title": "HeinOnline",
+          "url": "https://heinonline.com/",
+          "collection": "Legal Help and Law",
+          "topic": "Professional Research and Practice Systems",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 7,
+          "title": "SpikeInterface",
+          "url": "https://spikeinterface.readthedocs.io/",
+          "collection": "Neuroscience",
+          "topic": "Neuroimaging and Electrophysiology Tools",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 8,
+          "title": "Greater Good Science Center",
+          "url": "https://greatergood.berkeley.edu/",
+          "collection": "Health and Well-Being",
+          "topic": "Self-Guided Skills and Well-Being",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 9,
+          "title": "MedlinePlus",
+          "url": "https://medlineplus.gov/",
+          "collection": "Awesome Abundance",
+          "topic": "Health Information and Everyday Well-Being",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 10,
+          "title": "NIH Wellness Toolkits",
+          "url": "https://www.nih.gov/health-information/your-healthiest-self-wellness-toolkits",
+          "collection": "Awesome Abundance",
+          "topic": "Health Information and Everyday Well-Being",
+          "relevant": false,
+          "knownIrrelevant": false
+        }
+      ],
+      "decompositionEvaluation": {
+        "schemaVersion": 1,
+        "decomposition": {
+          "schemaVersion": 1,
+          "normalizedQuery": "ein",
+          "intents": [],
+          "urgency": {
+            "level": "unspecified",
+            "signals": []
+          },
+          "location": null,
+          "accessNeeds": [],
+          "subqueries": [
+            "ein"
+          ]
+        },
+        "candidateDepth": 10,
+        "originalCandidateCount": 10,
+        "candidatePoolCount": 10,
+        "candidatePoolExpansionCount": 0,
+        "relevantFoundInCandidatePool": 0,
+        "relevantCandidateGain": 0,
+        "knownIrrelevantFoundInCandidatePool": 1,
+        "knownIrrelevantCandidateGain": 0,
+        "subqueries": [
+          {
+            "query": "ein",
+            "resultCount": 26,
+            "candidateCount": 10,
+            "relevantFoundAtK": 0,
+            "recallAtK": 0,
+            "firstRelevantRank": 25,
+            "knownIrrelevantFoundAtK": 1,
+            "knownIrrelevantRateAtK": 1,
+            "firstKnownIrrelevantRank": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "free-audio-editor-short",
+      "query": "free audio editor",
+      "kind": "natural-language",
+      "resultCount": 64,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0.0833,
+      "firstRelevantRank": 12,
+      "relevantRanks": [
+        12,
+        28
+      ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 1,
+      "knownIrrelevantRanks": [
+        1
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "ABA Free Legal Answers",
+          "url": "https://www.abafreelegalanswers.org/",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 22.051666666666666,
+            "scoreBeforeCoverage": 25.25,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "free",
+                "audio"
+              ],
+              "unmatchedOriginalTerms": [
+                "editor"
+              ],
+              "ratio": 0.6666666666666666,
+              "multiplier": 0.8733333333333333
+            },
+            "matchedTerms": [
+              {
+                "term": "free",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              },
+              {
+                "term": "audio",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 2.25
+              }
+            ],
+            "boosts": [
+              {
+                "id": "start-here-topic",
+                "field": "section",
+                "contribution": 11
+              }
+            ],
+            "excludedReason": null
+          }
+        },
+        {
+          "rank": 2,
+          "title": "VSDC Free Video Editor",
+          "url": "https://www.videosoftdev.com/free-video-editor",
+          "collection": "Awesome Abundance",
+          "topic": "Video, Motion, and Animation",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 3,
+          "title": "A Brief History of Free and Open Source Software",
+          "url": "https://www.computer.org/csdl/magazine/co/2021/02/09353517/1r8kwgBjU9W",
+          "collection": "Open Source",
+          "topic": "History and Perspectives",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 4,
+          "title": "Free Music Archive",
+          "url": "https://freemusicarchive.org/",
+          "collection": "Awesome Abundance",
+          "topic": "Audio, Music, and Scores",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 5,
+          "title": "Valhalla Free Plugins",
+          "url": "https://valhalladsp.com/",
+          "collection": "Awesome Abundance",
+          "topic": "Audio Instruments, Mixing, and Analysis",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 6,
+          "title": "VCV Rack Free",
+          "url": "https://vcvrack.com/Rack",
+          "collection": "Awesome Abundance",
+          "topic": "Audio Instruments, Mixing, and Analysis",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 7,
+          "title": "Give Kids A Smile",
+          "url": "https://www.adafoundation.org/give-kids-a-smile",
+          "collection": "Awesome Abundance",
+          "topic": "Free and Charitable Care",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 8,
+          "title": "TED-Ed",
+          "url": "https://ed.ted.com/",
+          "collection": "Awesome Abundance",
+          "topic": "General Learning",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 9,
+          "title": "ONLYOFFICE Desktop Editors",
+          "url": "https://www.onlyoffice.com/desktop.aspx",
+          "collection": "Awesome Abundance",
+          "topic": "Office, Notes, and Everyday Work",
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 10,
+          "title": "Law Library of Congress Researcher Resources",
+          "url": "https://www.loc.gov/research-centers/law-library-of-congress/researcher-resources/",
+          "collection": "Legal Help and Law",
+          "topic": "Start Here",
+          "relevant": false,
+          "knownIrrelevant": false
+        }
+      ],
+      "decompositionEvaluation": {
+        "schemaVersion": 1,
+        "decomposition": {
+          "schemaVersion": 1,
+          "normalizedQuery": "free audio editor",
+          "intents": [],
+          "urgency": {
+            "level": "unspecified",
+            "signals": []
+          },
+          "location": null,
+          "accessNeeds": [
+            {
+              "id": "no-cost",
+              "signals": [
+                "free"
+              ]
+            }
+          ],
+          "subqueries": [
+            "free audio editor",
+            "free audio editor free"
+          ]
+        },
+        "candidateDepth": 10,
+        "originalCandidateCount": 10,
+        "candidatePoolCount": 10,
+        "candidatePoolExpansionCount": 0,
+        "relevantFoundInCandidatePool": 0,
+        "relevantCandidateGain": 0,
+        "knownIrrelevantFoundInCandidatePool": 1,
+        "knownIrrelevantCandidateGain": 0,
+        "subqueries": [
+          {
+            "query": "free audio editor",
+            "resultCount": 64,
+            "candidateCount": 10,
+            "relevantFoundAtK": 0,
+            "recallAtK": 0,
+            "firstRelevantRank": 12,
+            "knownIrrelevantFoundAtK": 1,
+            "knownIrrelevantRateAtK": 1,
+            "firstKnownIrrelevantRank": 1
+          },
+          {
+            "query": "free audio editor free",
+            "resultCount": 64,
+            "candidateCount": 10,
+            "relevantFoundAtK": 0,
+            "recallAtK": 0,
+            "firstRelevantRank": 12,
+            "knownIrrelevantFoundAtK": 1,
+            "knownIrrelevantRateAtK": 1,
+            "firstKnownIrrelevantRank": 1
           }
         ]
       }
