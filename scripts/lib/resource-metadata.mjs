@@ -14,6 +14,12 @@ export const RESOURCE_METADATA_VALUES = Object.freeze({
   skillLevel: ["beginner", "intermediate", "advanced", "mixed"],
   artifactDomain: ["multi-domain", "disk", "filesystem", "memory", "network", "browser", "mobile", "cloud", "container", "media", "logs", "malware"],
   forensicRole: ["acquisition", "preservation", "examination", "analysis", "timeline", "indexing-search", "correlation-visualization", "validation", "case-management", "reporting", "education"],
+  supportType: ["advertising", "directory", "donation-platform", "fiscal-hosting", "grant", "infrastructure", "legal", "maintenance", "patent-defense", "pledge", "sponsorship"],
+  applicantType: ["buyer", "company", "community", "foundation", "individual", "institution", "maintainer", "nonprofit", "project", "sponsor", "varies"],
+  projectStage: ["idea", "prototype", "growing", "maintained", "mature", "ecosystem", "organization", "varies"],
+  programCadence: ["rolling", "continuous", "periodic", "cohort", "fixed-call", "invitation-only", "upcoming", "closed", "varies"],
+  costModel: ["no-fee", "host-fee", "platform-fee", "revenue-share", "paid-service", "membership-fee", "in-kind", "varies"],
+  obligation: ["application", "milestones", "reporting", "public-deliverables", "open-source-license", "host-agreement", "service-contract", "membership-agreement", "usage-limits", "attribution", "revenue-share", "security-practices", "none", "varies"],
   license: ["open-source", "open-content", "public-domain", "proprietary", "varies", "unknown"],
   status: ["active", "archived", "historical", "experimental", "deprecated"],
   volatility: ["low", "medium", "high"],
@@ -22,8 +28,8 @@ export const RESOURCE_METADATA_VALUES = Object.freeze({
   linkStatus: ["unknown", "ok", "redirected", "unavailable"],
 });
 
-const ARRAY_FIELDS = new Set(["access", "geography", "language", "platform", "authorization", "artifactDomain", "forensicRole", "sensitive"]);
-const DATE_FIELDS = new Set(["reviewed", "linkChecked"]);
+const ARRAY_FIELDS = new Set(["access", "geography", "language", "platform", "authorization", "artifactDomain", "forensicRole", "supportType", "applicantType", "projectStage", "costModel", "obligation", "sensitive"]);
+const DATE_FIELDS = new Set(["reviewed", "programChecked", "linkChecked"]);
 const ALLOWED_FIELDS = new Set(["id", "aliases", ...Object.keys(RESOURCE_METADATA_VALUES), ...ARRAY_FIELDS, ...DATE_FIELDS]);
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const GEOGRAPHY_PATTERN = /^(?:global|[a-z]{2}(?:-[a-z0-9]{2,8})*)$/;

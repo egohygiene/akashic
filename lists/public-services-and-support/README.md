@@ -102,7 +102,6 @@ A practical order is to stabilize essentials and benefits, recover money already
 - [GiveWell](https://www.givewell.org/) - Research organization publishing evidence, cost-effectiveness analysis, uncertainties, and recommendations for a small set of global-health and poverty charities.
 - [GlobalGiving](https://www.globalgiving.org/) - Marketplace for vetted nonprofit projects around the world with project updates and disaster funds; review platform fees, local context, and tax treatment.
 - [Kiva](https://www.kiva.org/) - Crowdlending platform for funding borrowers through field partners; loans may be repaid without interest to the lender, but repayment, impact, liquidity, and tax treatment are not guaranteed.
-- [Open Collective](https://opencollective.com/) - Transparent budgets, transactions, expenses, and contribution tools for communities and projects; fiscal-hosting fees and tax deductibility depend on the collective and host.
 - [Undue Medical Debt](https://unduemedicaldebt.org/) - Nonprofit purchasing qualifying medical-debt portfolios and erasing them for eligible households, with donors funding community or national relief rather than selecting individual recipients.
 - [Zeffy Nonprofit Directory](https://www.zeffy.com/home/donate) - Search and donation portal for participating verified nonprofits where the platform covers transaction fees through optional donor contributions; independently evaluate recipients.
 

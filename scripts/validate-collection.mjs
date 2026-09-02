@@ -39,6 +39,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "legal-help-and-law",
   "neuroscience",
   "open-source",
+  "open-source-sustainability-and-support",
   "psychedelics",
   "public-services-and-support",
   "recipes-cooking-and-food-data",
@@ -76,6 +77,32 @@ const NESTED_COLLECTIONS = new Map([
 ]);
 
 const REQUIRED_COLLECTION_METADATA = new Map([
+  [
+    "lists/open-source-sustainability-and-support/README.md",
+    [
+      "resourceType",
+      "role",
+      "authority",
+      "access",
+      "geography",
+      "language",
+      "platform",
+      "account",
+      "supportType",
+      "applicantType",
+      "projectStage",
+      "programCadence",
+      "costModel",
+      "obligation",
+      "license",
+      "status",
+      "volatility",
+      "reviewTier",
+      "programChecked",
+      "linkStatus",
+      "linkChecked",
+    ],
+  ],
   [
     "lists/digital-forensics-and-incident-evidence/README.md",
     [

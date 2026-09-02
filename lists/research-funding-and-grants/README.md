@@ -20,11 +20,11 @@ Funding availability, deadlines, eligibility, geographic scope, and application 
 - [Science and Cross-Cutting Research](#science-and-cross-cutting-research)
 - [Humanities, Social Science, and Education](#humanities-social-science-and-education)
 - [Arts, Music, Writing, and Journalism](#arts-music-writing-and-journalism)
-- [Open Source and Digital Infrastructure](#open-source-and-digital-infrastructure)
 - [Small Business and Commercialization](#small-business-and-commercialization)
 - [Community, Climate, and Conservation](#community-climate-and-conservation)
 - [Fellowships, Scholarships, Prizes, and Challenges](#fellowships-scholarships-prizes-and-challenges)
 - [Application Support, Policy, and Safety](#application-support-policy-and-safety)
+- [Related Akashic Collections](#related-akashic-collections)
 
 ## Funding Discovery and Aggregators
 
@@ -230,19 +230,6 @@ Funding availability, deadlines, eligibility, geographic scope, and application 
 - [State Arts Agency Directory](https://nasaa-arts.org/nasaa_research/state-arts-agency-directory/) - Directory for finding public arts funders and grant programs in every U.S. state and jurisdiction.
 - [Sundance Institute Artist Programs](https://www.sundance.org/programs/artist-programs/) - Labs, fellowships, grants, and development support for independent filmmakers and storytellers.
 
-## Open Source and Digital Infrastructure
-
-- [Digital Infrastructure Insights Fund](https://infrastructureinsights.fund/) - Funds open research and commissions about the sustainability, governance, economics, and social impact of digital infrastructure.
-- [FOSS United Grants](https://fossunited.org/grants) - Funding for open-source projects, maintainers, communities, and events, with a focus on India's FOSS ecosystem.
-- [GitHub Accelerator](https://accelerator.github.com/) - Cohort-based funding, mentorship, and support for selected open-source maintainers and projects.
-- [Mozilla Technology Fund](https://foundation.mozilla.org/en/what-we-fund/awards/mozilla-technology-fund-mtf/) - Awards for open-source technology addressing internet health, trustworthy AI, and Mozilla's public-interest priorities.
-- [NLnet Funding](https://nlnet.nl/funding.html) - Open calls providing grants and expert support for open internet technology, standards, privacy, and digital commons.
-- [NumFOCUS Small Development Grants](https://numfocus.org/programs/small-development-grants) - Targeted funding for development work across NumFOCUS-sponsored and affiliated scientific open-source projects.
-- [Open Technology Fund FOSS Sustainability Fund](https://www.opentech.fund/funds/free-and-open-source-software-sustainability-fund/) - Support for maintaining and securing established open-source internet-freedom technologies and dependencies.
-- [Prototype Fund](https://www.prototypefund.de/en) - German public-interest funding for individuals and small teams building free and open-source software.
-- [Python Software Foundation Grants](https://www.python.org/psf/grants/) - Funding rounds for Python conferences, workshops, education, communities, and selected ecosystem work.
-- [Sovereign Tech Fund](https://www.sovereign.tech/) - Public investment in globally important open-source infrastructure, maintenance, security, and resilience.
-
 ## Small Business and Commercialization
 
 - [AFWERX Ventures](https://afwerx.com/divisions/ventures/) - Air Force and Space Force pathways connecting commercial technologies with SBIR and STTR funding.
@@ -307,6 +294,10 @@ Funding availability, deadlines, eligibility, geographic scope, and application 
 - [NIMH Budget and Legislative Activities](https://www.nimh.nih.gov/about/budget) - Congressional justifications, appropriations history, legislation, and budget context for NIMH programs.
 - [NIMH Funding Policies and Considerations](https://grants.nih.gov/policy-and-compliance/policy-topics/nih-fiscal-policies/ico-funding-policies-and-considerations/NIMH) - Current institute-specific paylines, fiscal policies, award considerations, and funding practices.
 - [NSF Preparing Your Proposal](https://www.nsf.gov/funding/preparing-proposal) - Core NSF proposal guidance, policies, required documents, submission systems, and preparation resources.
+
+## Related Akashic Collections
+
+Use [Open Source Sustainability and Support](../open-source-sustainability-and-support/README.md) for the canonical collection of open-source grants, sponsorship, fiscal hosting, infrastructure programs, maintenance services, pledges, and legal support. This list keeps broader research, education, nonprofit, public-interest, and commercialization funding so the same program is not copied across collections.
 
 Suggestions and improvements are welcome. See the [contribution guidelines](../../contributing.md).
 

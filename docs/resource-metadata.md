@@ -43,20 +43,31 @@ All fields are optional except where the contribution policy requires an explici
 | `skillLevel` | string | `beginner`, `intermediate`, `advanced`, `mixed` |
 | `artifactDomain` | array | `multi-domain`, `disk`, `filesystem`, `memory`, `network`, `browser`, `mobile`, `cloud`, `container`, `media`, `logs`, `malware` |
 | `forensicRole` | array | `acquisition`, `preservation`, `examination`, `analysis`, `timeline`, `indexing-search`, `correlation-visualization`, `validation`, `case-management`, `reporting`, `education` |
+| `supportType` | array | `advertising`, `directory`, `donation-platform`, `fiscal-hosting`, `grant`, `infrastructure`, `legal`, `maintenance`, `patent-defense`, `pledge`, `sponsorship` |
+| `applicantType` | array | `buyer`, `company`, `community`, `foundation`, `individual`, `institution`, `maintainer`, `nonprofit`, `project`, `sponsor`, `varies` |
+| `projectStage` | array | `idea`, `prototype`, `growing`, `maintained`, `mature`, `ecosystem`, `organization`, `varies` |
+| `programCadence` | string | `rolling`, `continuous`, `periodic`, `cohort`, `fixed-call`, `invitation-only`, `upcoming`, `closed`, `varies` |
+| `costModel` | array | `no-fee`, `host-fee`, `platform-fee`, `revenue-share`, `paid-service`, `membership-fee`, `in-kind`, `varies` |
+| `obligation` | array | `application`, `milestones`, `reporting`, `public-deliverables`, `open-source-license`, `host-agreement`, `service-contract`, `membership-agreement`, `usage-limits`, `attribution`, `revenue-share`, `security-practices`, `none`, `varies` |
 | `license` | string | `open-source`, `open-content`, `public-domain`, `proprietary`, `varies`, `unknown` |
 | `status` | string | `active`, `archived`, `historical`, `experimental`, `deprecated` |
 | `volatility` | string | `low`, `medium`, `high` |
 | `reviewTier` | string | `annual`, `semiannual`, `quarterly`, `monthly` |
 | `reviewed` | date | Date of the last human truth review, `YYYY-MM-DD` |
+| `programChecked` | date | Date that a program's primary eligibility, cadence, cost, and obligation pages were checked, `YYYY-MM-DD` |
 | `sensitive` | array | `medical`, `legal`, `financial`, `emergency`, `privacy`, `security`, `dual-use`, `crisis`, `youth`, `other` |
 | `linkStatus` | string | `unknown`, `ok`, `redirected`, `unavailable`; requires `linkChecked` |
 | `linkChecked` | date | Date of the automated or mechanical link check, `YYYY-MM-DD`; requires `linkStatus` |
 
 `reviewed` means a person assessed the resource's claims, authority, access constraints, and continuing suitability. `linkStatus` only describes machine-observable availability. A successful link check must never be presented as a human truth review, and an outage must not silently delete a resource.
 
+`programChecked` is narrower than `reviewed`: it records when a curator checked primary program pages for operational facts such as eligibility, application cadence, costs, and obligations. It is not a human truth review, endorsement, eligibility determination, or promise that a call remains open. The Open Source Sustainability and Support collection requires it because these facts change materially between calls.
+
 `authorization` records the minimum permission context in which a resource belongs in the catalog: reading a reference, working in a deliberately isolated lab, assessing systems the learner owns, or operating under an explicit written scope. Multiple values may apply. `operationalRisk` describes the potential for harm if the resource is used outside that context; it is not a claim that authorized use is unsafe. `skillLevel` records the audience the resource is designed to support. These fields are required by collections that curate dual-use security resources, but remain optional for legacy entries elsewhere.
 
 `artifactDomain` records the evidence or artifact families a forensic resource is designed to handle, while `forensicRole` records its place in a documented workflow. Both are multi-value fields because a suite can, for example, acquire memory and disk data, then examine and report on the result. They describe documented capabilities, not a claim of forensic soundness, legal admissibility, or fitness for a particular matter.
+
+`supportType`, `applicantType`, `projectStage`, `programCadence`, `costModel`, and `obligation` make sustainability programs comparable without flattening grants, fiscal hosting, donations, infrastructure, commercial maintenance, or legal support into one generic funding label. They summarize the linked owner's current terms; the primary program page still controls.
 
 Canonical metadata values remain in English in the current reference locale. Interface labels are localized separately; a future reviewed content overlay can use the stable ID.
 

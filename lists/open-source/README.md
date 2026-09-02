@@ -2,7 +2,7 @@
 
 # Awesome Open Source [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> Open source collections, community governance, foundations, history, licensing, and support programs.
+> Open source collections, community governance, foundations, history, licensing, and general programs.
 
 Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
@@ -14,6 +14,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [History and Perspectives](#history-and-perspectives)
 - [Licensing and Compliance](#licensing-and-compliance)
 - [Programs and Support](#programs-and-support)
+- [Related Akashic Collections](#related-akashic-collections)
 
 
 ## Collections
@@ -105,11 +106,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [OpenInfra Foundation](https://openinfra.dev/about/) - Foundation supporting open-source infrastructure communities including OpenStack and related projects.
 - [OpenJS Foundation](https://openjsf.org/) - Vendor-neutral foundation providing governance and support for sustainable JavaScript ecosystem projects.
 - [OpenNetworking Foundation](https://opennetworking.org/) - Organization and project hub for software-defined networking and open networking platforms.
-- [Software Freedom Conservancy](https://sfconservancy.org/) - Nonprofit home providing legal, financial, and administrative support to free and open-source projects.
-- [Software Freedom Law Center](https://softwarefreedom.org/) - Legal-services organization supporting free and open-source software developers and communities.
-- [Software in the Public Interest](https://www.spi-inc.org/) - Nonprofit fiscal sponsor that handles administrative work for open-source software and hardware projects.
 - [The Document Foundation](https://www.documentfoundation.org/) - Independent charitable foundation supporting LibreOffice, the Document Liberation Project, and their contributor communities.
-- [The Open Source Collective](https://oscollective.org/) - Fiscal host helping open-source projects receive funding and handle administrative operations.
 
 ## History and Perspectives
 
@@ -155,16 +152,13 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [AWS Open Source](https://aws.amazon.com/opensource/) - Portal for AWS-originated projects, contribution programs, community support, and upstream engineering work.
 - [Bytecode Alliance Membership](https://bytecodealliance.org/membership) - Membership program, participation levels, governance expectations, and benefits for supporting the Bytecode Alliance.
 - [Canonical Open Source](https://github.com/canonical) - Official repositories for Ubuntu, Juju, LXD, Snapcraft, MAAS, and other Canonical projects.
-- [CircleCI Open Source](https://circleci.com/open-source/) - Continuous-integration resources and sponsored build infrastructure for qualifying open-source projects.
 - [CNCF Mentoring](https://github.com/cncf/mentoring) - Programs, schedules, project ideas, and guidance for mentorship across Cloud Native Computing Foundation projects.
 - [code.gov](https://code.gov/) - United States federal catalog and policy hub for publicly released government source code.
 - [Digital Freedom Fund](https://digitalfreedomfund.org/) - Organization supporting strategic litigation and capacity building for digital rights in Europe.
 - [DigitalOcean Open Source](https://www.digitalocean.com/open-source) - Open-source projects, sponsorships, and community programs from DigitalOcean.
-- [Discord Open Source](https://discord.com/open-source) - Discord's open-source projects and free community-program benefits for eligible projects.
 - [Drupal](https://www.drupal.org/) - Community site for the open-source Drupal content-management platform, modules, documentation, and contributors.
 - [EPAM Open Source Competency Index](https://github.com/epam/OSCI) - Assessment framework for measuring and improving an organization's open-source capabilities and practices.
 - [GitHub Open Source](https://github.com/open-source) - GitHub's hub for open-source programs, maintainer initiatives, sponsorship, discovery, and community resources.
-- [GitHub Sponsors](https://github.com/sponsors) - Platform for recurring and one-time financial support of open-source maintainers.
 - [Goldman Sachs Open Source](https://developer.gs.com/discover/open-source) - Catalog of Goldman Sachs open-source projects and its approach to contributing software publicly.
 - [Google Open Source Events](https://opensource.google/events) - Calendar and archive of Google's open-source conferences, programs, and community events.
 - [Google Open Source on GitHub](https://github.com/google) - Public organization for Google's open-source libraries, platforms, samples, research, and infrastructure projects.
@@ -174,7 +168,6 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [IBM Open Source](https://www.ibm.com/opensource/) - IBM portal for open-source projects, community participation, standards work, and contribution programs.
 - [IBM Open Source Community Involvement](https://www.ibm.com/opensource/community-involvement/) - IBM's open-source community participation, foundations, programs, and contributor resources.
 - [IEEE Open Source](https://standards.ieee.org/initiatives/opensource/) - IEEE initiative connecting open-source implementations, communities, and standards development.
-- [JetBrains Open Source](https://www.jetbrains.com/community/opensource/) - Licensing support, project sponsorship, tools, and community programs for qualifying open-source maintainers.
 - [Linux Foundation Open Source Guides](https://www.linuxfoundation.org/resources/open-source-guides) - Collection of guides for maintainers, enterprises, contributors, and open-source program offices.
 - [Meta Open Source](https://opensource.fb.com/) - Portal for Meta-originated open-source projects, engineering releases, community programs, and research software.
 - [Microsoft Open Source Program](https://opensource.microsoft.com/program/) - Overview of Microsoft's internal open-source governance, tooling, and program office.
@@ -186,8 +179,6 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [Open Source Event Directory](https://dev.events/oss) - Directory of conferences, meetups, and events focused on open-source software.
 - [Open Source Guides](https://opensource.guide/) - GitHub-maintained guides covering project launch, contributor growth, governance, leadership, and sustainability.
 - [Open Source Institute](https://ossinstitute.org/) - Nonprofit focused on open-source education, adoption, and community programs.
-- [Open Source Software Lab at Oregon State University](https://osuosl.org/) - Hosting, infrastructure, and services for major open-source communities and projects.
-- [Open Technology Fund](https://www.opentech.fund/) - Funding and support organization for open technologies that advance internet freedom and human rights.
 - [Oracle Open Source](https://opensource.oracle.com/) - Portal for Oracle's open-source projects, upstream communities, contribution activity, and program resources.
 - [OVHcloud on GitHub](https://github.com/ovh) - Open-source organization for OVHcloud infrastructure, APIs, operators, automation, and developer tooling.
 - [Palisadoes Foundation](https://www.palisadoes.org/) - Nonprofit using open-source software projects and mentorship to expand STEM opportunities for underserved communities.
@@ -199,6 +190,10 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 - [SUSE Open Source](https://opensource.suse.com/) - Portal for SUSE open-source projects, repositories, contribution, and compliance information.
 - [Tor Project Style Guide](https://styleguide.torproject.org/) - Design-system reference for Tor Project colors, typography, components, iconography, and brand usage.
 - [VMware Open Source](https://www.vmware.com/opensource) - Portal for VMware-originated projects, source distributions, compliance notices, and community participation.
+
+## Related Akashic Collections
+
+Use [Open Source Sustainability and Support](../open-source-sustainability-and-support/README.md) for grants, sponsorship, fiscal hosting, infrastructure benefits, commercial maintenance, pledges, legal services, and patent defense. This collection keeps project discovery, community governance, foundations, history, licensing, and general participation programs so support mechanisms have one canonical home.
 
 Suggestions and improvements are welcome. See the [contribution guidelines](../../contributing.md).
 
