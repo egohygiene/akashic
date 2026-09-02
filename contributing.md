@@ -24,6 +24,7 @@ lists/
   design-systems-and-branding/README.md
   developer-tools/README.md
   gaming-ecosystem-and-preservation/README.md
+  hacking-and-cybersecurity/README.md
   health-and-well-being/README.md
   legal-help-and-law/README.md
   neuroscience/README.md

@@ -13,6 +13,7 @@ export const CATEGORY_IDENTITIES = Object.freeze({
   "design-systems-and-branding": { color: "#16827d", glyph: "◩" },
   "developer-tools": { color: "#508c32", glyph: "◇" },
   "gaming-ecosystem-and-preservation": { color: "#a5572c", glyph: "⊞" },
+  "hacking-and-cybersecurity": { color: "#a23f55", glyph: "⌾" },
   "health-and-well-being": { color: "#2f72c4", glyph: "☼" },
   "legal-help-and-law": { color: "#2d7f91", glyph: "§" },
   neuroscience: { color: "#b23f91", glyph: "◎" },

@@ -30,9 +30,20 @@ test("extracts explicit identity and structured metadata from a trailing comment
 
 test("rejects unknown values, incomplete link checks, and malformed dates", () => {
   assert.throws(() => validateResourceMetadata({ authority: "government" }), /authority must use/);
+  assert.throws(() => validateResourceMetadata({ authorization: ["permission-implied"] }), /authorization must use/);
+  assert.throws(() => validateResourceMetadata({ operationalRisk: "extreme" }), /operationalRisk must use/);
+  assert.throws(() => validateResourceMetadata({ skillLevel: "expert" }), /skillLevel must use/);
   assert.throws(() => validateResourceMetadata({ surprise: true }), /unknown metadata field/);
   assert.throws(() => validateResourceMetadata({ linkStatus: "ok" }), /requires linkChecked/);
   assert.throws(() => validateResourceMetadata({ reviewed: "2026-02-31" }), /real YYYY-MM-DD/);
+});
+
+test("accepts controlled permission, risk, and skill classifications", () => {
+  assert.doesNotThrow(() => validateResourceMetadata({
+    authorization: ["isolated-lab", "explicit-scope"],
+    operationalRisk: "high",
+    skillLevel: "intermediate",
+  }));
 });
 
 test("rejects duplicate IDs, stale aliases, and alias collisions", () => {

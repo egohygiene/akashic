@@ -9,6 +9,9 @@ export const RESOURCE_METADATA_VALUES = Object.freeze({
   access: ["free", "freemium", "paid", "library", "eligibility-based"],
   platform: ["web", "android", "ios", "linux", "macos", "windows", "api", "cli", "desktop", "mobile", "self-hosted", "in-person", "browser-extension", "other"],
   account: ["none", "optional", "required", "institutional"],
+  authorization: ["reference-only", "isolated-lab", "owned-systems", "explicit-scope"],
+  operationalRisk: ["none", "low", "moderate", "high"],
+  skillLevel: ["beginner", "intermediate", "advanced", "mixed"],
   license: ["open-source", "open-content", "public-domain", "proprietary", "varies", "unknown"],
   status: ["active", "archived", "historical", "experimental", "deprecated"],
   volatility: ["low", "medium", "high"],
@@ -17,7 +20,7 @@ export const RESOURCE_METADATA_VALUES = Object.freeze({
   linkStatus: ["unknown", "ok", "redirected", "unavailable"],
 });
 
-const ARRAY_FIELDS = new Set(["access", "geography", "language", "platform", "sensitive"]);
+const ARRAY_FIELDS = new Set(["access", "geography", "language", "platform", "authorization", "sensitive"]);
 const DATE_FIELDS = new Set(["reviewed", "linkChecked"]);
 const ALLOWED_FIELDS = new Set(["id", "aliases", ...Object.keys(RESOURCE_METADATA_VALUES), ...ARRAY_FIELDS, ...DATE_FIELDS]);
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
