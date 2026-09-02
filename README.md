@@ -27,6 +27,7 @@
 - [Dark Web, Deep Web, and Anonymous Networks](lists/dark-web-deep-web-and-anonymous-networks/README.md) - Safety-first orientation, anonymous networks, protected publishing, ethical research, defensive intelligence, and harm reporting. **112 resources.**
 - [Design Systems and Branding](lists/design-systems-and-branding/README.md) - Design-system foundations, public implementations, design tokens, governance, accessibility, brand guidelines, content standards, and identity references. **96 resources.**
 - [Developer Tools](lists/developer-tools/README.md) - Application development, databases, documentation, knowledge management, shell environments, and developer utilities. **161 resources.**
+- [Gaming Ecosystem and Preservation](lists/gaming-ecosystem-and-preservation/README.md) - Open play and creation, modding, accessibility, preservation, research, community well-being, and consumer safety. **66 resources.**
 - [Health and Well-Being](lists/health-and-well-being/README.md) - Mental-health education, trauma-informed support, care navigation, digital health, supplements, pharmacology, and evidence-aware treatment resources. **153 resources.**
 - [Legal Help and Law](lists/legal-help-and-law/README.md) - Free and low-cost legal help, courts, lawyers, rights, research, legal news, professional systems, and access-to-justice tools. **343 resources.**
 - [Neuroscience](lists/neuroscience/README.md) - Brain atlases, open data, neuroimaging, electrophysiology, computational models, standards, education, and research communities. **86 resources.**
