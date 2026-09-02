@@ -34,6 +34,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "open-source",
   "psychedelics",
   "public-services-and-support",
+  "recipes-cooking-and-food-data",
   "research",
   "research-funding-and-grants",
   "scientific-research",

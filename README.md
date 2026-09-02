@@ -33,6 +33,7 @@
 - [Open Source](lists/open-source/README.md) - Open source collections, community governance, foundations, history, licensing, and support programs. **166 resources.**
 - [Psychedelics](lists/psychedelics/README.md) - Evidence-forward research, open data, safety, regulated access, professional education, ethics, and cultural context. **74 resources.**
 - [Public Services and Support](lists/public-services-and-support/README.md) - Benefits, emergency assistance, unclaimed money, financial resilience, legitimate flexible income, volunteering, giving, and government services. **128 resources.**
+- [Recipes, Cooking, and Food Data](lists/recipes-cooking-and-food-data/README.md) - Open recipe data and tools, practical cooking knowledge, affordability, accessibility, safety, preservation, and food history. **55 resources.**
 - [Research](lists/research/README.md) - Scholarly discovery, AI-assisted understanding, citation mapping, evidence synthesis, legal access, repositories, and reproducible workflows. **106 resources.**
 - [Research Funding and Grants](lists/research-funding-and-grants/README.md) - Funding databases, government and international programs, mental-health and science grants, fellowships, arts, open source, nonprofits, commercialization, and application guidance. **237 resources.**
 - [Scientific Research](lists/scientific-research/README.md) - Animal health, scientific data, geospatial and LiDAR resources, open science organizations, scientific computing, and scholarly publishing. **84 resources.**
