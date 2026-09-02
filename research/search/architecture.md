@@ -86,6 +86,8 @@ The first query compiler should be deterministic. It can normalize text and deri
 
 `weighted-lexical-v2` now produces this record alongside its existing scoring inputs. The rules only record matched concept IDs and explicit query text: urgency is a signal classification rather than an asserted deadline, location is a conservative place or postal-code span rather than a claim of applicability, and access needs are not inferred from catalog metadata. Subqueries are bounded, deduplicated, and inspectable. They do not affect ranking until a separately evaluated fusion experiment uses them. The initial rule vocabulary is English-only.
 
+The deterministic evaluator ranks each subquery to the same candidate depth and unions those normalized URLs with the original candidates without assigning a fused order. The initial ten-case diagnostic expands the mean pool from at most ten to `16.8` candidates, adds no judged-relevant URL because the original fixture is already saturated at Recall@10 `1.0`, and adds one known negative. Harder judgments with recall headroom are required before fusion can show a benefit.
+
 A future small local model may suggest additional subqueries or a hypothetical passage, following the HyDE and Query2doc research directions, but generated expansion is only a retrieval hint.
 
 ### Hybrid retriever
@@ -106,7 +108,7 @@ final score =
   - stale, restricted, or mismatched penalties
 ```
 
-Multiple subquery rankings can be combined using reciprocal rank fusion or another simple method before a more complex learned reranker is considered.
+Multiple subquery rankings may eventually be combined using reciprocal rank fusion or another simple method before a more complex learned reranker is considered. The no-fusion baseline remains authoritative until an expanded fixture shows that fusion adds judged-relevant candidates without unacceptable known-negative growth.
 
 The active lexical experiment exposes an explanation record separately from its fast scoring path. For each explicitly explained resource it records:
 
@@ -203,6 +205,7 @@ Measure at least:
 - Recall@k and mean reciprocal rank over human judgments.
 - nDCG when judgments gain graded relevance.
 - zero-result rates and query-relative known-irrelevant hit rates over explicit partial negative judgments.
+- decomposition candidate-pool expansion plus relevant and known-irrelevant candidate gains before rank fusion.
 - exact-identifier and acronym precision.
 - source-authority and geographic-applicability placement.
 - latency on representative low-, middle-, and high-capability devices.

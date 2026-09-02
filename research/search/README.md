@@ -30,7 +30,9 @@ Those values describe this small, deliberately curated regression fixture only. 
 
 The same versioned module exposes a deterministic query-decomposition record with matched intent IDs, explicit urgency signals, a conservative unresolved place or postal-code span, explicit access needs, and at most six inspectable subqueries. It also exposes opt-in per-result explanations that account for matched query and concept terms, every score-bearing field, exact-query and reviewed-priority boosts, original-term coverage, the coverage multiplier, the result threshold, and exclusion reasons. Ordinary portal search keeps the allocation-light scoring path; detailed evidence is generated only when requested. The evaluator verifies explanations for every top-ten result and persists the full breakdown for the first result per query so checkpoint diffs remain reviewable.
 
-Decomposition and explanations do not yet change result order: ranking fusion remains a separate experiment. The compiler does not infer a legal deadline, eligibility, geographic applicability, or an access constraint that the query did not state. Its initial signal vocabulary is English-only.
+The evaluator also ranks all 26 generated subqueries independently to depth ten and deduplicates their candidates with the original top ten. On this seed, decomposition increases the mean candidate pool to `16.8` resources—`7.7` additional candidates per case—but recovers no additional judged-relevant URLs and admits one additional known negative for `AO 240`. The original ranking already has Recall@10 of `1.0`, so this saturated fixture cannot demonstrate a positive recall gain; it can expose candidate cost and negative admissions. This result does not justify fusion, and decomposition still does not change portal result order.
+
+The compiler does not infer a legal deadline, eligibility, geographic applicability, or an access constraint that the query did not state. Its initial signal vocabulary is English-only.
 
 The seed uses binary URL-level relevance judgments: a reviewer selects existing canonical resources that should be discoverable for each question and records safety properties the eventual result presentation must preserve. Each case also names at least one existing catalog resource that is known to be irrelevant to that exact query. The runner reports how many of those partial known negatives appear at `k`, the first such rank, and the mean per-case known-irrelevant rate. Lower is better, but this measurement is not precision because resources outside the explicit negative set remain unjudged. It must be read beside recall and zero-result measurements: an algorithm that returns nothing trivially avoids known negatives. The runner measures retrieval only; it does not automatically certify safety properties. The suite has no graded relevance, assessor-agreement measurement, or statistical power, so it must not support comparative or safety-performance claims until those are added through a documented multi-reviewer protocol.
 
@@ -89,8 +91,8 @@ The committed report is a Git-versioned corpus checkpoint, not a generated ledge
 
 The next implementation should stress-test and explain the non-ML kernel before choosing an embedding model:
 
-1. expand the fixture across collections, short queries, ambiguous terms, additional known negatives, and multilingual input;
-2. use the explicit over-broad-result measurements to evaluate committed decomposition subqueries before using them in rank fusion;
+1. expand the fixture across collections, short queries, ambiguous terms, additional known negatives, multilingual input, and cases where the original top ten leaves measurable recall headroom;
+2. define a no-fusion acceptance gate before testing reciprocal-rank or other fusion, requiring a relevant-candidate gain without unacceptable known-negative growth;
 3. record latency on low-end mobile hardware and transfer-size behavior;
 4. apply the documented license and artifact gate to any model selected for a semantic experiment; and
 5. preserve negative results and aliases that create unacceptable false positives.

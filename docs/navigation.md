@@ -80,6 +80,8 @@ node scripts/evaluate-search.mjs --algorithm site/search/weighted-lexical-v2.js 
 
 `explainResourceMatch` explains one resource against a query or compiled query. `searchResourcesWithExplanations` returns the first ten explained results by default and accepts an explicit positive limit. Both record matched query and concept terms, credited fields, boosts, coverage, thresholds, and exclusion reasons. They explain deterministic scoring behavior, not resource suitability or controlling facts. The ten-query seed fixture is a regression tool, not proof of broad retrieval quality or safety. Its query-relative known negatives expose specific over-broad matches, but unmarked results remain unjudged and the reported rate is not precision. Expand the suite through reviewed real questions, additional explicit relevant and negative judgments, and failure reports before making stronger claims.
 
+For algorithms that expose query decomposition, the research evaluator also ranks every generated subquery to the configured depth and records the deduplicated union with the original candidates. It measures pool expansion and relevant or known-irrelevant candidate gains without assigning a fused order. These diagnostics do not affect portal search results.
+
 ## Source, Review, and Presentation
 
 Selected paths expose the canonical Markdown source and a dedicated resource-update issue form. Reports remain human-reviewed; they do not delete or rewrite catalog entries automatically.
