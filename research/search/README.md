@@ -28,6 +28,8 @@ The active `weighted-lexical-v2` experiment normalizes query text, weights catal
 
 Those values describe this small, deliberately curated regression fixture only. They do not establish general search quality, comparative superiority, user outcomes, or safety. In particular, the current suite lacks negative judgments, graded relevance, multilingual queries, assessor agreement, and enough coverage to detect over-broad result sets.
 
+The same versioned module now exposes a deterministic query-decomposition record with matched intent IDs, explicit urgency signals, a conservative unresolved place or postal-code span, explicit access needs, and at most six inspectable subqueries. Decomposition does not yet change result order: ranking fusion and per-result match explanations remain a separate experiment. The compiler does not infer a legal deadline, eligibility, geographic applicability, or an access constraint that the query did not state. Its initial signal vocabulary is English-only.
+
 The seed uses binary URL-level relevance judgments: a reviewer selects existing canonical resources that should be discoverable for each question and records safety properties the eventual result presentation must preserve. The runner measures retrieval only; it does not automatically certify those safety properties. The suite presently has no graded relevance, explicit negative judgments, assessor-agreement measurement, or statistical power, so it must not support comparative or safety-performance claims until those are added through a documented multi-reviewer protocol.
 
 ## Repository Map
@@ -87,7 +89,7 @@ The next implementation should stress-test and explain the non-ML kernel before 
 
 1. expand the fixture across collections, short queries, ambiguous terms, known negatives, and multilingual input;
 2. add per-result match explanations and explicit over-broad-query measurements;
-3. compare concept expansion with deterministic query decomposition and rank fusion;
+3. evaluate the committed decomposition subqueries before using them in rank fusion;
 4. record latency on low-end mobile hardware and transfer-size behavior;
 5. apply the documented license and artifact gate to any model selected for a semantic experiment; and
 6. preserve negative results and aliases that create unacceptable false positives.

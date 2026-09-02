@@ -15,6 +15,33 @@ const FIELD_WEIGHTS = Object.freeze({
   domain: 1,
 });
 
+const URGENCY_SIGNALS = Object.freeze([
+  { kind: "immediate", phrases: ["today", "tonight", "right now", "now", "immediately", "urgent", "emergency", "stranded"] },
+  { kind: "deadline", phrases: ["deadline", "due date", "hearing", "court paper", "court notice", "eviction notice", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"] },
+]);
+
+const ACCESS_NEED_SIGNALS = Object.freeze([
+  { id: "no-cost", phrases: ["free", "no cost", "no money", "no income", "cannot afford", "cant afford", "without paying"] },
+  { id: "low-cost", phrases: ["low cost", "affordable", "cheap"] },
+  { id: "no-car", phrases: ["without a car", "no car"] },
+  { id: "older-device", phrases: ["old laptop", "old computer", "old phone", "older device", "low spec"] },
+  { id: "low-bandwidth", phrases: ["low bandwidth", "slow internet", "limited data", "offline"] },
+  { id: "no-account", phrases: ["no account", "without an account", "no signup", "without signing up"] },
+  { id: "mobility-accessible", phrases: ["wheelchair", "paratransit", "mobility accessible"] },
+]);
+
+const ACCESS_QUERY_TERMS = Object.freeze({
+  "no-cost": "free",
+  "low-cost": "affordable",
+  "no-car": "without a car",
+  "older-device": "old device",
+  "low-bandwidth": "low bandwidth",
+  "no-account": "without an account",
+  "mobility-accessible": "wheelchair accessible",
+});
+
+const NON_LOCATION_LEADS = new Set(["court", "danger", "debt", "jail", "need", "pain", "school", "trouble", "work"]);
+
 export function normalizeSearchText(value) {
   return String(value || "")
     .normalize("NFKD")
@@ -36,10 +63,106 @@ function termMatches(text, term) {
   return text.split(" ").some((candidate) => candidate === term || (term.length >= 5 && (candidate.startsWith(term) || term.startsWith(candidate))));
 }
 
-export function compileSearchQuery(query) {
-  const normalized = normalizeSearchText(query);
+function phraseIsPresent(normalized, phrase) {
+  const normalizedPhrase = normalizeSearchText(phrase);
+  return ` ${normalized} `.includes(` ${normalizedPhrase} `);
+}
+
+function matchedPhrases(normalized, phrases) {
+  const matches = phrases.filter((phrase) => phraseIsPresent(normalized, phrase));
+  return matches.filter((phrase) => !matches.some((other) => other !== phrase
+    && normalizeSearchText(other).length > normalizeSearchText(phrase).length
+    && phraseIsPresent(normalizeSearchText(other), phrase)));
+}
+
+function matchSearchConcepts(normalized) {
+  return SEARCH_CONCEPTS.filter((concept) => concept.triggers.some((trigger) => normalized.includes(normalizeSearchText(trigger))));
+}
+
+function extractUrgency(normalized) {
+  const signals = URGENCY_SIGNALS.flatMap(({ kind, phrases }) => matchedPhrases(normalized, phrases)
+    .map((phrase) => ({ kind, text: normalizeSearchText(phrase) })));
+  const level = signals.some((signal) => signal.kind === "immediate")
+    ? "immediate"
+    : signals.some((signal) => signal.kind === "deadline") ? "deadline-sensitive" : "unspecified";
+  return { level, signals };
+}
+
+function extractLocation(query) {
+  const raw = String(query || "").trim();
+  if (!raw) return null;
+  const boundary = "today|tonight|right\\s+now|now|without|with|because|but|and|who|that|while|for|at|from|before|after|during|i|we|my|our|need|want|looking";
+  const clauseMatch = raw.match(new RegExp(`\\b(?:near|around|in)\\s+(.+?)(?=\\s+(?:${boundary})\\b|[?;!]|\\.$|$)`, "iu"));
+  const commaMatch = raw.match(/([\p{Uppercase_Letter}][\p{Letter}\p{Mark}.'-]*(?:\s+[\p{Uppercase_Letter}][\p{Letter}\p{Mark}.'-]*){0,2},\s*[\p{Uppercase_Letter}][\p{Letter}\p{Mark}.'-]*(?:\s+[\p{Uppercase_Letter}][\p{Letter}\p{Mark}.'-]*){0,2})/u);
+  const zipMatch = raw.match(/\b\d{5}(?:-\d{4})?\b/);
+  let text = clauseMatch?.[1] || commaMatch?.[1] || zipMatch?.[0] || "";
+  text = text
+    .replace(new RegExp(`\\s+(?:${boundary})\\b.*$`, "iu"), "")
+    .replace(/^[\s,]+|[\s,.]+$/g, "")
+    .replace(/^the\s+/iu, "")
+    .trim();
+  const normalized = normalizeSearchText(text);
+  const locationTerms = normalized.split(" ").filter(Boolean);
+  if (!normalized || locationTerms.length > 6 || NON_LOCATION_LEADS.has(locationTerms[0])) return null;
+  return {
+    text,
+    normalized,
+    source: /^\d{5}(?:-\d{4})?$/.test(text)
+      ? "postal-code"
+      : clauseMatch ? "prepositional-span" : "place-name-span",
+  };
+}
+
+function extractAccessNeeds(normalized) {
+  return ACCESS_NEED_SIGNALS.flatMap(({ id, phrases }) => {
+    const signals = matchedPhrases(normalized, phrases).map(normalizeSearchText);
+    return signals.length ? [{ id, signals }] : [];
+  });
+}
+
+function buildSubqueries(originalTerms, concepts, location, accessNeeds) {
+  const subqueries = [];
+  const seen = new Set();
+  const add = (value) => {
+    const normalized = normalizeSearchText(value);
+    if (!normalized || seen.has(normalized)) return;
+    seen.add(normalized);
+    subqueries.push(value.trim().replace(/\s+/g, " "));
+  };
+  add(originalTerms.join(" "));
+  for (const concept of concepts) add(concept.suggestion);
+
+  const constraints = accessNeeds.map(({ id }) => ACCESS_QUERY_TERMS[id]).filter(Boolean);
+  for (const concept of concepts) {
+    const distinctConstraints = constraints.filter((constraint) => !phraseIsPresent(normalizeSearchText(concept.suggestion), constraint));
+    add([concept.suggestion, ...distinctConstraints, location?.normalized].filter(Boolean).join(" "));
+  }
+  if (!concepts.length) add([originalTerms.join(" "), ...constraints, location?.normalized].filter(Boolean).join(" "));
+  return subqueries.slice(0, 6);
+}
+
+export function decomposeSearchQuery(query) {
+  const normalizedQuery = normalizeSearchText(query);
   const originalTerms = [...new Set(terms(query))];
-  const concepts = SEARCH_CONCEPTS.filter((concept) => concept.triggers.some((trigger) => normalized.includes(normalizeSearchText(trigger))));
+  const concepts = matchSearchConcepts(normalizedQuery);
+  const location = extractLocation(query);
+  const accessNeeds = extractAccessNeeds(normalizedQuery);
+  return {
+    schemaVersion: 1,
+    normalizedQuery,
+    intents: concepts.map((concept) => concept.id),
+    urgency: extractUrgency(normalizedQuery),
+    location,
+    accessNeeds,
+    subqueries: buildSubqueries(originalTerms, concepts, location, accessNeeds),
+  };
+}
+
+export function compileSearchQuery(query) {
+  const decomposition = decomposeSearchQuery(query);
+  const normalized = decomposition.normalizedQuery;
+  const originalTerms = [...new Set(terms(query))];
+  const concepts = matchSearchConcepts(normalized);
   const weightedTerms = new Map(originalTerms.map((term) => [term, 1]));
   for (const concept of concepts) {
     for (const expansion of concept.expansions) {
@@ -47,7 +170,7 @@ export function compileSearchQuery(query) {
       weightedTerms.set(normalizedExpansion, Math.max(weightedTerms.get(normalizedExpansion) || 0, 0.7));
     }
   }
-  return { normalized, originalTerms, concepts, weightedTerms: [...weightedTerms] };
+  return { normalized, originalTerms, concepts, weightedTerms: [...weightedTerms], decomposition };
 }
 
 export function buildSearchIndex(resource) {

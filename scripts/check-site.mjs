@@ -190,7 +190,7 @@ for (const contract of [".need-paths", ".collection-guide", ".catalog-taxonomy-c
   if (!styles.includes(contract)) throw new Error(`The need-first, guide, or spacious-card visual contract is missing: ${contract}`);
 }
 const activeSearch = await readFile(path.join(output, "search/weighted-lexical-v2.js"), "utf8");
-if (!activeSearch.includes('SEARCH_ALGORITHM_ID = "weighted-lexical-v2"') || !activeSearch.includes("normalize(\"NFKD\")") || !activeSearch.includes("SEARCH_CONCEPTS")) throw new Error("The weighted lexical search contract is incomplete.");
+if (!activeSearch.includes('SEARCH_ALGORITHM_ID = "weighted-lexical-v2"') || !activeSearch.includes("normalize(\"NFKD\")") || !activeSearch.includes("SEARCH_CONCEPTS") || !activeSearch.includes("decomposeSearchQuery")) throw new Error("The weighted lexical search contract is incomplete.");
 for (const fileName of ["app.js", "dashboard.js", "atlas.js"]) {
   const javascript = await readFile(path.join(output, fileName), "utf8");
   if (!javascript.includes("runtime.theme.light") || !javascript.includes("runtime.theme.dark")) throw new Error(`Theme-toggle labels are not localized in ${fileName}.`);
