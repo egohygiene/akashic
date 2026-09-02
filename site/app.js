@@ -1,6 +1,7 @@
 import { createMindMap } from "./mind-map.js";
 import { NEED_PATHS } from "./needs.js";
 import { buildSearchIndex, searchResources, suggestedQueries } from "./search.js";
+import { createSearchShareUrl, readSharedSearchQuery, sharedSearchAnchor } from "./search-query-state.js";
 import { canonicalContentLanguage, number, plural, t } from "./i18n.js";
 import { FAVORITES_KEY, migrateFavoriteTokens, parseFavoriteTokens, URL_FAVORITES_KEYS } from "./favorites.js";
 import { activeMetadataFacetCount, emptyMetadataFacets, formatMetadataValue, humanizeMetadataValue, matchesMetadataFacets, METADATA_FACETS, metadataFacetValues } from "./catalog-metadata.js";
@@ -60,6 +61,7 @@ const elements = {
   catalogSearch: document.querySelector("#catalog-search-input"),
   catalogSearchClear: document.querySelector("#catalog-search-clear"),
   catalogSearchForm: document.querySelector("#catalog-search-form"),
+  catalogSearchPrivacy: document.querySelector("#catalog-search-privacy"),
   catalogTopic: document.querySelector("#catalog-topic-select"),
   categoryTotal: document.querySelector("#collection-total"),
   clear: document.querySelector("#clear-search"),
@@ -74,6 +76,7 @@ const elements = {
   guideSource: document.querySelector("#collection-guide-source"),
   guideTitle: document.querySelector("#collection-guide-title"),
   heroSearchClear: document.querySelector("#hero-search-clear"),
+  heroSearchPrivacy: document.querySelector("#hero-search-privacy"),
   loadMore: document.querySelector("#load-more"),
   metadataClear: document.querySelector("#metadata-filter-clear"),
   metadataCount: document.querySelector("#metadata-filter-count"),
@@ -142,9 +145,8 @@ function normalizeExplorer(next) {
   return { category: category.slug, group: group?.slug || "", section };
 }
 
-function urlForState(hash = location.hash) {
+function urlForState(hash = sharedSearchAnchor(location.hash)) {
   const params = new URLSearchParams();
-  if (state.query) params.set("q", state.query);
   if (state.category !== "all") params.set("collection", state.category);
   if (state.group) params.set("branch", state.group);
   if (state.section) params.set("section", state.section);
@@ -157,15 +159,20 @@ function urlForState(hash = location.hash) {
   return `${location.pathname}${params.size ? `?${params}` : ""}${hash || ""}`;
 }
 
-function syncUrl(mode = "replace", hash = location.hash) {
+function syncUrl(mode = "replace", hash = sharedSearchAnchor(location.hash)) {
   if (mode === "none") return;
   history[mode === "push" ? "pushState" : "replaceState"](null, "", urlForState(hash));
 }
 
-function readUrlState(usePreference = false) {
+function searchShareUrl() {
+  const privateUrl = new URL(urlForState("#catalog"), location.origin);
+  return createSearchShareUrl(privateUrl, state.query);
+}
+
+function readUrlState(usePreference = false, query = readSharedSearchQuery(location.search, location.hash)) {
   const params = new URLSearchParams(location.search);
   return {
-    query: params.get("q") || "",
+    query,
     category: params.get("collection") || "all",
     group: params.get("branch") || "",
     section: params.get("section") || "",
@@ -410,6 +417,21 @@ function contextLink(label, href, { external = false } = {}) {
   return link;
 }
 
+async function copySearchLink(status) {
+  const url = searchShareUrl();
+  status.textContent = "";
+  if (!navigator.clipboard?.writeText) {
+    window.prompt(t("runtime.app.searchLinkCopyPrompt"), url);
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(url);
+    status.textContent = t("runtime.app.searchLinkCopied");
+  } catch {
+    window.prompt(t("runtime.app.searchLinkCopyPrompt"), url);
+  }
+}
+
 function renderContext() {
   const category = currentCategory();
   const group = currentGroup();
@@ -434,6 +456,16 @@ function renderContext() {
   elements.catalogContext.append(path);
   const actions = document.createElement("div");
   actions.className = "context-actions";
+  if (state.query) {
+    const shareButton = document.createElement("button");
+    const shareStatus = document.createElement("span");
+    shareButton.type = "button";
+    shareButton.textContent = t("runtime.action.copySearchLink");
+    shareStatus.className = "sr-only";
+    shareStatus.setAttribute("role", "status");
+    shareButton.addEventListener("click", () => copySearchLink(shareStatus));
+    actions.append(shareButton, shareStatus);
+  }
   if (category) {
     const mapLink = document.createElement("a");
     mapLink.href = "#mind-map";
@@ -443,7 +475,7 @@ function renderContext() {
     const source = currentGroup()?.source || category.path;
     actions.append(contextLink(t("runtime.action.readSource"), sourceUrl(source, state.section), { external: true }));
   }
-  actions.append(contextLink(t("runtime.action.reportUpdate"), reportUrl(category?.title || state.query), { external: true }));
+  actions.append(contextLink(t("runtime.action.reportUpdate"), reportUrl(category?.title || ""), { external: true }));
   elements.catalogContext.append(actions);
 }
 
@@ -661,7 +693,7 @@ function initializeEvents() {
   });
   addEventListener("popstate", () => {
     clearTimeout(searchTimer);
-    const next = readUrlState();
+    const next = readUrlState(false, state.query);
     const explorer = normalizeExplorer(next);
     Object.assign(state, next, explorer, { limit: PAGE_SIZE });
     writeStorage(VIEW_KEY, state.view);
@@ -672,6 +704,8 @@ function initializeEvents() {
 }
 
 async function initialize() {
+  const initialHash = sharedSearchAnchor(location.hash);
+  const sharedFragment = initialHash !== location.hash;
   initializeTheme();
   initializeChrome();
   const response = await fetch(new URL("./data/catalog.json", import.meta.url));
@@ -685,6 +719,8 @@ async function initialize() {
   Object.assign(state, requested, explorer);
   elements.resourceTotal.textContent = number(state.catalog.resourceCount);
   elements.categoryTotal.textContent = number(state.catalog.categories.length);
+  elements.heroSearchPrivacy.textContent = t("runtime.app.searchPrivacy");
+  elements.catalogSearchPrivacy.textContent = t("runtime.app.searchPrivacy");
   setSearchInputs(state.query);
   renderNeedPaths();
   renderOverviewPreview();
@@ -728,7 +764,8 @@ async function initialize() {
     document.querySelector("#mind-map-advisory").lang = canonicalContentLanguage;
   }
   initializeEvents();
-  syncUrl("replace");
+  syncUrl("replace", initialHash);
+  if (sharedFragment && initialHash) scrollToTarget(initialHash);
 }
 
 initialize().catch((error) => {

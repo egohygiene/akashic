@@ -26,7 +26,7 @@ The locale registry in `site/i18n/locales.json` declares BCP 47 language tags, n
 
 Localized HTML is generated at publish time. JavaScript, CSS, icons, geometry, and generated catalog JSON remain single-copy root assets. Module-relative data URLs let the same scripts work from every locale route without duplicating the 4,000-plus-resource payload.
 
-The visible language switcher uses native language names instead of flags. It preserves the active query string and fragment, stores only an explicit user choice in `localStorage`, and never infers language from an IP address. English remains the fallback when a message is unavailable. These choices follow W3C guidance for [linking to translations](https://www.w3.org/International/questions/qa-site-conneg.en.html) and [identifying page language and language changes](https://www.w3.org/WAI/test-evaluate/easy-checks/language/).
+The visible language switcher uses native language names instead of flags. It preserves non-sensitive explorer parameters and fragments, stores only an explicit user choice in `localStorage`, and never infers language from an IP address. Natural-language search remains in page memory; an explicitly copied fragment link survives a locale redirect, while a legacy `?q=` value is moved into the fragment before the second request. English remains the fallback when a message is unavailable. These choices follow W3C guidance for [linking to translations](https://www.w3.org/International/questions/qa-site-conneg.en.html) and [identifying page language changes](https://www.w3.org/WAI/test-evaluate/easy-checks/language/).
 
 ## Message catalogs
 

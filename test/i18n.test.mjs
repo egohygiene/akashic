@@ -41,5 +41,8 @@ test("English remains the untranslated canonical default with a saved-locale red
   assert.match(html, /See the shape of/);
   assert.doesNotMatch(html, /class="locale-coverage"/);
   assert.match(html, /localStorage\.getItem\("akashic-locale"\)/);
+  assert.match(html, /p\.delete\("q"\)/);
+  assert.match(html, /u\.hash=q\?"catalog\?"/);
+  assert.doesNotMatch(html, /r\[l\]\+location\.search/);
   assert.match(html, /href="\/ru\/dashboard\.html"/);
 });

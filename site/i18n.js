@@ -42,8 +42,11 @@ for (const link of document.querySelectorAll("[data-locale]")) {
   link.addEventListener("click", () => {
     try { localStorage.setItem(LOCALE_STORAGE_KEY, link.dataset.locale); } catch {}
     const destination = new URL(link.href);
-    destination.search = location.search;
-    destination.hash = location.hash;
+    const searchParameters = new URLSearchParams(location.search);
+    const legacyQuery = searchParameters.get("q");
+    searchParameters.delete("q");
+    destination.search = searchParameters;
+    destination.hash = legacyQuery ? `catalog?${new URLSearchParams({ q: legacyQuery })}` : location.hash;
     link.href = destination;
   });
 }

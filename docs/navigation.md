@@ -82,6 +82,12 @@ node scripts/evaluate-search.mjs --algorithm site/search/weighted-lexical-v2.js 
 
 For algorithms that expose query decomposition, the research evaluator also ranks every generated subquery to the configured depth and records the deduplicated union with the original candidates. It measures pool expansion and relevant or known-irrelevant candidate gains without assigning a fused order. These diagnostics do not affect portal search results.
 
+## Private Query State and Explicit Sharing
+
+Natural-language questions remain in page memory by default. Search typing, submission, filter changes, and browser Back/Forward never write the query to the URL, `history.state`, `localStorage`, or `sessionStorage`. The current in-memory query remains active while non-query explorer history changes.
+
+When a visitor explicitly chooses **Copy search link**, the portal creates a link whose `q` value is encoded after the `#catalog` fragment. URL fragments are visible to anyone who receives the link but are not included in the HTTP request. The receiving page reads the query, renders the result, and replaces the fragment with the ordinary `#catalog` anchor. Existing `?q=` links remain supported as a compatibility input and are removed from the address bar after the first render. The share action does not mutate the visitor's current URL, and generic report links never include the question.
+
 ## Source, Review, and Presentation
 
 Selected paths expose the canonical Markdown source and a dedicated resource-update issue form. Reports remain human-reviewed; they do not delete or rewrite catalog entries automatically.

@@ -112,7 +112,7 @@ h1 { max-width: 1080px; margin: 27px 0 28px; font-size: clamp(3.25rem, 7vw, 7rem
 h1 em { font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif; font-weight: 400; background: var(--accent); color: transparent; -webkit-background-clip: text; background-clip: text; }
 .hero-copy { max-width: 760px; margin: 0; color: var(--muted); font-size: clamp(1rem, 2vw, 1.17rem); line-height: 1.78; }
 .hero-search, .catalog-search { display: flex; align-items: center; background: color-mix(in srgb, var(--surface-solid), transparent 2%); border: 1px solid var(--line); box-shadow: var(--shadow-soft); }
-.hero-search { width: min(100%, 740px); min-height: 66px; margin: 38px 0 20px; gap: 14px; padding: 0 16px 0 19px; border-radius: 19px; }
+.hero-search { width: min(100%, 740px); min-height: 66px; margin: 38px 0 8px; gap: 14px; padding: 0 16px 0 19px; border-radius: 19px; }
 .hero-search:focus-within, .catalog-search:focus-within { border-color: var(--violet); box-shadow: 0 0 0 4px color-mix(in srgb, var(--violet), transparent 84%), var(--shadow-soft); }
 .hero-search > span, .catalog-search > span { color: var(--pink); font-size: 1.65rem; }
 .hero-search input, .catalog-search input { min-width: 0; flex: 1; border: 0; outline: 0; background: transparent; color: var(--text); }
@@ -122,6 +122,8 @@ input::placeholder { color: var(--faint); }
 .search-clear:hover { background: var(--bg-soft); color: var(--text); }
 .search-submit { width: 44px; height: 44px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 12px; background: var(--button-accent); color: #fff; cursor: pointer; font-weight: 800; }
 .search-submit:hover { transform: translateX(2px); }
+.search-privacy-note { margin: 0; color: var(--faint); font-size: .67rem; line-height: 1.5; }
+.hero > .search-privacy-note { width: min(100%, 740px); margin-bottom: 20px; padding-inline: 4px; }
 kbd { padding: 4px 8px; border: 1px solid var(--line-strong); border-radius: 7px; background: var(--bg-soft); color: var(--faint); font-size: .72rem; }
 .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 11px; }
 .button { min-height: 46px; display: inline-flex; justify-content: center; align-items: center; gap: 9px; padding: 0 20px; border: 1px solid transparent; border-radius: 13px; text-decoration: none; cursor: pointer; font-weight: 760; font-size: .86rem; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
@@ -315,8 +317,8 @@ body.map-expanded { overflow: hidden; }
 .context-path button { min-height: 30px; flex: 0 0 auto; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface-solid); color: var(--text); cursor: pointer; font-size: .7rem; }
 .context-path button::after { content: " ×"; color: var(--faint); }
 .context-actions { flex: 0 0 auto; display: flex; align-items: center; gap: 4px; }
-.context-actions a { min-height: 36px; display: inline-flex; align-items: center; gap: 7px; padding: 0 9px; border-radius: 9px; color: var(--pink); font-size: .68rem; text-decoration: none; }
-.context-actions a:hover { background: var(--surface-hover); color: var(--text); }
+.context-actions a, .context-actions button { min-height: 36px; display: inline-flex; align-items: center; gap: 7px; padding: 0 9px; border: 0; border-radius: 9px; background: transparent; color: var(--pink); cursor: pointer; font-size: .68rem; text-decoration: none; }
+.context-actions a:hover, .context-actions button:hover { background: var(--surface-hover); color: var(--text); }
 .collection-guide { margin: -1px 0 20px; overflow: hidden; border: 1px solid color-mix(in srgb, var(--violet), transparent 65%); border-radius: 19px; background: color-mix(in srgb, var(--surface), transparent 3%); box-shadow: var(--shadow-soft); }
 .collection-guide > summary { min-height: 74px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 13px; align-items: center; padding: 14px 18px; cursor: pointer; list-style: none; }
 .collection-guide > summary::-webkit-details-marker { display: none; }
@@ -353,6 +355,8 @@ body.map-expanded { overflow: hidden; }
 .related-paths button:hover { border-color: var(--violet); color: var(--text); }
 .catalog-toolbar { position: sticky; z-index: 100; top: 86px; display: grid; grid-template-columns: minmax(240px, 1fr) auto; gap: 12px 16px; margin-bottom: 28px; padding: 13px; border: 1px solid var(--line); border-radius: 18px; background: color-mix(in srgb, var(--bg), transparent 8%); box-shadow: var(--shadow-soft); backdrop-filter: blur(20px) saturate(130%); -webkit-backdrop-filter: blur(20px) saturate(130%); }
 .catalog-toolbar > * { min-width: 0; }
+.catalog-search-shell { display: grid; gap: 5px; }
+.catalog-search-shell .search-privacy-note { padding-inline: 4px; }
 .catalog-search { min-height: 46px; gap: 10px; padding: 0 10px 0 14px; border-radius: 12px; box-shadow: none; }
 .catalog-search > span { font-size: 1.25rem; }
 .catalog-actions { display: flex; align-items: center; gap: 9px; }
