@@ -6,7 +6,7 @@
   "inputs": {
     "catalogSha256": "bfda968cbf5ac6f66282afa99042b77bb63b8eb57683a41b07968c2580a07b55",
     "fixtureSha256": "dd20a3342f06cdc097972977e1beb7a10b2506330fbfa48352e4bab6ec71126a",
-    "implementationSha256": "379ceb0f91e991ea8f94a397155b049a9fa37449358b13d6e71323bcb1b732eb"
+    "implementationSha256": "1472b8ce64e66a02459d2125c99fff47c8caae77afb749ef603b8915771603d8"
   },
   "topK": 10,
   "summary": {
@@ -40,7 +40,146 @@
           "url": "https://www.usa.gov/emergency-food-assistance",
           "collection": "Public Services and Support",
           "topic": "Benefits and Emergency Assistance",
-          "relevant": true
+          "relevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 108.468,
+            "scoreBeforeCoverage": 124.2,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "food",
+                "today"
+              ],
+              "unmatchedOriginalTerms": [
+                "need"
+              ],
+              "ratio": 0.6666666666666666,
+              "multiplier": 0.8733333333333333
+            },
+            "matchedTerms": [
+              {
+                "term": "food",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              },
+              {
+                "term": "today",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 2.25
+              },
+              {
+                "term": "emergency food",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "food-today"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 8.399999999999999
+              },
+              {
+                "term": "food assistance",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "food-today"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 8.399999999999999
+              },
+              {
+                "term": "food bank",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "food-today"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 1.575
+              },
+              {
+                "term": "meal",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "food-today"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 1.575
+              }
+            ],
+            "boosts": [
+              {
+                "id": "concept-priority-exact-title",
+                "conceptId": "food-today",
+                "priority": "usa gov emergency food assistance",
+                "field": "title",
+                "contribution": 90
+              }
+            ],
+            "excludedReason": null
+          }
         },
         {
           "rank": 2,
@@ -139,7 +278,80 @@
           "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
           "collection": "Legal Help and Law",
           "topic": "Start Here",
-          "relevant": true
+          "relevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 78.29291666666667,
+            "scoreBeforeCoverage": 114.575,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "need"
+              ],
+              "unmatchedOriginalTerms": [
+                "no",
+                "money",
+                "landlord",
+                "leave",
+                "friday"
+              ],
+              "ratio": 0.16666666666666666,
+              "multiplier": 0.6833333333333333
+            },
+            "matchedTerms": [
+              {
+                "term": "need",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              },
+              {
+                "term": "legal aid",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "housing-risk"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 1.575
+              }
+            ],
+            "boosts": [
+              {
+                "id": "concept-priority-exact-title",
+                "conceptId": "housing-risk",
+                "priority": "legal services corporation i need legal help",
+                "field": "title",
+                "contribution": 90
+              },
+              {
+                "id": "start-here-topic",
+                "field": "section",
+                "contribution": 11
+              }
+            ],
+            "excludedReason": null
+          }
         },
         {
           "rank": 2,
@@ -238,7 +450,125 @@
           "url": "https://www.cakewalk.com/sonar",
           "collection": "Awesome Abundance",
           "topic": "Music Production and Recording",
-          "relevant": true
+          "relevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 92.09700000000001,
+            "scoreBeforeCoverage": 113.7,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "music",
+                "without",
+                "adobe"
+              ],
+              "unmatchedOriginalTerms": [
+                "make",
+                "paying",
+                "subscription"
+              ],
+              "ratio": 0.5,
+              "multiplier": 0.81
+            },
+            "matchedTerms": [
+              {
+                "term": "music",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "section",
+                    "fieldWeight": 8
+                  }
+                ],
+                "creditedField": "section",
+                "contribution": 8
+              },
+              {
+                "term": "without",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 2.25
+              },
+              {
+                "term": "adobe",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 2.25
+              },
+              {
+                "term": "music production",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "creative-tools"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "section",
+                    "fieldWeight": 8
+                  }
+                ],
+                "creditedField": "section",
+                "contribution": 5.6
+              },
+              {
+                "term": "recording",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "creative-tools"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "section",
+                    "fieldWeight": 8
+                  }
+                ],
+                "creditedField": "section",
+                "contribution": 5.6
+              }
+            ],
+            "boosts": [
+              {
+                "id": "concept-priority-exact-title",
+                "conceptId": "creative-tools",
+                "priority": "cakewalk sonar free tier",
+                "field": "title",
+                "contribution": 90
+              }
+            ],
+            "excludedReason": null
+          }
         },
         {
           "rank": 2,
@@ -341,7 +671,186 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/business-structures",
           "collection": "Business and Entrepreneurship",
           "topic": "Structures, Ownership, and Liability",
-          "relevant": true
+          "relevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 108.68014285714284,
+            "scoreBeforeCoverage": 138.825,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "taxes",
+                "business",
+                "structures"
+              ],
+              "unmatchedOriginalTerms": [
+                "sell",
+                "art",
+                "not",
+                "understand"
+              ],
+              "ratio": 0.42857142857142855,
+              "multiplier": 0.7828571428571428
+            },
+            "matchedTerms": [
+              {
+                "term": "taxes",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 2.25
+              },
+              {
+                "term": "business",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "groupTitle",
+                    "fieldWeight": 6
+                  },
+                  {
+                    "field": "category",
+                    "fieldWeight": 5
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              },
+              {
+                "term": "structures",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "section",
+                    "fieldWeight": 8
+                  },
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              },
+              {
+                "term": "entrepreneur",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "business"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "groupTitle",
+                    "fieldWeight": 6
+                  },
+                  {
+                    "field": "category",
+                    "fieldWeight": 5
+                  }
+                ],
+                "creditedField": "groupTitle",
+                "contribution": 4.199999999999999
+              },
+              {
+                "term": "business structures",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "business"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 8.399999999999999
+              },
+              {
+                "term": "tax",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "business"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 1.575
+              },
+              {
+                "term": "irs",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "business"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "domain",
+                    "fieldWeight": 1
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 8.399999999999999
+              }
+            ],
+            "boosts": [
+              {
+                "id": "concept-priority-exact-title",
+                "conceptId": "business",
+                "priority": "irs business structures",
+                "field": "title",
+                "contribution": 90
+              }
+            ],
+            "excludedReason": null
+          }
         },
         {
           "rank": 2,
@@ -440,7 +949,148 @@
           "url": "https://www.lawhelp.org/",
           "collection": "Legal Help and Law",
           "topic": "Start Here",
-          "relevant": true
+          "relevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 89.35733333333332,
+            "scoreBeforeCoverage": 119.675,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "court",
+                "not"
+              ],
+              "unmatchedOriginalTerms": [
+                "received",
+                "paper",
+                "know",
+                "means"
+              ],
+              "ratio": 0.3333333333333333,
+              "multiplier": 0.7466666666666666
+            },
+            "matchedTerms": [
+              {
+                "term": "court",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 2.25
+              },
+              {
+                "term": "not",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 2.25
+              },
+              {
+                "term": "legal aid",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "court-paper"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 1.575
+              },
+              {
+                "term": "legal help",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "court-paper"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "groupTitle",
+                    "fieldWeight": 6
+                  },
+                  {
+                    "field": "category",
+                    "fieldWeight": 5
+                  }
+                ],
+                "creditedField": "groupTitle",
+                "contribution": 4.199999999999999
+              },
+              {
+                "term": "lawhelp",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "court-paper"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "groupTitle",
+                    "fieldWeight": 6
+                  },
+                  {
+                    "field": "category",
+                    "fieldWeight": 5
+                  },
+                  {
+                    "field": "domain",
+                    "fieldWeight": 1
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 8.399999999999999
+              }
+            ],
+            "boosts": [
+              {
+                "id": "concept-priority-exact-title",
+                "conceptId": "court-paper",
+                "priority": "lawhelp org",
+                "field": "title",
+                "contribution": 90
+              },
+              {
+                "id": "start-here-topic",
+                "field": "section",
+                "contribution": 11
+              }
+            ],
+            "excludedReason": null
+          }
         },
         {
           "rank": 2,
@@ -539,7 +1189,113 @@
           "url": "https://www.travelersaid.org/",
           "collection": "Travel and Mobility",
           "topic": "Work Exchange and Ways to Travel With Less Money",
-          "relevant": true
+          "relevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 92.50200000000001,
+            "scoreBeforeCoverage": 114.2,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "travel",
+                "without"
+              ],
+              "unmatchedOriginalTerms": [
+                "safe",
+                "car"
+              ],
+              "ratio": 0.5,
+              "multiplier": 0.81
+            },
+            "matchedTerms": [
+              {
+                "term": "travel",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "section",
+                    "fieldWeight": 8
+                  },
+                  {
+                    "field": "groupTitle",
+                    "fieldWeight": 6
+                  },
+                  {
+                    "field": "category",
+                    "fieldWeight": 5
+                  },
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  },
+                  {
+                    "field": "domain",
+                    "fieldWeight": 1
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              },
+              {
+                "term": "without",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "section",
+                    "fieldWeight": 8
+                  }
+                ],
+                "creditedField": "section",
+                "contribution": 8
+              },
+              {
+                "term": "mobility",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "travel-without-car"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "groupTitle",
+                    "fieldWeight": 6
+                  },
+                  {
+                    "field": "category",
+                    "fieldWeight": 5
+                  }
+                ],
+                "creditedField": "groupTitle",
+                "contribution": 4.199999999999999
+              }
+            ],
+            "boosts": [
+              {
+                "id": "concept-priority-exact-title",
+                "conceptId": "travel-without-car",
+                "priority": "travelers aid international",
+                "field": "title",
+                "contribution": 90
+              }
+            ],
+            "excludedReason": null
+          }
         },
         {
           "rank": 2,
@@ -636,7 +1392,77 @@
           "url": "https://alternativeto.net/",
           "collection": "Awesome Abundance",
           "topic": "Discovery and Distribution",
-          "relevant": true
+          "relevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 68.96175,
+            "scoreBeforeCoverage": 96.45,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "replace"
+              ],
+              "unmatchedOriginalTerms": [
+                "subscription",
+                "old",
+                "laptop"
+              ],
+              "ratio": 0.25,
+              "multiplier": 0.715
+            },
+            "matchedTerms": [
+              {
+                "term": "replace",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 2.25
+              },
+              {
+                "term": "open source",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "subscription-alternative"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "groupTitle",
+                    "fieldWeight": 6
+                  },
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "groupTitle",
+                "contribution": 4.199999999999999
+              }
+            ],
+            "boosts": [
+              {
+                "id": "concept-priority-exact-title",
+                "conceptId": "subscription-alternative",
+                "priority": "alternativeto",
+                "field": "title",
+                "contribution": 90
+              }
+            ],
+            "excludedReason": null
+          }
         },
         {
           "rank": 2,
@@ -735,7 +1561,131 @@
           "url": "https://protonvpn.com/free-vpn",
           "collection": "Security",
           "topic": "Safer Connectivity and VPNs",
-          "relevant": true
+          "relevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 86.46399999999998,
+            "scoreBeforeCoverage": 115.8,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "afford",
+                "vpn"
+              ],
+              "unmatchedOriginalTerms": [
+                "cannot",
+                "renewal",
+                "no",
+                "income"
+              ],
+              "ratio": 0.3333333333333333,
+              "multiplier": 0.7466666666666666
+            },
+            "matchedTerms": [
+              {
+                "term": "afford",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 2.25
+              },
+              {
+                "term": "vpn",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              },
+              {
+                "term": "proton vpn",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "vpn-no-income"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 8.399999999999999
+              },
+              {
+                "term": "free",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "no-income"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 1.575
+              },
+              {
+                "term": "assistance",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "no-income"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 1.575
+              }
+            ],
+            "boosts": [
+              {
+                "id": "concept-priority-exact-title",
+                "conceptId": "vpn-no-income",
+                "priority": "proton vpn",
+                "field": "title",
+                "contribution": 90
+              }
+            ],
+            "excludedReason": null
+          }
         },
         {
           "rank": 2,
@@ -831,7 +1781,72 @@
           "url": "https://www.uscourts.gov/forms-rules/forms/fee-waiver-application-forms",
           "collection": "Legal Help and Law",
           "topic": "Courts, Forms, and Self-Representation",
-          "relevant": true
+          "relevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 61.9845,
+            "scoreBeforeCoverage": 99.975,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [],
+              "unmatchedOriginalTerms": [
+                "ao",
+                "240"
+              ],
+              "ratio": 0,
+              "multiplier": 0.62
+            },
+            "matchedTerms": [
+              {
+                "term": "federal court fee waiver",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "ao-240"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 8.399999999999999
+              },
+              {
+                "term": "proceed without prepaying fees",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "ao-240"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 1.575
+              }
+            ],
+            "boosts": [
+              {
+                "id": "concept-priority-exact-title",
+                "conceptId": "ao-240",
+                "priority": "federal court fee waiver forms",
+                "field": "title",
+                "contribution": 90
+              }
+            ],
+            "excludedReason": null
+          }
         }
       ]
     },
@@ -855,7 +1870,90 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number",
           "collection": "Business and Entrepreneurship",
           "topic": "Register, Identify, and License",
-          "relevant": true
+          "relevant": true,
+          "matchExplanation": {
+            "schemaVersion": 1,
+            "searchAlgorithm": "weighted-lexical-v2",
+            "score": 112.65,
+            "scoreBeforeCoverage": 112.65,
+            "minimumScore": 6,
+            "included": true,
+            "coverage": {
+              "matchedOriginalTerms": [
+                "irs",
+                "ein"
+              ],
+              "unmatchedOriginalTerms": [],
+              "ratio": 1,
+              "multiplier": 1
+            },
+            "matchedTerms": [
+              {
+                "term": "irs",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  },
+                  {
+                    "field": "domain",
+                    "fieldWeight": 1
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 12
+              },
+              {
+                "term": "ein",
+                "origin": {
+                  "query": true,
+                  "conceptIds": []
+                },
+                "termWeight": 1,
+                "matchedFields": [
+                  {
+                    "field": "description",
+                    "fieldWeight": 2.25
+                  }
+                ],
+                "creditedField": "description",
+                "contribution": 2.25
+              },
+              {
+                "term": "get an employer identification number",
+                "origin": {
+                  "query": false,
+                  "conceptIds": [
+                    "irs-ein"
+                  ]
+                },
+                "termWeight": 0.7,
+                "matchedFields": [
+                  {
+                    "field": "title",
+                    "fieldWeight": 12
+                  }
+                ],
+                "creditedField": "title",
+                "contribution": 8.399999999999999
+              }
+            ],
+            "boosts": [
+              {
+                "id": "concept-priority-exact-title",
+                "conceptId": "irs-ein",
+                "priority": "irs get an employer identification number",
+                "field": "title",
+                "contribution": 90
+              }
+            ],
+            "excludedReason": null
+          }
         },
         {
           "rank": 2,
