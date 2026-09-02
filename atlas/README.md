@@ -24,7 +24,7 @@ Do not hand-edit `dist/data/atlas.json`. The Markdown files remain the source of
 2. Add `atlas/places/<location-id>.md` with an `atlas-location` metadata comment.
 3. Prefer official public agencies, public libraries, schools, civic organizations, and locally accountable services.
 4. Keep entries specific to the place. General-purpose resources belong in the main `lists/` catalog.
-5. When a useful place resource already exists in the main catalog, add its canonical URL and the Atlas section under the location's `catalogResources` array instead of duplicating its description in a place file.
+5. When a useful place resource already exists in the main catalog, give the catalog entry an explicit stable ID and metadata, then add its `resourceId` and the Atlas section under the location's `catalogResources` array instead of duplicating its description in a place file.
 6. Run the normal build and verification commands.
 
 Each place file uses the same readable entry format as the main awesome lists:
@@ -47,6 +47,16 @@ Atlas is a doorway into local knowledge, not a mirror of every changing listing 
 ```
 
 Catalog references in `locations.json` may use `"role": "index"` for the same purpose. Use the marker only for resources that actually help people discover multiple downstream services, organizations, places, or records.
+
+```json
+{
+  "resourceId": "example-service-finder",
+  "section": "Start here: local finders",
+  "role": "index"
+}
+```
+
+Atlas catalog references never use canonical URLs as identity. The referenced main-catalog entry must have an explicit `akashic-meta` ID; URL changes then preserve the association. See [Stable resource identity and metadata](../docs/resource-metadata.md).
 
 ## Identifier conventions
 

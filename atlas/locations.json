@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "rootId": "world",
   "locations": [
     {
@@ -21,7 +21,7 @@
       "camera": { "center": [-98.5, 39.5], "zoom": 2.2 },
       "catalogResources": [
         {
-          "url": "https://www.usa.gov/local-governments",
+          "resourceId": "usa-gov-local-governments",
           "section": "Government and civic life",
           "role": "index"
         }
@@ -37,11 +37,11 @@
       "camera": { "center": [-119.5, 37.2], "zoom": 5.5 },
       "catalogResources": [
         {
-          "url": "https://www.parks.ca.gov/?page_id=30806",
+          "resourceId": "california-state-library-parks-pass",
           "section": "Work, learning, and getting around"
         },
         {
-          "url": "https://cppa.ca.gov/",
+          "resourceId": "california-privacy-protection-agency",
           "section": "Government, legal, and civic life"
         }
       ]
@@ -56,45 +56,45 @@
       "camera": { "center": [-71.8, 42.25], "zoom": 7 },
       "catalogResources": [
         {
-          "url": "https://www.masscap.org/agencies/",
+          "resourceId": "massachusetts-community-action-agency-directory",
           "section": "Start here: statewide finders",
           "role": "index"
         },
         {
-          "url": "https://myservices.mass.gov/",
+          "resourceId": "massachusetts-myservices",
           "section": "Benefits, food, and housing"
         },
         {
-          "url": "https://www.mahix.org/individual/",
+          "resourceId": "mahix-individual-coverage",
           "section": "Benefits, food, and housing"
         },
         {
-          "url": "https://www.mass.gov/info-details/health-safety-net-for-patients",
+          "resourceId": "massachusetts-health-safety-net",
           "section": "Benefits, food, and housing"
         },
         {
-          "url": "https://www.mass.gov/how-to/find-unclaimed-property",
+          "resourceId": "massachusetts-find-unclaimed-property",
           "section": "Benefits, food, and housing"
         },
         {
-          "url": "https://www.mass.gov/info-details/free-community-college",
+          "resourceId": "massachusetts-free-community-college",
           "section": "Work, learning, and getting around"
         },
         {
-          "url": "https://www.mass.gov/ebt-card-to-culture",
+          "resourceId": "massachusetts-ebt-card-to-culture",
           "section": "Work, learning, and getting around"
         },
         {
-          "url": "https://www.mass.gov/orgs/masshire-department-of-career-services",
+          "resourceId": "masshire-department-of-career-services",
           "section": "Work, learning, and getting around",
           "role": "index"
         },
         {
-          "url": "https://www.mass.gov/find-your-next-job-with-masshire-jobquest",
+          "resourceId": "masshire-jobquest",
           "section": "Work, learning, and getting around"
         },
         {
-          "url": "https://www.masslegalhelp.org/",
+          "resourceId": "mass-legal-help",
           "section": "Government, legal, and civic life",
           "role": "index"
         }

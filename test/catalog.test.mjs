@@ -25,6 +25,10 @@ test("extracts structured access labels from the creative-tools convention", () 
     url: "https://audiomass.co/",
     description: "Edits audio without installation.",
     accessLabels: ["Open", "Browser"],
+    id: "audiomass-8691aee028",
+    idOrigin: "derived",
+    aliases: [],
+    metadata: {},
   });
   assert.equal(parseResourceEntry(line).description, "**Open · Browser.** Edits audio without installation.");
   assert.equal(parseResourceEntry("not a resource"), null);

@@ -12,6 +12,8 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
+import { parseResourceEntry } from "./lib/catalog.mjs";
+import { validateResourceIdentities } from "./lib/resource-metadata.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -78,6 +80,7 @@ const CHILD_LINK_RE =
 let errors = 0;
 const allExternalUrls = new Map();
 const allTitles = new Map();
+const allResourceIdentities = [];
 
 function fail(message) {
   console.error(`  ERROR: ${message}`);
@@ -173,11 +176,19 @@ function validateList(relativePath, requiredLinks) {
   }
 
   let resourceCount = 0;
-  for (const line of content.split("\n")) {
-    const match = line.match(ENTRY_RE);
-    if (!match) continue;
+  for (const [lineIndex, line] of content.split("\n").entries()) {
+    let entry;
+    try {
+      entry = parseResourceEntry(line, { context: `${relativePath}:${lineIndex + 1}` });
+    } catch (error) {
+      fail(error.message);
+      continue;
+    }
+    if (!entry) continue;
     resourceCount += 1;
-    recordExternalEntry(match[1], match[2], relativePath);
+    const source = `${relativePath}:${lineIndex + 1}`;
+    recordExternalEntry(entry.title, entry.url, source);
+    allResourceIdentities.push({ ...entry, source });
   }
 
   return { content, resourceCount };
@@ -322,6 +333,12 @@ for (const slug of EXPECTED_TOP_LEVEL_LISTS) {
 console.log(`\nCollection total: ${collectionTotal} resources`);
 console.log(`Unique URLs: ${allExternalUrls.size}`);
 console.log(`Unique titles: ${allTitles.size}`);
+
+try {
+  validateResourceIdentities(allResourceIdentities);
+} catch (error) {
+  fail(error.message);
+}
 
 if (errors === 0) {
   console.log("\n✓ All collection invariants passed.\n");

@@ -201,6 +201,13 @@
             <label><span>Branch</span><select id="catalog-branch-select" disabled><option value="">Choose a collection first</option></select></label>
             <label><span>Topic</span><select id="catalog-topic-select" disabled><option value="">Choose a collection first</option></select></label>
           </div>
+          <details class="metadata-filters" id="metadata-filters">
+            <summary><span>Access, scope, and review filters</span><strong><b id="metadata-filter-count">0</b> <span>active filters</span></strong><i aria-hidden="true">＋</i></summary>
+            <div class="metadata-filter-panel">
+              <div class="metadata-filter-grid" id="metadata-filter-grid"></div>
+              <div class="metadata-filter-footer"><p>Structured filters appear only where maintainers have added explicit metadata; legacy entries remain visible until a filter is selected.</p><button id="metadata-filter-clear" type="button" disabled>Clear metadata filters</button></div>
+            </div>
+          </details>
           <div class="filter-row" id="filter-row" role="group" aria-label="Filter by collection"></div>
         </div>
         <div class="resource-grid" id="resource-grid"></div>

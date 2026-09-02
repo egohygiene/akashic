@@ -5,6 +5,7 @@ import { normalizeUrl, parseResourceEntry, parseRootCategories } from "./lib/cat
 import { validateAtlasHierarchy } from "./lib/atlas.mjs";
 import { parseRelatedPaths, parseSiteGuide } from "./lib/guide.mjs";
 import { loadLocales, localizeHtml } from "./lib/i18n.mjs";
+import { deriveResourceId, validateResourceIdentities } from "./lib/resource-metadata.mjs";
 
 const root = process.cwd();
 const sourceDirectory = path.join(root, "site");
@@ -105,10 +106,14 @@ function parseResources(markdown, category, filePath) {
   const groupSlug = nested ? relativeParts.at(-2) : ROOT_GROUP_SLUG;
   const heading = markdown.match(/^#\s+(.+?)(?:\s+\[!\[|$)/m)?.[1]?.trim() || category.title;
   const groupTitle = nested ? heading.replace(/^Awesome\s+/i, "") : category.title;
-  for (const line of markdown.split("\n")) {
+  for (const [lineIndex, line] of markdown.split("\n").entries()) {
     const heading = line.match(/^##\s+(.+)$/);
     if (heading && heading[1] !== "Contents") section = heading[1].trim();
-    const entry = parseResourceEntry(line, { extractLeadingLabels: groupSlug === "creative-tools-and-production" });
+    const source = path.relative(root, filePath).split(path.sep).join("/");
+    const entry = parseResourceEntry(line, {
+      context: `${source}:${lineIndex + 1}`,
+      extractLeadingLabels: groupSlug === "creative-tools-and-production",
+    });
     if (!entry) continue;
     let domain = "web";
     try { domain = new URL(entry.url).hostname.replace(/^www\./, ""); } catch {}
@@ -120,7 +125,8 @@ function parseResources(markdown, category, filePath) {
       section,
       groupSlug,
       groupTitle,
-      source: path.relative(root, filePath).split(path.sep).join("/"),
+      source,
+      sourceLine: lineIndex + 1,
     });
   }
   return resources;
@@ -141,6 +147,10 @@ function parseAtlasPlace(markdown, filePath) {
     const role = roleMatch?.[1] || "resource";
     if (!ATLAS_ROLES.has(role)) throw new Error(`Unsupported atlas role ${role} in ${path.relative(root, filePath)}.`);
     resources.push({
+      id: `atlas-${locationId}-${deriveResourceId(entry[1].trim())}`,
+      idOrigin: "derived",
+      aliases: [],
+      metadata: {},
       title: entry[1].trim(),
       url,
       description: roleMatch ? entry[3].slice(0, roleMatch.index).trim() : entry[3].trim(),
@@ -183,17 +193,22 @@ async function buildAtlas(catalogResources) {
   const duplicatedCatalogUrl = resources.find((resource) => catalogUrls.has(normalizeUrl(resource.url)));
   if (duplicatedCatalogUrl) throw new Error(`Atlas resource already belongs in the main catalog; reference it from atlas/locations.json instead: ${duplicatedCatalogUrl.url}`);
 
-  const catalogResourceByUrl = new Map(catalogResources.map((resource) => [normalizeUrl(resource.url), resource]));
+  const catalogResourceById = new Map(catalogResources.map((resource) => [resource.id, resource]));
   for (const location of hierarchy.locations) {
     if (location.catalogResources !== undefined && !Array.isArray(location.catalogResources)) throw new Error(`Atlas catalogResources must be an array for ${location.id}.`);
     for (const reference of location.catalogResources || []) {
-      if (!reference?.url || !reference?.section) throw new Error(`Incomplete atlas catalog reference for ${location.id}.`);
+      if (!reference?.resourceId || !reference?.section) throw new Error(`Incomplete atlas catalog reference for ${location.id}.`);
       if (reference.role && !ATLAS_ROLES.has(reference.role)) throw new Error(`Unsupported atlas catalog reference role ${reference.role} for ${location.id}.`);
-      const key = normalizeUrl(reference.url);
-      if (seen.has(key)) throw new Error(`Duplicate atlas resource reference: ${reference.url}`);
-      const catalogResource = catalogResourceByUrl.get(key);
-      if (!catalogResource) throw new Error(`Atlas catalog reference does not exist in the main catalog: ${reference.url}`);
+      const catalogResource = catalogResourceById.get(reference.resourceId);
+      if (!catalogResource) throw new Error(`Atlas catalog reference does not exist in the main catalog: ${reference.resourceId}`);
+      if (catalogResource.idOrigin !== "explicit") throw new Error(`Atlas catalog reference must use an explicit resource ID: ${reference.resourceId}`);
+      const key = normalizeUrl(catalogResource.url);
+      if (seen.has(key)) throw new Error(`Duplicate atlas resource reference: ${reference.resourceId}`);
       resources.push({
+        id: catalogResource.id,
+        idOrigin: catalogResource.idOrigin,
+        aliases: catalogResource.aliases,
+        metadata: catalogResource.metadata,
         title: catalogResource.title,
         url: catalogResource.url,
         description: catalogResource.description,
@@ -304,13 +319,8 @@ async function build() {
     resources.push(...parseResources(markdown, category, filePath));
   }
 
-  const seen = new Set();
-  const uniqueResources = resources.filter((resource) => {
-    const key = resource.url.toLocaleLowerCase().replace(/\/$/, "");
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+  validateResourceIdentities(resources);
+  const uniqueResources = resources;
   for (const category of categories) {
     category.advisory ||= "";
     const categoryResources = uniqueResources.filter((resource) => resource.categorySlug === category.slug);
@@ -352,6 +362,7 @@ async function build() {
   }
 
   const catalog = {
+    schemaVersion: 2,
     resourceCount: uniqueResources.length,
     categories,
     resources: uniqueResources,

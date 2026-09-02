@@ -2,9 +2,9 @@ import { createMindMap } from "./mind-map.js";
 import { NEED_PATHS } from "./needs.js";
 import { buildSearchIndex, searchResources, suggestedQueries } from "./search.js";
 import { canonicalContentLanguage, number, plural, t } from "./i18n.js";
+import { FAVORITES_KEY, migrateFavoriteTokens, parseFavoriteTokens, URL_FAVORITES_KEYS } from "./favorites.js";
+import { activeMetadataFacetCount, emptyMetadataFacets, formatMetadataValue, humanizeMetadataValue, matchesMetadataFacets, METADATA_FACETS, metadataFacetValues } from "./catalog-metadata.js";
 
-const FAVORITES_KEY = "akashic-favorites";
-const LEGACY_FAVORITES_KEY = "ego-awesome-favorites";
 const THEME_KEY = "akashic-theme";
 const LEGACY_THEME_KEY = "ego-awesome-theme";
 const VIEW_KEY = "akashic-catalog-view";
@@ -19,9 +19,12 @@ function writeStorage(key, value) {
   try { localStorage.setItem(key, value); } catch {}
 }
 
-function loadFavorites() {
-  try { return new Set(JSON.parse(readStorage(FAVORITES_KEY) || readStorage(LEGACY_FAVORITES_KEY) || "[]")); }
-  catch { return new Set(); }
+function loadFavorites(resources) {
+  const savedIds = parseFavoriteTokens(readStorage(FAVORITES_KEY));
+  const tokens = savedIds || URL_FAVORITES_KEYS.flatMap((key) => parseFavoriteTokens(readStorage(key)) || []);
+  const favorites = migrateFavoriteTokens(resources, tokens);
+  writeStorage(FAVORITES_KEY, JSON.stringify([...favorites]));
+  return favorites;
 }
 
 function loadViewPreference() {
@@ -40,7 +43,8 @@ const state = {
   view: loadViewPreference(),
   limit: PAGE_SIZE,
   savedOnly: false,
-  favorites: loadFavorites(),
+  favorites: new Set(),
+  facets: emptyMetadataFacets(),
 };
 
 let mindMap;
@@ -71,6 +75,10 @@ const elements = {
   guideTitle: document.querySelector("#collection-guide-title"),
   heroSearchClear: document.querySelector("#hero-search-clear"),
   loadMore: document.querySelector("#load-more"),
+  metadataClear: document.querySelector("#metadata-filter-clear"),
+  metadataCount: document.querySelector("#metadata-filter-count"),
+  metadataFilters: document.querySelector("#metadata-filters"),
+  metadataGrid: document.querySelector("#metadata-filter-grid"),
   needs: document.querySelector("#need-paths"),
   overviewBars: document.querySelector("#overview-collection-bars"),
   overviewBarsCount: document.querySelector("#overview-bars-count"),
@@ -142,6 +150,9 @@ function urlForState(hash = location.hash) {
   if (state.section) params.set("section", state.section);
   if (state.domain) params.set("domain", state.domain);
   if (state.savedOnly) params.set("saved", "1");
+  for (const [field] of METADATA_FACETS) {
+    if (state.facets[field]) params.set(`meta-${field}`, state.facets[field]);
+  }
   params.set("view", state.view);
   return `${location.pathname}${params.size ? `?${params}` : ""}${hash || ""}`;
 }
@@ -160,6 +171,7 @@ function readUrlState(usePreference = false) {
     section: params.get("section") || "",
     domain: params.get("domain") || "",
     savedOnly: params.get("saved") === "1",
+    facets: Object.fromEntries(METADATA_FACETS.map(([field]) => [field, params.get(`meta-${field}`) || ""])),
     view: ["cards", "list", "text"].includes(params.get("view")) ? params.get("view") : (usePreference ? loadViewPreference() : "cards"),
   };
 }
@@ -183,6 +195,7 @@ function applyState(next, options = {}) {
   }
   if (Object.hasOwn(next, "savedOnly")) state.savedOnly = next.savedOnly;
   if (Object.hasOwn(next, "domain")) state.domain = next.domain;
+  if (Object.hasOwn(next, "facets")) state.facets = { ...emptyMetadataFacets(), ...next.facets };
   if (Object.hasOwn(next, "view")) {
     state.view = ["cards", "list", "text"].includes(next.view) ? next.view : "cards";
     writeStorage(VIEW_KEY, state.view);
@@ -263,6 +276,13 @@ function renderFilterControls() {
   }
 }
 
+function renderMetadataControls() {
+  elements.metadataGrid.innerHTML = METADATA_FACETS.map(([field, labelKey]) => {
+    const values = metadataFacetValues(state.catalog.resources, field);
+    return `<label><span>${escapeHtml(t(labelKey))}</span><select data-metadata-facet="${field}"><option value="">${escapeHtml(t("runtime.metadata.any"))}</option>${values.map((value) => `<option value="${escapeHtml(value)}"${canonicalLanguageAttribute}>${escapeHtml(formatMetadataValue(field, value))}</option>`).join("")}</select></label>`;
+  }).join("");
+}
+
 function replaceSelectOptions(select, options, value, disabled = false) {
   select.replaceChildren(...options.map((item) => {
     const option = document.createElement("option");
@@ -300,15 +320,21 @@ function updateFilterControls() {
   elements.savedFilter.querySelector("span").textContent = state.savedOnly ? "♥" : "♡";
   elements.savedCount.textContent = number(state.favorites.size);
   elements.viewSwitch.querySelectorAll("[data-catalog-view]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.catalogView === state.view)));
+  elements.metadataGrid.querySelectorAll("[data-metadata-facet]").forEach((select) => { select.value = state.facets[select.dataset.metadataFacet] || ""; });
+  const facetCount = activeMetadataFacetCount(state.facets);
+  elements.metadataCount.textContent = number(facetCount);
+  elements.metadataClear.disabled = facetCount === 0;
+  elements.metadataFilters.classList.toggle("has-active-filters", facetCount > 0);
 }
 
 function filteredResources() {
   const filtered = state.catalog.resources.filter((resource) => {
-    if (state.savedOnly && !state.favorites.has(resource.url)) return false;
+    if (state.savedOnly && !state.favorites.has(resource.id)) return false;
     if (state.category !== "all" && resource.categorySlug !== state.category) return false;
     if (state.group && resource.groupSlug !== state.group) return false;
     if (state.section && resource.section !== state.section) return false;
     if (state.domain && resource.domain !== state.domain) return false;
+    if (!matchesMetadataFacets(resource, state.facets)) return false;
     return true;
   });
   const matches = state.query ? searchResources(filtered, state.query) : filtered;
@@ -318,19 +344,46 @@ function filteredResources() {
 }
 
 function resourceCard(resource, index) {
-  const favorite = state.favorites.has(resource.url);
+  const favorite = state.favorites.has(resource.id);
   const category = categoryBySlug.get(resource.categorySlug);
   const accessLabels = resource.accessLabels?.length
     ? `<ul class="resource-labels" aria-label="${escapeHtml(t("runtime.app.accessPlatform"))}"${canonicalLanguageAttribute}>${resource.accessLabels.map((label) => `<li>${escapeHtml(label)}</li>`).join("")}</ul>`
     : "";
+  const metadata = resource.metadata || {};
+  const metadataBadges = [metadata.authority, ...(metadata.access || [])].filter(Boolean);
+  const structuredLabels = metadataBadges.length
+    ? `<ul class="resource-labels resource-metadata-labels" aria-label="${escapeHtml(t("runtime.metadata.structuredLabels"))}"${canonicalLanguageAttribute}>${metadataBadges.map((label) => `<li>${escapeHtml(humanizeMetadataValue(label))}</li>`).join("")}</ul>`
+    : "";
+  const metadataRows = [
+    [t("runtime.metadata.resourceId"), resource.id, false, false],
+    [t("runtime.metadata.resourceType"), metadata.resourceType, true, true],
+    [t("runtime.metadata.role"), metadata.role, true, true],
+    [t("runtime.metadata.authority"), metadata.authority, true, true],
+    [t("runtime.metadata.access"), metadata.access?.join(", "), true, true],
+    [t("runtime.metadata.geography"), metadata.geography?.join(", "), false, true],
+    [t("runtime.metadata.language"), metadata.language?.join(", "), false, true],
+    [t("runtime.metadata.platform"), metadata.platform?.join(", "), true, true],
+    [t("runtime.metadata.account"), metadata.account, true, true],
+    [t("runtime.metadata.license"), metadata.license, true, true],
+    [t("runtime.metadata.status"), metadata.status, true, true],
+    [t("runtime.metadata.volatility"), metadata.volatility, true, true],
+    [t("runtime.metadata.reviewTier"), metadata.reviewTier, true, true],
+    [t("runtime.metadata.humanReview"), metadata.reviewed || t("runtime.metadata.notRecorded"), false, false],
+    [t("runtime.metadata.machineCheck"), metadata.linkStatus ? `${metadata.linkStatus} · ${metadata.linkChecked}` : t("runtime.metadata.notRecorded"), false, false],
+    [t("runtime.metadata.sensitive"), metadata.sensitive?.join(", "), true, true],
+  ].filter(([, value]) => value);
+  const provenance = resource.idOrigin === "explicit"
+    ? `<details class="resource-provenance"><summary>${escapeHtml(t("runtime.metadata.details"))}<span aria-hidden="true">＋</span></summary><dl>${metadataRows.map(([label, value, humanize, canonical]) => `<div><dt>${escapeHtml(label)}</dt><dd${canonical ? canonicalLanguageAttribute : ""}>${escapeHtml(humanize ? humanizeMetadataValue(value) : value)}</dd></div>`).join("")}</dl></details>`
+    : "";
+  const signals = accessLabels || structuredLabels || provenance ? `<div class="resource-signals">${accessLabels}${structuredLabels}${provenance}</div>` : "";
   const taxonomy = [
     `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" aria-label="${escapeHtml(t("runtime.app.filterCollectionAria", { title: resource.category }))}">${escapeHtml(resource.category)}</button>`,
     resource.groupSlug ? `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" data-taxonomy-group="${escapeHtml(resource.groupSlug)}" aria-label="${escapeHtml(t("runtime.app.filterBranchAria", { title: resource.groupTitle }))}">${escapeHtml(resource.groupTitle)}</button>` : "",
     `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" data-taxonomy-group="${escapeHtml(resource.groupSlug)}" data-taxonomy-section="${escapeHtml(resource.section)}" aria-label="${escapeHtml(t("runtime.app.filterTopicAria", { title: resource.section }))}">${escapeHtml(resource.section)}</button>`,
   ].filter(Boolean).join("");
   return `<article class="resource-card" style="--category-color:${category?.color || "#7656d8"};--card-delay:${Math.min(index, 12) * 20}ms">
-    <div class="resource-top"><span class="resource-domain">${escapeHtml(resource.domain)}</span><button class="favorite" type="button" data-favorite="${escapeHtml(resource.url)}" data-resource-title="${escapeHtml(resource.title)}" aria-label="${escapeHtml(t(favorite ? "runtime.app.favoriteRemove" : "runtime.app.favoriteAdd", { title: resource.title }))}" aria-pressed="${favorite}">${favorite ? "♥" : "♡"}</button></div>
-    <h3${canonicalLanguageAttribute}><a href="${escapeHtml(resource.url)}" target="_blank" rel="noreferrer">${escapeHtml(resource.title)}<span class="sr-only">${escapeHtml(t("runtime.newTab"))}</span></a></h3>${accessLabels}<p${canonicalLanguageAttribute}>${escapeHtml(resource.description)}</p>
+    <div class="resource-top"><span class="resource-domain">${escapeHtml(resource.domain)}</span><button class="favorite" type="button" data-favorite="${escapeHtml(resource.id)}" data-resource-title="${escapeHtml(resource.title)}" aria-label="${escapeHtml(t(favorite ? "runtime.app.favoriteRemove" : "runtime.app.favoriteAdd", { title: resource.title }))}" aria-pressed="${favorite}">${favorite ? "♥" : "♡"}</button></div>
+    <h3${canonicalLanguageAttribute}><a href="${escapeHtml(resource.url)}" target="_blank" rel="noreferrer">${escapeHtml(resource.title)}<span class="sr-only">${escapeHtml(t("runtime.newTab"))}</span></a></h3>${signals}<p${canonicalLanguageAttribute}>${escapeHtml(resource.description)}</p>
     <div class="resource-footer"><div class="resource-taxonomy"${canonicalLanguageAttribute}>${taxonomy}</div><span class="visit-link" aria-hidden="true">↗</span></div>
   </article>`;
 }
@@ -360,7 +413,7 @@ function contextLink(label, href, { external = false } = {}) {
 function renderContext() {
   const category = currentCategory();
   const group = currentGroup();
-  const active = category || state.query || state.domain || state.savedOnly;
+  const active = category || state.query || state.domain || state.savedOnly || activeMetadataFacetCount(state.facets);
   elements.catalogContext.hidden = !active;
   elements.catalogContext.replaceChildren();
   if (!active) return;
@@ -377,6 +430,7 @@ function renderContext() {
   if (state.query) addContextButton(path, `“${state.query}”`, t("runtime.action.clearSearch"), () => applyState({ query: "" }, { historyMode: "push" }));
   if (state.domain) addContextButton(path, state.domain, t("runtime.action.showEveryDomain"), () => applyState({ domain: "" }, { historyMode: "push" }));
   if (state.savedOnly) addContextButton(path, t("runtime.action.saved"), t("runtime.action.showAllResources"), () => applyState({ savedOnly: false }, { historyMode: "push" }));
+  if (activeMetadataFacetCount(state.facets)) addContextButton(path, t("runtime.metadata.active", { count: number(activeMetadataFacetCount(state.facets)) }), t("runtime.metadata.clear"), () => applyState({ facets: emptyMetadataFacets() }, { historyMode: "push" }));
   elements.catalogContext.append(path);
   const actions = document.createElement("div");
   actions.className = "context-actions";
@@ -425,6 +479,7 @@ function resultDescription(count, visibleCount) {
   if (state.section) parts.push(state.section);
   if (state.query) parts.push(t("runtime.app.matching", { query: state.query }));
   if (state.domain) parts.push(t("runtime.app.fromDomain", { domain: state.domain }));
+  if (activeMetadataFacetCount(state.facets)) parts.push(t("runtime.metadata.active", { count: number(activeMetadataFacetCount(state.facets)) }));
   const total = plural("runtime.unit.resource", count);
   const amount = visibleCount < count ? t("runtime.app.showing", { visible: number(visibleCount), total }) : total;
   return `${amount}${parts.length ? ` · ${parts.join(" · ")}` : ""}`;
@@ -461,7 +516,7 @@ function renderCatalog(options = {}) {
 }
 
 function clearFilters() {
-  applyState({ query: "", category: "all", group: "", section: "", domain: "", savedOnly: false }, { historyMode: "push" });
+  applyState({ query: "", category: "all", group: "", section: "", domain: "", savedOnly: false, facets: emptyMetadataFacets() }, { historyMode: "push" });
   document.querySelector("#catalog").focus();
 }
 
@@ -544,6 +599,11 @@ function initializeEvents() {
   elements.catalogCollection.addEventListener("change", () => applyState({ category: elements.catalogCollection.value, group: "", section: "", savedOnly: false }, { historyMode: "push" }));
   elements.catalogBranch.addEventListener("change", () => applyState({ category: state.category, group: elements.catalogBranch.value, section: "", savedOnly: false }, { historyMode: "push" }));
   elements.catalogTopic.addEventListener("change", () => applyState({ category: state.category, group: state.group, section: elements.catalogTopic.value, savedOnly: false }, { historyMode: "push" }));
+  elements.metadataGrid.addEventListener("change", (event) => {
+    const select = event.target.closest("[data-metadata-facet]");
+    if (select) applyState({ facets: { ...state.facets, [select.dataset.metadataFacet]: select.value } }, { historyMode: "push" });
+  });
+  elements.metadataClear.addEventListener("click", () => applyState({ facets: emptyMetadataFacets() }, { historyMode: "push" }));
   elements.relatedPaths.addEventListener("click", (event) => {
     const button = event.target.closest("[data-related-category]");
     if (button) applyState({ category: button.dataset.relatedCategory, group: button.dataset.relatedGroup, section: button.dataset.relatedSection, query: "", savedOnly: false }, { historyMode: "push", hash: "#catalog", scroll: "#catalog", focusTarget: true });
@@ -556,9 +616,9 @@ function initializeEvents() {
     }
     const button = event.target.closest("[data-favorite]");
     if (!button) return;
-    const url = button.dataset.favorite;
-    const favorite = !state.favorites.has(url);
-    favorite ? state.favorites.add(url) : state.favorites.delete(url);
+    const resourceId = button.dataset.favorite;
+    const favorite = !state.favorites.has(resourceId);
+    favorite ? state.favorites.add(resourceId) : state.favorites.delete(resourceId);
     writeStorage(FAVORITES_KEY, JSON.stringify([...state.favorites]));
     button.setAttribute("aria-pressed", String(favorite));
     button.setAttribute("aria-label", t(favorite ? "runtime.app.favoriteRemove" : "runtime.app.favoriteAdd", { title: button.dataset.resourceTitle }));
@@ -617,6 +677,7 @@ async function initialize() {
   const response = await fetch(new URL("./data/catalog.json", import.meta.url));
   if (!response.ok) throw new Error(`Catalog request failed: ${response.status}`);
   state.catalog = await response.json();
+  state.favorites = loadFavorites(state.catalog.resources);
   categoryBySlug = new Map(state.catalog.categories.map((category) => [category.slug, category]));
   for (const resource of state.catalog.resources) resource.searchIndex = buildSearchIndex(resource);
   const requested = readUrlState(true);
@@ -629,6 +690,7 @@ async function initialize() {
   renderOverviewPreview();
   renderCollections();
   renderFilterControls();
+  renderMetadataControls();
   renderCatalog();
   mindMap = createMindMap({
     catalog: state.catalog,
