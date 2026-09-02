@@ -27,6 +27,7 @@ lists/
   open-source/README.md
   psychedelics/README.md
   public-services-and-support/README.md
+  recipes-cooking-and-food-data/README.md
   research/README.md
   research-funding-and-grants/README.md
   scientific-research/README.md
