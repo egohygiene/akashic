@@ -28,6 +28,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "dark-web-deep-web-and-anonymous-networks",
   "design-systems-and-branding",
   "developer-tools",
+  "gaming-ecosystem-and-preservation",
   "health-and-well-being",
   "legal-help-and-law",
   "neuroscience",
