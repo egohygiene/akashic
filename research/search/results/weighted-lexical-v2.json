@@ -5,7 +5,7 @@
   "catalogResourceCount": 5112,
   "inputs": {
     "catalogSha256": "bfda968cbf5ac6f66282afa99042b77bb63b8eb57683a41b07968c2580a07b55",
-    "fixtureSha256": "dd20a3342f06cdc097972977e1beb7a10b2506330fbfa48352e4bab6ec71126a",
+    "fixtureSha256": "0d7a5715cd2b24ee2172d9a5cfb4643cb1d2cad61f28d1803f4766593e23310f",
     "implementationSha256": "1472b8ce64e66a02459d2125c99fff47c8caae77afb749ef603b8915771603d8"
   },
   "topK": 10,
@@ -14,7 +14,12 @@
     "zeroResultCount": 0,
     "casesWithRelevantAtK": 10,
     "meanRecallAtK": 1,
-    "meanReciprocalRank": 1
+    "meanReciprocalRank": 1,
+    "knownIrrelevantJudgmentCount": 11,
+    "knownIrrelevantFoundAtK": 8,
+    "casesWithKnownIrrelevantJudgments": 10,
+    "casesWithKnownIrrelevantAtK": 8,
+    "meanKnownIrrelevantRateAtK": 0.8
   },
   "cases": [
     {
@@ -33,6 +38,13 @@
         3,
         4
       ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 6,
+      "knownIrrelevantRanks": [
+        6
+      ],
       "topResults": [
         {
           "rank": 1,
@@ -41,6 +53,7 @@
           "collection": "Public Services and Support",
           "topic": "Benefits and Emergency Assistance",
           "relevant": true,
+          "knownIrrelevant": false,
           "matchExplanation": {
             "schemaVersion": 1,
             "searchAlgorithm": "weighted-lexical-v2",
@@ -187,7 +200,8 @@
           "url": "https://www.feedingamerica.org/find-your-local-foodbank",
           "collection": "Awesome Abundance",
           "topic": "Food and Household Essentials",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 3,
@@ -195,7 +209,8 @@
           "url": "https://www.fns.usda.gov/national-hunger-hotline",
           "collection": "Awesome Abundance",
           "topic": "Food and Nutrition",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 4,
@@ -203,7 +218,8 @@
           "url": "https://www.211.org/",
           "collection": "Public Services and Support",
           "topic": "Benefits and Emergency Assistance",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 5,
@@ -211,7 +227,8 @@
           "url": "https://www.fda.gov/food/food-industry/how-start-food-business",
           "collection": "Business and Entrepreneurship",
           "topic": "Products, Food, and Regulated Sales",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 6,
@@ -219,7 +236,8 @@
           "url": "https://www.nccih.nih.gov/health/psilocybin-for-mental-health-and-addiction-what-you-need-to-know",
           "collection": "Psychedelics",
           "topic": "Harm Reduction, Safety, and Participant Support",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": true
         },
         {
           "rank": 7,
@@ -227,7 +245,8 @@
           "url": "https://www.foodsafety.gov/keep-food-safe/4-steps-to-food-safety",
           "collection": "Recipes, Cooking, and Food Data",
           "topic": "Food Safety",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 8,
@@ -235,7 +254,8 @@
           "url": "https://www.who.int/activities/promoting-safe-food-handling/five-key-to-safer-food",
           "collection": "Recipes, Cooking, and Food Data",
           "topic": "Food Safety",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 9,
@@ -243,7 +263,8 @@
           "url": "https://nchfp.uga.edu/resources/category/usda-guide",
           "collection": "Recipes, Cooking, and Food Data",
           "topic": "Preservation and Food-Waste Reduction",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 10,
@@ -251,7 +272,8 @@
           "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
           "collection": "Legal Help and Law",
           "topic": "Start Here",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         }
       ]
     },
@@ -271,6 +293,13 @@
         3,
         4
       ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 7,
+      "knownIrrelevantRanks": [
+        7
+      ],
       "topResults": [
         {
           "rank": 1,
@@ -279,6 +308,7 @@
           "collection": "Legal Help and Law",
           "topic": "Start Here",
           "relevant": true,
+          "knownIrrelevant": false,
           "matchExplanation": {
             "schemaVersion": 1,
             "searchAlgorithm": "weighted-lexical-v2",
@@ -359,7 +389,8 @@
           "url": "https://www.usa.gov/emergency-pay-rent",
           "collection": "Public Services and Support",
           "topic": "Benefits and Emergency Assistance",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 3,
@@ -367,7 +398,8 @@
           "url": "https://www.consumerfinance.gov/housing/housing-insecurity/help-for-renters/",
           "collection": "Legal Help and Law",
           "topic": "Housing, Eviction, and Homelessness",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 4,
@@ -375,7 +407,8 @@
           "url": "https://www.lawhelp.org/",
           "collection": "Legal Help and Law",
           "topic": "Start Here",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 5,
@@ -383,7 +416,8 @@
           "url": "https://www.immigrationlawhelp.org/",
           "collection": "Legal Help and Law",
           "topic": "Find Free and Low-Cost Legal Help",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 6,
@@ -391,7 +425,8 @@
           "url": "https://lnt.org/why/7-principles/",
           "collection": "Travel and Mobility",
           "topic": "Sustainable and Respectful Travel",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 7,
@@ -399,7 +434,8 @@
           "url": "https://www.fezibo.com/products/triple-motor-l-shaped-corner-ergonomic-standing-desk-fezibo",
           "collection": "Work and Learning",
           "topic": "Workspace",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": true
         },
         {
           "rank": 8,
@@ -407,7 +443,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/if-you-no-longer-need-your-ein",
           "collection": "Business and Entrepreneurship",
           "topic": "Change, Sell, or Close",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 9,
@@ -415,7 +452,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
           "collection": "Business and Entrepreneurship",
           "topic": "Start Here",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 10,
@@ -423,7 +461,8 @@
           "url": "https://www.pbgc.gov/workers-retirees/find-unclaimed-retirement-benefits/search-unclaimed",
           "collection": "Public Services and Support",
           "topic": "Unclaimed Money, Refunds, and Settlements",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         }
       ]
     },
@@ -443,6 +482,13 @@
         4,
         6
       ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 7,
+      "knownIrrelevantRanks": [
+        7
+      ],
       "topResults": [
         {
           "rank": 1,
@@ -451,6 +497,7 @@
           "collection": "Awesome Abundance",
           "topic": "Music Production and Recording",
           "relevant": true,
+          "knownIrrelevant": false,
           "matchExplanation": {
             "schemaVersion": 1,
             "searchAlgorithm": "weighted-lexical-v2",
@@ -576,7 +623,8 @@
           "url": "https://www.bandlab.com/studio",
           "collection": "Awesome Abundance",
           "topic": "Browser, Phone, and Shared Computers",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 3,
@@ -584,7 +632,8 @@
           "url": "https://portableapps.com/apps",
           "collection": "Awesome Abundance",
           "topic": "Browser, Phone, and Shared Computers",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 4,
@@ -592,7 +641,8 @@
           "url": "https://lmms.io/",
           "collection": "Awesome Abundance",
           "topic": "Creative Work",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 5,
@@ -600,7 +650,8 @@
           "url": "https://alternativeto.net/",
           "collection": "Awesome Abundance",
           "topic": "Discovery and Distribution",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 6,
@@ -608,7 +659,8 @@
           "url": "https://www.audacityteam.org/",
           "collection": "Awesome Abundance",
           "topic": "Creative Work",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 7,
@@ -616,7 +668,8 @@
           "url": "https://www.inc.com/greg-satell/how-red-hat-scaled-from-an-unlikely-startup-to-a-major-global-enterprise.html",
           "collection": "Open Source",
           "topic": "History and Perspectives",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": true
         },
         {
           "rank": 8,
@@ -624,7 +677,8 @@
           "url": "https://www.ocenaudio.com/en/",
           "collection": "Awesome Abundance",
           "topic": "Music Production and Recording",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 9,
@@ -632,7 +686,8 @@
           "url": "https://strudel.cc/",
           "collection": "Awesome Abundance",
           "topic": "Music Production and Recording",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 10,
@@ -640,7 +695,8 @@
           "url": "https://tenacityaudio.org/",
           "collection": "Awesome Abundance",
           "topic": "Music Production and Recording",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         }
       ]
     },
@@ -664,6 +720,13 @@
         119,
         188
       ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 6,
+      "knownIrrelevantRanks": [
+        6
+      ],
       "topResults": [
         {
           "rank": 1,
@@ -672,6 +735,7 @@
           "collection": "Business and Entrepreneurship",
           "topic": "Structures, Ownership, and Liability",
           "relevant": true,
+          "knownIrrelevant": false,
           "matchExplanation": {
             "schemaVersion": 1,
             "searchAlgorithm": "weighted-lexical-v2",
@@ -858,7 +922,8 @@
           "url": "https://www.sba.gov/counseling/launch-your-business/",
           "collection": "Business and Entrepreneurship",
           "topic": "Start Here",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 3,
@@ -866,7 +931,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
           "collection": "Business and Entrepreneurship",
           "topic": "Start Here",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 4,
@@ -874,7 +940,8 @@
           "url": "https://www.ustaxcourt.gov/clinics/",
           "collection": "Legal Help and Law",
           "topic": "Business, Nonprofit, Tax, and Intellectual Property",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 5,
@@ -882,7 +949,8 @@
           "url": "https://www.ustaxcourt.gov/petitioners-start/",
           "collection": "Legal Help and Law",
           "topic": "Business, Nonprofit, Tax, and Intellectual Property",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 6,
@@ -890,7 +958,8 @@
           "url": "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-11-bankruptcy-basics",
           "collection": "Business and Entrepreneurship",
           "topic": "Change, Sell, or Close",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": true
         },
         {
           "rank": 7,
@@ -898,7 +967,8 @@
           "url": "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics",
           "collection": "Business and Entrepreneurship",
           "topic": "Change, Sell, or Close",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 8,
@@ -906,7 +976,8 @@
           "url": "https://www.copyright.gov/registration/",
           "collection": "Business and Entrepreneurship",
           "topic": "Names, Brands, and Intellectual Property",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 9,
@@ -914,7 +985,8 @@
           "url": "https://www.kiva.org/borrow/us-businesses",
           "collection": "Business and Entrepreneurship",
           "topic": "Funding Without Fantasy",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 10,
@@ -922,7 +994,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center",
           "collection": "Business and Entrepreneurship",
           "topic": "Money, Records, and Taxes",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         }
       ]
     },
@@ -942,6 +1015,13 @@
         3,
         4
       ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 7,
+      "knownIrrelevantRanks": [
+        7
+      ],
       "topResults": [
         {
           "rank": 1,
@@ -950,6 +1030,7 @@
           "collection": "Legal Help and Law",
           "topic": "Start Here",
           "relevant": true,
+          "knownIrrelevant": false,
           "matchExplanation": {
             "schemaVersion": 1,
             "searchAlgorithm": "weighted-lexical-v2",
@@ -1098,7 +1179,8 @@
           "url": "https://www.ncsc.org/resources-courts/self-help-resources",
           "collection": "Legal Help and Law",
           "topic": "Start Here",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 3,
@@ -1106,7 +1188,8 @@
           "url": "https://www.usa.gov/courts",
           "collection": "Legal Help and Law",
           "topic": "Start Here",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 4,
@@ -1114,7 +1197,8 @@
           "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
           "collection": "Legal Help and Law",
           "topic": "Start Here",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 5,
@@ -1122,7 +1206,8 @@
           "url": "https://www.immigrationlawhelp.org/",
           "collection": "Legal Help and Law",
           "topic": "Find Free and Low-Cost Legal Help",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 6,
@@ -1130,7 +1215,8 @@
           "url": "https://www.usa.gov/legal-aid",
           "collection": "Legal Help and Law",
           "topic": "Start Here",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 7,
@@ -1138,7 +1224,8 @@
           "url": "https://legal-tools.org/",
           "collection": "Legal Help and Law",
           "topic": "International, Comparative, and Human Rights Law",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": true
         },
         {
           "rank": 8,
@@ -1146,7 +1233,8 @@
           "url": "https://www.uscourts.gov/federal-court-finder/find",
           "collection": "Legal Help and Law",
           "topic": "Courts, Forms, and Self-Representation",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 9,
@@ -1154,7 +1242,8 @@
           "url": "https://www.uscourts.gov/forms-rules/forms/fee-waiver-application-forms",
           "collection": "Legal Help and Law",
           "topic": "Courts, Forms, and Self-Representation",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 10,
@@ -1162,7 +1251,8 @@
           "url": "https://www.courtlistener.com/help/alerts/",
           "collection": "Legal Help and Law",
           "topic": "Legal News, Feeds, and Change Tracking",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         }
       ]
     },
@@ -1182,6 +1272,13 @@
         3,
         4
       ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 6,
+      "knownIrrelevantRanks": [
+        6
+      ],
       "topResults": [
         {
           "rank": 1,
@@ -1190,6 +1287,7 @@
           "collection": "Travel and Mobility",
           "topic": "Work Exchange and Ways to Travel With Less Money",
           "relevant": true,
+          "knownIrrelevant": false,
           "matchExplanation": {
             "schemaVersion": 1,
             "searchAlgorithm": "weighted-lexical-v2",
@@ -1303,7 +1401,8 @@
           "url": "https://citymapper.com/",
           "collection": "Travel and Mobility",
           "topic": "Maps, Language, Money, Time, and Weather",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 3,
@@ -1311,7 +1410,8 @@
           "url": "https://transitapp.com/",
           "collection": "Travel and Mobility",
           "topic": "Maps, Language, Money, Time, and Weather",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 4,
@@ -1319,7 +1419,8 @@
           "url": "https://www.211.org/",
           "collection": "Public Services and Support",
           "topic": "Benefits and Emergency Assistance",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 5,
@@ -1327,7 +1428,8 @@
           "url": "https://www.1800runaway.org/",
           "collection": "Travel and Mobility",
           "topic": "Work Exchange and Ways to Travel With Less Money",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 6,
@@ -1335,7 +1437,8 @@
           "url": "https://www.coolworks.com/jobs-with-housing",
           "collection": "Travel and Mobility",
           "topic": "Work Exchange and Ways to Travel With Less Money",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": true
         },
         {
           "rank": 7,
@@ -1343,7 +1446,8 @@
           "url": "https://www.amtrak.com/deals-discounts/everyday-discounts/passengers-with-disabilities-discounts.html",
           "collection": "Travel and Mobility",
           "topic": "Accessibility and Additional Travel Needs",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 8,
@@ -1351,7 +1455,8 @@
           "url": "https://www.transportation.gov/airconsumer/disabilitybillofrights",
           "collection": "Travel and Mobility",
           "topic": "Accessibility and Additional Travel Needs",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 9,
@@ -1359,7 +1464,8 @@
           "url": "https://www.faa.gov/travelers/fly_children",
           "collection": "Travel and Mobility",
           "topic": "Family, Student, Senior, LGBTQ+, and Pet Travel",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 10,
@@ -1367,7 +1473,8 @@
           "url": "https://12go.asia/",
           "collection": "Travel and Mobility",
           "topic": "Rail, Bus, Ferry, and Cruise",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         }
       ]
     },
@@ -1385,6 +1492,13 @@
         1,
         2
       ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 10,
+      "knownIrrelevantRanks": [
+        10
+      ],
       "topResults": [
         {
           "rank": 1,
@@ -1393,6 +1507,7 @@
           "collection": "Awesome Abundance",
           "topic": "Discovery and Distribution",
           "relevant": true,
+          "knownIrrelevant": false,
           "matchExplanation": {
             "schemaVersion": 1,
             "searchAlgorithm": "weighted-lexical-v2",
@@ -1470,7 +1585,8 @@
           "url": "https://portableapps.com/apps",
           "collection": "Awesome Abundance",
           "topic": "Browser, Phone, and Shared Computers",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 3,
@@ -1478,7 +1594,8 @@
           "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GU8AWX4GDKM7QGTE",
           "collection": "Awesome Abundance",
           "topic": "Cancel and Control Renewals",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 4,
@@ -1486,7 +1603,8 @@
           "url": "https://support.apple.com/en-us/118428",
           "collection": "Awesome Abundance",
           "topic": "Cancel and Control Renewals",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 5,
@@ -1494,7 +1612,8 @@
           "url": "https://support.google.com/googleplay/answer/7018481",
           "collection": "Awesome Abundance",
           "topic": "Cancel and Control Renewals",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 6,
@@ -1502,7 +1621,8 @@
           "url": "https://support.microsoft.com/en-us/accounts-billing/subscriptions/cancel-your-microsoft-subscription",
           "collection": "Awesome Abundance",
           "topic": "Cancel and Control Renewals",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 7,
@@ -1510,7 +1630,8 @@
           "url": "https://support.roku.com/article/manage-or-cancel-subscriptions",
           "collection": "Awesome Abundance",
           "topic": "Cancel and Control Renewals",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 8,
@@ -1518,7 +1639,8 @@
           "url": "https://www.cbp.gov/travel/us-citizens/mobile-passport-control",
           "collection": "Travel and Mobility",
           "topic": "Passports, Visas, Borders, and Screening",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 9,
@@ -1526,7 +1648,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues",
           "collection": "Business and Entrepreneurship",
           "topic": "Structures, Ownership, and Liability",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 10,
@@ -1534,7 +1657,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations",
           "collection": "Business and Entrepreneurship",
           "topic": "Structures, Ownership, and Liability",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": true
         }
       ]
     },
@@ -1554,6 +1678,13 @@
         3,
         4
       ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 1,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 6,
+      "knownIrrelevantRanks": [
+        6
+      ],
       "topResults": [
         {
           "rank": 1,
@@ -1562,6 +1693,7 @@
           "collection": "Security",
           "topic": "Safer Connectivity and VPNs",
           "relevant": true,
+          "knownIrrelevant": false,
           "matchExplanation": {
             "schemaVersion": 1,
             "searchAlgorithm": "weighted-lexical-v2",
@@ -1693,7 +1825,8 @@
           "url": "https://www.privacyguides.org/en/vpn/",
           "collection": "Security",
           "topic": "Safer Connectivity and VPNs",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 3,
@@ -1701,7 +1834,8 @@
           "url": "https://windscribe.com/features/use-for-free",
           "collection": "Security",
           "topic": "Safer Connectivity and VPNs",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 4,
@@ -1709,7 +1843,8 @@
           "url": "https://developers.cloudflare.com/warp-client/",
           "collection": "Security",
           "topic": "Safer Connectivity and VPNs",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 5,
@@ -1717,7 +1852,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
           "collection": "Business and Entrepreneurship",
           "topic": "Start Here",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 6,
@@ -1725,7 +1861,8 @@
           "url": "https://www.nami.org/Blogs/NAMI-Blog/June-2019/Psychosis-Responding-to-a-Loved-One-in-the-Face-of-Uncertainty",
           "collection": "Claims, Conspiracies, and Epistemic Navigation",
           "topic": "Distress, Paranoia, and Safer Support",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": true
         },
         {
           "rank": 7,
@@ -1733,7 +1870,8 @@
           "url": "https://stackoverflow.com/questions/57607381/how-do-i-change-timezone-in-a-docker-container",
           "collection": "Containers and Cloud",
           "topic": "Docker",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 8,
@@ -1741,7 +1879,8 @@
           "url": "https://stackoverflow.com/questions/37015624/how-to-run-a-cron-job-inside-a-docker-container",
           "collection": "Containers and Cloud",
           "topic": "Examples and Deployment",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 9,
@@ -1749,7 +1888,8 @@
           "url": "https://securityinabox.org/en/",
           "collection": "Dark Web, Deep Web, and Anonymous Networks",
           "topic": "Orientation and Safer Use",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 10,
@@ -1757,7 +1897,8 @@
           "url": "https://findahealthcenter.hrsa.gov/",
           "collection": "Public Services and Support",
           "topic": "Health Care and Medication",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         }
       ]
     },
@@ -1774,6 +1915,11 @@
       "relevantRanks": [
         1
       ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
       "topResults": [
         {
           "rank": 1,
@@ -1782,6 +1928,7 @@
           "collection": "Legal Help and Law",
           "topic": "Courts, Forms, and Self-Representation",
           "relevant": true,
+          "knownIrrelevant": false,
           "matchExplanation": {
             "schemaVersion": 1,
             "searchAlgorithm": "weighted-lexical-v2",
@@ -1863,6 +2010,11 @@
       "relevantRanks": [
         1
       ],
+      "knownIrrelevantCount": 2,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
       "topResults": [
         {
           "rank": 1,
@@ -1871,6 +2023,7 @@
           "collection": "Business and Entrepreneurship",
           "topic": "Register, Identify, and License",
           "relevant": true,
+          "knownIrrelevant": false,
           "matchExplanation": {
             "schemaVersion": 1,
             "searchAlgorithm": "weighted-lexical-v2",
@@ -1961,7 +2114,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
           "collection": "Business and Entrepreneurship",
           "topic": "Start Here",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 3,
@@ -1969,7 +2123,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/when-to-get-a-new-ein",
           "collection": "Business and Entrepreneurship",
           "topic": "Register, Identify, and License",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 4,
@@ -1977,7 +2132,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/if-you-no-longer-need-your-ein",
           "collection": "Business and Entrepreneurship",
           "topic": "Change, Sell, or Close",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 5,
@@ -1985,7 +2141,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/businesses-with-employees",
           "collection": "Business and Entrepreneurship",
           "topic": "Hire People and Work with Contractors",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 6,
@@ -1993,7 +2150,8 @@
           "url": "https://www.irs.gov/filing/irs-free-file-do-your-taxes-for-free",
           "collection": "Awesome Abundance",
           "topic": "Taxes, Credit, and Consumer Help",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 7,
@@ -2001,7 +2159,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/business-structures",
           "collection": "Business and Entrepreneurship",
           "topic": "Structures, Ownership, and Liability",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 8,
@@ -2009,7 +2168,8 @@
           "url": "https://www.irs.gov/charities-non-profits/creating-an-exempt-organization",
           "collection": "Business and Entrepreneurship",
           "topic": "Structures, Ownership, and Liability",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 9,
@@ -2017,7 +2177,8 @@
           "url": "https://www.irs.gov/charities-non-profits/life-cycle-of-an-exempt-organization",
           "collection": "Business and Entrepreneurship",
           "topic": "Structures, Ownership, and Liability",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 10,
@@ -2025,7 +2186,8 @@
           "url": "https://www.irs.gov/forms-pubs/about-form-2553",
           "collection": "Business and Entrepreneurship",
           "topic": "Structures, Ownership, and Liability",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         }
       ]
     }
