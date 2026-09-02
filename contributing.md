@@ -30,6 +30,7 @@ lists/
   legal-help-and-law/README.md
   neuroscience/README.md
   open-source/README.md
+  open-source-sustainability-and-support/README.md
   psychedelics/README.md
   public-services-and-support/README.md
   recipes-cooking-and-food-data/README.md

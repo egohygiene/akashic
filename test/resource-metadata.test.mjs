@@ -50,6 +50,20 @@ test("accepts controlled permission, risk, skill, artifact, and forensic-role cl
   }));
 });
 
+test("accepts controlled sustainability classifications and program fact dates", () => {
+  assert.doesNotThrow(() => validateResourceMetadata({
+    supportType: ["grant", "infrastructure"],
+    applicantType: ["maintainer", "project"],
+    projectStage: ["maintained", "mature"],
+    programCadence: "periodic",
+    costModel: ["no-fee", "in-kind"],
+    obligation: ["application", "reporting", "open-source-license"],
+    programChecked: "2026-09-02",
+  }));
+  assert.throws(() => validateResourceMetadata({ supportType: ["money"] }), /supportType must use/);
+  assert.throws(() => validateResourceMetadata({ programChecked: "2026-02-31" }), /real YYYY-MM-DD/);
+});
+
 test("rejects duplicate IDs, stale aliases, and alias collisions", () => {
   const base = { source: "first.md", id: "first", title: "First", url: "https://example.com/current", aliases: [] };
   assert.throws(() => validateResourceIdentities([base, { ...base, source: "second.md" }]), /duplicate resource id/);
