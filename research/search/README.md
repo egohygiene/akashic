@@ -40,6 +40,12 @@ The compiler does not infer a legal deadline, eligibility, geographic applicabil
 
 Portal queries now remain ephemeral and local by default. Ordinary search actions never write a question to the URL, browser history state, or storage. An explicit copy action creates a fragment-encoded search link, and the receiving page consumes and sanitizes that fragment after rendering. Legacy `?q=` links remain a read-only compatibility input. This improves the local trust boundary without claiming that a deliberately copied link, device screen, or recipient is private.
 
+The Phase 1 performance track now has an explicit `weighted-lexical-performance-v1` budget. The active scorer scans word ranges inside the normalized field strings instead of splitting every field for every query term. This removes hot-path token-array allocation without retaining a second token representation in memory, and it does not change scores or result order. The committed static report measures the exact generated catalog-page assets and records both raw bytes and deterministic gzip/Brotli encoding proxies. At 5,112 resources, the lexical runtime group is `549215` gzip bytes or `422776` Brotli bytes; the full catalog-page bootstrap group is `597879` gzip bytes or `463955` Brotli bytes. These are encoded-size proxies, not observations of GitHub Pages cache headers, CDN negotiation, or repeat-view transfer.
+
+The benchmark also times catalog parsing, index construction, and every query in the reviewed fixture under a normal Node.js profile and a JIT-disabled stress profile. CI enforces deliberately loose regression ceilings and runs whenever lists or portal assets change. In the committed same-environment Node.js references, the allocation-free scan changes the standard-profile median from `46.2952` to `20.6467` milliseconds and p95 from `139.9900` to `75.4503` milliseconds while the observed index heap delta remains in the same approximate range. Those two runs support the optimization direction but are not a device-independent speedup or memory claim.
+
+Environment-tagged reference reports are preserved separately from the deterministic static report because elapsed time and heap observations are machine-dependent. The JIT-disabled profile is a stress proxy, not a low-end phone emulator; representative browser/device measurements, main-thread blocking, and first-load versus repeat-load network captures remain required before making a mobile responsiveness claim.
+
 The seed uses binary URL-level relevance judgments: a reviewer selects existing canonical resources that should be discoverable for each question and records safety properties the eventual result presentation must preserve. Each case also names at least one existing catalog resource that is known to be irrelevant to that exact query. The runner reports how many of those partial known negatives appear at `k`, the first such rank, and the mean per-case known-irrelevant rate. Lower is better, but this measurement is not precision because resources outside the explicit negative set remain unjudged. It must be read beside recall and zero-result measurements: an algorithm that returns nothing trivially avoids known negatives. The runner measures retrieval only; it does not automatically certify safety properties. The suite has no graded relevance, assessor-agreement measurement, or statistical power, so it must not support comparative or safety-performance claims until those are added through a documented multi-reviewer protocol.
 
 ## Repository Map
@@ -56,11 +62,16 @@ research/search/
 │   └── decomposition-rrf-v1.js
 ├── evaluations/
 │   ├── fusion-no-harm-v1.json
+│   ├── performance-budget-v1.json
 │   └── natural-language-v1.json
 └── results/
     ├── and-substring-v1.json
     ├── decomposition-rrf-v1-decision.json
     ├── decomposition-rrf-v1.json
+    ├── weighted-lexical-v2-jitless-reference-v1.json
+    ├── weighted-lexical-v2-performance-v1.json
+    ├── weighted-lexical-v2-pre-word-scan-reference-v1.json
+    ├── weighted-lexical-v2-standard-reference-v1.json
     └── weighted-lexical-v2.json
 ```
 
@@ -83,9 +94,13 @@ node scripts/evaluate-search.mjs --verify research/search/results/and-substring-
 node scripts/evaluate-search.mjs --algorithm site/search/weighted-lexical-v2.js --verify research/search/results/weighted-lexical-v2.json
 node scripts/evaluate-search.mjs --algorithm research/search/algorithms/decomposition-rrf-v1.js --verify research/search/results/decomposition-rrf-v1.json
 node scripts/compare-search-results.mjs --baseline research/search/results/weighted-lexical-v2.json --candidate research/search/results/decomposition-rrf-v1.json --gate research/search/evaluations/fusion-no-harm-v1.json --verify research/search/results/decomposition-rrf-v1-decision.json
+node scripts/benchmark-search.mjs --profile standard --static-verify research/search/results/weighted-lexical-v2-performance-v1.json
+node --jitless scripts/benchmark-search.mjs --profile jitless --timing-only
 ```
 
 Optional runner arguments are `--algorithm`, `--catalog`, `--fixture`, `--output`, `--verify`, and `--top-k`. A report identifies its catalog, fixture, and exact algorithm source with SHA-256 digests and intentionally omits a timestamp so unchanged inputs and an unchanged versioned algorithm produce an unchanged file. The repository declares Node.js 20 or newer so the browser and runner can share ECMAScript modules without environment-dependent syntax detection. `and-substring-v1` is frozen; a new search implementation receives a new module, algorithm ID, and result file.
+
+The performance runner accepts `--algorithm`, `--budget`, `--catalog`, `--fixture`, `--profile`, `--warmup-passes`, `--measurement-passes`, `--output`, `--static-output`, `--static-verify`, and `--timing-only`. Only the static asset report is byte-verifiable across machines. Timing reports identify their Node.js, operating-system, architecture, CPU, configuration, and input digests and should be compared only with that environment context intact.
 
 The committed report is a Git-versioned corpus checkpoint, not a generated ledger that every resource-only change must rewrite. Its catalog digest identifies the exact snapshot; check out the commit that recorded a report when reproducing it after the catalog has evolved. Search-research changes rerun the checkpoint in CI, and intentional corpus refreshes must regenerate and review the report. Pull-request CI also prevents edits to the published v1 algorithm so later work adds a new version instead of silently redefining the baseline.
 
@@ -106,7 +121,7 @@ The committed report is a Git-versioned corpus checkpoint, not a generated ledge
 The next implementation should strengthen the evidence and runtime measurements before choosing an embedding model:
 
 1. obtain additional human review and expand the hard cohort across more collections, ambiguous terms, languages, and cases with measurable recall headroom;
-2. record latency on representative low-end mobile hardware and first-load/repeat-load transfer behavior;
+2. run the committed harness on representative low-, middle-, and high-capability browsers, recording main-thread blocking and real first-load/repeat-load transfers rather than treating Node.js or compression proxies as device evidence;
 3. investigate whether exact-query preservation or another simple fusion variant can address the recorded regressions, but only against the unchanged acceptance gate and a larger reviewed fixture;
 4. apply the documented license and artifact gate to any model selected for a semantic experiment; and
 5. preserve negative results and aliases that create unacceptable false positives.

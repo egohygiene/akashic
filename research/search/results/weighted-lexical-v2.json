@@ -6,7 +6,7 @@
   "inputs": {
     "catalogSha256": "bfda968cbf5ac6f66282afa99042b77bb63b8eb57683a41b07968c2580a07b55",
     "fixtureSha256": "f12c8aefc8f59b3f34e574c2529e1fcf2db315edaa99ec04693091f84b2e200a",
-    "implementationSha256": "1472b8ce64e66a02459d2125c99fff47c8caae77afb749ef603b8915771603d8"
+    "implementationSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669"
   },
   "topK": 10,
   "summary": {

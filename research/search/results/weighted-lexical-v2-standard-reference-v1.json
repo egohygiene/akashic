@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "suite": "weighted-lexical-performance-v1",
+  "searchAlgorithm": "weighted-lexical-v2",
+  "inputs": {
+    "algorithmSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669",
+    "budgetSha256": "4a38f20a9715cc3a3f31b4a251883f93501a8986d1f55777b0939982e8d77e69",
+    "catalogSha256": "4b9877165c32bc06a050ae822302aa35e8b1bedb1af7d1916c2d64d1b9222b8e",
+    "fixtureSha256": "209f67722794fc103e69cdce20b1c6bdcc8e40187fafd1ab0da18f0b9f8de066",
+    "runnerSha256": "2f1958f56efada0df6d6aee6ff11038a10f60db7da160a2aafb1049d46b1d301"
+  },
+  "static": null,
+  "timing": {
+    "profile": "standard",
+    "profileDescription": "Normal Node.js CI smoke profile; not a browser or device claim.",
+    "environment": {
+      "node": "v24.19.0",
+      "platform": "linux",
+      "architecture": "x64",
+      "cpuModel": "AMD EPYC 9V74 80-Core Processor",
+      "logicalCpuCount": 9
+    },
+    "configuration": {
+      "warmupPasses": 3,
+      "measurementPasses": 10,
+      "queryCount": 18,
+      "catalogResourceCount": 5112
+    },
+    "catalogParseMilliseconds": 8.1004,
+    "indexBuildMilliseconds": 52.998,
+    "memoryObservation": {
+      "heapAfterCatalogParseBytes": 26627904,
+      "heapAfterIndexBytes": 39863600,
+      "observedIndexHeapDeltaBytes": 13235696
+    },
+    "querySummary": {
+      "operationCount": 180,
+      "meanMilliseconds": 32.8298,
+      "medianMilliseconds": 20.6467,
+      "p95Milliseconds": 75.4503,
+      "p99Milliseconds": 88.0348,
+      "maximumMilliseconds": 98.0863
+    },
+    "slowestCasesByP95": [
+      {
+        "id": "eviction-notice-no-money",
+        "p95Milliseconds": 98.0863
+      },
+      {
+        "id": "free-music-production",
+        "p95Milliseconds": 88.0348
+      },
+      {
+        "id": "vpn-renewal-no-income",
+        "p95Milliseconds": 69.602
+      },
+      {
+        "id": "court-paper",
+        "p95Milliseconds": 68.863
+      },
+      {
+        "id": "creative-business-taxes",
+        "p95Milliseconds": 64.8458
+      }
+    ],
+    "checks": [
+      {
+        "id": "catalog-parse-milliseconds",
+        "actual": 8.1004,
+        "operator": "<=",
+        "maximum": 100,
+        "passed": true
+      },
+      {
+        "id": "index-build-milliseconds",
+        "actual": 52.998,
+        "operator": "<=",
+        "maximum": 500,
+        "passed": true
+      },
+      {
+        "id": "median-query-milliseconds",
+        "actual": 20.6467,
+        "operator": "<=",
+        "maximum": 125,
+        "passed": true
+      },
+      {
+        "id": "p95-query-milliseconds",
+        "actual": 75.4503,
+        "operator": "<=",
+        "maximum": 300,
+        "passed": true
+      },
+      {
+        "id": "maximum-query-milliseconds",
+        "actual": 98.0863,
+        "operator": "<=",
+        "maximum": 600,
+        "passed": true
+      }
+    ],
+    "withinBudget": true
+  }
+}

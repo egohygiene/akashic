@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "weighted-lexical-performance-v1",
+  "searchAlgorithm": "weighted-lexical-v2",
+  "description": "Bound the static catalog-page transfer proxy and catch large lexical-search latency regressions without treating CI hardware as a mobile-device result.",
+  "compression": {
+    "gzipLevel": 9,
+    "brotliQuality": 11
+  },
+  "transferGroups": [
+    {
+      "id": "lexical-search-runtime",
+      "paths": [
+        "dist/data/catalog.json",
+        "dist/search.js",
+        "dist/search/concepts-v1.js",
+        "dist/search/weighted-lexical-v2.js"
+      ],
+      "maximumRawBytes": 3600000,
+      "maximumGzipBytes": 600000,
+      "maximumBrotliBytes": 475000
+    },
+    {
+      "id": "catalog-page-bootstrap",
+      "paths": [
+        "dist/index.html",
+        "dist/styles.css",
+        "dist/app.js",
+        "dist/mind-map.js",
+        "dist/needs.js",
+        "dist/search.js",
+        "dist/search-query-state.js",
+        "dist/i18n.js",
+        "dist/favorites.js",
+        "dist/catalog-metadata.js",
+        "dist/search/concepts-v1.js",
+        "dist/search/weighted-lexical-v2.js",
+        "dist/i18n/en.json",
+        "dist/data/catalog.json",
+        "dist/assets/favicon.svg"
+      ],
+      "maximumRawBytes": 3900000,
+      "maximumGzipBytes": 675000,
+      "maximumBrotliBytes": 525000
+    }
+  ],
+  "timingProfiles": {
+    "standard": {
+      "description": "Normal Node.js CI smoke profile; not a browser or device claim.",
+      "warmupPasses": 2,
+      "measurementPasses": 5,
+      "requiredNodeFlags": [],
+      "maximumCatalogParseMilliseconds": 100,
+      "maximumIndexBuildMilliseconds": 500,
+      "maximumMedianQueryMilliseconds": 125,
+      "maximumP95QueryMilliseconds": 300,
+      "maximumQueryMilliseconds": 600
+    },
+    "jitless": {
+      "description": "JIT-disabled stress proxy for regression detection; not a low-end mobile emulation.",
+      "warmupPasses": 1,
+      "measurementPasses": 2,
+      "requiredNodeFlags": [
+        "--jitless"
+      ],
+      "maximumCatalogParseMilliseconds": 150,
+      "maximumIndexBuildMilliseconds": 1000,
+      "maximumMedianQueryMilliseconds": 250,
+      "maximumP95QueryMilliseconds": 800,
+      "maximumQueryMilliseconds": 1200
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "suite": "weighted-lexical-performance-v1",
+  "searchAlgorithm": "weighted-lexical-v2",
+  "inputs": {
+    "algorithmSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669",
+    "budgetSha256": "4a38f20a9715cc3a3f31b4a251883f93501a8986d1f55777b0939982e8d77e69",
+    "catalogSha256": "4b9877165c32bc06a050ae822302aa35e8b1bedb1af7d1916c2d64d1b9222b8e",
+    "fixtureSha256": "209f67722794fc103e69cdce20b1c6bdcc8e40187fafd1ab0da18f0b9f8de066",
+    "runnerSha256": "2f1958f56efada0df6d6aee6ff11038a10f60db7da160a2aafb1049d46b1d301"
+  },
+  "static": null,
+  "timing": {
+    "profile": "jitless",
+    "profileDescription": "JIT-disabled stress proxy for regression detection; not a low-end mobile emulation.",
+    "environment": {
+      "node": "v24.19.0",
+      "platform": "linux",
+      "architecture": "x64",
+      "cpuModel": "AMD EPYC 9V74 80-Core Processor",
+      "logicalCpuCount": 9
+    },
+    "configuration": {
+      "warmupPasses": 2,
+      "measurementPasses": 3,
+      "queryCount": 18,
+      "catalogResourceCount": 5112
+    },
+    "catalogParseMilliseconds": 8.0784,
+    "indexBuildMilliseconds": 92.6481,
+    "memoryObservation": {
+      "heapAfterCatalogParseBytes": 26327792,
+      "heapAfterIndexBytes": 40846808,
+      "observedIndexHeapDeltaBytes": 14519016
+    },
+    "querySummary": {
+      "operationCount": 54,
+      "meanMilliseconds": 202.3154,
+      "medianMilliseconds": 142.4131,
+      "p95Milliseconds": 499.0873,
+      "p99Milliseconds": 511.5227,
+      "maximumMilliseconds": 511.5227
+    },
+    "slowestCasesByP95": [
+      {
+        "id": "eviction-notice-no-money",
+        "p95Milliseconds": 511.5227
+      },
+      {
+        "id": "vpn-renewal-no-income",
+        "p95Milliseconds": 460.635
+      },
+      {
+        "id": "creative-business-taxes",
+        "p95Milliseconds": 399.6793
+      },
+      {
+        "id": "free-music-production",
+        "p95Milliseconds": 390.0194
+      },
+      {
+        "id": "court-paper",
+        "p95Milliseconds": 316.266
+      }
+    ],
+    "checks": [
+      {
+        "id": "catalog-parse-milliseconds",
+        "actual": 8.0784,
+        "operator": "<=",
+        "maximum": 150,
+        "passed": true
+      },
+      {
+        "id": "index-build-milliseconds",
+        "actual": 92.6481,
+        "operator": "<=",
+        "maximum": 1000,
+        "passed": true
+      },
+      {
+        "id": "median-query-milliseconds",
+        "actual": 142.4131,
+        "operator": "<=",
+        "maximum": 250,
+        "passed": true
+      },
+      {
+        "id": "p95-query-milliseconds",
+        "actual": 499.0873,
+        "operator": "<=",
+        "maximum": 800,
+        "passed": true
+      },
+      {
+        "id": "maximum-query-milliseconds",
+        "actual": 511.5227,
+        "operator": "<=",
+        "maximum": 1200,
+        "passed": true
+      }
+    ],
+    "withinBudget": true
+  }
+}

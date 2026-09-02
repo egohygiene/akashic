@@ -1,0 +1,58 @@
+name: Search performance
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/search-performance.yml"
+      - "package.json"
+      - "README.md"
+      - "lists/**"
+      - "research/search/evaluations/natural-language-v1.json"
+      - "research/search/evaluations/performance-budget-v1.json"
+      - "scripts/benchmark-search.mjs"
+      - "scripts/build-site.mjs"
+      - "site/**"
+      - "test/search-performance.test.mjs"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/search-performance.yml"
+      - "package.json"
+      - "README.md"
+      - "lists/**"
+      - "research/search/evaluations/natural-language-v1.json"
+      - "research/search/evaluations/performance-budget-v1.json"
+      - "scripts/benchmark-search.mjs"
+      - "scripts/build-site.mjs"
+      - "site/**"
+      - "test/search-performance.test.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    name: Check lexical budgets
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 20
+
+      - name: Build static catalog
+        run: node scripts/build-site.mjs
+
+      - name: Check standard timing and transfer budgets
+        run: node scripts/benchmark-search.mjs --profile standard
+
+      - name: Check JIT-disabled stress timing budget
+        run: node --jitless scripts/benchmark-search.mjs --profile jitless --timing-only

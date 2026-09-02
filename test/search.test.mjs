@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  buildSearchIndex,
   compileSearchQuery,
   decomposeSearchQuery,
   explainResourceMatch,
@@ -24,6 +25,24 @@ test("weighted lexical search normalizes Unicode, punctuation, and stop words", 
   const compiled = compileSearchQuery("How can I find FOOD today?");
   assert.deepEqual(compiled.originalTerms, ["find", "food", "today"]);
   assert.equal(compiled.concepts[0].id, "food-today");
+});
+
+test("precomputed fields preserve allocation-free lexical ranking", () => {
+  const candidates = [
+    resource("Emergency Food Assistance", "Find immediate food help and a local food bank.", "Start Here"),
+    resource("Food history archive", "Books about meals and agriculture."),
+    resource("Unrelated editor", "A software development tool."),
+  ];
+  const indexed = candidates.map((candidate) => ({
+    ...candidate,
+    searchIndex: buildSearchIndex(candidate),
+  }));
+
+  assert.equal(indexed[0].searchIndex.title, "emergency food assistance");
+  assert.deepEqual(
+    searchResources(indexed, "I need food today").map((candidate) => candidate.title),
+    searchResources(candidates, "I need food today").map((candidate) => candidate.title),
+  );
 });
 
 test("ordinary-language concepts retrieve and prioritize useful canonical vocabulary", () => {
