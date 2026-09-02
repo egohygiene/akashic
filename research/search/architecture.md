@@ -84,7 +84,7 @@ The first query compiler should be deterministic. It can normalize text and deri
 }
 ```
 
-`weighted-lexical-v2` now produces this record alongside its existing scoring inputs. The rules only record matched concept IDs and explicit query text: urgency is a signal classification rather than an asserted deadline, location is a conservative place or postal-code span rather than a claim of applicability, and access needs are not inferred from catalog metadata. Subqueries are bounded, deduplicated, and inspectable. They do not affect ranking until a separately evaluated fusion experiment uses them. The initial rule vocabulary is English-only.
+`weighted-lexical-v2` now produces this record alongside its existing scoring inputs. The rules only record matched concept IDs and explicit query text: urgency is a signal classification rather than an asserted deadline, location is a conservative place or postal-code span rather than a claim of applicability, and access needs are not inferred from catalog metadata. Subqueries are bounded, deduplicated, and inspectable. They do not affect the active portal ranking. The initial rule vocabulary is English-only.
 
 The deterministic evaluator ranks each subquery to the same candidate depth and unions those normalized URLs with the original candidates without assigning a fused order. On the expanded eighteen-case seed, 36 subqueries produce a mean pool of `13.3333` candidates and add `4.8889` candidates per case. The pool gains one judged-relevant URL for an uninsured-doctor query and one known negative for `AO 240`. This establishes limited fusion headroom while withholding any claim that fusion is beneficial or ready for the portal.
 
@@ -108,7 +108,9 @@ final score =
   - stale, restricted, or mismatched penalties
 ```
 
-Multiple subquery rankings may eventually be combined using reciprocal rank fusion or another simple method before a more complex learned reranker is considered. The no-fusion baseline remains authoritative until an expanded fixture shows that fusion adds judged-relevant candidates without unacceptable known-negative growth.
+`decomposition-rrf-v1` tests equal reciprocal rank fusion over the original-query and distinct subquery rankings at depth ten with rank constant `60`. Its opt-in explanation records each contributing query, its input rank and contribution, and the underlying lexical evidence. The predeclared `fusion-no-harm-v1` gate requires a new top-ten relevance success without reducing aggregate recall or reciprocal rank, losing an existing success, regressing a first relevant rank or exact identifier, or increasing measured known-negative exposure.
+
+The candidate recovers the uninsured-doctor case and reduces aggregate known-negative hits, but it lowers mean reciprocal rank, regresses three first-relevant ranks, drops two relevant resources that were previously beyond the fusion candidate window, and introduces a known negative into one exact form-number case. It is therefore preserved as a rejected research candidate while the no-fusion `weighted-lexical-v2` ranking remains authoritative. A future variant may preserve the original ranking more strongly, but it must use the unchanged gate and a larger reviewed fixture rather than tune acceptance around this result.
 
 The active lexical experiment exposes an explanation record separately from its fast scoring path. For each explicitly explained resource it records:
 
