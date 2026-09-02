@@ -32,6 +32,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "dark-web-deep-web-and-anonymous-networks",
   "design-systems-and-branding",
   "developer-tools",
+  "digital-forensics-and-incident-evidence",
   "gaming-ecosystem-and-preservation",
   "hacking-and-cybersecurity",
   "health-and-well-being",
@@ -75,6 +76,31 @@ const NESTED_COLLECTIONS = new Map([
 ]);
 
 const REQUIRED_COLLECTION_METADATA = new Map([
+  [
+    "lists/digital-forensics-and-incident-evidence/README.md",
+    [
+      "resourceType",
+      "role",
+      "authority",
+      "access",
+      "geography",
+      "language",
+      "platform",
+      "account",
+      "authorization",
+      "operationalRisk",
+      "skillLevel",
+      "artifactDomain",
+      "forensicRole",
+      "license",
+      "status",
+      "volatility",
+      "reviewTier",
+      "sensitive",
+      "linkStatus",
+      "linkChecked",
+    ],
+  ],
   [
     "lists/hacking-and-cybersecurity/README.md",
     [

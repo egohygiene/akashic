@@ -10,6 +10,8 @@ export const METADATA_FACETS = [
   ["authorization", "runtime.metadata.authorization"],
   ["operationalRisk", "runtime.metadata.operationalRisk"],
   ["skillLevel", "runtime.metadata.skillLevel"],
+  ["artifactDomain", "runtime.metadata.artifactDomain"],
+  ["forensicRole", "runtime.metadata.forensicRole"],
   ["license", "runtime.metadata.license"],
   ["status", "runtime.metadata.status"],
   ["volatility", "runtime.metadata.volatility"],

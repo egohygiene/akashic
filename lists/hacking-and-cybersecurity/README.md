@@ -178,7 +178,7 @@ Each entry records its source type (`authority`), access or cost model, platform
 
 [Work and Learning](../work-and-learning/README.md) covers broad career discovery, learning, job-search, workspace, and professional-development resources.
 
-Digital forensics and evidence handling are tracked separately in roadmap issue [#62](https://github.com/egohygiene/akashic/issues/62). Until that collection exists, use the existing Turbinia and Velociraptor entries in [Security](../security/README.md); this list does not duplicate forensic acquisition, chain-of-custody, or examination tooling.
+Use [Digital Forensics and Incident Evidence](../digital-forensics-and-incident-evidence/README.md) for authorized acquisition, chain of custody, artifact examination, timelines, case handling, and reporting. This collection retains permission-centered security learning, assessment, monitoring, hardening, and defensive incident-response education rather than duplicating the forensic catalog.
 
 ## Suggestions and Contributions
 
