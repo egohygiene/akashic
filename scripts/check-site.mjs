@@ -14,7 +14,7 @@ const rankedCounts = (values, limit = Infinity) => {
     .sort((left, right) => right.count - left.count || left.name.localeCompare(right.name))
     .slice(0, limit);
 };
-for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "ru/index.html", "ru/dashboard.html", "ru/atlas.html", "styles.css", "dashboard.css", "atlas.css", "app.js", "favorites.js", "catalog-metadata.js", "dashboard.js", "needs.js", "search.js", "search/and-substring-v1.js", "search/concepts-v1.js", "search/weighted-lexical-v2.js", "mind-map.js", "atlas.js", "i18n.js", "i18n/locales.json", "i18n/en.json", "i18n/ru.json", "assets/favicon.svg", "data/catalog.json", "data/overview.json", "data/funding.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
+for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "ru/index.html", "ru/dashboard.html", "ru/atlas.html", "styles.css", "dashboard.css", "atlas.css", "app.js", "favorites.js", "catalog-metadata.js", "dashboard.js", "needs.js", "search.js", "search-query-state.js", "search/and-substring-v1.js", "search/concepts-v1.js", "search/weighted-lexical-v2.js", "mind-map.js", "atlas.js", "i18n.js", "i18n/locales.json", "i18n/en.json", "i18n/ru.json", "assets/favicon.svg", "data/catalog.json", "data/overview.json", "data/funding.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
   await access(path.join(output, relativePath));
 }
 
@@ -175,14 +175,18 @@ for (const locale of locales.locales) {
 }
 
 const homeHtml = await readFile(path.join(output, "index.html"), "utf8");
-for (const marker of ["need-paths", "overview-preview", "overview-preview-metrics", "overview-distribution-donut", "overview-collection-bars", "collection-guide", "catalog-branch-select", "catalog-topic-select", "metadata-filters", "metadata-filter-grid", "empty-suggestions"]) {
+for (const marker of ["need-paths", "overview-preview", "overview-preview-metrics", "overview-distribution-donut", "overview-collection-bars", "collection-guide", "catalog-branch-select", "catalog-topic-select", "metadata-filters", "metadata-filter-grid", "empty-suggestions", "hero-search-privacy", "catalog-search-privacy"]) {
   if (!homeHtml.includes(`id="${marker}"`)) throw new Error(`The homepage overview is missing #${marker}.`);
 }
+if (homeHtml.includes('name="q"')) throw new Error("Search forms must not submit natural-language queries before the private runtime is ready.");
 const homeApp = await readFile(path.join(output, "app.js"), "utf8");
 if (!homeApp.includes("conic-gradient(from -90deg") || !homeApp.includes('class="overview-bar-row"')) throw new Error("The homepage overview charts are not rendered.");
 if (!homeApp.includes('class="collection-path"') || !homeApp.includes("renderCollectionGuide") || !homeApp.includes("updateTaxonomyControls")) throw new Error("The homepage collection navigation is incomplete.");
 if (!homeApp.includes('class="resource-labels"')) throw new Error("Structured resource access labels are not rendered.");
 if (!homeApp.includes("migrateFavoriteTokens") || !homeApp.includes("matchesMetadataFacets") || !homeApp.includes('class="resource-provenance"')) throw new Error("Stable favorites, metadata facets, or resource provenance are not rendered.");
+if (!homeApp.includes("createSearchShareUrl") || !homeApp.includes("readSharedSearchQuery") || !homeApp.includes("sharedSearchAnchor") || homeApp.includes('params.set("q", state.query)') || homeApp.includes("history.state.query")) throw new Error("Natural-language search is not private by default with explicit sharing.");
+const searchQueryState = await readFile(path.join(output, "search-query-state.js"), "utf8");
+if (!searchQueryState.includes("sharedUrl.searchParams.delete(\"q\")") || !searchQueryState.includes("new URLSearchParams({ q: normalizedQuery })")) throw new Error("Explicit search links do not keep the query in a fragment.");
 
 const styles = await readFile(path.join(output, "styles.css"), "utf8");
 if (!styles.includes(".resource-card h3 a:focus-visible::after") || !styles.includes("outline: 3px solid var(--cyan)")) throw new Error("Primary resource-card links have no visible focus-ring contract.");
@@ -198,7 +202,7 @@ for (const fileName of ["app.js", "dashboard.js", "atlas.js"]) {
 }
 
 const i18nRuntime = await readFile(path.join(output, "i18n.js"), "utf8");
-if (!i18nRuntime.includes("Intl.NumberFormat") || !i18nRuntime.includes("Intl.PluralRules") || !i18nRuntime.includes("fallbackMessages")) throw new Error("The locale runtime is missing formatting or fallback support.");
+if (!i18nRuntime.includes("Intl.NumberFormat") || !i18nRuntime.includes("Intl.PluralRules") || !i18nRuntime.includes("fallbackMessages") || !i18nRuntime.includes('searchParameters.delete("q")')) throw new Error("The locale runtime is missing formatting, fallback, or private-query support.");
 try {
   await access(path.join(output, "ru", "data"));
   throw new Error("Localized routes must not duplicate generated catalog data.");

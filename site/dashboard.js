@@ -48,9 +48,8 @@ function formatPercent(count, total) {
   return `${percentage.toFixed(percentage < 10 ? 1 : 0)}%`;
 }
 
-function catalogUrl({ categorySlug = "", groupSlug = "", section = "", query = "", domain = "" } = {}) {
+function catalogUrl({ categorySlug = "", groupSlug = "", section = "", domain = "" } = {}) {
   const params = new URLSearchParams();
-  if (query) params.set("q", query);
   if (domain) params.set("domain", domain);
   if (categorySlug) params.set("collection", categorySlug);
   if (groupSlug) params.set("branch", groupSlug);

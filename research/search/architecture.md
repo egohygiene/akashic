@@ -31,7 +31,7 @@ Question
   -> optional local explanation model
 ```
 
-No runtime search service, vector-database server, inference API, account, API key, or per-query payment is required. The browser downloads code, indexes, and—when enabled—model assets from the same static publication boundary. This describes the target architecture: the current portal still writes searches into shareable `?q=` URL state, which can persist sensitive questions in browser history and reach the static host on a reload or shared link. Natural-language search must change that behavior before it can claim private-by-default handling.
+No runtime search service, vector-database server, inference API, account, API key, or per-query payment is required. The browser downloads code, indexes, and—when enabled—model assets from the same static publication boundary. Natural-language search now stays in page memory by default rather than entering URL, history-state, or storage persistence. Explicitly copied links encode the question in a URL fragment so it is visible to the recipient without being sent in the HTTP request; the receiving page consumes and sanitizes the fragment. Legacy `?q=` links remain a compatibility input and are removed from the visible URL after load.
 
 ## System Components
 
@@ -190,7 +190,7 @@ Lower capability levels are not punishment tiers. They must retain the same cano
 - The canonical repository is curated evidence, not guaranteed current truth.
 - Linked external sites remain authoritative for their own current terms and controlling information.
 - Search artifacts are derived and should become reproducible from canonical content, pinned implementations, and explicit publication metadata; the current general site build is not yet byte-for-byte reproducible.
-- User queries may contain sensitive information. The current URL-backed query state is not private enough for high-stakes natural-language questions; question persistence and sharing should become explicit choices, with a local ephemeral default.
+- User queries may contain sensitive information. The portal keeps questions in ephemeral page memory by default and makes link creation explicit; a copied link, recipient, screenshot, synced tab, or compromised device can still expose the question.
 - Resource links use a no-referrer boundary, and future search work must preserve it, but browser history, copied URLs, screenshots, device sync, and local storage can still expose questions.
 - Browser storage must not silently retain sensitive questions.
 - Analytics, remote inference, and third-party query logging are outside the default architecture.
@@ -221,7 +221,7 @@ The seed fixture is not statistically sufficient for a paper. Its known-irreleva
 
 1. Preserve the existing algorithm as an executable baseline.
 2. Improve word boundaries, normalization, weighting, aliases, and deterministic query expansion.
-3. Make natural-language query history and sharing privacy-preserving and explicit.
+3. Preserve private-by-default natural-language query state and explicit fragment-based sharing.
 4. Establish stable resource IDs and richer metadata with issues #39 and #19.
 5. Test a pinned browser embedding model with exhaustive Float32 search.
 6. Compare Matryoshka dimensions and Int8/binary quantization.

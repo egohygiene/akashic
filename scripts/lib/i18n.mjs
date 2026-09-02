@@ -88,7 +88,7 @@ function localeLinks(locales, page) {
 function preferenceRedirect(locales, activeLocale, page) {
   if (activeLocale.code !== locales.defaultLocale) return "";
   const routes = Object.fromEntries(locales.locales.filter((locale) => locale.code !== locales.defaultLocale).map((locale) => [locale.code, localePagePath(locale, page)]));
-  return `<script>try{const l=localStorage.getItem("akashic-locale"),r=${JSON.stringify(routes)};if(r[l])location.replace(r[l]+location.search+location.hash)}catch{}</script>`;
+  return `<script>try{const l=localStorage.getItem("akashic-locale"),r=${JSON.stringify(routes)};if(r[l]){const u=new URL(r[l],location.href),p=new URLSearchParams(location.search),q=p.get("q");p.delete("q");u.search=p;u.hash=q?"catalog?"+new URLSearchParams({q}):location.hash;location.replace(u)}}catch{}</script>`;
 }
 
 function languageSwitcher(locales, activeLocale, page) {
