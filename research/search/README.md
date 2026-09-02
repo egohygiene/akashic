@@ -24,15 +24,15 @@ The active `weighted-lexical-v2` experiment normalizes query text, weights catal
 - returns results for all ten queries;
 - places at least one judged resource first for every query;
 - retrieves all 31 judged resource-query pairs in the top ten; and
-- records mean Recall@10 and mean reciprocal rank of `1.0` on this seed.
+- records mean Recall@10 and mean reciprocal rank of `1.0` on this seed, while also surfacing eight of eleven explicitly judged known-irrelevant URL-query pairs in the top ten.
 
-Those values describe this small, deliberately curated regression fixture only. They do not establish general search quality, comparative superiority, user outcomes, or safety. In particular, the current suite lacks negative judgments, graded relevance, multilingual queries, assessor agreement, and enough coverage to detect over-broad result sets.
+Those values describe this small, deliberately curated regression fixture only. They do not establish general search quality, comparative superiority, user outcomes, or safety. The eleven query-relative negative judgments are partial probes rather than an exhaustive labeling of the result set: an unmarked result is unjudged, not relevant or irrelevant. The suite still lacks graded relevance, multilingual queries, assessor agreement, and enough coverage to estimate general over-broad-result rates.
 
 The same versioned module exposes a deterministic query-decomposition record with matched intent IDs, explicit urgency signals, a conservative unresolved place or postal-code span, explicit access needs, and at most six inspectable subqueries. It also exposes opt-in per-result explanations that account for matched query and concept terms, every score-bearing field, exact-query and reviewed-priority boosts, original-term coverage, the coverage multiplier, the result threshold, and exclusion reasons. Ordinary portal search keeps the allocation-light scoring path; detailed evidence is generated only when requested. The evaluator verifies explanations for every top-ten result and persists the full breakdown for the first result per query so checkpoint diffs remain reviewable.
 
 Decomposition and explanations do not yet change result order: ranking fusion remains a separate experiment. The compiler does not infer a legal deadline, eligibility, geographic applicability, or an access constraint that the query did not state. Its initial signal vocabulary is English-only.
 
-The seed uses binary URL-level relevance judgments: a reviewer selects existing canonical resources that should be discoverable for each question and records safety properties the eventual result presentation must preserve. The runner measures retrieval only; it does not automatically certify those safety properties. The suite presently has no graded relevance, explicit negative judgments, assessor-agreement measurement, or statistical power, so it must not support comparative or safety-performance claims until those are added through a documented multi-reviewer protocol.
+The seed uses binary URL-level relevance judgments: a reviewer selects existing canonical resources that should be discoverable for each question and records safety properties the eventual result presentation must preserve. Each case also names at least one existing catalog resource that is known to be irrelevant to that exact query. The runner reports how many of those partial known negatives appear at `k`, the first such rank, and the mean per-case known-irrelevant rate. Lower is better, but this measurement is not precision because resources outside the explicit negative set remain unjudged. It must be read beside recall and zero-result measurements: an algorithm that returns nothing trivially avoids known negatives. The runner measures retrieval only; it does not automatically certify safety properties. The suite has no graded relevance, assessor-agreement measurement, or statistical power, so it must not support comparative or safety-performance claims until those are added through a documented multi-reviewer protocol.
 
 ## Repository Map
 
@@ -89,11 +89,10 @@ The committed report is a Git-versioned corpus checkpoint, not a generated ledge
 
 The next implementation should stress-test and explain the non-ML kernel before choosing an embedding model:
 
-1. expand the fixture across collections, short queries, ambiguous terms, known negatives, and multilingual input;
-2. use the committed match explanations to add explicit over-broad-query measurements;
-3. evaluate the committed decomposition subqueries before using them in rank fusion;
-4. record latency on low-end mobile hardware and transfer-size behavior;
-5. apply the documented license and artifact gate to any model selected for a semantic experiment; and
-6. preserve negative results and aliases that create unacceptable false positives.
+1. expand the fixture across collections, short queries, ambiguous terms, additional known negatives, and multilingual input;
+2. use the explicit over-broad-result measurements to evaluate committed decomposition subqueries before using them in rank fusion;
+3. record latency on low-end mobile hardware and transfer-size behavior;
+4. apply the documented license and artifact gate to any model selected for a semantic experiment; and
+5. preserve negative results and aliases that create unacceptable false positives.
 
 Only after that baseline is understood should the project add static document embeddings and compare Matryoshka dimensions and numeric quantization.

@@ -5,7 +5,7 @@
   "catalogResourceCount": 5112,
   "inputs": {
     "catalogSha256": "bfda968cbf5ac6f66282afa99042b77bb63b8eb57683a41b07968c2580a07b55",
-    "fixtureSha256": "dd20a3342f06cdc097972977e1beb7a10b2506330fbfa48352e4bab6ec71126a",
+    "fixtureSha256": "0d7a5715cd2b24ee2172d9a5cfb4643cb1d2cad61f28d1803f4766593e23310f",
     "implementationSha256": "ab5383002697e81edc6c424774f68c9644deace3feb69d4f85d0ebfc14907c71"
   },
   "topK": 10,
@@ -14,7 +14,12 @@
     "zeroResultCount": 9,
     "casesWithRelevantAtK": 1,
     "meanRecallAtK": 0.1,
-    "meanReciprocalRank": 0.025
+    "meanReciprocalRank": 0.025,
+    "knownIrrelevantJudgmentCount": 11,
+    "knownIrrelevantFoundAtK": 2,
+    "casesWithKnownIrrelevantJudgments": 10,
+    "casesWithKnownIrrelevantAtK": 1,
+    "meanKnownIrrelevantRateAtK": 0.1
   },
   "cases": [
     {
@@ -28,6 +33,11 @@
       "reciprocalRank": 0,
       "firstRelevantRank": null,
       "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
       "topResults": []
     },
     {
@@ -41,6 +51,11 @@
       "reciprocalRank": 0,
       "firstRelevantRank": null,
       "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
       "topResults": []
     },
     {
@@ -54,6 +69,11 @@
       "reciprocalRank": 0,
       "firstRelevantRank": null,
       "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
       "topResults": []
     },
     {
@@ -67,6 +87,11 @@
       "reciprocalRank": 0,
       "firstRelevantRank": null,
       "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
       "topResults": []
     },
     {
@@ -80,6 +105,11 @@
       "reciprocalRank": 0,
       "firstRelevantRank": null,
       "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
       "topResults": []
     },
     {
@@ -93,6 +123,11 @@
       "reciprocalRank": 0,
       "firstRelevantRank": null,
       "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
       "topResults": []
     },
     {
@@ -106,6 +141,11 @@
       "reciprocalRank": 0,
       "firstRelevantRank": null,
       "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
       "topResults": []
     },
     {
@@ -119,6 +159,11 @@
       "reciprocalRank": 0,
       "firstRelevantRank": null,
       "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
       "topResults": []
     },
     {
@@ -132,6 +177,11 @@
       "reciprocalRank": 0,
       "firstRelevantRank": null,
       "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
       "topResults": []
     },
     {
@@ -147,6 +197,14 @@
       "relevantRanks": [
         4
       ],
+      "knownIrrelevantCount": 2,
+      "knownIrrelevantFoundAtK": 2,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 1,
+      "knownIrrelevantRanks": [
+        1,
+        2
+      ],
       "topResults": [
         {
           "rank": 1,
@@ -154,7 +212,8 @@
           "url": "https://mobile.va.gov/app-store/mental-health",
           "collection": "Awesome Abundance",
           "topic": "Mental Health and Self-Help Tools",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": true
         },
         {
           "rank": 2,
@@ -162,7 +221,8 @@
           "url": "https://www.freewheelchairmission.org/receive-a-wheelchair/",
           "collection": "Awesome Abundance",
           "topic": "Assistive Technology and Disability Services",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": true
         },
         {
           "rank": 3,
@@ -170,7 +230,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
           "collection": "Business and Entrepreneurship",
           "topic": "Start Here",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 4,
@@ -178,7 +239,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number",
           "collection": "Business and Entrepreneurship",
           "topic": "Register, Identify, and License",
-          "relevant": true
+          "relevant": true,
+          "knownIrrelevant": false
         },
         {
           "rank": 5,
@@ -186,7 +248,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/when-to-get-a-new-ein",
           "collection": "Business and Entrepreneurship",
           "topic": "Register, Identify, and License",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 6,
@@ -194,7 +257,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/businesses-with-employees",
           "collection": "Business and Entrepreneurship",
           "topic": "Hire People and Work with Contractors",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         },
         {
           "rank": 7,
@@ -202,7 +266,8 @@
           "url": "https://www.irs.gov/businesses/small-businesses-self-employed/if-you-no-longer-need-your-ein",
           "collection": "Business and Entrepreneurship",
           "topic": "Change, Sell, or Close",
-          "relevant": false
+          "relevant": false,
+          "knownIrrelevant": false
         }
       ]
     }

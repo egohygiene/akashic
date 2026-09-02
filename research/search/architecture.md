@@ -202,7 +202,7 @@ Measure at least:
 
 - Recall@k and mean reciprocal rank over human judgments.
 - nDCG when judgments gain graded relevance.
-- zero-result and misleading-result rates.
+- zero-result rates and query-relative known-irrelevant hit rates over explicit partial negative judgments.
 - exact-identifier and acronym precision.
 - source-authority and geographic-applicability placement.
 - latency on representative low-, middle-, and high-capability devices.
@@ -212,7 +212,7 @@ Measure at least:
 - offline and failed-model fallbacks.
 - safety-invariant violations through human review and targeted automated assertions.
 
-The seed fixture is not statistically sufficient for a paper. It establishes the evaluation contract and exposes regressions while a larger, de-identified and deliberately sampled question set is developed.
+The seed fixture is not statistically sufficient for a paper. Its known-irrelevant judgments are partial probes, so unmarked results remain unjudged and the resulting rate is not precision. It establishes the evaluation contract and exposes regressions while a larger, de-identified and deliberately sampled question set is developed.
 
 ## Experiment Order
 
