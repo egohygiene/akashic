@@ -37,6 +37,8 @@ research/search/
 ├── README.md
 ├── architecture.md
 ├── BIBLIOGRAPHY.bib
+├── licenses.json
+├── licenses.md
 ├── references.md
 ├── evaluations/
 │   └── natural-language-v1.json
@@ -47,6 +49,7 @@ research/search/
 
 - `BIBLIOGRAPHY.bib` is the portable citation source for a future paper.
 - `references.md` explains why each source matters and distinguishes papers, preprints, specifications, and software.
+- `licenses.md` records the distribution boundary and approval gate; `licenses.json` is its machine-validated asset ledger.
 - `architecture.md` records the current system hypothesis, progressive capability contract, trust boundaries, and experiment order.
 - `evaluations/` contains human-reviewed query fixtures rather than generated claims.
 - `results/` contains deterministic reports created by the evaluation runner.
@@ -57,6 +60,7 @@ Run from the repository root:
 
 ```sh
 node scripts/build-site.mjs
+node scripts/validate-search-licenses.mjs
 node scripts/evaluate-search.mjs --verify research/search/results/and-substring-v1.json
 node scripts/evaluate-search.mjs --algorithm site/search/weighted-lexical-v2.js --verify research/search/results/weighted-lexical-v2.json
 ```
@@ -75,6 +79,7 @@ The committed report is a Git-versioned corpus checkpoint, not a generated ledge
 - Load semantic and generative assets only through progressive enhancement.
 - Never use generated text as the source of legal, medical, financial, crisis, eligibility, or deadline facts.
 - Verify model weights, tokenizer, dataset, runtime, and redistribution licenses independently before vendoring artifacts.
+- Keep every external search asset unapproved until the license ledger records an immutable revision, exact component coverage, checksums, notices, and a deliberate hosting decision.
 
 ## Next Experiment
 
@@ -84,7 +89,7 @@ The next implementation should stress-test and explain the non-ML kernel before 
 2. add per-result match explanations and explicit over-broad-query measurements;
 3. compare concept expansion with deterministic query decomposition and rank fusion;
 4. record latency on low-end mobile hardware and transfer-size behavior;
-5. document every model, embedding, dataset, and artifact license before a semantic experiment; and
+5. apply the documented license and artifact gate to any model selected for a semantic experiment; and
 6. preserve negative results and aliases that create unacceptable false positives.
 
 Only after that baseline is understood should the project add static document embeddings and compare Matryoshka dimensions and numeric quantization.

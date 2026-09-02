@@ -67,7 +67,12 @@ jobs:
           node --check site/search/concepts-v1.js
           node --check site/search/weighted-lexical-v2.js
           node --check scripts/evaluate-search.mjs
+          node --check scripts/lib/search-licenses.mjs
           node --check scripts/check-site.mjs
+          node --check scripts/validate-search-licenses.mjs
+
+      - name: Validate search license ledger
+        run: node scripts/validate-search-licenses.mjs
 
       - name: Build static catalog
         run: node scripts/build-site.mjs
