@@ -10,27 +10,27 @@ The hypothesis is deliberately narrower than “run a general chatbot in GitHub 
 
 ## Published Lexical Checkpoints
 
-The first seed suite contains ten ordinary-language and exact-identifier queries with human-judged relevant resources. The current `and-substring-v1` portal algorithm:
+The expanded seed suite contains eighteen ordinary-language and exact-identifier queries with human-judged relevant resources. The eight-case hard cohort adds short and underspecified queries, compact identifier variants, implicit need language, an explicit access constraint, an acronym-only query, and one Spanish query. The frozen `and-substring-v1` portal algorithm:
 
-- returns no results for nine of ten queries;
-- finds a judged resource for one query in the top ten;
-- places the official IRS EIN application fourth for `IRS EIN`; and
-- produces unrelated matches because `irs` can occur inside words such as `first` and `wheelchair`.
+- returns no results for fourteen of eighteen queries;
+- finds a judged resource for three queries in the top ten;
+- records mean Recall@10 of `0.0972` and mean reciprocal rank of `0.0814`; and
+- still produces unrelated matches because character substrings such as `ein` can occur inside unrelated words.
 
 These results are a baseline, not a release gate. The fixture is intentionally small and should grow through reviewed real-world questions, failure reports, and stratified coverage across collections.
 
-The active `weighted-lexical-v2` experiment normalizes query text, weights catalog fields, removes a small stop-word set, and applies reviewed ordinary-language concepts and exact aliases. On the same ten-query seed fixture it:
+The active `weighted-lexical-v2` experiment normalizes query text, weights catalog fields, removes a small stop-word set, and applies reviewed ordinary-language concepts and exact aliases. On the expanded fixture it:
 
-- returns results for all ten queries;
-- places at least one judged resource first for every query;
-- retrieves all 31 judged resource-query pairs in the top ten; and
-- records mean Recall@10 and mean reciprocal rank of `1.0` on this seed, while also surfacing eight of eleven explicitly judged known-irrelevant URL-query pairs in the top ten.
+- returns results for seventeen of eighteen queries;
+- places a judged resource in the top ten for eleven queries;
+- records mean Recall@10 of `0.5694` and mean reciprocal rank of `0.618`; and
+- surfaces fourteen of nineteen explicitly judged known-irrelevant URL-query pairs in the top ten.
 
-Those values describe this small, deliberately curated regression fixture only. They do not establish general search quality, comparative superiority, user outcomes, or safety. The eleven query-relative negative judgments are partial probes rather than an exhaustive labeling of the result set: an unmarked result is unjudged, not relevant or irrelevant. The suite still lacks graded relevance, multilingual queries, assessor agreement, and enough coverage to estimate general over-broad-result rates.
+Those values describe this small, deliberately curated regression fixture only. They do not establish general search quality, comparative superiority, user outcomes, or safety. The nineteen query-relative negative judgments are partial probes rather than an exhaustive labeling of the result set: an unmarked result is unjudged, not relevant or irrelevant. The suite now contains one Spanish query but still lacks meaningful multilingual coverage, graded relevance, assessor agreement, and enough cases to estimate general over-broad-result rates.
 
 The same versioned module exposes a deterministic query-decomposition record with matched intent IDs, explicit urgency signals, a conservative unresolved place or postal-code span, explicit access needs, and at most six inspectable subqueries. It also exposes opt-in per-result explanations that account for matched query and concept terms, every score-bearing field, exact-query and reviewed-priority boosts, original-term coverage, the coverage multiplier, the result threshold, and exclusion reasons. Ordinary portal search keeps the allocation-light scoring path; detailed evidence is generated only when requested. The evaluator verifies explanations for every top-ten result and persists the full breakdown for the first result per query so checkpoint diffs remain reviewable.
 
-The evaluator also ranks all 26 generated subqueries independently to depth ten and deduplicates their candidates with the original top ten. On this seed, decomposition increases the mean candidate pool to `16.8` resources—`7.7` additional candidates per case—but recovers no additional judged-relevant URLs and admits one additional known negative for `AO 240`. The original ranking already has Recall@10 of `1.0`, so this saturated fixture cannot demonstrate a positive recall gain; it can expose candidate cost and negative admissions. This result does not justify fusion, and decomposition still does not change portal result order.
+The evaluator also ranks all 36 generated subqueries independently to depth ten and deduplicates their candidates with the original top ten. On the expanded seed, decomposition produces a mean candidate pool of `13.3333` resources—`4.8889` additional candidates per case. It adds one judged-relevant candidate for the uninsured-doctor query and one known negative for `AO 240`. That creates measurable fusion headroom, but one positive case does not justify a portal ranking change; decomposition still does not change result order.
 
 The compiler does not infer a legal deadline, eligibility, geographic applicability, or an access constraint that the query did not state. Its initial signal vocabulary is English-only.
 
@@ -91,8 +91,8 @@ The committed report is a Git-versioned corpus checkpoint, not a generated ledge
 
 The next implementation should stress-test and explain the non-ML kernel before choosing an embedding model:
 
-1. expand the fixture across collections, short queries, ambiguous terms, additional known negatives, multilingual input, and cases where the original top ten leaves measurable recall headroom;
-2. define a no-fusion acceptance gate before testing reciprocal-rank or other fusion, requiring a relevant-candidate gain without unacceptable known-negative growth;
+1. obtain additional human review and expand the hard cohort across more collections, ambiguous terms, languages, and cases with measurable recall headroom;
+2. define a no-fusion acceptance gate before testing reciprocal-rank or other fusion, requiring relevant-candidate and ranking gains without unacceptable known-negative growth;
 3. record latency on low-end mobile hardware and transfer-size behavior;
 4. apply the documented license and artifact gate to any model selected for a semantic experiment; and
 5. preserve negative results and aliases that create unacceptable false positives.

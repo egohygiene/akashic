@@ -187,6 +187,150 @@
         "State that the IRS application itself is free.",
         "Do not route the user to a paid filing wrapper before the official source."
       ]
+    },
+    {
+      "id": "food-help-short",
+      "query": "food help",
+      "kind": "natural-language",
+      "rationale": "A short, underspecified need query should favor food-assistance pathways over unrelated food regulation or business material.",
+      "relevantUrls": [
+        "https://www.211.org/",
+        "https://www.usa.gov/emergency-food-assistance",
+        "https://www.feedingamerica.org/find-your-local-foodbank",
+        "https://www.fns.usda.gov/national-hunger-hotline"
+      ],
+      "knownIrrelevantUrls": [
+        "https://www.fda.gov/food/food-industry/how-start-food-business"
+      ],
+      "safetyInvariants": [
+        "Do not infer an immediate emergency or eligibility from the short query alone.",
+        "Prefer assistance navigation over food-business and regulatory material."
+      ]
+    },
+    {
+      "id": "federal-fee-waiver-compact-identifier",
+      "query": "AO240",
+      "kind": "exact-identifier",
+      "rationale": "A compact form-number variant should remain discoverable when the user omits the conventional space.",
+      "relevantUrls": [
+        "https://www.uscourts.gov/forms-rules/forms/fee-waiver-application-forms"
+      ],
+      "knownIrrelevantUrls": [
+        "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business"
+      ],
+      "safetyInvariants": [
+        "Do not imply that filing guarantees a waiver.",
+        "Do not replace an unmatched form identifier with unrelated general assistance."
+      ]
+    },
+    {
+      "id": "utility-heat-shutoff",
+      "query": "heat shutoff",
+      "kind": "natural-language",
+      "rationale": "A short utility-crisis phrase should reach energy-assistance and local-navigation resources without requiring a program name.",
+      "relevantUrls": [
+        "https://acf.gov/ocs/programs/liheap",
+        "https://www.usa.gov/help-with-utility-bills",
+        "https://neuac.org/state-utility-assistance/",
+        "https://www.211.org/"
+      ],
+      "knownIrrelevantUrls": [
+        "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations"
+      ],
+      "safetyInvariants": [
+        "Do not promise that an application, call, or program will prevent a shutoff.",
+        "Preserve state, tribal, territorial, local, eligibility, and currentness limits."
+      ]
+    },
+    {
+      "id": "uninsured-doctor",
+      "query": "I need a doctor but have no insurance",
+      "kind": "natural-language",
+      "rationale": "The query describes a care-access constraint without naming health centers, safety-net care, Medicaid, or the insurance marketplace.",
+      "relevantUrls": [
+        "https://findahealthcenter.hrsa.gov/",
+        "https://www.hrsa.gov/",
+        "https://www.healthcare.gov/",
+        "https://www.healthcare.gov/glossary/federally-qualified-health-center-fqhc/"
+      ],
+      "knownIrrelevantUrls": [
+        "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business"
+      ],
+      "safetyInvariants": [
+        "Do not imply that a clinic, plan, visit, or treatment is free, available, or guaranteed.",
+        "Distinguish care locators and safety-net education from insurance enrollment."
+      ]
+    },
+    {
+      "id": "implicit-dementia-caregiver",
+      "query": "mom has dementia and I need a break",
+      "kind": "natural-language",
+      "rationale": "Implicit caregiver language should reach respite and dementia-navigation resources without requiring the word caregiver.",
+      "relevantUrls": [
+        "https://www.alz.org/help-support",
+        "https://eldercare.acl.gov/"
+      ],
+      "knownIrrelevantUrls": [
+        "https://github.com/babybuddy/babybuddy"
+      ],
+      "safetyInvariants": [
+        "Do not diagnose the family member or infer the user's legal authority or care arrangement.",
+        "Distinguish information and local-service navigation from emergency or guaranteed respite care."
+      ]
+    },
+    {
+      "id": "spanish-food-today",
+      "query": "Necesito comida hoy",
+      "kind": "natural-language",
+      "rationale": "A common Spanish food-need query documents behavior outside the current English-only query vocabulary.",
+      "relevantUrls": [
+        "https://www.211.org/",
+        "https://www.usa.gov/emergency-food-assistance",
+        "https://www.feedingamerica.org/find-your-local-foodbank",
+        "https://www.fns.usda.gov/national-hunger-hotline"
+      ],
+      "knownIrrelevantUrls": [
+        "https://faq.usps.com/articles/FAQ/Pay-Print-and-Ship-Online"
+      ],
+      "safetyInvariants": [
+        "Do not present machine-derived wording or safety claims as human-reviewed Spanish guidance.",
+        "Do not imply that directory inclusion guarantees food availability or eligibility."
+      ]
+    },
+    {
+      "id": "ein-acronym-only",
+      "query": "EIN",
+      "kind": "exact-identifier",
+      "rationale": "The common acronym alone should prioritize the official application without depending on an agency-name prefix.",
+      "relevantUrls": [
+        "https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number"
+      ],
+      "knownIrrelevantUrls": [
+        "https://www.rcsb.org/"
+      ],
+      "safetyInvariants": [
+        "State that the IRS application itself is free.",
+        "Do not treat unrelated substring matches as identifier evidence."
+      ]
+    },
+    {
+      "id": "free-audio-editor-short",
+      "query": "free audio editor",
+      "kind": "natural-language",
+      "rationale": "A short capability query should retrieve actual no-cost audio editors rather than resources matching only the word free.",
+      "relevantUrls": [
+        "https://www.audacityteam.org/",
+        "https://www.ocenaudio.com/en/",
+        "https://audiomass.co/",
+        "https://tenacityaudio.org/"
+      ],
+      "knownIrrelevantUrls": [
+        "https://www.abafreelegalanswers.org/"
+      ],
+      "safetyInvariants": [
+        "Distinguish open-source applications, proprietary freeware, and browser-based tools.",
+        "Do not treat the word free by itself as evidence that a result satisfies the requested capability."
+      ]
     }
   ]
 }
