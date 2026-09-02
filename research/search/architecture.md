@@ -55,6 +55,12 @@ The compiler performs expensive work once:
 
 GitHub Actions can perform this work, but generated search artifacts should also be reproducible locally. Runtime correctness must not depend on a private build service.
 
+### License and artifact gate
+
+No external runtime, model, tokenizer, converted weights, or semantic index enters the published boundary from a project name or model-card tag alone. The [search license ledger](licenses.md) separates these components and keeps external candidates unapproved until a selecting PR records an immutable revision, exact files and checksums, license evidence, required notices, provenance limitations, conversion parameters, and an explicit hosting decision.
+
+Generated embeddings are artifacts with their own unresolved publication decision. The build must record the canonical input digest, model and tokenizer revisions, pooling and task-prefix rules, dimension, numeric representation, conversion or quantization tools, shard layout, and checksums. Akashic must not assume that its CC0 repository dedication, a permissive runtime license, or a model's declared license automatically determines the legal status of every generated vector or derivative file.
+
 ### Local query compiler
 
 The first query compiler should be deterministic. It can normalize text and derive a constrained record such as:

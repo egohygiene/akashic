@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "externalDefault": "not-approved",
+    "requireImmutableRevision": true,
+    "requireComponentCoverage": true,
+    "requireRedistributionNotices": true
+  },
+  "entries": [
+    {
+      "id": "akashic-search-source",
+      "name": "Akashic search source code",
+      "kind": "repository-code",
+      "status": "shipped",
+      "sourcePath": "site/search",
+      "sourceRevision": null,
+      "licenseSpdx": "CC0-1.0",
+      "licenseEvidence": "LICENSE",
+      "checked": "2026-09-02",
+      "coveredComponents": [
+        "lexical-algorithms",
+        "reviewed-concepts"
+      ],
+      "redistribution": "repository-license",
+      "obligations": [],
+      "blockers": [],
+      "notes": "The repository license covers Akashic-authored code; external resource names and trademarks remain with their owners."
+    },
+    {
+      "id": "akashic-search-evaluation-v1",
+      "name": "Akashic natural-language search evaluation v1",
+      "kind": "repository-dataset",
+      "status": "shipped",
+      "sourcePath": "research/search/evaluations/natural-language-v1.json",
+      "sourceRevision": null,
+      "licenseSpdx": "CC0-1.0",
+      "licenseEvidence": "LICENSE",
+      "checked": "2026-09-02",
+      "coveredComponents": [
+        "queries",
+        "relevance-judgments",
+        "safety-invariants"
+      ],
+      "redistribution": "repository-license",
+      "obligations": [],
+      "blockers": [],
+      "notes": "The fixture contains Akashic-authored judgments and links; it does not redistribute or relicense content from the linked sites."
+    },
+    {
+      "id": "akashic-search-result-checkpoints",
+      "name": "Akashic deterministic search result checkpoints",
+      "kind": "repository-artifact",
+      "status": "shipped",
+      "sourcePath": "research/search/results",
+      "sourceRevision": null,
+      "licenseSpdx": "CC0-1.0",
+      "licenseEvidence": "LICENSE",
+      "checked": "2026-09-02",
+      "coveredComponents": [
+        "input-digests",
+        "ranked-results",
+        "aggregate-metrics"
+      ],
+      "redistribution": "repository-license",
+      "obligations": [],
+      "blockers": [],
+      "notes": "The reports are deterministic Akashic artifacts and do not contain model weights, tokenizers, or mirrored third-party documents."
+    },
+    {
+      "id": "transformers-js-runtime",
+      "name": "Transformers.js",
+      "kind": "runtime",
+      "status": "candidate",
+      "sourceUrl": "https://github.com/huggingface/transformers.js",
+      "sourceRevision": null,
+      "licenseSpdx": "Apache-2.0",
+      "licenseEvidence": "https://github.com/huggingface/transformers.js/blob/main/LICENSE",
+      "checked": "2026-09-02",
+      "coveredComponents": [
+        "runtime-code"
+      ],
+      "redistribution": "not-approved",
+      "obligations": [
+        "preserve-license",
+        "preserve-notices",
+        "mark-modifications"
+      ],
+      "blockers": [
+        "Select and pin an immutable runtime release or commit.",
+        "Generate a complete transitive dependency and notice inventory.",
+        "Measure the dependency and transfer cost against a direct ONNX Runtime Web integration."
+      ],
+      "notes": "The runtime license does not license any separately downloaded model, tokenizer, or converted weight artifact."
+    },
+    {
+      "id": "onnx-runtime-web-runtime",
+      "name": "ONNX Runtime Web",
+      "kind": "runtime",
+      "status": "candidate",
+      "sourceUrl": "https://github.com/microsoft/onnxruntime",
+      "sourceRevision": null,
+      "licenseSpdx": "MIT",
+      "licenseEvidence": "https://github.com/microsoft/onnxruntime/blob/main/LICENSE",
+      "checked": "2026-09-02",
+      "coveredComponents": [
+        "runtime-code"
+      ],
+      "redistribution": "not-approved",
+      "obligations": [
+        "preserve-license",
+        "preserve-copyright"
+      ],
+      "blockers": [
+        "Select and pin an immutable runtime release or commit.",
+        "Inventory the exact WebAssembly, WebGPU, and auxiliary files that would be published.",
+        "Measure browser support and fallback behavior before adoption."
+      ],
+      "notes": "The runtime is independently licensed from every ONNX model and tokenizer it executes."
+    },
+    {
+      "id": "sqlite-vec-runtime",
+      "name": "sqlite-vec",
+      "kind": "runtime",
+      "status": "candidate",
+      "sourceUrl": "https://github.com/asg017/sqlite-vec",
+      "sourceRevision": null,
+      "licenseSpdx": "Apache-2.0 OR MIT",
+      "licenseEvidence": "https://github.com/asg017/sqlite-vec/blob/main/LICENSE-MIT",
+      "checked": "2026-09-02",
+      "coveredComponents": [
+        "extension-code"
+      ],
+      "redistribution": "not-approved",
+      "obligations": [
+        "record-selected-license",
+        "preserve-selected-license"
+      ],
+      "blockers": [
+        "Select one offered license and pin an immutable release or commit.",
+        "Inventory the SQLite and WebAssembly build inputs separately.",
+        "Demonstrate a measured need beyond exhaustive typed-array search."
+      ],
+      "notes": "This is a future comparison only; the architecture currently prefers a flat index. The repository also publishes LICENSE-APACHE."
+    },
+    {
+      "id": "webllm-runtime",
+      "name": "WebLLM",
+      "kind": "runtime",
+      "status": "candidate",
+      "sourceUrl": "https://github.com/mlc-ai/web-llm",
+      "sourceRevision": null,
+      "licenseSpdx": "Apache-2.0",
+      "licenseEvidence": "https://github.com/mlc-ai/web-llm/blob/main/LICENSE",
+      "checked": "2026-09-02",
+      "coveredComponents": [
+        "runtime-code"
+      ],
+      "redistribution": "not-approved",
+      "obligations": [
+        "preserve-license",
+        "preserve-notices",
+        "mark-modifications"
+      ],
+      "blockers": [
+        "Keep local generation outside the semantic-retrieval experiment.",
+        "Select and pin an immutable runtime revision only if the optional Navigator reaches evaluation.",
+        "Review every separately distributed model and compiled artifact."
+      ],
+      "notes": "A permissive runtime license does not approve any model offered through a runtime registry."
+    },
+    {
+      "id": "all-minilm-l6-v2-model",
+      "name": "sentence-transformers/all-MiniLM-L6-v2",
+      "kind": "embedding-model",
+      "status": "candidate",
+      "sourceUrl": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+      "sourceRevision": null,
+      "licenseSpdx": "Apache-2.0",
+      "licenseEvidence": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+      "checked": "2026-09-02",
+      "coveredComponents": [
+        "configuration",
+        "model-weights",
+        "tokenizer",
+        "repository-provided-onnx"
+      ],
+      "redistribution": "not-approved",
+      "obligations": [
+        "preserve-license",
+        "preserve-notices",
+        "mark-modifications"
+      ],
+      "blockers": [
+        "Pin one immutable model revision and an exact file manifest.",
+        "Review the disclosed multi-dataset training provenance and limitations independently from the repository-level model license.",
+        "Verify conversion provenance, numerical equivalence, tokenizer behavior, and browser transfer size.",
+        "Use it only as a full-dimension baseline because the model card does not claim Matryoshka-trained prefixes."
+      ],
+      "notes": "The model card declares Apache-2.0 and 384-dimensional embeddings, but its disclosed training mixture contains many separately governed datasets."
+    },
+    {
+      "id": "nomic-embed-text-v1-5-model",
+      "name": "nomic-ai/nomic-embed-text-v1.5",
+      "kind": "embedding-model",
+      "status": "candidate",
+      "sourceUrl": "https://huggingface.co/nomic-ai/nomic-embed-text-v1.5",
+      "sourceRevision": null,
+      "licenseSpdx": "Apache-2.0",
+      "licenseEvidence": "https://huggingface.co/nomic-ai/nomic-embed-text-v1.5",
+      "checked": "2026-09-02",
+      "coveredComponents": [
+        "configuration",
+        "model-weights",
+        "tokenizer",
+        "repository-provided-onnx"
+      ],
+      "redistribution": "not-approved",
+      "obligations": [
+        "preserve-license",
+        "preserve-notices",
+        "mark-modifications"
+      ],
+      "blockers": [
+        "Pin one immutable model revision and an exact file manifest.",
+        "Audit or eliminate remote custom code before executing the model in a build.",
+        "Review the model data card and training-data provenance separately from the model repository license.",
+        "Verify task prefixes, Matryoshka truncation, conversion provenance, numerical equivalence, and browser transfer size."
+      ],
+      "notes": "The model card declares Apache-2.0, Transformers.js usage, and Matryoshka truncation; those facts make it a candidate, not an approved dependency."
+    },
+    {
+      "id": "bge-small-en-v1-5-model",
+      "name": "BAAI/bge-small-en-v1.5",
+      "kind": "embedding-model",
+      "status": "candidate",
+      "sourceUrl": "https://huggingface.co/BAAI/bge-small-en-v1.5",
+      "sourceRevision": null,
+      "licenseSpdx": "MIT",
+      "licenseEvidence": "https://huggingface.co/BAAI/bge-small-en-v1.5",
+      "checked": "2026-09-02",
+      "coveredComponents": [
+        "configuration",
+        "model-weights",
+        "tokenizer",
+        "repository-provided-onnx"
+      ],
+      "redistribution": "not-approved",
+      "obligations": [
+        "preserve-license",
+        "preserve-copyright"
+      ],
+      "blockers": [
+        "Pin one immutable model revision and an exact file manifest.",
+        "Review training-data provenance and documented limitations separately from the released-model license.",
+        "Verify the repository-provided ONNX artifact, tokenizer behavior, numerical equivalence, and browser transfer size.",
+        "Treat it as a compact full-dimension baseline unless prefix truncation is supported by primary model documentation."
+      ],
+      "notes": "The model card declares the released model under MIT and includes ONNX files, but no artifact is approved for Akashic yet."
+    }
+  ]
+}

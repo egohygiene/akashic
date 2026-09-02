@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "suite": "akashic-natural-language-v1",
   "searchAlgorithm": "weighted-lexical-v2",
-  "catalogResourceCount": 4849,
+  "catalogResourceCount": 5112,
   "inputs": {
-    "catalogSha256": "2d4764a0dfdc57fc0051723c754e01ef74d91482b7f33900a322cc4b6aeaca31",
+    "catalogSha256": "bfda968cbf5ac6f66282afa99042b77bb63b8eb57683a41b07968c2580a07b55",
     "fixtureSha256": "dd20a3342f06cdc097972977e1beb7a10b2506330fbfa48352e4bab6ec71126a",
     "implementationSha256": "abf1a8d97657ada5816ccab0542eb05bf07d92489f3b5fa3eff41360b7df1485"
   },
@@ -21,7 +21,7 @@
       "id": "food-today",
       "query": "I need food today",
       "kind": "natural-language",
-      "resultCount": 94,
+      "resultCount": 97,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -120,7 +120,7 @@
       "id": "eviction-notice-no-money",
       "query": "I have no money and my landlord says I need to leave Friday",
       "kind": "natural-language",
-      "resultCount": 179,
+      "resultCount": 185,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -219,7 +219,7 @@
       "id": "free-music-production",
       "query": "How can I make music without paying Adobe or another subscription",
       "kind": "natural-language",
-      "resultCount": 245,
+      "resultCount": 258,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -318,7 +318,7 @@
       "id": "creative-business-taxes",
       "query": "I want to sell my art but do not understand taxes or business structures",
       "kind": "natural-language",
-      "resultCount": 372,
+      "resultCount": 391,
       "relevantCount": 3,
       "relevantFoundAtK": 3,
       "recallAtK": 1,
@@ -328,11 +328,11 @@
         1,
         2,
         3,
-        44,
-        90,
-        113,
-        114,
-        182
+        46,
+        95,
+        118,
+        119,
+        188
       ],
       "topResults": [
         {
@@ -421,7 +421,7 @@
       "id": "court-paper",
       "query": "I received a court paper and do not know what it means",
       "kind": "natural-language",
-      "resultCount": 274,
+      "resultCount": 275,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -520,7 +520,7 @@
       "id": "safe-travel-without-car",
       "query": "How can I travel somewhere safe without a car",
       "kind": "natural-language",
-      "resultCount": 434,
+      "resultCount": 436,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -619,7 +619,7 @@
       "id": "subscription-old-laptop",
       "query": "What can replace this subscription on an old laptop",
       "kind": "natural-language",
-      "resultCount": 72,
+      "resultCount": 76,
       "relevantCount": 2,
       "relevantFoundAtK": 2,
       "recallAtK": 1,
@@ -716,7 +716,7 @@
       "id": "vpn-renewal-no-income",
       "query": "I cannot afford my VPN renewal and have no income",
       "kind": "natural-language",
-      "resultCount": 255,
+      "resultCount": 268,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -771,6 +771,14 @@
         },
         {
           "rank": 6,
+          "title": "NAMI: Responding to a Loved One in the Face of Uncertainty",
+          "url": "https://www.nami.org/Blogs/NAMI-Blog/June-2019/Psychosis-Responding-to-a-Loved-One-in-the-Face-of-Uncertainty",
+          "collection": "Claims, Conspiracies, and Epistemic Navigation",
+          "topic": "Distress, Paranoia, and Safer Support",
+          "relevant": false
+        },
+        {
+          "rank": 7,
           "title": "Setting the Time Zone in a Docker Container",
           "url": "https://stackoverflow.com/questions/57607381/how-do-i-change-timezone-in-a-docker-container",
           "collection": "Containers and Cloud",
@@ -778,7 +786,7 @@
           "relevant": false
         },
         {
-          "rank": 7,
+          "rank": 8,
           "title": "Running Cron in a Docker Container",
           "url": "https://stackoverflow.com/questions/37015624/how-to-run-a-cron-job-inside-a-docker-container",
           "collection": "Containers and Cloud",
@@ -786,7 +794,7 @@
           "relevant": false
         },
         {
-          "rank": 8,
+          "rank": 9,
           "title": "Security in a Box",
           "url": "https://securityinabox.org/en/",
           "collection": "Dark Web, Deep Web, and Anonymous Networks",
@@ -794,19 +802,11 @@
           "relevant": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "title": "HRSA Find a Health Center",
           "url": "https://findahealthcenter.hrsa.gov/",
           "collection": "Public Services and Support",
           "topic": "Health Care and Medication",
-          "relevant": false
-        },
-        {
-          "rank": 10,
-          "title": "DOL Filing a Claim for Your Health Benefits",
-          "url": "https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/publications/filing-a-claim-for-your-health-benefits",
-          "collection": "Legal Help and Law",
-          "topic": "Disability, Health Care, and Education Rights",
           "relevant": false
         }
       ]
@@ -839,7 +839,7 @@
       "id": "irs-ein",
       "query": "IRS EIN",
       "kind": "exact-identifier",
-      "resultCount": 44,
+      "resultCount": 45,
       "relevantCount": 1,
       "relevantFoundAtK": 1,
       "recallAtK": 1,
