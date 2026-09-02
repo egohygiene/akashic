@@ -10,6 +10,7 @@ on:
       - "research/search/**"
       - "scripts/build-site.mjs"
       - "scripts/check-site.mjs"
+      - "scripts/compare-search-results.mjs"
       - "scripts/evaluate-search.mjs"
       - "site/app.js"
       - "site/search.js"
@@ -23,6 +24,7 @@ on:
       - "research/search/**"
       - "scripts/build-site.mjs"
       - "scripts/check-site.mjs"
+      - "scripts/compare-search-results.mjs"
       - "scripts/evaluate-search.mjs"
       - "site/app.js"
       - "site/search.js"
@@ -66,6 +68,8 @@ jobs:
           node --check site/search/and-substring-v1.js
           node --check site/search/concepts-v1.js
           node --check site/search/weighted-lexical-v2.js
+          node --check research/search/algorithms/decomposition-rrf-v1.js
+          node --check scripts/compare-search-results.mjs
           node --check scripts/evaluate-search.mjs
           node --check scripts/lib/search-licenses.mjs
           node --check scripts/check-site.mjs
@@ -85,3 +89,9 @@ jobs:
 
       - name: Verify active lexical experiment
         run: node scripts/evaluate-search.mjs --algorithm site/search/weighted-lexical-v2.js --verify research/search/results/weighted-lexical-v2.json
+
+      - name: Verify decomposition fusion experiment
+        run: node scripts/evaluate-search.mjs --algorithm research/search/algorithms/decomposition-rrf-v1.js --verify research/search/results/decomposition-rrf-v1.json
+
+      - name: Verify fusion acceptance decision
+        run: node scripts/compare-search-results.mjs --baseline research/search/results/weighted-lexical-v2.json --candidate research/search/results/decomposition-rrf-v1.json --gate research/search/evaluations/fusion-no-harm-v1.json --verify research/search/results/decomposition-rrf-v1-decision.json

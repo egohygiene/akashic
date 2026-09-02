@@ -32,6 +32,10 @@ The same versioned module exposes a deterministic query-decomposition record wit
 
 The evaluator also ranks all 36 generated subqueries independently to depth ten and deduplicates their candidates with the original top ten. On the expanded seed, decomposition produces a mean candidate pool of `13.3333` resources—`4.8889` additional candidates per case. It adds one judged-relevant candidate for the uninsured-doctor query and one known negative for `AO 240`. That creates measurable fusion headroom, but one positive case does not justify a portal ranking change; decomposition still does not change result order.
 
+The first fusion experiment, `decomposition-rrf-v1`, combines the original-query and distinct decomposition rankings with reciprocal rank fusion at depth ten and the conventional rank constant `60`. Its explanation record identifies every contributing query, input rank, reciprocal-rank contribution, and underlying lexical match evidence. Before running it, `fusion-no-harm-v1` fixed ten acceptance checks: at least one new case with relevant results in the top ten; no loss in mean recall or mean reciprocal rank; no added zero-result case; no lost previously successful case; no first-relevant-rank or exact-identifier regression; and no aggregate or per-case growth in observed known negatives.
+
+The candidate did not clear that gate. It raises cases with a judged-relevant result in the top ten from eleven to twelve by recovering the uninsured-doctor case at rank six, raises mean Recall@10 from `0.5694` to `0.5833`, and lowers observed known-negative hits from fourteen to eleven. However, mean reciprocal rank falls from `0.6180` to `0.5926`; three first-relevant ranks regress, including the acronym-only exact-identifier case; and the federal fee-waiver form-number case gains a known-negative result in the top ten. The committed decision therefore keeps `weighted-lexical-v2` active. This is a result on the small seed fixture, not evidence that reciprocal rank fusion is generally harmful.
+
 The compiler does not infer a legal deadline, eligibility, geographic applicability, or an access constraint that the query did not state. Its initial signal vocabulary is English-only.
 
 Portal queries now remain ephemeral and local by default. Ordinary search actions never write a question to the URL, browser history state, or storage. An explicit copy action creates a fragment-encoded search link, and the receiving page consumes and sanitizes that fragment after rendering. Legacy `?q=` links remain a read-only compatibility input. This improves the local trust boundary without claiming that a deliberately copied link, device screen, or recipient is private.
@@ -48,10 +52,15 @@ research/search/
 ├── licenses.json
 ├── licenses.md
 ├── references.md
+├── algorithms/
+│   └── decomposition-rrf-v1.js
 ├── evaluations/
+│   ├── fusion-no-harm-v1.json
 │   └── natural-language-v1.json
 └── results/
     ├── and-substring-v1.json
+    ├── decomposition-rrf-v1-decision.json
+    ├── decomposition-rrf-v1.json
     └── weighted-lexical-v2.json
 ```
 
@@ -59,8 +68,9 @@ research/search/
 - `references.md` explains why each source matters and distinguishes papers, preprints, specifications, and software.
 - `licenses.md` records the distribution boundary and approval gate; `licenses.json` is its machine-validated asset ledger.
 - `architecture.md` records the current system hypothesis, progressive capability contract, trust boundaries, and experiment order.
+- `algorithms/` contains research candidates that are not deployed by the portal.
 - `evaluations/` contains human-reviewed query fixtures rather than generated claims.
-- `results/` contains deterministic reports created by the evaluation runner.
+- `results/` contains deterministic evaluation and acceptance-decision reports.
 
 ## Reproduce the Checkpoints
 
@@ -71,6 +81,8 @@ node scripts/build-site.mjs
 node scripts/validate-search-licenses.mjs
 node scripts/evaluate-search.mjs --verify research/search/results/and-substring-v1.json
 node scripts/evaluate-search.mjs --algorithm site/search/weighted-lexical-v2.js --verify research/search/results/weighted-lexical-v2.json
+node scripts/evaluate-search.mjs --algorithm research/search/algorithms/decomposition-rrf-v1.js --verify research/search/results/decomposition-rrf-v1.json
+node scripts/compare-search-results.mjs --baseline research/search/results/weighted-lexical-v2.json --candidate research/search/results/decomposition-rrf-v1.json --gate research/search/evaluations/fusion-no-harm-v1.json --verify research/search/results/decomposition-rrf-v1-decision.json
 ```
 
 Optional runner arguments are `--algorithm`, `--catalog`, `--fixture`, `--output`, `--verify`, and `--top-k`. A report identifies its catalog, fixture, and exact algorithm source with SHA-256 digests and intentionally omits a timestamp so unchanged inputs and an unchanged versioned algorithm produce an unchanged file. The repository declares Node.js 20 or newer so the browser and runner can share ECMAScript modules without environment-dependent syntax detection. `and-substring-v1` is frozen; a new search implementation receives a new module, algorithm ID, and result file.
@@ -91,11 +103,11 @@ The committed report is a Git-versioned corpus checkpoint, not a generated ledge
 
 ## Next Experiment
 
-The next implementation should stress-test and explain the non-ML kernel before choosing an embedding model:
+The next implementation should strengthen the evidence and runtime measurements before choosing an embedding model:
 
 1. obtain additional human review and expand the hard cohort across more collections, ambiguous terms, languages, and cases with measurable recall headroom;
-2. define a no-fusion acceptance gate before testing reciprocal-rank or other fusion, requiring relevant-candidate and ranking gains without unacceptable known-negative growth;
-3. record latency on low-end mobile hardware and transfer-size behavior;
+2. record latency on representative low-end mobile hardware and first-load/repeat-load transfer behavior;
+3. investigate whether exact-query preservation or another simple fusion variant can address the recorded regressions, but only against the unchanged acceptance gate and a larger reviewed fixture;
 4. apply the documented license and artifact gate to any model selected for a semantic experiment; and
 5. preserve negative results and aliases that create unacceptable false positives.
 

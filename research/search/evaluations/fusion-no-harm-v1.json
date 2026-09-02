@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "fusion-no-harm-v1",
+  "description": "Require measurable top-k relevance improvement without losing an existing success, worsening a first relevant rank, or increasing observed known-negative exposure.",
+  "baselineAlgorithm": "weighted-lexical-v2",
+  "candidateAlgorithm": "decomposition-rrf-v1",
+  "requirements": {
+    "minimumCasesWithRelevantAtKGain": 1,
+    "minimumMeanRecallAtKGain": 0,
+    "minimumMeanReciprocalRankGain": 0,
+    "maximumZeroResultCountIncrease": 0,
+    "maximumKnownIrrelevantFoundAtKIncrease": 0,
+    "maximumCasesWithKnownIrrelevantAtKIncrease": 0,
+    "maximumRelevantCaseLosses": 0,
+    "maximumFirstRelevantRankRegressions": 0,
+    "maximumExactIdentifierRankRegressions": 0,
+    "maximumKnownIrrelevantCaseIncreases": 0
+  }
+}
