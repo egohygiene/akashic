@@ -6,7 +6,26 @@ import process from "node:process";
 if (process.argv.length > 2) throw new Error("The intelligence check accepts no arguments.");
 
 const intelligenceDirectory = path.join(process.cwd(), "dist", "intelligence");
-const expectedFiles = ["explorer.js", "index.html", "provenance.json", "styles.css", "summary.json"];
+const expectedFiles = [
+  "compare",
+  "dashboard",
+  "decisions",
+  "dependencies",
+  "explorer.js",
+  "health",
+  "index.html",
+  "journey",
+  "now",
+  "provenance.json",
+  "releases",
+  "roadmap",
+  "search",
+  "site.css",
+  "site.js",
+  "styles.css",
+  "summary.json",
+  "work"
+];
 const generatedFiles = (await readdir(intelligenceDirectory, { withFileTypes: true }))
   .map((entry) => entry.name)
   .sort();
@@ -46,12 +65,12 @@ if (
 
 if (
   provenance.generator?.name !== "egohygiene/relay/actions/repository-intelligence"
-  || provenance.generator?.version !== "1.1.0"
+  || provenance.generator?.version !== "1.3.0"
   || provenance.generator?.repository !== "egohygiene/relay"
   || provenance.generator?.immutable !== true
   || provenance.generator?.source_ref !== provenance.generator?.source_commit
 ) {
-  throw new Error("The repository intelligence generator provenance is not the immutable Relay v1.1 package.");
+  throw new Error("The repository intelligence generator provenance is not the immutable Relay v1.3 package.");
 }
 
 if (
@@ -62,4 +81,4 @@ if (
   throw new Error("The repository intelligence bundle is not approved for Akashic Pages composition.");
 }
 
-console.log("Verified the immutable, public-safe Relay v1.1 intelligence bundle for Akashic.");
+console.log("Verified the immutable, public-safe Relay v1.3 intelligence bundle for Akashic.");
