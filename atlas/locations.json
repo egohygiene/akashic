@@ -24,6 +24,18 @@
           "resourceId": "usa-gov-local-governments",
           "section": "Government and civic life",
           "role": "index"
+        },
+        {
+          "resourceId": "cftc-check-registration-backgrounds",
+          "section": "Money, taxes, and consumer protection"
+        },
+        {
+          "resourceId": "fincen-msb-registrant-search",
+          "section": "Money, taxes, and consumer protection"
+        },
+        {
+          "resourceId": "irs-digital-assets",
+          "section": "Money, taxes, and consumer protection"
         }
       ]
     },
@@ -43,6 +55,10 @@
         {
           "resourceId": "california-privacy-protection-agency",
           "section": "Government, legal, and civic life"
+        },
+        {
+          "resourceId": "california-dfpi-crypto-scam-tracker",
+          "section": "Money, taxes, and consumer protection"
         }
       ]
     },
@@ -97,6 +113,10 @@
           "resourceId": "mass-legal-help",
           "section": "Government, legal, and civic life",
           "role": "index"
+        },
+        {
+          "resourceId": "massachusetts-beware-cryptocurrency-scams",
+          "section": "Money, taxes, and consumer protection"
         }
       ]
     },

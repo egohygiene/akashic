@@ -8,6 +8,7 @@ export const CATEGORY_IDENTITIES = Object.freeze({
   "commerce-and-marketplaces": { color: "#c74b6f", glyph: "◧" },
   "containers-and-cloud": { color: "#0b877f", glyph: "◌" },
   "creative-resources": { color: "#c9542d", glyph: "△" },
+  "cryptocurrency-and-digital-assets": { color: "#9a6723", glyph: "¤" },
   "dark-web-deep-web-and-anonymous-networks": { color: "#39456e", glyph: "◑" },
   "design-systems-and-branding": { color: "#16827d", glyph: "◩" },
   "developer-tools": { color: "#508c32", glyph: "◇" },

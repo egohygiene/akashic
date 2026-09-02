@@ -25,6 +25,7 @@
 - [Commerce and Marketplaces](lists/commerce-and-marketplaces/README.md) - Shopping discovery, independent marketplaces, creator storefronts, custom products, print-on-demand, manufacturing, wholesale, payments, and fulfillment. **214 resources.**
 - [Containers and Cloud](lists/containers-and-cloud/README.md) - Containers, Docker, deployment, storage, runtimes, and reproducible infrastructure. **228 resources.**
 - [Creative Resources](lists/creative-resources/README.md) - Audio, music, 3D assets, image processing, video, and visualization. **52 resources.**
+- [Cryptocurrency and Digital Assets](lists/cryptocurrency-and-digital-assets/README.md) - Education, protocols, custody, exchanges, explorers, security, regulation, research, and open-source tooling without speculative financial guidance. **66 resources.**
 - [Dark Web, Deep Web, and Anonymous Networks](lists/dark-web-deep-web-and-anonymous-networks/README.md) - Safety-first orientation, anonymous networks, protected publishing, ethical research, defensive intelligence, and harm reporting. **112 resources.**
 - [Design Systems and Branding](lists/design-systems-and-branding/README.md) - Design-system foundations, public implementations, design tokens, governance, accessibility, brand guidelines, content standards, and identity references. **96 resources.**
 - [Developer Tools](lists/developer-tools/README.md) - Application development, databases, documentation, knowledge management, shell environments, and developer utilities. **161 resources.**
