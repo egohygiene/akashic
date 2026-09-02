@@ -50,6 +50,7 @@ site/                        ← dependency-free portal source
   i18n/                     ← locale registry and message catalogs
 docs/localization.md         ← locale architecture and review workflow
 docs/navigation.md           ← need-first paths, collection guides, and search conventions
+docs/resource-metadata.md    ← stable IDs, access constraints, and review provenance
 test/                        ← dependency-free parser and schema tests
 ```
 
@@ -84,6 +85,8 @@ Use this format:
 ```markdown
 - [Resource Name](https://example.com) - Concise description ending with proper punctuation.
 ```
+
+New entries should add a stable `id` and appropriate access, authority, scope, and review fields in a trailing `akashic-meta` JSON comment. Atlas cross-posts and volatile or sensitive resources require explicit identity and metadata. Existing entries are migrated incrementally; do not mass-edit the catalog. Follow [Stable resource identity and metadata](docs/resource-metadata.md) for the format, controlled values, and URL-change workflow.
 
 Entries should follow these rules:
 
@@ -155,4 +158,4 @@ Need-first paths and search aliases must reuse canonical catalog fields instead 
 
 ## Removing or Updating a Resource
 
-Resources may be updated or removed when they become unavailable, abandoned, misleading, unsafe, or no longer exceptional. Include the reason for the change so the decision is easy to understand later. Remember to update every affected count after removing an entry.
+Resources may be updated or removed when they become unavailable, abandoned, misleading, unsafe, or no longer exceptional. Include the reason for the change so the decision is easy to understand later. A canonical URL change must preserve an explicit resource ID and record the former URL in `aliases` so saved resources and Atlas associations survive. Remember to update every affected count after removing an entry.

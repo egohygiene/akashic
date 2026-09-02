@@ -96,7 +96,7 @@ When a stronger canonical representation exists, update or migrate the existing 
 Use one resource per line:
 
 ```markdown
-- [Resource Name](https://example.com/) - Concise factual description ending with punctuation.
+- [Resource Name](https://example.com/) - Concise factual description ending with punctuation. <!-- akashic-meta: {"id":"resource-name","resourceType":"website","role":"reference","authority":"official","access":["free"],"geography":["global"],"language":["en"],"platform":["web"],"account":"none","license":"proprietary","status":"active","volatility":"low","reviewTier":"annual"} -->
 ```
 
 Each entry must:
@@ -107,6 +107,20 @@ Each entry must:
 - Avoid marketing language, unsupported superlatives, and vague phrases such as "a useful site."
 - Disclose meaningful constraints such as paid access, trials, account requirements, institutional eligibility, regional scope, archival status, or experimental maturity.
 - End with terminal punctuation.
+
+### Stable identity and structured metadata
+
+Every resource newly added by an agent must include a trailing `akashic-meta` JSON comment with an explicit stable `id` and the applicable controlled metadata from [`docs/resource-metadata.md`](docs/resource-metadata.md). This is mandatory even though legacy unannotated entries remain supported during incremental migration.
+
+- Choose a descriptive repository-owned ID made of lowercase letters, numbers, and single hyphens. Search the repository and generated catalog before choosing it; IDs are globally unique.
+- Treat the ID as permanent. Never derive a new ID because a title, owner, or canonical URL changes, and never recycle an ID from a removed resource.
+- When a canonical URL changes, keep the ID, move the old HTTP(S) URL into `aliases`, and update the Markdown link. Do not put the current URL in `aliases`.
+- Use only documented fields and controlled values. Record access, geography, language, platform, account, license, status, volatility, and review cadence when they apply; add sensitive scopes for medical, legal, financial, emergency, privacy, security, crisis, youth, or dual-use material.
+- Keep `reviewed` (human truth review) distinct from `linkStatus` and `linkChecked` (machine-observable availability). Never infer one from the other.
+- Give any main-catalog resource referenced by Atlas an explicit ID, and reference it from `atlas/locations.json` with `resourceId`, never by canonical URL.
+- Do not mass-backfill untouched legacy entries. Add explicit metadata when creating, reviewing, moving, or materially updating a resource.
+
+Before an agent proposes or updates a pull request containing resources, it must run `node scripts/validate-collection.mjs`, `node --test`, the pinned Awesome Lint wrapper for every affected list, `node scripts/build-site.mjs`, and `node scripts/check-site.mjs`. A resource addition is incomplete if identity or metadata validation fails.
 
 ### Placement and ordering
 
@@ -180,6 +194,7 @@ Do not introduce a second manually maintained catalog. If the portal needs new m
 
 Each resource must retain its:
 
+- Stable ID, former-URL aliases, and structured metadata.
 - Title, canonical URL, and description.
 - Domain.
 - Collection title and slug.

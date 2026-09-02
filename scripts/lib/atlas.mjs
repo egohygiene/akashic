@@ -1,5 +1,5 @@
 export function validateAtlasHierarchy(hierarchy) {
-  if (hierarchy.schemaVersion !== 1 || !Array.isArray(hierarchy.locations)) throw new Error("Unsupported atlas location schema.");
+  if (hierarchy.schemaVersion !== 2 || !Array.isArray(hierarchy.locations)) throw new Error("Unsupported atlas location schema.");
   const locationById = new Map(hierarchy.locations.map((location) => [location.id, location]));
   if (locationById.size !== hierarchy.locations.length) throw new Error("The atlas contains duplicate location IDs.");
   if (!locationById.has(hierarchy.rootId)) throw new Error("The atlas root location does not exist.");

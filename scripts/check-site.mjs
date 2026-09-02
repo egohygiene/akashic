@@ -2,6 +2,7 @@ import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { loadLocales, localePagePath } from "./lib/i18n.mjs";
+import { validateResourceIdentities, validateResourceMetadata } from "./lib/resource-metadata.mjs";
 
 const output = path.join(process.cwd(), "dist");
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
@@ -13,12 +14,12 @@ const rankedCounts = (values, limit = Infinity) => {
     .sort((left, right) => right.count - left.count || left.name.localeCompare(right.name))
     .slice(0, limit);
 };
-for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "ru/index.html", "ru/dashboard.html", "ru/atlas.html", "styles.css", "dashboard.css", "atlas.css", "app.js", "dashboard.js", "needs.js", "search.js", "search/and-substring-v1.js", "search/concepts-v1.js", "search/weighted-lexical-v2.js", "mind-map.js", "atlas.js", "i18n.js", "i18n/locales.json", "i18n/en.json", "i18n/ru.json", "assets/favicon.svg", "data/catalog.json", "data/overview.json", "data/funding.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
+for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "ru/index.html", "ru/dashboard.html", "ru/atlas.html", "styles.css", "dashboard.css", "atlas.css", "app.js", "favorites.js", "catalog-metadata.js", "dashboard.js", "needs.js", "search.js", "search/and-substring-v1.js", "search/concepts-v1.js", "search/weighted-lexical-v2.js", "mind-map.js", "atlas.js", "i18n.js", "i18n/locales.json", "i18n/en.json", "i18n/ru.json", "assets/favicon.svg", "data/catalog.json", "data/overview.json", "data/funding.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
   await access(path.join(output, relativePath));
 }
 
 const atlas = JSON.parse(await readFile(path.join(output, "data/atlas.json"), "utf8"));
-if (atlas.schemaVersion !== 1) throw new Error("Unsupported atlas schema.");
+if (atlas.schemaVersion !== 2) throw new Error("Unsupported atlas schema.");
 if (!Array.isArray(atlas.locations) || atlas.locations.length !== atlas.locationCount) throw new Error("The atlas location count is inconsistent.");
 if (!Array.isArray(atlas.resources) || atlas.resources.length !== atlas.resourceCount) throw new Error("The atlas resource count is inconsistent.");
 const locations = new Map(atlas.locations.map((location) => [location.id, location]));
@@ -39,7 +40,7 @@ for (const location of atlas.locations) {
 const atlasUrls = atlas.resources.map((resource) => resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, ""));
 if (new Set(atlasUrls).size !== atlasUrls.length) throw new Error("The atlas contains duplicate normalized URLs.");
 for (const resource of atlas.resources) {
-  if (!resource.title || !resource.description || !resource.domain || !resource.section || !resource.locationId || !resource.source) throw new Error(`Incomplete atlas resource: ${resource.url}`);
+  if (!resource.id || !resource.title || !resource.description || !resource.domain || !resource.section || !resource.locationId || !resource.source) throw new Error(`Incomplete atlas resource: ${resource.url}`);
   if (!["resource", "index"].includes(resource.role)) throw new Error(`Unsupported atlas role: ${resource.role}`);
   if (!locations.has(resource.locationId)) throw new Error(`Atlas resource has unknown location: ${resource.url}`);
   new URL(resource.url);
@@ -55,6 +56,7 @@ for (const theme of themes.themes) {
 }
 
 const catalog = JSON.parse(await readFile(path.join(output, "data/catalog.json"), "utf8"));
+if (catalog.schemaVersion !== 2) throw new Error("Unsupported catalog schema.");
 if (!Array.isArray(catalog.categories) || catalog.categories.length < 1) throw new Error("The catalog has no categories.");
 if (!Array.isArray(catalog.resources) || catalog.resources.length < 1) throw new Error("The catalog has no resources.");
 if (catalog.resourceCount !== catalog.resources.length) throw new Error("The catalog resource count is inconsistent.");
@@ -90,11 +92,14 @@ if (catalog.categories.filter((category) => category.guide).length < 3) throw ne
 const urls = catalog.resources.map((resource) => resource.url.toLocaleLowerCase().replace(/\/$/, ""));
 if (new Set(urls).size !== urls.length) throw new Error("The catalog contains duplicate normalized URLs.");
 for (const resource of catalog.resources) {
-  if (!resource.title || !resource.description || !resource.category || !resource.section || !resource.source || resource.groupSlug === undefined) throw new Error(`Incomplete resource: ${resource.url}`);
+  if (!resource.id || !["explicit", "derived"].includes(resource.idOrigin) || !Array.isArray(resource.aliases) || !resource.metadata || !resource.title || !resource.description || !resource.category || !resource.section || !resource.source || !Number.isInteger(resource.sourceLine) || resource.groupSlug === undefined) throw new Error(`Incomplete resource: ${resource.url}`);
   if (!Array.isArray(resource.accessLabels)) throw new Error(`Resource access labels are invalid: ${resource.url}`);
   if (resource.accessLabels.some((label) => !label || /[*_]/.test(label))) throw new Error(`Resource access label contains Markdown: ${resource.url}`);
+  validateResourceMetadata({ id: resource.idOrigin === "explicit" ? resource.id : undefined, aliases: resource.aliases.length ? resource.aliases : undefined, ...resource.metadata }, resource.source);
   new URL(resource.url);
 }
+validateResourceIdentities(catalog.resources);
+if (!catalog.resources.some((resource) => resource.idOrigin === "explicit" && Object.keys(resource.metadata).length)) throw new Error("The catalog has no explicitly structured resource metadata.");
 const creativeTools = catalog.resources.filter((resource) => resource.groupSlug === "creative-tools-and-production");
 if (!creativeTools.length || creativeTools.some((resource) => /^\*\*/.test(resource.description))) throw new Error("Creative Tools access labels were not structurally extracted.");
 
@@ -170,17 +175,18 @@ for (const locale of locales.locales) {
 }
 
 const homeHtml = await readFile(path.join(output, "index.html"), "utf8");
-for (const marker of ["need-paths", "overview-preview", "overview-preview-metrics", "overview-distribution-donut", "overview-collection-bars", "collection-guide", "catalog-branch-select", "catalog-topic-select", "empty-suggestions"]) {
+for (const marker of ["need-paths", "overview-preview", "overview-preview-metrics", "overview-distribution-donut", "overview-collection-bars", "collection-guide", "catalog-branch-select", "catalog-topic-select", "metadata-filters", "metadata-filter-grid", "empty-suggestions"]) {
   if (!homeHtml.includes(`id="${marker}"`)) throw new Error(`The homepage overview is missing #${marker}.`);
 }
 const homeApp = await readFile(path.join(output, "app.js"), "utf8");
 if (!homeApp.includes("conic-gradient(from -90deg") || !homeApp.includes('class="overview-bar-row"')) throw new Error("The homepage overview charts are not rendered.");
 if (!homeApp.includes('class="collection-path"') || !homeApp.includes("renderCollectionGuide") || !homeApp.includes("updateTaxonomyControls")) throw new Error("The homepage collection navigation is incomplete.");
 if (!homeApp.includes('class="resource-labels"')) throw new Error("Structured resource access labels are not rendered.");
+if (!homeApp.includes("migrateFavoriteTokens") || !homeApp.includes("matchesMetadataFacets") || !homeApp.includes('class="resource-provenance"')) throw new Error("Stable favorites, metadata facets, or resource provenance are not rendered.");
 
 const styles = await readFile(path.join(output, "styles.css"), "utf8");
 if (!styles.includes(".resource-card h3 a:focus-visible::after") || !styles.includes("outline: 3px solid var(--cyan)")) throw new Error("Primary resource-card links have no visible focus-ring contract.");
-for (const contract of [".need-paths", ".collection-guide", ".catalog-taxonomy-controls", ".resource-grid.is-text", "@media print", "gap: 15px"]) {
+for (const contract of [".need-paths", ".collection-guide", ".catalog-taxonomy-controls", ".metadata-filter-grid", ".resource-provenance", ".resource-grid.is-text", "@media print", "gap: 15px"]) {
   if (!styles.includes(contract)) throw new Error(`The need-first, guide, or spacious-card visual contract is missing: ${contract}`);
 }
 const activeSearch = await readFile(path.join(output, "search/weighted-lexical-v2.js"), "utf8");
@@ -200,10 +206,9 @@ try {
   if (error.code !== "ENOENT") throw error;
 }
 
-const catalogUrls = new Set(catalog.resources.map((resource) => resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, "")));
+const catalogIds = new Set(catalog.resources.map((resource) => resource.id));
 for (const resource of atlas.resources.filter((candidate) => candidate.catalogReference)) {
-  const normalizedUrl = resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, "");
-  if (!resource.atlasSource || !catalogUrls.has(normalizedUrl)) throw new Error(`Broken atlas catalog reference: ${resource.url}`);
+  if (!resource.atlasSource || resource.idOrigin !== "explicit" || !catalogIds.has(resource.id)) throw new Error(`Broken atlas catalog reference: ${resource.id}`);
 }
 
 console.log(`Verified ${catalog.resourceCount} resources across ${catalog.categories.length} collections and ${atlas.resourceCount} atlas resources.`);

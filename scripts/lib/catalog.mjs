@@ -1,3 +1,5 @@
+import { applyResourceIdentity, extractResourceMetadata } from "./resource-metadata.mjs";
+
 export const CATEGORY_IDENTITIES = Object.freeze({
   "awesome-abundance": { color: "#d1459f", glyph: "✦" },
   "artificial-intelligence": { color: "#7656d8", glyph: "⌘" },
@@ -47,10 +49,11 @@ export function parseRootCategories(markdown, identities = CATEGORY_IDENTITIES) 
   }));
 }
 
-export function parseResourceEntry(line, { extractLeadingLabels = false } = {}) {
+export function parseResourceEntry(line, { context = "resource entry", extractLeadingLabels = false } = {}) {
   const entry = line.match(/^- \[([^\]]+)]\((https?:\/\/[^)]+)\) - (.+)$/);
   if (!entry) return null;
-  let description = entry[3].trim();
+  const parsedMetadata = extractResourceMetadata(entry[3], context);
+  let description = parsedMetadata.description;
   let accessLabels = [];
   if (extractLeadingLabels) {
     const labelBlock = description.match(/^\*\*([^*]+?)\.\*\*\s+(.+)$/);
@@ -59,12 +62,13 @@ export function parseResourceEntry(line, { extractLeadingLabels = false } = {}) 
       description = labelBlock[2].trim();
     }
   }
-  return {
+  return applyResourceIdentity({
     title: entry[1].trim(),
     url: entry[2].trim(),
     description,
     accessLabels,
-  };
+    metadata: parsedMetadata.metadata,
+  });
 }
 
 export function normalizeUrl(url) {

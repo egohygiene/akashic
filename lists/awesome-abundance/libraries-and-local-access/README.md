@@ -74,7 +74,7 @@ Library services vary by system, consortium, residency, age, and current vendor 
 - [Culture Pass NYC](https://www.culturepass.nyc/) - New York City cardholders from participating library systems can reserve free admission to cultural institutions across the city.
 - [Georgia Public Libraries Experience Passes](https://georgialibraries.org/passes/) - Georgia library cards can unlock free passes for participating state parks, historic sites, museums, theater, and other destinations.
 - [Check Out Louisiana](https://library.la.gov/check-out-louisiana/) - Louisiana residents with participating library cards can borrow free day passes for state parks and museums.
-- [California State Library Parks Pass](https://www.parks.ca.gov/?page_id=30806) - Participating California public libraries lend free vehicle day-use passes for more than 200 state parks.
+- [California State Library Parks Pass](https://www.parks.ca.gov/?page_id=30806) - Participating California public libraries lend free vehicle day-use passes for more than 200 state parks. <!-- akashic-meta: {"id":"california-state-library-parks-pass","resourceType":"service","role":"service","authority":"official","access":["library","eligibility-based"],"geography":["us-ca"],"language":["en-US"],"platform":["web","in-person"],"account":"none","license":"proprietary","status":"active","volatility":"medium","reviewTier":"semiannual"} -->
 
 ## Specialized Library Services
 

@@ -16,6 +16,8 @@
 - [ ] I opened each changed link and confirmed it works.
 - [ ] New entries use canonical URLs without tracking parameters.
 - [ ] New entries include concise descriptions ending with proper punctuation.
+- [ ] Every new entry has an explicit, globally unique stable ID and controlled `akashic-meta` fields; URL changes preserve the ID and record former URLs in `aliases`.
+- [ ] Atlas cross-posts reference explicit catalog IDs with `resourceId`, not URLs.
 - [ ] Resources are placed in the narrowest appropriate subsection of the correct sublist.
 - [ ] The `Contents` section of the affected sublist matches its current headings.
 - [ ] Every affected resource count is updated in the immediate collection hub and root `README.md` where applicable.

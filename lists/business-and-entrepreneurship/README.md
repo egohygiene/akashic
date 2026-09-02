@@ -146,7 +146,7 @@ Record the official account owner, renewal date, cancellation method, price afte
 - [OpenCorporates](https://opencorporates.com/) - Searches standardized public company records and officer relationships from official registers around the world, with freemium data access.
 - [SBA Apply for Licenses and Permits](https://www.sba.gov/counseling/launch-your-business/#licenses-permits) - Maps federally regulated activities and explains why state, county, city, and professional permissions must also be checked.
 - [SBA Register Your Business](https://www.sba.gov/counseling/launch-your-business/#register-business) - Explains state formation, foreign qualification, registered agents, DBAs, and local filings; disregard its stale BOI summary and use live FinCEN guidance.
-- [USA.gov Local Governments](https://www.usa.gov/local-governments) - Official locator for county, city, and town offices that control many zoning, tax, license, health, and home-occupation rules.
+- [USA.gov Local Governments](https://www.usa.gov/local-governments) - Official locator for county, city, and town offices that control many zoning, tax, license, health, and home-occupation rules. <!-- akashic-meta: {"id":"usa-gov-local-governments","resourceType":"directory","role":"discovery","authority":"official","access":["free"],"geography":["us"],"language":["en-US"],"platform":["web"],"account":"none","license":"public-domain","status":"active","volatility":"low","reviewTier":"annual"} -->
 - [USA.gov State Governments](https://www.usa.gov/state-governments/) - Official directory of state and territory government portals and agencies.
 
 ## Massachusetts Direct Path
