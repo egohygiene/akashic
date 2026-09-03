@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "weighted-lexical-performance-v1",
   "searchAlgorithm": "weighted-lexical-v2",
-  "description": "Bound the static catalog-page transfer proxy and catch large lexical-search latency regressions without treating CI hardware as a mobile-device result.",
+  "description": "Bound the static catalog-page and opt-in browser-lab transfer proxies, and catch large lexical-search latency regressions without treating CI hardware as a mobile-device result.",
   "compression": {
     "gzipLevel": 9,
     "brotliQuality": 11
@@ -42,6 +42,25 @@
       "maximumRawBytes": 3900000,
       "maximumGzipBytes": 675000,
       "maximumBrotliBytes": 525000
+    },
+    {
+      "id": "browser-search-lab-run",
+      "paths": [
+        "dist/search-lab.html",
+        "dist/styles.css",
+        "dist/search-lab.css",
+        "dist/search-lab.js",
+        "dist/search-lab-metrics.js",
+        "dist/search.js",
+        "dist/search/concepts-v1.js",
+        "dist/search/weighted-lexical-v2.js",
+        "dist/data/catalog.json",
+        "dist/data/search-evaluation-v1.json",
+        "dist/assets/favicon.svg"
+      ],
+      "maximumRawBytes": 3900000,
+      "maximumGzipBytes": 650000,
+      "maximumBrotliBytes": 500000
     }
   ],
   "timingProfiles": {

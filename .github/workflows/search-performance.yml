@@ -14,6 +14,7 @@ on:
       - "scripts/benchmark-search.mjs"
       - "scripts/build-site.mjs"
       - "site/**"
+      - "test/search-lab.test.mjs"
       - "test/search-performance.test.mjs"
   push:
     branches:
@@ -28,6 +29,7 @@ on:
       - "scripts/benchmark-search.mjs"
       - "scripts/build-site.mjs"
       - "site/**"
+      - "test/search-lab.test.mjs"
       - "test/search-performance.test.mjs"
   workflow_dispatch:
 
