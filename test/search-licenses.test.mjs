@@ -7,7 +7,7 @@ const manifest = JSON.parse(await readFile(new URL("../research/search/licenses.
 
 test("accepts the search license ledger and preserves the default-deny boundary", async () => {
   const result = await validateSearchLicenseManifest(manifest);
-  assert.deepEqual(result, { entryCount: 10, shippedCount: 3, candidateCount: 7 });
+  assert.deepEqual(result, { entryCount: 11, shippedCount: 4, candidateCount: 7 });
   assert.equal(manifest.entries.filter((entry) => entry.sourceUrl).every((entry) => entry.redistribution === "not-approved"), true);
 });
 

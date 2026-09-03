@@ -6,12 +6,13 @@ import { performance } from "node:perf_hooks";
 import process from "node:process";
 import { pathToFileURL } from "node:url";
 import { brotliCompressSync, constants, gzipSync } from "node:zlib";
+import { loadEvaluationFixture } from "./lib/search-evaluation.mjs";
 
 const root = process.cwd();
 const defaultAlgorithmPath = path.join(root, "site/search/weighted-lexical-v2.js");
 const defaultBudgetPath = path.join(root, "research/search/evaluations/performance-budget-v1.json");
 const defaultCatalogPath = path.join(root, "dist/data/catalog.json");
-const defaultFixturePath = path.join(root, "research/search/evaluations/natural-language-v1.json");
+const defaultFixturePath = path.join(root, "research/search/evaluations/natural-language-v2.json");
 
 function optionValue(name, fallback = "") {
   const index = process.argv.indexOf(name);
@@ -161,11 +162,11 @@ async function main() {
   if (staticOutputOption && staticVerifyOption) throw new Error("Use either --static-output or --static-verify, not both.");
   if (timingOnly && (staticOutputOption || staticVerifyOption)) throw new Error("--timing-only cannot be combined with a static report option.");
 
-  const [algorithmText, budgetText, catalogText, fixtureText, runnerText] = await Promise.all([
+  const [algorithmText, budgetText, catalogText, fixture, runnerText] = await Promise.all([
     readFile(algorithmPath, "utf8"),
     readFile(budgetPath, "utf8"),
     readFile(catalogPath, "utf8"),
-    readFile(fixturePath, "utf8"),
+    loadEvaluationFixture(fixturePath),
     readFile(new URL(import.meta.url), "utf8"),
   ]);
   const budget = JSON.parse(budgetText);
@@ -180,14 +181,13 @@ async function main() {
     algorithmSha256: digest(algorithmText),
     budgetSha256: digest(budgetText),
     catalogSha256: digest(catalogText),
-    fixtureSha256: digest(fixtureText),
+    fixtureSha256: digest(JSON.stringify(fixture)),
     runnerSha256: digest(runnerText),
   };
 
   const parseStarted = performance.now();
   const catalog = JSON.parse(catalogText);
   const catalogParseMilliseconds = rounded(performance.now() - parseStarted);
-  const fixture = JSON.parse(fixtureText);
   if (!Array.isArray(catalog.resources) || !catalog.resources.length || !Array.isArray(fixture.cases) || !fixture.cases.length) throw new Error("Benchmark inputs must contain catalog resources and evaluation cases.");
 
   const heapAfterCatalogParseBytes = process.memoryUsage().heapUsed;

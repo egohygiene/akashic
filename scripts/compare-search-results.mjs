@@ -109,6 +109,9 @@ export function compareSearchReports(baseline, candidate, gate) {
     casesWithRelevantAtK: numericDelta(candidate.summary.casesWithRelevantAtK, baseline.summary.casesWithRelevantAtK),
     meanRecallAtK: numericDelta(candidate.summary.meanRecallAtK, baseline.summary.meanRecallAtK),
     meanReciprocalRank: numericDelta(candidate.summary.meanReciprocalRank, baseline.summary.meanReciprocalRank),
+    ...(Number.isFinite(baseline.summary.meanNdcgAtK) && Number.isFinite(candidate.summary.meanNdcgAtK)
+      ? { meanNdcgAtK: numericDelta(candidate.summary.meanNdcgAtK, baseline.summary.meanNdcgAtK) }
+      : {}),
     knownIrrelevantFoundAtK: numericDelta(candidate.summary.knownIrrelevantFoundAtK, baseline.summary.knownIrrelevantFoundAtK),
     casesWithKnownIrrelevantAtK: numericDelta(candidate.summary.casesWithKnownIrrelevantAtK, baseline.summary.casesWithKnownIrrelevantAtK),
   };

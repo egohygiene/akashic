@@ -47,6 +47,28 @@
       "notes": "The fixture contains Akashic-authored judgments and links; it does not redistribute or relicense content from the linked sites."
     },
     {
+      "id": "akashic-search-evaluation-v2",
+      "name": "Akashic natural-language search evaluation v2",
+      "kind": "repository-dataset",
+      "status": "shipped",
+      "sourcePath": "research/search/evaluations/natural-language-v2.json",
+      "sourceRevision": null,
+      "licenseSpdx": "CC0-1.0",
+      "licenseEvidence": "LICENSE",
+      "checked": "2026-09-03",
+      "coveredComponents": [
+        "queries",
+        "graded-relevance-judgments",
+        "assessment-provenance",
+        "safety-invariants",
+        "catalog-coverage-gaps"
+      ],
+      "redistribution": "repository-license",
+      "obligations": [],
+      "blockers": [],
+      "notes": "The v2 fixture extends v1 without copying it, records Akashic-authored query-relative judgments and links, and does not redistribute or relicense destination content."
+    },
+    {
       "id": "akashic-search-result-checkpoints",
       "name": "Akashic deterministic search result checkpoints",
       "kind": "repository-artifact",
