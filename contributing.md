@@ -45,7 +45,9 @@ lists/
   web-development/README.md
   work-and-learning/README.md
 atlas/
-  locations.json             ← place hierarchy and geometry registry
+  locations.json             ← root place manifest and world location
+  locations/*.json           ← country-scoped hierarchy and geometry records
+  identifiers/*.json         ← authoritative jurisdiction codes and geometry mappings
   applicability.json         ← explicit resource/place associations and inheritance edges
   places/*.md                ← canonical place-aware resource lists
 scripts/
@@ -93,6 +95,8 @@ Use this format:
 ```
 
 New entries should add a stable `id` and appropriate access, authority, scope, and review fields in a trailing `akashic-meta` JSON comment. Atlas cross-posts and volatile or sensitive resources require explicit identity and metadata. Existing entries are migrated incrementally; do not mass-edit the catalog. Follow [Stable resource identity and metadata](docs/resource-metadata.md) for the format, controlled values, and URL-change workflow.
+
+New Atlas jurisdictions belong in the relevant country document under `atlas/locations/` and must match authoritative identifiers in `atlas/identifiers/`. Keep identity separate from rendering: do not invent a geometry ID when the checked-in map data lacks a reviewed boundary. The Atlas build rejects unknown codes, geometry mismatches, unsafe or duplicate source includes, and disconnected hierarchy records.
 
 Entries should follow these rules:
 

@@ -18,7 +18,7 @@ Protect both products. A change is incomplete when the Markdown is correct but t
 - A nested collection hub, currently `lists/awesome-abundance/README.md`, is the canonical index and count ledger for its child lists.
 - Files under `site/` are the canonical portal source.
 - `site/i18n/locales.json` and `site/i18n/*.json` are the canonical locale registry and interface message catalogs.
-- `atlas/locations.json`, `atlas/applicability.json`, and `atlas/places/*.md` are the canonical Atlas registry, main-catalog association, and place-resource sources.
+- `atlas/locations.json`, `atlas/locations/*.json`, `atlas/identifiers/*.json`, `atlas/applicability.json`, and `atlas/places/*.md` are the canonical Atlas hierarchy manifest, country location sources, jurisdiction identifiers, main-catalog associations, and place resources.
 - Files under `scripts/` define collection validation and portal generation.
 - Files under `dist/` are generated output. Never hand-edit them, and do not include regenerated output in a change unless explicitly requested.
 - `contributing.md` defines the public contribution policy. Keep agent behavior consistent with it.
@@ -36,7 +36,9 @@ lists/
     README.md                     Nested collection hub
     <subcollection>/README.md     Focused Awesome Abundance lists
 atlas/
-  locations.json                  Place hierarchy and geometry registry
+  locations.json                  Root place manifest and world location
+  locations/*.json                Country-scoped hierarchy and geometry records
+  identifiers/*.json              Authoritative jurisdiction codes and geometry mappings
   applicability.json              Explicit catalog resource/place associations
   places/*.md                     Resources canonical to one place
 scripts/
@@ -62,7 +64,7 @@ dist/                             Generated local build output
   pages.yml                       Independent GitHub Pages build and deployment
 ```
 
-Atlas source data is split deliberately: `atlas/locations.json` is the place registry, `atlas/applicability.json` owns explicit main-catalog resource/place associations, and `atlas/places/*.md` owns resources that are canonical to one place.
+Atlas source data is split deliberately: `atlas/locations.json` is the root manifest, `atlas/locations/*.json` contains country-scoped places, `atlas/identifiers/*.json` separates authoritative jurisdiction identity from available map geometry, `atlas/applicability.json` owns explicit main-catalog resource/place associations, and `atlas/places/*.md` owns resources that are canonical to one place.
 
 ## Working Principles
 
@@ -125,6 +127,8 @@ Every resource newly added by an agent must include a trailing `akashic-meta` JS
 - Use only documented fields and controlled values. Record access, geography, language, platform, account, license, status, volatility, and review cadence when they apply; add sensitive scopes for medical, legal, financial, emergency, privacy, security, crisis, youth, or dual-use material.
 - Keep `reviewed` (human truth review) distinct from `linkStatus` and `linkChecked` (machine-observable availability). Never infer one from the other.
 - Give any main-catalog resource referenced by Atlas an explicit ID, and reference it from `atlas/applicability.json` with `resourceId`, never by canonical URL. Do not put resource applicability back into `atlas/locations.json`.
+- Give every new Atlas country or subdivision the stable ID and external identifiers required by its checked-in registry. Verify codes against a primary authority; never invent a code or treat a map geometry ID as jurisdictional evidence.
+- Keep jurisdiction identity independent from map coverage. A missing reviewed boundary must remain explicit rather than being replaced with a nearby, aggregate, or guessed geometry.
 - Add Atlas inheritance only as an explicit, provenance-bearing edge in `atlas/applicability.json`. Never infer legal or service applicability from `parentId`, geometry, or map containment.
 - Do not mass-backfill untouched legacy entries. Add explicit metadata when creating, reviewing, moving, or materially updating a resource.
 

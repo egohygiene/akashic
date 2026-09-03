@@ -1,6 +1,9 @@
 {
   "schemaVersion": 2,
   "rootId": "world",
+  "includes": [
+    "locations/us.json"
+  ],
   "locations": [
     {
       "id": "world",
@@ -10,42 +13,6 @@
       "parentId": null,
       "geometry": { "dataset": "world", "id": null },
       "camera": { "center": [0, 12], "zoom": 1 }
-    },
-    {
-      "id": "us",
-      "name": "United States",
-      "shortName": "United States",
-      "kind": "country",
-      "parentId": "world",
-      "geometry": { "dataset": "world", "id": "840" },
-      "camera": { "center": [-98.5, 39.5], "zoom": 2.2 }
-    },
-    {
-      "id": "us-ca",
-      "name": "California",
-      "shortName": "California",
-      "kind": "region",
-      "parentId": "us",
-      "geometry": { "dataset": "us-states", "id": "06" },
-      "camera": { "center": [-119.5, 37.2], "zoom": 5.5 }
-    },
-    {
-      "id": "us-ma",
-      "name": "Massachusetts",
-      "shortName": "Massachusetts",
-      "kind": "region",
-      "parentId": "us",
-      "geometry": { "dataset": "us-states", "id": "25" },
-      "camera": { "center": [-71.8, 42.25], "zoom": 7 }
-    },
-    {
-      "id": "us-ma-wilmington",
-      "name": "Wilmington, Massachusetts",
-      "shortName": "Wilmington",
-      "kind": "locality",
-      "parentId": "us-ma",
-      "geometry": { "dataset": "point", "coordinates": [-71.1737, 42.5584], "mapPosition": [0.652, 0.199] },
-      "camera": { "center": [-71.1737, 42.5584], "zoom": 12 }
     }
   ]
 }

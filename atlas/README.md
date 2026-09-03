@@ -11,25 +11,27 @@ This is a foundation, not a claim of comprehensive geographic coverage. The inte
 
 ## Data model
 
-- [`locations.json`](locations.json) defines only the geographic hierarchy, stable place identifiers, map geometry references, and camera hints.
+- [`locations.json`](locations.json) is the root hierarchy manifest. It owns the world root and includes country-scoped location documents under [`locations/`](locations/), where stable place identifiers, map geometry references, and camera hints live.
+- [`identifiers/`](identifiers/) contains authoritative country and subdivision code registries and their explicit relationship to the geometry datasets currently available to Atlas.
 - [`applicability.json`](applicability.json) defines explicit, many-to-many associations between stable main-catalog resource IDs and Atlas places plus the provenance-bearing jurisdiction edges that permit inheritance.
 - [`places/`](places/) contains the canonical, human-reviewable Markdown resources for each covered place.
 - [`site/data/atlas-themes.json`](../site/data/atlas-themes.json) contains presentation-only map palettes.
 - [`scripts/build-site.mjs`](../scripts/build-site.mjs) compiles the hierarchy and place Markdown into `dist/data/atlas.json`.
 
-Do not hand-edit `dist/data/atlas.json`. The location registry, applicability manifest, and place Markdown remain the source of truth.
+Do not hand-edit `dist/data/atlas.json`. The location manifest and its included documents, identifier registries, applicability manifest, and place Markdown remain the source of truth.
 
 The generated location records retain a derived `catalogResources` projection for compatibility with existing schema consumers. The build also emits a precomputed `resourcesByLocation` map so the browser can switch between local and inherited resources without walking the graph at runtime. Both are generated from `applicability.json` and must never be edited or restored to `locations.json` as source data.
 
 ## Adding a place
 
-1. Add one location record with a unique `id`, valid `parentId`, and appropriate `kind`.
-2. Add `atlas/places/<location-id>.md` with an `atlas-location` metadata comment.
-3. Prefer official public agencies, public libraries, schools, civic organizations, and locally accountable services.
-4. Keep entries specific to the place. General-purpose resources belong in the main `lists/` catalog.
-5. When a useful place resource already exists in the main catalog, give the catalog entry an explicit stable ID and metadata, then add an association to `applicability.json` instead of duplicating its description in a place file.
-6. Add an inheritance edge only when resources from another jurisdiction should explicitly flow into the new place. Never infer that permission from `parentId` or map containment.
-7. Run the normal build and verification commands.
+1. Add one location record with a unique `id`, valid `parentId`, and appropriate `kind` to the relevant country document under `atlas/locations/`. Add a sorted include to the root manifest when introducing a country document.
+2. Use the authoritative country or subdivision identifiers required below. Extend the relevant identifier registry from a primary source before adding a jurisdiction that it does not cover.
+3. Add `atlas/places/<location-id>.md` with an `atlas-location` metadata comment.
+4. Prefer official public agencies, public libraries, schools, civic organizations, and locally accountable services.
+5. Keep entries specific to the place. General-purpose resources belong in the main `lists/` catalog.
+6. When a useful place resource already exists in the main catalog, give the catalog entry an explicit stable ID and metadata, then add an association to `applicability.json` instead of duplicating its description in a place file.
+7. Add an inheritance edge only when resources from another jurisdiction should explicitly flow into the new place. Never infer that permission from `parentId` or map containment.
+8. Run the normal build and verification commands.
 
 Each place file uses the same readable entry format as the main awesome lists:
 
@@ -102,9 +104,12 @@ Resources in `places/*.md` remain implicitly `specific` to that file's `atlas-lo
 
 ## Identifier conventions
 
-- Countries use ISO 3166-1 numeric geometry identifiers where available.
-- U.S. states use two-digit Census FIPS codes.
+- Country records use the ISO 3166-1 alpha-2 stable ID and numeric code recorded in [`identifiers/countries.json`](identifiers/countries.json), sourced from the [ISO Online Browsing Platform](https://www.iso.org/obp/ui/). Their world-map geometry must match that crosswalk and exist in the checked-in topology.
+- U.S. subdivision records use the USPS abbreviation and two-digit Census FIPS code published by the [U.S. Census Bureau](https://www.census.gov/library/reference/code-lists/ansi/ansi-codes-for-states.html). [`identifiers/us-subdivisions.json`](identifiers/us-subdivisions.json) records all 50 states, the District of Columbia, five territories, and the U.S. Minor Outlying Islands aggregation.
+- Jurisdiction identity and map coverage are separate facts. The checked-in U.S. topology maps the 50 states and District of Columbia; registry entries without a matching boundary declare `geometry: null` instead of borrowing or inventing a shape. Adding one of those jurisdictions to the hierarchy also requires an intentional no-geometry renderer or a reviewed boundary dataset.
 - Localities use stable repository-owned slugs, a representative longitude/latitude, and a normalized `mapPosition` within their parent geometry until municipal boundary data is added.
+
+The build validates include paths, stable IDs, hierarchy connectivity, cameras and points, country codes, subdivision registry matches, every referenced geometry ID, and complete coverage of datasets that a registry claims to map. A mismatch fails before generated data is written.
 
 ## Privacy and operating boundaries
 
