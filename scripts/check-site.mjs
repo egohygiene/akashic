@@ -28,9 +28,24 @@ if (!Array.isArray(atlas.locations) || atlas.locations.length !== atlas.location
 if (!Array.isArray(atlas.resources) || atlas.resources.length !== atlas.resourceCount) throw new Error("The atlas resource count is inconsistent.");
 if (!Array.isArray(atlas.inheritance) || !atlas.resourcesByLocation || Array.isArray(atlas.resourcesByLocation)) throw new Error("The atlas derived applicability data is incomplete.");
 if (atlas.associationCount !== atlas.resources.length) throw new Error("The atlas association count is inconsistent.");
+if (!Number.isInteger(atlas.locationSourceCount) || atlas.locationSourceCount < 1) throw new Error("The atlas location-source count is invalid.");
+if (!Array.isArray(atlas.identifierRegistries) || atlas.identifierRegistries.length < 1) throw new Error("The atlas identifier registry summary is incomplete.");
+const countryRegistry = atlas.identifierRegistries.find((registry) => registry.kind === "countries");
+if (countryRegistry?.id !== "countries" || countryRegistry.countryCount !== 1 || new URL(countryRegistry.sourceUrl).hostname !== "www.iso.org" || !/^\d{4}-\d{2}-\d{2}$/.test(countryRegistry.sourceRetrieved)) throw new Error("The Atlas country registry summary is inconsistent.");
+const subdivisionRegistry = atlas.identifierRegistries.find((registry) => registry.id === "us-subdivisions");
+if (!subdivisionRegistry) throw new Error("The U.S. subdivision registry summary is missing.");
+if (subdivisionRegistry.kind !== "subdivisions" || subdivisionRegistry.countryId !== "us" || subdivisionRegistry.subdivisionCount !== 57 || subdivisionRegistry.mappedGeometryCount !== 51) throw new Error("The U.S. subdivision registry summary is inconsistent.");
+if (JSON.stringify(subdivisionRegistry.subdivisionTypeCounts) !== JSON.stringify({ district: 1, state: 50, territory: 5, "territory-group": 1 })) throw new Error("The U.S. subdivision type counts are inconsistent.");
+if (new URL(subdivisionRegistry.sourceUrl).hostname !== "www.census.gov" || !/^\d{4}-\d{2}-\d{2}$/.test(subdivisionRegistry.sourceRetrieved)) throw new Error("The U.S. subdivision registry provenance is incomplete.");
 const locations = new Map(atlas.locations.map((location) => [location.id, location]));
 if (!locations.has(atlas.rootId)) throw new Error("The atlas root location is missing.");
 if (Object.keys(atlas.resourcesByLocation).length !== locations.size) throw new Error("The atlas location-resource map is inconsistent.");
+const atlasLocationSources = new Set(atlas.locations.map((location) => location.source));
+if (atlasLocationSources.size !== atlas.locationSourceCount || locations.get("world")?.source !== "atlas/locations.json" || atlas.locations.some((location) => !/^atlas\/locations(?:\/[a-z0-9-]+)?\.json$/.test(location.source || ""))) throw new Error("The atlas location source provenance is inconsistent.");
+if (["us", "us-ca", "us-ma", "us-ma-wilmington"].some((locationId) => locations.get(locationId)?.source !== "atlas/locations/us.json")) throw new Error("The United States location source is incomplete.");
+if (JSON.stringify(locations.get("us")?.identifiers) !== JSON.stringify({ isoAlpha2: "US", isoNumeric: "840" })) throw new Error("The United States identifiers are inconsistent.");
+if (JSON.stringify(locations.get("us-ca")?.identifiers) !== JSON.stringify({ registry: "us-subdivisions", subdivisionType: "state", postalCode: "CA", censusFips: "06" })) throw new Error("The California identifiers are inconsistent.");
+if (JSON.stringify(locations.get("us-ma")?.identifiers) !== JSON.stringify({ registry: "us-subdivisions", subdivisionType: "state", postalCode: "MA", censusFips: "25" })) throw new Error("The Massachusetts identifiers are inconsistent.");
 for (const location of atlas.locations) {
   if (!location.id || !location.name || !location.kind || !location.geometry || !location.camera || !Array.isArray(location.children)) throw new Error(`Incomplete atlas location: ${location.id || "unknown"}`);
   if (location.geometry.dataset === "point") {

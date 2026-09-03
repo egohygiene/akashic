@@ -2,7 +2,7 @@ import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { normalizeUrl, parseResourceEntry, parseRootCategories } from "./lib/catalog.mjs";
-import { deriveAtlasLocationResources, validateAtlasApplicability, validateAtlasHierarchy } from "./lib/atlas.mjs";
+import { atlasTopologyGeometryIds, deriveAtlasLocationResources, mergeAtlasLocationSources, validateAtlasApplicability, validateAtlasCountryRegistry, validateAtlasHierarchy, validateAtlasSubdivisionRegistry } from "./lib/atlas.mjs";
 import { parseRelatedPaths, parseSiteGuide } from "./lib/guide.mjs";
 import { loadLocales, localizeHtml } from "./lib/i18n.mjs";
 import { deriveResourceId, validateResourceIdentities } from "./lib/resource-metadata.mjs";
@@ -17,6 +17,7 @@ const searchEvaluationFile = path.join(root, "research", "search", "evaluations"
 const fundingFile = path.join(root, ".github", "FUNDING.yml");
 const ROOT_GROUP_SLUG = "__root__";
 const ATLAS_ROLES = new Set(["resource", "index"]);
+const ATLAS_SUBDIVISION_TYPES = ["district", "state", "territory", "territory-group"];
 const FUNDING_PLACEHOLDER = "<!-- akashic-funding-badges -->";
 
 const FUNDING_PLATFORMS = {
@@ -172,8 +173,64 @@ function parseAtlasPlace(markdown, filePath) {
 }
 
 async function buildAtlas(catalogResources) {
-  const hierarchy = JSON.parse(await readFile(path.join(atlasDirectory, "locations.json"), "utf8"));
-  const locationById = validateAtlasHierarchy(hierarchy);
+  const locationManifest = JSON.parse(await readFile(path.join(atlasDirectory, "locations.json"), "utf8"));
+  if (!Array.isArray(locationManifest.includes)) throw new Error("Unsupported Atlas location manifest includes.");
+  const includedLocationsByPath = new Map();
+  for (const includePath of locationManifest.includes) {
+    if (!/^locations\/[a-z0-9-]+\.json$/.test(includePath)) throw new Error(`Invalid Atlas location include path: ${includePath}`);
+    includedLocationsByPath.set(includePath, JSON.parse(await readFile(path.join(atlasDirectory, includePath), "utf8")));
+  }
+
+  const geometryIdsByDataset = new Map([
+    ["world", atlasTopologyGeometryIds(JSON.parse(await readFile(path.join(sourceDirectory, "data", "geometry", "countries-110m.json"), "utf8")), "countries", { allowMissing: true })],
+    ["us-states", atlasTopologyGeometryIds(JSON.parse(await readFile(path.join(sourceDirectory, "data", "geometry", "states-albers-10m.json"), "utf8")), "states")],
+  ]);
+  const identifierDirectory = path.join(atlasDirectory, "identifiers");
+  const identifierFiles = (await readdir(identifierDirectory, { withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".json"))
+    .map((entry) => entry.name)
+    .sort();
+  const subdivisionRegistries = [];
+  const subdivisionRegistryById = new Map();
+  const identifierRegistries = [];
+  let countryRegistry;
+  for (const fileName of identifierFiles) {
+    const source = JSON.parse(await readFile(path.join(identifierDirectory, fileName), "utf8"));
+    const registry = source.kind === "countries"
+      ? validateAtlasCountryRegistry(source, geometryIdsByDataset)
+      : validateAtlasSubdivisionRegistry(source, geometryIdsByDataset);
+    if (fileName !== `${registry.id}.json`) throw new Error(`Atlas identifier registry file name must match its ID: ${fileName}`);
+    if (registry.kind === "countries") {
+      if (countryRegistry) throw new Error(`Duplicate Atlas country registry: ${registry.id}`);
+      countryRegistry = registry;
+      identifierRegistries.push({
+        kind: registry.kind,
+        id: registry.id,
+        sourceUrl: registry.sourceUrl,
+        sourceRetrieved: registry.sourceRetrieved,
+        countryCount: registry.countries.length,
+      });
+      continue;
+    }
+    if (subdivisionRegistryById.has(registry.id)) throw new Error(`Duplicate Atlas subdivision registry ID: ${registry.id}`);
+    subdivisionRegistries.push(registry);
+    subdivisionRegistryById.set(registry.id, registry);
+    identifierRegistries.push({
+      kind: registry.kind,
+      id: registry.id,
+      countryId: registry.countryId,
+      sourceUrl: registry.sourceUrl,
+      sourceRetrieved: registry.sourceRetrieved,
+      subdivisionCount: registry.subdivisions.length,
+      mappedGeometryCount: registry.subdivisions.filter((subdivision) => subdivision.geometry !== null).length,
+      subdivisionTypeCounts: Object.fromEntries(ATLAS_SUBDIVISION_TYPES.map((type) => [type, registry.subdivisions.filter((subdivision) => subdivision.type === type).length])),
+    });
+  }
+  if (!countryRegistry) throw new Error("Atlas needs a country identifier registry.");
+  if (!subdivisionRegistries.length) throw new Error("Atlas needs at least one subdivision identifier registry.");
+
+  const hierarchy = mergeAtlasLocationSources(locationManifest, includedLocationsByPath);
+  const locationById = validateAtlasHierarchy(hierarchy, { countryRegistry, geometryIdsByDataset, subdivisionRegistryById });
   const applicability = JSON.parse(await readFile(path.join(atlasDirectory, "applicability.json"), "utf8"));
 
   const placeDirectory = path.join(atlasDirectory, "places");
@@ -270,6 +327,8 @@ async function buildAtlas(catalogResources) {
     schemaVersion: hierarchy.schemaVersion,
     applicabilitySchemaVersion: applicability.schemaVersion,
     rootId: hierarchy.rootId,
+    locationSourceCount: 1 + locationManifest.includes.length,
+    identifierRegistries,
     locationCount: hierarchy.locations.length,
     resourceCount: resources.length,
     uniqueResourceCount: resourceUrlById.size,

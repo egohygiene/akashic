@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "kind": "countries",
+  "id": "countries",
+  "sourceUrl": "https://www.iso.org/obp/ui/",
+  "sourceRetrieved": "2026-09-03",
+  "countries": [
+    {
+      "locationId": "us",
+      "isoAlpha2": "US",
+      "isoNumeric": "840",
+      "geometry": { "dataset": "world", "id": "840" }
+    }
+  ]
+}

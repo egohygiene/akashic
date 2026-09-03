@@ -1,14 +1,38 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { deriveAtlasLocationResources, validateAtlasApplicability, validateAtlasHierarchy } from "../scripts/lib/atlas.mjs";
+import { atlasTopologyGeometryIds, deriveAtlasLocationResources, mergeAtlasLocationSources, validateAtlasApplicability, validateAtlasCountryRegistry, validateAtlasHierarchy, validateAtlasSubdivisionRegistry } from "../scripts/lib/atlas.mjs";
+
+const locationManifestFixture = JSON.parse(await readFile(new URL("../atlas/locations.json", import.meta.url), "utf8"));
+const usLocationsFixture = JSON.parse(await readFile(new URL("../atlas/locations/us.json", import.meta.url), "utf8"));
+const countryRegistryFixture = JSON.parse(await readFile(new URL("../atlas/identifiers/countries.json", import.meta.url), "utf8"));
+const subdivisionRegistryFixture = JSON.parse(await readFile(new URL("../atlas/identifiers/us-subdivisions.json", import.meta.url), "utf8"));
+const worldTopologyFixture = JSON.parse(await readFile(new URL("../site/data/geometry/countries-110m.json", import.meta.url), "utf8"));
+const statesTopologyFixture = JSON.parse(await readFile(new URL("../site/data/geometry/states-albers-10m.json", import.meta.url), "utf8"));
+const geometryIdsByDataset = new Map([
+  ["world", atlasTopologyGeometryIds(worldTopologyFixture, "countries", { allowMissing: true })],
+  ["us-states", atlasTopologyGeometryIds(statesTopologyFixture, "states")],
+]);
 
 function location(id, parentId = null) {
+  if (parentId === null) {
+    return {
+      id,
+      name: id,
+      shortName: id,
+      kind: "world",
+      parentId,
+      geometry: { dataset: "world", id: null },
+      camera: { center: [0, 0], zoom: 1 },
+    };
+  }
   return {
     id,
     name: id,
-    kind: parentId ? "region" : "world",
+    shortName: id,
+    kind: "locality",
     parentId,
-    geometry: { dataset: parentId ? "regions" : "world", id },
+    geometry: { dataset: "point", coordinates: [0, 0], mapPosition: [0.5, 0.5] },
     camera: { center: [0, 0], zoom: 1 },
   };
 }
@@ -44,11 +68,144 @@ test("rejects unknown Atlas parents and hierarchy cycles", () => {
     () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), location("state", "missing")] }),
     /Unknown atlas parent/,
   );
-  const world = location("world", "state");
-  const state = location("state", "world");
+  const state = location("state", "town");
+  const town = location("town", "state");
   assert.throws(
-    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [world, state] }),
+    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), state, town] }),
     /cycle detected/,
+  );
+});
+
+test("merges sorted Atlas location sources and retains source provenance", () => {
+  const hierarchy = mergeAtlasLocationSources(locationManifestFixture, new Map([["locations/us.json", usLocationsFixture]]));
+  assert.equal(hierarchy.locations.length, 5);
+  assert.equal(hierarchy.locations[0].source, "atlas/locations.json");
+  assert.equal(hierarchy.locations[1].source, "atlas/locations/us.json");
+  assert.throws(
+    () => mergeAtlasLocationSources({ ...locationManifestFixture, includes: ["../private.json"] }, new Map()),
+    /Invalid Atlas location include path/,
+  );
+  assert.throws(
+    () => mergeAtlasLocationSources({ ...locationManifestFixture, includes: ["locations/us.json", "locations/us.json"] }, new Map([["locations/us.json", usLocationsFixture]])),
+    /duplicate includes/,
+  );
+  assert.throws(
+    () => mergeAtlasLocationSources({ ...locationManifestFixture, includes: ["locations/z.json", "locations/us.json"] }, new Map()),
+    /must be sorted/,
+  );
+  assert.throws(
+    () => mergeAtlasLocationSources({ ...locationManifestFixture, includes: ["locations/ca.json"] }, new Map([["locations/ca.json", usLocationsFixture]])),
+    /exactly one matching country/,
+  );
+});
+
+test("extracts only unambiguous topology geometry identifiers", () => {
+  const topology = { type: "Topology", arcs: [], objects: { places: { type: "GeometryCollection", geometries: [{ id: "01" }, {}] } } };
+  assert.throws(() => atlasTopologyGeometryIds(topology, "places"), /missing or duplicate geometry IDs/);
+  assert.deepEqual([...atlasTopologyGeometryIds(topology, "places", { allowMissing: true })], ["01"]);
+  topology.objects.places.geometries[1].id = "01";
+  assert.throws(() => atlasTopologyGeometryIds(topology, "places", { allowMissing: true }), /missing or duplicate geometry IDs/);
+});
+
+test("validates the country identifier crosswalk against world geometry", () => {
+  const registry = validateAtlasCountryRegistry(countryRegistryFixture, geometryIdsByDataset);
+  assert.deepEqual(registry.countryByLocationId.get("us"), {
+    locationId: "us",
+    isoAlpha2: "US",
+    isoNumeric: "840",
+    geometry: { dataset: "world", id: "840" },
+  });
+  const mismatchedGeometry = structuredClone(countryRegistryFixture);
+  mismatchedGeometry.countries[0].geometry.id = "124";
+  assert.throws(() => validateAtlasCountryRegistry(mismatchedGeometry, geometryIdsByDataset), /Unknown or mismatched Atlas country geometry/);
+  assert.throws(() => validateAtlasCountryRegistry({ ...countryRegistryFixture, sourceUrl: "http://example.com/codes" }, geometryIdsByDataset), /must use an HTTPS source/);
+});
+
+test("validates the complete Census subdivision registry against checked-in geometry", () => {
+  const registry = validateAtlasSubdivisionRegistry(subdivisionRegistryFixture, geometryIdsByDataset);
+  assert.equal(registry.subdivisions.length, 57);
+  assert.equal(registry.subdivisions.filter((subdivision) => subdivision.type === "state").length, 50);
+  assert.equal(registry.subdivisions.filter((subdivision) => subdivision.type === "district").length, 1);
+  assert.equal(registry.subdivisions.filter((subdivision) => subdivision.type === "territory").length, 5);
+  assert.equal(registry.subdivisions.filter((subdivision) => subdivision.type === "territory-group").length, 1);
+  assert.equal(registry.subdivisions.filter((subdivision) => subdivision.geometry !== null).length, 51);
+  assert.deepEqual(registry.subdivisionByLocationId.get("us-ca").geometry, { dataset: "us-states", id: "06" });
+  assert.equal(registry.subdivisionByLocationId.get("us-pr").censusFips, "72");
+  assert.equal(registry.subdivisionByLocationId.get("us-pr").geometry, null);
+});
+
+test("rejects malformed or incomplete Atlas subdivision registries", () => {
+  const duplicatePostal = structuredClone(subdivisionRegistryFixture);
+  duplicatePostal.subdivisions[1].postalCode = duplicatePostal.subdivisions[0].postalCode;
+  duplicatePostal.subdivisions[1].locationId = duplicatePostal.subdivisions[0].locationId;
+  assert.throws(() => validateAtlasSubdivisionRegistry(duplicatePostal, geometryIdsByDataset), /postal code/);
+
+  const mismatchedGeometry = structuredClone(subdivisionRegistryFixture);
+  mismatchedGeometry.subdivisions.find((subdivision) => subdivision.locationId === "us-ca").geometry.id = "99";
+  assert.throws(() => validateAtlasSubdivisionRegistry(mismatchedGeometry, geometryIdsByDataset), /does not match the Census FIPS code/);
+
+  const incompleteGeometry = structuredClone(subdivisionRegistryFixture);
+  incompleteGeometry.subdivisions.find((subdivision) => subdivision.locationId === "us-ca").geometry = null;
+  assert.throws(() => validateAtlasSubdivisionRegistry(incompleteGeometry, geometryIdsByDataset), /does not completely cover geometry dataset/);
+
+  const unknownGeometryDataset = structuredClone(subdivisionRegistryFixture);
+  unknownGeometryDataset.subdivisions.find((subdivision) => subdivision.locationId === "us-pr").geometry = { dataset: "missing-boundaries", id: "72" };
+  assert.throws(() => validateAtlasSubdivisionRegistry(unknownGeometryDataset, geometryIdsByDataset), /Unknown Atlas geometry/);
+
+  const insecureSource = { ...subdivisionRegistryFixture, sourceUrl: "http://example.com/codes" };
+  assert.throws(() => validateAtlasSubdivisionRegistry(insecureSource, geometryIdsByDataset), /must use an HTTPS source/);
+});
+
+test("validates Atlas country and subdivision identifiers independently of map coverage", () => {
+  const hierarchy = mergeAtlasLocationSources(locationManifestFixture, new Map([["locations/us.json", usLocationsFixture]]));
+  const countryRegistry = validateAtlasCountryRegistry(countryRegistryFixture, geometryIdsByDataset);
+  const registry = validateAtlasSubdivisionRegistry(subdivisionRegistryFixture, geometryIdsByDataset);
+  const registries = new Map([[registry.id, registry]]);
+  const locations = validateAtlasHierarchy(hierarchy, { countryRegistry, geometryIdsByDataset, subdivisionRegistryById: registries });
+  assert.equal(locations.get("us").identifiers.isoNumeric, "840");
+  assert.equal(locations.get("us-ma").identifiers.censusFips, "25");
+
+  const badCountry = structuredClone(mergeAtlasLocationSources(locationManifestFixture, new Map([["locations/us.json", usLocationsFixture]])));
+  const country = badCountry.locations.find((candidate) => candidate.id === "us");
+  country.identifiers.isoNumeric = "124";
+  country.geometry.id = "124";
+  assert.throws(() => validateAtlasHierarchy(badCountry, { countryRegistry, geometryIdsByDataset, subdivisionRegistryById: registries }), /do not match the country registry/);
+
+  const badRegion = structuredClone(mergeAtlasLocationSources(locationManifestFixture, new Map([["locations/us.json", usLocationsFixture]])));
+  badRegion.locations.find((candidate) => candidate.id === "us-ma").identifiers.censusFips = "26";
+  assert.throws(() => validateAtlasHierarchy(badRegion, { countryRegistry, geometryIdsByDataset, subdivisionRegistryById: registries }), /do not match a registered subdivision/);
+
+  const territoryGeometry = mergeAtlasLocationSources(locationManifestFixture, new Map([["locations/us.json", usLocationsFixture]]));
+  territoryGeometry.locations.push({
+    id: "us-pr",
+    name: "Puerto Rico",
+    shortName: "Puerto Rico",
+    kind: "region",
+    parentId: "us",
+    identifiers: { registry: "us-subdivisions", subdivisionType: "territory", postalCode: "PR", censusFips: "72" },
+    geometry: { dataset: "us-states", id: "72" },
+    camera: { center: [-66.5, 18.2], zoom: 6 },
+  });
+  assert.throws(() => validateAtlasHierarchy(territoryGeometry, { countryRegistry, geometryIdsByDataset, subdivisionRegistryById: registries }), /has no registered map geometry/);
+});
+
+test("rejects unsupported location kinds, camera fields, and identifiers", () => {
+  const secondWorld = { ...location("other"), parentId: "world" };
+  assert.throws(
+    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), secondWorld] }),
+    /Only the atlas root may use the world location kind/,
+  );
+  const badCamera = location("town", "world");
+  badCamera.camera = { center: [0, 0], zoom: 1, bearing: 20 };
+  assert.throws(
+    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), badCamera] }),
+    /Atlas camera town contains unsupported fields/,
+  );
+  const identifiedLocality = location("town", "world");
+  identifiedLocality.identifiers = { postalCode: "XX" };
+  assert.throws(
+    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), identifiedLocality] }),
+    /must not declare unsupported identifiers/,
   );
 });
 
