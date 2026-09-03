@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { validateAtlasApplicability, validateAtlasHierarchy } from "../scripts/lib/atlas.mjs";
+import { deriveAtlasLocationResources, validateAtlasApplicability, validateAtlasHierarchy } from "../scripts/lib/atlas.mjs";
 
 function location(id, parentId = null) {
   return {
@@ -17,8 +17,8 @@ function catalogResource(id, idOrigin = "explicit") {
   return { id, idOrigin, url: `https://example.com/${id}` };
 }
 
-function applicability(associations, provenance = [{ id: "seed-migration", kind: "migration", source: "atlas/locations.json" }]) {
-  return { schemaVersion: 1, provenance, associations };
+function applicability(associations, provenance = [{ id: "seed-migration", kind: "migration", source: "atlas/locations.json" }], inheritance = []) {
+  return { schemaVersion: 2, provenance, inheritance, associations };
 }
 
 function association(overrides = {}) {
@@ -73,7 +73,7 @@ test("keeps the location registry separate from catalog applicability", () => {
 test("allows one stable catalog resource to have explicit associations with multiple places", () => {
   const locations = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), location("state", "world")] });
   const resources = new Map([["federal-resource", catalogResource("federal-resource")]]);
-  const associations = validateAtlasApplicability(applicability([
+  const { associations } = validateAtlasApplicability(applicability([
     association(),
     association({ locationId: "state", relationship: "cross-associated", role: "index", section: "State finders" }),
   ]), locations, resources);
@@ -91,7 +91,7 @@ test("accepts complete human-review provenance", () => {
     [association({ provenanceId: "scope-review" })],
     [{ id: "scope-review", kind: "human-review", sourceUrl: "https://example.gov/scope", reviewed: "2026-09-03", reviewedBy: "reviewer-name" }],
   );
-  assert.equal(validateAtlasApplicability(manifest, locations, resources)[0].provenance.kind, "human-review");
+  assert.equal(validateAtlasApplicability(manifest, locations, resources).associations[0].provenance.kind, "human-review");
 });
 
 test("rejects invalid applicability provenance", () => {
@@ -151,4 +151,80 @@ test("rejects incomplete or unsupported applicability fields", () => {
     () => validateAtlasApplicability({ ...applicability([association()]), extra: true }, locations, resources),
     /unsupported fields/,
   );
+});
+
+test("validates explicit provenance-bearing inheritance edges", () => {
+  const locations = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), location("country", "world"), location("state", "country")] });
+  const resources = new Map([["federal-resource", catalogResource("federal-resource")]]);
+  const inheritance = [
+    { locationId: "state", inheritsFromLocationId: "country", provenanceId: "seed-migration" },
+    { locationId: "country", inheritsFromLocationId: "world", provenanceId: "seed-migration" },
+  ];
+  const validated = validateAtlasApplicability(applicability([association()], undefined, inheritance), locations, resources);
+  assert.equal(validated.inheritance.length, 2);
+  assert.equal(validated.inheritance[0].id, "state:country");
+  assert.deepEqual(validated.inheritance[0].provenance, { id: "seed-migration", kind: "migration", source: "atlas/locations.json" });
+});
+
+test("rejects invalid and cyclic inheritance edges", () => {
+  const locations = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), location("state", "world")] });
+  const resources = new Map([["federal-resource", catalogResource("federal-resource")]]);
+  const validate = (inheritance) => validateAtlasApplicability(applicability([association()], undefined, inheritance), locations, resources);
+  assert.throws(
+    () => validate([{ locationId: "missing", inheritsFromLocationId: "world", provenanceId: "seed-migration" }]),
+    /unknown Atlas location/,
+  );
+  assert.throws(
+    () => validate([{ locationId: "state", inheritsFromLocationId: "missing", provenanceId: "seed-migration" }]),
+    /unknown inherited Atlas location/,
+  );
+  assert.throws(
+    () => validate([{ locationId: "state", inheritsFromLocationId: "state", provenanceId: "seed-migration" }]),
+    /cannot inherit from itself/,
+  );
+  assert.throws(
+    () => validate([
+      { locationId: "state", inheritsFromLocationId: "world", provenanceId: "seed-migration" },
+      { locationId: "world", inheritsFromLocationId: "state", provenanceId: "seed-migration" },
+    ]),
+    /inheritance cycle/,
+  );
+  assert.throws(
+    () => validate([
+      { locationId: "state", inheritsFromLocationId: "world", provenanceId: "seed-migration" },
+      { locationId: "state", inheritsFromLocationId: "world", provenanceId: "seed-migration" },
+    ]),
+    /Duplicate Atlas inheritance edge/,
+  );
+});
+
+test("derives local-to-broader resources without duplicate identities or inherited cross-associations", () => {
+  const locations = [location("world"), location("country", "world"), location("state", "country"), location("town", "state")];
+  const locationById = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations });
+  const resources = [
+    { id: "town-resource", associationId: "town:town-resource", locationId: "town", relationship: "specific" },
+    { id: "shared-resource", associationId: "town:shared-resource", locationId: "town", relationship: "cross-associated" },
+    { id: "state-resource", associationId: "state:state-resource", locationId: "state", relationship: "specific" },
+    { id: "state-cross", associationId: "state:state-cross", locationId: "state", relationship: "cross-associated" },
+    { id: "shared-resource", associationId: "country:shared-resource", locationId: "country", relationship: "specific" },
+    { id: "national-resource", associationId: "country:national-resource", locationId: "country", relationship: "specific" },
+  ];
+  const provenance = { id: "seed-migration", kind: "migration", source: "atlas/locations.json" };
+  const inheritance = [
+    { id: "town:state", locationId: "town", inheritsFromLocationId: "state", provenanceId: provenance.id, provenance },
+    { id: "state:country", locationId: "state", inheritsFromLocationId: "country", provenanceId: provenance.id, provenance },
+  ];
+  const derived = deriveAtlasLocationResources([...locationById.values()], resources, inheritance);
+  assert.deepEqual(derived.town.map((placement) => placement.associationId), [
+    "town:town-resource",
+    "town:shared-resource",
+    "state:state-resource",
+    "country:national-resource",
+  ]);
+  assert.deepEqual(derived.town.map((placement) => placement.relationship), ["specific", "cross-associated", "inherited", "inherited"]);
+  assert.equal(derived.town[2].inheritancePath.length, 1);
+  assert.equal(derived.town[3].inheritancePath.length, 2);
+  assert.deepEqual(derived.town[3].inheritancePath, ["town:state", "state:country"]);
+  assert.equal(derived.town.some((placement) => placement.associationId === "state:state-cross"), false);
+  assert.equal(derived.town.filter((placement) => placement.associationId.includes("shared-resource")).length, 1);
 });

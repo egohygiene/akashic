@@ -21,6 +21,9 @@ const selectors = {
   resourceSummary: document.querySelector("#atlas-resource-summary"),
   scopeNote: document.querySelector("#atlas-scope-note"),
   indexCount: document.querySelector("#atlas-index-count"),
+  scopeButtons: [...document.querySelectorAll("[data-atlas-scope]")],
+  localResourceCount: document.querySelector("#atlas-local-resource-count"),
+  availableResourceCount: document.querySelector("#atlas-available-resource-count"),
   resourceNav: document.querySelector("#atlas-resource-nav"),
   resourceGroups: document.querySelector("#atlas-resource-groups"),
   empty: document.querySelector("#atlas-empty"),
@@ -43,8 +46,12 @@ const state = {
   themes: null,
   world: null,
   states: null,
+  locationById: null,
+  inheritanceById: null,
+  resourceByAssociationId: null,
   locationId: "world",
   resourceSection: "",
+  resourceScope: "all",
   mapTheme: "cosmic",
   zoom: 1,
   baseViewBox: { x: 0, y: 0, width: 1000, height: 500 },
@@ -62,7 +69,7 @@ function svgElement(name, attributes = {}) {
 }
 
 function locationMap() {
-  return new Map(state.atlas.locations.map((location) => [location.id, location]));
+  return state.locationById;
 }
 
 function currentLocation() {
@@ -83,6 +90,20 @@ function ancestors(location) {
 function descendantCount(location) {
   const byId = locationMap();
   return location.children.filter((id) => byId.get(id)?.covered).length;
+}
+
+function resourceViews(location, scope = state.resourceScope) {
+  return (state.atlas.resourcesByLocation[location.id] || [])
+    .filter((placement) => scope === "all" || placement.relationship !== "inherited")
+    .map((placement) => ({ placement, resource: state.resourceByAssociationId.get(placement.associationId) }))
+    .filter((view) => view.resource);
+}
+
+function provenanceText(provenance, { inheritance = false } = {}) {
+  if (inheritance && provenance.kind === "human-review") return t("runtime.atlas.provenance.inheritanceHumanReview", { date: provenance.reviewed, reviewer: provenance.reviewedBy });
+  if (inheritance) return t("runtime.atlas.provenance.inheritanceMigration");
+  if (provenance.kind === "human-review") return t("runtime.atlas.provenance.humanReview", { date: provenance.reviewed, reviewer: provenance.reviewedBy });
+  return t(`runtime.atlas.provenance.${provenance.kind}`);
 }
 
 function option(value, label, { canonical = false } = {}) {
@@ -336,7 +357,7 @@ function renderPlacePanel(location) {
   if (canonicalContentLanguage && location.kind !== "world") selectors.placeTitle.lang = canonicalContentLanguage;
   else selectors.placeTitle.removeAttribute("lang");
   selectors.placeCopy.textContent = copyByKind[location.kind] || copyByKind.locality;
-  selectors.resourceCount.textContent = number(location.resourceCount);
+  selectors.resourceCount.textContent = number(location.availableResourceCount);
   selectors.childCount.textContent = number(descendantCount(location));
   selectors.openChild.hidden = children.length !== 1;
   if (children.length === 1) {
@@ -345,12 +366,12 @@ function renderPlacePanel(location) {
   }
 }
 
-function renderResourceNavigation(resources) {
+function renderResourceNavigation(views) {
   selectors.resourceNav.replaceChildren();
   const sectionCounts = new Map();
-  for (const resource of resources) sectionCounts.set(resource.section, (sectionCounts.get(resource.section) || 0) + 1);
-  const choices = [["", t("runtime.atlas.all"), resources.length], ...[...sectionCounts].map(([section, count]) => [section, section, count])];
-  selectors.resourceNav.hidden = resources.length === 0;
+  for (const { resource } of views) sectionCounts.set(resource.section, (sectionCounts.get(resource.section) || 0) + 1);
+  const choices = [["", t("runtime.atlas.all"), views.length], ...[...sectionCounts].map(([section, count]) => [section, section, count])];
+  selectors.resourceNav.hidden = views.length === 0;
   for (const [section, label, count] of choices) {
     const button = document.createElement("button");
     button.type = "button";
@@ -376,45 +397,72 @@ function renderResourceNavigation(resources) {
 }
 
 function renderResourceGroups(location) {
-  const resources = state.atlas.resources.filter((resource) => resource.locationId === location.id);
-  const visibleResources = state.resourceSection ? resources.filter((resource) => resource.section === state.resourceSection) : resources;
+  const views = resourceViews(location);
+  const visibleViews = state.resourceSection ? views.filter(({ resource }) => resource.section === state.resourceSection) : views;
   selectors.resourceGroups.replaceChildren();
-  selectors.empty.hidden = resources.length > 0;
-  selectors.resourceSummary.textContent = resources.length
+  selectors.empty.hidden = views.length > 0;
+  selectors.resourceSummary.textContent = views.length
     ? state.resourceSection
-      ? t("runtime.atlas.summaryFiltered", { visible: number(visibleResources.length), total: number(resources.length), name: location.name })
-      : t("runtime.atlas.summary", { resources: plural("runtime.unit.resource", resources.length), name: location.name })
-    : t("runtime.atlas.summaryEmpty", { kind: t(`runtime.atlas.kind.${location.kind}`) });
+      ? t("runtime.atlas.summaryFiltered", { visible: number(visibleViews.length), total: number(views.length), name: location.name })
+      : state.resourceScope === "local"
+        ? t("runtime.atlas.summaryLocal", { resources: plural("runtime.unit.resource", views.length), name: location.name })
+        : t("runtime.atlas.summaryAvailable", { resources: plural("runtime.unit.resource", views.length), name: location.name, inherited: number(location.inheritedResourceCount) })
+    : t(state.resourceScope === "local" ? "runtime.atlas.summaryEmptyLocal" : "runtime.atlas.summaryEmpty", { kind: t(`runtime.atlas.kind.${location.kind}`), name: location.name });
   for (const button of selectors.resourceNav.querySelectorAll("button")) button.setAttribute("aria-pressed", String(button.dataset.section === state.resourceSection));
   const grouped = new Map();
-  for (const resource of visibleResources) {
-    if (!grouped.has(resource.section)) grouped.set(resource.section, []);
-    grouped.get(resource.section).push(resource);
+  for (const view of visibleViews) {
+    const key = `${view.placement.sourceLocationId}\u0000${view.resource.section}`;
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push(view);
   }
-  for (const [section, entries] of grouped) {
+  for (const [key, entries] of grouped) {
+    const [sourceLocationId, section] = key.split("\u0000");
+    const inherited = entries[0].placement.relationship === "inherited";
+    const sourceLocation = locationMap().get(sourceLocationId);
     const group = document.createElement("section");
     group.className = "atlas-resource-group";
     const heading = document.createElement("h3");
-    heading.textContent = section;
+    heading.textContent = inherited ? t("runtime.atlas.inheritedGroup", { name: sourceLocation.name, section }) : section;
     if (canonicalContentLanguage) heading.lang = canonicalContentLanguage;
-    const hasIndexes = entries.some((resource) => resource.role === "index");
+    const hasIndexes = entries.some(({ resource }) => resource.role === "index");
     if (hasIndexes) group.classList.add("has-indexes");
+    if (inherited) group.classList.add("is-inherited");
     const grid = document.createElement("div");
     grid.className = "atlas-resource-grid";
-    for (const resource of entries) {
+    for (const { resource, placement } of entries) {
       const card = document.createElement("a");
       card.className = "atlas-resource-card";
       if (resource.role === "index") card.classList.add("is-index");
       card.href = resource.url;
       card.target = "_blank";
       card.rel = "noreferrer";
-      card.setAttribute("aria-label", t("runtime.atlas.resourceAria", { title: resource.title }));
       const domain = document.createElement("span");
       const labels = [];
       if (resource.role === "index") labels.push(t("runtime.atlas.directory"));
       if (resource.catalogReference) labels.push(t("runtime.atlas.mainCatalog"));
       labels.push(resource.domain);
       domain.textContent = labels.join(" · ");
+      const context = document.createElement("div");
+      context.className = "atlas-resource-context";
+      const scope = document.createElement("span");
+      scope.className = `atlas-resource-scope is-${placement.relationship}`;
+      scope.textContent = t(`runtime.atlas.scope.${placement.relationship}`, { name: sourceLocation.name });
+      const provenanceLabels = [provenanceText(resource.provenance)];
+      if (placement.relationship === "inherited") {
+        const inheritanceProvenance = new Map(placement.inheritancePath
+          .map((edgeId) => state.inheritanceById.get(edgeId))
+          .filter(Boolean)
+          .map((edge) => [edge.provenanceId, provenanceText(edge.provenance, { inheritance: true })]));
+        provenanceLabels.push(...inheritanceProvenance.values());
+      }
+      context.append(scope);
+      for (const label of provenanceLabels) {
+        const provenance = document.createElement("span");
+        provenance.className = "atlas-resource-provenance";
+        provenance.textContent = label;
+        context.append(provenance);
+      }
+      card.setAttribute("aria-label", t("runtime.atlas.resourceAria", { title: resource.title, scope: scope.textContent, provenance: provenanceLabels.join("; ") }));
       const title = document.createElement("strong");
       title.textContent = resource.title;
       if (canonicalContentLanguage) title.lang = canonicalContentLanguage;
@@ -423,7 +471,7 @@ function renderResourceGroups(location) {
       if (canonicalContentLanguage) description.lang = canonicalContentLanguage;
       const visit = document.createElement("span");
       visit.textContent = t(resource.role === "index" ? "runtime.atlas.exploreDirectory" : "runtime.atlas.visitResource");
-      card.append(domain, title, description, visit);
+      card.append(domain, context, title, description, visit);
       grid.append(card);
     }
     if (section.toLocaleLowerCase().startsWith("start here")) {
@@ -437,13 +485,16 @@ function renderResourceGroups(location) {
 }
 
 function renderResources(location, { requestedSection = "" } = {}) {
-  const resources = state.atlas.resources.filter((resource) => resource.locationId === location.id);
-  const sections = new Set(resources.map((resource) => resource.section));
+  const views = resourceViews(location);
+  const sections = new Set(views.map(({ resource }) => resource.section));
   state.resourceSection = sections.has(requestedSection) ? requestedSection : "";
-  const indexCount = resources.filter((resource) => resource.role === "index").length;
+  const indexCount = views.filter(({ resource }) => resource.role === "index").length;
   selectors.scopeNote.hidden = indexCount === 0;
   selectors.indexCount.textContent = number(indexCount);
-  renderResourceNavigation(resources);
+  selectors.localResourceCount.textContent = number(location.resourceCount);
+  selectors.availableResourceCount.textContent = number(location.availableResourceCount);
+  for (const button of selectors.scopeButtons) button.setAttribute("aria-pressed", String(button.dataset.atlasScope === state.resourceScope));
+  renderResourceNavigation(views);
   renderResourceGroups(location);
 }
 
@@ -453,14 +504,17 @@ function writeUrl({ push = true } = {}) {
   else url.searchParams.set("place", state.locationId);
   if (state.resourceSection) url.searchParams.set("section", state.resourceSection);
   else url.searchParams.delete("section");
+  if (state.resourceScope === "local") url.searchParams.set("scope", "local");
+  else url.searchParams.delete("scope");
   if (state.mapTheme === state.themes.defaultTheme) url.searchParams.delete("mapTheme");
   else url.searchParams.set("mapTheme", state.mapTheme);
   history[push ? "pushState" : "replaceState"]({}, "", url);
 }
 
-function setLocation(id, { historyMode = "push", focus = false, resourceSection = "" } = {}) {
+function setLocation(id, { historyMode = "push", focus = false, resourceSection = "", resourceScope = state.resourceScope } = {}) {
   if (!locationMap().has(id)) id = state.atlas.rootId;
   state.locationId = id;
+  state.resourceScope = resourceScope === "local" ? "local" : "all";
   const location = currentLocation();
   populatePlaceSelectors(location);
   renderBreadcrumb(location);
@@ -525,10 +579,18 @@ function bindEvents() {
   selectors.zoomOut.addEventListener("click", () => { state.zoom = Math.max(1, state.zoom / 1.35); updateViewBox(); });
   selectors.zoomIn.addEventListener("click", () => { state.zoom = Math.min(4, state.zoom * 1.35); updateViewBox(); });
   selectors.fit.addEventListener("click", () => { state.zoom = 1; updateViewBox(); });
+  for (const button of selectors.scopeButtons) {
+    button.addEventListener("click", () => {
+      if (button.dataset.atlasScope === state.resourceScope) return;
+      state.resourceScope = button.dataset.atlasScope;
+      renderResources(currentLocation(), { requestedSection: state.resourceSection });
+      writeUrl();
+    });
+  }
   window.addEventListener("popstate", () => {
     const params = new URLSearchParams(location.search);
     applyMapTheme(params.get("mapTheme") || state.themes.defaultTheme, { updateUrl: false });
-    setLocation(params.get("place") || state.atlas.rootId, { historyMode: "none", resourceSection: params.get("section") || "" });
+    setLocation(params.get("place") || state.atlas.rootId, { historyMode: "none", resourceSection: params.get("section") || "", resourceScope: params.get("scope") || "all" });
   });
 }
 
@@ -541,12 +603,20 @@ async function initialize() {
       fetch(new URL("./data/geometry/countries-110m.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("World geometry did not load."))),
       fetch(new URL("./data/geometry/states-albers-10m.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("U.S. geometry did not load."))),
     ]);
-    Object.assign(state, { atlas, themes, world, states });
+    Object.assign(state, {
+      atlas,
+      themes,
+      world,
+      states,
+      locationById: new Map(atlas.locations.map((location) => [location.id, location])),
+      inheritanceById: new Map(atlas.inheritance.map((edge) => [edge.id, edge])),
+      resourceByAssociationId: new Map(atlas.resources.map((resource) => [resource.associationId, resource])),
+    });
     setupThemes();
     bindEvents();
     const params = new URLSearchParams(location.search);
     const requested = params.get("place") || atlas.rootId;
-    setLocation(requested, { historyMode: "replace", resourceSection: params.get("section") || "" });
+    setLocation(requested, { historyMode: "replace", resourceSection: params.get("section") || "", resourceScope: params.get("scope") || "all" });
     selectors.loading.hidden = true;
   } catch (error) {
     selectors.loading.replaceChildren();

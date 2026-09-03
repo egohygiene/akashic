@@ -108,7 +108,7 @@
             <h2 id="atlas-place-title" tabindex="-1">A growing atlas</h2>
             <p id="atlas-place-copy">Begin with the highlighted country, then move toward local knowledge.</p>
             <dl class="atlas-place-stats">
-              <div><dt id="atlas-resource-count">0</dt><dd>resources here</dd></div>
+              <div><dt id="atlas-resource-count">0</dt><dd>resources available</dd></div>
               <div><dt id="atlas-child-count">0</dt><dd>mapped next steps</dd></div>
             </dl>
             <button class="button button-primary" id="atlas-open-child" type="button" hidden>Go one level deeper <span aria-hidden="true">→</span></button>
@@ -120,6 +120,13 @@
         <div class="section-heading">
           <div><p class="kicker">Useful here</p><h2 id="atlas-resources-title">Place-aware resources</h2></div>
           <p id="atlas-resource-summary" role="status">Choose a mapped place to reveal its resources.</p>
+        </div>
+        <div class="atlas-scope-filter">
+          <p id="atlas-scope-filter-label">Resource scope</p>
+          <div role="group" aria-labelledby="atlas-scope-filter-label">
+            <button type="button" data-atlas-scope="local" aria-pressed="false">Local only <span id="atlas-local-resource-count">0</span></button>
+            <button type="button" data-atlas-scope="all" aria-pressed="true">All available here <span id="atlas-available-resource-count">0</span></button>
+          </div>
         </div>
         <aside class="atlas-scope-note" id="atlas-scope-note" hidden>
           <span aria-hidden="true">↗</span>

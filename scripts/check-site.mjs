@@ -1,6 +1,7 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
+import { deriveAtlasLocationResources } from "./lib/atlas.mjs";
 import { loadLocales, localePagePath } from "./lib/i18n.mjs";
 import { validateResourceIdentities, validateResourceMetadata } from "./lib/resource-metadata.mjs";
 import { loadEvaluationFixture } from "./lib/search-evaluation.mjs";
@@ -22,12 +23,14 @@ for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "searc
 
 const atlas = JSON.parse(await readFile(path.join(output, "data/atlas.json"), "utf8"));
 if (atlas.schemaVersion !== 2) throw new Error("Unsupported atlas schema.");
-if (atlas.applicabilitySchemaVersion !== 1) throw new Error("Unsupported atlas applicability schema.");
+if (atlas.applicabilitySchemaVersion !== 2) throw new Error("Unsupported atlas applicability schema.");
 if (!Array.isArray(atlas.locations) || atlas.locations.length !== atlas.locationCount) throw new Error("The atlas location count is inconsistent.");
 if (!Array.isArray(atlas.resources) || atlas.resources.length !== atlas.resourceCount) throw new Error("The atlas resource count is inconsistent.");
+if (!Array.isArray(atlas.inheritance) || !atlas.resourcesByLocation || Array.isArray(atlas.resourcesByLocation)) throw new Error("The atlas derived applicability data is incomplete.");
 if (atlas.associationCount !== atlas.resources.length) throw new Error("The atlas association count is inconsistent.");
 const locations = new Map(atlas.locations.map((location) => [location.id, location]));
 if (!locations.has(atlas.rootId)) throw new Error("The atlas root location is missing.");
+if (Object.keys(atlas.resourcesByLocation).length !== locations.size) throw new Error("The atlas location-resource map is inconsistent.");
 for (const location of atlas.locations) {
   if (!location.id || !location.name || !location.kind || !location.geometry || !location.camera || !Array.isArray(location.children)) throw new Error(`Incomplete atlas location: ${location.id || "unknown"}`);
   if (location.geometry.dataset === "point") {
@@ -44,6 +47,18 @@ for (const location of atlas.locations) {
   if (JSON.stringify(location.catalogResources || []) !== JSON.stringify(expectedLegacyReferences)) throw new Error(`Atlas compatibility references are inconsistent for ${location.name}.`);
   const exactCount = atlas.resources.filter((resource) => resource.locationId === location.id).length;
   if (exactCount !== location.resourceCount) throw new Error(`Atlas resource count is inconsistent for ${location.name}.`);
+  const placements = atlas.resourcesByLocation[location.id];
+  if (!Array.isArray(placements) || placements.length !== location.availableResourceCount) throw new Error(`Atlas available-resource count is inconsistent for ${location.name}.`);
+  if (placements.filter((placement) => placement.relationship === "inherited").length !== location.inheritedResourceCount) throw new Error(`Atlas inherited-resource count is inconsistent for ${location.name}.`);
+}
+const atlasInheritanceKeys = new Set();
+for (const edge of atlas.inheritance) {
+  if (!edge.locationId || !edge.inheritsFromLocationId || !edge.provenanceId || !locations.has(edge.locationId) || !locations.has(edge.inheritsFromLocationId) || edge.locationId === edge.inheritsFromLocationId) throw new Error("The atlas contains an invalid inheritance edge.");
+  if (edge.id !== `${edge.locationId}:${edge.inheritsFromLocationId}`) throw new Error(`Invalid atlas inheritance identity: ${edge.id || "missing"}`);
+  const inheritanceKey = `${edge.locationId}\u0000${edge.inheritsFromLocationId}`;
+  if (atlasInheritanceKeys.has(inheritanceKey)) throw new Error(`Duplicate atlas inheritance edge: ${edge.locationId} / ${edge.inheritsFromLocationId}`);
+  atlasInheritanceKeys.add(inheritanceKey);
+  if (!["human-review", "migration"].includes(edge.provenance?.kind)) throw new Error(`Unsupported atlas inheritance provenance: ${edge.locationId}`);
 }
 const atlasAssociationIds = new Set();
 const atlasResourceIds = new Set();
@@ -70,6 +85,10 @@ for (const resource of atlas.resources) {
 }
 if (atlasAssociationIds.size !== atlas.associationCount) throw new Error("The atlas has duplicate association identities.");
 if (atlasResourceIds.size !== atlas.uniqueResourceCount || atlasUrlByResourceId.size !== atlas.uniqueResourceCount) throw new Error("The atlas unique-resource count is inconsistent.");
+const expectedResourcesByLocation = deriveAtlasLocationResources(atlas.locations, atlas.resources, atlas.inheritance);
+if (JSON.stringify(atlas.resourcesByLocation) !== JSON.stringify(expectedResourcesByLocation)) throw new Error("The atlas precomputed location-resource map is inconsistent.");
+const wilmingtonSourceOrder = [...new Set((atlas.resourcesByLocation["us-ma-wilmington"] || []).map((placement) => placement.sourceLocationId))];
+if (JSON.stringify(wilmingtonSourceOrder) !== JSON.stringify(["us-ma-wilmington", "us-ma", "us"])) throw new Error("Wilmington resources must resolve local, Massachusetts, then United States scope.");
 
 const themes = JSON.parse(await readFile(path.join(output, "data/atlas-themes.json"), "utf8"));
 if (!Array.isArray(themes.themes) || themes.themes.length < 3) throw new Error("The atlas needs a useful set of map themes.");
@@ -199,6 +218,16 @@ for (const locale of locales.locales) {
     }
   }
 }
+
+const atlasHtml = await readFile(path.join(output, "atlas.html"), "utf8");
+for (const marker of ["atlas-scope-filter-label", "atlas-local-resource-count", "atlas-available-resource-count"]) {
+  if (!atlasHtml.includes(`id="${marker}"`)) throw new Error(`The Atlas resource-scope control is missing #${marker}.`);
+}
+if (!atlasHtml.includes('data-atlas-scope="local"') || !atlasHtml.includes('data-atlas-scope="all"')) throw new Error("The Atlas local/all resource-scope choices are incomplete.");
+const atlasScript = await readFile(path.join(output, "atlas.js"), "utf8");
+if (!atlasScript.includes("resourcesByLocation") || !atlasScript.includes('url.searchParams.set("scope", "local")') || !atlasScript.includes("atlas-resource-provenance")) throw new Error("The Atlas inheritance, URL-state, or provenance rendering contract is incomplete.");
+const atlasStyles = await readFile(path.join(output, "atlas.css"), "utf8");
+if (!atlasStyles.includes(".atlas-scope-filter") || !atlasStyles.includes(".atlas-resource-context") || !atlasStyles.includes(".atlas-resource-group.is-inherited")) throw new Error("The Atlas scope and provenance presentation contract is incomplete.");
 
 const homeHtml = await readFile(path.join(output, "index.html"), "utf8");
 for (const marker of ["need-paths", "overview-preview", "overview-preview-metrics", "overview-distribution-donut", "overview-collection-bars", "collection-guide", "catalog-branch-select", "catalog-topic-select", "metadata-filters", "metadata-filter-grid", "empty-suggestions", "hero-search-privacy", "catalog-search-privacy"]) {

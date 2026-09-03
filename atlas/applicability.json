@@ -1,10 +1,27 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "provenance": [
     {
       "id": "locations-v2-migration",
       "kind": "migration",
       "source": "atlas/locations.json"
+    }
+  ],
+  "inheritance": [
+    {
+      "locationId": "us-ca",
+      "inheritsFromLocationId": "us",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "locationId": "us-ma",
+      "inheritsFromLocationId": "us",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "locationId": "us-ma-wilmington",
+      "inheritsFromLocationId": "us-ma",
+      "provenanceId": "locations-v2-migration"
     }
   ],
   "associations": [
