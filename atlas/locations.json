@@ -18,26 +18,7 @@
       "kind": "country",
       "parentId": "world",
       "geometry": { "dataset": "world", "id": "840" },
-      "camera": { "center": [-98.5, 39.5], "zoom": 2.2 },
-      "catalogResources": [
-        {
-          "resourceId": "usa-gov-local-governments",
-          "section": "Government and civic life",
-          "role": "index"
-        },
-        {
-          "resourceId": "cftc-check-registration-backgrounds",
-          "section": "Money, taxes, and consumer protection"
-        },
-        {
-          "resourceId": "fincen-msb-registrant-search",
-          "section": "Money, taxes, and consumer protection"
-        },
-        {
-          "resourceId": "irs-digital-assets",
-          "section": "Money, taxes, and consumer protection"
-        }
-      ]
+      "camera": { "center": [-98.5, 39.5], "zoom": 2.2 }
     },
     {
       "id": "us-ca",
@@ -46,21 +27,7 @@
       "kind": "region",
       "parentId": "us",
       "geometry": { "dataset": "us-states", "id": "06" },
-      "camera": { "center": [-119.5, 37.2], "zoom": 5.5 },
-      "catalogResources": [
-        {
-          "resourceId": "california-state-library-parks-pass",
-          "section": "Work, learning, and getting around"
-        },
-        {
-          "resourceId": "california-privacy-protection-agency",
-          "section": "Government, legal, and civic life"
-        },
-        {
-          "resourceId": "california-dfpi-crypto-scam-tracker",
-          "section": "Money, taxes, and consumer protection"
-        }
-      ]
+      "camera": { "center": [-119.5, 37.2], "zoom": 5.5 }
     },
     {
       "id": "us-ma",
@@ -69,56 +36,7 @@
       "kind": "region",
       "parentId": "us",
       "geometry": { "dataset": "us-states", "id": "25" },
-      "camera": { "center": [-71.8, 42.25], "zoom": 7 },
-      "catalogResources": [
-        {
-          "resourceId": "massachusetts-community-action-agency-directory",
-          "section": "Start here: statewide finders",
-          "role": "index"
-        },
-        {
-          "resourceId": "massachusetts-myservices",
-          "section": "Benefits, food, and housing"
-        },
-        {
-          "resourceId": "mahix-individual-coverage",
-          "section": "Benefits, food, and housing"
-        },
-        {
-          "resourceId": "massachusetts-health-safety-net",
-          "section": "Benefits, food, and housing"
-        },
-        {
-          "resourceId": "massachusetts-find-unclaimed-property",
-          "section": "Benefits, food, and housing"
-        },
-        {
-          "resourceId": "massachusetts-free-community-college",
-          "section": "Work, learning, and getting around"
-        },
-        {
-          "resourceId": "massachusetts-ebt-card-to-culture",
-          "section": "Work, learning, and getting around"
-        },
-        {
-          "resourceId": "masshire-department-of-career-services",
-          "section": "Work, learning, and getting around",
-          "role": "index"
-        },
-        {
-          "resourceId": "masshire-jobquest",
-          "section": "Work, learning, and getting around"
-        },
-        {
-          "resourceId": "mass-legal-help",
-          "section": "Government, legal, and civic life",
-          "role": "index"
-        },
-        {
-          "resourceId": "massachusetts-beware-cryptocurrency-scams",
-          "section": "Money, taxes, and consumer protection"
-        }
-      ]
+      "camera": { "center": [-71.8, 42.25], "zoom": 7 }
     },
     {
       "id": "us-ma-wilmington",
