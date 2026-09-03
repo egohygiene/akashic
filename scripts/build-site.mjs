@@ -2,7 +2,7 @@ import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { normalizeUrl, parseResourceEntry, parseRootCategories } from "./lib/catalog.mjs";
-import { validateAtlasHierarchy } from "./lib/atlas.mjs";
+import { validateAtlasApplicability, validateAtlasHierarchy } from "./lib/atlas.mjs";
 import { parseRelatedPaths, parseSiteGuide } from "./lib/guide.mjs";
 import { loadLocales, localizeHtml } from "./lib/i18n.mjs";
 import { deriveResourceId, validateResourceIdentities } from "./lib/resource-metadata.mjs";
@@ -148,9 +148,12 @@ function parseAtlasPlace(markdown, filePath) {
     const roleMatch = entry[3].match(/\s*<!--\s*atlas-role:\s*([a-z-]+)\s*-->\s*$/);
     const role = roleMatch?.[1] || "resource";
     if (!ATLAS_ROLES.has(role)) throw new Error(`Unsupported atlas role ${role} in ${path.relative(root, filePath)}.`);
+    const id = `atlas-${locationId}-${deriveResourceId(entry[1].trim())}`;
+    const source = path.relative(root, filePath).split(path.sep).join("/");
     resources.push({
-      id: `atlas-${locationId}-${deriveResourceId(entry[1].trim())}`,
+      id,
       idOrigin: "derived",
+      associationId: `${locationId}:${id}`,
       aliases: [],
       metadata: {},
       title: entry[1].trim(),
@@ -159,8 +162,10 @@ function parseAtlasPlace(markdown, filePath) {
       domain: new URL(url).hostname.replace(/^www\./, ""),
       section,
       role,
+      relationship: "specific",
       locationId,
-      source: path.relative(root, filePath).split(path.sep).join("/"),
+      source,
+      provenance: { kind: "place-file", source },
     });
   }
   return { locationId, resources };
@@ -169,6 +174,7 @@ function parseAtlasPlace(markdown, filePath) {
 async function buildAtlas(catalogResources) {
   const hierarchy = JSON.parse(await readFile(path.join(atlasDirectory, "locations.json"), "utf8"));
   const locationById = validateAtlasHierarchy(hierarchy);
+  const applicability = JSON.parse(await readFile(path.join(atlasDirectory, "applicability.json"), "utf8"));
 
   const placeDirectory = path.join(atlasDirectory, "places");
   const placeFiles = (await readdir(placeDirectory, { withFileTypes: true }))
@@ -185,46 +191,55 @@ async function buildAtlas(catalogResources) {
     resources.push(...place.resources);
   }
 
-  const seen = new Set();
+  const placeUrls = new Set();
   for (const resource of resources) {
     const key = normalizeUrl(resource.url);
-    if (seen.has(key)) throw new Error(`Duplicate atlas URL: ${resource.url}`);
-    seen.add(key);
+    if (placeUrls.has(key)) throw new Error(`Duplicate atlas URL: ${resource.url}`);
+    placeUrls.add(key);
   }
   const catalogUrls = new Set(catalogResources.map((resource) => normalizeUrl(resource.url)));
   const duplicatedCatalogUrl = resources.find((resource) => catalogUrls.has(normalizeUrl(resource.url)));
-  if (duplicatedCatalogUrl) throw new Error(`Atlas resource already belongs in the main catalog; reference it from atlas/locations.json instead: ${duplicatedCatalogUrl.url}`);
+  if (duplicatedCatalogUrl) throw new Error(`Atlas resource already belongs in the main catalog; reference it from atlas/applicability.json instead: ${duplicatedCatalogUrl.url}`);
 
   const catalogResourceById = new Map(catalogResources.map((resource) => [resource.id, resource]));
-  for (const location of hierarchy.locations) {
-    if (location.catalogResources !== undefined && !Array.isArray(location.catalogResources)) throw new Error(`Atlas catalogResources must be an array for ${location.id}.`);
-    for (const reference of location.catalogResources || []) {
-      if (!reference?.resourceId || !reference?.section) throw new Error(`Incomplete atlas catalog reference for ${location.id}.`);
-      if (reference.role && !ATLAS_ROLES.has(reference.role)) throw new Error(`Unsupported atlas catalog reference role ${reference.role} for ${location.id}.`);
-      const catalogResource = catalogResourceById.get(reference.resourceId);
-      if (!catalogResource) throw new Error(`Atlas catalog reference does not exist in the main catalog: ${reference.resourceId}`);
-      if (catalogResource.idOrigin !== "explicit") throw new Error(`Atlas catalog reference must use an explicit resource ID: ${reference.resourceId}`);
-      const key = normalizeUrl(catalogResource.url);
-      if (seen.has(key)) throw new Error(`Duplicate atlas resource reference: ${reference.resourceId}`);
-      resources.push({
-        id: catalogResource.id,
-        idOrigin: catalogResource.idOrigin,
-        aliases: catalogResource.aliases,
-        metadata: catalogResource.metadata,
-        title: catalogResource.title,
-        url: catalogResource.url,
-        description: catalogResource.description,
-        domain: catalogResource.domain,
-        section: reference.section,
-        role: reference.role || "resource",
-        locationId: location.id,
-        source: catalogResource.source,
-        atlasSource: "atlas/locations.json",
-        catalogReference: true,
-      });
-      seen.add(key);
-      coveredLocations.add(location.id);
-    }
+  const associations = validateAtlasApplicability(applicability, locationById, catalogResourceById);
+  const legacyCatalogResourcesByLocation = new Map();
+  for (const association of associations) {
+    const catalogResource = catalogResourceById.get(association.resourceId);
+    if (placeUrls.has(normalizeUrl(catalogResource.url))) throw new Error(`Atlas place resource duplicates a main-catalog association: ${association.resourceId}`);
+    const legacyReference = { resourceId: association.resourceId, section: association.section };
+    if (association.role !== "resource") legacyReference.role = association.role;
+    legacyCatalogResourcesByLocation.set(association.locationId, [...(legacyCatalogResourcesByLocation.get(association.locationId) || []), legacyReference]);
+    resources.push({
+      id: catalogResource.id,
+      idOrigin: catalogResource.idOrigin,
+      associationId: `${association.locationId}:${catalogResource.id}`,
+      aliases: catalogResource.aliases,
+      metadata: catalogResource.metadata,
+      title: catalogResource.title,
+      url: catalogResource.url,
+      description: catalogResource.description,
+      domain: catalogResource.domain,
+      section: association.section,
+      role: association.role,
+      relationship: association.relationship,
+      locationId: association.locationId,
+      source: catalogResource.source,
+      atlasSource: "atlas/applicability.json",
+      provenance: association.provenance,
+      catalogReference: true,
+    });
+    coveredLocations.add(association.locationId);
+  }
+
+  const associationIds = new Set();
+  const resourceUrlById = new Map();
+  for (const resource of resources) {
+    if (associationIds.has(resource.associationId)) throw new Error(`Duplicate Atlas association ID: ${resource.associationId}`);
+    associationIds.add(resource.associationId);
+    const normalizedUrl = normalizeUrl(resource.url);
+    if (resourceUrlById.has(resource.id) && resourceUrlById.get(resource.id) !== normalizedUrl) throw new Error(`Atlas resource ID points to multiple URLs: ${resource.id}`);
+    resourceUrlById.set(resource.id, normalizedUrl);
   }
 
   const coverageCache = new Map();
@@ -238,12 +253,22 @@ async function buildAtlas(catalogResources) {
     location.resourceCount = resources.filter((resource) => resource.locationId === location.id).length;
     location.covered = isCovered(location);
   }
+  const locations = hierarchy.locations.map(({ children, resourceCount, covered, ...location }) => ({
+    ...location,
+    ...(legacyCatalogResourcesByLocation.has(location.id) ? { catalogResources: legacyCatalogResourcesByLocation.get(location.id) } : {}),
+    children,
+    resourceCount,
+    covered,
+  }));
   return {
     schemaVersion: hierarchy.schemaVersion,
+    applicabilitySchemaVersion: applicability.schemaVersion,
     rootId: hierarchy.rootId,
     locationCount: hierarchy.locations.length,
     resourceCount: resources.length,
-    locations: hierarchy.locations,
+    uniqueResourceCount: resourceUrlById.size,
+    associationCount: associationIds.size,
+    locations,
     resources,
   };
 }

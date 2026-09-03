@@ -11,12 +11,15 @@ This is a foundation, not a claim of comprehensive geographic coverage. The inte
 
 ## Data model
 
-- [`locations.json`](locations.json) defines the geographic hierarchy, stable identifiers, map geometry references, camera hints, and references to resources already canonical in the main catalog.
+- [`locations.json`](locations.json) defines only the geographic hierarchy, stable place identifiers, map geometry references, and camera hints.
+- [`applicability.json`](applicability.json) defines explicit, many-to-many associations between stable main-catalog resource IDs and Atlas places.
 - [`places/`](places/) contains the canonical, human-reviewable Markdown resources for each covered place.
 - [`site/data/atlas-themes.json`](../site/data/atlas-themes.json) contains presentation-only map palettes.
 - [`scripts/build-site.mjs`](../scripts/build-site.mjs) compiles the hierarchy and place Markdown into `dist/data/atlas.json`.
 
-Do not hand-edit `dist/data/atlas.json`. The Markdown files remain the source of truth.
+Do not hand-edit `dist/data/atlas.json`. The location registry, applicability manifest, and place Markdown remain the source of truth.
+
+The generated location records retain a derived `catalogResources` projection for compatibility with existing schema consumers. It is generated from `applicability.json` and must never be edited or restored to `locations.json` as source data.
 
 ## Adding a place
 
@@ -24,7 +27,7 @@ Do not hand-edit `dist/data/atlas.json`. The Markdown files remain the source of
 2. Add `atlas/places/<location-id>.md` with an `atlas-location` metadata comment.
 3. Prefer official public agencies, public libraries, schools, civic organizations, and locally accountable services.
 4. Keep entries specific to the place. General-purpose resources belong in the main `lists/` catalog.
-5. When a useful place resource already exists in the main catalog, give the catalog entry an explicit stable ID and metadata, then add its `resourceId` and the Atlas section under the location's `catalogResources` array instead of duplicating its description in a place file.
+5. When a useful place resource already exists in the main catalog, give the catalog entry an explicit stable ID and metadata, then add an association to `applicability.json` instead of duplicating its description in a place file.
 6. Run the normal build and verification commands.
 
 Each place file uses the same readable entry format as the main awesome lists:
@@ -46,17 +49,41 @@ Atlas is a doorway into local knowledge, not a mirror of every changing listing 
 - [Example Service Finder](https://example.gov/find/) - Search maintained local services by place and need. <!-- atlas-role: index -->
 ```
 
-Catalog references in `locations.json` may use `"role": "index"` for the same purpose. Use the marker only for resources that actually help people discover multiple downstream services, organizations, places, or records.
+Catalog associations in `applicability.json` may use `"role": "index"` for the same purpose. Use the role only for resources that actually help people discover multiple downstream services, organizations, places, or records.
 
 ```json
 {
   "resourceId": "example-service-finder",
+  "locationId": "us-ma-example",
+  "relationship": "specific",
   "section": "Start here: local finders",
-  "role": "index"
+  "role": "index",
+  "provenanceId": "example-scope-review"
 }
 ```
 
-Atlas catalog references never use canonical URLs as identity. The referenced main-catalog entry must have an explicit `akashic-meta` ID; URL changes then preserve the association. See [Stable resource identity and metadata](../docs/resource-metadata.md).
+Atlas catalog associations never use canonical URLs as identity. The referenced main-catalog entry must have an explicit `akashic-meta` ID; URL changes then preserve every association. A resource may be associated with more than one place, while a duplicate resource/place pair fails validation.
+
+`relationship` is authored as one of:
+
+- `specific` when the resource itself applies to the named place;
+- `cross-associated` when a curator intentionally exposes a resource at another place without claiming that it is specific to that place.
+
+`inherited` is deliberately not an authored value. A later inheritance layer may derive it from a reviewed ancestor association while retaining the ancestor, relationship, and provenance that caused the inclusion.
+
+Every association points to a reusable provenance record. Existing references were moved with migration provenance, which records their source but does not claim a new human truth review. New applicability claims should use human-review provenance with an HTTPS evidence source, review date, and GitHub reviewer:
+
+```json
+{
+  "id": "example-scope-review",
+  "kind": "human-review",
+  "sourceUrl": "https://example.gov/service-area",
+  "reviewed": "2026-09-03",
+  "reviewedBy": "github-handle"
+}
+```
+
+Resources in `places/*.md` remain implicitly `specific` to that file's `atlas-location`. They must not duplicate a main-catalog URL. Promote a resource to the main catalog with an explicit ID before associating the same canonical resource with multiple places. See [Stable resource identity and metadata](../docs/resource-metadata.md).
 
 ## Identifier conventions
 

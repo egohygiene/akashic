@@ -18,6 +18,7 @@ Protect both products. A change is incomplete when the Markdown is correct but t
 - A nested collection hub, currently `lists/awesome-abundance/README.md`, is the canonical index and count ledger for its child lists.
 - Files under `site/` are the canonical portal source.
 - `site/i18n/locales.json` and `site/i18n/*.json` are the canonical locale registry and interface message catalogs.
+- `atlas/locations.json`, `atlas/applicability.json`, and `atlas/places/*.md` are the canonical Atlas registry, main-catalog association, and place-resource sources.
 - Files under `scripts/` define collection validation and portal generation.
 - Files under `dist/` are generated output. Never hand-edit them, and do not include regenerated output in a change unless explicitly requested.
 - `contributing.md` defines the public contribution policy. Keep agent behavior consistent with it.
@@ -34,6 +35,10 @@ lists/
   awesome-abundance/
     README.md                     Nested collection hub
     <subcollection>/README.md     Focused Awesome Abundance lists
+atlas/
+  locations.json                  Place hierarchy and geometry registry
+  applicability.json              Explicit catalog resource/place associations
+  places/*.md                     Resources canonical to one place
 scripts/
   lib/                            Shared catalog and Atlas parsing/validation modules
   validate-collection.mjs         Repository-wide structural and duplicate checks
@@ -56,6 +61,8 @@ dist/                             Generated local build output
   quality.yml                     Full PR syntax, test, lint, build, and site gate
   pages.yml                       Independent GitHub Pages build and deployment
 ```
+
+Atlas source data is split deliberately: `atlas/locations.json` is the place registry, `atlas/applicability.json` owns explicit main-catalog resource/place associations, and `atlas/places/*.md` owns resources that are canonical to one place.
 
 ## Working Principles
 
@@ -117,7 +124,7 @@ Every resource newly added by an agent must include a trailing `akashic-meta` JS
 - When a canonical URL changes, keep the ID, move the old HTTP(S) URL into `aliases`, and update the Markdown link. Do not put the current URL in `aliases`.
 - Use only documented fields and controlled values. Record access, geography, language, platform, account, license, status, volatility, and review cadence when they apply; add sensitive scopes for medical, legal, financial, emergency, privacy, security, crisis, youth, or dual-use material.
 - Keep `reviewed` (human truth review) distinct from `linkStatus` and `linkChecked` (machine-observable availability). Never infer one from the other.
-- Give any main-catalog resource referenced by Atlas an explicit ID, and reference it from `atlas/locations.json` with `resourceId`, never by canonical URL.
+- Give any main-catalog resource referenced by Atlas an explicit ID, and reference it from `atlas/applicability.json` with `resourceId`, never by canonical URL. Do not put resource applicability back into `atlas/locations.json`.
 - Do not mass-backfill untouched legacy entries. Add explicit metadata when creating, reviewing, moving, or materially updating a resource.
 
 Before an agent proposes or updates a pull request containing resources, it must run `node scripts/validate-collection.mjs`, `node --test`, the pinned Awesome Lint wrapper for every affected list, `node scripts/build-site.mjs`, and `node scripts/check-site.mjs`. A resource addition is incomplete if identity or metadata validation fails.

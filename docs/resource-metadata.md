@@ -18,9 +18,9 @@ When a canonical URL changes:
 2. Replace the Markdown link with the new canonical HTTPS URL.
 3. Add the former URL to `aliases`. Aliases may use HTTP when that was the historical address.
 4. Do not keep the current URL in `aliases`.
-5. Leave Atlas references on `resourceId`; do not replace them with URLs.
+5. Leave Atlas references in `atlas/applicability.json` on `resourceId`; do not replace them with URLs or move them into the place registry.
 
-The portal stores saved resources by ID. On first schema-v2 load it converts saved current or former URLs to IDs. Atlas cross-posts also resolve by ID. This preserves saved state, Atlas applicability, and the identity expected by future `/resources/<id>/` pages when a URL moves.
+The portal stores saved resources by ID. On first schema-v2 load it converts saved current or former URLs to IDs. Atlas cross-posts also resolve by ID through the separately validated applicability manifest. This preserves saved state, Atlas applicability, and the identity expected by future `/resources/<id>/` pages when a URL moves.
 
 ## Controlled fields
 

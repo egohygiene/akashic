@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "provenance": [
+    {
+      "id": "locations-v2-migration",
+      "kind": "migration",
+      "source": "atlas/locations.json"
+    }
+  ],
+  "associations": [
+    {
+      "resourceId": "usa-gov-local-governments",
+      "locationId": "us",
+      "relationship": "specific",
+      "section": "Government and civic life",
+      "role": "index",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "cftc-check-registration-backgrounds",
+      "locationId": "us",
+      "relationship": "specific",
+      "section": "Money, taxes, and consumer protection",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "fincen-msb-registrant-search",
+      "locationId": "us",
+      "relationship": "specific",
+      "section": "Money, taxes, and consumer protection",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "irs-digital-assets",
+      "locationId": "us",
+      "relationship": "specific",
+      "section": "Money, taxes, and consumer protection",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "california-state-library-parks-pass",
+      "locationId": "us-ca",
+      "relationship": "specific",
+      "section": "Work, learning, and getting around",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "california-privacy-protection-agency",
+      "locationId": "us-ca",
+      "relationship": "specific",
+      "section": "Government, legal, and civic life",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "california-dfpi-crypto-scam-tracker",
+      "locationId": "us-ca",
+      "relationship": "specific",
+      "section": "Money, taxes, and consumer protection",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "massachusetts-community-action-agency-directory",
+      "locationId": "us-ma",
+      "relationship": "specific",
+      "section": "Start here: statewide finders",
+      "role": "index",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "massachusetts-myservices",
+      "locationId": "us-ma",
+      "relationship": "specific",
+      "section": "Benefits, food, and housing",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "mahix-individual-coverage",
+      "locationId": "us-ma",
+      "relationship": "specific",
+      "section": "Benefits, food, and housing",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "massachusetts-health-safety-net",
+      "locationId": "us-ma",
+      "relationship": "specific",
+      "section": "Benefits, food, and housing",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "massachusetts-find-unclaimed-property",
+      "locationId": "us-ma",
+      "relationship": "specific",
+      "section": "Benefits, food, and housing",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "massachusetts-free-community-college",
+      "locationId": "us-ma",
+      "relationship": "specific",
+      "section": "Work, learning, and getting around",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "massachusetts-ebt-card-to-culture",
+      "locationId": "us-ma",
+      "relationship": "specific",
+      "section": "Work, learning, and getting around",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "masshire-department-of-career-services",
+      "locationId": "us-ma",
+      "relationship": "specific",
+      "section": "Work, learning, and getting around",
+      "role": "index",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "masshire-jobquest",
+      "locationId": "us-ma",
+      "relationship": "specific",
+      "section": "Work, learning, and getting around",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "mass-legal-help",
+      "locationId": "us-ma",
+      "relationship": "specific",
+      "section": "Government, legal, and civic life",
+      "role": "index",
+      "provenanceId": "locations-v2-migration"
+    },
+    {
+      "resourceId": "massachusetts-beware-cryptocurrency-scams",
+      "locationId": "us-ma",
+      "relationship": "specific",
+      "section": "Money, taxes, and consumer protection",
+      "role": "resource",
+      "provenanceId": "locations-v2-migration"
+    }
+  ]
+}

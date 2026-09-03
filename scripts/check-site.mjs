@@ -22,8 +22,10 @@ for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "searc
 
 const atlas = JSON.parse(await readFile(path.join(output, "data/atlas.json"), "utf8"));
 if (atlas.schemaVersion !== 2) throw new Error("Unsupported atlas schema.");
+if (atlas.applicabilitySchemaVersion !== 1) throw new Error("Unsupported atlas applicability schema.");
 if (!Array.isArray(atlas.locations) || atlas.locations.length !== atlas.locationCount) throw new Error("The atlas location count is inconsistent.");
 if (!Array.isArray(atlas.resources) || atlas.resources.length !== atlas.resourceCount) throw new Error("The atlas resource count is inconsistent.");
+if (atlas.associationCount !== atlas.resources.length) throw new Error("The atlas association count is inconsistent.");
 const locations = new Map(atlas.locations.map((location) => [location.id, location]));
 if (!locations.has(atlas.rootId)) throw new Error("The atlas root location is missing.");
 for (const location of atlas.locations) {
@@ -36,17 +38,38 @@ for (const location of atlas.locations) {
   for (const childId of location.children) {
     if (locations.get(childId)?.parentId !== location.id) throw new Error(`Broken atlas hierarchy at ${location.id} / ${childId}.`);
   }
+  const expectedLegacyReferences = atlas.resources
+    .filter((resource) => resource.locationId === location.id && resource.catalogReference)
+    .map((resource) => ({ resourceId: resource.id, section: resource.section, ...(resource.role !== "resource" ? { role: resource.role } : {}) }));
+  if (JSON.stringify(location.catalogResources || []) !== JSON.stringify(expectedLegacyReferences)) throw new Error(`Atlas compatibility references are inconsistent for ${location.name}.`);
   const exactCount = atlas.resources.filter((resource) => resource.locationId === location.id).length;
   if (exactCount !== location.resourceCount) throw new Error(`Atlas resource count is inconsistent for ${location.name}.`);
 }
-const atlasUrls = atlas.resources.map((resource) => resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, ""));
-if (new Set(atlasUrls).size !== atlasUrls.length) throw new Error("The atlas contains duplicate normalized URLs.");
+const atlasAssociationIds = new Set();
+const atlasResourceIds = new Set();
+const atlasIdentityByUrl = new Map();
+const atlasUrlByResourceId = new Map();
 for (const resource of atlas.resources) {
-  if (!resource.id || !resource.title || !resource.description || !resource.domain || !resource.section || !resource.locationId || !resource.source) throw new Error(`Incomplete atlas resource: ${resource.url}`);
+  if (!resource.id || !resource.associationId || !resource.title || !resource.description || !resource.domain || !resource.section || !resource.locationId || !resource.source) throw new Error(`Incomplete atlas resource: ${resource.url}`);
+  if (resource.associationId !== `${resource.locationId}:${resource.id}`) throw new Error(`Invalid atlas association identity: ${resource.associationId}`);
+  if (atlasAssociationIds.has(resource.associationId)) throw new Error(`Duplicate atlas association: ${resource.associationId}`);
+  atlasAssociationIds.add(resource.associationId);
+  atlasResourceIds.add(resource.id);
   if (!["resource", "index"].includes(resource.role)) throw new Error(`Unsupported atlas role: ${resource.role}`);
+  if (!["specific", "cross-associated"].includes(resource.relationship)) throw new Error(`Unsupported atlas relationship: ${resource.relationship}`);
+  if (!["human-review", "migration", "place-file"].includes(resource.provenance?.kind)) throw new Error(`Unsupported atlas provenance: ${resource.associationId}`);
+  if (["migration", "place-file"].includes(resource.provenance.kind) && !resource.provenance.source) throw new Error(`Incomplete atlas source provenance: ${resource.associationId}`);
+  if (resource.provenance.kind === "human-review" && (!resource.provenance.sourceUrl || !resource.provenance.reviewed || !resource.provenance.reviewedBy)) throw new Error(`Incomplete atlas human-review provenance: ${resource.associationId}`);
   if (!locations.has(resource.locationId)) throw new Error(`Atlas resource has unknown location: ${resource.url}`);
   new URL(resource.url);
+  const normalizedUrl = resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, "");
+  if (atlasIdentityByUrl.has(normalizedUrl) && atlasIdentityByUrl.get(normalizedUrl) !== resource.id) throw new Error(`Atlas URL has conflicting resource IDs: ${resource.url}`);
+  atlasIdentityByUrl.set(normalizedUrl, resource.id);
+  if (atlasUrlByResourceId.has(resource.id) && atlasUrlByResourceId.get(resource.id) !== normalizedUrl) throw new Error(`Atlas resource ID has conflicting URLs: ${resource.id}`);
+  atlasUrlByResourceId.set(resource.id, normalizedUrl);
 }
+if (atlasAssociationIds.size !== atlas.associationCount) throw new Error("The atlas has duplicate association identities.");
+if (atlasResourceIds.size !== atlas.uniqueResourceCount || atlasUrlByResourceId.size !== atlas.uniqueResourceCount) throw new Error("The atlas unique-resource count is inconsistent.");
 
 const themes = JSON.parse(await readFile(path.join(output, "data/atlas-themes.json"), "utf8"));
 if (!Array.isArray(themes.themes) || themes.themes.length < 3) throw new Error("The atlas needs a useful set of map themes.");
