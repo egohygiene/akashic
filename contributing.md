@@ -46,7 +46,7 @@ lists/
   work-and-learning/README.md
 atlas/
   locations.json             ← place hierarchy and geometry registry
-  applicability.json         ← explicit catalog resource/place associations
+  applicability.json         ← explicit resource/place associations and inheritance edges
   places/*.md                ← canonical place-aware resource lists
 scripts/
   validate-collection.mjs    ← repository-wide collection validator

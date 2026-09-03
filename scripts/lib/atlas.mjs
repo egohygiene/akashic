@@ -59,8 +59,8 @@ export function validateAtlasHierarchy(hierarchy) {
 }
 
 export function validateAtlasApplicability(manifest, locationById, catalogResourceById) {
-  if (manifest?.schemaVersion !== 1 || !Array.isArray(manifest.provenance) || !Array.isArray(manifest.associations)) throw new Error("Unsupported atlas applicability schema.");
-  rejectUnknownFields(manifest, ["schemaVersion", "provenance", "associations"], "Atlas applicability manifest");
+  if (manifest?.schemaVersion !== 2 || !Array.isArray(manifest.provenance) || !Array.isArray(manifest.associations) || !Array.isArray(manifest.inheritance)) throw new Error("Unsupported atlas applicability schema.");
+  rejectUnknownFields(manifest, ["schemaVersion", "provenance", "associations", "inheritance"], "Atlas applicability manifest");
   if (!manifest.provenance.length) throw new Error("Atlas applicability needs at least one provenance entry.");
 
   const provenanceById = new Map();
@@ -71,7 +71,7 @@ export function validateAtlasApplicability(manifest, locationById, catalogResour
   }
 
   const associationKeys = new Set();
-  return manifest.associations.map((association, index) => {
+  const associations = manifest.associations.map((association, index) => {
     const context = `Atlas applicability association ${index + 1}`;
     if (!association || typeof association !== "object" || Array.isArray(association)) throw new Error(`${context} must be an object.`);
     rejectUnknownFields(association, ["locationId", "provenanceId", "relationship", "resourceId", "role", "section"], context);
@@ -91,4 +91,76 @@ export function validateAtlasApplicability(manifest, locationById, catalogResour
     associationKeys.add(associationKey);
     return { ...association, role, provenance };
   });
+
+  const inheritanceKeys = new Set();
+  const inheritance = manifest.inheritance.map((edge, index) => {
+    const context = `Atlas inheritance edge ${index + 1}`;
+    if (!edge || typeof edge !== "object" || Array.isArray(edge)) throw new Error(`${context} must be an object.`);
+    rejectUnknownFields(edge, ["inheritsFromLocationId", "locationId", "provenanceId"], context);
+    if (!locationById.has(edge.locationId)) throw new Error(`${context} references unknown Atlas location: ${edge.locationId || "missing"}`);
+    if (!locationById.has(edge.inheritsFromLocationId)) throw new Error(`${context} references unknown inherited Atlas location: ${edge.inheritsFromLocationId || "missing"}`);
+    if (edge.locationId === edge.inheritsFromLocationId) throw new Error(`${context} cannot inherit from itself.`);
+    const provenance = provenanceById.get(edge.provenanceId);
+    if (!provenance) throw new Error(`${context} references unknown provenance: ${edge.provenanceId || "missing"}`);
+    const inheritanceKey = `${edge.locationId}\u0000${edge.inheritsFromLocationId}`;
+    if (inheritanceKeys.has(inheritanceKey)) throw new Error(`Duplicate Atlas inheritance edge: ${edge.locationId} / ${edge.inheritsFromLocationId}`);
+    inheritanceKeys.add(inheritanceKey);
+    return { id: `${edge.locationId}:${edge.inheritsFromLocationId}`, ...edge, provenance };
+  });
+
+  const inheritanceByLocation = new Map();
+  for (const edge of inheritance) inheritanceByLocation.set(edge.locationId, [...(inheritanceByLocation.get(edge.locationId) || []), edge.inheritsFromLocationId]);
+  const visited = new Set();
+  const visiting = new Set();
+  const visit = (locationId) => {
+    if (visiting.has(locationId)) throw new Error(`Atlas inheritance cycle detected at ${locationId}.`);
+    if (visited.has(locationId)) return;
+    visiting.add(locationId);
+    for (const inheritedLocationId of inheritanceByLocation.get(locationId) || []) visit(inheritedLocationId);
+    visiting.delete(locationId);
+    visited.add(locationId);
+  };
+  for (const locationId of locationById.keys()) visit(locationId);
+
+  return { associations, inheritance };
+}
+
+export function deriveAtlasLocationResources(locations, resources, inheritance) {
+  const resourcesByLocation = new Map(locations.map((location) => [location.id, []]));
+  for (const resource of resources) {
+    if (!resourcesByLocation.has(resource.locationId)) throw new Error(`Atlas resource has unknown location: ${resource.locationId}`);
+    resourcesByLocation.get(resource.locationId).push(resource);
+  }
+  const inheritanceByLocation = new Map();
+  for (const edge of inheritance) inheritanceByLocation.set(edge.locationId, [...(inheritanceByLocation.get(edge.locationId) || []), edge]);
+
+  return Object.fromEntries(locations.map((location) => {
+    const placements = [];
+    const seenResourceIds = new Set();
+    const append = (resource, relationship, sourceLocationId, inheritancePath) => {
+      if (seenResourceIds.has(resource.id)) return;
+      seenResourceIds.add(resource.id);
+      placements.push({
+        associationId: resource.associationId,
+        relationship,
+        ...(relationship === "inherited" ? { sourceRelationship: resource.relationship } : {}),
+        sourceLocationId,
+        inheritancePath,
+      });
+    };
+
+    for (const resource of resourcesByLocation.get(location.id)) append(resource, resource.relationship, location.id, []);
+    const queue = (inheritanceByLocation.get(location.id) || []).map((edge) => ({ locationId: edge.inheritsFromLocationId, path: [edge.id] }));
+    const visitedLocationIds = new Set([location.id]);
+    for (let queueIndex = 0; queueIndex < queue.length; queueIndex += 1) {
+      const candidate = queue[queueIndex];
+      if (visitedLocationIds.has(candidate.locationId)) continue;
+      visitedLocationIds.add(candidate.locationId);
+      for (const resource of resourcesByLocation.get(candidate.locationId) || []) {
+        if (resource.relationship === "specific") append(resource, "inherited", candidate.locationId, candidate.path);
+      }
+      for (const edge of inheritanceByLocation.get(candidate.locationId) || []) queue.push({ locationId: edge.inheritsFromLocationId, path: [...candidate.path, edge.id] });
+    }
+    return [location.id, placements];
+  }));
 }

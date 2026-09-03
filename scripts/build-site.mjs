@@ -2,7 +2,7 @@ import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { normalizeUrl, parseResourceEntry, parseRootCategories } from "./lib/catalog.mjs";
-import { validateAtlasApplicability, validateAtlasHierarchy } from "./lib/atlas.mjs";
+import { deriveAtlasLocationResources, validateAtlasApplicability, validateAtlasHierarchy } from "./lib/atlas.mjs";
 import { parseRelatedPaths, parseSiteGuide } from "./lib/guide.mjs";
 import { loadLocales, localizeHtml } from "./lib/i18n.mjs";
 import { deriveResourceId, validateResourceIdentities } from "./lib/resource-metadata.mjs";
@@ -202,7 +202,7 @@ async function buildAtlas(catalogResources) {
   if (duplicatedCatalogUrl) throw new Error(`Atlas resource already belongs in the main catalog; reference it from atlas/applicability.json instead: ${duplicatedCatalogUrl.url}`);
 
   const catalogResourceById = new Map(catalogResources.map((resource) => [resource.id, resource]));
-  const associations = validateAtlasApplicability(applicability, locationById, catalogResourceById);
+  const { associations, inheritance } = validateAtlasApplicability(applicability, locationById, catalogResourceById);
   const legacyCatalogResourcesByLocation = new Map();
   for (const association of associations) {
     const catalogResource = catalogResourceById.get(association.resourceId);
@@ -249,15 +249,21 @@ async function buildAtlas(catalogResources) {
     coverageCache.set(location.id, covered);
     return covered;
   };
+  const resourcesByLocation = deriveAtlasLocationResources(hierarchy.locations, resources, inheritance);
   for (const location of hierarchy.locations) {
-    location.resourceCount = resources.filter((resource) => resource.locationId === location.id).length;
+    const placements = resourcesByLocation[location.id];
+    location.inheritedResourceCount = placements.filter((placement) => placement.relationship === "inherited").length;
+    location.resourceCount = placements.length - location.inheritedResourceCount;
+    location.availableResourceCount = placements.length;
     location.covered = isCovered(location);
   }
-  const locations = hierarchy.locations.map(({ children, resourceCount, covered, ...location }) => ({
+  const locations = hierarchy.locations.map(({ children, resourceCount, availableResourceCount, inheritedResourceCount, covered, ...location }) => ({
     ...location,
     ...(legacyCatalogResourcesByLocation.has(location.id) ? { catalogResources: legacyCatalogResourcesByLocation.get(location.id) } : {}),
     children,
     resourceCount,
+    availableResourceCount,
+    inheritedResourceCount,
     covered,
   }));
   return {
@@ -269,6 +275,8 @@ async function buildAtlas(catalogResources) {
     uniqueResourceCount: resourceUrlById.size,
     associationCount: associationIds.size,
     locations,
+    inheritance,
+    resourcesByLocation,
     resources,
   };
 }

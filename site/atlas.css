@@ -75,6 +75,13 @@
 .atlas-place-panel .button { align-self: flex-start; }
 
 .atlas-resources { padding: 120px 0 65px; }
+.atlas-scope-filter { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 34px; padding: 12px; border: 1px solid var(--line); border-radius: 17px; background: var(--surface); }
+.atlas-scope-filter > p { margin: 0 0 0 9px; color: var(--faint); font-size: .68rem; font-weight: 820; letter-spacing: .1em; text-transform: uppercase; }
+.atlas-scope-filter > div { display: flex; flex-wrap: wrap; gap: 7px; }
+.atlas-scope-filter button { min-height: 44px; display: inline-flex; align-items: center; gap: 9px; padding: 0 13px; border: 1px solid transparent; border-radius: 12px; background: transparent; color: var(--muted); cursor: pointer; font-size: .73rem; font-weight: 780; }
+.atlas-scope-filter button:hover { border-color: var(--line-strong); background: var(--surface-hover); color: var(--text); }
+.atlas-scope-filter button[aria-pressed="true"] { border-color: color-mix(in srgb, var(--cyan), transparent 42%); background: color-mix(in srgb, var(--cyan), transparent 90%); color: var(--text); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cyan), transparent 76%); }
+.atlas-scope-filter button span { min-width: 25px; padding: 3px 7px; border-radius: 999px; background: var(--surface-raised); color: var(--faint); font-size: .64rem; text-align: center; }
 .atlas-scope-note { display: grid; grid-template-columns: 50px minmax(0, 1fr); gap: 18px; align-items: center; margin-top: 34px; padding: 20px 22px; border: 1px solid color-mix(in srgb, var(--violet), transparent 55%); border-radius: 19px; background: linear-gradient(120deg, color-mix(in srgb, var(--violet), transparent 91%), color-mix(in srgb, var(--pink), transparent 95%)); }
 .atlas-scope-note > span { width: 50px; height: 50px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--pink), transparent 42%); border-radius: 16px; color: var(--pink); font-size: 1.35rem; }
 .atlas-scope-note strong { display: block; font-size: .94rem; }
@@ -88,6 +95,7 @@
 .atlas-resource-groups { display: grid; gap: 42px; margin-top: 38px; }
 .atlas-resource-group h3 { display: flex; align-items: center; gap: 12px; margin: 0 0 15px; font-size: 1rem; }
 .atlas-resource-group h3::before { content: ""; width: 19px; height: 1px; background: var(--pink); box-shadow: 0 0 8px var(--pink); }
+.atlas-resource-group.is-inherited h3::before { background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
 .atlas-resource-group-copy { max-width: 720px; margin: -5px 0 17px 31px; color: var(--muted); font-size: .76rem; line-height: 1.6; }
 .atlas-resource-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
 .atlas-resource-card { position: relative; min-height: 176px; display: flex; flex-direction: column; overflow: hidden; padding: 20px; border: 1px solid var(--line); border-radius: 19px; background: var(--surface); color: var(--text); text-decoration: none; box-shadow: var(--shadow-soft); transition: transform .2s ease, border-color .2s ease, background .2s ease; }
@@ -97,7 +105,12 @@
 .atlas-resource-card.is-index:hover { border-color: color-mix(in srgb, var(--pink), transparent 25%); }
 .atlas-resource-card > span:first-child { color: var(--faint); font-size: .65rem; letter-spacing: .08em; }
 .atlas-resource-card.is-index > span:first-child { color: var(--muted); font-weight: 780; }
-.atlas-resource-card strong { margin: 15px 0 8px; font-size: 1.05rem; }
+.atlas-resource-context { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
+.atlas-resource-context span { padding: 4px 7px; border: 1px solid var(--line); border-radius: 999px; color: var(--faint); font-size: .61rem; font-weight: 750; line-height: 1.2; }
+.atlas-resource-context .atlas-resource-scope { border-color: color-mix(in srgb, var(--violet), transparent 58%); color: var(--muted); }
+.atlas-resource-context .atlas-resource-scope.is-inherited { border-color: color-mix(in srgb, var(--cyan), transparent 50%); color: color-mix(in srgb, var(--cyan), var(--text) 28%); }
+.atlas-resource-context .atlas-resource-scope.is-cross-associated { border-color: color-mix(in srgb, var(--pink), transparent 52%); color: color-mix(in srgb, var(--pink), var(--text) 28%); }
+.atlas-resource-card strong { margin: 13px 0 8px; font-size: 1.05rem; }
 .atlas-resource-card p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.58; }
 .atlas-resource-card > span:last-child { margin-top: auto; padding-top: 15px; color: var(--pink); font-size: .71rem; font-weight: 800; }
 .atlas-empty { min-height: 280px; display: grid; place-items: center; align-content: center; padding: 40px; border: 1px dashed var(--line-strong); border-radius: 24px; text-align: center; }
@@ -142,6 +155,10 @@
   .atlas-place-panel { min-height: 400px; padding: 30px 24px; }
   .atlas-place-signal { margin-bottom: 24px; }
   .atlas-resources { padding-top: 90px; }
+  .atlas-scope-filter { align-items: stretch; flex-direction: column; padding: 15px; }
+  .atlas-scope-filter > p { margin-left: 0; }
+  .atlas-scope-filter > div { display: grid; grid-template-columns: 1fr; }
+  .atlas-scope-filter button { justify-content: space-between; text-align: left; }
   .atlas-scope-note { grid-template-columns: 42px minmax(0, 1fr); padding: 17px; }
   .atlas-scope-note > span { width: 42px; height: 42px; border-radius: 14px; }
   .atlas-resource-nav { flex-wrap: nowrap; margin-inline: -14px; padding: 0 14px 4px; overflow-x: auto; scrollbar-width: thin; }

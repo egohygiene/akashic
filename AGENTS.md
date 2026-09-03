@@ -125,6 +125,7 @@ Every resource newly added by an agent must include a trailing `akashic-meta` JS
 - Use only documented fields and controlled values. Record access, geography, language, platform, account, license, status, volatility, and review cadence when they apply; add sensitive scopes for medical, legal, financial, emergency, privacy, security, crisis, youth, or dual-use material.
 - Keep `reviewed` (human truth review) distinct from `linkStatus` and `linkChecked` (machine-observable availability). Never infer one from the other.
 - Give any main-catalog resource referenced by Atlas an explicit ID, and reference it from `atlas/applicability.json` with `resourceId`, never by canonical URL. Do not put resource applicability back into `atlas/locations.json`.
+- Add Atlas inheritance only as an explicit, provenance-bearing edge in `atlas/applicability.json`. Never infer legal or service applicability from `parentId`, geometry, or map containment.
 - Do not mass-backfill untouched legacy entries. Add explicit metadata when creating, reviewing, moving, or materially updating a resource.
 
 Before an agent proposes or updates a pull request containing resources, it must run `node scripts/validate-collection.mjs`, `node --test`, the pinned Awesome Lint wrapper for every affected list, `node scripts/build-site.mjs`, and `node scripts/check-site.mjs`. A resource addition is incomplete if identity or metadata validation fails.
