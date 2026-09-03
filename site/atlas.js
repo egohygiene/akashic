@@ -31,6 +31,12 @@ const selectors = {
   zoomIn: document.querySelector("#atlas-zoom-in"),
   zoomLevel: document.querySelector("#atlas-zoom-level"),
   fit: document.querySelector("#atlas-fit"),
+  mapControls: document.querySelector("#atlas-map-controls"),
+  mapFallback: document.querySelector("#atlas-map-fallback"),
+  legend: document.querySelector("#atlas-legend"),
+  mapNote: document.querySelector("#atlas-map-note"),
+  directorySummary: document.querySelector("#atlas-place-directory-summary"),
+  directoryList: document.querySelector("#atlas-place-directory-list"),
   themeToggle: document.querySelector("#theme-toggle"),
 };
 
@@ -46,6 +52,7 @@ const state = {
   themes: null,
   world: null,
   states: null,
+  geometryReady: false,
   locationById: null,
   inheritanceById: null,
   resourceByAssociationId: null,
@@ -87,9 +94,94 @@ function ancestors(location) {
   return path;
 }
 
-function descendantCount(location) {
-  const byId = locationMap();
-  return location.children.filter((id) => byId.get(id)?.covered).length;
+function childLocations(location) {
+  return location.children.map((id) => locationMap().get(id)).filter(Boolean);
+}
+
+function directoryEntries() {
+  const entries = [];
+  const visit = (locationId, depth, path) => {
+    const location = locationMap().get(locationId);
+    if (!location) return;
+    const nextPath = [...path, location];
+    entries.push({ location, depth, path: nextPath });
+    for (const childId of location.children) visit(childId, depth + 1, nextPath);
+  };
+  visit(state.atlas.rootId, 0, []);
+  return entries;
+}
+
+function placeHref(locationId) {
+  const url = new URL(window.location.href);
+  if (locationId === state.atlas.rootId) url.searchParams.delete("place");
+  else url.searchParams.set("place", locationId);
+  url.searchParams.delete("section");
+  return `${url.pathname}${url.search}${url.hash}`;
+}
+
+function updatePlaceDirectoryLinks() {
+  for (const link of selectors.directoryList.querySelectorAll("a")) link.href = placeHref(link.dataset.locationId);
+}
+
+function renderPlaceDirectory(current) {
+  const entries = directoryEntries();
+  selectors.directorySummary.textContent = t("runtime.atlas.placeDirectorySummary", { count: number(entries.length), name: current.name });
+  if (selectors.directoryList.childElementCount === 0) {
+    for (const entry of entries) {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = placeHref(entry.location.id);
+      link.dataset.locationId = entry.location.id;
+      link.style.setProperty("--atlas-place-depth", entry.depth);
+      link.addEventListener("click", (event) => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        if (entry.location.id !== state.locationId) setLocation(entry.location.id, { focus: true });
+      });
+
+      const identity = document.createElement("span");
+      identity.className = "atlas-place-directory-identity";
+      const kind = document.createElement("small");
+      kind.textContent = t(`runtime.atlas.kind.${entry.location.kind}`);
+      const name = document.createElement("strong");
+      name.textContent = entry.location.name;
+      if (canonicalContentLanguage) name.lang = canonicalContentLanguage;
+      identity.append(kind, name);
+      if (entry.path.length > 1) {
+        const path = document.createElement("span");
+        path.textContent = entry.path.slice(0, -1).map((location) => location.shortName).join(" › ");
+        if (canonicalContentLanguage) path.lang = canonicalContentLanguage;
+        identity.append(path);
+      }
+
+      const metadata = document.createElement("span");
+      metadata.className = "atlas-place-directory-metadata";
+      const resources = document.createElement("span");
+      resources.textContent = plural("runtime.unit.resource", entry.location.availableResourceCount);
+      metadata.append(resources);
+      if (entry.location.geometry.dataset === "none") {
+        const directoryOnly = document.createElement("span");
+        directoryOnly.textContent = t("runtime.atlas.placeDirectoryOnly");
+        metadata.append(directoryOnly);
+      }
+      link.append(identity, metadata);
+      item.append(link);
+      selectors.directoryList.append(item);
+    }
+  }
+  for (const link of selectors.directoryList.querySelectorAll("a")) {
+    link.href = placeHref(link.dataset.locationId);
+    const selected = link.dataset.locationId === current.id;
+    if (selected) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+    const currentLabel = link.querySelector(".is-current");
+    if (selected && !currentLabel) {
+      const label = document.createElement("span");
+      label.className = "is-current";
+      label.textContent = t("runtime.atlas.placeDirectoryCurrent");
+      link.querySelector(".atlas-place-directory-metadata").append(label);
+    } else if (!selected) currentLabel?.remove();
+  }
 }
 
 function resourceViews(location, scope = state.resourceScope) {
@@ -282,7 +374,8 @@ function geometryForLocation(location) {
 
 function drawUnitedStates(location) {
   const byId = locationMap();
-  const country = byId.get("us");
+  const country = ancestors(location).find((item) => item.kind === "country");
+  if (country?.id !== "us") return false;
   const selectedRegion = ancestors(location).find((item) => item.kind === "region");
   if (!selectedRegion) {
     const regionsByGeometryId = new Map((country?.children || [])
@@ -300,11 +393,11 @@ function drawUnitedStates(location) {
       if (coveredRegion) makeInteractive(path, coveredRegion.id, coveredRegion.name);
       selectors.map.append(path);
     }
-    return;
+    return true;
   }
 
   const geometry = geometryForLocation(selectedRegion);
-  if (!geometry) return;
+  if (!geometry) return false;
   const rings = ringsForGeometry(state.states, geometry);
   const bbox = bboxForRings(rings);
   const padding = Math.max(bbox.width, bbox.height) * .22;
@@ -320,6 +413,7 @@ function drawUnitedStates(location) {
       drawLocalityMarker(markerLocation, bbox, location.id === markerLocation.id);
     }
   }
+  return true;
 }
 
 function drawLocalityMarker(location, bbox, selected) {
@@ -340,9 +434,26 @@ function drawLocalityMarker(location, bbox, selected) {
 }
 
 function renderMap(location) {
-  selectors.map.replaceChildren();
-  if (location.kind === "world") drawWorld(location);
-  else drawUnitedStates(location);
+  const svgTitle = svgElement("title", { id: "atlas-map-svg-title" });
+  svgTitle.textContent = t("static.atlas.mapTitle");
+  const svgDescription = svgElement("desc", { id: "atlas-map-svg-desc" });
+  svgDescription.textContent = t("static.atlas.mapDescription");
+  selectors.map.replaceChildren(svgTitle, svgDescription);
+  let available = false;
+  try {
+    if (location.kind === "world" && state.world) {
+      drawWorld(location);
+      available = true;
+    } else if (location.kind !== "world" && state.states) available = drawUnitedStates(location);
+  } catch (error) {
+    console.error(error);
+  }
+  selectors.map.hidden = !available;
+  selectors.mapFallback.hidden = available || !state.geometryReady;
+  selectors.mapControls.hidden = !available;
+  selectors.legend.hidden = !available;
+  selectors.mapNote.hidden = !available;
+  selectors.theme.disabled = !available;
   const kind = t(`runtime.atlas.kind.${location.kind}`);
   selectors.level.textContent = t("runtime.atlas.view", { kind });
   selectors.title.textContent = location.kind === "world" ? t("static.atlas.exploreMap") : location.name;
@@ -351,14 +462,14 @@ function renderMap(location) {
 }
 
 function renderPlacePanel(location) {
-  const children = location.children.map((id) => locationMap().get(id)).filter((child) => child?.covered);
+  const children = childLocations(location);
   selectors.placeKind.textContent = t(`runtime.atlas.kind.${location.kind}`);
   selectors.placeTitle.textContent = location.kind === "world" ? t("static.atlas.growing") : location.name;
   if (canonicalContentLanguage && location.kind !== "world") selectors.placeTitle.lang = canonicalContentLanguage;
   else selectors.placeTitle.removeAttribute("lang");
   selectors.placeCopy.textContent = copyByKind[location.kind] || copyByKind.locality;
   selectors.resourceCount.textContent = number(location.availableResourceCount);
-  selectors.childCount.textContent = number(descendantCount(location));
+  selectors.childCount.textContent = number(children.length);
   selectors.openChild.hidden = children.length !== 1;
   if (children.length === 1) {
     selectors.openChild.firstChild.textContent = t("runtime.atlas.openChild", { name: children[0].shortName });
@@ -509,6 +620,7 @@ function writeUrl({ push = true } = {}) {
   if (state.mapTheme === state.themes.defaultTheme) url.searchParams.delete("mapTheme");
   else url.searchParams.set("mapTheme", state.mapTheme);
   history[push ? "pushState" : "replaceState"]({}, "", url);
+  updatePlaceDirectoryLinks();
 }
 
 function setLocation(id, { historyMode = "push", focus = false, resourceSection = "", resourceScope = state.resourceScope } = {}) {
@@ -520,6 +632,7 @@ function setLocation(id, { historyMode = "push", focus = false, resourceSection 
   renderBreadcrumb(location);
   renderMap(location);
   renderPlacePanel(location);
+  renderPlaceDirectory(location);
   renderResources(location, { requestedSection: resourceSection });
   selectors.back.hidden = !location.parentId;
   if (historyMode !== "none") writeUrl({ push: historyMode === "push" });
@@ -597,17 +710,13 @@ function bindEvents() {
 async function initialize() {
   setupPageTheme();
   try {
-    const [atlas, themes, world, states] = await Promise.all([
+    const [atlas, themes] = await Promise.all([
       fetch(new URL("./data/atlas.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("Atlas data did not load."))),
       fetch(new URL("./data/atlas-themes.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("Atlas themes did not load."))),
-      fetch(new URL("./data/geometry/countries-110m.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("World geometry did not load."))),
-      fetch(new URL("./data/geometry/states-albers-10m.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("U.S. geometry did not load."))),
     ]);
     Object.assign(state, {
       atlas,
       themes,
-      world,
-      states,
       locationById: new Map(atlas.locations.map((location) => [location.id, location])),
       inheritanceById: new Map(atlas.inheritance.map((edge) => [edge.id, edge])),
       resourceByAssociationId: new Map(atlas.resources.map((resource) => [resource.associationId, resource])),
@@ -617,6 +726,16 @@ async function initialize() {
     const params = new URLSearchParams(location.search);
     const requested = params.get("place") || atlas.rootId;
     setLocation(requested, { historyMode: "replace", resourceSection: params.get("section") || "", resourceScope: params.get("scope") || "all" });
+    const [world, states] = await Promise.allSettled([
+      fetch(new URL("./data/geometry/countries-110m.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("World geometry did not load."))),
+      fetch(new URL("./data/geometry/states-albers-10m.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("U.S. geometry did not load."))),
+    ]);
+    state.world = world.status === "fulfilled" ? world.value : null;
+    state.states = states.status === "fulfilled" ? states.value : null;
+    state.geometryReady = true;
+    if (world.status === "rejected") console.warn(world.reason);
+    if (states.status === "rejected") console.warn(states.reason);
+    renderMap(currentLocation());
     selectors.loading.hidden = true;
   } catch (error) {
     selectors.loading.replaceChildren();

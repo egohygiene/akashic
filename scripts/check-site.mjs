@@ -235,14 +235,17 @@ for (const locale of locales.locales) {
 }
 
 const atlasHtml = await readFile(path.join(output, "atlas.html"), "utf8");
-for (const marker of ["atlas-scope-filter-label", "atlas-local-resource-count", "atlas-available-resource-count"]) {
-  if (!atlasHtml.includes(`id="${marker}"`)) throw new Error(`The Atlas resource-scope control is missing #${marker}.`);
+for (const marker of ["atlas-scope-filter-label", "atlas-local-resource-count", "atlas-available-resource-count", "atlas-map-controls", "atlas-map-fallback", "atlas-place-directory", "atlas-place-directory-summary", "atlas-place-directory-list"]) {
+  if (!atlasHtml.includes(`id="${marker}"`)) throw new Error(`The Atlas interface is missing #${marker}.`);
 }
 if (!atlasHtml.includes('data-atlas-scope="local"') || !atlasHtml.includes('data-atlas-scope="all"')) throw new Error("The Atlas local/all resource-scope choices are incomplete.");
+if (!atlasHtml.includes('<ol class="atlas-place-directory-list"') || !atlasHtml.includes('href="#atlas-place-directory"')) throw new Error("The Atlas native place directory or map fallback is incomplete.");
 const atlasScript = await readFile(path.join(output, "atlas.js"), "utf8");
 if (!atlasScript.includes("resourcesByLocation") || !atlasScript.includes('url.searchParams.set("scope", "local")') || !atlasScript.includes("atlas-resource-provenance")) throw new Error("The Atlas inheritance, URL-state, or provenance rendering contract is incomplete.");
+if (!atlasScript.includes("renderPlaceDirectory") || !atlasScript.includes("placeHref") || !atlasScript.includes('setAttribute("aria-current", "location")') || !atlasScript.includes("Promise.allSettled") || !atlasScript.includes("geometryReady") || !atlasScript.includes('svgElement("title", { id: "atlas-map-svg-title" })')) throw new Error("The Atlas place-directory or graceful map-failure contract is incomplete.");
 const atlasStyles = await readFile(path.join(output, "atlas.css"), "utf8");
 if (!atlasStyles.includes(".atlas-scope-filter") || !atlasStyles.includes(".atlas-resource-context") || !atlasStyles.includes(".atlas-resource-group.is-inherited")) throw new Error("The Atlas scope and provenance presentation contract is incomplete.");
+if (!atlasStyles.includes(".atlas-map-fallback") || !atlasStyles.includes(".atlas-place-directory-list") || !atlasStyles.includes('[aria-current="location"]')) throw new Error("The Atlas place-directory or map-fallback presentation contract is incomplete.");
 
 const homeHtml = await readFile(path.join(output, "index.html"), "utf8");
 for (const marker of ["need-paths", "overview-preview", "overview-preview-metrics", "overview-distribution-donut", "overview-collection-bars", "collection-guide", "catalog-branch-select", "catalog-topic-select", "metadata-filters", "metadata-filter-grid", "empty-suggestions", "hero-search-privacy", "catalog-search-privacy"]) {

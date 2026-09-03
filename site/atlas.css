@@ -50,6 +50,12 @@
 .atlas-marker:hover .marker-ring, .atlas-marker:focus .marker-ring { fill: var(--atlas-marker); outline: none; }
 .atlas-loading { position: absolute; inset: 0; display: grid; place-content: center; gap: 12px; background: var(--atlas-ocean); color: var(--atlas-label); text-align: center; }
 .atlas-loading span { color: var(--atlas-marker); font-size: 2rem; animation: atlasSpin 2.6s linear infinite; }
+.atlas-map-fallback { min-height: 540px; display: grid; place-items: center; align-content: center; gap: 10px; padding: 42px; background: radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--atlas-available), transparent 80%), transparent 35%), var(--atlas-ocean); color: var(--atlas-label); text-align: center; }
+.atlas-map-fallback > span { width: 58px; height: 58px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--atlas-marker), transparent 35%); border-radius: 18px; color: var(--atlas-marker); font-size: 1.65rem; }
+.atlas-map-fallback h3 { margin: 8px 0 0; font-size: 1.35rem; }
+.atlas-map-fallback p { max-width: 440px; margin: 0; color: color-mix(in srgb, var(--atlas-label), transparent 26%); line-height: 1.6; }
+.atlas-map-fallback a { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; margin-top: 7px; padding: 0 15px; border: 1px solid color-mix(in srgb, var(--atlas-marker), transparent 35%); border-radius: 12px; color: var(--atlas-marker); font-size: .75rem; font-weight: 800; text-decoration: none; }
+.atlas-map-fallback a:hover { background: color-mix(in srgb, var(--atlas-marker), transparent 88%); }
 .atlas-legend { position: absolute; left: 15px; bottom: 15px; display: flex; flex-wrap: wrap; gap: 9px 14px; max-width: calc(100% - 30px); padding: 10px 13px; border: 1px solid color-mix(in srgb, var(--atlas-label), transparent 78%); border-radius: 12px; background: color-mix(in srgb, var(--atlas-ocean), transparent 9%); color: var(--atlas-label); font-size: .65rem; box-shadow: 0 8px 30px rgba(0,0,0,.18); backdrop-filter: blur(12px); }
 .atlas-legend span { display: flex; align-items: center; gap: 6px; }
 .atlas-legend i { width: 12px; height: 12px; border: 1px solid var(--atlas-label); border-radius: 3px; }
@@ -73,6 +79,23 @@
 .atlas-place-stats dt { font-size: 1.8rem; font-weight: 850; }
 .atlas-place-stats dd { margin: 4px 0 0; color: var(--faint); font-size: .63rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
 .atlas-place-panel .button { align-self: flex-start; }
+
+.atlas-place-directory { scroll-margin-top: 90px; padding: clamp(28px, 4vw, 48px); border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-soft), transparent 35%); }
+.atlas-place-directory-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 24px; }
+.atlas-place-directory-heading .kicker { margin: 0 0 9px; }
+.atlas-place-directory-heading h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.8rem); letter-spacing: -.035em; }
+.atlas-place-directory-heading > p { max-width: 490px; margin: 0; color: var(--muted); line-height: 1.6; }
+.atlas-place-directory-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin: 0; padding: 0; list-style: none; }
+.atlas-place-directory-list a { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 17px 14px calc(17px + var(--atlas-place-depth) * 18px); border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--text); text-decoration: none; box-shadow: var(--shadow-soft); transition: border-color .18s ease, background .18s ease, transform .18s ease; }
+.atlas-place-directory-list a:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--violet), transparent 32%); background: var(--surface-hover); }
+.atlas-place-directory-list a[aria-current="location"] { border-color: color-mix(in srgb, var(--pink), transparent 18%); background: linear-gradient(120deg, color-mix(in srgb, var(--pink), transparent 90%), var(--surface)); box-shadow: inset 3px 0 0 var(--pink), var(--shadow-soft); }
+.atlas-place-directory-identity { min-width: 0; display: grid; gap: 3px; }
+.atlas-place-directory-identity small { color: var(--pink); font-size: .6rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+.atlas-place-directory-identity strong { overflow-wrap: anywhere; }
+.atlas-place-directory-identity > span { overflow: hidden; color: var(--faint); font-size: .65rem; text-overflow: ellipsis; white-space: nowrap; }
+.atlas-place-directory-metadata { flex: 0 0 auto; display: flex; align-items: end; flex-direction: column; gap: 5px; color: var(--faint); font-size: .64rem; font-weight: 750; text-align: right; }
+.atlas-place-directory-metadata > span:not(:first-child) { padding: 3px 7px; border: 1px solid var(--line); border-radius: 999px; }
+.atlas-place-directory-metadata .is-current { border-color: color-mix(in srgb, var(--pink), transparent 45%); color: var(--pink); }
 
 .atlas-resources { padding: 120px 0 65px; }
 .atlas-scope-filter { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 34px; padding: 12px; border: 1px solid var(--line); border-radius: 17px; background: var(--surface); }
@@ -151,9 +174,14 @@
   .atlas-map-controls { width: 100%; }
   .atlas-map-controls button:last-child { margin-left: auto; }
   .atlas-map-wrap, #atlas-map { min-height: 340px; height: 340px; }
+  .atlas-map-fallback { min-height: 340px; padding: 28px 20px; }
   .atlas-legend { right: 12px; left: 12px; bottom: 12px; }
   .atlas-place-panel { min-height: 400px; padding: 30px 24px; }
   .atlas-place-signal { margin-bottom: 24px; }
+  .atlas-place-directory { padding: 30px 20px; }
+  .atlas-place-directory-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
+  .atlas-place-directory-list { grid-template-columns: 1fr; }
+  .atlas-place-directory-list a { padding-left: calc(15px + var(--atlas-place-depth) * 11px); }
   .atlas-resources { padding-top: 90px; }
   .atlas-scope-filter { align-items: stretch; flex-direction: column; padding: 15px; }
   .atlas-scope-filter > p { margin-left: 0; }
@@ -176,5 +204,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .atlas-marker .marker-halo, .atlas-loading span { animation: none; }
-  .atlas-resource-card { transition: none; }
+  .atlas-place-directory-list a, .atlas-resource-card { transition: none; }
 }
