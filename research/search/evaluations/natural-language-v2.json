@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 2,
+  "id": "akashic-natural-language-v2",
+  "description": "A stratified extension of the v1 seed with graded per-resource judgments, explicit assessment provenance, multilingual and accessibility cases, and a catalog-coverage gap.",
+  "topK": 10,
+  "extends": "natural-language-v1.json",
+  "extendsSha256": "209f67722794fc103e69cdce20b1c6bdcc8e40187fafd1ab0da18f0b9f8de066",
+  "reviewProtocol": {
+    "id": "akashic-graded-relevance-v1",
+    "minimumRelevantGrade": 2,
+    "legacyBinaryRelevantGrade": 2,
+    "grades": [
+      {
+        "value": 0,
+        "label": "known-irrelevant",
+        "definition": "Does not help answer this query and is safe to use as a query-relative negative probe."
+      },
+      {
+        "value": 1,
+        "label": "related-but-insufficient",
+        "definition": "Topically related, but it does not provide the requested pathway by itself."
+      },
+      {
+        "value": 2,
+        "label": "useful-pathway",
+        "definition": "Provides a useful pathway that materially advances the stated need."
+      },
+      {
+        "value": 3,
+        "label": "direct-primary-pathway",
+        "definition": "Directly satisfies the query or is the primary authoritative starting point."
+      }
+    ],
+    "agreement": {
+      "minimumIndependentAssessors": 2,
+      "automaticResolution": "exact-grade-only",
+      "conflictResolution": "adjudicated-grade-required"
+    }
+  },
+  "assessors": [
+    {
+      "id": "legacy-v1-curation",
+      "kind": "versioned-source",
+      "independent": false,
+      "scope": "Judgments inherited from akashic-natural-language-v1.",
+      "provenance": "The v1 binary fixture and its merged Git history; relevant judgments map conservatively to grade 2 and known-irrelevant judgments map to grade 0."
+    },
+    {
+      "id": "v2-curation-proposal",
+      "kind": "curation-proposal",
+      "independent": false,
+      "scope": "Cases introduced by akashic-natural-language-v2.",
+      "provenance": "Repository-authored proposal for pull-request review; it is not counted as an independent human assessment."
+    }
+  ],
+  "legacyAssessorId": "legacy-v1-curation",
+  "legacyCaseMetadata": {
+    "food-today": {
+      "language": "en",
+      "cohorts": ["urgent-need", "need-first", "cross-collection"],
+      "targetCollections": ["Awesome Abundance", "Public Services and Support"]
+    },
+    "eviction-notice-no-money": {
+      "language": "en",
+      "cohorts": ["urgent-need", "legal-safety", "low-income", "cross-collection"],
+      "targetCollections": ["Legal Help and Law", "Public Services and Support"]
+    },
+    "free-music-production": {
+      "language": "en",
+      "cohorts": ["access-constraint", "creative-work", "subscription-replacement", "cross-collection"],
+      "targetCollections": ["Awesome Abundance", "Creative Resources"]
+    },
+    "creative-business-taxes": {
+      "language": "en",
+      "cohorts": ["business-startup", "financial-safety", "cross-collection"],
+      "targetCollections": ["Business and Entrepreneurship", "Public Services and Support"]
+    },
+    "court-paper": {
+      "language": "en",
+      "cohorts": ["ambiguous-query", "legal-safety", "need-first"],
+      "targetCollections": ["Legal Help and Law"]
+    },
+    "safe-travel-without-car": {
+      "language": "en",
+      "cohorts": ["access-constraint", "ambiguous-query", "mobility", "safety-sensitive"],
+      "targetCollections": ["Travel and Mobility", "Awesome Abundance"]
+    },
+    "subscription-old-laptop": {
+      "language": "en",
+      "cohorts": ["access-constraint", "ambiguous-query", "low-capability-device", "subscription-replacement"],
+      "targetCollections": ["Awesome Abundance"]
+    },
+    "vpn-renewal-no-income": {
+      "language": "en",
+      "cohorts": ["low-income", "privacy-security", "subscription-replacement"],
+      "targetCollections": ["Awesome Abundance", "Security"]
+    },
+    "federal-fee-waiver-form-number": {
+      "language": "en",
+      "cohorts": ["exact-identifier", "legal-safety"],
+      "targetCollections": ["Legal Help and Law"]
+    },
+    "irs-ein": {
+      "language": "en",
+      "cohorts": ["exact-identifier", "financial-safety", "official-source"],
+      "targetCollections": ["Business and Entrepreneurship"]
+    },
+    "food-help-short": {
+      "language": "en",
+      "cohorts": ["ambiguous-query", "need-first", "short-query"],
+      "targetCollections": ["Awesome Abundance", "Public Services and Support"]
+    },
+    "federal-fee-waiver-compact-identifier": {
+      "language": "en",
+      "cohorts": ["compact-identifier", "exact-identifier", "legal-safety"],
+      "targetCollections": ["Legal Help and Law"]
+    },
+    "utility-heat-shutoff": {
+      "language": "en",
+      "cohorts": ["urgent-need", "short-query", "financial-safety"],
+      "targetCollections": ["Awesome Abundance", "Public Services and Support"]
+    },
+    "uninsured-doctor": {
+      "language": "en",
+      "cohorts": ["access-constraint", "health-safety", "low-income", "need-first"],
+      "targetCollections": ["Public Services and Support", "Health and Well-Being"]
+    },
+    "implicit-dementia-caregiver": {
+      "language": "en",
+      "cohorts": ["caregiving", "health-safety", "implicit-intent"],
+      "targetCollections": ["Awesome Abundance", "Health and Well-Being"]
+    },
+    "spanish-food-today": {
+      "language": "es",
+      "cohorts": ["multilingual", "urgent-need", "need-first"],
+      "targetCollections": ["Awesome Abundance", "Public Services and Support"]
+    },
+    "ein-acronym-only": {
+      "language": "en",
+      "cohorts": ["acronym-only", "exact-identifier", "official-source"],
+      "targetCollections": ["Business and Entrepreneurship"]
+    },
+    "free-audio-editor-short": {
+      "language": "en",
+      "cohorts": ["access-constraint", "creative-work", "short-query"],
+      "targetCollections": ["Awesome Abundance", "Creative Resources"]
+    }
+  },
+  "cases": [
+    {
+      "id": "free-screen-reader",
+      "query": "I am blind and need a free screen reader",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": ["accessibility", "access-constraint", "need-first"],
+      "targetCollections": ["Awesome Abundance"],
+      "targetStatus": "catalog-covered",
+      "rationale": "The query combines a disability access need with an explicit cost constraint and should reach actual assistive technology.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://www.nvaccess.org/download/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://help.gnome.org/users/orca/stable/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://blindgaming.no/en/resources/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 1 }]
+        },
+        {
+          "url": "https://stocksnap.io/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not treat disability-adjacent content as a screen reader.",
+        "Expose operating-system and hardware compatibility rather than promising universal access."
+      ]
+    },
+    {
+      "id": "safe-sleep-tonight",
+      "query": "I need somewhere safe to sleep tonight",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": ["urgent-need", "ambiguous-query", "housing-instability", "safety-sensitive"],
+      "targetCollections": ["Public Services and Support", "Awesome Abundance"],
+      "targetStatus": "catalog-covered",
+      "rationale": "An urgent housing need should reach emergency-housing navigation without requiring the words homeless or shelter.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://www.usa.gov/emergency-housing",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://resources.hud.gov/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 2 }]
+        },
+        {
+          "url": "https://www.211.org/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 2 }]
+        },
+        {
+          "url": "https://www.nccih.nih.gov/health/psilocybin-for-mental-health-and-addiction-what-you-need-to-know",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not promise that a shelter, bed, room, or transportation is available.",
+        "Keep emergency danger guidance distinct from ordinary housing navigation."
+      ]
+    },
+    {
+      "id": "technology-facilitated-partner-abuse",
+      "query": "My partner is hurting me and checks my phone",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": ["implicit-intent", "privacy-security", "safety-sensitive", "cross-collection"],
+      "targetCollections": ["Awesome Abundance", "Security"],
+      "targetStatus": "catalog-covered",
+      "rationale": "The query combines relationship abuse with device monitoring and needs both survivor support and technology-safety guidance.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://www.thehotline.org/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://nnedv.org/content/technology-safety/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://sloan.org/grants",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not recommend abrupt device or account changes that could increase danger on a monitored device.",
+        "Do not promise confidentiality, immediate response, shelter, legal protection, or safety."
+      ]
+    },
+    {
+      "id": "free-resume-help-after-job-loss",
+      "query": "I lost my job and need free help writing a resume",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": ["access-constraint", "employment", "need-first", "cross-collection"],
+      "targetCollections": ["Awesome Abundance", "Work and Learning"],
+      "targetStatus": "catalog-covered",
+      "rationale": "A person asking for practical resume help should reach no-cost human assistance and usable creation tools.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://www.careeronestop.org/LocalHelp/AmericanJobCenters/american-job-centers.aspx",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.open-resume.com/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.brainfuse.com/highed/jobNow.asp",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 2 }]
+        },
+        {
+          "url": "https://resumematcher.fyi/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 2 }]
+        },
+        {
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not imply that a resume score, template, or service guarantees an interview or job.",
+        "Expose library-subscription and local-service availability limits."
+      ]
+    },
+    {
+      "id": "offline-office-old-laptop",
+      "query": "Free office software that works offline on an old laptop",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": ["access-constraint", "low-capability-device", "offline-use", "subscription-replacement"],
+      "targetCollections": ["Awesome Abundance"],
+      "targetStatus": "catalog-covered",
+      "rationale": "The result should satisfy software category, no-cost access, offline use, and constrained-device intent together.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://www.libreoffice.org/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.onlyoffice.com/desktop.aspx",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://alternativeto.net/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 1 }]
+        },
+        {
+          "url": "https://portableapps.com/apps",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 1 }]
+        },
+        {
+          "url": "https://www.computer.org/csdl/magazine/co/2021/02/09353517/1r8kwgBjU9W",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not equate a general software directory with verified compatibility.",
+        "Do not promise acceptable performance without operating-system and hardware details."
+      ]
+    },
+    {
+      "id": "federal-student-loan-payment",
+      "query": "I cannot make my federal student loan payment",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": ["financial-safety", "need-first", "official-source"],
+      "targetCollections": ["Awesome Abundance", "Legal Help and Law", "Public Services and Support"],
+      "targetStatus": "catalog-covered",
+      "rationale": "The query should prioritize official repayment navigation while distinguishing disputes and specialized forgiveness pathways.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://studentaid.gov/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.consumerfinance.gov/consumer-tools/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 1 }]
+        },
+        {
+          "url": "https://studentaid.gov/feedback-ombudsman/disputes/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 1 }]
+        },
+        {
+          "url": "https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 1 }]
+        },
+        {
+          "url": "https://www.uscourts.gov/glossary",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not promise a lower payment, pause, discharge, forgiveness, or eligibility.",
+        "Do not treat a dispute or public-service pathway as universally applicable."
+      ]
+    },
+    {
+      "id": "unaffordable-child-care",
+      "query": "I need child care but cannot afford it",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": ["access-constraint", "caregiving", "low-income", "need-first"],
+      "targetCollections": ["Awesome Abundance", "Public Services and Support"],
+      "targetStatus": "catalog-covered",
+      "rationale": "The query should reach subsidy and benefit navigation without requiring a program acronym.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://www.acf.hhs.gov/occ/contact-information/state-and-territory-child-care-and-development-fund-administrators",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.usa.gov/welfare-benefits",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 2 }]
+        },
+        {
+          "url": "https://www.adafoundation.org/give-kids-a-smile",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not promise subsidy eligibility, placement, provider quality, or immediate availability.",
+        "Preserve state, territory, income, household, and provider restrictions."
+      ]
+    },
+    {
+      "id": "unaffordable-wheelchair",
+      "query": "I need a wheelchair but cannot afford one",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": ["accessibility", "access-constraint", "low-income", "need-first"],
+      "targetCollections": ["Awesome Abundance", "Travel and Mobility"],
+      "targetStatus": "catalog-covered",
+      "rationale": "The query should reach equipment assistance while keeping geographic and eligibility limits visible.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://www.freewheelchairmission.org/receive-a-wheelchair/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://wheelmap.org/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 1 }]
+        },
+        {
+          "url": "https://ircc.canada.ca/english/visit/visas.asp",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not promise equipment, eligibility, fit, clinical suitability, delivery, or local program coverage.",
+        "Do not treat an accessibility map as an equipment-assistance program."
+      ]
+    },
+    {
+      "id": "free-tax-filing-help",
+      "query": "I need help filing my taxes for free",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": ["access-constraint", "financial-safety", "official-source", "cross-collection"],
+      "targetCollections": ["Awesome Abundance", "Public Services and Support"],
+      "targetStatus": "catalog-covered",
+      "rationale": "The query should prioritize official free filing and certified assistance while preserving eligibility limits.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://www.irs.gov/filing/irs-free-file-do-your-taxes-for-free",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://irs.treasury.gov/freetaxprep/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.getyourrefund.org/en",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 2 }]
+        },
+        {
+          "url": "https://www.militaryonesource.mil/financial-legal/taxes/miltax-military-tax-services/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 1 }]
+        },
+        {
+          "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not imply that every filing situation or income level qualifies for a listed free service.",
+        "Do not present tax preparation as individualized tax or legal advice."
+      ]
+    },
+    {
+      "id": "spanish-free-legal-help",
+      "query": "Necesito ayuda legal gratis",
+      "kind": "natural-language",
+      "language": "es",
+      "cohorts": ["multilingual", "access-constraint", "legal-safety", "short-query"],
+      "targetCollections": ["Legal Help and Law"],
+      "targetStatus": "catalog-covered",
+      "rationale": "A common Spanish request for free legal help should reach intake and directory pathways without depending on English query terms.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://www.usa.gov/legal-aid",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.lawhelp.org/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.lsc.gov/about-lsc/what-legal-aid/i-need-legal-help",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.abafreelegalanswers.org/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 2 }]
+        },
+        {
+          "url": "https://www.loc.gov/research-centers/law-library-of-congress/researcher-resources/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not imply that a directory, question service, or government guide is legal representation.",
+        "Do not claim that the English resource descriptions or all linked services provide Spanish-language help."
+      ]
+    },
+    {
+      "id": "russian-food-today",
+      "query": "Мне нужна еда сегодня",
+      "kind": "natural-language",
+      "language": "ru",
+      "cohorts": ["multilingual", "urgent-need", "need-first"],
+      "targetCollections": ["Awesome Abundance", "Public Services and Support"],
+      "targetStatus": "catalog-covered",
+      "rationale": "A Russian-language food-need query documents a known vocabulary boundary in the currently localized portal.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://www.211.org/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 2 }]
+        },
+        {
+          "url": "https://www.usa.gov/emergency-food-assistance",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.feedingamerica.org/find-your-local-foodbank",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.fns.usda.gov/national-hunger-hotline",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://faq.usps.com/articles/FAQ/Pay-Print-and-Ship-Online",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not present machine-derived Russian wording or safety claims as human-reviewed Russian guidance.",
+        "Do not imply that directory inclusion guarantees food availability or eligibility."
+      ]
+    },
+    {
+      "id": "local-only-password-manager",
+      "query": "I need a free password manager that stays on my computer",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": ["access-constraint", "offline-use", "privacy-security", "need-first"],
+      "targetCollections": ["Awesome Abundance", "Self-Hosting and Homelab"],
+      "targetStatus": "catalog-covered",
+      "rationale": "The query expresses a local-control requirement that a generic password-manager match does not necessarily satisfy.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://keepassxc.org/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://bitwarden.com/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 1 }]
+        },
+        {
+          "url": "https://www.mendeley.com/reference-management/reference-manager",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not describe a cloud account or self-hosting option as local-only by default.",
+        "Do not promise security without explaining updates, backups, recovery, and device compromise limits."
+      ]
+    },
+    {
+      "id": "french-heating-bill",
+      "query": "Je ne peux pas payer ma facture de chauffage",
+      "kind": "natural-language",
+      "language": "fr",
+      "cohorts": ["multilingual", "financial-safety", "need-first"],
+      "targetCollections": ["Awesome Abundance", "Public Services and Support"],
+      "targetStatus": "catalog-covered",
+      "rationale": "A French-language heating-cost query tests whether ordinary multilingual need language reaches energy-assistance pathways.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://acf.gov/ocs/programs/liheap",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.usa.gov/help-with-utility-bills",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://neuac.org/state-utility-assistance/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 2 }]
+        },
+        {
+          "url": "https://www.211.org/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 2 }]
+        },
+        {
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/forming-a-corporation",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "Do not claim that an application or contact will prevent a shutoff.",
+        "Do not claim that the English resource descriptions or all linked services provide French-language help."
+      ]
+    },
+    {
+      "id": "fafsa-acronym-only",
+      "query": "FAFSA",
+      "kind": "exact-identifier",
+      "language": "en",
+      "cohorts": ["acronym-only", "exact-identifier", "official-source"],
+      "targetCollections": ["Awesome Abundance", "Public Services and Support"],
+      "targetStatus": "catalog-covered",
+      "rationale": "The federal student-aid acronym should prioritize the official application and explanatory pathway over character-level false positives.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [
+        {
+          "url": "https://studentaid.gov/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 3 }]
+        },
+        {
+          "url": "https://www.usa.gov/student-aid",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 2 }]
+        },
+        {
+          "url": "https://f-droid.org/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        },
+        {
+          "url": "https://f-droid.org/en/categories/games/",
+          "assessments": [{ "assessorId": "v2-curation-proposal", "grade": 0 }]
+        }
+      ],
+      "safetyInvariants": [
+        "State that the FAFSA application itself is free.",
+        "Do not treat character overlap as identifier evidence or promise aid eligibility."
+      ]
+    },
+    {
+      "id": "masshealth-pt1-catalog-gap",
+      "query": "MassHealth PT-1",
+      "kind": "exact-identifier",
+      "language": "en",
+      "cohorts": ["catalog-gap", "exact-identifier", "health-safety", "mobility"],
+      "targetCollections": ["Public Services and Support", "Travel and Mobility"],
+      "targetStatus": "catalog-gap",
+      "rationale": "Issue #42 names MassHealth PT-1 as an exact-identifier example, but the current catalog has no canonical PT-1 transportation resource to retrieve.",
+      "judgmentSource": "v2-curation-proposal",
+      "judgments": [],
+      "missingTargets": [
+        {
+          "title": "Get a ride to MassHealth medical appointments",
+          "canonicalUrl": "https://www.mass.gov/info-details/get-a-ride-to-masshealth-medical-appointments"
+        }
+      ],
+      "safetyInvariants": [
+        "Do not imply that PT-1 transportation is available, approved, immediate, or suitable for every ride.",
+        "Preserve the provider-request, membership, medical-necessity, geography, scheduling, and mobility constraints described by MassHealth."
+      ]
+    }
+  ]
+}

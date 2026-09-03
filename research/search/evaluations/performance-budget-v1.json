@@ -55,7 +55,7 @@
         "dist/search/concepts-v1.js",
         "dist/search/weighted-lexical-v2.js",
         "dist/data/catalog.json",
-        "dist/data/search-evaluation-v1.json",
+        "dist/data/search-evaluation-v2.json",
         "dist/assets/favicon.svg"
       ],
       "maximumRawBytes": 3900000,

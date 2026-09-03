@@ -6,13 +6,14 @@ import { validateAtlasHierarchy } from "./lib/atlas.mjs";
 import { parseRelatedPaths, parseSiteGuide } from "./lib/guide.mjs";
 import { loadLocales, localizeHtml } from "./lib/i18n.mjs";
 import { deriveResourceId, validateResourceIdentities } from "./lib/resource-metadata.mjs";
+import { loadEvaluationFixture } from "./lib/search-evaluation.mjs";
 
 const root = process.cwd();
 const sourceDirectory = path.join(root, "site");
 const outputDirectory = path.join(root, "dist");
 const listsDirectory = path.join(root, "lists");
 const atlasDirectory = path.join(root, "atlas");
-const searchEvaluationFile = path.join(root, "research", "search", "evaluations", "natural-language-v1.json");
+const searchEvaluationFile = path.join(root, "research", "search", "evaluations", "natural-language-v2.json");
 const fundingFile = path.join(root, ".github", "FUNDING.yml");
 const ROOT_GROUP_SLUG = "__root__";
 const ATLAS_ROLES = new Set(["resource", "index"]);
@@ -371,6 +372,7 @@ async function build() {
   const atlas = await buildAtlas(uniqueResources);
   const overview = buildOverview(catalog);
   const funding = buildFunding(await readFile(fundingFile, "utf8"));
+  const searchEvaluation = await loadEvaluationFixture(searchEvaluationFile);
   const locales = await loadLocales(sourceDirectory);
 
   await rm(outputDirectory, { recursive: true, force: true });
@@ -380,7 +382,7 @@ async function build() {
   await writeFile(path.join(outputDirectory, "data", "atlas.json"), `${JSON.stringify(atlas)}\n`);
   await writeFile(path.join(outputDirectory, "data", "overview.json"), `${JSON.stringify(overview)}\n`);
   await writeFile(path.join(outputDirectory, "data", "funding.json"), `${JSON.stringify({ schemaVersion: 1, sources: funding.sources })}\n`);
-  await cp(searchEvaluationFile, path.join(outputDirectory, "data", "search-evaluation-v1.json"));
+  await writeFile(path.join(outputDirectory, "data", "search-evaluation-v2.json"), `${JSON.stringify(searchEvaluation)}\n`);
   await buildLocalizedPages(locales, funding);
   await writeFile(path.join(outputDirectory, ".nojekyll"), "");
   console.log(`Built ${catalog.resourceCount} resources across ${categories.length} collections, ${overview.topicPathCount} topic paths, and ${atlas.resourceCount} place-aware atlas resources.`);

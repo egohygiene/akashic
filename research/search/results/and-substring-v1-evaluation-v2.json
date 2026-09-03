@@ -1,0 +1,1781 @@
+{
+  "schemaVersion": 1,
+  "suite": "akashic-natural-language-v2",
+  "searchAlgorithm": "and-substring-v1",
+  "catalogResourceCount": 5112,
+  "inputs": {
+    "catalogSha256": "bfda968cbf5ac6f66282afa99042b77bb63b8eb57683a41b07968c2580a07b55",
+    "fixtureSha256": "5464f9971b6eaacf5981c1c3c7e80102c7e3ea3b3f4ca7c2d6b44cc00727d13f",
+    "implementationSha256": "ab5383002697e81edc6c424774f68c9644deace3feb69d4f85d0ebfc14907c71"
+  },
+  "topK": 10,
+  "summary": {
+    "caseCount": 33,
+    "evaluableCaseCount": 32,
+    "catalogGapCaseCount": 1,
+    "languageCounts": {
+      "en": 29,
+      "es": 2,
+      "fr": 1,
+      "ru": 1
+    },
+    "cohortCounts": {
+      "access-constraint": 13,
+      "accessibility": 2,
+      "acronym-only": 2,
+      "ambiguous-query": 5,
+      "business-startup": 1,
+      "caregiving": 2,
+      "catalog-gap": 1,
+      "compact-identifier": 1,
+      "creative-work": 2,
+      "cross-collection": 7,
+      "employment": 1,
+      "exact-identifier": 6,
+      "financial-safety": 6,
+      "health-safety": 3,
+      "housing-instability": 1,
+      "implicit-intent": 2,
+      "legal-safety": 5,
+      "low-capability-device": 2,
+      "low-income": 5,
+      "mobility": 2,
+      "multilingual": 4,
+      "need-first": 13,
+      "official-source": 5,
+      "offline-use": 2,
+      "privacy-security": 3,
+      "safety-sensitive": 3,
+      "short-query": 4,
+      "subscription-replacement": 4,
+      "urgent-need": 6
+    },
+    "zeroResultCount": 28,
+    "casesWithRelevantAtK": 4,
+    "meanRecallAtK": 0.0859,
+    "meanReciprocalRank": 0.077,
+    "meanNdcgAtK": 0.0693,
+    "knownIrrelevantJudgmentCount": 34,
+    "knownIrrelevantFoundAtK": 2,
+    "casesWithKnownIrrelevantJudgments": 32,
+    "casesWithKnownIrrelevantAtK": 1,
+    "meanKnownIrrelevantRateAtK": 0.0313,
+    "review": {
+      "protocol": "akashic-graded-relevance-v1",
+      "minimumIndependentAssessors": 2,
+      "assessorCount": 2,
+      "independentAssessorCount": 0,
+      "judgmentCount": 133,
+      "assessmentCount": 133,
+      "singleAssessorJudgmentCount": 133,
+      "multiAssessedJudgmentCount": 0,
+      "exactAgreementJudgmentCount": 0,
+      "exactAgreementRate": null,
+      "adjudicatedJudgmentCount": 0,
+      "casesMeetingMinimumIndependentAssessors": 0,
+      "agreementSufficientForComparativeClaims": false
+    }
+  },
+  "cases": [
+    {
+      "id": "food-today",
+      "query": "I need food today",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "urgent-need",
+        "need-first",
+        "cross-collection"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "eviction-notice-no-money",
+      "query": "I have no money and my landlord says I need to leave Friday",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "urgent-need",
+        "legal-safety",
+        "low-income",
+        "cross-collection"
+      ],
+      "targetCollections": [
+        "Legal Help and Law",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "free-music-production",
+      "query": "How can I make music without paying Adobe or another subscription",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "access-constraint",
+        "creative-work",
+        "subscription-replacement",
+        "cross-collection"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Creative Resources"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "creative-business-taxes",
+      "query": "I want to sell my art but do not understand taxes or business structures",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "business-startup",
+        "financial-safety",
+        "cross-collection"
+      ],
+      "targetCollections": [
+        "Business and Entrepreneurship",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 3,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 4,
+        "assessmentCount": 4,
+        "singleAssessorJudgmentCount": 4,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "court-paper",
+      "query": "I received a court paper and do not know what it means",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "ambiguous-query",
+        "legal-safety",
+        "need-first"
+      ],
+      "targetCollections": [
+        "Legal Help and Law"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "safe-travel-without-car",
+      "query": "How can I travel somewhere safe without a car",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "access-constraint",
+        "ambiguous-query",
+        "mobility",
+        "safety-sensitive"
+      ],
+      "targetCollections": [
+        "Travel and Mobility",
+        "Awesome Abundance"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "subscription-old-laptop",
+      "query": "What can replace this subscription on an old laptop",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "access-constraint",
+        "ambiguous-query",
+        "low-capability-device",
+        "subscription-replacement"
+      ],
+      "targetCollections": [
+        "Awesome Abundance"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 2,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 3,
+        "assessmentCount": 3,
+        "singleAssessorJudgmentCount": 3,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "vpn-renewal-no-income",
+      "query": "I cannot afford my VPN renewal and have no income",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "low-income",
+        "privacy-security",
+        "subscription-replacement"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Security"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "federal-fee-waiver-form-number",
+      "query": "AO 240",
+      "kind": "exact-identifier",
+      "language": "en",
+      "cohorts": [
+        "exact-identifier",
+        "legal-safety"
+      ],
+      "targetCollections": [
+        "Legal Help and Law"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 1,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 2,
+        "assessmentCount": 2,
+        "singleAssessorJudgmentCount": 2,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "irs-ein",
+      "query": "IRS EIN",
+      "kind": "exact-identifier",
+      "language": "en",
+      "cohorts": [
+        "exact-identifier",
+        "financial-safety",
+        "official-source"
+      ],
+      "targetCollections": [
+        "Business and Entrepreneurship"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 7,
+      "relevantCount": 1,
+      "relevantFoundAtK": 1,
+      "recallAtK": 1,
+      "reciprocalRank": 0.25,
+      "ndcgAtK": 0.4307,
+      "firstRelevantRank": 4,
+      "relevantRanks": [
+        4
+      ],
+      "knownIrrelevantCount": 2,
+      "knownIrrelevantFoundAtK": 2,
+      "knownIrrelevantRateAtK": 1,
+      "firstKnownIrrelevantRank": 1,
+      "knownIrrelevantRanks": [
+        1,
+        2
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "VA Mental Health Apps",
+          "url": "https://mobile.va.gov/app-store/mental-health",
+          "collection": "Awesome Abundance",
+          "topic": "Mental Health and Self-Help Tools",
+          "judged": true,
+          "relevanceGrade": 0,
+          "relevant": false,
+          "knownIrrelevant": true
+        },
+        {
+          "rank": 2,
+          "title": "Free Wheelchair Mission",
+          "url": "https://www.freewheelchairmission.org/receive-a-wheelchair/",
+          "collection": "Awesome Abundance",
+          "topic": "Assistive Technology and Disability Services",
+          "judged": true,
+          "relevanceGrade": 0,
+          "relevant": false,
+          "knownIrrelevant": true
+        },
+        {
+          "rank": 3,
+          "title": "IRS Checklist for Starting a Business",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/checklist-for-starting-a-business",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Start Here",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 4,
+          "title": "IRS Get an Employer Identification Number",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Register, Identify, and License",
+          "judged": true,
+          "relevanceGrade": 2,
+          "relevant": true,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 5,
+          "title": "IRS When to Get a New EIN",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/when-to-get-a-new-ein",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Register, Identify, and License",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 6,
+          "title": "IRS Businesses With Employees",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/businesses-with-employees",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Hire People and Work with Contractors",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 7,
+          "title": "IRS If You No Longer Need Your EIN",
+          "url": "https://www.irs.gov/businesses/small-businesses-self-employed/if-you-no-longer-need-your-ein",
+          "collection": "Business and Entrepreneurship",
+          "topic": "Change, Sell, or Close",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        }
+      ],
+      "review": {
+        "judgmentCount": 3,
+        "assessmentCount": 3,
+        "singleAssessorJudgmentCount": 3,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "food-help-short",
+      "query": "food help",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "ambiguous-query",
+        "need-first",
+        "short-query"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 8,
+      "relevantCount": 4,
+      "relevantFoundAtK": 1,
+      "recallAtK": 0.25,
+      "reciprocalRank": 0.2,
+      "ndcgAtK": 0.151,
+      "firstRelevantRank": 5,
+      "relevantRanks": [
+        5
+      ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "Pet Help Finder",
+          "url": "https://www.pethelpfinder.org/",
+          "collection": "Awesome Abundance",
+          "topic": "Pet Support",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 2,
+          "title": "BenefitsCheckUp",
+          "url": "https://benefitscheckup.org/",
+          "collection": "Awesome Abundance",
+          "topic": "Benefits and Program Discovery",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 3,
+          "title": "FAOLEX",
+          "url": "https://www.fao.org/faolex/",
+          "collection": "Legal Help and Law",
+          "topic": "International, Comparative, and Human Rights Law",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 4,
+          "title": "Findhelp",
+          "url": "https://www.findhelp.org/",
+          "collection": "Public Services and Support",
+          "topic": "Benefits and Emergency Assistance",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 5,
+          "title": "USA.gov Emergency Food Assistance",
+          "url": "https://www.usa.gov/emergency-food-assistance",
+          "collection": "Public Services and Support",
+          "topic": "Benefits and Emergency Assistance",
+          "judged": true,
+          "relevanceGrade": 2,
+          "relevant": true,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 6,
+          "title": "European Solidarity Corps",
+          "url": "https://youth.europa.eu/solidarity/young-people/volunteering_en",
+          "collection": "Travel and Mobility",
+          "topic": "Work Exchange and Ways to Travel With Less Money",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 7,
+          "title": "HelpX",
+          "url": "https://www.helpx.net/",
+          "collection": "Travel and Mobility",
+          "topic": "Work Exchange and Ways to Travel With Less Money",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 8,
+          "title": "Workaway",
+          "url": "https://www.workaway.info/",
+          "collection": "Travel and Mobility",
+          "topic": "Work Exchange and Ways to Travel With Less Money",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        }
+      ],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "federal-fee-waiver-compact-identifier",
+      "query": "AO240",
+      "kind": "exact-identifier",
+      "language": "en",
+      "cohorts": [
+        "compact-identifier",
+        "exact-identifier",
+        "legal-safety"
+      ],
+      "targetCollections": [
+        "Legal Help and Law"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 1,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 2,
+        "assessmentCount": 2,
+        "singleAssessorJudgmentCount": 2,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "utility-heat-shutoff",
+      "query": "heat shutoff",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "urgent-need",
+        "short-query",
+        "financial-safety"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "uninsured-doctor",
+      "query": "I need a doctor but have no insurance",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "access-constraint",
+        "health-safety",
+        "low-income",
+        "need-first"
+      ],
+      "targetCollections": [
+        "Public Services and Support",
+        "Health and Well-Being"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "implicit-dementia-caregiver",
+      "query": "mom has dementia and I need a break",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "caregiving",
+        "health-safety",
+        "implicit-intent"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Health and Well-Being"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 2,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 3,
+        "assessmentCount": 3,
+        "singleAssessorJudgmentCount": 3,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "spanish-food-today",
+      "query": "Necesito comida hoy",
+      "kind": "natural-language",
+      "language": "es",
+      "cohorts": [
+        "multilingual",
+        "urgent-need",
+        "need-first"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "ein-acronym-only",
+      "query": "EIN",
+      "kind": "exact-identifier",
+      "language": "en",
+      "cohorts": [
+        "acronym-only",
+        "exact-identifier",
+        "official-source"
+      ],
+      "targetCollections": [
+        "Business and Entrepreneurship"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 235,
+      "relevantCount": 1,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0.0152,
+      "ndcgAtK": 0,
+      "firstRelevantRank": 66,
+      "relevantRanks": [
+        66
+      ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": 64,
+      "knownIrrelevantRanks": [
+        64
+      ],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "Atkinson Hyperlegible",
+          "url": "https://www.brailleinstitute.org/freefont/",
+          "collection": "Awesome Abundance",
+          "topic": "Accessible Creation",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 2,
+          "title": "National Association of Free and Charitable Clinics",
+          "url": "https://nafcclinics.org/find-clinic/",
+          "collection": "Awesome Abundance",
+          "topic": "Free and Charitable Care",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 3,
+          "title": "Remote Area Medical",
+          "url": "https://www.ramusa.org/clinic-schedule/",
+          "collection": "Awesome Abundance",
+          "topic": "Free and Charitable Care",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 4,
+          "title": "Free Clinics",
+          "url": "https://www.freeclinics.com/",
+          "collection": "Awesome Abundance",
+          "topic": "Free and Charitable Care",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 5,
+          "title": "Mission of Mercy Clinics",
+          "url": "https://www.amissionofmercy.org/locations/",
+          "collection": "Awesome Abundance",
+          "topic": "Free and Charitable Care",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 6,
+          "title": "America's Dentists Care Foundation Events",
+          "url": "https://adcf.net/clinics/",
+          "collection": "Awesome Abundance",
+          "topic": "Free and Charitable Care",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 7,
+          "title": "Give Kids A Smile",
+          "url": "https://www.adafoundation.org/give-kids-a-smile",
+          "collection": "Awesome Abundance",
+          "topic": "Free and Charitable Care",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 8,
+          "title": "VSP Eyes of Hope",
+          "url": "https://www.vspvision.com/eyes-of-hope/get-help.html",
+          "collection": "Awesome Abundance",
+          "topic": "Free and Charitable Care",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 9,
+          "title": "Lions Clubs Vision Services",
+          "url": "https://www.lionsclubs.org/en/start-our-approach/club-locator",
+          "collection": "Awesome Abundance",
+          "topic": "Free and Charitable Care",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 10,
+          "title": "Planned Parenthood Health Centers",
+          "url": "https://www.plannedparenthood.org/health-center",
+          "collection": "Awesome Abundance",
+          "topic": "Free and Charitable Care",
+          "judged": false,
+          "relevanceGrade": null,
+          "relevant": false,
+          "knownIrrelevant": false
+        }
+      ],
+      "review": {
+        "judgmentCount": 2,
+        "assessmentCount": 2,
+        "singleAssessorJudgmentCount": 2,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "free-audio-editor-short",
+      "query": "free audio editor",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "access-constraint",
+        "creative-work",
+        "short-query"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Creative Resources"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 2,
+      "relevantCount": 4,
+      "relevantFoundAtK": 2,
+      "recallAtK": 0.5,
+      "reciprocalRank": 1,
+      "ndcgAtK": 0.6367,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1,
+        2
+      ],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "ocenaudio",
+          "url": "https://www.ocenaudio.com/en/",
+          "collection": "Awesome Abundance",
+          "topic": "Music Production and Recording",
+          "judged": true,
+          "relevanceGrade": 2,
+          "relevant": true,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 2,
+          "title": "Audacity",
+          "url": "https://www.audacityteam.org/",
+          "collection": "Awesome Abundance",
+          "topic": "Creative Work",
+          "judged": true,
+          "relevanceGrade": 2,
+          "relevant": true,
+          "knownIrrelevant": false
+        }
+      ],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "free-screen-reader",
+      "query": "I am blind and need a free screen reader",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "accessibility",
+        "access-constraint",
+        "need-first"
+      ],
+      "targetCollections": [
+        "Awesome Abundance"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 2,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 4,
+        "assessmentCount": 4,
+        "singleAssessorJudgmentCount": 4,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "safe-sleep-tonight",
+      "query": "I need somewhere safe to sleep tonight",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "urgent-need",
+        "ambiguous-query",
+        "housing-instability",
+        "safety-sensitive"
+      ],
+      "targetCollections": [
+        "Public Services and Support",
+        "Awesome Abundance"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 3,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 4,
+        "assessmentCount": 4,
+        "singleAssessorJudgmentCount": 4,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "technology-facilitated-partner-abuse",
+      "query": "My partner is hurting me and checks my phone",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "implicit-intent",
+        "privacy-security",
+        "safety-sensitive",
+        "cross-collection"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Security"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 2,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 3,
+        "assessmentCount": 3,
+        "singleAssessorJudgmentCount": 3,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "free-resume-help-after-job-loss",
+      "query": "I lost my job and need free help writing a resume",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "access-constraint",
+        "employment",
+        "need-first",
+        "cross-collection"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Work and Learning"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "offline-office-old-laptop",
+      "query": "Free office software that works offline on an old laptop",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "access-constraint",
+        "low-capability-device",
+        "offline-use",
+        "subscription-replacement"
+      ],
+      "targetCollections": [
+        "Awesome Abundance"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 2,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "federal-student-loan-payment",
+      "query": "I cannot make my federal student loan payment",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "financial-safety",
+        "need-first",
+        "official-source"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Legal Help and Law",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 1,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "unaffordable-child-care",
+      "query": "I need child care but cannot afford it",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "access-constraint",
+        "caregiving",
+        "low-income",
+        "need-first"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 2,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 3,
+        "assessmentCount": 3,
+        "singleAssessorJudgmentCount": 3,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "unaffordable-wheelchair",
+      "query": "I need a wheelchair but cannot afford one",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "accessibility",
+        "access-constraint",
+        "low-income",
+        "need-first"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Travel and Mobility"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 1,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 3,
+        "assessmentCount": 3,
+        "singleAssessorJudgmentCount": 3,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "free-tax-filing-help",
+      "query": "I need help filing my taxes for free",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "access-constraint",
+        "financial-safety",
+        "official-source",
+        "cross-collection"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 3,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "spanish-free-legal-help",
+      "query": "Necesito ayuda legal gratis",
+      "kind": "natural-language",
+      "language": "es",
+      "cohorts": [
+        "multilingual",
+        "access-constraint",
+        "legal-safety",
+        "short-query"
+      ],
+      "targetCollections": [
+        "Legal Help and Law"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "russian-food-today",
+      "query": "Мне нужна еда сегодня",
+      "kind": "natural-language",
+      "language": "ru",
+      "cohorts": [
+        "multilingual",
+        "urgent-need",
+        "need-first"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "local-only-password-manager",
+      "query": "I need a free password manager that stays on my computer",
+      "kind": "natural-language",
+      "language": "en",
+      "cohorts": [
+        "access-constraint",
+        "offline-use",
+        "privacy-security",
+        "need-first"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Self-Hosting and Homelab"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 1,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 3,
+        "assessmentCount": 3,
+        "singleAssessorJudgmentCount": 3,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "french-heating-bill",
+      "query": "Je ne peux pas payer ma facture de chauffage",
+      "kind": "natural-language",
+      "language": "fr",
+      "cohorts": [
+        "multilingual",
+        "financial-safety",
+        "need-first"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 0,
+      "relevantCount": 4,
+      "relevantFoundAtK": 0,
+      "recallAtK": 0,
+      "reciprocalRank": 0,
+      "ndcgAtK": 0,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 1,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 5,
+        "assessmentCount": 5,
+        "singleAssessorJudgmentCount": 5,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "fafsa-acronym-only",
+      "query": "FAFSA",
+      "kind": "exact-identifier",
+      "language": "en",
+      "cohorts": [
+        "acronym-only",
+        "exact-identifier",
+        "official-source"
+      ],
+      "targetCollections": [
+        "Awesome Abundance",
+        "Public Services and Support"
+      ],
+      "targetStatus": "catalog-covered",
+      "evaluable": true,
+      "resultCount": 2,
+      "relevantCount": 2,
+      "relevantFoundAtK": 2,
+      "recallAtK": 1,
+      "reciprocalRank": 1,
+      "ndcgAtK": 1,
+      "firstRelevantRank": 1,
+      "relevantRanks": [
+        1,
+        2
+      ],
+      "knownIrrelevantCount": 2,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": 0,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [
+        {
+          "rank": 1,
+          "title": "Federal Student Aid",
+          "url": "https://studentaid.gov/",
+          "collection": "Awesome Abundance",
+          "topic": "Education, Training, and Employment",
+          "judged": true,
+          "relevanceGrade": 3,
+          "relevant": true,
+          "knownIrrelevant": false
+        },
+        {
+          "rank": 2,
+          "title": "USA.gov Student Financial Aid",
+          "url": "https://www.usa.gov/student-aid",
+          "collection": "Public Services and Support",
+          "topic": "Employment and Education",
+          "judged": true,
+          "relevanceGrade": 2,
+          "relevant": true,
+          "knownIrrelevant": false
+        }
+      ],
+      "review": {
+        "judgmentCount": 4,
+        "assessmentCount": 4,
+        "singleAssessorJudgmentCount": 4,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    },
+    {
+      "id": "masshealth-pt1-catalog-gap",
+      "query": "MassHealth PT-1",
+      "kind": "exact-identifier",
+      "language": "en",
+      "cohorts": [
+        "catalog-gap",
+        "exact-identifier",
+        "health-safety",
+        "mobility"
+      ],
+      "targetCollections": [
+        "Public Services and Support",
+        "Travel and Mobility"
+      ],
+      "targetStatus": "catalog-gap",
+      "evaluable": false,
+      "resultCount": 0,
+      "relevantCount": 0,
+      "relevantFoundAtK": 0,
+      "recallAtK": null,
+      "reciprocalRank": null,
+      "ndcgAtK": null,
+      "firstRelevantRank": null,
+      "relevantRanks": [],
+      "knownIrrelevantCount": 0,
+      "knownIrrelevantFoundAtK": 0,
+      "knownIrrelevantRateAtK": null,
+      "firstKnownIrrelevantRank": null,
+      "knownIrrelevantRanks": [],
+      "topResults": [],
+      "review": {
+        "judgmentCount": 0,
+        "assessmentCount": 0,
+        "singleAssessorJudgmentCount": 0,
+        "multiAssessedJudgmentCount": 0,
+        "exactAgreementJudgmentCount": 0,
+        "adjudicatedJudgmentCount": 0,
+        "independentAssessorCount": 0,
+        "meetsMinimumIndependentAssessors": false
+      }
+    }
+  ]
+}

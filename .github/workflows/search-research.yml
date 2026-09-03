@@ -13,11 +13,14 @@ on:
       - "scripts/check-site.mjs"
       - "scripts/compare-search-results.mjs"
       - "scripts/evaluate-search.mjs"
+      - "scripts/lib/search-evaluation.mjs"
       - "site/app.js"
       - "site/search.js"
       - "site/search-lab.*"
       - "site/search/**"
       - "test/search-lab.test.mjs"
+      - "test/search-evaluation.test.mjs"
+      - "test/search-fusion.test.mjs"
   push:
     branches:
       - main
@@ -30,11 +33,14 @@ on:
       - "scripts/check-site.mjs"
       - "scripts/compare-search-results.mjs"
       - "scripts/evaluate-search.mjs"
+      - "scripts/lib/search-evaluation.mjs"
       - "site/app.js"
       - "site/search.js"
       - "site/search-lab.*"
       - "site/search/**"
       - "test/search-lab.test.mjs"
+      - "test/search-evaluation.test.mjs"
+      - "test/search-fusion.test.mjs"
   workflow_dispatch:
 
 permissions:
@@ -55,7 +61,7 @@ jobs:
         with:
           node-version: 20
 
-      - name: Protect the published v1 algorithm
+      - name: Protect the published v1 algorithm and fixture
         if: github.event_name == 'pull_request'
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
@@ -63,6 +69,11 @@ jobs:
           if git cat-file -e "${BASE_SHA}:site/search/and-substring-v1.js" 2>/dev/null \
             && ! git diff --quiet "${BASE_SHA}" -- site/search/and-substring-v1.js; then
             echo "and-substring-v1 is a published baseline; add a new versioned module instead of editing it."
+            exit 1
+          fi
+          if git cat-file -e "${BASE_SHA}:research/search/evaluations/natural-language-v1.json" 2>/dev/null \
+            && ! git diff --quiet "${BASE_SHA}" -- research/search/evaluations/natural-language-v1.json; then
+            echo "natural-language-v1 is a published fixture; add a versioned extension instead of editing it."
             exit 1
           fi
 
@@ -80,6 +91,7 @@ jobs:
           node --check scripts/benchmark-search.mjs
           node --check scripts/compare-search-results.mjs
           node --check scripts/evaluate-search.mjs
+          node --check scripts/lib/search-evaluation.mjs
           node --check scripts/lib/search-licenses.mjs
           node --check scripts/check-site.mjs
           node --check scripts/validate-search-licenses.mjs
@@ -97,13 +109,25 @@ jobs:
         run: node scripts/benchmark-search.mjs --profile standard --warmup-passes 1 --measurement-passes 1 --static-verify research/search/results/weighted-lexical-v2-performance-v1.json
 
       - name: Verify committed baseline
-        run: node scripts/evaluate-search.mjs --verify research/search/results/and-substring-v1.json
+        run: node scripts/evaluate-search.mjs --fixture research/search/evaluations/natural-language-v1.json --verify research/search/results/and-substring-v1.json
 
       - name: Verify active lexical experiment
-        run: node scripts/evaluate-search.mjs --algorithm site/search/weighted-lexical-v2.js --verify research/search/results/weighted-lexical-v2.json
+        run: node scripts/evaluate-search.mjs --fixture research/search/evaluations/natural-language-v1.json --algorithm site/search/weighted-lexical-v2.js --verify research/search/results/weighted-lexical-v2.json
 
       - name: Verify decomposition fusion experiment
-        run: node scripts/evaluate-search.mjs --algorithm research/search/algorithms/decomposition-rrf-v1.js --verify research/search/results/decomposition-rrf-v1.json
+        run: node scripts/evaluate-search.mjs --fixture research/search/evaluations/natural-language-v1.json --algorithm research/search/algorithms/decomposition-rrf-v1.js --verify research/search/results/decomposition-rrf-v1.json
 
       - name: Verify fusion acceptance decision
         run: node scripts/compare-search-results.mjs --baseline research/search/results/weighted-lexical-v2.json --candidate research/search/results/decomposition-rrf-v1.json --gate research/search/evaluations/fusion-no-harm-v1.json --verify research/search/results/decomposition-rrf-v1-decision.json
+
+      - name: Verify v2 substring checkpoint
+        run: node scripts/evaluate-search.mjs --fixture research/search/evaluations/natural-language-v2.json --verify research/search/results/and-substring-v1-evaluation-v2.json
+
+      - name: Verify v2 active lexical checkpoint
+        run: node scripts/evaluate-search.mjs --fixture research/search/evaluations/natural-language-v2.json --algorithm site/search/weighted-lexical-v2.js --verify research/search/results/weighted-lexical-v2-evaluation-v2.json
+
+      - name: Verify v2 decomposition fusion checkpoint
+        run: node scripts/evaluate-search.mjs --fixture research/search/evaluations/natural-language-v2.json --algorithm research/search/algorithms/decomposition-rrf-v1.js --verify research/search/results/decomposition-rrf-v1-evaluation-v2.json
+
+      - name: Verify v2 fusion acceptance decision
+        run: node scripts/compare-search-results.mjs --baseline research/search/results/weighted-lexical-v2-evaluation-v2.json --candidate research/search/results/decomposition-rrf-v1-evaluation-v2.json --gate research/search/evaluations/fusion-no-harm-v1.json --verify research/search/results/decomposition-rrf-v1-decision-v2.json

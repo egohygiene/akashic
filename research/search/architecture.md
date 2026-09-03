@@ -110,7 +110,7 @@ final score =
 
 `decomposition-rrf-v1` tests equal reciprocal rank fusion over the original-query and distinct subquery rankings at depth ten with rank constant `60`. Its opt-in explanation records each contributing query, its input rank and contribution, and the underlying lexical evidence. The predeclared `fusion-no-harm-v1` gate requires a new top-ten relevance success without reducing aggregate recall or reciprocal rank, losing an existing success, regressing a first relevant rank or exact identifier, or increasing measured known-negative exposure.
 
-The candidate recovers the uninsured-doctor case and reduces aggregate known-negative hits, but it lowers mean reciprocal rank, regresses three first-relevant ranks, drops two relevant resources that were previously beyond the fusion candidate window, and introduces a known negative into one exact form-number case. It is therefore preserved as a rejected research candidate while the no-fusion `weighted-lexical-v2` ranking remains authoritative. A future variant may preserve the original ranking more strongly, but it must use the unchanged gate and a larger reviewed fixture rather than tune acceptance around this result.
+The candidate recovers the uninsured-doctor case and reduces aggregate known-negative hits, but it lowers mean reciprocal rank, regresses three first-relevant ranks, drops two relevant resources that were previously beyond the fusion candidate window, and introduces a known negative into one exact form-number case. The larger v2 corpus confirms the decision: fusion gains one top-ten success and reduces known-negative exposure, but lowers MRR and nDCG, regresses six first-relevant ranks, regresses an exact identifier, and retains the fee-waiver negative regression. It is therefore preserved as a rejected research candidate while the no-fusion `weighted-lexical-v2` ranking remains authoritative. A future variant may preserve the original ranking more strongly, but it must use the unchanged gate rather than tune acceptance around either result.
 
 The active lexical experiment exposes an explanation record separately from its fast scoring path. For each explicitly explained resource it records:
 
@@ -217,7 +217,9 @@ Measure at least:
 - offline and failed-model fallbacks.
 - safety-invariant violations through human review and targeted automated assertions.
 
-The seed fixture is not statistically sufficient for a paper. Its known-irrelevant judgments are partial probes, so unmarked results remain unjudged and the resulting rate is not precision. It establishes the evaluation contract and exposes regressions while a larger, de-identified and deliberately sampled question set is developed.
+The v2 fixture extends the immutable binary seed into 33 stratified cases without duplicating it. Thirty-two cases have catalog judgments and one records a catalog-coverage gap. Every judged resource receives a `0`–`3` grade, grades `2` and `3` count as relevant for Recall@k and MRR, and the full scale contributes to nDCG. Each assessment names a versioned source. Conflicting grades require an explicit adjudicated grade; exact agreement is reported only when a judgment has multiple assessments; and comparative claims require at least two independent assessors on every judgment. Because the current corpus has one source per judgment, agreement is `null` and the sufficiency flag is false rather than being inferred from pull-request approval.
+
+Neither fixture is statistically sufficient for a paper. Known-irrelevant judgments are partial probes, so unmarked results remain unjudged and the resulting rate is not precision. The fixtures establish the evaluation contract, expose regressions, and make missing catalog coverage explicit while a larger, de-identified, independently assessed, and deliberately sampled question set is developed.
 
 `weighted-lexical-performance-v1` establishes the first executable performance boundary. It measures generated catalog-page assets with deterministic raw, gzip, and Brotli byte counts; times catalog parsing, one-time lexical indexing, and the reviewed query fixture; and applies both a normal Node.js CI smoke profile and a JIT-disabled stress profile. The active scorer now scans normalized word ranges directly, removing repeated token-array allocation from the query hot path without retaining a second token representation while the retrieval checkpoints prove unchanged rankings.
 
@@ -229,13 +231,15 @@ The committed static report is reproducible, while elapsed-time and heap observa
 2. Improve word boundaries, normalization, weighting, aliases, and deterministic query expansion.
 3. Preserve private-by-default natural-language query state and explicit fragment-based sharing.
 4. Establish stable resource IDs and richer metadata with issues #39 and #19.
-5. Test a pinned browser embedding model with exhaustive Float32 search.
-6. Compare Matryoshka dimensions and Int8/binary quantization.
-7. Add hybrid fusion and Atlas ancestor applicability.
-8. Explore guide/resource hierarchical retrieval inspired by RAPTOR.
-9. Add a deterministic pathway composer.
-10. Evaluate a small local model for query enhancement.
-11. Evaluate an optional cited conversational layer only if it adds measurable value.
+5. Expand the evaluation corpus, add graded judgments, and require explicit independent-assessor evidence.
+6. Test exact-preserving lexical fusion against the unchanged no-harm gate.
+7. Test a pinned browser embedding model with exhaustive Float32 search.
+8. Compare Matryoshka dimensions and Int8/binary quantization.
+9. Add hybrid fusion and Atlas ancestor applicability.
+10. Explore guide/resource hierarchical retrieval inspired by RAPTOR.
+11. Add a deterministic pathway composer.
+12. Evaluate a small local model for query enhancement.
+13. Evaluate an optional cited conversational layer only if it adds measurable value.
 
 ## Non-Goals
 

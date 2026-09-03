@@ -16,6 +16,7 @@ The fixture and reports contain resource names, links, and factual catalog field
 | --- | --- | --- | --- |
 | `site/search/` | Lexical source and reviewed concepts | CC0-1.0 | Shipped |
 | `evaluations/natural-language-v1.json` | Akashic-authored evaluation data | CC0-1.0 | Shipped |
+| `evaluations/natural-language-v2.json` | Akashic-authored graded evaluation extension and review provenance | CC0-1.0 | Shipped |
 | `results/*.json` | Deterministic evaluation artifacts | CC0-1.0 | Shipped |
 | External runtime, model, tokenizer, or converted weights | Separate third-party components | Varies | Not shipped |
 | Static semantic embedding index | Future derived artifact | Undecided until its exact inputs are approved | Not shipped |

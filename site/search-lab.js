@@ -7,7 +7,7 @@ import {
 } from "./search-lab-metrics.js";
 
 const CATALOG_URL = new URL("./data/catalog.json", import.meta.url);
-const FIXTURE_URL = new URL("./data/search-evaluation-v1.json", import.meta.url);
+const FIXTURE_URL = new URL("./data/search-evaluation-v2.json", import.meta.url);
 const SEARCH_ASSETS = [
   "search.js",
   "search/concepts-v1.js",
@@ -86,7 +86,7 @@ function yieldToBrowser() {
 }
 
 function validateFixture(fixture) {
-  if (fixture?.schemaVersion !== 1 || typeof fixture.id !== "string" || !Number.isInteger(fixture.topK) || fixture.topK < 1 || !Array.isArray(fixture.cases) || fixture.cases.length === 0) throw new Error("The browser evaluation fixture is invalid.");
+  if (fixture?.schemaVersion !== 2 || typeof fixture.id !== "string" || !Number.isInteger(fixture.topK) || fixture.topK < 1 || !Array.isArray(fixture.cases) || fixture.cases.length === 0) throw new Error("The browser evaluation fixture is invalid.");
   const ids = new Set();
   for (const testCase of fixture.cases) {
     if (!testCase?.id || !testCase?.query || ids.has(testCase.id)) throw new Error("The browser evaluation fixture contains an invalid or duplicate case.");
@@ -450,7 +450,7 @@ async function runBenchmark() {
           sha256: catalogSha256,
         },
         fixture: {
-          path: "data/search-evaluation-v1.json",
+          path: "data/search-evaluation-v2.json",
           schemaVersion: fixture.schemaVersion,
           id: fixture.id,
           caseCount: fixture.cases.length,
