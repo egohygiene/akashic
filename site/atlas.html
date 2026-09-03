@@ -49,7 +49,7 @@
         <div>
           <p class="eyebrow"><span></span> A place-aware knowledge experiment</p>
           <h1 id="atlas-title">Knowledge has<br><em>a sense of place.</em></h1>
-          <p>Move from world to country, region, and community. The resources change with the map—bringing official services, civic life, public data, and trusted local navigators into one calm path.</p>
+          <p>Move from world to country, region, and community. The resources change with the place—bringing official services, civic life, public data, and trusted local navigators into one calm path.</p>
         </div>
         <aside class="atlas-principle" aria-label="Atlas principles">
           <span aria-hidden="true">◎</span>
@@ -80,7 +80,7 @@
           <div class="atlas-map-panel">
             <div class="atlas-map-heading">
               <div><p id="atlas-level">World view</p><h2 id="atlas-map-title">Explore the map</h2></div>
-              <div class="atlas-map-controls" role="group" aria-label="Map zoom controls">
+              <div class="atlas-map-controls" id="atlas-map-controls" role="group" aria-label="Map zoom controls">
                 <button id="atlas-zoom-out" type="button" aria-label="Zoom out">−</button>
                 <output id="atlas-zoom-level" aria-live="polite">100%</output>
                 <button id="atlas-zoom-in" type="button" aria-label="Zoom in">+</button>
@@ -93,33 +93,47 @@
                 <desc id="atlas-map-svg-desc">Use the highlighted shapes, place selectors, or breadcrumb to explore available locations.</desc>
               </svg>
               <div class="atlas-loading" id="atlas-loading" role="status"><span aria-hidden="true">✦</span> Drawing the atlas…</div>
-              <div class="atlas-legend" aria-label="Map legend">
+              <div class="atlas-map-fallback" id="atlas-map-fallback" role="status" hidden>
+                <span aria-hidden="true">◇</span>
+                <h3>Map unavailable</h3>
+                <p>The place directory and reviewed resources remain available.</p>
+                <a href="#atlas-place-directory">Browse the place directory <span aria-hidden="true">↓</span></a>
+              </div>
+              <div class="atlas-legend" id="atlas-legend" aria-label="Map legend">
                 <span><i class="legend-available"></i> Resources mapped</span>
                 <span><i class="legend-selected"></i> Selected place</span>
                 <span><i class="legend-marker"></i> Locality</span>
               </div>
             </div>
-            <p class="atlas-map-note">Boundaries are simplified for exploration, not legal or navigational use. Map shapes never trigger browser geolocation.</p>
+            <p class="atlas-map-note" id="atlas-map-note">Boundaries are simplified for exploration, not legal or navigational use. Map shapes never trigger browser geolocation.</p>
           </div>
 
           <aside class="atlas-place-panel" id="atlas-place-panel" aria-labelledby="atlas-place-title">
             <div class="atlas-place-signal" aria-hidden="true"><span></span><i></i><i></i></div>
             <p class="kicker" id="atlas-place-kind">World</p>
             <h2 id="atlas-place-title" tabindex="-1">A growing atlas</h2>
-            <p id="atlas-place-copy">Begin with the highlighted country, then move toward local knowledge.</p>
+            <p id="atlas-place-copy">Begin with a country, then move toward local knowledge.</p>
             <dl class="atlas-place-stats">
               <div><dt id="atlas-resource-count">0</dt><dd>resources available</dd></div>
-              <div><dt id="atlas-child-count">0</dt><dd>mapped next steps</dd></div>
+              <div><dt id="atlas-child-count">0</dt><dd>next places</dd></div>
             </dl>
             <button class="button button-primary" id="atlas-open-child" type="button" hidden>Go one level deeper <span aria-hidden="true">→</span></button>
           </aside>
         </div>
+
+        <section class="atlas-place-directory" id="atlas-place-directory" aria-labelledby="atlas-place-directory-title">
+          <div class="atlas-place-directory-heading">
+            <div><p class="kicker">Complete place directory</p><h2 id="atlas-place-directory-title">Every reviewed place, beyond the map.</h2></div>
+            <p id="atlas-place-directory-summary" role="status">Browse the complete Atlas hierarchy with native links.</p>
+          </div>
+          <ol class="atlas-place-directory-list" id="atlas-place-directory-list" aria-label="Atlas place directory"></ol>
+        </section>
       </section>
 
       <section class="atlas-resources" id="atlas-resources" aria-labelledby="atlas-resources-title" tabindex="-1">
         <div class="section-heading">
           <div><p class="kicker">Useful here</p><h2 id="atlas-resources-title">Place-aware resources</h2></div>
-          <p id="atlas-resource-summary" role="status">Choose a mapped place to reveal its resources.</p>
+          <p id="atlas-resource-summary" role="status">Choose a place to reveal its resources.</p>
         </div>
         <div class="atlas-scope-filter">
           <p id="atlas-scope-filter-label">Resource scope</p>
@@ -140,7 +154,7 @@
         <div class="atlas-empty" id="atlas-empty">
           <span aria-hidden="true">◎</span>
           <h3>The path starts small on purpose.</h3>
-          <p>This first map proves the world → country → state → locality flow. More places can be added without changing the interface.</p>
+          <p>This first path proves the world → country → state → locality flow. More places can be added without changing the interface.</p>
         </div>
       </section>
 

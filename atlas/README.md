@@ -116,6 +116,7 @@ The build validates include paths, stable IDs, hierarchy connectivity, cameras a
 - The atlas does not request browser geolocation.
 - It has no analytics, map token, external tile service, database, or runtime API dependency.
 - Selecting a place only changes local UI state and the page URL.
+- Every hierarchy location remains available through native links in the complete place directory. The directory and reviewed resources continue working when a place has no geometry or a checked-in geometry file fails to load.
 - Automated discovery should propose reviewed pull requests; it should never silently publish scraped results.
 - Link-health automation should verify availability without treating redirects or temporary outages as automatic deletion decisions.
 
