@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "rootId": "world",
   "includes": [
     "locations/us.json"
@@ -11,8 +11,7 @@
       "shortName": "World",
       "kind": "world",
       "parentId": null,
-      "geometry": { "dataset": "world", "id": null },
-      "camera": { "center": [0, 12], "zoom": 1 }
+      "geometry": { "dataset": "world", "id": null }
     }
   ]
 }

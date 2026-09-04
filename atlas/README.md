@@ -11,7 +11,7 @@ This is a foundation, not a claim of comprehensive geographic coverage. The inte
 
 ## Data model
 
-- [`locations.json`](locations.json) is the root hierarchy manifest. It owns the world root and includes country-scoped location documents under [`locations/`](locations/), where stable place identifiers, map geometry references, and camera hints live.
+- [`locations.json`](locations.json) is the root hierarchy manifest. It owns the world root and includes country-scoped location documents under [`locations/`](locations/), where stable place identifiers and map geometry references live.
 - [`identifiers/`](identifiers/) contains authoritative country and subdivision code registries and their explicit relationship to the geometry datasets currently available to Atlas.
 - [`applicability.json`](applicability.json) defines explicit, many-to-many associations between stable main-catalog resource IDs and Atlas places plus the provenance-bearing jurisdiction edges that permit inheritance.
 - [`places/`](places/) contains the canonical, human-reviewable Markdown resources for each covered place.
@@ -109,7 +109,7 @@ Resources in `places/*.md` remain implicitly `specific` to that file's `atlas-lo
 - Jurisdiction identity and map coverage are separate facts. The checked-in U.S. topology maps the 50 states and District of Columbia; registry entries without a matching boundary declare `geometry: null` instead of borrowing or inventing a shape. Adding one of those jurisdictions to the hierarchy also requires an intentional no-geometry renderer or a reviewed boundary dataset.
 - Localities use stable repository-owned slugs, a representative longitude/latitude, and a normalized `mapPosition` within their parent geometry until municipal boundary data is added.
 
-The build validates include paths, stable IDs, hierarchy connectivity, cameras and points, country codes, subdivision registry matches, every referenced geometry ID, and complete coverage of datasets that a registry claims to map. A mismatch fails before generated data is written.
+The build validates include paths, stable IDs, hierarchy connectivity, point placement, country codes, subdivision registry matches, every referenced geometry ID, and complete coverage of datasets that a registry claims to map. A mismatch fails before generated data is written.
 
 ## Privacy and operating boundaries
 
@@ -130,3 +130,5 @@ The checked-in geometry is a compact build asset, not a live service:
 Both packages use the ISC license. See [`site/data/geometry/NOTICE.md`](../site/data/geometry/NOTICE.md) for provenance and refresh instructions.
 
 The browser keeps geometry sources in a dataset registry and resolves each map through an exact geometry-dataset and location-level renderer pair. Adding a boundary dataset therefore means declaring its checked-in source, topology object, identifier width, framing, and supported levels rather than adding a country-name branch. If a location has no registered renderer or a geometry asset fails to load, Atlas exposes the native place directory and reviewed resources instead of guessing a boundary or hiding the place.
+
+Atlas location schema 3 deliberately removes the former `camera` object, and country-scoped location documents use schema 2 for the same migration. Those longitude, latitude, and zoom hints never had a runtime consumer and could not frame every projection safely. Map framing now comes only from the checked-in dataset configuration and geometry-derived bounds. Stable place IDs, hierarchy edges, identifiers, geometry references, resource associations, compatibility projections, and existing Atlas URLs remain unchanged.

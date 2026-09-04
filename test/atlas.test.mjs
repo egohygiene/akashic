@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { atlasTopologyGeometryIds, deriveAtlasLocationResources, mergeAtlasLocationSources, validateAtlasApplicability, validateAtlasCountryRegistry, validateAtlasHierarchy, validateAtlasSubdivisionRegistry } from "../scripts/lib/atlas.mjs";
+import { ATLAS_LOCATION_DOCUMENT_SCHEMA_VERSION, ATLAS_LOCATION_SCHEMA_VERSION, atlasTopologyGeometryIds, deriveAtlasLocationResources, mergeAtlasLocationSources, validateAtlasApplicability, validateAtlasCountryRegistry, validateAtlasHierarchy, validateAtlasSubdivisionRegistry } from "../scripts/lib/atlas.mjs";
 
 const locationManifestFixture = JSON.parse(await readFile(new URL("../atlas/locations.json", import.meta.url), "utf8"));
 const usLocationsFixture = JSON.parse(await readFile(new URL("../atlas/locations/us.json", import.meta.url), "utf8"));
@@ -23,7 +23,6 @@ function location(id, parentId = null) {
       kind: "world",
       parentId,
       geometry: { dataset: "world", id: null },
-      camera: { center: [0, 0], zoom: 1 },
     };
   }
   return {
@@ -33,7 +32,6 @@ function location(id, parentId = null) {
     kind: "locality",
     parentId,
     geometry: { dataset: "point", coordinates: [0, 0], mapPosition: [0.5, 0.5] },
-    camera: { center: [0, 0], zoom: 1 },
   };
 }
 
@@ -57,7 +55,7 @@ function association(overrides = {}) {
 }
 
 test("validates Atlas hierarchy and derives child identifiers", () => {
-  const hierarchy = { schemaVersion: 2, rootId: "world", locations: [location("world"), location("state", "world")] };
+  const hierarchy = { schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world"), location("state", "world")] };
   const locations = validateAtlasHierarchy(hierarchy);
   assert.deepEqual(locations.get("world").children, ["state"]);
   assert.deepEqual(locations.get("state").children, []);
@@ -65,22 +63,32 @@ test("validates Atlas hierarchy and derives child identifiers", () => {
 
 test("rejects unknown Atlas parents and hierarchy cycles", () => {
   assert.throws(
-    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), location("state", "missing")] }),
+    () => validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world"), location("state", "missing")] }),
     /Unknown atlas parent/,
   );
   const state = location("state", "town");
   const town = location("town", "state");
   assert.throws(
-    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), state, town] }),
+    () => validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world"), state, town] }),
     /cycle detected/,
   );
 });
 
 test("merges sorted Atlas location sources and retains source provenance", () => {
+  assert.equal(locationManifestFixture.schemaVersion, ATLAS_LOCATION_SCHEMA_VERSION);
+  assert.equal(usLocationsFixture.schemaVersion, ATLAS_LOCATION_DOCUMENT_SCHEMA_VERSION);
   const hierarchy = mergeAtlasLocationSources(locationManifestFixture, new Map([["locations/us.json", usLocationsFixture]]));
   assert.equal(hierarchy.locations.length, 5);
   assert.equal(hierarchy.locations[0].source, "atlas/locations.json");
   assert.equal(hierarchy.locations[1].source, "atlas/locations/us.json");
+  assert.throws(
+    () => mergeAtlasLocationSources({ ...locationManifestFixture, schemaVersion: 2 }, new Map()),
+    /Unsupported Atlas location manifest schema/,
+  );
+  assert.throws(
+    () => mergeAtlasLocationSources(locationManifestFixture, new Map([["locations/us.json", { ...usLocationsFixture, schemaVersion: 1 }]])),
+    /Unsupported Atlas included location schema/,
+  );
   assert.throws(
     () => mergeAtlasLocationSources({ ...locationManifestFixture, includes: ["../private.json"] }, new Map()),
     /Invalid Atlas location include path/,
@@ -184,27 +192,26 @@ test("validates Atlas country and subdivision identifiers independently of map c
     parentId: "us",
     identifiers: { registry: "us-subdivisions", subdivisionType: "territory", postalCode: "PR", censusFips: "72" },
     geometry: { dataset: "us-states", id: "72" },
-    camera: { center: [-66.5, 18.2], zoom: 6 },
   });
   assert.throws(() => validateAtlasHierarchy(territoryGeometry, { countryRegistry, geometryIdsByDataset, subdivisionRegistryById: registries }), /has no registered map geometry/);
 });
 
-test("rejects unsupported location kinds, camera fields, and identifiers", () => {
+test("rejects legacy camera metadata, unsupported location kinds, and identifiers", () => {
   const secondWorld = { ...location("other"), parentId: "world" };
   assert.throws(
-    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), secondWorld] }),
+    () => validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world"), secondWorld] }),
     /Only the atlas root may use the world location kind/,
   );
-  const badCamera = location("town", "world");
-  badCamera.camera = { center: [0, 0], zoom: 1, bearing: 20 };
+  const legacyCamera = location("town", "world");
+  legacyCamera.camera = { center: [0, 0], zoom: 1 };
   assert.throws(
-    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), badCamera] }),
-    /Atlas camera town contains unsupported fields/,
+    () => validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world"), legacyCamera] }),
+    /Atlas location town contains unsupported fields: camera/,
   );
   const identifiedLocality = location("town", "world");
   identifiedLocality.identifiers = { postalCode: "XX" };
   assert.throws(
-    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), identifiedLocality] }),
+    () => validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world"), identifiedLocality] }),
     /must not declare unsupported identifiers/,
   );
 });
@@ -213,7 +220,7 @@ test("rejects invalid point geometry", () => {
   const point = location("town", "world");
   point.geometry = { dataset: "point", coordinates: [-71, 42], mapPosition: [1.2, 0.4] };
   assert.throws(
-    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), point] }),
+    () => validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world"), point] }),
     /Invalid atlas point geometry/,
   );
 });
@@ -222,13 +229,13 @@ test("keeps the location registry separate from catalog applicability", () => {
   const world = location("world");
   world.catalogResources = [{ resourceId: "federal-resource", section: "Start here" }];
   assert.throws(
-    () => validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [world] }),
+    () => validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [world] }),
     /belongs in atlas\/applicability\.json/,
   );
 });
 
 test("allows one stable catalog resource to have explicit associations with multiple places", () => {
-  const locations = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), location("state", "world")] });
+  const locations = validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world"), location("state", "world")] });
   const resources = new Map([["federal-resource", catalogResource("federal-resource")]]);
   const { associations } = validateAtlasApplicability(applicability([
     association(),
@@ -242,7 +249,7 @@ test("allows one stable catalog resource to have explicit associations with mult
 });
 
 test("accepts complete human-review provenance", () => {
-  const locations = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world")] });
+  const locations = validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world")] });
   const resources = new Map([["federal-resource", catalogResource("federal-resource")]]);
   const manifest = applicability(
     [association({ provenanceId: "scope-review" })],
@@ -252,7 +259,7 @@ test("accepts complete human-review provenance", () => {
 });
 
 test("rejects invalid applicability provenance", () => {
-  const locations = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world")] });
+  const locations = validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world")] });
   const resources = new Map([["federal-resource", catalogResource("federal-resource")]]);
   assert.throws(
     () => validateAtlasApplicability(applicability([association()], [{ id: "seed-migration", kind: "migration", source: "../locations.json" }]), locations, resources),
@@ -269,7 +276,7 @@ test("rejects invalid applicability provenance", () => {
 });
 
 test("rejects unknown, derived, and duplicate applicability targets", () => {
-  const locations = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world")] });
+  const locations = validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world")] });
   const explicitResources = new Map([["federal-resource", catalogResource("federal-resource")]]);
   assert.throws(
     () => validateAtlasApplicability(applicability([association({ locationId: "missing" })]), locations, explicitResources),
@@ -290,7 +297,7 @@ test("rejects unknown, derived, and duplicate applicability targets", () => {
 });
 
 test("rejects incomplete or unsupported applicability fields", () => {
-  const locations = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world")] });
+  const locations = validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world")] });
   const resources = new Map([["federal-resource", catalogResource("federal-resource")]]);
   assert.throws(
     () => validateAtlasApplicability(applicability([association({ relationship: "inherited" })]), locations, resources),
@@ -311,7 +318,7 @@ test("rejects incomplete or unsupported applicability fields", () => {
 });
 
 test("validates explicit provenance-bearing inheritance edges", () => {
-  const locations = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), location("country", "world"), location("state", "country")] });
+  const locations = validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world"), location("country", "world"), location("state", "country")] });
   const resources = new Map([["federal-resource", catalogResource("federal-resource")]]);
   const inheritance = [
     { locationId: "state", inheritsFromLocationId: "country", provenanceId: "seed-migration" },
@@ -324,7 +331,7 @@ test("validates explicit provenance-bearing inheritance edges", () => {
 });
 
 test("rejects invalid and cyclic inheritance edges", () => {
-  const locations = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations: [location("world"), location("state", "world")] });
+  const locations = validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations: [location("world"), location("state", "world")] });
   const resources = new Map([["federal-resource", catalogResource("federal-resource")]]);
   const validate = (inheritance) => validateAtlasApplicability(applicability([association()], undefined, inheritance), locations, resources);
   assert.throws(
@@ -357,7 +364,7 @@ test("rejects invalid and cyclic inheritance edges", () => {
 
 test("derives local-to-broader resources without duplicate identities or inherited cross-associations", () => {
   const locations = [location("world"), location("country", "world"), location("state", "country"), location("town", "state")];
-  const locationById = validateAtlasHierarchy({ schemaVersion: 2, rootId: "world", locations });
+  const locationById = validateAtlasHierarchy({ schemaVersion: ATLAS_LOCATION_SCHEMA_VERSION, rootId: "world", locations });
   const resources = [
     { id: "town-resource", associationId: "town:town-resource", locationId: "town", relationship: "specific" },
     { id: "shared-resource", associationId: "town:shared-resource", locationId: "town", relationship: "cross-associated" },
