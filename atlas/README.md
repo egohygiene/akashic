@@ -14,6 +14,7 @@ This is a foundation, not a claim of comprehensive geographic coverage. The inte
 - [`locations.json`](locations.json) is the root hierarchy manifest. It owns the world root and includes country-scoped location documents under [`locations/`](locations/), where stable place identifiers and map geometry references live.
 - [`identifiers/`](identifiers/) contains authoritative country and subdivision code registries and their explicit relationship to the geometry datasets currently available to Atlas.
 - [`jurisdictions.json`](jurisdictions.json) contains the versioned legal-jurisdiction records, primary-source provenance, and explicit federalism, district, territorial, and government-to-government relationships used for research routing.
+- [`jurisdiction-sources.json`](jurisdiction-sources.json) maps canonical catalog resources, visible gaps, and source assessments to a complete legal-source role template for each tracked jurisdiction.
 - [`applicability.json`](applicability.json) defines explicit, many-to-many associations between stable main-catalog resource IDs and Atlas places plus the provenance-bearing jurisdiction edges that permit inheritance.
 - [`places/`](places/) contains the canonical, human-reviewable Markdown resources for each covered place.
 - [`site/data/atlas-themes.json`](../site/data/atlas-themes.json) contains presentation-only map palettes.
@@ -35,6 +36,14 @@ The legal-jurisdiction registry is intentionally separate from both the place hi
 `atlasLocationId` is optional. Its presence means that an independently validated place already exists in the Atlas hierarchy; its absence does not make a jurisdiction unknown or borrow a nearby geometry. Tribal records deliberately cannot declare an Atlas location or subdivision identifier in this schema version. Future place-aware tribal work requires its own reviewed identity and boundary design rather than nesting a Tribal Nation under a state.
 
 Relationship direction names the jurisdiction being researched as the `subjectJurisdictionId` and the federal jurisdiction as the `counterpartJurisdictionId`. These edges are descriptive research context, not a precedence graph. They are never traversed by `deriveAtlasLocationResources`, and adding a legal resource still requires a separate, reviewed association or place-file entry.
+
+### Jurisdiction-source coverage
+
+Every profile in `jurisdiction-sources.json` contains the same ordered role template, covering foundational law; legislation and codes; administrative law; courts, help, forms, and access; attorney regulation; legal aid and public defense; public enforcement and records; and library, authenticated, and archival sources. A role is explicitly `covered`, `known-gap`, `deferred`, or `not-applicable` rather than disappearing when unfinished.
+
+Covered and partially covered roles reference stable, explicit main-catalog resource IDs. Each referenced resource has a same-date assessment of its authority, currentness, accessibility, and archival status. `unknown` is valid and preferable to an unsupported inference. In schema version 1, a profile remains `pending-human` until a GitHub reviewer is recorded deliberately; a successful link request or agent-assisted source check is not human truth review.
+
+Coverage records do not flow resources into a place. An independently reviewed `applicability.json` association is still required before a catalog resource appears in Atlas, and jurisdiction relationships never become inheritance edges. The generated data preserves this separation for future portal and Search Kernel consumers.
 
 The generated location records retain a derived `catalogResources` projection for compatibility with existing schema consumers. The build also emits a precomputed `resourcesByLocation` map so the browser can switch between local and inherited resources without walking the graph at runtime. Both are generated from `applicability.json` and must never be edited or restored to `locations.json` as source data.
 

@@ -4,6 +4,7 @@ import process from "node:process";
 import { normalizeUrl, parseResourceEntry, parseRootCategories } from "./lib/catalog.mjs";
 import { atlasTopologyGeometryIds, deriveAtlasLocationResources, mergeAtlasLocationSources, validateAtlasApplicability, validateAtlasCountryRegistry, validateAtlasHierarchy, validateAtlasSubdivisionRegistry } from "./lib/atlas.mjs";
 import { validateAtlasJurisdictions } from "./lib/jurisdictions.mjs";
+import { validateJurisdictionSourceCoverage } from "./lib/jurisdiction-sources.mjs";
 import { parseRelatedPaths, parseSiteGuide } from "./lib/guide.mjs";
 import { loadLocales, localizeHtml } from "./lib/i18n.mjs";
 import { deriveResourceId, validateResourceIdentities } from "./lib/resource-metadata.mjs";
@@ -234,6 +235,7 @@ async function buildAtlas(catalogResources) {
   const locationById = validateAtlasHierarchy(hierarchy, { countryRegistry, geometryIdsByDataset, subdivisionRegistryById });
   const jurisdictionManifest = JSON.parse(await readFile(path.join(atlasDirectory, "jurisdictions.json"), "utf8"));
   const jurisdictionModel = validateAtlasJurisdictions(jurisdictionManifest, { countryRegistry, locationById, subdivisionRegistryById });
+  const jurisdictionSourceManifest = JSON.parse(await readFile(path.join(atlasDirectory, "jurisdiction-sources.json"), "utf8"));
   const applicability = JSON.parse(await readFile(path.join(atlasDirectory, "applicability.json"), "utf8"));
 
   const placeDirectory = path.join(atlasDirectory, "places");
@@ -262,6 +264,7 @@ async function buildAtlas(catalogResources) {
   if (duplicatedCatalogUrl) throw new Error(`Atlas resource already belongs in the main catalog; reference it from atlas/applicability.json instead: ${duplicatedCatalogUrl.url}`);
 
   const catalogResourceById = new Map(catalogResources.map((resource) => [resource.id, resource]));
+  const jurisdictionSourceCoverage = validateJurisdictionSourceCoverage(jurisdictionSourceManifest, { catalogResourceById, jurisdictionById: jurisdictionModel.jurisdictionById });
   const { associations, inheritance } = validateAtlasApplicability(applicability, locationById, catalogResourceById);
   const legacyCatalogResourcesByLocation = new Map();
   for (const association of associations) {
@@ -334,6 +337,9 @@ async function buildAtlas(catalogResources) {
     jurisdictionSources: jurisdictionModel.sources,
     jurisdictions: jurisdictionModel.jurisdictions,
     jurisdictionRelationships: jurisdictionModel.relationships,
+    jurisdictionSourceSchemaVersion: jurisdictionSourceCoverage.schemaVersion,
+    jurisdictionSourceNotice: jurisdictionSourceCoverage.notice,
+    jurisdictionSourceProfiles: jurisdictionSourceCoverage.profiles,
     rootId: hierarchy.rootId,
     locationSourceCount: 1 + locationManifest.includes.length,
     identifierRegistries,
