@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://akashic.egohygiene.io/schemas/legal-source-apply-v1.schema.json",
+  "title": "Akashic legal source acquisition apply request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "applyId", "fixture", "manifestId", "planId", "planCanonicalSha256", "manifestCanonicalSha256", "observationCanonicalSha256", "lifecycle", "snapshot", "privacy"],
+  "properties": {
+    "$schema": { "const": "https://akashic.egohygiene.io/schemas/legal-source-apply-v1.schema.json" },
+    "schemaVersion": { "const": 1 },
+    "applyId": { "$ref": "#/$defs/id" },
+    "fixture": { "type": "boolean" },
+    "manifestId": { "$ref": "#/$defs/id" },
+    "planId": { "$ref": "#/$defs/id" },
+    "planCanonicalSha256": { "$ref": "#/$defs/sha256" },
+    "manifestCanonicalSha256": { "$ref": "#/$defs/sha256" },
+    "observationCanonicalSha256": { "$ref": "#/$defs/sha256" },
+    "lifecycle": { "enum": ["corrects", "none", "supersedes"] },
+    "snapshot": { "$ref": "#/$defs/snapshotInput" },
+    "privacy": { "$ref": "#/$defs/privacy" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "stringArray": { "type": "array", "items": { "$ref": "#/$defs/nonEmptyString" }, "uniqueItems": true },
+    "nonEmptyStrings": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/nonEmptyString" }, "uniqueItems": true },
+    "dateRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "value"],
+      "properties": {
+        "status": { "enum": ["known", "unknown", "not-applicable"] },
+        "value": { "type": ["string", "null"], "format": "date" }
+      }
+    },
+    "dates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publication", "amendment", "effective", "currentThrough", "retrieved", "reviewDue", "expires"],
+      "properties": {
+        "publication": { "$ref": "#/$defs/dateRecord" },
+        "amendment": { "$ref": "#/$defs/dateRecord" },
+        "effective": { "$ref": "#/$defs/dateRecord" },
+        "currentThrough": { "$ref": "#/$defs/dateRecord" },
+        "retrieved": { "$ref": "#/$defs/dateRecord" },
+        "reviewDue": { "$ref": "#/$defs/dateRecord" },
+        "expires": { "$ref": "#/$defs/dateRecord" }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidence"],
+      "properties": {
+        "status": { "enum": ["verified", "unverified", "not-supplied", "unknown"] },
+        "evidence": { "type": ["string", "null"] }
+      }
+    },
+    "rawCapture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourcePath", "path", "mediaType", "bytes", "sha256", "signature"],
+      "properties": {
+        "sourcePath": { "$ref": "#/$defs/nonEmptyString" },
+        "path": { "$ref": "#/$defs/nonEmptyString" },
+        "mediaType": { "$ref": "#/$defs/nonEmptyString" },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "signature": { "$ref": "#/$defs/signature" }
+      }
+    },
+    "normalizedCapture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourcePath", "path", "mediaType", "bytes", "sha256", "signature", "transformationIds"],
+      "properties": {
+        "sourcePath": { "$ref": "#/$defs/nonEmptyString" },
+        "path": { "$ref": "#/$defs/nonEmptyString" },
+        "mediaType": { "$ref": "#/$defs/nonEmptyString" },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "signature": { "$ref": "#/$defs/signature" },
+        "transformationIds": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "version": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "transformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "tool", "inputSha256", "outputSha256", "parameters", "notes"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "tool": { "$ref": "#/$defs/tool" },
+        "inputSha256": { "$ref": "#/$defs/sha256" },
+        "outputSha256": { "$ref": "#/$defs/sha256" },
+        "parameters": { "type": "object" },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "parserCompatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parser", "version", "status"],
+      "properties": {
+        "parser": { "$ref": "#/$defs/nonEmptyString" },
+        "version": { "$ref": "#/$defs/nonEmptyString" },
+        "status": { "enum": ["compatible", "incompatible", "unknown"] }
+      }
+    },
+    "capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["raw", "normalized", "transformations"],
+      "properties": {
+        "raw": { "$ref": "#/$defs/rawCapture" },
+        "normalized": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/normalizedCapture" } },
+        "transformations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/transformation" } }
+      }
+    },
+    "snapshotInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dates", "capture", "parserCompatibility", "limitations"],
+      "properties": {
+        "dates": { "$ref": "#/$defs/dates" },
+        "capture": { "oneOf": [{ "$ref": "#/$defs/capture" }, { "type": "null" }] },
+        "parserCompatibility": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/parserCompatibility" } },
+        "limitations": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publicInputsOnly", "containsPrivateData", "containsUserQueries", "maximumSensitivity", "sourceContentIsInstructions"],
+      "properties": {
+        "publicInputsOnly": { "const": true },
+        "containsPrivateData": { "const": false },
+        "containsUserQueries": { "const": false },
+        "maximumSensitivity": { "const": "public" },
+        "sourceContentIsInstructions": { "const": false }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://akashic.egohygiene.io/schemas/legal-source-apply-v1.schema.json",
+  "schemaVersion": 1,
+  "applyId": "us-federal-govinfo-cfr-unavailable-v1-plan-v1-apply-v1",
+  "fixture": true,
+  "manifestId": "us-federal-govinfo-cfr-synthetic-v1",
+  "planId": "us-federal-govinfo-cfr-unavailable-v1-plan-v1",
+  "planCanonicalSha256": "4c6f4057d57fdf633d3a07b27aa49e3c3e7c9afd9abd4cb1203651614c99d07b",
+  "manifestCanonicalSha256": "cd3751034c8c1fb736fff39654da07cfd7605e5c59109aeaf652393a1f62fa88",
+  "observationCanonicalSha256": "fa92ec8360abea1f205e669194d8eaac11b9872108c17d340b6da6deb2521083",
+  "lifecycle": "none",
+  "snapshot": {
+    "dates": {
+      "publication": { "status": "not-applicable", "value": null },
+      "amendment": { "status": "not-applicable", "value": null },
+      "effective": { "status": "not-applicable", "value": null },
+      "currentThrough": { "status": "not-applicable", "value": null },
+      "retrieved": { "status": "known", "value": "2026-09-05" },
+      "reviewDue": { "status": "known", "value": "2026-09-06" },
+      "expires": { "status": "not-applicable", "value": null }
+    },
+    "capture": null,
+    "parserCompatibility": [
+      { "parser": "akashic-synthetic-legal-json", "version": "1", "status": "unknown" }
+    ],
+    "limitations": [
+      "The source returned an unavailable observation; no response body or legal-content claim was captured."
+    ]
+  },
+  "privacy": {
+    "publicInputsOnly": true,
+    "containsPrivateData": false,
+    "containsUserQueries": false,
+    "maximumSensitivity": "public",
+    "sourceContentIsInstructions": false
+  }
+}

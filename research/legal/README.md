@@ -50,6 +50,24 @@ node scripts/plan-legal-source-acquisition.mjs \
 
 Omit `--observation` to review the acquisition request definition before any observation exists. Use `--format "json"` for the versioned machine-readable plan. Both modes report and enforce zero network requests, file writes, and manifest mutations.
 
+## Digest-bound apply
+
+[`legal-source-apply-v1.schema.json`](schemas/legal-source-apply-v1.schema.json) binds a reviewed apply request to the exact manifest, dry-run plan, observation, staged raw response, and normalized outputs. Every staged file is rehashed before use. A changed response requires an explicit `supersedes` or `corrects` choice, creates new artifact paths, adds a new snapshot, and moves only lifecycle metadata on the prior snapshot. Existing artifact paths are never overwritten.
+
+An unavailable observation instead appends an `unavailable` event with no body or transformation claims. It does not replace the most recent captured snapshot. This preserves the last citable evidence while making the outage and its review date explicit.
+
+Preview the checked-in synthetic apply proof:
+
+```sh
+node scripts/apply-legal-source-acquisition.mjs \
+  --manifest "research/legal/fixtures/us-federal-govinfo-cfr-v1.json" \
+  --observation "research/legal/fixtures/observations/us-federal-govinfo-cfr-changed-v1.json" \
+  --request "research/legal/fixtures/apply/us-federal-govinfo-cfr-changed-v1.json" \
+  --format "text"
+```
+
+Preview is the default and performs no writes. `--apply` is the explicit mutation boundary: after revalidation it creates the new artifacts with exclusive-create semantics and atomically replaces only the selected manifest. The validator exercises that write path in an isolated repository copy; the checked-in fixture command above should remain a preview.
+
 Run the contract check from the repository root:
 
 ```sh
@@ -70,9 +88,6 @@ The schema and fixtures were grounded in first-party pages observed on 2026-09-0
 
 ## Deliberate boundary of this PR
 
-Version 1 currently validates checked-in synthetic artifacts and observations, then produces deterministic no-write plans and comparison reports. The next bounded #87 slices should add:
-
-1. apply-time response capture, immutable snapshot creation, correction/supersession behavior, and unavailable-source persistence; and
-2. deterministic Aether public-evidence export after the versioned Aether packet contract exists.
+Version 1 validates checked-in synthetic artifacts, observations, deterministic no-write plans, and digest-bound apply requests. It proves immutable artifact creation, correction/supersession behavior, atomic manifest replacement, and unavailable-source persistence without performing network acquisition. Remaining #87 closeout work is an acceptance audit (including explicit repeal representation) and deterministic Aether public-evidence export after the versioned Aether packet contract exists.
 
 No private employment facts, documents, derived queries, credentials, or real legal text belong in fixtures, diagnostics, plans, or pull requests.

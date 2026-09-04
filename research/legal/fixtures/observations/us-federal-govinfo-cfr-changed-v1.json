@@ -8,9 +8,9 @@
   "result": "available",
   "httpStatus": 200,
   "mediaType": "application/json",
-  "bodyBytes": 240,
+  "bodyBytes": 235,
   "headersSha256": null,
-  "bodySha256": "1111111111111111111111111111111111111111111111111111111111111111",
+  "bodySha256": "fd3b11efc0060df235425298e6046eec2ddd1d21c4911fd1e0c1f123c546c805",
   "failureCode": null,
   "privacy": {
     "publicInputsOnly": true,
