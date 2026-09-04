@@ -128,3 +128,5 @@ The checked-in geometry is a compact build asset, not a live service:
 - U.S. states: `us-atlas@3.0.1`, derived from U.S. Census Bureau cartographic boundary files and projected to Albers USA.
 
 Both packages use the ISC license. See [`site/data/geometry/NOTICE.md`](../site/data/geometry/NOTICE.md) for provenance and refresh instructions.
+
+The browser keeps geometry sources in a dataset registry and resolves each map through an exact geometry-dataset and location-level renderer pair. Adding a boundary dataset therefore means declaring its checked-in source, topology object, identifier width, framing, and supported levels rather than adding a country-name branch. If a location has no registered renderer or a geometry asset fails to load, Atlas exposes the native place directory and reviewed resources instead of guessing a boundary or hiding the place.
