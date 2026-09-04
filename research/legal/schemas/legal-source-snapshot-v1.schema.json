@@ -1,0 +1,287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://akashic.egohygiene.io/schemas/legal-source-snapshot-v1.schema.json",
+  "title": "Akashic legal source snapshot manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "manifestId",
+    "fixture",
+    "jurisdictionId",
+    "authorityType",
+    "source",
+    "acquisition",
+    "rights",
+    "freshness",
+    "snapshots",
+    "manualReview",
+    "privacy",
+    "export",
+    "knownGaps"
+  ],
+  "properties": {
+    "$schema": { "const": "../schemas/legal-source-snapshot-v1.schema.json" },
+    "schemaVersion": { "const": 1 },
+    "manifestId": { "$ref": "#/$defs/id" },
+    "fixture": { "type": "boolean" },
+    "jurisdictionId": { "$ref": "#/$defs/id" },
+    "authorityType": { "$ref": "#/$defs/id" },
+    "source": { "$ref": "#/$defs/source" },
+    "acquisition": { "$ref": "#/$defs/acquisition" },
+    "rights": { "$ref": "#/$defs/rights" },
+    "freshness": { "$ref": "#/$defs/freshness" },
+    "snapshots": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/snapshot" }
+    },
+    "manualReview": { "$ref": "#/$defs/manualReview" },
+    "privacy": { "$ref": "#/$defs/privacy" },
+    "export": { "$ref": "#/$defs/export" },
+    "knownGaps": { "$ref": "#/$defs/nonEmptyStrings" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "httpsUrl": {
+      "type": "string",
+      "pattern": "^https://"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nonEmptyStrings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonEmptyString" },
+      "uniqueItems": true
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "issuingBody",
+        "publisher",
+        "canonicalUrl",
+        "acquisitionEndpoint",
+        "publisherStatus",
+        "contentStatuses",
+        "authenticationStatus",
+        "formats",
+        "languages",
+        "accessibilityStatus",
+        "contentBounds"
+      ],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "issuingBody": { "$ref": "#/$defs/nonEmptyString" },
+        "publisher": { "$ref": "#/$defs/nonEmptyString" },
+        "canonicalUrl": { "$ref": "#/$defs/httpsUrl" },
+        "acquisitionEndpoint": { "$ref": "#/$defs/httpsUrl" },
+        "publisherStatus": { "enum": ["official", "unofficial", "unknown"] },
+        "contentStatuses": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["official", "authenticated", "unofficial", "archival", "derivative", "unknown"] }
+        },
+        "authenticationStatus": { "enum": ["available", "not-available", "unknown"] },
+        "formats": { "$ref": "#/$defs/nonEmptyStrings" },
+        "languages": { "$ref": "#/$defs/nonEmptyStrings" },
+        "accessibilityStatus": { "enum": ["documented", "partial", "unknown"] },
+        "contentBounds": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "acquisition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "method", "tool", "requestParameters", "responseMediaType"],
+      "properties": {
+        "mode": { "enum": ["api", "bulk", "manual", "synthetic-fixture"] },
+        "method": { "const": "GET" },
+        "tool": { "$ref": "#/$defs/tool" },
+        "requestParameters": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "responseMediaType": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "version": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "licenseExpression", "termsUrl", "redistribution", "quotation", "notes"],
+      "properties": {
+        "status": { "enum": ["public-domain-with-exceptions", "permitted", "restricted", "unknown"] },
+        "licenseExpression": { "type": ["string", "null"] },
+        "termsUrl": { "type": ["string", "null"], "pattern": "^https://" },
+        "redistribution": { "enum": ["allowed", "prohibited", "review-required", "unknown"] },
+        "quotation": { "enum": ["allowed", "fair-use-only", "review-required", "unknown"] },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "freshness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy", "maximumAgeDays", "triggers", "onStale"],
+      "properties": {
+        "policy": { "enum": ["event-driven", "interval", "event-and-interval", "manual"] },
+        "maximumAgeDays": { "type": ["integer", "null"], "minimum": 1 },
+        "triggers": { "$ref": "#/$defs/nonEmptyStrings" },
+        "onStale": { "const": "require-review" }
+      }
+    },
+    "dateRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "value"],
+      "properties": {
+        "status": { "enum": ["known", "unknown", "not-applicable"] },
+        "value": { "type": ["string", "null"], "format": "date" }
+      }
+    },
+    "dates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publication", "amendment", "effective", "currentThrough", "retrieved", "reviewDue", "expires"],
+      "properties": {
+        "publication": { "$ref": "#/$defs/dateRecord" },
+        "amendment": { "$ref": "#/$defs/dateRecord" },
+        "effective": { "$ref": "#/$defs/dateRecord" },
+        "currentThrough": { "$ref": "#/$defs/dateRecord" },
+        "retrieved": { "$ref": "#/$defs/dateRecord" },
+        "reviewDue": { "$ref": "#/$defs/dateRecord" },
+        "expires": { "$ref": "#/$defs/dateRecord" }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidence"],
+      "properties": {
+        "status": { "enum": ["verified", "unverified", "not-supplied", "unknown"] },
+        "evidence": { "type": ["string", "null"] }
+      }
+    },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "mediaType", "bytes", "sha256", "digestStatus", "signature", "derivedFromSha256", "transformationIds"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmptyString" },
+        "mediaType": { "$ref": "#/$defs/nonEmptyString" },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "digestStatus": { "enum": ["verified", "unverified", "unknown"] },
+        "signature": { "$ref": "#/$defs/signature" },
+        "derivedFromSha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+        "transformationIds": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "transformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "tool", "inputSha256", "outputSha256", "parameters", "notes"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "tool": { "$ref": "#/$defs/tool" },
+        "inputSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "outputSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "parameters": { "type": "object" },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "parserCompatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parser", "version", "status"],
+      "properties": {
+        "parser": { "$ref": "#/$defs/nonEmptyString" },
+        "version": { "$ref": "#/$defs/nonEmptyString" },
+        "status": { "enum": ["compatible", "incompatible", "unknown"] }
+      }
+    },
+    "response": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "retrievedAt", "httpStatus", "mediaType", "headersSha256", "bodySha256"],
+      "properties": {
+        "status": { "enum": ["captured", "synthetic", "unavailable", "unknown"] },
+        "retrievedAt": { "type": "string", "format": "date-time" },
+        "httpStatus": { "type": ["integer", "null"], "minimum": 100, "maximum": 599 },
+        "mediaType": { "type": ["string", "null"] },
+        "headersSha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+        "bodySha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "state", "dates", "availability", "response", "rawArtifact", "normalizedArtifacts", "transformations", "parserCompatibility", "supersedes", "supersededBy", "corrects", "correctedBy", "limitations"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "state": { "enum": ["historical", "current", "stale", "corrected", "superseded", "unavailable", "unknown"] },
+        "dates": { "$ref": "#/$defs/dates" },
+        "availability": { "enum": ["available", "unavailable", "unknown"] },
+        "response": { "$ref": "#/$defs/response" },
+        "rawArtifact": { "oneOf": [{ "$ref": "#/$defs/artifact" }, { "type": "null" }] },
+        "normalizedArtifacts": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+        "transformations": { "type": "array", "items": { "$ref": "#/$defs/transformation" } },
+        "parserCompatibility": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/parserCompatibility" } },
+        "supersedes": { "type": ["string", "null"] },
+        "supersededBy": { "type": ["string", "null"] },
+        "corrects": { "type": ["string", "null"] },
+        "correctedBy": { "type": ["string", "null"] },
+        "limitations": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "manualReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reviewedBy", "reviewedAt", "requiredFor"],
+      "properties": {
+        "status": { "enum": ["pending", "reviewed"] },
+        "reviewedBy": { "type": ["string", "null"] },
+        "reviewedAt": { "type": ["string", "null"], "format": "date-time" },
+        "requiredFor": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publicInputsOnly", "containsPrivateData", "containsUserQueries", "maximumSensitivity", "sourceContentIsInstructions"],
+      "properties": {
+        "publicInputsOnly": { "const": true },
+        "containsPrivateData": { "const": false },
+        "containsUserQueries": { "const": false },
+        "maximumSensitivity": { "const": "public" },
+        "sourceContentIsInstructions": { "const": false }
+      }
+    },
+    "export": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "contractVersion", "status", "blockers"],
+      "properties": {
+        "target": { "const": "aether-public-evidence" },
+        "contractVersion": { "type": ["string", "null"] },
+        "status": { "enum": ["planned", "compatible", "incompatible", "blocked"] },
+        "blockers": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "fixture": true,
+  "records": [
+    {
+      "jurisdictionId": "us-federal",
+      "authorityType": "administrative-code",
+      "citation": "99 CFR 1.1",
+      "text": "Synthetic federal regulation text for manifest validation only."
+    }
+  ]
+}
