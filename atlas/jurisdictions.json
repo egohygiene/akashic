@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "notice": "Jurisdiction relationships support research routing only. They do not establish controlling law, resource applicability, eligibility, or legal advice.",
+  "sources": [
+    {
+      "id": "bia-tribal-status",
+      "publisher": "U.S. Department of the Interior, Indian Affairs",
+      "sourceUrl": "https://www.bia.gov/frequently-asked-questions",
+      "retrieved": "2026-09-04"
+    },
+    {
+      "id": "bia-tribes-eastern-region",
+      "publisher": "U.S. Department of the Interior, Indian Affairs",
+      "sourceUrl": "https://www.bia.gov/regional-offices/eastern/tribes-served",
+      "retrieved": "2026-09-04"
+    },
+    {
+      "id": "congress-district-clause",
+      "publisher": "Library of Congress, Constitution Annotated",
+      "sourceUrl": "https://constitution.congress.gov/browse/article-1/section-8/clause-17/",
+      "retrieved": "2026-09-04"
+    },
+    {
+      "id": "congress-federalism",
+      "publisher": "Library of Congress, Constitution Annotated",
+      "sourceUrl": "https://constitution.congress.gov/browse/essay/intro.7-3/ALDE_00000032/",
+      "retrieved": "2026-09-04"
+    },
+    {
+      "id": "doi-insular-status",
+      "publisher": "U.S. Department of the Interior, Office of Insular Affairs",
+      "sourceUrl": "https://www.doi.gov/oia/islands/politicatypes",
+      "retrieved": "2026-09-04"
+    }
+  ],
+  "jurisdictions": [
+    {
+      "id": "mashpee-wampanoag-tribe",
+      "name": "Mashpee Wampanoag Tribe",
+      "kind": "tribal",
+      "sourceIds": [
+        "bia-tribal-status",
+        "bia-tribes-eastern-region"
+      ]
+    },
+    {
+      "id": "us-dc",
+      "name": "District of Columbia",
+      "kind": "district",
+      "identifierReference": {
+        "registryId": "us-subdivisions",
+        "locationId": "us-dc"
+      },
+      "sourceIds": [
+        "congress-district-clause"
+      ]
+    },
+    {
+      "id": "us-federal",
+      "name": "United States federal jurisdiction",
+      "kind": "federal",
+      "atlasLocationId": "us",
+      "identifierReference": {
+        "registryId": "countries",
+        "locationId": "us"
+      },
+      "sourceIds": [
+        "congress-federalism"
+      ]
+    },
+    {
+      "id": "us-ma",
+      "name": "Massachusetts",
+      "kind": "state",
+      "atlasLocationId": "us-ma",
+      "identifierReference": {
+        "registryId": "us-subdivisions",
+        "locationId": "us-ma"
+      },
+      "sourceIds": [
+        "congress-federalism"
+      ]
+    },
+    {
+      "id": "us-pr",
+      "name": "Puerto Rico",
+      "kind": "territory",
+      "identifierReference": {
+        "registryId": "us-subdivisions",
+        "locationId": "us-pr"
+      },
+      "sourceIds": [
+        "doi-insular-status"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "subjectJurisdictionId": "mashpee-wampanoag-tribe",
+      "counterpartJurisdictionId": "us-federal",
+      "kind": "government-to-government",
+      "sourceIds": [
+        "bia-tribal-status"
+      ]
+    },
+    {
+      "subjectJurisdictionId": "us-dc",
+      "counterpartJurisdictionId": "us-federal",
+      "kind": "seat-of-government",
+      "sourceIds": [
+        "congress-district-clause"
+      ]
+    },
+    {
+      "subjectJurisdictionId": "us-ma",
+      "counterpartJurisdictionId": "us-federal",
+      "kind": "federalism",
+      "sourceIds": [
+        "congress-federalism"
+      ]
+    },
+    {
+      "subjectJurisdictionId": "us-pr",
+      "counterpartJurisdictionId": "us-federal",
+      "kind": "territorial",
+      "sourceIds": [
+        "doi-insular-status"
+      ]
+    }
+  ]
+}

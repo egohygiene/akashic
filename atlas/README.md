@@ -13,12 +13,28 @@ This is a foundation, not a claim of comprehensive geographic coverage. The inte
 
 - [`locations.json`](locations.json) is the root hierarchy manifest. It owns the world root and includes country-scoped location documents under [`locations/`](locations/), where stable place identifiers and map geometry references live.
 - [`identifiers/`](identifiers/) contains authoritative country and subdivision code registries and their explicit relationship to the geometry datasets currently available to Atlas.
+- [`jurisdictions.json`](jurisdictions.json) contains the versioned legal-jurisdiction records, primary-source provenance, and explicit federalism, district, territorial, and government-to-government relationships used for research routing.
 - [`applicability.json`](applicability.json) defines explicit, many-to-many associations between stable main-catalog resource IDs and Atlas places plus the provenance-bearing jurisdiction edges that permit inheritance.
 - [`places/`](places/) contains the canonical, human-reviewable Markdown resources for each covered place.
 - [`site/data/atlas-themes.json`](../site/data/atlas-themes.json) contains presentation-only map palettes.
 - [`scripts/build-site.mjs`](../scripts/build-site.mjs) compiles the hierarchy and place Markdown into `dist/data/atlas.json`.
 
 Do not hand-edit `dist/data/atlas.json`. The location manifest and its included documents, identifier registries, applicability manifest, and place Markdown remain the source of truth.
+
+The legal-jurisdiction registry is intentionally separate from both the place hierarchy and applicability graph. A jurisdiction may reference an authoritative identifier before its corresponding Atlas place is materialized, as the District of Columbia and Puerto Rico do in the initial baseline. Tribal jurisdictions are not attached to state or territorial place records: their relationship with the United States is represented directly and backed by an authoritative source. These records support research routing only. They do not establish controlling law, resource applicability, eligibility, or legal advice, and the build never converts them into inheritance edges.
+
+### Legal jurisdiction model
+
+`jurisdictions.json` uses four explicit collections:
+
+- `sources` records the primary publisher, canonical HTTPS URL, and retrieval date for every classification or relationship claim;
+- `jurisdictions` assigns stable IDs and one of the controlled `federal`, `state`, `district`, `territory`, or `tribal` kinds;
+- `identifierReference` connects non-tribal records to the existing country or subdivision registries without copying their authoritative codes;
+- `relationships` records a reviewed `federalism`, `seat-of-government`, `territorial`, or `government-to-government` relationship between two jurisdictions.
+
+`atlasLocationId` is optional. Its presence means that an independently validated place already exists in the Atlas hierarchy; its absence does not make a jurisdiction unknown or borrow a nearby geometry. Tribal records deliberately cannot declare an Atlas location or subdivision identifier in this schema version. Future place-aware tribal work requires its own reviewed identity and boundary design rather than nesting a Tribal Nation under a state.
+
+Relationship direction names the jurisdiction being researched as the `subjectJurisdictionId` and the federal jurisdiction as the `counterpartJurisdictionId`. These edges are descriptive research context, not a precedence graph. They are never traversed by `deriveAtlasLocationResources`, and adding a legal resource still requires a separate, reviewed association or place-file entry.
 
 The generated location records retain a derived `catalogResources` projection for compatibility with existing schema consumers. The build also emits a precomputed `resourcesByLocation` map so the browser can switch between local and inherited resources without walking the graph at runtime. Both are generated from `applicability.json` and must never be edited or restored to `locations.json` as source data.
 

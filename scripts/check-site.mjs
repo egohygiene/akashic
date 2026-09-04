@@ -24,6 +24,12 @@ for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "searc
 const atlas = JSON.parse(await readFile(path.join(output, "data/atlas.json"), "utf8"));
 if (atlas.schemaVersion !== ATLAS_LOCATION_SCHEMA_VERSION) throw new Error("Unsupported atlas schema.");
 if (atlas.applicabilitySchemaVersion !== 2) throw new Error("Unsupported atlas applicability schema.");
+if (atlas.jurisdictionSchemaVersion !== 1) throw new Error("Unsupported Atlas jurisdiction schema.");
+if (typeof atlas.jurisdictionNotice !== "string" || !atlas.jurisdictionNotice.includes("do not establish controlling law") || !atlas.jurisdictionNotice.includes("resource applicability")) throw new Error("The Atlas jurisdiction non-applicability notice is incomplete.");
+if (!Array.isArray(atlas.jurisdictionSources) || !Array.isArray(atlas.jurisdictions) || !Array.isArray(atlas.jurisdictionRelationships)) throw new Error("The Atlas jurisdiction model is incomplete.");
+if (JSON.stringify(atlas.jurisdictions.map((jurisdiction) => jurisdiction.kind).sort()) !== JSON.stringify(["district", "federal", "state", "territory", "tribal"])) throw new Error("The Atlas jurisdiction baseline is incomplete.");
+if (JSON.stringify(atlas.jurisdictionRelationships.map((relationship) => relationship.kind).sort()) !== JSON.stringify(["federalism", "government-to-government", "seat-of-government", "territorial"])) throw new Error("The Atlas jurisdiction relationship baseline is incomplete.");
+if (atlas.jurisdictionRelationships.some((relationship) => Object.hasOwn(relationship, "inheritsFromLocationId"))) throw new Error("Jurisdiction relationships must not become Atlas inheritance rules.");
 if (!Array.isArray(atlas.locations) || atlas.locations.length !== atlas.locationCount) throw new Error("The atlas location count is inconsistent.");
 if (!Array.isArray(atlas.resources) || atlas.resources.length !== atlas.resourceCount) throw new Error("The atlas resource count is inconsistent.");
 if (!Array.isArray(atlas.inheritance) || !atlas.resourcesByLocation || Array.isArray(atlas.resourcesByLocation)) throw new Error("The atlas derived applicability data is incomplete.");
