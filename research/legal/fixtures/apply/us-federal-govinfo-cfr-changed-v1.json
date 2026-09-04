@@ -1,0 +1,68 @@
+{
+  "$schema": "https://akashic.egohygiene.io/schemas/legal-source-apply-v1.schema.json",
+  "schemaVersion": 1,
+  "applyId": "us-federal-govinfo-cfr-changed-v1-plan-v1-apply-v1",
+  "fixture": true,
+  "manifestId": "us-federal-govinfo-cfr-synthetic-v1",
+  "planId": "us-federal-govinfo-cfr-changed-v1-plan-v1",
+  "planCanonicalSha256": "144f13e6e8567b9f2eb3207e7ce3dd073c62fe3831146d169b7fc2f98932b0c7",
+  "manifestCanonicalSha256": "cd3751034c8c1fb736fff39654da07cfd7605e5c59109aeaf652393a1f62fa88",
+  "observationCanonicalSha256": "c11440103a34c83581f6c415c0f218ed1f9a700bff990c1730e58f5791a4b6e7",
+  "lifecycle": "supersedes",
+  "snapshot": {
+    "dates": {
+      "publication": { "status": "unknown", "value": null },
+      "amendment": { "status": "unknown", "value": null },
+      "effective": { "status": "unknown", "value": null },
+      "currentThrough": { "status": "unknown", "value": null },
+      "retrieved": { "status": "known", "value": "2026-09-05" },
+      "reviewDue": { "status": "known", "value": "2026-10-05" },
+      "expires": { "status": "not-applicable", "value": null }
+    },
+    "capture": {
+      "raw": {
+        "sourcePath": "research/legal/fixtures/captures/us-federal-govinfo-cfr-raw-v2.json",
+        "path": "research/legal/fixtures/artifacts/us-federal-govinfo-cfr-raw-2026-09-05-fd3b11efc006.json",
+        "mediaType": "application/json",
+        "bytes": 235,
+        "sha256": "fd3b11efc0060df235425298e6046eec2ddd1d21c4911fd1e0c1f123c546c805",
+        "signature": { "status": "not-supplied", "evidence": null }
+      },
+      "normalized": [
+        {
+          "sourcePath": "research/legal/fixtures/captures/us-federal-govinfo-cfr-normalized-v2.json",
+          "path": "research/legal/fixtures/artifacts/us-federal-govinfo-cfr-normalized-2026-09-05-7e051cd296db.json",
+          "mediaType": "application/json",
+          "bytes": 265,
+          "sha256": "7e051cd296dbf72a3d05aab8fb5d99f1289048b1003823ff613e001493b065ee",
+          "signature": { "status": "not-supplied", "evidence": null },
+          "transformationIds": ["normalize-synthetic-federal-json-v2"]
+        }
+      ],
+      "transformations": [
+        {
+          "id": "normalize-synthetic-federal-json-v2",
+          "tool": { "name": "akashic-synthetic-legal-json", "version": "2" },
+          "inputSha256": "fd3b11efc0060df235425298e6046eec2ddd1d21c4911fd1e0c1f123c546c805",
+          "outputSha256": "7e051cd296dbf72a3d05aab8fb5d99f1289048b1003823ff613e001493b065ee",
+          "parameters": { "preserveCitation": true, "trimWhitespace": true },
+          "notes": "Deterministic fixture transformation only; it is not a parser for live GovInfo packages."
+        }
+      ]
+    },
+    "parserCompatibility": [
+      { "parser": "akashic-synthetic-legal-json", "version": "2", "status": "compatible" }
+    ],
+    "limitations": [
+      "The fixture does not verify an actual GovInfo PDF signature.",
+      "Publication, amendment, effective, and current-through dates remain unknown deliberately."
+    ]
+  },
+  "privacy": {
+    "publicInputsOnly": true,
+    "containsPrivateData": false,
+    "containsUserQueries": false,
+    "maximumSensitivity": "public",
+    "sourceContentIsInstructions": false
+  }
+}

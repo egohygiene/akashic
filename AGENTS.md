@@ -77,6 +77,8 @@ Atlas source data is split deliberately: `atlas/locations.json` is the root mani
 
 Legal-source dry runs consume explicit public observation metadata and must perform no network requests, file writes, or manifest mutations. Keep request parameters sorted and credential-free, bind plans to canonical digests, and require a later apply step for every proposed immutable snapshot.
 
+Legal-source applies must preview by default and bind the exact manifest, plan, observation, and staged public capture by digest. Require an explicit correction or supersession choice for changed evidence, never overwrite an artifact path, atomically replace only the selected manifest, and persist source-unavailable observations without inventing body bytes or replacing the last captured evidence.
+
 ## Working Principles
 
 ### Preserve intent and scope

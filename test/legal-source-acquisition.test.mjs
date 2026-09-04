@@ -90,8 +90,8 @@ test("proposes a stable immutable snapshot when the body changes", () => {
   assert.equal(plan.decision.reason, "body-changed");
   assert.equal(plan.decision.requiresManifestApply, true);
   assert.equal(plan.decision.requiresHumanReview, true);
-  assert.equal(plan.decision.proposedSnapshotId, "us-federal-govinfo-cfr-synthetic-v1-snapshot-2026-09-05-111111111111");
-  assert.equal(plan.comparison.find((entry) => entry.field === "response.bodySha256").after, "1".repeat(64));
+  assert.equal(plan.decision.proposedSnapshotId, "us-federal-govinfo-cfr-synthetic-v1-snapshot-2026-09-05-fd3b11efc006");
+  assert.equal(plan.comparison.find((entry) => entry.field === "response.bodySha256").after, "fd3b11efc0060df235425298e6046eec2ddd1d21c4911fd1e0c1f123c546c805");
 });
 
 test("distinguishes first capture, source restoration, and unexpected live media", () => {

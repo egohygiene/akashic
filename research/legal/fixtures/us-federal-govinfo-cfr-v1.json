@@ -192,7 +192,7 @@
     ]
   },
   "knownGaps": [
-    "Live plan/apply acquisition is not implemented in this fixture PR.",
+    "Live network transport is not implemented; apply consumes explicitly staged public captures.",
     "No real legal text, response headers, or authentication material is included."
   ]
 }

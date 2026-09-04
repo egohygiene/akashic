@@ -1,0 +1,11 @@
+{
+  "fixture": true,
+  "records": [
+    {
+      "jurisdictionId": "us-federal",
+      "authorityType": "administrative-code",
+      "citation": "99 CFR 1.1",
+      "text": "Updated synthetic federal regulation text for immutable apply validation only."
+    }
+  ]
+}

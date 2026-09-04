@@ -155,7 +155,7 @@ function validateDates(dates, label) {
   if (dates.retrieved.status !== "known") throw new Error(`${label} must record a known retrieval date.`);
 }
 
-async function validateArtifact(artifact, { fixture, root, label, raw }) {
+async function validateArtifact(artifact, { artifactContentsByPath, fixture, root, label, raw }) {
   assertObject(artifact, label);
   rejectUnknownFields(artifact, ["bytes", "derivedFromSha256", "digestStatus", "mediaType", "path", "sha256", "signature", "transformationIds"], label);
   assertString(artifact.mediaType, `${label} mediaType`);
@@ -173,7 +173,7 @@ async function validateArtifact(artifact, { fixture, root, label, raw }) {
   else if (artifact.signature.evidence !== null) throw new Error(`${label} signature evidence must be null when no signature was supplied.`);
 
   if (!fixture) throw new Error("Schema v1 validation currently accepts checked-in synthetic artifacts only; live acquisition belongs in plan/apply follow-up work.");
-  const contents = await readFile(safeFixturePath(root, artifact.path, `${label} path`));
+  const contents = artifactContentsByPath?.get(artifact.path) || await readFile(safeFixturePath(root, artifact.path, `${label} path`));
   const digest = createHash("sha256").update(contents).digest("hex");
   if (contents.length !== artifact.bytes || digest !== artifact.sha256) throw new Error(`${label} does not match its checked-in bytes and SHA-256 digest.`);
 }
@@ -208,7 +208,7 @@ function validateResponse(response, snapshot, fixture, label) {
   } else if (response.bodySha256 !== null) throw new Error(`${label} uncaptured response must not claim a body digest.`);
 }
 
-async function validateSnapshot(snapshot, { fixture, root }) {
+async function validateSnapshot(snapshot, { artifactContentsByPath, fixture, root }) {
   const label = `Legal snapshot ${snapshot?.id || "unknown"}`;
   assertObject(snapshot, label);
   rejectUnknownFields(snapshot, ["availability", "correctedBy", "corrects", "dates", "id", "limitations", "normalizedArtifacts", "parserCompatibility", "rawArtifact", "response", "state", "supersededBy", "supersedes", "transformations"], label);
@@ -225,10 +225,10 @@ async function validateSnapshot(snapshot, { fixture, root }) {
     if (snapshot.rawArtifact !== null || !Array.isArray(snapshot.normalizedArtifacts) || snapshot.normalizedArtifacts.length || !Array.isArray(snapshot.transformations) || snapshot.transformations.length) throw new Error(`${label} unavailable state must not invent artifacts or transformations.`);
   } else {
     if (snapshot.availability !== "available") throw new Error(`${label} must fail closed until availability is known.`);
-    await validateArtifact(snapshot.rawArtifact, { fixture, root, label: `${label} raw artifact`, raw: true });
+    await validateArtifact(snapshot.rawArtifact, { artifactContentsByPath, fixture, root, label: `${label} raw artifact`, raw: true });
     if (snapshot.response.bodySha256 !== snapshot.rawArtifact.sha256) throw new Error(`${label} response body digest must match the raw artifact.`);
     if (!Array.isArray(snapshot.normalizedArtifacts) || !snapshot.normalizedArtifacts.length) throw new Error(`${label} must contain normalized artifacts.`);
-    await Promise.all(snapshot.normalizedArtifacts.map((artifact, index) => validateArtifact(artifact, { fixture, root, label: `${label} normalized artifact ${index + 1}`, raw: false })));
+    await Promise.all(snapshot.normalizedArtifacts.map((artifact, index) => validateArtifact(artifact, { artifactContentsByPath, fixture, root, label: `${label} normalized artifact ${index + 1}`, raw: false })));
     if (!Array.isArray(snapshot.transformations) || !snapshot.transformations.length) throw new Error(`${label} must record its transformation chain.`);
     const transformationById = new Map();
     for (const transformation of snapshot.transformations) {
@@ -291,7 +291,7 @@ function validateExport(exportRecord) {
   } else if (!exportRecord.blockers.length) throw new Error("Non-compatible legal source exports must record blockers.");
 }
 
-export async function validateLegalSourceSnapshotManifest(manifest, { jurisdictionById = new Map(), root = process.cwd() } = {}) {
+export async function validateLegalSourceSnapshotManifest(manifest, { artifactContentsByPath = null, jurisdictionById = new Map(), root = process.cwd() } = {}) {
   assertObject(manifest, "Legal source snapshot manifest");
   rejectUnknownFields(manifest, ["$schema", "acquisition", "authorityType", "export", "fixture", "freshness", "jurisdictionId", "knownGaps", "manifestId", "manualReview", "privacy", "rights", "schemaVersion", "snapshots", "source"], "Legal source snapshot manifest");
   if (manifest.schemaVersion !== LEGAL_SOURCE_SNAPSHOT_SCHEMA_VERSION) throw new Error("Unsupported legal source snapshot schema version.");
@@ -314,7 +314,7 @@ export async function validateLegalSourceSnapshotManifest(manifest, { jurisdicti
   for (const snapshot of manifest.snapshots) {
     if (snapshotIds.has(snapshot.id)) throw new Error(`Duplicate legal snapshot ID: ${snapshot.id}.`);
     snapshotIds.add(snapshot.id);
-    await validateSnapshot(snapshot, { fixture: manifest.fixture, root });
+    await validateSnapshot(snapshot, { artifactContentsByPath, fixture: manifest.fixture, root });
   }
   if (manifest.snapshots.filter((snapshot) => snapshot.state === "current").length > 1) throw new Error("A legal source manifest cannot claim multiple current snapshots.");
   const snapshotById = new Map(manifest.snapshots.map((snapshot) => [snapshot.id, snapshot]));

@@ -2,6 +2,7 @@ import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createLegalSourceAcquisitionPlan, validateLegalSourceObservation } from "./lib/legal-source-acquisition.mjs";
+import { prepareLegalSourceAcquisitionApply } from "./lib/legal-source-apply.mjs";
 import { validateLegalSourceSnapshotManifest } from "./lib/legal-source-snapshots.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -35,6 +36,7 @@ const observationPaths = (await readdir(observationDirectory, { withFileTypes: t
 if (!observationPaths.length) throw new Error("No legal source observation fixtures were found.");
 
 const observationIds = new Set();
+const acquisitionByPlanId = new Map();
 for (const observationPath of observationPaths) {
   const observation = await readJson(observationPath);
   const manifest = manifestById.get(observation.manifestId);
@@ -43,5 +45,25 @@ for (const observationPath of observationPaths) {
   if (observationIds.has(observation.observationId)) throw new Error(`Duplicate legal source observation ID: ${observation.observationId}.`);
   observationIds.add(observation.observationId);
   const plan = createLegalSourceAcquisitionPlan(manifest, observation);
+  acquisitionByPlanId.set(plan.planId, { manifest, observation });
   console.log(`Validated ${result.observationId}: ${plan.decision.action}.`);
+}
+
+const applyDirectory = path.join(fixtureDirectory, "apply");
+const applyPaths = (await readdir(applyDirectory, { withFileTypes: true }))
+  .filter((entry) => entry.isFile() && entry.name.endsWith(".json"))
+  .map((entry) => path.posix.join("research/legal/fixtures/apply", entry.name))
+  .sort();
+
+if (!applyPaths.length) throw new Error("No legal source apply fixtures were found.");
+
+const applyIds = new Set();
+for (const applyPath of applyPaths) {
+  const request = await readJson(applyPath);
+  const acquisition = acquisitionByPlanId.get(request.planId);
+  if (!acquisition) throw new Error(`Legal source apply request references an unknown plan: ${request.planId}.`);
+  if (applyIds.has(request.applyId)) throw new Error(`Duplicate legal source apply ID: ${request.applyId}.`);
+  applyIds.add(request.applyId);
+  const prepared = await prepareLegalSourceAcquisitionApply(acquisition.manifest, acquisition.observation, request, { jurisdictionById, root });
+  console.log(`Validated ${prepared.result.applyId}: ${prepared.result.action}.`);
 }
