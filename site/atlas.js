@@ -2,6 +2,7 @@ import { canonicalContentLanguage, number, plural, t } from "./i18n.js";
 import { createAtlasRendererRegistry } from "./atlas-renderers.js";
 
 const SVG_NS = "http://www.w3.org/2000/svg";
+const ATLAS_SCHEMA_VERSION = 3;
 const selectors = {
   map: document.querySelector("#atlas-map"),
   loading: document.querySelector("#atlas-loading"),
@@ -760,6 +761,7 @@ async function initialize() {
       fetch(new URL("./data/atlas.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("Atlas data did not load."))),
       fetch(new URL("./data/atlas-themes.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("Atlas themes did not load."))),
     ]);
+    if (atlas.schemaVersion !== ATLAS_SCHEMA_VERSION) throw new Error("Unsupported Atlas data schema.");
     Object.assign(state, {
       atlas,
       themes,

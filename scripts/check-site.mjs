@@ -1,7 +1,7 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
-import { deriveAtlasLocationResources } from "./lib/atlas.mjs";
+import { ATLAS_LOCATION_SCHEMA_VERSION, deriveAtlasLocationResources } from "./lib/atlas.mjs";
 import { loadLocales, localePagePath } from "./lib/i18n.mjs";
 import { validateResourceIdentities, validateResourceMetadata } from "./lib/resource-metadata.mjs";
 import { loadEvaluationFixture } from "./lib/search-evaluation.mjs";
@@ -22,7 +22,7 @@ for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "searc
 }
 
 const atlas = JSON.parse(await readFile(path.join(output, "data/atlas.json"), "utf8"));
-if (atlas.schemaVersion !== 2) throw new Error("Unsupported atlas schema.");
+if (atlas.schemaVersion !== ATLAS_LOCATION_SCHEMA_VERSION) throw new Error("Unsupported atlas schema.");
 if (atlas.applicabilitySchemaVersion !== 2) throw new Error("Unsupported atlas applicability schema.");
 if (!Array.isArray(atlas.locations) || atlas.locations.length !== atlas.locationCount) throw new Error("The atlas location count is inconsistent.");
 if (!Array.isArray(atlas.resources) || atlas.resources.length !== atlas.resourceCount) throw new Error("The atlas resource count is inconsistent.");
@@ -47,7 +47,8 @@ if (JSON.stringify(locations.get("us")?.identifiers) !== JSON.stringify({ isoAlp
 if (JSON.stringify(locations.get("us-ca")?.identifiers) !== JSON.stringify({ registry: "us-subdivisions", subdivisionType: "state", postalCode: "CA", censusFips: "06" })) throw new Error("The California identifiers are inconsistent.");
 if (JSON.stringify(locations.get("us-ma")?.identifiers) !== JSON.stringify({ registry: "us-subdivisions", subdivisionType: "state", postalCode: "MA", censusFips: "25" })) throw new Error("The Massachusetts identifiers are inconsistent.");
 for (const location of atlas.locations) {
-  if (!location.id || !location.name || !location.kind || !location.geometry || !location.camera || !Array.isArray(location.children)) throw new Error(`Incomplete atlas location: ${location.id || "unknown"}`);
+  if (!location.id || !location.name || !location.kind || !location.geometry || !Array.isArray(location.children)) throw new Error(`Incomplete atlas location: ${location.id || "unknown"}`);
+  if (Object.hasOwn(location, "camera")) throw new Error(`Obsolete atlas camera metadata remains for ${location.id}.`);
   if (location.geometry.dataset === "point") {
     const validMapPosition = Array.isArray(location.geometry.mapPosition) && location.geometry.mapPosition.length === 2 && location.geometry.mapPosition.every((value) => Number.isFinite(value) && value >= 0 && value <= 1);
     if (!validMapPosition) throw new Error(`Invalid atlas point map position for ${location.id}.`);

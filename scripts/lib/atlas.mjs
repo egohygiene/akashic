@@ -11,6 +11,9 @@ const CENSUS_FIPS_RE = /^\d{2}$/;
 const REVIEW_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const REVIEWER_RE = /^[a-z0-9](?:[a-z0-9-]{0,37}[a-z0-9])?$/i;
 
+export const ATLAS_LOCATION_SCHEMA_VERSION = 3;
+export const ATLAS_LOCATION_DOCUMENT_SCHEMA_VERSION = 2;
+
 function rejectUnknownFields(value, allowedFields, context) {
   const unknownFields = Object.keys(value).filter((field) => !allowedFields.includes(field));
   if (unknownFields.length) throw new Error(`${context} contains unsupported fields: ${unknownFields.join(", ")}`);
@@ -137,7 +140,7 @@ export function validateAtlasSubdivisionRegistry(registry, geometryIdsByDataset 
 }
 
 export function mergeAtlasLocationSources(manifest, includedDocumentsByPath) {
-  if (manifest?.schemaVersion !== 2 || !Array.isArray(manifest.includes) || !Array.isArray(manifest.locations)) throw new Error("Unsupported Atlas location manifest schema.");
+  if (manifest?.schemaVersion !== ATLAS_LOCATION_SCHEMA_VERSION || !Array.isArray(manifest.includes) || !Array.isArray(manifest.locations)) throw new Error("Unsupported Atlas location manifest schema.");
   rejectUnknownFields(manifest, ["includes", "locations", "rootId", "schemaVersion"], "Atlas location manifest");
   if (!(includedDocumentsByPath instanceof Map)) throw new Error("Atlas included location documents must be provided by path.");
   if (new Set(manifest.includes).size !== manifest.includes.length) throw new Error("Atlas location manifest contains duplicate includes.");
@@ -148,7 +151,7 @@ export function mergeAtlasLocationSources(manifest, includedDocumentsByPath) {
     const countryId = includePath.match(/^locations\/([a-z0-9-]+)\.json$/)?.[1];
     if (!countryId) throw new Error(`Invalid Atlas location include path: ${includePath}`);
     const document = includedDocumentsByPath.get(includePath);
-    if (document?.schemaVersion !== 1 || !Array.isArray(document.locations)) throw new Error(`Unsupported Atlas included location schema: ${includePath}`);
+    if (document?.schemaVersion !== ATLAS_LOCATION_DOCUMENT_SCHEMA_VERSION || !Array.isArray(document.locations)) throw new Error(`Unsupported Atlas included location schema: ${includePath}`);
     rejectUnknownFields(document, ["locations", "schemaVersion"], `Atlas included locations ${includePath}`);
     if (document.locations.filter((location) => location?.id === countryId && location.kind === "country").length !== 1 || document.locations.some((location) => typeof location?.id !== "string" || (location.id !== countryId && !location.id.startsWith(`${countryId}-`)))) throw new Error(`Atlas location include ${includePath} must contain exactly one matching country and only its descendants.`);
     locations.push(...document.locations.map((location) => ({ ...location, source: `atlas/${includePath}` })));
@@ -157,7 +160,7 @@ export function mergeAtlasLocationSources(manifest, includedDocumentsByPath) {
 }
 
 export function validateAtlasHierarchy(hierarchy, { countryRegistry = null, geometryIdsByDataset = new Map(), subdivisionRegistryById = new Map() } = {}) {
-  if (hierarchy?.schemaVersion !== 2 || !Array.isArray(hierarchy.locations)) throw new Error("Unsupported atlas location schema.");
+  if (hierarchy?.schemaVersion !== ATLAS_LOCATION_SCHEMA_VERSION || !Array.isArray(hierarchy.locations)) throw new Error("Unsupported atlas location schema.");
   rejectUnknownFields(hierarchy, ["locations", "rootId", "schemaVersion"], "Atlas location hierarchy");
   if (!STABLE_ID_RE.test(hierarchy.rootId || "")) throw new Error("The atlas root location ID is invalid.");
   if (hierarchy.locations.some((location) => !location || typeof location !== "object" || Array.isArray(location))) throw new Error("Atlas locations must be objects.");
@@ -167,11 +170,9 @@ export function validateAtlasHierarchy(hierarchy, { countryRegistry = null, geom
   const childrenByParentId = new Map();
   for (const location of hierarchy.locations) {
     if (location.catalogResources !== undefined) throw new Error(`Atlas catalog applicability belongs in atlas/applicability.json, not locations.json (${location.id || "unknown"}).`);
-    rejectUnknownFields(location, ["camera", "geometry", "id", "identifiers", "kind", "name", "parentId", "shortName", "source"], `Atlas location ${location.id || "unknown"}`);
-    if (!STABLE_ID_RE.test(location.id || "") || typeof location.name !== "string" || !location.name.trim() || location.name !== location.name.trim() || typeof location.shortName !== "string" || !location.shortName.trim() || location.shortName !== location.shortName.trim() || !ATLAS_LOCATION_KINDS.has(location.kind) || !location.geometry || !location.camera) throw new Error(`Incomplete or invalid atlas location: ${location.id || "unknown"}`);
+    rejectUnknownFields(location, ["geometry", "id", "identifiers", "kind", "name", "parentId", "shortName", "source"], `Atlas location ${location.id || "unknown"}`);
+    if (!STABLE_ID_RE.test(location.id || "") || typeof location.name !== "string" || !location.name.trim() || location.name !== location.name.trim() || typeof location.shortName !== "string" || !location.shortName.trim() || location.shortName !== location.shortName.trim() || !ATLAS_LOCATION_KINDS.has(location.kind) || !location.geometry) throw new Error(`Incomplete or invalid atlas location: ${location.id || "unknown"}`);
     if (location.source !== undefined && !/^atlas\/locations(?:\/[a-z0-9-]+)?\.json$/.test(location.source)) throw new Error(`Invalid atlas location source for ${location.id}.`);
-    rejectUnknownFields(location.camera, ["center", "zoom"], `Atlas camera ${location.id}`);
-    if (!validCoordinatePair(location.camera.center) || !Number.isFinite(location.camera.zoom) || location.camera.zoom <= 0) throw new Error(`Invalid atlas camera for ${location.id}.`);
     if (location.id === hierarchy.rootId) {
       if (location.kind !== "world" || location.parentId !== null || location.geometry.dataset !== "world" || location.geometry.id !== null || location.identifiers !== undefined) throw new Error("The atlas root location must be the unnumbered world geometry.");
       rejectUnknownFields(location.geometry, ["dataset", "id"], `Atlas geometry ${location.id}`);
