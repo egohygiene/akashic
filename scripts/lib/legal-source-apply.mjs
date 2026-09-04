@@ -203,6 +203,7 @@ function buildSnapshot(manifest, observation, plan, request) {
     supersededBy: null,
     corrects: request.lifecycle === "corrects" ? current.id : null,
     correctedBy: null,
+    repeal: null,
     limitations: structuredClone(request.snapshot.limitations),
   };
   return { current, snapshot };

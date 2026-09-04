@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "target": "aether-public-evidence",
+  "contractVersion": "aether.cross-agent-evidence-packet/v1",
+  "repository": "egohygiene/aether",
+  "revision": "d92da857dcc96edef1efc6b99a7f938e3f48c0d0",
+  "schemaPath": "catalog/schemas/aether.cross-agent-evidence-packet.v1.schema.json",
+  "schemaUrl": "https://github.com/egohygiene/aether/blob/d92da857dcc96edef1efc6b99a7f938e3f48c0d0/catalog/schemas/aether.cross-agent-evidence-packet.v1.schema.json",
+  "schemaSha256": "61214128c77616e3c722b1c8f4b55c3a22443ce519f7981743c6822f4f7083f9"
+}

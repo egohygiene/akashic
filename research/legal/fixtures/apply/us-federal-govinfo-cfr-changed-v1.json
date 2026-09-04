@@ -5,8 +5,8 @@
   "fixture": true,
   "manifestId": "us-federal-govinfo-cfr-synthetic-v1",
   "planId": "us-federal-govinfo-cfr-changed-v1-plan-v1",
-  "planCanonicalSha256": "144f13e6e8567b9f2eb3207e7ce3dd073c62fe3831146d169b7fc2f98932b0c7",
-  "manifestCanonicalSha256": "cd3751034c8c1fb736fff39654da07cfd7605e5c59109aeaf652393a1f62fa88",
+  "planCanonicalSha256": "7a9070a836992a4044df119c6f7be36713e6857995b30557695edf78695fc0b7",
+  "manifestCanonicalSha256": "9c919a8979c5b3b1bbcd3ba17f3ca173a8e2975a4b2c4abe521f2f79ec9311fa",
   "observationCanonicalSha256": "c11440103a34c83581f6c415c0f218ed1f9a700bff990c1730e58f5791a4b6e7",
   "lifecycle": "supersedes",
   "snapshot": {

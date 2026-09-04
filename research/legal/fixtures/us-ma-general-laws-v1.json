@@ -156,6 +156,7 @@
       "supersededBy": null,
       "corrects": null,
       "correctedBy": null,
+      "repeal": null,
       "limitations": [
         "The legislature page identifies its online General Laws as unofficial.",
         "Publication, amendment, and effective dates remain unknown deliberately."
@@ -182,11 +183,11 @@
   },
   "export": {
     "target": "aether-public-evidence",
-    "contractVersion": null,
-    "status": "blocked",
-    "blockers": [
-      "Aether issue 70 has not published a versioned public-evidence packet contract."
-    ]
+    "contractVersion": "aether.cross-agent-evidence-packet/v1",
+    "contractRevision": "d92da857dcc96edef1efc6b99a7f938e3f48c0d0",
+    "schemaSha256": "61214128c77616e3c722b1c8f4b55c3a22443ce519f7981743c6822f4f7083f9",
+    "status": "compatible",
+    "blockers": []
   },
   "knownGaps": [
     "Live network transport is not implemented; apply consumes explicitly staged public captures.",
