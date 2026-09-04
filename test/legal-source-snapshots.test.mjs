@@ -41,7 +41,7 @@ test("publishes one schema version with every required lifecycle state", () => {
   assert.equal(schema.properties.$schema.const, federalFixture.$schema);
   assert.ok(schema.required.includes("$schema"));
   assert.deepEqual(schema.$defs.snapshot.properties.state.enum, LEGAL_SOURCE_SNAPSHOT_STATES);
-  assert.deepEqual(new Set(LEGAL_SOURCE_SNAPSHOT_STATES), new Set(["historical", "current", "stale", "corrected", "superseded", "unavailable", "unknown"]));
+  assert.deepEqual(new Set(LEGAL_SOURCE_SNAPSHOT_STATES), new Set(["historical", "current", "stale", "corrected", "superseded", "repealed", "unavailable", "unknown"]));
 });
 
 test("verifies checked-in artifact bytes, digests, and transformation links", async () => {
@@ -105,6 +105,38 @@ test("keeps unavailable, corrected, and superseded evidence explicit", async () 
     replacement[inverse] = null;
     await assert.rejects(validate(versioned), /relation must be reciprocal/);
   }
+});
+
+test("represents repeal explicitly without inventing a replacement snapshot", async () => {
+  const repealed = structuredClone(federalFixture);
+  repealed.snapshots[0].state = "repealed";
+  repealed.snapshots[0].repeal = {
+    status: "confirmed",
+    effective: { status: "known", value: "2026-09-10" },
+    evidence: "https://example.invalid/synthetic-repeal-notice",
+    notes: "Synthetic repeal evidence for lifecycle validation only.",
+  };
+  assert.equal((await validate(repealed)).snapshotCount, 1);
+
+  const missingEvidence = structuredClone(repealed);
+  missingEvidence.snapshots[0].repeal = null;
+  await assert.rejects(validate(missingEvidence), /must include explicit repeal evidence/);
+
+  const misplacedEvidence = structuredClone(federalFixture);
+  misplacedEvidence.snapshots[0].repeal = structuredClone(repealed.snapshots[0].repeal);
+  await assert.rejects(validate(misplacedEvidence), /outside the repealed state/);
+});
+
+test("pins compatible export metadata to the merged Aether contract", async () => {
+  assert.equal(federalFixture.export.contractVersion, "aether.cross-agent-evidence-packet/v1");
+  assert.equal(federalFixture.export.contractRevision, "d92da857dcc96edef1efc6b99a7f938e3f48c0d0");
+  assert.equal(federalFixture.export.schemaSha256, "61214128c77616e3c722b1c8f4b55c3a22443ce519f7981743c6822f4f7083f9");
+  assert.equal(federalFixture.export.status, "compatible");
+  assert.deepEqual(federalFixture.export.blockers, []);
+
+  const floating = structuredClone(federalFixture);
+  floating.export.contractRevision = null;
+  await assert.rejects(validate(floating), /must pin the Aether contract revision/);
 });
 
 test("rejects private data, premature review, and unknown jurisdictions", async () => {

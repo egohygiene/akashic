@@ -21,7 +21,7 @@ const REVIEW_STATUSES = new Set(["pending", "reviewed"]);
 const RIGHTS_STATUSES = new Set(["public-domain-with-exceptions", "permitted", "restricted", "unknown"]);
 const RESPONSE_STATUSES = new Set(["captured", "synthetic", "unavailable", "unknown"]);
 const SIGNATURE_STATUSES = new Set(["verified", "unverified", "not-supplied", "unknown"]);
-const SNAPSHOT_STATES = new Set(["historical", "current", "stale", "corrected", "superseded", "unavailable", "unknown"]);
+const SNAPSHOT_STATES = new Set(["historical", "current", "stale", "corrected", "superseded", "repealed", "unavailable", "unknown"]);
 const ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const SHA256_PATTERN = /^[a-f0-9]{64}$/;
 
@@ -155,6 +155,22 @@ function validateDates(dates, label) {
   if (dates.retrieved.status !== "known") throw new Error(`${label} must record a known retrieval date.`);
 }
 
+function validateRepeal(repeal, snapshot, label) {
+  if (repeal === null) {
+    if (snapshot.state === "repealed") throw new Error(`${label} repealed state must include explicit repeal evidence.`);
+    return;
+  }
+  assertObject(repeal, `${label} repeal`);
+  rejectUnknownFields(repeal, ["effective", "evidence", "notes", "status"], `${label} repeal`);
+  assertControlled(repeal.status, new Set(["confirmed", "reported", "unknown"]), `${label} repeal status`);
+  validateDateRecord(repeal.effective, `${label} repeal effective`);
+  assertString(repeal.notes, `${label} repeal notes`);
+  if (repeal.evidence !== null) assertHttpsUrl(repeal.evidence, `${label} repeal evidence`);
+  if (snapshot.state !== "repealed") throw new Error(`${label} cannot include repeal evidence outside the repealed state.`);
+  if (repeal.status === "confirmed" && repeal.evidence === null) throw new Error(`${label} confirmed repeal must identify public authority evidence.`);
+  if (repeal.status === "unknown" && (repeal.effective.status !== "unknown" || repeal.evidence !== null)) throw new Error(`${label} unknown repeal must not invent an effective date or evidence.`);
+}
+
 async function validateArtifact(artifact, { artifactContentsByPath, fixture, root, label, raw }) {
   assertObject(artifact, label);
   rejectUnknownFields(artifact, ["bytes", "derivedFromSha256", "digestStatus", "mediaType", "path", "sha256", "signature", "transformationIds"], label);
@@ -211,7 +227,7 @@ function validateResponse(response, snapshot, fixture, label) {
 async function validateSnapshot(snapshot, { artifactContentsByPath, fixture, root }) {
   const label = `Legal snapshot ${snapshot?.id || "unknown"}`;
   assertObject(snapshot, label);
-  rejectUnknownFields(snapshot, ["availability", "correctedBy", "corrects", "dates", "id", "limitations", "normalizedArtifacts", "parserCompatibility", "rawArtifact", "response", "state", "supersededBy", "supersedes", "transformations"], label);
+  rejectUnknownFields(snapshot, ["availability", "correctedBy", "corrects", "dates", "id", "limitations", "normalizedArtifacts", "parserCompatibility", "rawArtifact", "repeal", "response", "state", "supersededBy", "supersedes", "transformations"], label);
   assertId(snapshot.id, `${label} id`);
   assertControlled(snapshot.state, SNAPSHOT_STATES, `${label} state`);
   assertControlled(snapshot.availability, new Set(["available", "unavailable", "unknown"]), `${label} availability`);
@@ -220,6 +236,7 @@ async function validateSnapshot(snapshot, { artifactContentsByPath, fixture, roo
   assertStringArray(snapshot.limitations, `${label} limitations`, { allowEmpty: true });
   for (const field of ["supersedes", "supersededBy", "corrects", "correctedBy"]) if (snapshot[field] !== null) assertId(snapshot[field], `${label} ${field}`);
   validateParserCompatibility(snapshot.parserCompatibility, label);
+  validateRepeal(snapshot.repeal, snapshot, label);
 
   if (snapshot.availability === "unavailable") {
     if (snapshot.rawArtifact !== null || !Array.isArray(snapshot.normalizedArtifacts) || snapshot.normalizedArtifacts.length || !Array.isArray(snapshot.transformations) || snapshot.transformations.length) throw new Error(`${label} unavailable state must not invent artifacts or transformations.`);
@@ -281,14 +298,19 @@ function validatePrivacy(privacy) {
 
 function validateExport(exportRecord) {
   assertObject(exportRecord, "Legal source export");
-  rejectUnknownFields(exportRecord, ["blockers", "contractVersion", "status", "target"], "Legal source export");
+  rejectUnknownFields(exportRecord, ["blockers", "contractRevision", "contractVersion", "schemaSha256", "status", "target"], "Legal source export");
   if (exportRecord.target !== "aether-public-evidence") throw new Error("Legal source export target must be aether-public-evidence.");
   assertControlled(exportRecord.status, EXPORT_STATUSES, "Legal source export status");
   assertStringArray(exportRecord.blockers, "Legal source export blockers", { allowEmpty: true });
   if (exportRecord.status === "compatible") {
     assertString(exportRecord.contractVersion, "Legal source export contractVersion");
+    if (!SHA256_PATTERN.test(exportRecord.schemaSha256 || "")) throw new Error("Compatible legal source exports must pin the Aether schema SHA-256 digest.");
+    if (!/^[a-f0-9]{40}$/.test(exportRecord.contractRevision || "")) throw new Error("Compatible legal source exports must pin the Aether contract revision.");
     if (exportRecord.blockers.length) throw new Error("Compatible legal source exports must not retain blockers.");
-  } else if (!exportRecord.blockers.length) throw new Error("Non-compatible legal source exports must record blockers.");
+  } else {
+    if (exportRecord.contractRevision !== null || exportRecord.schemaSha256 !== null) throw new Error("Non-compatible legal source exports cannot claim a pinned Aether contract.");
+    if (!exportRecord.blockers.length) throw new Error("Non-compatible legal source exports must record blockers.");
+  }
 }
 
 export async function validateLegalSourceSnapshotManifest(manifest, { artifactContentsByPath = null, jurisdictionById = new Map(), root = process.cwd() } = {}) {

@@ -3,11 +3,13 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createLegalSourceAcquisitionPlan, validateLegalSourceObservation } from "./lib/legal-source-acquisition.mjs";
 import { prepareLegalSourceAcquisitionApply } from "./lib/legal-source-apply.mjs";
+import { createAetherLegalSourceEvidencePacket, verifyAetherPacketAttachmentBytes } from "./lib/legal-source-export.mjs";
 import { validateLegalSourceSnapshotManifest } from "./lib/legal-source-snapshots.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readJson = async (relativePath) => JSON.parse(await readFile(path.join(root, relativePath), "utf8"));
 const jurisdictionManifest = await readJson("atlas/jurisdictions.json");
+const aetherContractLock = await readJson("research/legal/aether-public-evidence-v1.lock.json");
 const jurisdictionById = new Map(jurisdictionManifest.jurisdictions.map((jurisdiction) => [jurisdiction.id, jurisdiction]));
 const fixtureDirectory = path.join(root, "research/legal/fixtures");
 const fixturePaths = (await readdir(fixtureDirectory, { withFileTypes: true }))
@@ -22,9 +24,12 @@ for (const fixturePath of fixturePaths) {
   const manifest = await readJson(fixturePath);
   const result = await validateLegalSourceSnapshotManifest(manifest, { jurisdictionById, root });
   createLegalSourceAcquisitionPlan(manifest);
+  const packet = await createAetherLegalSourceEvidencePacket(manifest, aetherContractLock, { jurisdictionById, root });
+  await verifyAetherPacketAttachmentBytes(packet, { root });
   if (manifestById.has(manifest.manifestId)) throw new Error(`Duplicate legal source manifest ID: ${manifest.manifestId}.`);
   manifestById.set(manifest.manifestId, manifest);
   console.log(`Validated ${result.manifestId}: ${result.snapshotCount} snapshot${result.snapshotCount === 1 ? "" : "s"}.`);
+  console.log(`Validated ${packet.packet.id}: ${packet.integrity.envelope_digest.value}.`);
 }
 
 const observationDirectory = path.join(fixtureDirectory, "observations");

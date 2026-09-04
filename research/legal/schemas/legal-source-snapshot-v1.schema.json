@@ -231,10 +231,10 @@
     "snapshot": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "state", "dates", "availability", "response", "rawArtifact", "normalizedArtifacts", "transformations", "parserCompatibility", "supersedes", "supersededBy", "corrects", "correctedBy", "limitations"],
+      "required": ["id", "state", "dates", "availability", "response", "rawArtifact", "normalizedArtifacts", "transformations", "parserCompatibility", "supersedes", "supersededBy", "corrects", "correctedBy", "repeal", "limitations"],
       "properties": {
         "id": { "$ref": "#/$defs/id" },
-        "state": { "enum": ["historical", "current", "stale", "corrected", "superseded", "unavailable", "unknown"] },
+        "state": { "enum": ["historical", "current", "stale", "corrected", "superseded", "repealed", "unavailable", "unknown"] },
         "dates": { "$ref": "#/$defs/dates" },
         "availability": { "enum": ["available", "unavailable", "unknown"] },
         "response": { "$ref": "#/$defs/response" },
@@ -246,6 +246,22 @@
         "supersededBy": { "type": ["string", "null"] },
         "corrects": { "type": ["string", "null"] },
         "correctedBy": { "type": ["string", "null"] },
+        "repeal": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["status", "effective", "evidence", "notes"],
+              "properties": {
+                "status": { "enum": ["confirmed", "reported", "unknown"] },
+                "effective": { "$ref": "#/$defs/dateRecord" },
+                "evidence": { "type": ["string", "null"] },
+                "notes": { "$ref": "#/$defs/nonEmptyString" }
+              }
+            },
+            { "type": "null" }
+          ]
+        },
         "limitations": { "$ref": "#/$defs/nonEmptyStrings" }
       }
     },
@@ -275,10 +291,12 @@
     "export": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["target", "contractVersion", "status", "blockers"],
+      "required": ["target", "contractVersion", "contractRevision", "schemaSha256", "status", "blockers"],
       "properties": {
         "target": { "const": "aether-public-evidence" },
         "contractVersion": { "type": ["string", "null"] },
+        "contractRevision": { "type": ["string", "null"], "pattern": "^[a-f0-9]{40}$" },
+        "schemaSha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
         "status": { "enum": ["planned", "compatible", "incompatible", "blocked"] },
         "blockers": { "$ref": "#/$defs/nonEmptyStrings" }
       }
