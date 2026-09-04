@@ -30,6 +30,11 @@ if (!Array.isArray(atlas.jurisdictionSources) || !Array.isArray(atlas.jurisdicti
 if (JSON.stringify(atlas.jurisdictions.map((jurisdiction) => jurisdiction.kind).sort()) !== JSON.stringify(["district", "federal", "state", "territory", "tribal"])) throw new Error("The Atlas jurisdiction baseline is incomplete.");
 if (JSON.stringify(atlas.jurisdictionRelationships.map((relationship) => relationship.kind).sort()) !== JSON.stringify(["federalism", "government-to-government", "seat-of-government", "territorial"])) throw new Error("The Atlas jurisdiction relationship baseline is incomplete.");
 if (atlas.jurisdictionRelationships.some((relationship) => Object.hasOwn(relationship, "inheritsFromLocationId"))) throw new Error("Jurisdiction relationships must not become Atlas inheritance rules.");
+if (atlas.jurisdictionSourceSchemaVersion !== 1 || typeof atlas.jurisdictionSourceNotice !== "string" || !Array.isArray(atlas.jurisdictionSourceProfiles)) throw new Error("The Atlas jurisdiction-source coverage contract is incomplete.");
+const federalSourceProfile = atlas.jurisdictionSourceProfiles.find((profile) => profile.jurisdictionId === "us-federal");
+if (!federalSourceProfile || federalSourceProfile.reviewStatus !== "pending-human" || federalSourceProfile.coverage.length !== 26 || federalSourceProfile.resources.length !== 7) throw new Error("The federal jurisdiction-source proof profile is incomplete.");
+if (!federalSourceProfile.coverage.some((entry) => entry.status === "known-gap") || !federalSourceProfile.coverage.some((entry) => entry.status === "deferred")) throw new Error("The federal jurisdiction-source proof profile hides unfinished coverage.");
+if (federalSourceProfile.coverage.some((entry) => Object.hasOwn(entry, "inheritsFromLocationId"))) throw new Error("Jurisdiction-source coverage must not become Atlas inheritance.");
 if (!Array.isArray(atlas.locations) || atlas.locations.length !== atlas.locationCount) throw new Error("The atlas location count is inconsistent.");
 if (!Array.isArray(atlas.resources) || atlas.resources.length !== atlas.resourceCount) throw new Error("The atlas resource count is inconsistent.");
 if (!Array.isArray(atlas.inheritance) || !atlas.resourcesByLocation || Array.isArray(atlas.resourcesByLocation)) throw new Error("The atlas derived applicability data is incomplete.");

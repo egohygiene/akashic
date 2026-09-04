@@ -18,7 +18,7 @@ Protect both products. A change is incomplete when the Markdown is correct but t
 - A nested collection hub, currently `lists/awesome-abundance/README.md`, is the canonical index and count ledger for its child lists.
 - Files under `site/` are the canonical portal source.
 - `site/i18n/locales.json` and `site/i18n/*.json` are the canonical locale registry and interface message catalogs.
-- `atlas/locations.json`, `atlas/locations/*.json`, `atlas/identifiers/*.json`, `atlas/jurisdictions.json`, `atlas/applicability.json`, and `atlas/places/*.md` are the canonical Atlas hierarchy manifest, country location sources, identifiers, legal-jurisdiction model, main-catalog associations, and place resources.
+- `atlas/locations.json`, `atlas/locations/*.json`, `atlas/identifiers/*.json`, `atlas/jurisdictions.json`, `atlas/jurisdiction-sources.json`, `atlas/applicability.json`, and `atlas/places/*.md` are the canonical Atlas hierarchy manifest, country location sources, identifiers, legal-jurisdiction model, jurisdiction-source coverage, main-catalog associations, and place resources.
 - Files under `scripts/` define collection validation and portal generation.
 - Files under `dist/` are generated output. Never hand-edit them, and do not include regenerated output in a change unless explicitly requested.
 - `contributing.md` defines the public contribution policy. Keep agent behavior consistent with it.
@@ -40,6 +40,7 @@ atlas/
   locations/*.json                Country-scoped hierarchy and geometry records
   identifiers/*.json              Authoritative jurisdiction codes and geometry mappings
   jurisdictions.json              Explicit legal-jurisdiction records and relationships
+  jurisdiction-sources.json       Source coverage, gaps, and assessments
   applicability.json              Explicit catalog resource/place associations
   places/*.md                     Resources canonical to one place
 scripts/
@@ -68,6 +69,8 @@ dist/                             Generated local build output
 Atlas source data is split deliberately: `atlas/locations.json` is the root manifest, `atlas/locations/*.json` contains country-scoped places, `atlas/identifiers/*.json` separates authoritative jurisdiction identity from available map geometry, `atlas/applicability.json` owns explicit main-catalog resource/place associations, and `atlas/places/*.md` owns resources that are canonical to one place.
 
 `atlas/jurisdictions.json` is a separate legal-research routing model. Its federalism, district, territorial, and government-to-government relationships never authorize Atlas inheritance and never establish controlling law, resource applicability, eligibility, or legal advice.
+
+`atlas/jurisdiction-sources.json` maps explicit main-catalog resource IDs to a complete legal-source role template. Keep pending human review, known gaps, deferrals, authority, currentness, accessibility, and archival status visible. Coverage records are research starting points, not claims that a source controls or applies.
 
 ## Working Principles
 

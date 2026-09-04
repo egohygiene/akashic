@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "notice": "Coverage records identify research starting points and visible gaps. They do not determine controlling law, legal applicability, completeness, eligibility, deadlines, or legal advice.",
+  "profiles": [
+    {
+      "jurisdictionId": "us-federal",
+      "observationDate": "2026-09-04",
+      "reviewStatus": "pending-human",
+      "coverage": [
+        {
+          "role": "foundational-law",
+          "status": "known-gap",
+          "resourceIds": [
+            "constitution-annotated-6605552983"
+          ],
+          "note": "The proof fixture includes official constitutional analysis but does not yet map a separately identified canonical constitutional text source."
+        },
+        {
+          "role": "legislature",
+          "status": "covered",
+          "resourceIds": [
+            "congress-gov-6ce5cb5120"
+          ]
+        },
+        {
+          "role": "bills",
+          "status": "covered",
+          "resourceIds": [
+            "congress-gov-6ce5cb5120"
+          ]
+        },
+        {
+          "role": "session-laws",
+          "status": "deferred",
+          "note": "Statutes at Large and authenticated session-law coverage belong in the complete federal baseline."
+        },
+        {
+          "role": "codified-statutes",
+          "status": "covered",
+          "resourceIds": [
+            "united-states-code-8d4b2cb8fa"
+          ]
+        },
+        {
+          "role": "administrative-code",
+          "status": "covered",
+          "resourceIds": [
+            "ecfr-e0299a13fc"
+          ]
+        },
+        {
+          "role": "administrative-register",
+          "status": "covered",
+          "resourceIds": [
+            "federal-register-6bf5b86c53"
+          ]
+        },
+        {
+          "role": "court-hierarchy",
+          "status": "deferred",
+          "note": "The complete federal baseline will map the Supreme Court, courts of appeals, district courts, and specialized courts without flattening their roles."
+        },
+        {
+          "role": "court-opinions",
+          "status": "known-gap",
+          "resourceIds": [
+            "supreme-court-of-the-united-states-opinions-e58efe077e"
+          ],
+          "note": "The proof fixture covers Supreme Court opinions only; lower and specialized federal court coverage remains open."
+        },
+        {
+          "role": "court-rules",
+          "status": "deferred",
+          "note": "National and court-specific federal rules remain for the complete federal baseline."
+        },
+        {
+          "role": "court-self-help",
+          "status": "deferred",
+          "note": "Court-maintained self-help entry points remain for the complete federal baseline."
+        },
+        {
+          "role": "court-forms",
+          "status": "deferred",
+          "note": "National and court-specific form sources remain for the complete federal baseline."
+        },
+        {
+          "role": "language-access",
+          "status": "deferred",
+          "note": "Language-access pathways require a dedicated review rather than inference from page language controls."
+        },
+        {
+          "role": "disability-access",
+          "status": "deferred",
+          "note": "Disability-access pathways require a dedicated review rather than inference from website conformance claims."
+        },
+        {
+          "role": "attorney-licensing",
+          "status": "deferred",
+          "note": "Federal court admission and state licensing must remain distinguishable in the complete baseline."
+        },
+        {
+          "role": "attorney-discipline",
+          "status": "deferred",
+          "note": "Federal court and agency discipline pathways remain for the complete federal baseline."
+        },
+        {
+          "role": "lawyer-lookup",
+          "status": "deferred",
+          "note": "The complete baseline must avoid presenting any single directory as a universal federal lawyer registry."
+        },
+        {
+          "role": "civil-legal-aid",
+          "status": "deferred",
+          "note": "National navigators and jurisdiction-specific providers remain for the complete federal baseline."
+        },
+        {
+          "role": "public-defense",
+          "status": "deferred",
+          "note": "Federal defender and appointed-counsel starting paths remain for the complete federal baseline."
+        },
+        {
+          "role": "attorney-general",
+          "status": "deferred",
+          "note": "Department of Justice and Attorney General sources remain for the complete federal baseline."
+        },
+        {
+          "role": "consumer-protection",
+          "status": "deferred",
+          "note": "Federal consumer-protection routes remain for the complete federal baseline."
+        },
+        {
+          "role": "civil-rights-enforcement",
+          "status": "deferred",
+          "note": "Agency-specific civil-rights enforcement routes remain for the complete federal baseline."
+        },
+        {
+          "role": "public-records",
+          "status": "deferred",
+          "note": "Federal public-records law and request pathways remain for the complete federal baseline."
+        },
+        {
+          "role": "law-library",
+          "status": "covered",
+          "resourceIds": [
+            "law-library-of-congress-researcher-resources-8738132dc7"
+          ]
+        },
+        {
+          "role": "authenticated-source",
+          "status": "deferred",
+          "note": "Authentication and legal-edition distinctions require source-specific review in the complete federal baseline."
+        },
+        {
+          "role": "archival-source",
+          "status": "deferred",
+          "note": "Historical editions and preservation coverage remain for the complete federal baseline."
+        }
+      ],
+      "resources": [
+        {
+          "resourceId": "congress-gov-6ce5cb5120",
+          "authorityStatus": "official",
+          "currentnessStatus": "current",
+          "accessibilityStatus": "unknown",
+          "archivalStatus": "mixed",
+          "observed": "2026-09-04"
+        },
+        {
+          "resourceId": "constitution-annotated-6605552983",
+          "authorityStatus": "official",
+          "currentnessStatus": "current",
+          "accessibilityStatus": "unknown",
+          "archivalStatus": "mixed",
+          "observed": "2026-09-04"
+        },
+        {
+          "resourceId": "ecfr-e0299a13fc",
+          "authorityStatus": "official-informational",
+          "currentnessStatus": "current",
+          "accessibilityStatus": "unknown",
+          "archivalStatus": "mixed",
+          "observed": "2026-09-04"
+        },
+        {
+          "resourceId": "federal-register-6bf5b86c53",
+          "authorityStatus": "official-informational",
+          "currentnessStatus": "current",
+          "accessibilityStatus": "unknown",
+          "archivalStatus": "mixed",
+          "observed": "2026-09-04"
+        },
+        {
+          "resourceId": "law-library-of-congress-researcher-resources-8738132dc7",
+          "authorityStatus": "official",
+          "currentnessStatus": "current",
+          "accessibilityStatus": "unknown",
+          "archivalStatus": "mixed",
+          "observed": "2026-09-04"
+        },
+        {
+          "resourceId": "supreme-court-of-the-united-states-opinions-e58efe077e",
+          "authorityStatus": "official",
+          "currentnessStatus": "mixed",
+          "accessibilityStatus": "unknown",
+          "archivalStatus": "mixed",
+          "observed": "2026-09-04"
+        },
+        {
+          "resourceId": "united-states-code-8d4b2cb8fa",
+          "authorityStatus": "official",
+          "currentnessStatus": "current",
+          "accessibilityStatus": "unknown",
+          "archivalStatus": "mixed",
+          "observed": "2026-09-04"
+        }
+      ]
+    }
+  ]
+}

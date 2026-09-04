@@ -7,12 +7,12 @@
   "comparableInputs": {
     "suite": "akashic-natural-language-v2",
     "topK": 10,
-    "catalogSha256": "bfda968cbf5ac6f66282afa99042b77bb63b8eb57683a41b07968c2580a07b55",
+    "catalogSha256": "00cf0c35544b87a8b45d2ac13239748afa6266439963a7df2757b0b9613ec8d6",
     "fixtureSha256": "5464f9971b6eaacf5981c1c3c7e80102c7e3ea3b3f4ca7c2d6b44cc00727d13f"
   },
   "baseline": {
     "searchAlgorithm": "weighted-lexical-v2",
-    "reportSha256": "e51bc82f8f120178cc242e27ca977b1788219ea369a2489b3b78331c304e461a",
+    "reportSha256": "50abea08b2f2af424ceedfb26c172032c84835f093ce73e1481e65cc314c5935",
     "summary": {
       "caseCount": 33,
       "evaluableCaseCount": 32,
@@ -91,7 +91,7 @@
   },
   "candidate": {
     "searchAlgorithm": "decomposition-rrf-v1",
-    "reportSha256": "9f3f85579f00350dddec13615085a921a12d5d79879cab394d6144f0ca7702ee",
+    "reportSha256": "a265d4cb240d131e432f94c4c4cc9a357766168e7508c5a06154068c5f40aa83",
     "summary": {
       "caseCount": 33,
       "evaluableCaseCount": 32,
