@@ -44,7 +44,7 @@ jobs:
       - name: Run dependency-free tests
         run: node --test
 
-      - name: Validate legal source snapshots
+      - name: Validate legal source evidence
         run: node scripts/validate-legal-source-snapshots.mjs
 
       - name: Validate collection

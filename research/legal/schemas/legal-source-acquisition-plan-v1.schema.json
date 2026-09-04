@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://akashic.egohygiene.io/schemas/legal-source-acquisition-plan-v1.schema.json",
+  "title": "Akashic legal source acquisition dry-run plan v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "planId", "mode", "manifest", "request", "base", "observation", "decision", "comparison", "sideEffects"],
+  "properties": {
+    "$schema": { "const": "https://akashic.egohygiene.io/schemas/legal-source-acquisition-plan-v1.schema.json" },
+    "schemaVersion": { "const": 1 },
+    "planId": { "$ref": "#/$defs/id" },
+    "mode": { "const": "dry-run" },
+    "manifest": { "$ref": "#/$defs/manifest" },
+    "request": { "$ref": "#/$defs/request" },
+    "base": { "$ref": "#/$defs/base" },
+    "observation": {
+      "oneOf": [
+        { "$ref": "#/$defs/observation" },
+        { "type": "null" }
+      ]
+    },
+    "decision": { "$ref": "#/$defs/decision" },
+    "comparison": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/comparison" }
+    },
+    "sideEffects": { "$ref": "#/$defs/sideEffects" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "nullableSha256": {
+      "oneOf": [
+        { "$ref": "#/$defs/sha256" },
+        { "type": "null" }
+      ]
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "canonicalSha256", "jurisdictionId", "authorityType"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "canonicalSha256": { "$ref": "#/$defs/sha256" },
+        "jurisdictionId": { "$ref": "#/$defs/id" },
+        "authorityType": { "$ref": "#/$defs/id" }
+      }
+    },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "version": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "parameter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "value"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "value": { "type": "string" }
+      }
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["endpoint", "expectedMediaType", "method", "mode", "parameters", "tool", "canonicalSha256"],
+      "properties": {
+        "endpoint": { "type": "string", "pattern": "^https://" },
+        "expectedMediaType": { "$ref": "#/$defs/nonEmptyString" },
+        "method": { "const": "GET" },
+        "mode": { "enum": ["api", "bulk", "manual", "synthetic-fixture"] },
+        "parameters": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/parameter" } },
+        "tool": { "$ref": "#/$defs/tool" },
+        "canonicalSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "base": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["currentSnapshotId", "retrievedAt", "responseStatus", "httpStatus", "mediaType", "headersSha256", "rawArtifactBytes", "bodySha256"],
+      "properties": {
+        "currentSnapshotId": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "retrievedAt": { "type": ["string", "null"], "format": "date-time" },
+        "responseStatus": {
+          "oneOf": [
+            { "enum": ["captured", "synthetic", "unavailable", "unknown"] },
+            { "type": "null" }
+          ]
+        },
+        "httpStatus": { "type": ["integer", "null"], "minimum": 100, "maximum": 599 },
+        "mediaType": { "type": ["string", "null"] },
+        "headersSha256": { "$ref": "#/$defs/nullableSha256" },
+        "rawArtifactBytes": { "type": ["integer", "null"], "minimum": 1 },
+        "bodySha256": { "$ref": "#/$defs/nullableSha256" }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "canonicalSha256", "result", "observedAt", "httpStatus", "mediaType", "bodyBytes", "headersSha256", "bodySha256", "failureCode"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "canonicalSha256": { "$ref": "#/$defs/sha256" },
+        "result": { "enum": ["available", "unavailable", "unknown"] },
+        "observedAt": { "type": "string", "format": "date-time" },
+        "httpStatus": { "type": ["integer", "null"], "minimum": 100, "maximum": 599 },
+        "mediaType": { "type": ["string", "null"] },
+        "bodyBytes": { "type": ["integer", "null"], "minimum": 1 },
+        "headersSha256": { "$ref": "#/$defs/nullableSha256" },
+        "bodySha256": { "$ref": "#/$defs/nullableSha256" },
+        "failureCode": {
+          "oneOf": [
+            { "enum": ["access-denied", "network-error", "not-found", "rate-limited", "server-error", "unknown"] },
+            { "type": "null" }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "result": { "const": "available" } } },
+          "then": {
+            "properties": {
+              "httpStatus": { "type": "integer", "minimum": 200, "maximum": 299 },
+              "mediaType": { "type": "string", "minLength": 1 },
+              "bodyBytes": { "type": "integer", "minimum": 1 },
+              "bodySha256": { "$ref": "#/$defs/sha256" },
+              "failureCode": { "type": "null" }
+            }
+          },
+          "else": {
+            "properties": {
+              "mediaType": { "type": "null" },
+              "bodyBytes": { "type": "null" },
+              "bodySha256": { "type": "null" },
+              "failureCode": { "enum": ["access-denied", "network-error", "not-found", "rate-limited", "server-error", "unknown"] }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "result": { "const": "unavailable" } } },
+          "then": {
+            "properties": {
+              "httpStatus": {
+                "oneOf": [
+                  { "type": "integer", "minimum": 400, "maximum": 599 },
+                  { "type": "null" }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "reason", "proposedSnapshotId", "requiresManifestApply", "requiresHumanReview"],
+      "properties": {
+        "action": { "enum": ["acquire", "blocked", "create-snapshot", "no-change", "record-unavailable"] },
+        "reason": { "enum": ["body-changed", "body-unchanged", "no-current-snapshot", "observation-required", "observation-unknown", "source-restored", "source-unavailable", "unexpected-media-type"] },
+        "proposedSnapshotId": { "oneOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "requiresManifestApply": { "type": "boolean" },
+        "requiresHumanReview": { "type": "boolean" }
+      }
+    },
+    "comparisonValue": {
+      "type": ["string", "integer", "null"]
+    },
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["field", "before", "after", "changed"],
+      "properties": {
+        "field": { "$ref": "#/$defs/nonEmptyString" },
+        "before": { "$ref": "#/$defs/comparisonValue" },
+        "after": { "$ref": "#/$defs/comparisonValue" },
+        "changed": { "type": "boolean" }
+      }
+    },
+    "sideEffects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["networkRequests", "fileWrites", "manifestMutations"],
+      "properties": {
+        "networkRequests": { "const": 0 },
+        "fileWrites": { "const": 0 },
+        "manifestMutations": { "const": 0 }
+      }
+    }
+  }
+}

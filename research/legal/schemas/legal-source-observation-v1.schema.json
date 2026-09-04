@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://akashic.egohygiene.io/schemas/legal-source-observation-v1.schema.json",
+  "title": "Akashic legal source observation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "observationId",
+    "fixture",
+    "manifestId",
+    "observedAt",
+    "result",
+    "httpStatus",
+    "mediaType",
+    "bodyBytes",
+    "headersSha256",
+    "bodySha256",
+    "failureCode",
+    "privacy"
+  ],
+  "properties": {
+    "$schema": { "const": "https://akashic.egohygiene.io/schemas/legal-source-observation-v1.schema.json" },
+    "schemaVersion": { "const": 1 },
+    "observationId": { "$ref": "#/$defs/id" },
+    "fixture": { "type": "boolean" },
+    "manifestId": { "$ref": "#/$defs/id" },
+    "observedAt": { "type": "string", "format": "date-time" },
+    "result": { "enum": ["available", "unavailable", "unknown"] },
+    "httpStatus": { "type": ["integer", "null"], "minimum": 100, "maximum": 599 },
+    "mediaType": { "type": ["string", "null"] },
+    "bodyBytes": { "type": ["integer", "null"], "minimum": 1 },
+    "headersSha256": { "$ref": "#/$defs/nullableSha256" },
+    "bodySha256": { "$ref": "#/$defs/nullableSha256" },
+    "failureCode": {
+      "oneOf": [
+        { "enum": ["access-denied", "network-error", "not-found", "rate-limited", "server-error", "unknown"] },
+        { "type": "null" }
+      ]
+    },
+    "privacy": { "$ref": "#/$defs/privacy" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "result": { "const": "available" } } },
+      "then": {
+        "properties": {
+          "httpStatus": { "type": "integer", "minimum": 200, "maximum": 299 },
+          "mediaType": { "type": "string", "minLength": 1 },
+          "bodyBytes": { "type": "integer", "minimum": 1 },
+          "bodySha256": { "$ref": "#/$defs/sha256" },
+          "failureCode": { "type": "null" }
+        }
+      },
+      "else": {
+        "properties": {
+          "mediaType": { "type": "null" },
+          "bodyBytes": { "type": "null" },
+          "bodySha256": { "type": "null" },
+          "failureCode": { "enum": ["access-denied", "network-error", "not-found", "rate-limited", "server-error", "unknown"] }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "result": { "const": "unavailable" } } },
+      "then": {
+        "properties": {
+          "httpStatus": {
+            "oneOf": [
+              { "type": "integer", "minimum": 400, "maximum": 599 },
+              { "type": "null" }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "nullableSha256": {
+      "oneOf": [
+        { "$ref": "#/$defs/sha256" },
+        { "type": "null" }
+      ]
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publicInputsOnly", "containsPrivateData", "containsUserQueries", "maximumSensitivity", "sourceContentIsInstructions"],
+      "properties": {
+        "publicInputsOnly": { "const": true },
+        "containsPrivateData": { "const": false },
+        "containsUserQueries": { "const": false },
+        "maximumSensitivity": { "const": "public" },
+        "sourceContentIsInstructions": { "const": false }
+      }
+    }
+  }
+}
