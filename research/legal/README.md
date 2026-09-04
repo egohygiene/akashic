@@ -33,6 +33,23 @@ The checked-in federal and Massachusetts fixtures contain invented citations and
 
 The fixture artifacts are small JSON files under [`fixtures/artifacts/`](fixtures/artifacts/). Validation recomputes their byte lengths and SHA-256 digests, then verifies every normalized output against its raw input and named transformation.
 
+## Deterministic acquisition planning
+
+[`legal-source-observation-v1.schema.json`](schemas/legal-source-observation-v1.schema.json) represents public response metadata supplied to a dry run. Observations contain status, time, media type, body length, response hashes, and a controlled failure code—but no response body, credentials, private facts, or user queries. Non-synthetic plans block unexpected media types rather than treating an error page as new legal evidence.
+
+[`legal-source-acquisition-plan-v1.schema.json`](schemas/legal-source-acquisition-plan-v1.schema.json) binds a plan to canonical manifest, request, and observation digests. Request parameters and comparison fields are sorted. The planner distinguishes `acquire`, `no-change`, `create-snapshot`, `record-unavailable`, and fail-closed `blocked` decisions. A proposed snapshot requires a later manifest apply; planning never edits an existing snapshot.
+
+Generate a human-readable changed-body dry run:
+
+```sh
+node scripts/plan-legal-source-acquisition.mjs \
+  --manifest "research/legal/fixtures/us-federal-govinfo-cfr-v1.json" \
+  --observation "research/legal/fixtures/observations/us-federal-govinfo-cfr-changed-v1.json" \
+  --format "text"
+```
+
+Omit `--observation` to review the acquisition request definition before any observation exists. Use `--format "json"` for the versioned machine-readable plan. Both modes report and enforce zero network requests, file writes, and manifest mutations.
+
 Run the contract check from the repository root:
 
 ```sh
@@ -44,7 +61,7 @@ node --test test/legal-source-snapshots.test.mjs
 
 The schema and fixtures were grounded in first-party pages observed on 2026-09-04:
 
-- [GovInfo Developer Hub](https://www.govinfo.gov/developers) documents API and bulk access to self-describing packages, including CFR and Federal Register collections. The API requires an `api.data.gov` key; this PR does not acquire content or require credentials.
+- [GovInfo Developer Hub](https://www.govinfo.gov/developers) documents API and bulk access to self-describing packages, including CFR and Federal Register collections. The API requires an `api.data.gov` key; the checked-in proof does not acquire content or require credentials.
 - [GovInfo authentication](https://www.govinfo.gov/about/authentication) explains its digitally signed PDF evidence, while [digital preservation](https://www.govinfo.gov/about/digital-preservation) and [policies](https://www.govinfo.gov/about/policies) describe archival preservation, permanent public access, and the public-domain rule plus possible third-party copyright exceptions.
 - [eCFR API documentation](https://www.ecfr.gov/developers/documentation/api/v1) exposes the developer surface. The [OFR/GPO legal-status explanation](https://www.ecfr.gov/reader-aids/government-policy-and-ofr-procedures/about-this-site) says eCFR content is authoritative but unofficial and directs legal researchers to the official CFR, daily Federal Register, and LSA.
 - [FederalRegister.gov API documentation](https://www.federalregister.gov/developers/documentation/api/v1) is the designated programmatic interface; automated page access can be challenged, so acquisition planning must use documented APIs and respect access controls.
@@ -53,10 +70,9 @@ The schema and fixtures were grounded in first-party pages observed on 2026-09-0
 
 ## Deliberate boundary of this PR
 
-Version 1 currently validates checked-in synthetic artifacts only. The next bounded #87 slices should add:
+Version 1 currently validates checked-in synthetic artifacts and observations, then produces deterministic no-write plans and comparison reports. The next bounded #87 slices should add:
 
-1. deterministic acquisition plans and dry-run diffs with no network mutation;
-2. apply-time response capture, immutable snapshot creation, correction/supersession behavior, and unavailable-source reporting; and
-3. deterministic Aether public-evidence export after the versioned Aether packet contract exists.
+1. apply-time response capture, immutable snapshot creation, correction/supersession behavior, and unavailable-source persistence; and
+2. deterministic Aether public-evidence export after the versioned Aether packet contract exists.
 
 No private employment facts, documents, derived queries, credentials, or real legal text belong in fixtures, diagnostics, plans, or pull requests.

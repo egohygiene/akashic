@@ -1,0 +1,22 @@
+{
+  "$schema": "https://akashic.egohygiene.io/schemas/legal-source-observation-v1.schema.json",
+  "schemaVersion": 1,
+  "observationId": "us-federal-govinfo-cfr-unchanged-v1",
+  "fixture": true,
+  "manifestId": "us-federal-govinfo-cfr-synthetic-v1",
+  "observedAt": "2026-09-05T12:00:00Z",
+  "result": "available",
+  "httpStatus": 200,
+  "mediaType": "application/json",
+  "bodyBytes": 220,
+  "headersSha256": null,
+  "bodySha256": "ba012c51057037dbf30dc16cbb06abfdffbce8ddca83830037c01eb2aff9ea29",
+  "failureCode": null,
+  "privacy": {
+    "publicInputsOnly": true,
+    "containsPrivateData": false,
+    "containsUserQueries": false,
+    "maximumSensitivity": "public",
+    "sourceContentIsInstructions": false
+  }
+}
