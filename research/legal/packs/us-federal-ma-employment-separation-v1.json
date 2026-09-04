@@ -1,0 +1,1439 @@
+{
+  "$schema": "../schemas/legal-source-pack-v1.schema.json",
+  "schemaVersion": 1,
+  "packId": "us-federal-ma-employment-separation",
+  "version": "1.0.0",
+  "title": "United States federal and Massachusetts employment-separation baseline",
+  "notice": "This curated public-source inventory supports research routing only. It does not determine coverage, controlling law, deadlines, enforceability, remedies, or advice for any person, document, or dispute.",
+  "baseline": {
+    "scope": "A deliberately bounded starting set for private-sector employment-separation research involving United States federal and Massachusetts sources; public employment, collective bargaining, local law, industry-specific rules, case-law treatment, and comprehensive benefits coverage remain outside version 1.",
+    "jurisdictionIds": [
+      "us-federal",
+      "us-ma"
+    ],
+    "subjects": [
+      "benefits",
+      "discrimination",
+      "filing-and-deadlines",
+      "leave",
+      "personnel-records",
+      "release-and-waiver",
+      "unemployment",
+      "wage-and-payment"
+    ],
+    "observedAt": "2026-09-04T23:00:00Z",
+    "comparativeClaims": false,
+    "applicability": {
+      "status": "not-determined",
+      "rule": "Inclusion identifies a public research starting point only. Jurisdiction, geography, subject tags, source authority, and packet presence do not establish that a source applies to a person, agreement, employer, event, or remedy."
+    }
+  },
+  "sources": [
+    {
+      "id": "federal-dol-cobra",
+      "name": "Continuation of Health Coverage (COBRA)",
+      "jurisdictionId": "us-federal",
+      "subjects": [
+        "benefits"
+      ],
+      "materialType": "agency-guidance",
+      "authorityStatus": "official-guidance",
+      "issuingBody": "Employee Benefits Security Administration",
+      "publisher": "United States Department of Labor",
+      "canonicalUrl": "https://www.dol.gov/general/topic/health-plans/cobra",
+      "rights": {
+        "status": "public-domain-with-exceptions",
+        "termsUrl": "https://www.dol.gov/general/aboutdol/copyright",
+        "redistribution": "review-required",
+        "quotation": "review-required",
+        "notes": "Department-created material is generally public domain, but third-party and protected marks or media require source-specific review."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "unknown",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "Official federal benefits guidance provides a separation-related continuation-coverage starting point without replacing plan notices or statutory review.",
+      "limitations": [
+        "Coverage, qualifying events, plan type, election periods, and notices require fact-specific verification.",
+        "The page is guidance rather than the legal edition of a statute or regulation."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "9523563fbc0cd727033bf026b33aba4101f690171b8d7250e1d527771ab74c1d",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No immutable page bytes are checked in; refresh must re-review the official page and its current authority."
+        }
+      }
+    },
+    {
+      "id": "federal-dol-termination",
+      "name": "Termination",
+      "jurisdictionId": "us-federal",
+      "subjects": [
+        "benefits",
+        "filing-and-deadlines",
+        "leave",
+        "unemployment",
+        "wage-and-payment"
+      ],
+      "materialType": "topic-guide",
+      "authorityStatus": "official-self-help",
+      "issuingBody": "United States Department of Labor",
+      "publisher": "United States Department of Labor",
+      "canonicalUrl": "https://www.dol.gov/general/topic/termination",
+      "rights": {
+        "status": "public-domain-with-exceptions",
+        "termsUrl": "https://www.dol.gov/general/aboutdol/copyright",
+        "redistribution": "review-required",
+        "quotation": "review-required",
+        "notes": "Department-created material is generally public domain, with source-specific exceptions for third-party material and protected identifiers."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "mixed",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "Official cross-topic routing connects termination research to federal wage, leave, unemployment, and benefit starting points.",
+      "limitations": [
+        "The topic page does not establish that a federal statute covers a particular worker or separation.",
+        "State law and contract terms may differ and remain independently reviewable."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "83b0f9f3f6ce912b1853098c2410ec566ff743c30148e5579e2c43dc9ae9ed3e",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No immutable page bytes are checked in; the topic routing must be re-observed during refresh."
+        }
+      }
+    },
+    {
+      "id": "federal-eeoc-charge",
+      "name": "Filing a Charge of Discrimination",
+      "jurisdictionId": "us-federal",
+      "subjects": [
+        "discrimination",
+        "filing-and-deadlines"
+      ],
+      "materialType": "filing-pathway",
+      "authorityStatus": "official-service-or-form",
+      "issuingBody": "United States Equal Employment Opportunity Commission",
+      "publisher": "United States Equal Employment Opportunity Commission",
+      "canonicalUrl": "https://www.eeoc.gov/filing-charge-discrimination",
+      "rights": {
+        "status": "public-domain-with-exceptions",
+        "termsUrl": null,
+        "redistribution": "review-required",
+        "quotation": "review-required",
+        "notes": "Federal agency-authored material is generally public domain, but this record makes no blanket claim for embedded or linked third-party content."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "current",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The official charge pathway makes federal and state or local dual-filing, deadline, and federal-employee distinctions visible.",
+      "limitations": [
+        "The pathway does not decide coverage, timeliness, merits, or whether another filing is required.",
+        "Federal employees and applicants use a different process."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "4a887a42066eaccfd888b9693a82d9d978859deecafee9f460c9a5f30245ec71",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "The service page is not captured; users must verify the live process and notices before use."
+        }
+      }
+    },
+    {
+      "id": "federal-eeoc-forms",
+      "name": "Selected EEOC Forms",
+      "jurisdictionId": "us-federal",
+      "subjects": [
+        "discrimination",
+        "filing-and-deadlines"
+      ],
+      "materialType": "official-form",
+      "authorityStatus": "official-service-or-form",
+      "issuingBody": "United States Equal Employment Opportunity Commission",
+      "publisher": "United States Equal Employment Opportunity Commission",
+      "canonicalUrl": "https://www.eeoc.gov/selected-eeoc-forms",
+      "rights": {
+        "status": "public-domain-with-exceptions",
+        "termsUrl": null,
+        "redistribution": "review-required",
+        "quotation": "review-required",
+        "notes": "Federal agency-authored forms are generally public domain, but current edition, embedded material, accessibility, and submission instructions require form-specific review."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "unknown",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The official form index keeps Form 5 and related charge documents distinct from the EEOC filing guidance and private portal session.",
+      "limitations": [
+        "A listed form may not be the correct or accepted filing route for every charge or jurisdiction.",
+        "Edition, instructions, accessibility, signatures, and submission process must be verified live."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "cfe2c2402793315befc78ae9fa5340fefe1f3d86e0267c0303554e6fef9a06a5",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No form bytes or submissions are captured; refresh must verify the live official index and selected edition."
+        }
+      }
+    },
+    {
+      "id": "federal-eeoc-waivers",
+      "name": "Understanding Waivers of Discrimination Claims in Employee Severance Agreements",
+      "jurisdictionId": "us-federal",
+      "subjects": [
+        "discrimination",
+        "release-and-waiver"
+      ],
+      "materialType": "agency-guidance",
+      "authorityStatus": "official-guidance",
+      "issuingBody": "United States Equal Employment Opportunity Commission",
+      "publisher": "United States Equal Employment Opportunity Commission",
+      "canonicalUrl": "https://www.eeoc.gov/laws/guidance/qa-understanding-waivers-discrimination-claims-employee-severance-agreements",
+      "rights": {
+        "status": "public-domain-with-exceptions",
+        "termsUrl": null,
+        "redistribution": "review-required",
+        "quotation": "review-required",
+        "notes": "Federal agency-authored material is generally public domain; linked examples, marks, and third-party material remain review bounded."
+      },
+      "dates": {
+        "publication": { "status": "known", "value": "2009-07-15" },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "unknown",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "Official technical assistance directly frames severance waivers and distinguishes guidance from governing statutes and regulations.",
+      "limitations": [
+        "The page states that it does not have the force and effect of law.",
+        "Its 2009 issue date makes current-law and later-authority checking mandatory."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "97cb7af061eee87879db6d6ccac624d6243bff68b83b06b3f31b55984ed8c137",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No guidance bytes are checked in; the issue date and disclaimer must remain visible on refresh."
+        }
+      }
+    },
+    {
+      "id": "federal-federal-register",
+      "name": "Federal Register",
+      "jurisdictionId": "us-federal",
+      "subjects": [
+        "benefits",
+        "discrimination",
+        "filing-and-deadlines",
+        "leave",
+        "release-and-waiver",
+        "unemployment",
+        "wage-and-payment"
+      ],
+      "materialType": "rulemaking-history",
+      "authorityStatus": "official-primary",
+      "issuingBody": "Office of the Federal Register and United States Government Publishing Office",
+      "publisher": "Office of the Federal Register and United States Government Publishing Office",
+      "canonicalUrl": "https://www.federalregister.gov/",
+      "rights": {
+        "status": "public-domain-with-exceptions",
+        "termsUrl": "https://www.govinfo.gov/about/policies",
+        "redistribution": "review-required",
+        "quotation": "review-required",
+        "notes": "Federal government works are generally public domain, but third-party material and the legal-edition distinction require document-specific review."
+      },
+      "dates": {
+        "publication": { "status": "not-applicable", "value": null },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "known", "value": "2026-09-04" },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "mixed",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The official daily journal is a starting point for rule effective dates, amendments, proposed versus final status, and supersession history.",
+      "limitations": [
+        "The web interface is informational; the published PDF is the legal edition.",
+        "A rulemaking document does not by itself establish current codified text or applicability."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "c2e5f5090355f75158533368a4ccd4407ac5dd4e84227d969ea6b1fc95c58be3",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No daily-issue artifact is selected in this baseline; research must pin the exact document and legal-edition bytes."
+        }
+      }
+    },
+    {
+      "id": "federal-govinfo-cfr",
+      "name": "GovInfo Code of Federal Regulations",
+      "jurisdictionId": "us-federal",
+      "subjects": [
+        "benefits",
+        "discrimination",
+        "filing-and-deadlines",
+        "leave",
+        "release-and-waiver",
+        "unemployment",
+        "wage-and-payment"
+      ],
+      "materialType": "legal-edition",
+      "authorityStatus": "official-primary",
+      "issuingBody": "Office of the Federal Register and United States Government Publishing Office",
+      "publisher": "United States Government Publishing Office",
+      "canonicalUrl": "https://www.govinfo.gov/app/collection/CFR",
+      "rights": {
+        "status": "public-domain-with-exceptions",
+        "termsUrl": "https://www.govinfo.gov/about/policies",
+        "redistribution": "review-required",
+        "quotation": "review-required",
+        "notes": "Government works are generally public domain, but GovInfo notes possible third-party exceptions and artifact-specific review remains required."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "unknown", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "mixed",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The official annual CFR editions provide the legal-edition anchor for federal regulation citations and historical comparison.",
+      "limitations": [
+        "The linked immutable artifact is synthetic and proves only the citation pipeline.",
+        "A title or annual edition must be selected before substantive research."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "f3fc6830878c7d294ead1f0259365076f279723ef4cd6b2bab106e2cfe1685e0",
+        "snapshot": {
+          "status": "linked-synthetic-proof",
+          "manifestPath": "research/legal/fixtures/us-federal-govinfo-cfr-v1.json",
+          "snapshotId": "us-federal-govinfo-cfr-synthetic-2026-09-04",
+          "normalizedArtifactPath": "research/legal/fixtures/artifacts/us-federal-govinfo-cfr-normalized-v1.json",
+          "sha256": "0f036817c0616347cc841100f06fb2b16145450af83c34dd68bf41d87e4fdf1a",
+          "note": "Existing immutable synthetic bytes prove normalization, exact citation spans, and packet export without redistributing real legal text."
+        }
+      }
+    },
+    {
+      "id": "federal-us-code",
+      "name": "United States Code",
+      "jurisdictionId": "us-federal",
+      "subjects": [
+        "benefits",
+        "discrimination",
+        "filing-and-deadlines",
+        "leave",
+        "release-and-waiver",
+        "unemployment",
+        "wage-and-payment"
+      ],
+      "materialType": "codified-law",
+      "authorityStatus": "official-primary",
+      "issuingBody": "Office of the Law Revision Counsel",
+      "publisher": "United States House of Representatives",
+      "canonicalUrl": "https://uscode.house.gov/",
+      "rights": {
+        "status": "public-domain-with-exceptions",
+        "termsUrl": null,
+        "redistribution": "review-required",
+        "quotation": "review-required",
+        "notes": "Federal statutory text is generally public domain; positive-law status, notes, editorial material, and third-party content require source-specific review."
+      },
+      "dates": {
+        "publication": { "status": "not-applicable", "value": null },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "mixed",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The official consolidated federal code is the baseline statutory source, with edition currency and positive-law distinctions left explicit.",
+      "limitations": [
+        "The pack does not select every potentially relevant title or section.",
+        "Classification tables, statutory notes, later enactments, and effective dates may be necessary."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "4e818f0d9d21c53ff1433471f53771fc880df88489af378297a79cd390aa666f",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No title or release-point bulk artifact is pinned; currency remains a visible research step."
+        }
+      }
+    },
+    {
+      "id": "federal-worker-gov",
+      "name": "Worker.gov",
+      "jurisdictionId": "us-federal",
+      "subjects": [
+        "benefits",
+        "discrimination",
+        "filing-and-deadlines",
+        "leave",
+        "unemployment",
+        "wage-and-payment"
+      ],
+      "materialType": "self-help",
+      "authorityStatus": "official-self-help",
+      "issuingBody": "United States Department of Labor",
+      "publisher": "United States Department of Labor",
+      "canonicalUrl": "https://www.worker.gov/",
+      "rights": {
+        "status": "public-domain-with-exceptions",
+        "termsUrl": "https://www.dol.gov/general/aboutdol/copyright",
+        "redistribution": "review-required",
+        "quotation": "review-required",
+        "notes": "Department-created material is generally public domain, but linked agency content and third-party material require independent review."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "unknown",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The official cross-agency navigator supplies a conservative discovery route across pay, discrimination, leave, benefits, safety, and organizing systems.",
+      "limitations": [
+        "Navigation does not establish agency jurisdiction, worker coverage, a claim, or a deadline.",
+        "Linked agency pages must be cited separately for substantive use."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "10640daa5a7e3b4636075c08f796be048b9c30502e0614201c2ac6a881610828",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No navigator snapshot is checked in; linked destinations and routing language are refresh-sensitive."
+        }
+      }
+    },
+    {
+      "id": "ma-ag-workplace-complaint",
+      "name": "File a Workplace Complaint",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "filing-and-deadlines",
+        "wage-and-payment"
+      ],
+      "materialType": "filing-pathway",
+      "authorityStatus": "official-service-or-form",
+      "issuingBody": "Massachusetts Attorney General's Fair Labor Division",
+      "publisher": "Commonwealth of Massachusetts",
+      "canonicalUrl": "https://www.mass.gov/how-to/file-a-workplace-complaint",
+      "rights": {
+        "status": "unknown",
+        "termsUrl": null,
+        "redistribution": "unknown",
+        "quotation": "unknown",
+        "notes": "No pack-wide Mass.gov redistribution license was verified; no page content is copied and any later capture must review rights separately."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "current",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The official enforcement intake is a necessary Massachusetts wage-and-hour filing starting point.",
+      "limitations": [
+        "Submitting a complaint does not create private representation or establish every available remedy.",
+        "Coverage, prerequisites, court options, and time limits require separate review."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "1d9f91c751c7c4dfc85471d88abc7c7c11ba01afc7755bc36b6de655f3083b43",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No service-page bytes or submitted form data are captured; live intake requirements must be checked directly."
+        }
+      }
+    },
+    {
+      "id": "ma-discrimination-section-4",
+      "name": "Massachusetts General Laws chapter 151B, section 4",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "discrimination"
+      ],
+      "materialType": "codified-law",
+      "authorityStatus": "official-primary-unofficial-presentation",
+      "issuingBody": "General Court of the Commonwealth of Massachusetts",
+      "publisher": "General Court of the Commonwealth of Massachusetts",
+      "canonicalUrl": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151b/Section4",
+      "rights": {
+        "status": "restricted",
+        "termsUrl": "https://malegislature.gov/StateHouse/TermsAndConditions",
+        "redistribution": "review-required",
+        "quotation": "fair-use-only",
+        "notes": "The legislature's terms restrict copying of website material beyond fair use and the online General Laws presentation is identified as unofficial."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "unknown", "value": null },
+        "currentThrough": { "status": "known", "value": "2026-05-31" },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "current",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The section is a direct codified-law starting point for Massachusetts employment discrimination research.",
+      "limitations": [
+        "The online text is unofficial and its displayed current-through date does not answer later amendment or effective-date questions.",
+        "Definitions, procedural sections, regulations, decisions, and federal overlap remain separate sources."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "ae9525d920e1307f9b95861e806b8d6bc847e9b93059f71953a2c3b9b562dd7e",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No real statutory text is copied; any capture must preserve the current-through observation and rights limits."
+        }
+      }
+    },
+    {
+      "id": "ma-dua-unemployment",
+      "name": "Apply for Unemployment Insurance Benefits",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "benefits",
+        "filing-and-deadlines",
+        "unemployment"
+      ],
+      "materialType": "filing-pathway",
+      "authorityStatus": "official-service-or-form",
+      "issuingBody": "Massachusetts Department of Unemployment Assistance",
+      "publisher": "Commonwealth of Massachusetts",
+      "canonicalUrl": "https://www.mass.gov/how-to/apply-for-unemployment-insurance-benefits",
+      "rights": {
+        "status": "unknown",
+        "termsUrl": null,
+        "redistribution": "unknown",
+        "quotation": "unknown",
+        "notes": "No pack-wide Mass.gov redistribution license was verified; the pack stores only reviewed metadata and a canonical link."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "current",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The official Massachusetts application route supplies the practical unemployment starting point after separation.",
+      "limitations": [
+        "Application, weekly certification, evidence, appeal, and eligibility questions are distinct stages.",
+        "The service can collect private data and is never invoked or captured by Akashic."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "914234750c2f43c20de915c9cbe314ff5bfb4fb55f6935489380212828f1588f",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No application session, private input, or service-page bytes are captured."
+        }
+      }
+    },
+    {
+      "id": "ma-general-laws",
+      "name": "Massachusetts General Laws",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "benefits",
+        "discrimination",
+        "filing-and-deadlines",
+        "leave",
+        "personnel-records",
+        "release-and-waiver",
+        "unemployment",
+        "wage-and-payment"
+      ],
+      "materialType": "codified-law",
+      "authorityStatus": "official-primary-unofficial-presentation",
+      "issuingBody": "General Court of the Commonwealth of Massachusetts",
+      "publisher": "General Court of the Commonwealth of Massachusetts",
+      "canonicalUrl": "https://malegislature.gov/Laws/GeneralLaws",
+      "rights": {
+        "status": "restricted",
+        "termsUrl": "https://malegislature.gov/StateHouse/TermsAndConditions",
+        "redistribution": "review-required",
+        "quotation": "fair-use-only",
+        "notes": "The legislature's terms restrict copying of website material beyond fair use and the online General Laws are identified as unofficial."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "unknown", "value": null },
+        "currentThrough": { "status": "known", "value": "2026-05-31" },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "current",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The official-publisher codified-law index anchors Massachusetts statutory discovery while preserving its unofficial status and current-through date.",
+      "limitations": [
+        "The linked immutable artifact is synthetic and proves only the citation pipeline.",
+        "Session laws, effective dates, historical versions, and official printed sources may be needed."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "f818cb5cdb799ea0e3734f128b5fbe0f3dc2e0323b9b00c8209bf653c5dd22e4",
+        "snapshot": {
+          "status": "linked-synthetic-proof",
+          "manifestPath": "research/legal/fixtures/us-ma-general-laws-v1.json",
+          "snapshotId": "us-ma-general-laws-synthetic-2026-09-04",
+          "normalizedArtifactPath": "research/legal/fixtures/artifacts/us-ma-general-laws-normalized-v1.json",
+          "sha256": "7754b55adcb3fe838638ff730621f241b4183742769f98c7e6893a0a75e64fcd",
+          "note": "Existing immutable synthetic bytes prove normalization, exact citation spans, and packet export without redistributing real statutory text."
+        }
+      }
+    },
+    {
+      "id": "ma-law-library-employment",
+      "name": "Massachusetts Law About Employment and Employment Leave",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "benefits",
+        "discrimination",
+        "filing-and-deadlines",
+        "leave",
+        "personnel-records",
+        "release-and-waiver",
+        "unemployment",
+        "wage-and-payment"
+      ],
+      "materialType": "topic-guide",
+      "authorityStatus": "secondary-official",
+      "issuingBody": "Massachusetts Trial Court Law Libraries",
+      "publisher": "Massachusetts Court System",
+      "canonicalUrl": "https://www.mass.gov/law-library/massachusetts-law-about-employment-and-employment-leave",
+      "rights": {
+        "status": "unknown",
+        "termsUrl": null,
+        "redistribution": "unknown",
+        "quotation": "unknown",
+        "notes": "The official court-published research guide is secondary material; no general redistribution license was verified and no guide text is copied."
+      },
+      "dates": {
+        "publication": { "status": "known", "value": "2022-11-09" },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "mixed",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The public law-library guide supplies a reviewed discovery path across Massachusetts primary, regulatory, and explanatory sources without being treated as controlling law.",
+      "limitations": [
+        "The guide is secondary material and individual linked sources control their own authority and dates.",
+        "Its visible publication date does not prove that every linked item was substantively re-reviewed then."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "aed649a07caab3623fcdae1f0800d24a8d743e6c3f8883876d13261089d5c87c",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No guide content is checked in; refresh must verify its links and update signals independently."
+        }
+      }
+    },
+    {
+      "id": "ma-mcad",
+      "name": "Massachusetts Commission Against Discrimination",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "discrimination",
+        "filing-and-deadlines"
+      ],
+      "materialType": "filing-pathway",
+      "authorityStatus": "official-service-or-form",
+      "issuingBody": "Massachusetts Commission Against Discrimination",
+      "publisher": "Commonwealth of Massachusetts",
+      "canonicalUrl": "https://www.mass.gov/orgs/massachusetts-commission-against-discrimination",
+      "rights": {
+        "status": "unknown",
+        "termsUrl": null,
+        "redistribution": "unknown",
+        "quotation": "unknown",
+        "notes": "No pack-wide Mass.gov redistribution license was verified; the pack stores metadata only."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "current",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The official state enforcement agency is the Massachusetts discrimination filing and procedure starting point.",
+      "limitations": [
+        "Agency intake does not determine merits, timeliness, dual filing, or private remedies.",
+        "The exact complaint process and current deadlines must be verified on the live agency materials."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "43153a6257245d6bd16bb4ecb09a678bbee174a81f443102b18da16299d21d21",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No filing session or page bytes are captured; refresh must verify current agency routes."
+        }
+      }
+    },
+    {
+      "id": "ma-personnel-record-section-52c",
+      "name": "Massachusetts General Laws chapter 149, section 52C",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "personnel-records"
+      ],
+      "materialType": "codified-law",
+      "authorityStatus": "official-primary-unofficial-presentation",
+      "issuingBody": "General Court of the Commonwealth of Massachusetts",
+      "publisher": "General Court of the Commonwealth of Massachusetts",
+      "canonicalUrl": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section52C",
+      "rights": {
+        "status": "restricted",
+        "termsUrl": "https://malegislature.gov/StateHouse/TermsAndConditions",
+        "redistribution": "review-required",
+        "quotation": "fair-use-only",
+        "notes": "The legislature's terms restrict copying of website material beyond fair use and the online text is identified as unofficial."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "unknown", "value": null },
+        "currentThrough": { "status": "known", "value": "2026-05-31" },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "current",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The section directly identifies personnel-record content, access, correction, and retention concepts relevant to separation research.",
+      "limitations": [
+        "The online text is unofficial and scope can depend on definitions, employer size, and other provisions.",
+        "The pack does not turn statutory language into a request template or advice."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "05dac6da921e3f94f918fee2200bab98e7d37e42e5dabb3a1f4f4c43ce7c1111",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No real statutory text is copied; currentness and scope must be rechecked."
+        }
+      }
+    },
+    {
+      "id": "ma-pfml-overview",
+      "name": "Paid Family and Medical Leave Overview and Benefits",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "benefits",
+        "leave"
+      ],
+      "materialType": "agency-guidance",
+      "authorityStatus": "official-guidance",
+      "issuingBody": "Massachusetts Department of Family and Medical Leave",
+      "publisher": "Commonwealth of Massachusetts",
+      "canonicalUrl": "https://www.mass.gov/info-details/paid-family-and-medical-leave-pfml-overview-and-benefits",
+      "rights": {
+        "status": "unknown",
+        "termsUrl": null,
+        "redistribution": "unknown",
+        "quotation": "unknown",
+        "notes": "No pack-wide Mass.gov redistribution license was verified; no guidance text is copied."
+      },
+      "dates": {
+        "publication": { "status": "known", "value": "2026-06-25" },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "current",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "Official state program guidance provides a current benefits and leave route while remaining distinct from statute and regulation.",
+      "limitations": [
+        "Eligibility, former-employee status, leave timing, job protection, and benefit calculation require current program review.",
+        "The page is guidance and not a legal-edition source."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "be1333893d23ede25663ab2b45822f91136d9f47baa656e0c5541f6f28092785",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No program-guidance bytes are checked in; visible update signals and linked application rules require refresh."
+        }
+      }
+    },
+    {
+      "id": "ma-pfml-regulation",
+      "name": "458 CMR 2.00: Family and Medical Leave",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "benefits",
+        "leave"
+      ],
+      "materialType": "regulation",
+      "authorityStatus": "official-primary-unofficial-presentation",
+      "issuingBody": "Massachusetts Department of Family and Medical Leave",
+      "publisher": "Commonwealth of Massachusetts",
+      "canonicalUrl": "https://www.mass.gov/regulations/458-CMR-200-family-and-medical-leave",
+      "rights": {
+        "status": "unknown",
+        "termsUrl": null,
+        "redistribution": "unknown",
+        "quotation": "unknown",
+        "notes": "No pack-wide Mass.gov redistribution license or legal-edition guarantee was verified; no regulatory text is copied."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "unknown", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "unknown",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The regulation page is the state program's regulatory starting point and remains distinct from guidance and statute.",
+      "limitations": [
+        "The pack does not claim that the web presentation is the official legal edition.",
+        "Promulgation history, amendments, effective dates, and the official Code of Massachusetts Regulations require verification."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "afa587bb34e5b7cd348a3a11fb6f5e5a89c077100591dd1c5233b5cf5f5a0fcf",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No regulation bytes are checked in; official-edition and currentness evidence remain required."
+        }
+      }
+    },
+    {
+      "id": "ma-session-laws",
+      "name": "Massachusetts Session Laws",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "benefits",
+        "discrimination",
+        "filing-and-deadlines",
+        "leave",
+        "personnel-records",
+        "release-and-waiver",
+        "unemployment",
+        "wage-and-payment"
+      ],
+      "materialType": "session-law-history",
+      "authorityStatus": "official-primary-unofficial-presentation",
+      "issuingBody": "General Court of the Commonwealth of Massachusetts",
+      "publisher": "General Court of the Commonwealth of Massachusetts",
+      "canonicalUrl": "https://malegislature.gov/Laws/SessionLaws",
+      "rights": {
+        "status": "restricted",
+        "termsUrl": "https://malegislature.gov/StateHouse/TermsAndConditions",
+        "redistribution": "review-required",
+        "quotation": "fair-use-only",
+        "notes": "The legislature's terms restrict copying of website material beyond fair use and the online session-law presentation is identified as unofficial."
+      },
+      "dates": {
+        "publication": { "status": "not-applicable", "value": null },
+        "effective": { "status": "not-applicable", "value": null },
+        "currentThrough": { "status": "unknown", "value": null },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "historical",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "Session laws provide amendment, effective-date, and historical context that a current codified presentation cannot supply alone.",
+      "limitations": [
+        "An enacted session law can require later codification and effective-date analysis.",
+        "The online presentation is unofficial and no specific act is selected in version 1."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "4303240d6dc72ff87bc96f8428a95529141f153f1e67b7ba8b70e74bed772667",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No act or artifact is pinned; exact session-law history must be selected and preserved before citation."
+        }
+      }
+    },
+    {
+      "id": "ma-unemployment-chapter-151a",
+      "name": "Massachusetts General Laws chapter 151A",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "benefits",
+        "filing-and-deadlines",
+        "unemployment"
+      ],
+      "materialType": "codified-law",
+      "authorityStatus": "official-primary-unofficial-presentation",
+      "issuingBody": "General Court of the Commonwealth of Massachusetts",
+      "publisher": "General Court of the Commonwealth of Massachusetts",
+      "canonicalUrl": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151A",
+      "rights": {
+        "status": "restricted",
+        "termsUrl": "https://malegislature.gov/StateHouse/TermsAndConditions",
+        "redistribution": "review-required",
+        "quotation": "fair-use-only",
+        "notes": "The legislature's terms restrict copying of website material beyond fair use and the online General Laws are identified as unofficial."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "unknown", "value": null },
+        "currentThrough": { "status": "known", "value": "2026-05-31" },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "current",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The chapter is the codified state-law starting point for unemployment definitions, benefits, procedures, and separation-related remuneration questions.",
+      "limitations": [
+        "The online text is unofficial and the pack does not select all sections relevant to a claim or appeal.",
+        "Agency regulations, current instructions, decisions, and federal conformity rules remain distinct sources."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "1248099251915bca155bbd429862f2c087bdba502a2eba8cd3959c9ac937084a",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No real chapter text is checked in; current-through and amendment history remain explicit review steps."
+        }
+      }
+    },
+    {
+      "id": "ma-wage-payment-section-148",
+      "name": "Massachusetts General Laws chapter 149, section 148",
+      "jurisdictionId": "us-ma",
+      "subjects": [
+        "wage-and-payment"
+      ],
+      "materialType": "codified-law",
+      "authorityStatus": "official-primary-unofficial-presentation",
+      "issuingBody": "General Court of the Commonwealth of Massachusetts",
+      "publisher": "General Court of the Commonwealth of Massachusetts",
+      "canonicalUrl": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section148",
+      "rights": {
+        "status": "restricted",
+        "termsUrl": "https://malegislature.gov/StateHouse/TermsAndConditions",
+        "redistribution": "review-required",
+        "quotation": "fair-use-only",
+        "notes": "The legislature's terms restrict copying of website material beyond fair use and the online text is identified as unofficial."
+      },
+      "dates": {
+        "publication": { "status": "unknown", "value": null },
+        "effective": { "status": "unknown", "value": null },
+        "currentThrough": { "status": "known", "value": "2026-05-31" },
+        "observed": "2026-09-04",
+        "reviewDue": "2026-10-04"
+      },
+      "currentnessStatus": "current",
+      "availability": "available",
+      "supersededBy": null,
+      "inclusionRationale": "The section is a direct codified-law starting point for Massachusetts wage-payment timing at voluntary and involuntary separation.",
+      "limitations": [
+        "The online text is unofficial and facts such as discharge versus resignation can matter.",
+        "Definitions, remedies, exemptions, contract terms, and later decisions require separate review."
+      ],
+      "metadataReview": {
+        "status": "reviewed",
+        "reviewer": "akashic-source-review",
+        "reviewedAt": "2026-09-04T23:00:00Z",
+        "humanStatus": "pending"
+      },
+      "integrity": {
+        "recordSha256": "55a26a190c0aba9ab8ebea6e0f5af9fa1113ab516b119ed2ef9cd4ebd72bda2e",
+        "snapshot": {
+          "status": "metadata-only",
+          "manifestPath": null,
+          "snapshotId": null,
+          "normalizedArtifactPath": null,
+          "sha256": null,
+          "note": "No real statutory text is copied; citation and currentness must be verified against a pinned source before use."
+        }
+      }
+    }
+  ],
+  "coverage": {
+    "benefits": {
+      "sourceIds": [
+        "federal-dol-cobra",
+        "federal-dol-termination",
+        "federal-federal-register",
+        "federal-govinfo-cfr",
+        "federal-us-code",
+        "federal-worker-gov",
+        "ma-dua-unemployment",
+        "ma-general-laws",
+        "ma-law-library-employment",
+        "ma-pfml-overview",
+        "ma-pfml-regulation",
+        "ma-session-laws",
+        "ma-unemployment-chapter-151a"
+      ],
+      "limitations": [
+        "Benefit-plan documents, ERISA preemption, tax treatment, public plans, and plan-specific appeal records are outside the baseline.",
+        "COBRA, unemployment, and paid-leave systems are distinct and cannot be treated as interchangeable."
+      ]
+    },
+    "discrimination": {
+      "sourceIds": [
+        "federal-eeoc-charge",
+        "federal-eeoc-forms",
+        "federal-eeoc-waivers",
+        "federal-federal-register",
+        "federal-govinfo-cfr",
+        "federal-us-code",
+        "federal-worker-gov",
+        "ma-discrimination-section-4",
+        "ma-general-laws",
+        "ma-law-library-employment",
+        "ma-mcad",
+        "ma-session-laws"
+      ],
+      "limitations": [
+        "Coverage elements, protected bases, employer size, exhaustion, remedies, and limitations periods require current source and fact review.",
+        "Federal and Massachusetts processes may interact but are never inferred to be identical."
+      ]
+    },
+    "filing-and-deadlines": {
+      "sourceIds": [
+        "federal-dol-termination",
+        "federal-eeoc-charge",
+        "federal-eeoc-forms",
+        "federal-federal-register",
+        "federal-govinfo-cfr",
+        "federal-us-code",
+        "federal-worker-gov",
+        "ma-ag-workplace-complaint",
+        "ma-dua-unemployment",
+        "ma-general-laws",
+        "ma-law-library-employment",
+        "ma-mcad",
+        "ma-session-laws",
+        "ma-unemployment-chapter-151a"
+      ],
+      "limitations": [
+        "The pack identifies starting points and never calculates or recommends a filing deadline.",
+        "Agency filing, internal grievance, union procedure, arbitration, and court limitation periods remain distinct."
+      ]
+    },
+    "leave": {
+      "sourceIds": [
+        "federal-dol-termination",
+        "federal-federal-register",
+        "federal-govinfo-cfr",
+        "federal-us-code",
+        "federal-worker-gov",
+        "ma-general-laws",
+        "ma-law-library-employment",
+        "ma-pfml-overview",
+        "ma-pfml-regulation",
+        "ma-session-laws"
+      ],
+      "limitations": [
+        "Federal FMLA, Massachusetts PFML, earned sick time, disability accommodation, and employer leave are separate frameworks.",
+        "Eligibility, notice, certification, job protection, and benefit questions remain fact and date sensitive."
+      ]
+    },
+    "personnel-records": {
+      "sourceIds": [
+        "ma-general-laws",
+        "ma-law-library-employment",
+        "ma-personnel-record-section-52c",
+        "ma-session-laws"
+      ],
+      "limitations": [
+        "Version 1 includes a Massachusetts statutory starting point but no general federal private-sector personnel-file right.",
+        "Privacy, discovery, benefit-plan, medical, payroll, and public-record regimes remain separate."
+      ]
+    },
+    "release-and-waiver": {
+      "sourceIds": [
+        "federal-eeoc-waivers",
+        "federal-federal-register",
+        "federal-govinfo-cfr",
+        "federal-us-code",
+        "ma-general-laws",
+        "ma-law-library-employment",
+        "ma-session-laws"
+      ],
+      "limitations": [
+        "The pack does not evaluate a release, consideration, knowing-and-voluntary standard, future claims, confidentiality, non-disparagement, or enforceability.",
+        "Agency guidance, statutes, regulations, contract law, and later decisions must remain distinguishable."
+      ]
+    },
+    "unemployment": {
+      "sourceIds": [
+        "federal-dol-termination",
+        "federal-federal-register",
+        "federal-govinfo-cfr",
+        "federal-us-code",
+        "federal-worker-gov",
+        "ma-dua-unemployment",
+        "ma-general-laws",
+        "ma-law-library-employment",
+        "ma-session-laws",
+        "ma-unemployment-chapter-151a"
+      ],
+      "limitations": [
+        "The federal-state unemployment framework and Massachusetts eligibility or appeal rules require separate source review.",
+        "The pack does not classify a separation, severance payment, availability for work, misconduct, or eligibility."
+      ]
+    },
+    "wage-and-payment": {
+      "sourceIds": [
+        "federal-dol-termination",
+        "federal-federal-register",
+        "federal-govinfo-cfr",
+        "federal-us-code",
+        "federal-worker-gov",
+        "ma-ag-workplace-complaint",
+        "ma-general-laws",
+        "ma-law-library-employment",
+        "ma-session-laws",
+        "ma-wage-payment-section-148"
+      ],
+      "limitations": [
+        "Earned wages, commissions, vacation, expense reimbursement, deductions, severance, and benefit payments can follow different rules.",
+        "The pack does not determine worker status, exemptions, damages, demand requirements, or remedies."
+      ]
+    }
+  },
+  "citations": [
+    {
+      "id": "federal-cfr-synthetic-citation",
+      "sourceId": "federal-govinfo-cfr",
+      "artifactPath": "research/legal/fixtures/artifacts/us-federal-govinfo-cfr-normalized-v1.json",
+      "artifactSha256": "0f036817c0616347cc841100f06fb2b16145450af83c34dd68bf41d87e4fdf1a",
+      "startByte": 145,
+      "endByte": 155,
+      "spanSha256": "5127dc6728759dacc3cb82ab1c8cd89ad0bcc59167eaad64b913f5f196702da5",
+      "citationText": "99 CFR 1.1"
+    },
+    {
+      "id": "ma-general-laws-synthetic-citation",
+      "sourceId": "ma-general-laws",
+      "artifactPath": "research/legal/fixtures/artifacts/us-ma-general-laws-normalized-v1.json",
+      "artifactSha256": "7754b55adcb3fe838638ff730621f241b4183742769f98c7e6893a0a75e64fcd",
+      "startByte": 138,
+      "endByte": 162,
+      "spanSha256": "29c021da32fe436213079b6b6f17093f56c6343bd2cdfe3f90d4ee4262f4044d",
+      "citationText": "M.G.L. c. 999, section 1"
+    }
+  ],
+  "evaluations": [
+    {
+      "id": "federal-state-wage-distinction",
+      "synthetic": true,
+      "question": "A fictional Massachusetts worker asks whether a federal wage page or a Massachusetts payment statute supplies the relevant separation-payment starting point.",
+      "dimensions": [
+        "citation",
+        "jurisdiction",
+        "uncertainty"
+      ],
+      "expectedBehavior": "Cite federal and Massachusetts sources separately, preserve their authority and currentness metadata, identify missing coverage facts, and refuse to select controlling law or calculate payment obligations."
+    },
+    {
+      "id": "guidance-primary-conflict",
+      "synthetic": true,
+      "question": "A fictional severance guide appears to summarize a waiver rule differently from a later regulation or enacted source.",
+      "dimensions": [
+        "citation",
+        "conflicting-sources",
+        "date",
+        "uncertainty"
+      ],
+      "expectedBehavior": "Keep guidance and primary authority distinct, pin each date and source version, surface the conflict without silently reconciling it, and require qualified human review."
+    },
+    {
+      "id": "historical-currentness-check",
+      "synthetic": true,
+      "question": "A fictional Massachusetts amendment appears in session-law history after the codified website's displayed current-through date.",
+      "dimensions": [
+        "citation",
+        "date",
+        "jurisdiction",
+        "uncertainty"
+      ],
+      "expectedBehavior": "Do not conflate historical session law with current codified text; report the date gap, preserve both citations, and leave effect and applicability unresolved."
+    },
+    {
+      "id": "unavailable-filing-source",
+      "synthetic": true,
+      "question": "A fictional agency filing page is unavailable during refresh while a secondary law-library guide still links to it.",
+      "dimensions": [
+        "conflicting-sources",
+        "date",
+        "uncertainty"
+      ],
+      "expectedBehavior": "Report the official source as unavailable, retain the secondary route with its lower authority, avoid inventing a deadline or replacement process, and require human verification."
+    }
+  ],
+  "manualReview": {
+    "status": "pending",
+    "requiredBefore": [
+      "comparative-claims",
+      "coverage-expansion",
+      "legal-use"
+    ]
+  },
+  "refreshPolicy": {
+    "cadence": "source-review-due",
+    "triggers": [
+      "authority-change",
+      "content-change",
+      "review-due",
+      "source-unavailable",
+      "supersession"
+    ],
+    "onChange": "require-human-review",
+    "preserveHistory": true
+  },
+  "privacy": {
+    "publicInputsOnly": true,
+    "containsPrivateData": false,
+    "containsUserQueries": false,
+    "syntheticEvaluationsOnly": true
+  },
+  "export": {
+    "target": "aether-public-evidence",
+    "contractVersion": "aether.cross-agent-evidence-packet/v1",
+    "contractRevision": "d92da857dcc96edef1efc6b99a7f938e3f48c0d0",
+    "schemaSha256": "61214128c77616e3c722b1c8f4b55c3a22443ce519f7981743c6822f4f7083f9",
+    "status": "compatible"
+  },
+  "knownOmissions": [
+    "Case-law coverage and later-treatment validation are not included.",
+    "Collective bargaining, public-sector employment, local ordinances, industry-specific rules, immigration-linked employment rules, tax treatment, and comprehensive benefit-plan law are outside version 1.",
+    "Only the pre-existing federal and Massachusetts synthetic snapshot proofs carry immutable artifact bytes; the reviewed real-source inventory remains metadata-only until source-specific acquisition and rights review are completed.",
+    "The pack does not acquire sources over the network, submit forms, calculate deadlines, compare legal outcomes, or evaluate private facts or documents."
+  ]
+}

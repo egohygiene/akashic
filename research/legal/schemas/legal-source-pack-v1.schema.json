@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://akashic.egohygiene.io/schemas/legal-source-pack-v1.schema.json",
+  "title": "Akashic bounded legal source pack v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "packId",
+    "version",
+    "title",
+    "notice",
+    "baseline",
+    "sources",
+    "coverage",
+    "citations",
+    "evaluations",
+    "manualReview",
+    "refreshPolicy",
+    "privacy",
+    "export",
+    "knownOmissions"
+  ],
+  "properties": {
+    "$schema": { "const": "../schemas/legal-source-pack-v1.schema.json" },
+    "schemaVersion": { "const": 1 },
+    "packId": { "$ref": "#/$defs/id" },
+    "version": { "const": "1.0.0" },
+    "title": { "$ref": "#/$defs/nonEmptyString" },
+    "notice": { "$ref": "#/$defs/nonEmptyString" },
+    "baseline": { "$ref": "#/$defs/baseline" },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/coverage" }
+    },
+    "citations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/citation" }
+    },
+    "evaluations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/evaluation" }
+    },
+    "manualReview": { "$ref": "#/$defs/manualReview" },
+    "refreshPolicy": { "$ref": "#/$defs/refreshPolicy" },
+    "privacy": { "$ref": "#/$defs/privacy" },
+    "export": { "$ref": "#/$defs/export" },
+    "knownOmissions": { "$ref": "#/$defs/nonEmptyStrings" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nonEmptyStrings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonEmptyString" },
+      "uniqueItems": true
+    },
+    "httpsUrl": {
+      "type": "string",
+      "pattern": "^https://"
+    },
+    "dateRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "value"],
+      "properties": {
+        "status": { "enum": ["known", "unknown", "not-applicable"] },
+        "value": { "type": ["string", "null"], "format": "date" }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope", "jurisdictionIds", "subjects", "observedAt", "comparativeClaims", "applicability"],
+      "properties": {
+        "scope": { "$ref": "#/$defs/nonEmptyString" },
+        "jurisdictionIds": { "$ref": "#/$defs/nonEmptyStrings" },
+        "subjects": { "$ref": "#/$defs/nonEmptyStrings" },
+        "observedAt": { "type": "string", "format": "date-time" },
+        "comparativeClaims": { "const": false },
+        "applicability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "rule"],
+          "properties": {
+            "status": { "const": "not-determined" },
+            "rule": { "$ref": "#/$defs/nonEmptyString" }
+          }
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "termsUrl", "redistribution", "quotation", "notes"],
+      "properties": {
+        "status": { "enum": ["public-domain-with-exceptions", "restricted", "unknown"] },
+        "termsUrl": { "type": ["string", "null"], "pattern": "^https://" },
+        "redistribution": { "enum": ["review-required", "unknown"] },
+        "quotation": { "enum": ["fair-use-only", "review-required", "unknown"] },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "manifestPath", "snapshotId", "normalizedArtifactPath", "sha256", "note"],
+      "properties": {
+        "status": { "enum": ["linked-synthetic-proof", "metadata-only"] },
+        "manifestPath": { "type": ["string", "null"] },
+        "snapshotId": { "type": ["string", "null"] },
+        "normalizedArtifactPath": { "type": ["string", "null"] },
+        "sha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+        "note": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "jurisdictionId",
+        "subjects",
+        "materialType",
+        "authorityStatus",
+        "issuingBody",
+        "publisher",
+        "canonicalUrl",
+        "rights",
+        "dates",
+        "currentnessStatus",
+        "availability",
+        "supersededBy",
+        "inclusionRationale",
+        "limitations",
+        "metadataReview",
+        "integrity"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "jurisdictionId": { "$ref": "#/$defs/id" },
+        "subjects": { "$ref": "#/$defs/nonEmptyStrings" },
+        "materialType": { "$ref": "#/$defs/id" },
+        "authorityStatus": { "$ref": "#/$defs/id" },
+        "issuingBody": { "$ref": "#/$defs/nonEmptyString" },
+        "publisher": { "$ref": "#/$defs/nonEmptyString" },
+        "canonicalUrl": { "$ref": "#/$defs/httpsUrl" },
+        "rights": { "$ref": "#/$defs/rights" },
+        "dates": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["publication", "effective", "currentThrough", "observed", "reviewDue"],
+          "properties": {
+            "publication": { "$ref": "#/$defs/dateRecord" },
+            "effective": { "$ref": "#/$defs/dateRecord" },
+            "currentThrough": { "$ref": "#/$defs/dateRecord" },
+            "observed": { "type": "string", "format": "date" },
+            "reviewDue": { "type": "string", "format": "date" }
+          }
+        },
+        "currentnessStatus": { "enum": ["current", "historical", "mixed", "unknown"] },
+        "availability": { "enum": ["available", "unavailable", "unknown"] },
+        "supersededBy": { "type": ["string", "null"] },
+        "inclusionRationale": { "$ref": "#/$defs/nonEmptyString" },
+        "limitations": { "$ref": "#/$defs/nonEmptyStrings" },
+        "metadataReview": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "reviewer", "reviewedAt", "humanStatus"],
+          "properties": {
+            "status": { "const": "reviewed" },
+            "reviewer": { "$ref": "#/$defs/nonEmptyString" },
+            "reviewedAt": { "type": "string", "format": "date-time" },
+            "humanStatus": { "const": "pending" }
+          }
+        },
+        "integrity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["recordSha256", "snapshot"],
+          "properties": {
+            "recordSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+            "snapshot": { "$ref": "#/$defs/snapshot" }
+          }
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceIds", "limitations"],
+      "properties": {
+        "sourceIds": { "$ref": "#/$defs/nonEmptyStrings" },
+        "limitations": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "sourceId", "artifactPath", "artifactSha256", "startByte", "endByte", "spanSha256", "citationText"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "sourceId": { "$ref": "#/$defs/id" },
+        "artifactPath": { "$ref": "#/$defs/nonEmptyString" },
+        "artifactSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "startByte": { "type": "integer", "minimum": 0 },
+        "endByte": { "type": "integer", "minimum": 1 },
+        "spanSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "citationText": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "synthetic", "question", "dimensions", "expectedBehavior"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "synthetic": { "const": true },
+        "question": { "$ref": "#/$defs/nonEmptyString" },
+        "dimensions": { "$ref": "#/$defs/nonEmptyStrings" },
+        "expectedBehavior": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "manualReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "requiredBefore"],
+      "properties": {
+        "status": { "const": "pending" },
+        "requiredBefore": { "$ref": "#/$defs/nonEmptyStrings" }
+      }
+    },
+    "refreshPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cadence", "triggers", "onChange", "preserveHistory"],
+      "properties": {
+        "cadence": { "const": "source-review-due" },
+        "triggers": { "$ref": "#/$defs/nonEmptyStrings" },
+        "onChange": { "const": "require-human-review" },
+        "preserveHistory": { "const": true }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publicInputsOnly", "containsPrivateData", "containsUserQueries", "syntheticEvaluationsOnly"],
+      "properties": {
+        "publicInputsOnly": { "const": true },
+        "containsPrivateData": { "const": false },
+        "containsUserQueries": { "const": false },
+        "syntheticEvaluationsOnly": { "const": true }
+      }
+    },
+    "export": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "contractVersion", "contractRevision", "schemaSha256", "status"],
+      "properties": {
+        "target": { "const": "aether-public-evidence" },
+        "contractVersion": { "const": "aether.cross-agent-evidence-packet/v1" },
+        "contractRevision": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "schemaSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "status": { "const": "compatible" }
+      }
+    }
+  }
+}

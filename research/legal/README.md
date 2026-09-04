@@ -84,6 +84,57 @@ node scripts/export-legal-source-evidence.mjs \
 
 Use `--snapshot` to select a non-current captured snapshot and `--destination` to narrow the declared destination scope. The command writes only to standard output. It performs no network request, destination admission, file mutation, transport, tool execution, or capability grant. Aether policy and session admission remain a separate receiver-side operation.
 
+## Federal and Massachusetts employment-separation pack
+
+[`us-federal-ma-employment-separation-v1.json`](packs/us-federal-ma-employment-separation-v1.json) is the first bounded source pack built on the snapshot contract. It inventories 21 federal and Massachusetts starting points across benefits, discrimination, filing and deadlines, leave, personnel records, releases and waivers, unemployment, and wage payment. Each record keeps jurisdiction, material type, authority, publisher, rights, dates, currentness, availability, inclusion rationale, limitations, metadata review, human-review state, and integrity evidence separate.
+
+Version 1 deliberately distinguishes:
+
+- official primary sources from official guidance, services, forms, self-help, and official secondary research guides;
+- legal editions from authoritative or official-publisher web presentations that are not themselves legal editions;
+- current, mixed, unknown, and historical source conditions;
+- metadata reviewed during curation from still-pending human approval; and
+- sources with immutable synthetic citation proofs from real-source records that remain metadata-only pending source-specific rights and acquisition review.
+
+The pack does not contain private employment facts, real agreements, names, uploaded documents, derived user queries, or real legal text. Its four evaluation questions are synthetic and require jurisdiction separation, exact citations, date checks, conflicting-source handling, and visible uncertainty. It makes no comparative legal finding.
+
+Validate and export the pack as one deterministic Aether packet:
+
+```sh
+node scripts/export-legal-source-pack-evidence.mjs \
+  --pack "research/legal/packs/us-federal-ma-employment-separation-v1.json" \
+  --format "json"
+```
+
+The packet attaches the complete reviewed inventory plus the two existing immutable federal and Massachusetts synthetic citation proofs. Citation records bind exact byte spans and survive packet export. The export is read-only, public-only, unsigned, pending human review, and grants no capability or transport authority.
+
+Compare two valid versions and report added, changed, stale, unavailable, and superseded sources deterministically:
+
+```sh
+node scripts/refresh-legal-source-pack.mjs \
+  --baseline "research/legal/packs/us-federal-ma-employment-separation-v1.json" \
+  --candidate "research/legal/packs/us-federal-ma-employment-separation-v1.json" \
+  --as-of "2026-09-04" \
+  --format "text"
+```
+
+Any reported change requires human review. Refresh does not fetch a page, overwrite a snapshot, submit a form, calculate a deadline, or promote a secondary source over primary authority.
+
+### Version 1 employment-pack acceptance audit
+
+The bounded pack covers #88's version 1 contract:
+
+- an explicit federal and Massachusetts private-sector employment-separation baseline across all eight requested subjects;
+- 21 reviewed source records with jurisdiction, authority, publisher, rights, dates, currency, availability, integrity, inclusion, and omission metadata;
+- durable distinctions among official primary, unofficial presentation, guidance, form or service, self-help, historical, and secondary materials;
+- two pinned immutable synthetic snapshot proofs with exact normalized citation spans that survive deterministic packet export;
+- a history-preserving refresh policy and deterministic added, changed, stale, unavailable, and superseded report;
+- four synthetic evaluations covering citation, date, jurisdiction, source conflict, and uncertainty behavior;
+- a public-only privacy boundary with no private employment facts, names, documents, queries, form submissions, or real legal text; and
+- mandatory human review before coverage expansion, comparative claims, or legal use.
+
+Case-law treatment, real-source byte acquisition, public-sector and collective-bargaining systems, local law, industry-specific rules, and comprehensive plan or tax analysis remain visible omissions rather than implied coverage.
+
 Run the contract check from the repository root:
 
 ```sh
@@ -101,6 +152,14 @@ The schema and fixtures were grounded in first-party pages observed on 2026-09-0
 - [FederalRegister.gov API documentation](https://www.federalregister.gov/developers/documentation/api/v1) is the designated programmatic interface; automated page access can be challenged, so acquisition planning must use documented APIs and respect access controls.
 - The Massachusetts Legislature identifies its online [General Laws](https://malegislature.gov/Laws/GeneralLaws) and [Session Laws](https://malegislature.gov/Laws/SessionLaws) as unofficial versions and publishes explicit current-through observations. Its [terms and conditions](https://malegislature.gov/StateHouse/TermsAndConditions) restrict copying of copyrighted website material beyond fair use and warn about third-party claims.
 - The Massachusetts [Trial Court Law Libraries](https://www.mass.gov/orgs/trial-court-law-libraries) provide public legal-reference pathways. They are evidence for later source-pack coverage, not an acquisition endpoint in these fixtures.
+
+The employment-separation pack was additionally reviewed against first-party pages observed on 2026-09-04:
+
+- [United States Code](https://uscode.house.gov/), [GovInfo CFR](https://www.govinfo.gov/app/collection/CFR), [eCFR](https://www.ecfr.gov/), and the [Federal Register](https://www.federalregister.gov/) provide distinct codified-law, legal-edition, continuously updated unofficial, and rulemaking-history routes. Version 1 inventories the United States Code, GovInfo CFR, and Federal Register; eCFR remains a documented candidate for the next coverage review rather than being silently treated as equivalent to the CFR legal edition.
+- Department of Labor [termination](https://www.dol.gov/general/topic/termination), [COBRA](https://www.dol.gov/general/topic/health-plans/cobra), and [Worker.gov](https://www.worker.gov/) pages supply official guidance and navigation, not controlling legal text.
+- EEOC's [severance-waiver technical assistance](https://www.eeoc.gov/laws/guidance/qa-understanding-waivers-discrimination-claims-employee-severance-agreements) identifies its July 15, 2009 issue date and nonbinding status. Its [charge-filing page](https://www.eeoc.gov/filing-charge-discrimination) distinguishes federal, state or local, and federal-employee processes and warns that filing windows exist without supplying a universal deadline; the separate [official form index](https://www.eeoc.gov/selected-eeoc-forms) keeps Form 5 and related documents distinct from filing guidance and portal submission.
+- The Massachusetts Legislature's [General Laws](https://malegislature.gov/Laws/GeneralLaws), [Session Laws](https://malegislature.gov/Laws/SessionLaws), [wage-payment section](https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section148), [personnel-record section](https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter149/Section52C), [employment-discrimination section](https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151b/Section4), and [unemployment chapter](https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151A) remain separate records with the site's unofficial status and observed current-through date visible.
+- Massachusetts official service routes include the Attorney General's [workplace complaint](https://www.mass.gov/how-to/file-a-workplace-complaint), DUA's [unemployment application](https://www.mass.gov/how-to/apply-for-unemployment-insurance-benefits), [MCAD](https://www.mass.gov/orgs/massachusetts-commission-against-discrimination), the [PFML overview](https://www.mass.gov/info-details/paid-family-and-medical-leave-pfml-overview-and-benefits), [458 CMR 2.00](https://www.mass.gov/regulations/458-CMR-200-family-and-medical-leave), and the Trial Court Law Libraries' [employment research guide](https://www.mass.gov/law-library/massachusetts-law-about-employment-and-employment-leave). Forms and services can receive private information, so Akashic records their public metadata but never invokes them or stores submitted data.
 
 ## Version 1 acceptance audit
 
