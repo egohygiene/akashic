@@ -3,6 +3,7 @@ import path from "node:path";
 import process from "node:process";
 import { normalizeUrl, parseResourceEntry, parseRootCategories } from "./lib/catalog.mjs";
 import { atlasTopologyGeometryIds, deriveAtlasLocationResources, mergeAtlasLocationSources, validateAtlasApplicability, validateAtlasCountryRegistry, validateAtlasHierarchy, validateAtlasSubdivisionRegistry } from "./lib/atlas.mjs";
+import { validateAtlasJurisdictions } from "./lib/jurisdictions.mjs";
 import { parseRelatedPaths, parseSiteGuide } from "./lib/guide.mjs";
 import { loadLocales, localizeHtml } from "./lib/i18n.mjs";
 import { deriveResourceId, validateResourceIdentities } from "./lib/resource-metadata.mjs";
@@ -231,6 +232,8 @@ async function buildAtlas(catalogResources) {
 
   const hierarchy = mergeAtlasLocationSources(locationManifest, includedLocationsByPath);
   const locationById = validateAtlasHierarchy(hierarchy, { countryRegistry, geometryIdsByDataset, subdivisionRegistryById });
+  const jurisdictionManifest = JSON.parse(await readFile(path.join(atlasDirectory, "jurisdictions.json"), "utf8"));
+  const jurisdictionModel = validateAtlasJurisdictions(jurisdictionManifest, { countryRegistry, locationById, subdivisionRegistryById });
   const applicability = JSON.parse(await readFile(path.join(atlasDirectory, "applicability.json"), "utf8"));
 
   const placeDirectory = path.join(atlasDirectory, "places");
@@ -326,6 +329,11 @@ async function buildAtlas(catalogResources) {
   return {
     schemaVersion: hierarchy.schemaVersion,
     applicabilitySchemaVersion: applicability.schemaVersion,
+    jurisdictionSchemaVersion: jurisdictionModel.schemaVersion,
+    jurisdictionNotice: jurisdictionModel.notice,
+    jurisdictionSources: jurisdictionModel.sources,
+    jurisdictions: jurisdictionModel.jurisdictions,
+    jurisdictionRelationships: jurisdictionModel.relationships,
     rootId: hierarchy.rootId,
     locationSourceCount: 1 + locationManifest.includes.length,
     identifierRegistries,
