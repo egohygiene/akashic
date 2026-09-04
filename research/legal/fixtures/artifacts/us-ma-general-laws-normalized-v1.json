@@ -1,0 +1,11 @@
+{
+  "fixture": true,
+  "records": [
+    {
+      "jurisdictionId": "us-ma",
+      "authorityType": "codified-statutes",
+      "citation": "M.G.L. c. 999, section 1",
+      "text": "Synthetic Massachusetts statute text for manifest validation only."
+    }
+  ]
+}

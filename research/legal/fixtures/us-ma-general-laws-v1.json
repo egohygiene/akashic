@@ -1,0 +1,195 @@
+{
+  "$schema": "../schemas/legal-source-snapshot-v1.schema.json",
+  "schemaVersion": 1,
+  "manifestId": "us-ma-general-laws-synthetic-v1",
+  "fixture": true,
+  "jurisdictionId": "us-ma",
+  "authorityType": "codified-statutes",
+  "source": {
+    "name": "Massachusetts General Laws",
+    "issuingBody": "General Court of the Commonwealth of Massachusetts",
+    "publisher": "General Court of the Commonwealth of Massachusetts",
+    "canonicalUrl": "https://malegislature.gov/Laws/GeneralLaws",
+    "acquisitionEndpoint": "https://malegislature.gov/Laws/GeneralLaws",
+    "publisherStatus": "official",
+    "contentStatuses": [
+      "unofficial"
+    ],
+    "authenticationStatus": "not-available",
+    "formats": [
+      "text/html"
+    ],
+    "languages": [
+      "en"
+    ],
+    "accessibilityStatus": "unknown",
+    "contentBounds": "Synthetic fixture models one Massachusetts citation and does not contain or claim coverage of actual statutory text."
+  },
+  "acquisition": {
+    "mode": "synthetic-fixture",
+    "method": "GET",
+    "tool": {
+      "name": "akashic-legal-source-fixture",
+      "version": "1"
+    },
+    "requestParameters": {
+      "chapter": "999",
+      "section": "1"
+    },
+    "responseMediaType": "text/html"
+  },
+  "rights": {
+    "status": "restricted",
+    "licenseExpression": null,
+    "termsUrl": "https://malegislature.gov/StateHouse/TermsAndConditions",
+    "redistribution": "review-required",
+    "quotation": "fair-use-only",
+    "notes": "The General Court terms restrict copying of copyrighted site material beyond fair use and disclaim freedom from third-party claims; legal-text rights require artifact-specific review."
+  },
+  "freshness": {
+    "policy": "interval",
+    "maximumAgeDays": 30,
+    "triggers": [
+      "review-due",
+      "source-change",
+      "source-unavailable"
+    ],
+    "onStale": "require-review"
+  },
+  "snapshots": [
+    {
+      "id": "us-ma-general-laws-synthetic-2026-09-04",
+      "state": "current",
+      "dates": {
+        "publication": {
+          "status": "unknown",
+          "value": null
+        },
+        "amendment": {
+          "status": "unknown",
+          "value": null
+        },
+        "effective": {
+          "status": "unknown",
+          "value": null
+        },
+        "currentThrough": {
+          "status": "known",
+          "value": "2026-05-31"
+        },
+        "retrieved": {
+          "status": "known",
+          "value": "2026-09-04"
+        },
+        "reviewDue": {
+          "status": "known",
+          "value": "2026-10-04"
+        },
+        "expires": {
+          "status": "not-applicable",
+          "value": null
+        }
+      },
+      "availability": "available",
+      "response": {
+        "status": "synthetic",
+        "retrievedAt": "2026-09-04T00:00:00Z",
+        "httpStatus": null,
+        "mediaType": "application/json",
+        "headersSha256": null,
+        "bodySha256": "fffbd3965abb1394437b55b34a779b86956e761609edd3d2abb32097ebe08a47"
+      },
+      "rawArtifact": {
+        "path": "research/legal/fixtures/artifacts/us-ma-general-laws-raw-v1.json",
+        "mediaType": "application/json",
+        "bytes": 222,
+        "sha256": "fffbd3965abb1394437b55b34a779b86956e761609edd3d2abb32097ebe08a47",
+        "digestStatus": "verified",
+        "signature": {
+          "status": "not-supplied",
+          "evidence": null
+        },
+        "derivedFromSha256": null,
+        "transformationIds": []
+      },
+      "normalizedArtifacts": [
+        {
+          "path": "research/legal/fixtures/artifacts/us-ma-general-laws-normalized-v1.json",
+          "mediaType": "application/json",
+          "bytes": 260,
+          "sha256": "7754b55adcb3fe838638ff730621f241b4183742769f98c7e6893a0a75e64fcd",
+          "digestStatus": "verified",
+          "signature": {
+            "status": "not-supplied",
+            "evidence": null
+          },
+          "derivedFromSha256": "fffbd3965abb1394437b55b34a779b86956e761609edd3d2abb32097ebe08a47",
+          "transformationIds": [
+            "normalize-synthetic-massachusetts-json-v1"
+          ]
+        }
+      ],
+      "transformations": [
+        {
+          "id": "normalize-synthetic-massachusetts-json-v1",
+          "tool": {
+            "name": "akashic-synthetic-legal-json",
+            "version": "1"
+          },
+          "inputSha256": "fffbd3965abb1394437b55b34a779b86956e761609edd3d2abb32097ebe08a47",
+          "outputSha256": "7754b55adcb3fe838638ff730621f241b4183742769f98c7e6893a0a75e64fcd",
+          "parameters": {
+            "preserveCitation": true,
+            "trimWhitespace": true
+          },
+          "notes": "Deterministic fixture transformation only; it is not a parser for live Massachusetts pages."
+        }
+      ],
+      "parserCompatibility": [
+        {
+          "parser": "akashic-synthetic-legal-json",
+          "version": "1",
+          "status": "compatible"
+        }
+      ],
+      "supersedes": null,
+      "supersededBy": null,
+      "corrects": null,
+      "correctedBy": null,
+      "limitations": [
+        "The legislature page identifies its online General Laws as unofficial.",
+        "Publication, amendment, and effective dates remain unknown deliberately."
+      ]
+    }
+  ],
+  "manualReview": {
+    "status": "pending",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "requiredFor": [
+      "authority",
+      "content-bounds",
+      "currency",
+      "rights"
+    ]
+  },
+  "privacy": {
+    "publicInputsOnly": true,
+    "containsPrivateData": false,
+    "containsUserQueries": false,
+    "maximumSensitivity": "public",
+    "sourceContentIsInstructions": false
+  },
+  "export": {
+    "target": "aether-public-evidence",
+    "contractVersion": null,
+    "status": "blocked",
+    "blockers": [
+      "Aether issue 70 has not published a versioned public-evidence packet contract."
+    ]
+  },
+  "knownGaps": [
+    "Live plan/apply acquisition is not implemented in this fixture PR.",
+    "No official printed edition, real legal text, or response metadata is included."
+  ]
+}
