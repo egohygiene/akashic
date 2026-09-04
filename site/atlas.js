@@ -1,4 +1,5 @@
 import { canonicalContentLanguage, number, plural, t } from "./i18n.js";
+import { createAtlasRendererRegistry } from "./atlas-renderers.js";
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 const selectors = {
@@ -47,11 +48,31 @@ const copyByKind = {
   locality: t("runtime.atlas.copy.locality"),
 };
 
+const geometryDatasets = new Map([
+  ["world", {
+    source: "./data/geometry/countries-110m.json",
+    loadError: "World geometry did not load.",
+    objectName: "countries",
+    idWidth: 3,
+    featureLabel: "Country",
+    frame: { x: 0, y: 0, width: 1000, height: 500, columns: 12, rows: 6 },
+    project: worldProject,
+    splitWidth: 450,
+  }],
+  ["us-states", {
+    source: "./data/geometry/states-albers-10m.json",
+    loadError: "U.S. geometry did not load.",
+    objectName: "states",
+    idWidth: 2,
+    featureLabel: "State",
+    frame: { x: 0, y: 0, width: 975, height: 610, columns: 13, rows: 8 },
+  }],
+]);
+
 const state = {
   atlas: null,
   themes: null,
-  world: null,
-  states: null,
+  geometryByDataset: new Map(),
   geometryReady: false,
   locationById: null,
   inheritanceById: null,
@@ -293,6 +314,16 @@ function featureCollection(topology, objectName) {
   return object.type === "GeometryCollection" ? object.geometries : [object];
 }
 
+function geometryDataset(datasetId) {
+  const definition = geometryDatasets.get(datasetId);
+  const topology = state.geometryByDataset.get(datasetId);
+  return definition && topology ? { definition, topology } : null;
+}
+
+function normalizedGeometryId(definition, id) {
+  return String(id).padStart(definition.idWidth, "0");
+}
+
 function addTitle(element, text) {
   const title = svgElement("title");
   title.textContent = text;
@@ -314,10 +345,10 @@ function makeInteractive(element, locationId, name) {
   });
 }
 
-function drawGrid(width, height, columns = 12, rows = 6) {
+function drawGrid(x, y, width, height, columns = 12, rows = 6) {
   const group = svgElement("g", { "aria-hidden": "true" });
-  for (let index = 1; index < columns; index += 1) group.append(svgElement("line", { class: "atlas-grid-line", x1: width / columns * index, y1: 0, x2: width / columns * index, y2: height }));
-  for (let index = 1; index < rows; index += 1) group.append(svgElement("line", { class: "atlas-grid-line", x1: 0, y1: height / rows * index, x2: width, y2: height / rows * index }));
+  for (let index = 1; index < columns; index += 1) group.append(svgElement("line", { class: "atlas-grid-line", x1: x + width / columns * index, y1: y, x2: x + width / columns * index, y2: y + height }));
+  for (let index = 1; index < rows; index += 1) group.append(svgElement("line", { class: "atlas-grid-line", x1: x, y1: y + height / rows * index, x2: x + width, y2: y + height / rows * index }));
   selectors.map.append(group);
 }
 
@@ -350,64 +381,74 @@ function updateViewBox() {
   selectors.zoomIn.disabled = state.zoom >= 4;
 }
 
-function drawWorld(location) {
-  setBaseViewBox(0, 0, 1000, 500);
-  selectors.map.append(svgElement("rect", { class: "atlas-ocean", width: 1000, height: 500 }));
-  drawGrid(1000, 500);
-  for (const geometry of featureCollection(state.world, "countries")) {
+function drawBoundaryOverview(location, datasetId) {
+  const dataset = geometryDataset(datasetId);
+  if (!dataset) return false;
+  const { definition, topology } = dataset;
+  const { x, y, width, height, columns, rows } = definition.frame;
+  const childrenByGeometryId = new Map(childLocations(location)
+    .filter((child) => child.covered && child.geometry.dataset === datasetId)
+    .map((child) => [normalizedGeometryId(definition, child.geometry.id), child]));
+  setBaseViewBox(x, y, width, height);
+  selectors.map.append(svgElement("rect", { class: "atlas-ocean", x, y, width, height }));
+  drawGrid(x, y, width, height, columns, rows);
+  for (const geometry of featureCollection(topology, definition.objectName)) {
     const path = svgElement("path", {
       class: "atlas-shape",
-      d: pathFromRings(ringsForGeometry(state.world, geometry), worldProject, 450),
+      d: pathFromRings(ringsForGeometry(topology, geometry), definition.project, definition.splitWidth),
     });
-    const name = geometry.properties?.name || `Country ${geometry.id}`;
+    const name = geometry.properties?.name || `${definition.featureLabel} ${geometry.id}`;
     addTitle(path, name);
-    if (String(geometry.id).padStart(3, "0") === "840") makeInteractive(path, "us", "United States");
+    const child = childrenByGeometryId.get(normalizedGeometryId(definition, geometry.id));
+    if (child) makeInteractive(path, child.id, child.name);
     selectors.map.append(path);
   }
+  return true;
 }
 
 function geometryForLocation(location) {
-  if (!location || location.geometry.dataset !== "us-states") return null;
-  const geometryId = String(location.geometry.id).padStart(2, "0");
-  return featureCollection(state.states, "states").find((geometry) => String(geometry.id).padStart(2, "0") === geometryId);
+  if (!location) return null;
+  const dataset = geometryDataset(location.geometry.dataset);
+  if (!dataset) return null;
+  const { definition, topology } = dataset;
+  const geometryId = normalizedGeometryId(definition, location.geometry.id);
+  return featureCollection(topology, definition.objectName)
+    .find((geometry) => normalizedGeometryId(definition, geometry.id) === geometryId) || null;
 }
 
-function drawUnitedStates(location) {
-  const byId = locationMap();
-  const country = ancestors(location).find((item) => item.kind === "country");
-  if (country?.id !== "us") return false;
-  const selectedRegion = ancestors(location).find((item) => item.kind === "region");
-  if (!selectedRegion) {
-    const regionsByGeometryId = new Map((country?.children || [])
-      .map((id) => byId.get(id))
-      .filter((region) => region?.covered && region.geometry.dataset === "us-states")
-      .map((region) => [String(region.geometry.id).padStart(2, "0"), region]));
-    setBaseViewBox(0, 0, 975, 610);
-    selectors.map.append(svgElement("rect", { class: "atlas-ocean", width: 975, height: 610 }));
-    drawGrid(975, 610, 13, 8);
-    for (const geometry of featureCollection(state.states, "states")) {
-      const path = svgElement("path", { class: "atlas-shape", d: pathFromRings(ringsForGeometry(state.states, geometry)) });
-      const name = geometry.properties?.name || `State ${geometry.id}`;
-      addTitle(path, name);
-      const coveredRegion = regionsByGeometryId.get(String(geometry.id).padStart(2, "0"));
-      if (coveredRegion) makeInteractive(path, coveredRegion.id, coveredRegion.name);
-      selectors.map.append(path);
-    }
-    return true;
-  }
+function drawWorld(location) {
+  return drawBoundaryOverview(location, location.geometry.dataset);
+}
 
-  const geometry = geometryForLocation(selectedRegion);
-  if (!geometry) return false;
-  const rings = ringsForGeometry(state.states, geometry);
+function childBoundaryDataset(location) {
+  const datasetIds = new Set(childLocations(location)
+    .map((child) => child.geometry.dataset)
+    .filter((datasetId) => geometryDatasets.has(datasetId)));
+  return datasetIds.size === 1 ? [...datasetIds][0] : null;
+}
+
+function drawCountry(location) {
+  const datasetId = childBoundaryDataset(location);
+  return datasetId ? drawBoundaryOverview(location, datasetId) : false;
+}
+
+function drawRegion(location) {
+  const byId = locationMap();
+  const region = location.kind === "region" ? location : ancestors(location).find((item) => item.kind === "region");
+  const dataset = region ? geometryDataset(region.geometry.dataset) : null;
+  const geometry = geometryForLocation(region);
+  if (!region || !dataset || !geometry) return false;
+  const { topology } = dataset;
+  const rings = ringsForGeometry(topology, geometry);
   const bbox = bboxForRings(rings);
   const padding = Math.max(bbox.width, bbox.height) * .22;
   setBaseViewBox(bbox.minX - padding, bbox.minY - padding, bbox.width + padding * 2, bbox.height + padding * 2);
   selectors.map.append(svgElement("rect", { class: "atlas-ocean", x: bbox.minX - padding, y: bbox.minY - padding, width: bbox.width + padding * 2, height: bbox.height + padding * 2 }));
   const path = svgElement("path", { class: "atlas-shape has-coverage is-selected", d: pathFromRings(rings) });
-  addTitle(path, selectedRegion.name);
+  addTitle(path, region.name);
   selectors.map.append(path);
 
-  for (const childId of selectedRegion.children) {
+  for (const childId of region.children) {
     const markerLocation = byId.get(childId);
     if (markerLocation?.covered && markerLocation.geometry.dataset === "point") {
       drawLocalityMarker(markerLocation, bbox, location.id === markerLocation.id);
@@ -433,6 +474,13 @@ function drawLocalityMarker(location, bbox, selected) {
   selectors.map.append(marker);
 }
 
+const rendererRegistry = createAtlasRendererRegistry([
+  { dataset: "world", level: "world", render: drawWorld },
+  { dataset: "world", level: "country", render: drawCountry },
+  { dataset: "us-states", level: "region", render: drawRegion },
+  { dataset: "point", level: "locality", render: drawRegion },
+]);
+
 function renderMap(location) {
   const svgTitle = svgElement("title", { id: "atlas-map-svg-title" });
   svgTitle.textContent = t("static.atlas.mapTitle");
@@ -441,10 +489,8 @@ function renderMap(location) {
   selectors.map.replaceChildren(svgTitle, svgDescription);
   let available = false;
   try {
-    if (location.kind === "world" && state.world) {
-      drawWorld(location);
-      available = true;
-    } else if (location.kind !== "world" && state.states) available = drawUnitedStates(location);
+    const renderer = rendererRegistry.resolve(location);
+    available = renderer ? renderer(location) : false;
   } catch (error) {
     console.error(error);
   }
@@ -726,15 +772,16 @@ async function initialize() {
     const params = new URLSearchParams(location.search);
     const requested = params.get("place") || atlas.rootId;
     setLocation(requested, { historyMode: "replace", resourceSection: params.get("section") || "", resourceScope: params.get("scope") || "all" });
-    const [world, states] = await Promise.allSettled([
-      fetch(new URL("./data/geometry/countries-110m.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("World geometry did not load."))),
-      fetch(new URL("./data/geometry/states-albers-10m.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("U.S. geometry did not load."))),
-    ]);
-    state.world = world.status === "fulfilled" ? world.value : null;
-    state.states = states.status === "fulfilled" ? states.value : null;
+    const geometryResults = await Promise.allSettled([...geometryDatasets].map(async ([datasetId, definition]) => {
+      const response = await fetch(new URL(definition.source, import.meta.url));
+      if (!response.ok) throw new Error(definition.loadError);
+      return [datasetId, await response.json()];
+    }));
+    state.geometryByDataset = new Map(geometryResults
+      .filter((result) => result.status === "fulfilled")
+      .map((result) => result.value));
     state.geometryReady = true;
-    if (world.status === "rejected") console.warn(world.reason);
-    if (states.status === "rejected") console.warn(states.reason);
+    for (const result of geometryResults) if (result.status === "rejected") console.warn(result.reason);
     renderMap(currentLocation());
     selectors.loading.hidden = true;
   } catch (error) {
