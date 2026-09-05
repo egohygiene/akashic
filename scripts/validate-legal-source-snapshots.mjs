@@ -3,7 +3,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createLegalSourceAcquisitionPlan, validateLegalSourceObservation } from "./lib/legal-source-acquisition.mjs";
 import { prepareLegalSourceAcquisitionApply } from "./lib/legal-source-apply.mjs";
+import { createAetherLegalSourcePackEvidencePacket } from "./lib/legal-source-pack-export.mjs";
 import { createAetherLegalSourceEvidencePacket, verifyAetherPacketAttachmentBytes } from "./lib/legal-source-export.mjs";
+import { validateLegalSourcePack } from "./lib/legal-source-packs.mjs";
 import { validateLegalSourceSnapshotManifest } from "./lib/legal-source-snapshots.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -20,6 +22,7 @@ const fixturePaths = (await readdir(fixtureDirectory, { withFileTypes: true }))
 if (!fixturePaths.length) throw new Error("No legal source snapshot fixtures were found.");
 
 const manifestById = new Map();
+const manifestByPath = new Map();
 for (const fixturePath of fixturePaths) {
   const manifest = await readJson(fixturePath);
   const result = await validateLegalSourceSnapshotManifest(manifest, { jurisdictionById, root });
@@ -28,7 +31,25 @@ for (const fixturePath of fixturePaths) {
   await verifyAetherPacketAttachmentBytes(packet, { root });
   if (manifestById.has(manifest.manifestId)) throw new Error(`Duplicate legal source manifest ID: ${manifest.manifestId}.`);
   manifestById.set(manifest.manifestId, manifest);
+  manifestByPath.set(fixturePath, manifest);
   console.log(`Validated ${result.manifestId}: ${result.snapshotCount} snapshot${result.snapshotCount === 1 ? "" : "s"}.`);
+  console.log(`Validated ${packet.packet.id}: ${packet.integrity.envelope_digest.value}.`);
+}
+
+const packDirectory = path.join(root, "research/legal/packs");
+const packPaths = (await readdir(packDirectory, { withFileTypes: true }))
+  .filter((entry) => entry.isFile() && entry.name.endsWith(".json"))
+  .map((entry) => path.posix.join("research/legal/packs", entry.name))
+  .sort();
+
+if (!packPaths.length) throw new Error("No legal source packs were found.");
+
+for (const packPath of packPaths) {
+  const pack = await readJson(packPath);
+  const result = await validateLegalSourcePack(pack, { jurisdictionById, manifestByPath, root });
+  const packet = await createAetherLegalSourcePackEvidencePacket(pack, aetherContractLock, { jurisdictionById, manifestByPath, packPath, root });
+  await verifyAetherPacketAttachmentBytes(packet, { root });
+  console.log(`Validated ${result.packId}: ${result.sourceCount} sources, ${result.citationCount} citations, ${result.evaluationCount} evaluations.`);
   console.log(`Validated ${packet.packet.id}: ${packet.integrity.envelope_digest.value}.`);
 }
 
