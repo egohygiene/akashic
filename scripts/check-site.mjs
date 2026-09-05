@@ -5,6 +5,7 @@ import { ATLAS_LOCATION_SCHEMA_VERSION, deriveAtlasLocationResources } from "./l
 import { loadLocales, localePagePath } from "./lib/i18n.mjs";
 import { validateResourceIdentities, validateResourceMetadata } from "./lib/resource-metadata.mjs";
 import { loadEvaluationFixture } from "./lib/search-evaluation.mjs";
+import { urlIdentity } from "./lib/url-identity.mjs";
 
 const root = process.cwd();
 const output = path.join(root, "dist");
@@ -104,7 +105,7 @@ for (const resource of atlas.resources) {
   if (resource.provenance.kind === "human-review" && (!resource.provenance.sourceUrl || !resource.provenance.reviewed || !resource.provenance.reviewedBy)) throw new Error(`Incomplete atlas human-review provenance: ${resource.associationId}`);
   if (!locations.has(resource.locationId)) throw new Error(`Atlas resource has unknown location: ${resource.url}`);
   new URL(resource.url);
-  const normalizedUrl = resource.url.toLocaleLowerCase().replace(/^https?:\/\/(?:www\.)?/, "").replace(/\/$/, "");
+  const normalizedUrl = urlIdentity(resource.url);
   if (atlasIdentityByUrl.has(normalizedUrl) && atlasIdentityByUrl.get(normalizedUrl) !== resource.id) throw new Error(`Atlas URL has conflicting resource IDs: ${resource.url}`);
   atlasIdentityByUrl.set(normalizedUrl, resource.id);
   if (atlasUrlByResourceId.has(resource.id) && atlasUrlByResourceId.get(resource.id) !== normalizedUrl) throw new Error(`Atlas resource ID has conflicting URLs: ${resource.id}`);
@@ -160,7 +161,7 @@ for (const category of catalog.categories) {
 }
 if (catalog.categories.filter((category) => category.guide).length < 3) throw new Error("Business, Travel, and Legal collection guides were not published.");
 
-const urls = catalog.resources.map((resource) => resource.url.toLocaleLowerCase().replace(/\/$/, ""));
+const urls = catalog.resources.map((resource) => urlIdentity(resource.url));
 if (new Set(urls).size !== urls.length) throw new Error("The catalog contains duplicate normalized URLs.");
 for (const resource of catalog.resources) {
   if (!resource.id || !["explicit", "derived"].includes(resource.idOrigin) || !Array.isArray(resource.aliases) || !resource.metadata || !resource.title || !resource.description || !resource.category || !resource.section || !resource.source || !Number.isInteger(resource.sourceLine) || resource.groupSlug === undefined) throw new Error(`Incomplete resource: ${resource.url}`);

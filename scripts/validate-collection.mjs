@@ -12,8 +12,9 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
-import { parseResourceEntry } from "./lib/catalog.mjs";
+import { parseResourceEntry } from "./lib/resource-parser.mjs";
 import { validateResourceIdentities } from "./lib/resource-metadata.mjs";
+import { urlIdentity } from "./lib/url-identity.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -203,11 +204,12 @@ function extractSection(content, heading) {
 
 function recordExternalEntry(title, url, source) {
   const lowerTitle = title.toLowerCase();
+  const normalizedUrl = urlIdentity(url);
 
-  if (allExternalUrls.has(url)) {
-    fail(`Duplicate URL in ${source} and ${allExternalUrls.get(url)}: ${url}`);
+  if (allExternalUrls.has(normalizedUrl)) {
+    fail(`Duplicate URL in ${source} and ${allExternalUrls.get(normalizedUrl)}: ${url}`);
   } else {
-    allExternalUrls.set(url, source);
+    allExternalUrls.set(normalizedUrl, source);
   }
 
   if (allTitles.has(lowerTitle)) {
