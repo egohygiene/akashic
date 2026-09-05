@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { urlIdentity } from "./url-identity.mjs";
 
 export const RESOURCE_METADATA_MARKER = "akashic-meta";
 
@@ -157,8 +158,5 @@ export function validateResourceIdentities(resources) {
 }
 
 export function normalizeIdentityUrl(value) {
-  const parsed = new URL(value);
-  parsed.hostname = parsed.hostname.toLocaleLowerCase("en-US").replace(/^www\./, "");
-  if (parsed.pathname !== "/") parsed.pathname = parsed.pathname.replace(/\/+$/, "");
-  return parsed.toString().replace(/^https?:\/\//, "").replace(/\/$/, "");
+  return urlIdentity(value);
 }
