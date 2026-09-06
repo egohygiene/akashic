@@ -1,4 +1,4 @@
-import { isIP } from "node:net";
+import { BlockList, isIP } from "node:net";
 
 const BROWSER_INTERNAL_SCHEMES = new Set([
   "about:",
@@ -41,34 +41,49 @@ const TRACKING_PARAMETER_PATTERNS = [
   /^ref_/i,
 ];
 
+const RESERVED_IPV4_ADDRESSES = new BlockList();
+for (const [network, prefix] of [
+  ["0.0.0.0", 8],
+  ["10.0.0.0", 8],
+  ["100.64.0.0", 10],
+  ["127.0.0.0", 8],
+  ["169.254.0.0", 16],
+  ["172.16.0.0", 12],
+  ["192.0.0.0", 24],
+  ["192.0.2.0", 24],
+  ["192.88.99.0", 24],
+  ["192.168.0.0", 16],
+  ["198.18.0.0", 15],
+  ["198.51.100.0", 24],
+  ["203.0.113.0", 24],
+  ["224.0.0.0", 4],
+  ["240.0.0.0", 4],
+]) RESERVED_IPV4_ADDRESSES.addSubnet(network, prefix, "ipv4");
+const RESERVED_IPV6_ADDRESSES = new BlockList();
+for (const [network, prefix] of [
+  ["::", 128],
+  ["::1", 128],
+  ["::ffff:0:0", 96],
+  ["64:ff9b::", 96],
+  ["100::", 64],
+  ["2001::", 32],
+  ["2001:2::", 48],
+  ["2001:10::", 28],
+  ["2001:20::", 28],
+  ["2001:db8::", 32],
+  ["2002::", 16],
+  ["fc00::", 7],
+  ["fe80::", 10],
+  ["ff00::", 8],
+]) RESERVED_IPV6_ADDRESSES.addSubnet(network, prefix, "ipv6");
+
 function isPrivateIpv4(hostname) {
-  const octets = hostname.split(".").map(Number);
-  if (octets.length !== 4 || octets.some((octet) => !Number.isInteger(octet) || octet < 0 || octet > 255)) return false;
-  const [first, second] = octets;
-  return first === 0
-    || first === 10
-    || first === 127
-    || (first === 169 && second === 254)
-    || (first === 172 && second >= 16 && second <= 31)
-    || (first === 100 && second >= 64 && second <= 127)
-    || (first === 192 && second === 0)
-    || (first === 192 && second === 168)
-    || (first === 198 && [18, 19].includes(second))
-    || (first === 198 && second === 51)
-    || (first === 203 && second === 0)
-    || first >= 224;
+  return RESERVED_IPV4_ADDRESSES.check(hostname, "ipv4");
 }
 
 function isPrivateIpv6(hostname) {
   const normalized = hostname.replace(/^\[|\]$/g, "").toLocaleLowerCase("en-US");
-  return normalized === "::"
-    || normalized === "::1"
-    || normalized.startsWith("fc")
-    || normalized.startsWith("fd")
-    || /^fe[89ab]/.test(normalized)
-    || normalized.startsWith("::ffff:127.")
-    || normalized.startsWith("::ffff:10.")
-    || normalized.startsWith("::ffff:192.168.");
+  return RESERVED_IPV6_ADDRESSES.check(normalized, "ipv6");
 }
 
 export function isPrivateNetworkHostname(value) {
