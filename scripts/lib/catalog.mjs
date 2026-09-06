@@ -1,4 +1,4 @@
-import { applyResourceIdentity, extractResourceMetadata } from "./resource-metadata.mjs";
+export { parseResourceEntry } from "./resource-parser.mjs";
 
 export const CATEGORY_IDENTITIES = Object.freeze({
   "awesome-abundance": { color: "#d1459f", glyph: "✦" },
@@ -52,36 +52,4 @@ export function parseRootCategories(markdown, identities = CATEGORY_IDENTITIES) 
     declaredCount: Number(match[5].replaceAll(",", "")),
     ...collectionIdentity(match[3], identities),
   }));
-}
-
-export function parseResourceEntry(line, { context = "resource entry", extractLeadingLabels = false } = {}) {
-  const entry = line.match(/^- \[([^\]]+)]\((https?:\/\/[^)]+)\) - (.+)$/);
-  if (!entry) return null;
-  const parsedMetadata = extractResourceMetadata(entry[3], context);
-  let description = parsedMetadata.description;
-  let accessLabels = [];
-  if (extractLeadingLabels) {
-    const labelBlock = description.match(/^\*\*([^*]+?)\.\*\*\s+(.+)$/);
-    if (labelBlock) {
-      accessLabels = labelBlock[1].split("·").map((label) => label.trim()).filter(Boolean);
-      description = labelBlock[2].trim();
-    }
-  }
-  return applyResourceIdentity({
-    title: entry[1].trim(),
-    url: entry[2].trim(),
-    description,
-    accessLabels,
-    metadata: parsedMetadata.metadata,
-  });
-}
-
-export function normalizeUrl(url) {
-  const parsed = new URL(url);
-  parsed.hash = "";
-  for (const parameter of [...parsed.searchParams.keys()]) {
-    if (/^(utm_|ref$|source$)/i.test(parameter)) parsed.searchParams.delete(parameter);
-  }
-  const normalizedPath = parsed.pathname === "/" ? "/" : parsed.pathname.replace(/\/+$/, "");
-  return `${parsed.hostname.replace(/^www\./, "").toLocaleLowerCase()}${parsed.port ? `:${parsed.port}` : ""}${normalizedPath}${parsed.search}`;
 }

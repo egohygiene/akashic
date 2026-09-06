@@ -1,14 +1,16 @@
 import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
-import { normalizeUrl, parseResourceEntry, parseRootCategories } from "./lib/catalog.mjs";
+import { parseRootCategories } from "./lib/catalog.mjs";
 import { atlasTopologyGeometryIds, deriveAtlasLocationResources, mergeAtlasLocationSources, validateAtlasApplicability, validateAtlasCountryRegistry, validateAtlasHierarchy, validateAtlasSubdivisionRegistry } from "./lib/atlas.mjs";
 import { validateAtlasJurisdictions } from "./lib/jurisdictions.mjs";
 import { validateJurisdictionSourceCoverage } from "./lib/jurisdiction-sources.mjs";
 import { parseRelatedPaths, parseSiteGuide } from "./lib/guide.mjs";
 import { loadLocales, localizeHtml } from "./lib/i18n.mjs";
-import { deriveResourceId, validateResourceIdentities } from "./lib/resource-metadata.mjs";
+import { validateResourceIdentities } from "./lib/resource-metadata.mjs";
+import { parseAtlasResourceEntry, parseResourceEntry } from "./lib/resource-parser.mjs";
 import { loadEvaluationFixture } from "./lib/search-evaluation.mjs";
+import { urlIdentity } from "./lib/url-identity.mjs";
 
 const root = process.cwd();
 const sourceDirectory = path.join(root, "site");
@@ -18,7 +20,6 @@ const atlasDirectory = path.join(root, "atlas");
 const searchEvaluationFile = path.join(root, "research", "search", "evaluations", "natural-language-v2.json");
 const fundingFile = path.join(root, ".github", "FUNDING.yml");
 const ROOT_GROUP_SLUG = "__root__";
-const ATLAS_ROLES = new Set(["resource", "index"]);
 const ATLAS_SUBDIVISION_TYPES = ["district", "state", "territory", "territory-group"];
 const FUNDING_PLACEHOLDER = "<!-- akashic-funding-badges -->";
 
@@ -142,29 +143,17 @@ function parseAtlasPlace(markdown, filePath) {
   if (!locationId) throw new Error(`Atlas place is missing atlas-location metadata: ${path.relative(root, filePath)}`);
   let section = "Local resources";
   const resources = [];
-  for (const line of markdown.split("\n")) {
+  for (const [lineIndex, line] of markdown.split("\n").entries()) {
     const heading = line.match(/^##\s+(.+)$/);
     if (heading) section = heading[1].trim();
-    const entry = line.match(/^- \[([^\]]+)]\((https?:\/\/[^)]+)\) - (.+)$/);
-    if (!entry) continue;
-    const url = entry[2].trim();
-    const roleMatch = entry[3].match(/\s*<!--\s*atlas-role:\s*([a-z-]+)\s*-->\s*$/);
-    const role = roleMatch?.[1] || "resource";
-    if (!ATLAS_ROLES.has(role)) throw new Error(`Unsupported atlas role ${role} in ${path.relative(root, filePath)}.`);
-    const id = `atlas-${locationId}-${deriveResourceId(entry[1].trim())}`;
     const source = path.relative(root, filePath).split(path.sep).join("/");
+    const entry = parseAtlasResourceEntry(line, { context: `${source}:${lineIndex + 1}`, locationId });
+    if (!entry) continue;
     resources.push({
-      id,
-      idOrigin: "derived",
-      associationId: `${locationId}:${id}`,
-      aliases: [],
-      metadata: {},
-      title: entry[1].trim(),
-      url,
-      description: roleMatch ? entry[3].slice(0, roleMatch.index).trim() : entry[3].trim(),
-      domain: new URL(url).hostname.replace(/^www\./, ""),
+      ...entry,
+      associationId: `${locationId}:${entry.id}`,
+      domain: new URL(entry.url).hostname.replace(/^www\./, ""),
       section,
-      role,
       relationship: "specific",
       locationId,
       source,
@@ -255,12 +244,12 @@ async function buildAtlas(catalogResources) {
 
   const placeUrls = new Set();
   for (const resource of resources) {
-    const key = normalizeUrl(resource.url);
+    const key = urlIdentity(resource.url);
     if (placeUrls.has(key)) throw new Error(`Duplicate atlas URL: ${resource.url}`);
     placeUrls.add(key);
   }
-  const catalogUrls = new Set(catalogResources.map((resource) => normalizeUrl(resource.url)));
-  const duplicatedCatalogUrl = resources.find((resource) => catalogUrls.has(normalizeUrl(resource.url)));
+  const catalogUrls = new Set(catalogResources.map((resource) => urlIdentity(resource.url)));
+  const duplicatedCatalogUrl = resources.find((resource) => catalogUrls.has(urlIdentity(resource.url)));
   if (duplicatedCatalogUrl) throw new Error(`Atlas resource already belongs in the main catalog; reference it from atlas/applicability.json instead: ${duplicatedCatalogUrl.url}`);
 
   const catalogResourceById = new Map(catalogResources.map((resource) => [resource.id, resource]));
@@ -269,7 +258,7 @@ async function buildAtlas(catalogResources) {
   const legacyCatalogResourcesByLocation = new Map();
   for (const association of associations) {
     const catalogResource = catalogResourceById.get(association.resourceId);
-    if (placeUrls.has(normalizeUrl(catalogResource.url))) throw new Error(`Atlas place resource duplicates a main-catalog association: ${association.resourceId}`);
+    if (placeUrls.has(urlIdentity(catalogResource.url))) throw new Error(`Atlas place resource duplicates a main-catalog association: ${association.resourceId}`);
     const legacyReference = { resourceId: association.resourceId, section: association.section };
     if (association.role !== "resource") legacyReference.role = association.role;
     legacyCatalogResourcesByLocation.set(association.locationId, [...(legacyCatalogResourcesByLocation.get(association.locationId) || []), legacyReference]);
@@ -300,7 +289,7 @@ async function buildAtlas(catalogResources) {
   for (const resource of resources) {
     if (associationIds.has(resource.associationId)) throw new Error(`Duplicate Atlas association ID: ${resource.associationId}`);
     associationIds.add(resource.associationId);
-    const normalizedUrl = normalizeUrl(resource.url);
+    const normalizedUrl = urlIdentity(resource.url);
     if (resourceUrlById.has(resource.id) && resourceUrlById.get(resource.id) !== normalizedUrl) throw new Error(`Atlas resource ID points to multiple URLs: ${resource.id}`);
     resourceUrlById.set(resource.id, normalizedUrl);
   }

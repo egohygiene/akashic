@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { collectionIdentity, normalizeUrl, parseResourceEntry, parseRootCategories } from "../scripts/lib/catalog.mjs";
+import { collectionIdentity, parseRootCategories } from "../scripts/lib/catalog.mjs";
+import { parseResourceEntry } from "../scripts/lib/resource-parser.mjs";
 
 test("parses a root collection only when its visual identity is declared", () => {
   const markdown = "- [Business](lists/business/README.md) - Practical guidance. **1,234 resources.**";
@@ -32,12 +33,4 @@ test("extracts structured access labels from the creative-tools convention", () 
   });
   assert.equal(parseResourceEntry(line).description, "**Open · Browser.** Edits audio without installation.");
   assert.equal(parseResourceEntry("not a resource"), null);
-});
-
-test("normalizes URL identity without erasing meaningful query parameters", () => {
-  assert.equal(
-    normalizeUrl("https://www.Example.com/path/?utm_source=mail&lang=en#details"),
-    "example.com/path?lang=en",
-  );
-  assert.equal(normalizeUrl("https://example.com/"), "example.com/");
 });

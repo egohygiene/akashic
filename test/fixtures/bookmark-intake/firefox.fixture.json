@@ -1,0 +1,18 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "title": "MDN URL API",
+          "type": "text/x-moz-place",
+          "uri": "https://developer.mozilla.org/en-US/docs/Web/API/URL?utm_medium=bookmark",
+          "tags": "web, reference"
+        }
+      ],
+      "title": "Reference",
+      "type": "text/x-moz-place-container"
+    }
+  ],
+  "title": "root",
+  "type": "text/x-moz-place-container"
+}

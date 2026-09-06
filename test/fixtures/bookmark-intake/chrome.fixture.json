@@ -1,0 +1,23 @@
+{
+  "checksum": "fixture",
+  "roots": {
+    "bookmark_bar": {
+      "children": [
+        {
+          "children": [
+            {
+              "name": "Akashic",
+              "type": "url",
+              "url": "https://akashic.egohygiene.io/?utm_campaign=test"
+            }
+          ],
+          "name": "Projects",
+          "type": "folder"
+        }
+      ],
+      "name": "Bookmarks bar",
+      "type": "folder"
+    }
+  },
+  "version": 1
+}

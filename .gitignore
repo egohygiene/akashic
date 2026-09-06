@@ -36,3 +36,10 @@ htmlcov/
 .env
 .env.*
 !.env.example
+
+# Private bookmark intake and local review reports
+/.akashic-local/
+/bookmark-intake/
+/Bookmarks
+/bookmarks*.html
+/bookmarks*.json
