@@ -124,6 +124,9 @@ function indexResource(index, resource) {
     id: resource.id,
     title: resource.title,
     url: resource.url,
+    aliases: resource.aliases || [],
+    description: resource.description,
+    metadata: resource.metadata || {},
     source: resource.source,
     kind: resource.kind,
   };
@@ -180,7 +183,8 @@ function conciseMatches(matches) {
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
-  }).sort((left, right) => left.source.localeCompare(right.source) || left.title.localeCompare(right.title)).slice(0, 5);
+  }).sort((left, right) => left.source.localeCompare(right.source) || left.title.localeCompare(right.title)).slice(0, 5)
+    .map(({ id, title, url, source, kind }) => ({ id, title, url, source, kind }));
 }
 
 function classifyCandidate(bookmark, inspected, index, importedByIdentity) {
@@ -209,12 +213,17 @@ function countBy(values, selector) {
     .sort(([left], [right]) => left.localeCompare(right)));
 }
 
-function repositoryIndexDigest(index) {
-  const snapshot = [
-    ...[...index.currentByIdentity.entries()].map(([identity, matches]) => ["current", identity, matches]),
-    ...[...index.aliasByIdentity.entries()].map(([identity, matches]) => ["alias", identity, matches]),
-  ].map(([role, identity, matches]) => [role, identity, matches.map((match) => `${match.kind}:${match.id}:${match.source}`).sort()])
-    .sort(([leftRole, leftIdentity], [rightRole, rightIdentity]) => leftRole.localeCompare(rightRole) || leftIdentity.localeCompare(rightIdentity));
+export function repositoryIndexDigest(index) {
+  const snapshot = index.resources.map((resource) => ({
+    id: resource.id,
+    title: resource.title,
+    url: resource.url,
+    aliases: resource.aliases,
+    description: resource.description,
+    metadata: resource.metadata,
+    source: resource.source,
+    kind: resource.kind,
+  })).sort((left, right) => left.kind.localeCompare(right.kind) || left.source.localeCompare(right.source) || left.id.localeCompare(right.id));
   return digest(JSON.stringify(snapshot));
 }
 
