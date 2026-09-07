@@ -1,0 +1,102 @@
+name: Freshness observations
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/freshness.yml"
+      - "atlas/places/**"
+      - "lists/**"
+      - "scripts/lib/bookmark-intake.mjs"
+      - "scripts/lib/freshness-scanner.mjs"
+      - "scripts/lib/freshness.mjs"
+      - "scripts/lib/url-identity.mjs"
+      - "scripts/scan-freshness.mjs"
+  schedule:
+    - cron: "17 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "freshness-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}"
+  cancel-in-progress: true
+
+jobs:
+  changed-links:
+    name: Observe changed resource entries
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 20
+          package-manager-cache: false
+
+      - name: Observe changed resource entries
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/scan-freshness.mjs \
+            --changed-since "${BASE_SHA}" \
+            --output ".akashic-local/freshness/observations/pull-request-${{ github.event.pull_request.number }}.json"
+
+      - name: Upload observations for human review
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: "freshness-pull-request-${{ github.event.pull_request.number }}"
+          path: ".akashic-local/freshness/observations/*.json"
+          if-no-files-found: ignore
+          retention-days: 14
+
+  scheduled-shards:
+    name: Observe catalog shard ${{ matrix.shard }}
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 20
+          package-manager-cache: false
+
+      - name: Observe catalog shard
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/scan-freshness.mjs \
+            --shard-index "${{ matrix.shard }}" \
+            --shard-count 16 \
+            --output ".akashic-local/freshness/observations/shard-${{ matrix.shard }}.json"
+
+      - name: Upload observations for human review
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: "freshness-shard-${{ matrix.shard }}"
+          path: ".akashic-local/freshness/observations/*.json"
+          if-no-files-found: error
+          retention-days: 14

@@ -29,9 +29,10 @@ test("bookmark URL inspection rejects unsafe and private URL classes", () => {
 });
 
 test("private-network detection covers local IPv4 and IPv6 ranges", () => {
-  for (const hostname of ["localhost", "intranet", "service.internal", "10.1.2.3", "100.64.1.2", "172.16.1.2", "192.168.1.1", "::1", "fd00::1", "fe80::1"]) {
+  for (const hostname of ["localhost", "intranet", "service.internal", "10.1.2.3", "100.64.1.2", "172.16.1.2", "192.168.1.1", "::1", "2001:db8::1", "fd00::1", "fe80::1"]) {
     assert.equal(isPrivateNetworkHostname(hostname), true, hostname);
   }
   assert.equal(isPrivateNetworkHostname("example.com"), false);
   assert.equal(isPrivateNetworkHostname("8.8.8.8"), false);
+  assert.equal(isPrivateNetworkHostname("2606:4700:4700::1111"), false);
 });
