@@ -160,6 +160,7 @@ These services combine a shopper-facing marketplace with production and artist r
 - [CGTrader](https://www.cgtrader.com/) - Marketplace for commercial and 3D-printable models where designers can sell assets or offer custom 3D services.
 - [Creative Market](https://creativemarket.com/about) - Marketplace where independent creators sell fonts, templates, graphics, themes, photos, and other licensed digital assets.
 - [Envato Market](https://market.envato.com/) - Network of marketplaces for themes, code, video, audio, graphics, and 3D assets with category-specific review and author fees.
+- [Estante](https://estante.store/) - Storefront for selling digital files in Latin America with local-currency checkout, instalment payments, and automatic delivery after purchase.
 - [Fab](https://www.fab.com/) - Epic Games marketplace for game-engine, real-time, 3D, and creative assets with publisher eligibility and license options.
 - [Lemon Squeezy](https://www.lemonsqueezy.com/) - Merchant-of-record storefront and checkout for software and digital goods, handling supported tax and payment operations for per-sale fees.
 - [Memberful](https://memberful.com/) - Paid membership and subscription platform for websites, newsletters, podcasts, downloads, and private communities.
