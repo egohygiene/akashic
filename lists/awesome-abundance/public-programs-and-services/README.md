@@ -94,6 +94,8 @@ Use [Family, Caregiving, and Aging](../../family-caregiving-and-aging/README.md#
 
 ## Disaster and Safety Support
 
+For a household plan, live-instruction boundary, offline essentials, and recovery steps, use the [emergency preparedness and recovery guide](../../../docs/emergency-preparedness-and-recovery.md). Confirm the current disaster and available assistance before applying.
+
 - [DisasterAssistance.gov](https://www.disasterassistance.gov/) - Official federal portal for checking disaster assistance, completing an application, uploading documents, and monitoring a case.
 - [FEMA Disaster Recovery Center Locator](https://egateway.fema.gov/ESF6/DRCLocator) - Finds temporary in-person centers where disaster survivors can receive free application help and connect with agencies and nonprofits.
 - [National Domestic Violence Hotline](https://www.thehotline.org/) - Free confidential call, chat, and text support plus safety-planning and local-service referrals for people affected by relationship abuse.

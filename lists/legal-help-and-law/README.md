@@ -573,6 +573,8 @@ Emergency response, violation reporting, permitting, public comment, administrat
 
 ### Disaster recovery and legal help
 
+For alert, safety, documentation, insurance, and unmet-needs steps before a legal issue is identified, use the [emergency preparedness and recovery guide](../../docs/emergency-preparedness-and-recovery.md). Check the applicable notice and deadline for an appeal or dispute here.
+
 - [Legal Aid Disaster Resource Center](https://www.ladrc.org/) - LSC-supported disaster legal-rights information, toolkits, training, and local-help pathways for survivors and advocates; disaster activation and legal-aid intake vary.
 - [Disaster Unemployment Assistance](https://oui.doleta.gov/unemploy/disaster.asp) - Official federal-state benefit framework for eligible workers and self-employed people whose work is affected by a declared disaster; application windows and state administration apply.
 - [FEMA Disaster Legal Services](https://www.fema.gov/assistance/individual/disaster-survivors/legal-services) - Free help for qualifying low-income survivors of covered federally declared disasters in non-fee-generating matters; disaster activation and subject scope vary.
