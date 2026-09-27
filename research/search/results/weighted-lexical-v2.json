@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "suite": "akashic-natural-language-v1",
   "searchAlgorithm": "weighted-lexical-v2",
-  "catalogResourceCount": 5372,
+  "catalogResourceCount": 5376,
   "inputs": {
-    "catalogSha256": "d4f9507bdad3e7b4b6367981b4f8181456cb55c344cf535ace536c58dce10009",
+    "catalogSha256": "063e6e7f751b74795bd20c99f3dd45ef5882d4549674538b9412730e8ae112bd",
     "fixtureSha256": "f12c8aefc8f59b3f34e574c2529e1fcf2db315edaa99ec04693091f84b2e200a",
     "implementationSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669"
   },
@@ -34,7 +34,7 @@
       "id": "food-today",
       "query": "I need food today",
       "kind": "natural-language",
-      "resultCount": 113,
+      "resultCount": 114,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -319,7 +319,7 @@
         "subqueries": [
           {
             "query": "need food today",
-            "resultCount": 113,
+            "resultCount": 114,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -330,7 +330,7 @@
           },
           {
             "query": "food today",
-            "resultCount": 170,
+            "resultCount": 171,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -636,7 +636,7 @@
       "id": "free-music-production",
       "query": "How can I make music without paying Adobe or another subscription",
       "kind": "natural-language",
-      "resultCount": 297,
+      "resultCount": 298,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -904,7 +904,7 @@
         "subqueries": [
           {
             "query": "make music without paying adobe subscription",
-            "resultCount": 297,
+            "resultCount": 298,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -915,7 +915,7 @@
           },
           {
             "query": "free creative tools",
-            "resultCount": 509,
+            "resultCount": 510,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -1293,7 +1293,7 @@
       "id": "court-paper",
       "query": "I received a court paper and do not know what it means",
       "kind": "natural-language",
-      "resultCount": 284,
+      "resultCount": 285,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -1580,7 +1580,7 @@
         "subqueries": [
           {
             "query": "received court paper not know means",
-            "resultCount": 284,
+            "resultCount": 285,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -1591,7 +1591,7 @@
           },
           {
             "query": "court paper legal help",
-            "resultCount": 393,
+            "resultCount": 394,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -1607,7 +1607,7 @@
       "id": "safe-travel-without-car",
       "query": "How can I travel somewhere safe without a car",
       "kind": "natural-language",
-      "resultCount": 446,
+      "resultCount": 447,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -1872,7 +1872,7 @@
           },
           {
             "query": "travel without a car",
-            "resultCount": 443,
+            "resultCount": 444,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -1888,7 +1888,7 @@
       "id": "subscription-old-laptop",
       "query": "What can replace this subscription on an old laptop",
       "kind": "natural-language",
-      "resultCount": 81,
+      "resultCount": 82,
       "relevantCount": 2,
       "relevantFoundAtK": 2,
       "recallAtK": 1,
@@ -2105,7 +2105,7 @@
         "subqueries": [
           {
             "query": "replace subscription old laptop",
-            "resultCount": 81,
+            "resultCount": 82,
             "candidateCount": 10,
             "relevantFoundAtK": 2,
             "recallAtK": 1,
@@ -2143,7 +2143,7 @@
       "id": "vpn-renewal-no-income",
       "query": "I cannot afford my VPN renewal and have no income",
       "kind": "natural-language",
-      "resultCount": 330,
+      "resultCount": 332,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -2419,7 +2419,7 @@
         "subqueries": [
           {
             "query": "cannot afford vpn renewal no income",
-            "resultCount": 330,
+            "resultCount": 332,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,

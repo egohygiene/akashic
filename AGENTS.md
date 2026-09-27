@@ -17,7 +17,7 @@ Protect both products. A change is incomplete when the Markdown is correct but t
 - The root `README.md` is the canonical top-level collection index and declared-count ledger.
 - A nested collection hub, currently `lists/awesome-abundance/README.md`, is the canonical index and count ledger for its child lists.
 - Files under `site/` are the canonical portal source.
-- `docs/civic/ma-rmv.md` is the canonical civic-task chapter; `schemas/civic-task-v1.schema.json` and `docs/civic-tasks.md` define its derived record and privacy/freshness contracts. Keep task facts in Markdown, never in generated HTML or a second authored catalog.
+- Task chapters registered in `scripts/lib/civic-tasks.mjs` under `docs/civic/` are canonical; `schemas/civic-task-v1.schema.json` and `docs/civic-tasks.md` define its derived record and privacy/freshness contracts. Keep task facts in Markdown, never in generated HTML or a second authored catalog.
 - `site/i18n/locales.json` and `site/i18n/*.json` are the canonical locale registry and interface message catalogs.
 - `atlas/locations.json`, `atlas/locations/*.json`, `atlas/identifiers/*.json`, `atlas/jurisdictions.json`, `atlas/jurisdiction-sources.json`, `atlas/applicability.json`, and `atlas/places/*.md` are the canonical Atlas hierarchy manifest, country location sources, identifiers, legal-jurisdiction model, jurisdiction-source coverage, main-catalog associations, and place resources.
 - Files under `scripts/` define collection validation and portal generation.

@@ -2,6 +2,10 @@ import { readFileSync } from "node:fs";
 import { renderGuideMarkdown } from "./guide.mjs";
 
 export const CIVIC_SOURCE = "docs/civic/ma-rmv.md";
+export const CIVIC_CHAPTERS = Object.freeze([
+  Object.freeze({ source: CIVIC_SOURCE, page: "civic.html", data: "civic-tasks.json", checklist: "i-moved-checklist" }),
+  Object.freeze({ source: "docs/civic/us-identity.md", page: "identity.html", data: "identity-tasks.json", checklist: "paperwork-checklist" }),
+]);
 export const CIVIC_FIELDS = Object.freeze({
   first_check: "First check",
   record_change: "Record change",
@@ -66,7 +70,14 @@ function validateShape(value, definition, context) {
   }
 }
 
-export function validateCivicTasks(tasks, { locationIds } = {}) {
+function chapterConfig(source) {
+  const config = CIVIC_CHAPTERS.find((chapter) => chapter.source === source);
+  requireCondition(config, `unknown chapter source ${source}.`);
+  return config;
+}
+
+export function validateCivicTasks(tasks, { locationIds, source = CIVIC_SOURCE } = {}) {
+  chapterConfig(source);
   requireCondition(Array.isArray(tasks) && tasks.length > 0, "no task cards.");
   const byId = new Map();
   for (const task of tasks) {
@@ -83,7 +94,7 @@ export function validateCivicTasks(tasks, { locationIds } = {}) {
     const expectedSources = sourceUrls(Object.values(task.fields).join("\n"));
     requireCondition(JSON.stringify(task.source_urls) === JSON.stringify(expectedSources), `${task.id}: source URLs must be derived from the card.`);
     // Also reject unsafe Markdown links even when validating a generated record.
-    Object.values(task.fields).forEach((text) => renderGuideMarkdown(text, CIVIC_SOURCE));
+    Object.values(task.fields).forEach((text) => renderGuideMarkdown(text, source));
     byId.set(task.id, task);
   }
   for (const task of tasks) {
@@ -104,6 +115,8 @@ export function validateCivicTasks(tasks, { locationIds } = {}) {
 }
 
 export function parseCivicMarkdown(markdown, options = {}) {
+  const source = options.source ?? CIVIC_SOURCE;
+  const config = chapterConfig(source);
   const blocks = [...markdown.matchAll(/^<!-- civic-task: (.+) -->\n([\s\S]*?)^<!-- civic-task:end -->\s*$/gm)];
   const endCount = (markdown.match(/<!-- civic-task:end -->/g) || []).length;
   const startCount = (markdown.match(/<!-- civic-task:/g) || []).length - endCount;
@@ -140,29 +153,32 @@ export function parseCivicMarkdown(markdown, options = {}) {
     ...[...introduction.matchAll(/^## (.+)$/gm)].map((match) => slug(match[1])),
   ]);
   for (const [, target] of markdown.matchAll(/\]\(#([^)]+)\)/g)) requireCondition(anchors.has(target), `broken local link #${target}.`);
-  return { schemaVersion: 1, source: CIVIC_SOURCE, introduction, tasks };
+  for (const id of ["start-with-intent", config.checklist]) requireCondition(anchors.has(id), `missing chapter section #${id}.`);
+  return { schemaVersion: 1, source, introduction, tasks };
 }
 
-function renderLocalMarkdown(markdown) {
-  const html = renderGuideMarkdown(markdown, CIVIC_SOURCE);
-  return html.replaceAll(`href="${BLOB_ROOT}${CIVIC_SOURCE}#`, 'href="#')
+function renderLocalMarkdown(markdown, source) {
+  const html = renderGuideMarkdown(markdown, source);
+  return html.replaceAll(`href="${BLOB_ROOT}${source}#`, 'href="#')
     .replace(/<a href="(#[^"]+)" target="_blank" rel="noreferrer">([\s\S]*?)<span class="sr-only"> \(opens in a new tab\)<\/span><\/a>/g, '<a href="$1">$2</a>');
 }
 
 export function renderCivicHub(chapter) {
-  validateCivicTasks(chapter.tasks);
+  const config = chapterConfig(chapter.source);
+  validateCivicTasks(chapter.tasks, { source: chapter.source });
+  const render = (markdown) => renderLocalMarkdown(markdown, chapter.source);
   const introduction = chapter.introduction.replace(/^# .+\n+/, "");
   const sections = introduction.split(/(?=^## )/m).map((section) => {
     const heading = section.match(/^## (.+)\n/);
     return heading
-      ? `<section id="${slug(heading[1])}"><h2>${escapeHtml(heading[1])}</h2>${renderLocalMarkdown(section.slice(heading[0].length))}</section>`
-      : renderLocalMarkdown(section);
+      ? `<section id="${slug(heading[1])}"${slug(heading[1]) === config.checklist ? ' class="civic-checklist"' : ""}><h2>${escapeHtml(heading[1])}</h2>${render(section.slice(heading[0].length))}</section>`
+      : render(section);
   }).join("");
   const byId = new Map(chapter.tasks.map((task) => [task.id, task]));
   const cards = chapter.tasks.map((task) => {
     const relation = (key, label) => task[key].length ? `<p><strong>${label}:</strong> ${task[key].map((id) => `<a href="#${id}">${escapeHtml(byId.get(id).title)}</a>`).join(" · ")}</p>` : "";
     const relations = Object.entries(RELATIONS).filter(([key]) => key !== "prerequisites").map(([key, label]) => relation(key, label)).join("");
-    const row = (key) => `<dt>${CIVIC_FIELDS[key]}</dt><dd>${renderLocalMarkdown(task.fields[key])}</dd>`;
+    const row = (key) => `<dt>${CIVIC_FIELDS[key]}</dt><dd>${render(task.fields[key])}</dd>`;
     const essentials = ["fee", "timing"].map(row).join("");
     const fields = Object.keys(CIVIC_FIELDS).filter((key) => !["first_check", "fee", "timing"].includes(key)).map(row).join("");
     const review = task.human_review === "pending" ? "Human review pending" : `Human reviewed ${escapeHtml(task.human_reviewed_at)}`;
@@ -171,14 +187,14 @@ export function renderCivicHub(chapter) {
 <p class="civic-intent">${task.intents.map(escapeHtml).join(" · ")}</p>
 <p class="civic-provenance">${escapeHtml(task.agency)} · ${escapeHtml(task.jurisdiction)} · Sources checked <time>${task.last_verified_at}</time> · ${review} · Review due <time>${task.review_due_at}</time></p>
 <p class="civic-overdue" hidden>Review overdue. Recheck current official instructions before acting.</p>
-<div class="civic-next"><strong>First check</strong>${renderLocalMarkdown(task.fields.first_check)}</div>
+<div class="civic-next"><strong>First check</strong>${render(task.fields.first_check)}</div>
 <dl class="civic-essentials">${essentials}</dl>${relation("prerequisites", RELATIONS.prerequisites)}
 <details open><summary>Steps and completion</summary><p><strong>Official transaction:</strong> ${escapeHtml(task.transaction)}</p><p><strong>Channels:</strong> ${task.channels.map(escapeHtml).join(", ")}. Check restrictions below.</p><dl>${fields}</dl>${relations}</details>
 <div class="civic-progress" hidden><label for="progress-${task.id}">My reminder for ${escapeHtml(task.title.toLowerCase())}</label><select id="progress-${task.id}" autocomplete="off"><option value="not-started">Not started</option><option value="waiting">Waiting</option><option value="blocked">Blocked</option><option value="done">Done</option></select><span class="civic-print-state">My reminder: <output>Not started</output></span></div>
 <a class="civic-back" href="#start-with-intent">Back to task router</a>
 </article>`;
   }).join("\n");
-  return `${sections}<section aria-label="RMV task cards">${cards}</section>`;
+  return `${sections}<section aria-label="Civic task cards">${cards}</section>`;
 }
 
 export function buildCivicPage(template, chapter) {

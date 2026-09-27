@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "suite": "akashic-natural-language-v2",
   "searchAlgorithm": "weighted-lexical-v2",
-  "catalogResourceCount": 5372,
+  "catalogResourceCount": 5376,
   "inputs": {
-    "catalogSha256": "d4f9507bdad3e7b4b6367981b4f8181456cb55c344cf535ace536c58dce10009",
+    "catalogSha256": "063e6e7f751b74795bd20c99f3dd45ef5882d4549674538b9412730e8ae112bd",
     "fixtureSha256": "e62602a56190de45ad27adf4b9c4d0ed852c144d9304aab088b18bc4c06118fa",
     "implementationSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669"
   },
@@ -101,7 +101,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 113,
+      "resultCount": 114,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -417,7 +417,7 @@
         "subqueries": [
           {
             "query": "need food today",
-            "resultCount": 113,
+            "resultCount": 114,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -428,7 +428,7 @@
           },
           {
             "query": "food today",
-            "resultCount": 170,
+            "resultCount": 171,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -791,7 +791,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 297,
+      "resultCount": 298,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -1090,7 +1090,7 @@
         "subqueries": [
           {
             "query": "make music without paying adobe subscription",
-            "resultCount": 297,
+            "resultCount": 298,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -1101,7 +1101,7 @@
           },
           {
             "query": "free creative tools",
-            "resultCount": 509,
+            "resultCount": 510,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -1533,7 +1533,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 284,
+      "resultCount": 285,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -1851,7 +1851,7 @@
         "subqueries": [
           {
             "query": "received court paper not know means",
-            "resultCount": 284,
+            "resultCount": 285,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -1862,7 +1862,7 @@
           },
           {
             "query": "court paper legal help",
-            "resultCount": 393,
+            "resultCount": 394,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -1891,7 +1891,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 446,
+      "resultCount": 447,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -2187,7 +2187,7 @@
           },
           {
             "query": "travel without a car",
-            "resultCount": 443,
+            "resultCount": 444,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -2215,7 +2215,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 81,
+      "resultCount": 82,
       "relevantCount": 2,
       "relevantFoundAtK": 2,
       "recallAtK": 1,
@@ -2463,7 +2463,7 @@
         "subqueries": [
           {
             "query": "replace subscription old laptop",
-            "resultCount": 81,
+            "resultCount": 82,
             "candidateCount": 10,
             "relevantFoundAtK": 2,
             "recallAtK": 1,
@@ -2513,7 +2513,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 330,
+      "resultCount": 332,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -2820,7 +2820,7 @@
         "subqueries": [
           {
             "query": "cannot afford vpn renewal no income",
-            "resultCount": 330,
+            "resultCount": 332,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -6567,7 +6567,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 303,
+      "resultCount": 304,
       "relevantCount": 2,
       "relevantFoundAtK": 0,
       "recallAtK": 0,
@@ -6576,7 +6576,7 @@
       "firstRelevantRank": 16,
       "relevantRanks": [
         16,
-        302
+        303
       ],
       "knownIrrelevantCount": 1,
       "knownIrrelevantFoundAtK": 1,
@@ -6856,7 +6856,7 @@
         "subqueries": [
           {
             "query": "need child care cannot afford",
-            "resultCount": 303,
+            "resultCount": 304,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -6907,7 +6907,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 222,
+      "resultCount": 223,
       "relevantCount": 1,
       "relevantFoundAtK": 0,
       "recallAtK": 0,
@@ -7181,7 +7181,7 @@
         "subqueries": [
           {
             "query": "need wheelchair cannot afford one",
-            "resultCount": 222,
+            "resultCount": 223,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -7203,7 +7203,7 @@
           },
           {
             "query": "help with no income free wheelchair accessible",
-            "resultCount": 721,
+            "resultCount": 723,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,

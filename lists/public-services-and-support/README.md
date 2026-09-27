@@ -23,6 +23,7 @@ A practical order is to stabilize essentials and benefits, recover money already
 - [Debt, Finance, and Taxes](#debt-finance-and-taxes)
 - [Paid Research and Flexible Income](#paid-research-and-flexible-income)
 - [Employment and Education](#employment-and-education)
+- [Identity Documents and Civic Paperwork](#identity-documents-and-civic-paperwork)
 - [Massachusetts RMV and Civic Paperwork](#massachusetts-rmv-and-civic-paperwork)
 - [Government, Civics, and Culture](#government-civics-and-culture)
 - [Health Care and Medication](#health-care-and-medication)
@@ -115,6 +116,10 @@ For household alerts, evacuation preparation, and recovery, use the separate [Em
 
 **I moved, lost my ID, or need a vehicle transaction:** Use the [RMV task hub and printable moving checklist](https://akashic.egohygiene.io/civic.html), also available as [canonical Markdown](../../docs/civic/ma-rmv.md). Start with the record on file, then decide whether a new card or document is needed. The hub separates license and Mass ID replacement, renewals, REAL ID, vehicle/title tasks, disability parking, reinstatement, and permit/road-test routes. Sources checked **2026-09-27**; human review is pending. Check current agency instructions before submitting or paying, and keep personal identifiers and submitted forms out of public reports.
 
+### U.S. identity documents and civic paperwork
+
+**I need a certificate, passport, Social Security card/name update, or voter-registration help:** Use the [identity task guide and printable paperwork checklist](https://akashic.egohygiene.io/identity.html), also available as [canonical Markdown](../../docs/civic/us-identity.md). Choose the responsible office and transaction, prepare evidence, submit yourself, save confirmation privately, and track the actual result. State/local requirements vary; a receipt does not establish completion. Sources checked **2026-09-27**; human review is pending.
+
 <!-- site-guide:end -->
 
 - [AmeriCorps Member Benefits](https://www.americorps.gov/members-volunteers/your-benefits) - Official overview of living allowances, education awards, loan relief, training, health coverage, and child-care support that may accompany eligible AmeriCorps service terms.
@@ -197,6 +202,15 @@ For verified creditor-hardship guidance, student-loan options, tax preparation, 
 - [USA.gov Student Financial Aid](https://www.usa.gov/student-aid) - Official guide to FAFSA, federal grants, loans, work-study, scholarships, and avoiding student-aid scams.
 - [USA.gov Workers' Compensation](https://www.usa.gov/workers-compensation) - Official guide to federal and state workers' compensation programs for job-related injuries and occupational illness.
 - [USAGov Job Training](https://www.usa.gov/job-training) - Federal guide to free and subsidized job training, American Job Centers, apprenticeships, and programs for eligible workers.
+
+## Identity Documents and Civic Paperwork
+
+Use the [ten-task guide](../../docs/civic/us-identity.md) to separate a record change from a new document. These public references are free to read without an account; agency transactions may require identity verification, an account or appointment, and document fees. Existing [passport resources](../travel-and-mobility/README.md), [Vote.gov](../awesome-abundance/culture-travel-and-participation/README.md#volunteering-and-civic-participation), [election offices](../legal-help-and-law/README.md#voting-government-records-and-public-accountability), and [death-certificate/survivor-benefit routes](#after-a-death-certificates-and-survivor-benefits) remain in their canonical homes.
+
+- [CDC Where to Write for Vital Records](https://www.cdc.gov/nchs/w2w/index.htm) - Official directory of state and territorial offices for birth, death, marriage, and divorce records; choose where the event occurred and confirm requester eligibility, certified-copy options, fees, processing, and accessible request methods with the office. <!-- akashic-meta: {"id":"cdc-vital-records-directory","resourceType":"directory","role":"discovery","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","privacy"],"linkStatus":"ok","linkChecked":"2026-09-27","programChecked":"2026-09-27"} -->
+- [SSA Change Name with Social Security](https://www.ssa.gov/life-events/change-name) - Official public instructions for changing the name on a Social Security record and requesting a corrected card when eligible; SSA charges no card fee, while legal evidence, online eligibility, appointments, and status-specific limits vary. <!-- akashic-meta: {"id":"ssa-change-name","resourceType":"website","role":"reference","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","privacy"],"linkStatus":"ok","linkChecked":"2026-09-27","programChecked":"2026-09-27"} -->
+- [SSA Replace Social Security Card](https://www.ssa.gov/number-card/replace-card) - Official public replacement-card guidance and eligibility questions; replacement is free, a physical card is not always needed, and online completion or an office appointment depends on identity verification and eligibility. <!-- akashic-meta: {"id":"ssa-replace-card","resourceType":"website","role":"reference","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","privacy"],"linkStatus":"ok","linkChecked":"2026-09-27","programChecked":"2026-09-27"} -->
+- [USA.gov Vital Records and ID Cards](https://www.usa.gov/request-documents) - Official discovery guide for birth, marriage, death, and divorce records and government identification; distinguishes records and directs readers to issuing agencies, whose fees, evidence rules, and online or offline services vary. <!-- akashic-meta: {"id":"usagov-vital-records-and-id","resourceType":"website","role":"discovery","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","privacy"],"linkStatus":"ok","linkChecked":"2026-09-27","programChecked":"2026-09-27"} -->
 
 ## Massachusetts RMV and Civic Paperwork
 

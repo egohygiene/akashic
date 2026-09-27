@@ -18,6 +18,7 @@ const selectors = {
   placeTitle: document.querySelector("#atlas-place-title"),
   placeCopy: document.querySelector("#atlas-place-copy"),
   civicGuide: document.querySelector("#atlas-civic-guide"),
+  identityGuide: document.querySelector("#atlas-identity-guide"),
   resourceCount: document.querySelector("#atlas-resource-count"),
   childCount: document.querySelector("#atlas-child-count"),
   openChild: document.querySelector("#atlas-open-child"),
@@ -518,6 +519,7 @@ function renderPlacePanel(location) {
   selectors.placeCopy.textContent = copyByKind[location.kind] || copyByKind.locality;
   // This is an explicitly scoped editorial chapter, not an applicability edge.
   selectors.civicGuide.hidden = location.id !== "us-ma";
+  selectors.identityGuide.hidden = location.id !== "us";
   selectors.resourceCount.textContent = number(location.availableResourceCount);
   selectors.childCount.textContent = number(children.length);
   selectors.openChild.hidden = children.length !== 1;

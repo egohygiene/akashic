@@ -2,6 +2,8 @@
 
 Changing a record and receiving a new document are separate checkpoints. Start with what you need, confirm the current official instructions, and keep your confirmation privately.
 
+For vital records, passports, Social Security names/cards, and voter registration, use the [U.S. identity and civic-paperwork guide](./us-identity.md), also available as an [interactive task chapter](https://akashic.egohygiene.io/identity.html).
+
 **Sources checked: 2026-09-27. Human review: pending. Review due: 2026-10-27, or sooner when a fee, form, channel, eligibility rule, or source conflict changes.** These passenger-license, Mass ID, and personal-vehicle routes are informational. RMV and the responsible agencies decide your transaction. Commercial/business, Liquor ID, foreign-license, and disputed legal cases need their own official route.
 
 **Privacy:** Do not enter or publish your address, license number, SSN, medical details, account identifiers, or submitted forms here. Optional progress marks are reminders only, stay in page memory, and reset on reload. Opening a form or selecting Done does not establish agency completion or permission to drive. Save a printed copy privately if useful.
