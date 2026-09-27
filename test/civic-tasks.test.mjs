@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { buildCivicPage, CIVIC_SOURCE, parseCivicMarkdown, renderCivicHub, validateCivicTasks } from "../scripts/lib/civic-tasks.mjs";
+import { buildCivicPage, CIVIC_CHAPTERS, CIVIC_SOURCE, parseCivicMarkdown, renderCivicHub, validateCivicTasks } from "../scripts/lib/civic-tasks.mjs";
 
 const markdown = await readFile(new URL(`../${CIVIC_SOURCE}`, import.meta.url), "utf8");
 const chapter = parseCivicMarkdown(markdown, { locationIds: new Set(["us-ma"]) });
@@ -104,4 +104,30 @@ test("page generation is deterministic and refuses a missing or repeated inserti
   assert.equal(buildCivicPage(template, chapter), buildCivicPage(template, chapter));
   assert.throws(() => buildCivicPage("<html></html>", chapter), /exactly one/);
   assert.throws(() => buildCivicPage(`${template}${template}`, chapter), /exactly one/);
+});
+
+test("each chapter keeps its own fragments, source links, and printable checklist", async () => {
+  for (const { source, checklist } of CIVIC_CHAPTERS) {
+    const text = await readFile(new URL(`../${source}`, import.meta.url), "utf8");
+    const parsed = parseCivicMarkdown(text, { source, locationIds: new Set(["us", "us-ma"]) });
+    const html = renderCivicHub(parsed);
+    assert.equal(parsed.source, source);
+    assert.ok(html.includes(`<section id="${checklist}" class="civic-checklist">`));
+    assert.equal((html.match(/class="civic-checklist"/g) || []).length, 1);
+    assert.equal((html.match(/<details open>/g) || []).length, parsed.tasks.length);
+    assert.doesNotMatch(html, /href="#([^" ]+)" target=/);
+    assert.ok(html.includes(`href="#${parsed.tasks[0].id}"`));
+    assert.doesNotMatch(html, new RegExp(`href="https://github.com/egohygiene/akashic/blob/main/${source}#`));
+    const otherSource = CIVIC_CHAPTERS.find((other) => other.source !== source).source;
+    assert.ok(html.includes(`href="https://github.com/egohygiene/akashic/blob/main/${otherSource}"`));
+    assert.throws(() => parseCivicMarkdown(text.replace(`## ${checklist === "paperwork-checklist" ? "Paperwork checklist" : "I moved checklist"}`, "## Renamed checklist"), { source }), /broken local link|missing chapter section/);
+  }
+});
+
+test("chapter selection rejects unknown sources and missing router sections", () => {
+  for (const source of ["../outside.md", "https://example.com/tasks.md", "docs/civic/unregistered.md"]) {
+    assert.throws(() => parseCivicMarkdown(markdown, { source }), /unknown chapter source/);
+    assert.throws(() => renderCivicHub({ ...chapter, source }), /unknown chapter source/);
+  }
+  assert.throws(() => parseCivicMarkdown(markdown.replace("## Start with intent", "## Renamed router")), /missing chapter section/);
 });

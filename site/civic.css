@@ -63,7 +63,7 @@
   .civic-task dl { display: grid; grid-template-columns: 85px minmax(0, 1fr); margin-block: 6px; }
   .civic-task dt, .civic-task dd { padding-block: 5px; }
   .civic-task dd p { margin: 0; }
-  .civic-page[data-print-scope="checklist"] .civic-main > :not(#i-moved-checklist):not(.civic-print-context) { display: none !important; }
+  .civic-page[data-print-scope="checklist"] .civic-main > :not(.civic-checklist):not(.civic-print-context) { display: none !important; }
   .civic-page[data-print-scope="checklist"] table { font-size: 9pt; }
   .civic-page[data-print-scope="checklist"] :is(th, td) { padding: 6px; }
 }
