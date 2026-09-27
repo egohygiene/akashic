@@ -17,6 +17,7 @@ const selectors = {
   placeKind: document.querySelector("#atlas-place-kind"),
   placeTitle: document.querySelector("#atlas-place-title"),
   placeCopy: document.querySelector("#atlas-place-copy"),
+  civicGuide: document.querySelector("#atlas-civic-guide"),
   resourceCount: document.querySelector("#atlas-resource-count"),
   childCount: document.querySelector("#atlas-child-count"),
   openChild: document.querySelector("#atlas-open-child"),
@@ -515,6 +516,8 @@ function renderPlacePanel(location) {
   if (canonicalContentLanguage && location.kind !== "world") selectors.placeTitle.lang = canonicalContentLanguage;
   else selectors.placeTitle.removeAttribute("lang");
   selectors.placeCopy.textContent = copyByKind[location.kind] || copyByKind.locality;
+  // This is an explicitly scoped editorial chapter, not an applicability edge.
+  selectors.civicGuide.hidden = location.id !== "us-ma";
   selectors.resourceCount.textContent = number(location.availableResourceCount);
   selectors.childCount.textContent = number(children.length);
   selectors.openChild.hidden = children.length !== 1;
