@@ -40,6 +40,8 @@ Already applied? Use the [SNAP interview, proofs, and DTA Connect checklist](../
 
 ## Work, learning, and getting around
 
+Moved, lost a credential, or need a vehicle transaction? Use the [Massachusetts RMV task hub and moving checklist](../../docs/civic/ma-rmv.md) to distinguish a record update from a replacement document, with official sources and dated verification. The [printable portal chapter](https://akashic.egohygiene.io/civic.html) contains the same task cards.
+
 - [Commonwealth Catalog](https://mblc.state.ma.us/resource-sharing/commonwealth-catalog.php) - Search and request materials from participating library networks for delivery to a local library; a participating library account is required to request. <!-- atlas-role: index -->
 - [Massachusetts Libraries Statewide Databases](https://mblc.state.ma.us/resource-sharing/database-licensing.php) - Access research and reference databases licensed for Massachusetts residents, with availability varying by library and database.
 - [ORI Community Partners Directory](https://www.mass.gov/info-details/ori-community-partners-directory) - Find refugee and immigrant service providers by community, population served, language, and program. <!-- atlas-role: index -->

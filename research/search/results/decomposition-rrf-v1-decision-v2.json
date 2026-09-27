@@ -7,12 +7,12 @@
   "comparableInputs": {
     "suite": "akashic-natural-language-v2",
     "topK": 10,
-    "catalogSha256": "d9d7de3777d867211272cdb9407adb63601e626c1ae6163c0aaa4b839641458d",
+    "catalogSha256": "d4f9507bdad3e7b4b6367981b4f8181456cb55c344cf535ace536c58dce10009",
     "fixtureSha256": "e62602a56190de45ad27adf4b9c4d0ed852c144d9304aab088b18bc4c06118fa"
   },
   "baseline": {
     "searchAlgorithm": "weighted-lexical-v2",
-    "reportSha256": "3f40ee0a0051627594312b49504149005e29d4cdb5624a61117ff52a80ddd859",
+    "reportSha256": "8b82d4ce50dfcedcefa26a5afcccd4d1760bbc05c01f967e74172683717a3e64",
     "summary": {
       "caseCount": 33,
       "evaluableCaseCount": 32,
@@ -57,7 +57,7 @@
       "zeroResultCount": 4,
       "casesWithRelevantAtK": 18,
       "meanRecallAtK": 0.4948,
-      "meanReciprocalRank": 0.4615,
+      "meanReciprocalRank": 0.4614,
       "meanNdcgAtK": 0.4353,
       "knownIrrelevantJudgmentCount": 34,
       "knownIrrelevantFoundAtK": 23,
@@ -91,7 +91,7 @@
   },
   "candidate": {
     "searchAlgorithm": "decomposition-rrf-v1",
-    "reportSha256": "8bd714bbe91823fbadc5b9d8cf27dcec78a01502ee0ed7187b245ba40bb07a39",
+    "reportSha256": "e5ce6e6f859913d1a42cdcb504c6a1c1375ec9d1acd50572e6ebf57c729c94f9",
     "summary": {
       "caseCount": 33,
       "evaluableCaseCount": 32,
@@ -164,7 +164,7 @@
     "zeroResultCount": 0,
     "casesWithRelevantAtK": 0,
     "meanRecallAtK": 0,
-    "meanReciprocalRank": -0.0364,
+    "meanReciprocalRank": -0.0363,
     "meanNdcgAtK": -0.0267,
     "knownIrrelevantFoundAtK": -1,
     "casesWithKnownIrrelevantAtK": -1
@@ -205,7 +205,7 @@
     },
     {
       "id": "mean-reciprocal-rank-gain",
-      "actual": -0.0364,
+      "actual": -0.0363,
       "operator": ">=",
       "threshold": 0,
       "passed": false

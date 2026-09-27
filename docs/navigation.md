@@ -95,6 +95,8 @@ When a visitor explicitly chooses **Copy search link**, the portal creates a lin
 
 ## Source, Review, and Presentation
 
+The [civic-task chapter contract](civic-tasks.md) extends the Markdown-first pattern for operational public-administration cards. The Massachusetts RMV chapter generates a separate, printable `civic.html` route and a derived JSON projection; it does not inflate the main catalog with task prose. Public Services and Massachusetts Atlas link to the same canonical chapter. Native fragment links and expanded static content remain usable without JavaScript; optional progress reminders are memory-only. The chapter remains canonical English content, with source-check dates distinct from human review.
+
 Selected paths expose the canonical Markdown source and a dedicated resource-update issue form. Reports remain human-reviewed; they do not delete or rewrite catalog entries automatically.
 
 The portal provides spacious cards by default, an optional compact layout, a text layout, and print rules. Visual QA should cover wide desktop, tablet, 320–430 pixel phones, English and Russian routes, keyboard-only use, both themes, reduced motion, deep links, browser Back/Forward, wide guide tables, empty searches, and long translated labels.

@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "suite": "akashic-natural-language-v2",
   "searchAlgorithm": "weighted-lexical-v2",
-  "catalogResourceCount": 5358,
+  "catalogResourceCount": 5372,
   "inputs": {
-    "catalogSha256": "d9d7de3777d867211272cdb9407adb63601e626c1ae6163c0aaa4b839641458d",
+    "catalogSha256": "d4f9507bdad3e7b4b6367981b4f8181456cb55c344cf535ace536c58dce10009",
     "fixtureSha256": "e62602a56190de45ad27adf4b9c4d0ed852c144d9304aab088b18bc4c06118fa",
     "implementationSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669"
   },
@@ -53,7 +53,7 @@
     "zeroResultCount": 4,
     "casesWithRelevantAtK": 18,
     "meanRecallAtK": 0.4948,
-    "meanReciprocalRank": 0.4615,
+    "meanReciprocalRank": 0.4614,
     "meanNdcgAtK": 0.4353,
     "knownIrrelevantJudgmentCount": 34,
     "knownIrrelevantFoundAtK": 23,
@@ -457,7 +457,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 214,
+      "resultCount": 216,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -718,7 +718,7 @@
         "subqueries": [
           {
             "query": "no money landlord need leave friday",
-            "resultCount": 214,
+            "resultCount": 216,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -729,7 +729,7 @@
           },
           {
             "query": "housing or eviction help",
-            "resultCount": 109,
+            "resultCount": 110,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -740,7 +740,7 @@
           },
           {
             "query": "help with no income",
-            "resultCount": 357,
+            "resultCount": 360,
             "candidateCount": 10,
             "relevantFoundAtK": 1,
             "recallAtK": 0.25,
@@ -751,7 +751,7 @@
           },
           {
             "query": "housing or eviction help free",
-            "resultCount": 341,
+            "resultCount": 342,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -762,7 +762,7 @@
           },
           {
             "query": "help with no income free",
-            "resultCount": 514,
+            "resultCount": 517,
             "candidateCount": 10,
             "relevantFoundAtK": 1,
             "recallAtK": 0.25,
@@ -791,7 +791,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 295,
+      "resultCount": 297,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -1090,7 +1090,7 @@
         "subqueries": [
           {
             "query": "make music without paying adobe subscription",
-            "resultCount": 295,
+            "resultCount": 297,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -1112,7 +1112,7 @@
           },
           {
             "query": "free subscription alternatives",
-            "resultCount": 385,
+            "resultCount": 387,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -1862,7 +1862,7 @@
           },
           {
             "query": "court paper legal help",
-            "resultCount": 392,
+            "resultCount": 393,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -2215,7 +2215,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 79,
+      "resultCount": 81,
       "relevantCount": 2,
       "relevantFoundAtK": 2,
       "recallAtK": 1,
@@ -2463,7 +2463,7 @@
         "subqueries": [
           {
             "query": "replace subscription old laptop",
-            "resultCount": 79,
+            "resultCount": 81,
             "candidateCount": 10,
             "relevantFoundAtK": 2,
             "recallAtK": 1,
@@ -2474,7 +2474,7 @@
           },
           {
             "query": "free subscription alternatives",
-            "resultCount": 385,
+            "resultCount": 387,
             "candidateCount": 10,
             "relevantFoundAtK": 2,
             "recallAtK": 1,
@@ -2485,7 +2485,7 @@
           },
           {
             "query": "free subscription alternatives old device",
-            "resultCount": 399,
+            "resultCount": 400,
             "candidateCount": 10,
             "relevantFoundAtK": 2,
             "recallAtK": 1,
@@ -2513,7 +2513,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 328,
+      "resultCount": 330,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -2820,7 +2820,7 @@
         "subqueries": [
           {
             "query": "cannot afford vpn renewal no income",
-            "resultCount": 328,
+            "resultCount": 330,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -2842,7 +2842,7 @@
           },
           {
             "query": "help with no income",
-            "resultCount": 357,
+            "resultCount": 360,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -2853,11 +2853,11 @@
           },
           {
             "query": "help with no income free",
-            "resultCount": 514,
+            "resultCount": 517,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
-            "firstRelevantRank": 303,
+            "firstRelevantRank": 304,
             "knownIrrelevantFoundAtK": 0,
             "knownIrrelevantRateAtK": 0,
             "firstKnownIrrelevantRank": 30
@@ -3327,7 +3327,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 169,
+      "resultCount": 170,
       "relevantCount": 4,
       "relevantFoundAtK": 1,
       "recallAtK": 0.25,
@@ -3337,7 +3337,7 @@
       "relevantRanks": [
         1,
         12,
-        91
+        92
       ],
       "knownIrrelevantCount": 1,
       "knownIrrelevantFoundAtK": 0,
@@ -3558,7 +3558,7 @@
         "subqueries": [
           {
             "query": "food help",
-            "resultCount": 169,
+            "resultCount": 170,
             "candidateCount": 10,
             "relevantFoundAtK": 1,
             "recallAtK": 0.25,
@@ -3585,7 +3585,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 91,
+      "resultCount": 92,
       "relevantCount": 1,
       "relevantFoundAtK": 0,
       "recallAtK": 0,
@@ -3791,7 +3791,7 @@
         "subqueries": [
           {
             "query": "ao240",
-            "resultCount": 91,
+            "resultCount": 92,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -4294,7 +4294,7 @@
           },
           {
             "query": "low-cost health care",
-            "resultCount": 224,
+            "resultCount": 225,
             "candidateCount": 10,
             "relevantFoundAtK": 1,
             "recallAtK": 0.25,
@@ -5965,7 +5965,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 742,
+      "resultCount": 743,
       "relevantCount": 2,
       "relevantFoundAtK": 0,
       "recallAtK": 0,
@@ -6252,7 +6252,7 @@
         "subqueries": [
           {
             "query": "free office software works offline old laptop",
-            "resultCount": 742,
+            "resultCount": 743,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -6263,22 +6263,22 @@
           },
           {
             "query": "free subscription alternatives",
-            "resultCount": 385,
+            "resultCount": 387,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
-            "firstRelevantRank": 287,
+            "firstRelevantRank": 288,
             "knownIrrelevantFoundAtK": 1,
             "knownIrrelevantRateAtK": 1,
             "firstKnownIrrelevantRank": 3
           },
           {
             "query": "free subscription alternatives old device low bandwidth",
-            "resultCount": 408,
+            "resultCount": 409,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
-            "firstRelevantRank": 314,
+            "firstRelevantRank": 315,
             "knownIrrelevantFoundAtK": 1,
             "knownIrrelevantRateAtK": 1,
             "firstKnownIrrelevantRank": 3
@@ -6567,7 +6567,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 301,
+      "resultCount": 303,
       "relevantCount": 2,
       "relevantFoundAtK": 0,
       "recallAtK": 0,
@@ -6576,7 +6576,7 @@
       "firstRelevantRank": 16,
       "relevantRanks": [
         16,
-        300
+        302
       ],
       "knownIrrelevantCount": 1,
       "knownIrrelevantFoundAtK": 1,
@@ -6856,7 +6856,7 @@
         "subqueries": [
           {
             "query": "need child care cannot afford",
-            "resultCount": 301,
+            "resultCount": 303,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -6867,18 +6867,18 @@
           },
           {
             "query": "help with no income",
-            "resultCount": 357,
+            "resultCount": 360,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
             "firstRelevantRank": 39,
             "knownIrrelevantFoundAtK": 0,
             "knownIrrelevantRateAtK": 0,
-            "firstKnownIrrelevantRank": 206
+            "firstKnownIrrelevantRank": 207
           },
           {
             "query": "help with no income free",
-            "resultCount": 514,
+            "resultCount": 517,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -6907,15 +6907,15 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 220,
+      "resultCount": 222,
       "relevantCount": 1,
       "relevantFoundAtK": 0,
       "recallAtK": 0,
-      "reciprocalRank": 0.0333,
+      "reciprocalRank": 0.0323,
       "ndcgAtK": 0,
-      "firstRelevantRank": 30,
+      "firstRelevantRank": 31,
       "relevantRanks": [
-        30
+        31
       ],
       "knownIrrelevantCount": 1,
       "knownIrrelevantFoundAtK": 1,
@@ -7181,36 +7181,36 @@
         "subqueries": [
           {
             "query": "need wheelchair cannot afford one",
-            "resultCount": 220,
+            "resultCount": 222,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
-            "firstRelevantRank": 30,
+            "firstRelevantRank": 31,
             "knownIrrelevantFoundAtK": 1,
             "knownIrrelevantRateAtK": 1,
             "firstKnownIrrelevantRank": 2
           },
           {
             "query": "help with no income",
-            "resultCount": 357,
+            "resultCount": 360,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
-            "firstRelevantRank": 246,
+            "firstRelevantRank": 247,
             "knownIrrelevantFoundAtK": 0,
             "knownIrrelevantRateAtK": 0,
             "firstKnownIrrelevantRank": null
           },
           {
             "query": "help with no income free wheelchair accessible",
-            "resultCount": 717,
+            "resultCount": 721,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
             "firstRelevantRank": 14,
             "knownIrrelevantFoundAtK": 0,
             "knownIrrelevantRateAtK": 0,
-            "firstKnownIrrelevantRank": 118
+            "firstKnownIrrelevantRank": 119
           }
         ]
       }

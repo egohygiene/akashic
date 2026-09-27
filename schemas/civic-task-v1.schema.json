@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/egohygiene/akashic/main/schemas/civic-task-v1.schema.json",
+  "title": "Akashic public civic task v1",
+  "description": "Derived from canonical Markdown, never a private case or proof of completion. The repository validator also enforces graph, source, date, and jurisdiction semantics.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "title",
+    "jurisdiction",
+    "agency",
+    "intents",
+    "transaction",
+    "channels",
+    "prerequisites",
+    "follow_up",
+    "do_not_confuse_with",
+    "last_verified_at",
+    "review_due_at",
+    "human_review",
+    "human_reviewed_at",
+    "review_triggers",
+    "privacy",
+    "fields",
+    "source_urls"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "jurisdiction": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "agency": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intents": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "transaction": {
+      "type": "string",
+      "minLength": 1
+    },
+    "channels": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "online",
+          "phone",
+          "mail",
+          "in-person"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "follow_up": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "do_not_confuse_with": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "last_verified_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_due_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "human_review": {
+      "enum": [
+        "pending",
+        "reviewed"
+      ]
+    },
+    "human_reviewed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "review_triggers": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "fee-or-form-change",
+          "channel-or-eligibility-change",
+          "source-conflict",
+          "reader-report"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "privacy": {
+      "const": "public-guidance-only"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "first_check",
+        "record_change",
+        "document",
+        "route",
+        "evidence",
+        "fee",
+        "timing",
+        "interim_proof",
+        "done_when",
+        "escalation"
+      ],
+      "properties": {
+        "first_check": {
+          "type": "string",
+          "minLength": 1
+        },
+        "record_change": {
+          "type": "string",
+          "minLength": 1
+        },
+        "document": {
+          "type": "string",
+          "minLength": 1
+        },
+        "route": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fee": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timing": {
+          "type": "string",
+          "minLength": 1
+        },
+        "interim_proof": {
+          "type": "string",
+          "minLength": 1
+        },
+        "done_when": {
+          "type": "string",
+          "minLength": 1
+        },
+        "escalation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "source_urls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri",
+        "pattern": "^https://"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  }
+}

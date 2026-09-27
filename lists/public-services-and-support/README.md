@@ -23,6 +23,7 @@ A practical order is to stabilize essentials and benefits, recover money already
 - [Debt, Finance, and Taxes](#debt-finance-and-taxes)
 - [Paid Research and Flexible Income](#paid-research-and-flexible-income)
 - [Employment and Education](#employment-and-education)
+- [Massachusetts RMV and Civic Paperwork](#massachusetts-rmv-and-civic-paperwork)
 - [Government, Civics, and Culture](#government-civics-and-culture)
 - [Health Care and Medication](#health-care-and-medication)
 
@@ -110,6 +111,10 @@ For cash flow, banking comparisons, deposit protection, and credit reports, star
 
 For household alerts, evacuation preparation, and recovery, use the separate [Emergency Preparedness and Disaster Recovery](#emergency-preparedness-and-disaster-recovery) route below.
 
+### Massachusetts RMV and moving
+
+**I moved, lost my ID, or need a vehicle transaction:** Use the [RMV task hub and printable moving checklist](https://akashic.egohygiene.io/civic.html), also available as [canonical Markdown](../../docs/civic/ma-rmv.md). Start with the record on file, then decide whether a new card or document is needed. The hub separates license and Mass ID replacement, renewals, REAL ID, vehicle/title tasks, disability parking, reinstatement, and permit/road-test routes. Sources checked **2026-09-27**; human review is pending. Check current agency instructions before submitting or paying, and keep personal identifiers and submitted forms out of public reports.
+
 <!-- site-guide:end -->
 
 - [AmeriCorps Member Benefits](https://www.americorps.gov/members-volunteers/your-benefits) - Official overview of living allowances, education awards, loan relief, training, health coverage, and child-care support that may accompany eligible AmeriCorps service terms.
@@ -192,6 +197,16 @@ For verified creditor-hardship guidance, student-loan options, tax preparation, 
 - [USA.gov Student Financial Aid](https://www.usa.gov/student-aid) - Official guide to FAFSA, federal grants, loans, work-study, scholarships, and avoiding student-aid scams.
 - [USA.gov Workers' Compensation](https://www.usa.gov/workers-compensation) - Official guide to federal and state workers' compensation programs for job-related injuries and occupational illness.
 - [USAGov Job Training](https://www.usa.gov/job-training) - Federal guide to free and subsidized job training, American Job Centers, apprenticeships, and programs for eligible workers.
+
+## Massachusetts RMV and Civic Paperwork
+
+For the next reachable step, use the [24 source-linked RMV task cards](../../docs/civic/ma-rmv.md) or the [printable portal hub](https://akashic.egohygiene.io/civic.html). Address changes, duplicate documents, renewals, and ownership changes are separate transactions. The moving checklist also covers insurance, excise tax, voter registration, mail, utilities, taxes, benefits, and private accounts; one update does not synchronize every system.
+
+- [Massachusetts RMV Address Changes](https://www.mass.gov/how-to/change-your-address-with-the-rmv) - Official moving and relocation instructions for updating residential and mailing records, distinguishing record changes from replacement cards, and following through with vehicle, insurance, and municipal records. <!-- akashic-meta: {"id":"ma-rmv-address-change","resourceType":"website","role":"reference","authority":"official","access":["free"],"geography":["us-ma"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","financial","privacy"],"programChecked":"2026-09-27","linkStatus":"ok","linkChecked":"2026-09-27"} -->
+- [Massachusetts RMV Contact and Transaction Help](https://www.mass.gov/info-details/ask-the-rmv) - Official task directory with current contact, appointment, accessibility, and processing-delay routes; confirm the channel for the exact transaction before visiting. <!-- akashic-meta: {"id":"ma-rmv-contact-help","resourceType":"website","role":"reference","authority":"official","access":["free"],"geography":["us-ma"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","financial","privacy"],"programChecked":"2026-09-27","linkStatus":"ok","linkChecked":"2026-09-27"} -->
+- [Massachusetts RMV Fees](https://www.mass.gov/info-details/massachusetts-registry-of-motor-vehicles-fees) - Official transaction fee schedule and exemptions; public guidance is free, but credential and vehicle transactions may have fees. <!-- akashic-meta: {"id":"ma-rmv-fees","resourceType":"website","role":"reference","authority":"official","access":["free"],"geography":["us-ma"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","financial","privacy"],"programChecked":"2026-09-27","linkStatus":"ok","linkChecked":"2026-09-27"} -->
+- [Massachusetts RMV License Replacement](https://www.mass.gov/how-to/replace-your-drivers-license) - Official duplicate-license route for lost or stolen identification and replacement after an address update; fees, identity checks, channel restrictions, and delivery expectations apply. <!-- akashic-meta: {"id":"ma-rmv-license-replacement","resourceType":"website","role":"reference","authority":"official","access":["free"],"geography":["us-ma"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","financial","privacy"],"programChecked":"2026-09-27","linkStatus":"ok","linkChecked":"2026-09-27"} -->
+- [Massachusetts RMV Mass ID Replacement](https://www.mass.gov/how-to/replace-your-massachusetts-id-card) - Official replacement route for lost or stolen Massachusetts identification cards, with a separate delivery estimate from driver licenses; fees and identity verification apply. <!-- akashic-meta: {"id":"ma-rmv-mass-id-replacement","resourceType":"website","role":"reference","authority":"official","access":["free"],"geography":["us-ma"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","financial","privacy"],"programChecked":"2026-09-27","linkStatus":"ok","linkChecked":"2026-09-27"} -->
 
 ## Government, Civics, and Culture
 

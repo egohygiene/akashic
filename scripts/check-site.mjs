@@ -10,6 +10,7 @@ import { loadEvaluationFixture } from "./lib/search-evaluation.mjs";
 import { parseSiteGuide, SITE_GUIDE_TEMPLATES } from "./lib/guide.mjs";
 import { urlIdentity } from "./lib/url-identity.mjs";
 import { decodeCatalog } from "../site/catalog-data.js";
+import { buildCivicPage, CIVIC_SOURCE, parseCivicMarkdown } from "./lib/civic-tasks.mjs";
 
 const root = process.cwd();
 const output = path.join(root, "dist");
@@ -27,6 +28,10 @@ for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "searc
 }
 
 const atlas = JSON.parse(await readFile(path.join(output, "data/atlas.json"), "utf8"));
+const civic = parseCivicMarkdown(await readFile(path.join(root, CIVIC_SOURCE), "utf8"), { locationIds: new Set(atlas.locations.map((location) => location.id)) });
+deepStrictEqual(JSON.parse(await readFile(path.join(output, "data/civic-tasks.json"), "utf8")), { schemaVersion: civic.schemaVersion, source: civic.source, tasks: civic.tasks }, "Civic data must come from canonical Markdown.");
+strictEqual(await readFile(path.join(output, "civic.html"), "utf8"), buildCivicPage(await readFile(path.join(root, "site/civic.html"), "utf8"), civic), "Civic HTML must match the canonical task cards.");
+for (const asset of ["civic.css", "civic.js"]) await access(path.join(output, asset));
 if (atlas.schemaVersion !== ATLAS_LOCATION_SCHEMA_VERSION) throw new Error("Unsupported atlas schema.");
 if (atlas.applicabilitySchemaVersion !== 2) throw new Error("Unsupported atlas applicability schema.");
 if (atlas.jurisdictionSchemaVersion !== 1) throw new Error("Unsupported Atlas jurisdiction schema.");

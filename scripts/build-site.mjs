@@ -11,6 +11,7 @@ import { validateResourceIdentities } from "./lib/resource-metadata.mjs";
 import { parseAtlasResourceEntry, parseResourceEntry } from "./lib/resource-parser.mjs";
 import { loadEvaluationFixture } from "./lib/search-evaluation.mjs";
 import { urlIdentity } from "./lib/url-identity.mjs";
+import { buildCivicPage, CIVIC_SOURCE, parseCivicMarkdown } from "./lib/civic-tasks.mjs";
 
 const root = process.cwd();
 const sourceDirectory = path.join(root, "site");
@@ -469,6 +470,7 @@ async function build() {
     resources: uniqueResources,
   };
   const atlas = await buildAtlas(uniqueResources);
+  const civic = parseCivicMarkdown(await readFile(path.join(root, CIVIC_SOURCE), "utf8"), { locationIds: new Set(atlas.locations.map((location) => location.id)) });
   const overview = buildOverview(catalog);
   const funding = buildFunding(await readFile(fundingFile, "utf8"));
   const searchEvaluation = await loadEvaluationFixture(searchEvaluationFile);
@@ -485,6 +487,8 @@ async function build() {
   await writeFile(path.join(outputDirectory, "data", "funding.json"), `${JSON.stringify({ schemaVersion: 1, sources: funding.sources })}\n`);
   await writeFile(path.join(outputDirectory, "data", "search-evaluation-v2.json"), `${JSON.stringify(searchEvaluation)}\n`);
   await buildLocalizedPages(locales, funding, guideTemplates.html);
+  await writeFile(path.join(outputDirectory, "civic.html"), buildCivicPage(await readFile(path.join(sourceDirectory, "civic.html"), "utf8"), civic));
+  await writeFile(path.join(outputDirectory, "data", "civic-tasks.json"), `${JSON.stringify({ schemaVersion: civic.schemaVersion, source: civic.source, tasks: civic.tasks })}\n`);
   await writeFile(path.join(outputDirectory, ".nojekyll"), "");
   console.log(`Built ${catalog.resourceCount} resources across ${categories.length} collections, ${overview.topicPathCount} topic paths, and ${atlas.resourceCount} place-aware atlas resources.`);
 }
