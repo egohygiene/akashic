@@ -38,7 +38,7 @@ jobs:
     if: "${{ github.event_name != 'workflow_dispatch' || inputs.mode != 'rollback-v1.3' }}"
     permissions:
       contents: read
-    uses: egohygiene/relay/.github/workflows/repository-intelligence.yml@9a6315978766c336566b9fa7139b800fa8789ba5
+    uses: egohygiene/relay/.github/workflows/repository-intelligence.yml@04bd32c8ef492418f47d6df6faee425d6888f341
     with:
       artifact-retention-days: 30
       max-depth: "10"
