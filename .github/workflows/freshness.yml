@@ -54,7 +54,7 @@ jobs:
 
       - name: Upload observations for human review
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: "freshness-pull-request-${{ github.event.pull_request.number }}"
           path: ".akashic-local/freshness/observations/*.json"
@@ -94,7 +94,7 @@ jobs:
 
       - name: Upload observations for human review
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: "freshness-shard-${{ matrix.shard }}"
           path: ".akashic-local/freshness/observations/*.json"
