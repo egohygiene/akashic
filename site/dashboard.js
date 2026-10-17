@@ -1,4 +1,4 @@
-import { canonicalContentLanguage, number, plural, t } from "./i18n.js";
+import { canonicalContentLanguage, number, percent, plural, t } from "./i18n.js";
 
 const THEME_KEY = "akashic-theme";
 const LEGACY_THEME_KEY = "ego-awesome-theme";
@@ -43,9 +43,7 @@ function writeStorage(key, value) {
 }
 
 function formatPercent(count, total) {
-  const percentage = total ? count / total * 100 : 0;
-  if (percentage > 0 && percentage < 1) return "<1%";
-  return `${percentage.toFixed(percentage < 10 ? 1 : 0)}%`;
+  return percent(total ? count / total : 0);
 }
 
 function catalogUrl({ categorySlug = "", groupSlug = "", section = "", domain = "" } = {}) {
@@ -145,7 +143,7 @@ function renderBranchDirectory(category) {
     const title = category.groups.length === 1 ? t("runtime.dashboard.topics") : group.title;
     const branchUrl = catalogUrl({ categorySlug: category.slug, groupSlug: group.slug });
     return `<details class="branch-card"${index === 0 ? " open" : ""} style="--branch-color:${category.color}">
-      <summary><span><small>${escapeHtml(t(group.slug ? "runtime.dashboard.branch" : "runtime.dashboard.directory"))}</small><strong${category.groups.length === 1 ? "" : canonicalLanguageAttribute}>${escapeHtml(title)}</strong></span><span><b>${formatNumber(group.count)}</b> ${escapeHtml(plural("runtime.unit.resource", group.count).replace(formatNumber(group.count), "").trim())} <i aria-hidden="true">⌄</i></span></summary>
+      <summary><span><small>${escapeHtml(t(group.slug ? "runtime.dashboard.branch" : "runtime.dashboard.directory"))}</small><strong${category.groups.length === 1 ? "" : canonicalLanguageAttribute}>${escapeHtml(title)}</strong></span><span>${escapeHtml(plural("runtime.unit.resource", group.count))} <i aria-hidden="true">⌄</i></span></summary>
       <div class="topic-directory">
         ${group.sections.map((section) => `<a href="${escapeHtml(catalogUrl({ categorySlug: category.slug, groupSlug: group.slug, section: section.title }))}"><span${canonicalLanguageAttribute}>${escapeHtml(section.title)}</span><strong>${formatNumber(section.count)}</strong></a>`).join("")}
       </div>

@@ -23,7 +23,7 @@ const rankedCounts = (values, limit = Infinity) => {
     .sort((left, right) => right.count - left.count || left.name.localeCompare(right.name))
     .slice(0, limit);
 };
-for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "search-lab.html", "ru/index.html", "ru/dashboard.html", "ru/atlas.html", "styles.css", "dashboard.css", "atlas.css", "search-lab.css", "app.js", "favorites.js", "catalog-metadata.js", "catalog-data.js", "dashboard.js", "needs.js", "search.js", "search-query-state.js", "search-lab.js", "search-lab-metrics.js", "search/and-substring-v1.js", "search/concepts-v1.js", "search/weighted-lexical-v2.js", "mind-map.js", "atlas.js", "atlas-renderers.js", "i18n.js", "i18n/locales.json", "i18n/en.json", "i18n/ru.json", "assets/favicon.svg", "data/catalog.json", "data/catalog-v3.json", "data/overview.json", "data/funding.json", "data/search-evaluation-v2.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
+for (const relativePath of ["index.html", "dashboard.html", "atlas.html", "search-lab.html", "styles.css", "dashboard.css", "atlas.css", "search-lab.css", "app.js", "favorites.js", "catalog-metadata.js", "catalog-data.js", "dashboard.js", "needs.js", "search.js", "search-query-state.js", "search-lab.js", "search-lab-metrics.js", "search/and-substring-v1.js", "search/concepts-v1.js", "search/weighted-lexical-v2.js", "mind-map.js", "atlas.js", "atlas-renderers.js", "i18n.js", "locale-navigation.js", "i18n/locales.json", "assets/favicon.svg", "data/catalog.json", "data/catalog-v3.json", "data/overview.json", "data/funding.json", "data/search-evaluation-v2.json", "data/atlas.json", "data/atlas-themes.json", "data/geometry/countries-110m.json", "data/geometry/states-albers-10m.json", ".nojekyll"]) {
   await access(path.join(output, relativePath));
 }
 
@@ -256,6 +256,7 @@ for (const source of funding.sources) {
 const locales = await loadLocales(output);
 const pages = ["index.html", "dashboard.html", "atlas.html"];
 for (const locale of locales.locales) {
+  await access(path.join(output, "i18n", `${locale.code}.json`));
   for (const fileName of pages) {
     const relativePath = locale.code === locales.defaultLocale ? fileName : path.join(locale.route.replace(/^\//, ""), fileName);
     const html = await readFile(path.join(output, relativePath), "utf8");
@@ -271,13 +272,37 @@ for (const locale of locales.locales) {
     for (const alternate of locales.locales) {
       if (!html.includes(`hreflang="${alternate.code}" href="https://akashic.egohygiene.io${localePagePath(alternate, fileName)}"`)) throw new Error(`Alternate locale ${alternate.code} is missing from ${relativePath}.`);
     }
-    if (!html.includes('class="language-switcher"') || !html.includes(`data-locale="${locale.code}" aria-current="page"`)) throw new Error(`Language navigation is incomplete in ${relativePath}.`);
+    if (!html.includes('<form class="language-switcher" id="language-form" hidden') || !html.includes('<label for="language-select">') || !html.includes('<select id="language-select">') || !html.includes('id="language-apply" type="submit"') || !html.includes('id="language-fallback"') || !html.includes(`data-locale="${locale.code}" aria-current="page"`)) throw new Error(`Language navigation is incomplete in ${relativePath}.`);
+    if (/<(?:select|form)\b[^>]*\bname=|<form\b[^>]*\baction=/.test(html.match(/<form class="language-switcher"[\s\S]*?<\/form>/)?.[0] || "")) throw new Error(`The language form must not submit a request before its runtime is ready in ${relativePath}.`);
+    for (const alternate of locales.locales) {
+      if (!html.includes(`<option value="${alternate.code}" lang="${alternate.code}" dir="${alternate.direction}"${alternate.code === locale.code ? " selected" : ""}>`) || !html.includes(`data-locale="${alternate.code}"`)) throw new Error(`Language choice ${alternate.code} is missing from ${relativePath}.`);
+    }
+    const embeddedJson = (id) => {
+      const matches = [...html.matchAll(new RegExp(`<script type="application/json" id="${id}">([\\s\\S]*?)<\\/script>`, "g"))];
+      if (matches.length !== 1) throw new Error(`Exactly one #${id} payload is required in ${relativePath}.`);
+      return JSON.parse(matches[0][1]);
+    };
+    const config = embeddedJson("akashic-locale-config");
+    if (config.defaultLocale !== locales.defaultLocale || config.activeLocale !== locale.code || config.page !== fileName || JSON.stringify(config.locales.map((entry) => entry.code)) !== JSON.stringify(locales.locales.map((entry) => entry.code))) throw new Error(`The locale configuration is inconsistent in ${relativePath}.`);
+    const embeddedMessages = embeddedJson("akashic-i18n-messages");
+    strictEqual(embeddedMessages.locale, locale.code, `The embedded locale differs in ${relativePath}.`);
+    deepStrictEqual(embeddedMessages.messages, locales.catalogs.get(locale.code), `Embedded messages must match the current build in ${relativePath}.`);
+    const fallbackCatalogs = [];
+    let fallback = locale.fallback;
+    while (fallback) {
+      fallbackCatalogs.push(locales.catalogs.get(fallback));
+      fallback = locales.locales.find((candidate) => candidate.code === fallback).fallback;
+    }
+    deepStrictEqual(embeddedMessages.fallbackMessages, fallbackCatalogs.length ? Object.assign({}, ...fallbackCatalogs.reverse()) : locales.catalogs.get(locale.code), `Embedded fallbacks must follow the registry in ${relativePath}.`);
+    if (!html.includes('id="locale-suggestion" hidden')) throw new Error(`The opt-in locale suggestion must start hidden in ${relativePath}.`);
     if (html.includes("<!-- akashic-locale-") || html.includes("<!-- akashic-language-switcher -->")) throw new Error(`Locale placeholders remain in ${relativePath}.`);
     if (locale.code === locales.defaultLocale && html.includes('class="locale-coverage"')) throw new Error(`The canonical locale should not show a translation-coverage warning in ${relativePath}.`);
     if (locale.code !== locales.defaultLocale) {
-      if (!html.includes('class="locale-coverage"') || !/[А-Яа-яЁё]/.test(html)) throw new Error(`The reference translation is incomplete in ${relativePath}.`);
+      if (!html.includes('class="locale-coverage"') || !html.includes(escapeHtml(locales.catalogs.get(locale.code)["static.localeCoverage.copy"]))) throw new Error(`The translation coverage notice is incomplete in ${relativePath}.`);
       if (!html.includes('href="../styles.css"') || !html.includes('src="../')) throw new Error(`Localized routes do not reuse root assets in ${relativePath}.`);
     }
+    if ((locale.status === "draft") !== html.includes('id="locale-draft"')) throw new Error(`The AI draft disclosure is inconsistent in ${relativePath}.`);
+    if (locale.status === "draft" && !html.includes(escapeHtml(locales.catalogs.get(locale.code)["runtime.locale.draftCopy"]))) throw new Error(`The AI draft explanation is missing from ${relativePath}.`);
     if (html.includes("<!-- akashic-funding-badges -->")) throw new Error(`Funding badges were not generated in ${fileName}.`);
     if (!html.includes('href="/search-lab.html"')) throw new Error(`The browser Search Lab is not discoverable from ${relativePath}.`);
     for (const source of funding.sources) {
@@ -347,12 +372,16 @@ for (const fileName of ["app.js", "dashboard.js", "atlas.js"]) {
 }
 
 const i18nRuntime = await readFile(path.join(output, "i18n.js"), "utf8");
-if (!i18nRuntime.includes("Intl.NumberFormat") || !i18nRuntime.includes("Intl.PluralRules") || !i18nRuntime.includes("fallbackMessages") || !i18nRuntime.includes('searchParameters.delete("q")')) throw new Error("The locale runtime is missing formatting, fallback, or private-query support.");
-try {
-  await access(path.join(output, "ru", "data"));
-  throw new Error("Localized routes must not duplicate generated catalog data.");
-} catch (error) {
-  if (error.code !== "ENOENT") throw error;
+if (!i18nRuntime.includes("fallbackMessages") || !i18nRuntime.includes("akashic-i18n-messages") || !i18nRuntime.includes("./locale-navigation.js")) throw new Error("The locale runtime is missing embedded fallback or shared navigation support.");
+const localeNavigation = await readFile(path.join(output, "locale-navigation.js"), "utf8");
+if (!localeNavigation.includes("Intl.NumberFormat") || !localeNavigation.includes("Intl.PluralRules") || !localeNavigation.includes('.delete("q")')) throw new Error("The shared locale helper is missing count formatting or private-query navigation support.");
+for (const locale of locales.locales.filter((candidate) => candidate.code !== locales.defaultLocale)) {
+  try {
+    await access(path.join(output, locale.route.replace(/^\//, ""), "data"));
+    throw new Error(`Localized routes must not duplicate generated catalog data: ${locale.code}.`);
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
 }
 
 const catalogIds = new Set(catalog.resources.map((resource) => resource.id));

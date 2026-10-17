@@ -2,7 +2,7 @@
   "locale": "en",
   "messages": {
     "static.common.languageSwitcher": "Language",
-    "static.localeCoverage.title": "Russian interface, English catalog",
+    "static.localeCoverage.title": "Translated interface, English catalog",
     "static.localeCoverage.copy": "Navigation and interface text are translated. Curated resource titles, descriptions, taxonomy, and place names remain in canonical English until a human-reviewed translation layer is available.",
     "static.catalog.metadataFilters": "Access, scope, and review filters",
     "static.catalog.metadataActive": "active filters",
@@ -464,6 +464,21 @@
     "runtime.mindMap.topics": "Topics",
     "runtime.mindMap.closeAria": "Close expanded mind map",
     "runtime.mindMap.expandAria": "Expand mind map",
-    "runtime.mindMap.expandedAria": "Expanded knowledge map"
+    "runtime.mindMap.expandedAria": "Expanded knowledge map",
+    "runtime.locale.apply": "Apply language",
+    "runtime.locale.draftLabel": "AI draft",
+    "runtime.locale.draftTitle": "AI translation draft",
+    "runtime.locale.draftCopy": "This interface translation was prepared with AI and has not had human language review. Curated resource content remains in English.",
+    "runtime.locale.offer": "An interface translation is available in {language}. Would you like to use it?",
+    "runtime.locale.use": "Use {language}",
+    "runtime.locale.dismiss": "Keep current language",
+    "runtime.unit.resource.zero": "{count} resources",
+    "runtime.unit.resource.two": "{count} resources",
+    "runtime.unit.collection.zero": "{count} collections",
+    "runtime.unit.collection.two": "{count} collections",
+    "runtime.unit.topic.zero": "{count} topics",
+    "runtime.unit.topic.two": "{count} topics",
+    "runtime.unit.branch.zero": "{count} branches",
+    "runtime.unit.branch.two": "{count} branches"
   }
 }

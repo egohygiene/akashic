@@ -464,6 +464,21 @@
     "runtime.mindMap.topics": "Темы",
     "runtime.mindMap.closeAria": "Закрыть развёрнутую карту знаний",
     "runtime.mindMap.expandAria": "Развернуть карту знаний",
-    "runtime.mindMap.expandedAria": "Развёрнутая карта знаний"
+    "runtime.mindMap.expandedAria": "Развёрнутая карта знаний",
+    "runtime.locale.apply": "Выбрать язык",
+    "runtime.locale.draftLabel": "Черновик ИИ",
+    "runtime.locale.draftTitle": "Черновой перевод ИИ",
+    "runtime.locale.draftCopy": "Этот перевод интерфейса подготовлен с помощью ИИ и ещё не проверен человеком. Содержание каталога ресурсов остаётся на английском языке.",
+    "runtime.locale.offer": "Интерфейс доступен на языке {language}. Переключиться на него?",
+    "runtime.locale.use": "Использовать {language}",
+    "runtime.locale.dismiss": "Оставить текущий язык",
+    "runtime.unit.resource.zero": "{count} ресурсов",
+    "runtime.unit.resource.two": "{count} ресурса",
+    "runtime.unit.collection.zero": "{count} коллекций",
+    "runtime.unit.collection.two": "{count} коллекции",
+    "runtime.unit.topic.zero": "{count} тем",
+    "runtime.unit.topic.two": "{count} темы",
+    "runtime.unit.branch.zero": "{count} ветвей",
+    "runtime.unit.branch.two": "{count} ветви"
   }
 }
