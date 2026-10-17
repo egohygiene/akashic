@@ -10,7 +10,7 @@ import { runInNewContext } from "node:vm";
 const workflow = await readFile(new URL("../.github/workflows/pages.yml", import.meta.url), "utf8");
 const failureWorkflow = await readFile(new URL("../.github/workflows/repository-intelligence-failure-evidence.yml", import.meta.url), "utf8");
 const gateWorkflow = await readFile(new URL("../.github/workflows/repository-intelligence-gates.yml", import.meta.url), "utf8");
-const relayRevision = "9a6315978766c336566b9fa7139b800fa8789ba5";
+const relayRevision = "04bd32c8ef492418f47d6df6faee425d6888f341";
 const rollbackRelayRevision = "55587de4ff322931d401e964f5af0716633dd675";
 const rollbackRevision = "cfa0cb3a948cf57eac9503604c5d19fa42178b2b";
 const rollbackDigest = "sha256:969a3f82abf532ed936c2600fc73045f4df1775185d441168f74724754bcba28";

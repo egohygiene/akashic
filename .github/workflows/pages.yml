@@ -27,7 +27,7 @@ concurrency:
 env:
   CANONICAL_ORIGIN: "https://akashic.egohygiene.io/"
   FALLBACK_ORIGIN: "https://egohygiene.github.io/akashic/"
-  RELAY_REVISION: "9a6315978766c336566b9fa7139b800fa8789ba5"
+  RELAY_REVISION: "04bd32c8ef492418f47d6df6faee425d6888f341"
   ROLLBACK_RELAY_REVISION: "55587de4ff322931d401e964f5af0716633dd675"
   ROLLBACK_REVISION: "cfa0cb3a948cf57eac9503604c5d19fa42178b2b"
   ROLLBACK_SITE_DIGEST: "sha256:969a3f82abf532ed936c2600fc73045f4df1775185d441168f74724754bcba28"
@@ -38,7 +38,7 @@ jobs:
     if: "${{ github.event_name != 'workflow_dispatch' || inputs.mode != 'rollback-v1.3' }}"
     permissions:
       contents: read
-    uses: egohygiene/relay/.github/workflows/repository-intelligence.yml@9a6315978766c336566b9fa7139b800fa8789ba5
+    uses: egohygiene/relay/.github/workflows/repository-intelligence.yml@04bd32c8ef492418f47d6df6faee425d6888f341
     with:
       artifact-retention-days: 30
       max-depth: "10"
@@ -145,7 +145,7 @@ jobs:
         id: intelligence_current_one
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence@9a6315978766c336566b9fa7139b800fa8789ba5
+        uses: egohygiene/relay/actions/repository-intelligence@04bd32c8ef492418f47d6df6faee425d6888f341
 
       - name: Preserve first deterministic manifest
         if: steps.identity.outputs.deployment-mode == 'current'
@@ -158,7 +158,7 @@ jobs:
         id: intelligence_current_two
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence@9a6315978766c336566b9fa7139b800fa8789ba5
+        uses: egohygiene/relay/actions/repository-intelligence@04bd32c8ef492418f47d6df6faee425d6888f341
 
       - name: Prove deterministic bundle reproduction
         if: steps.identity.outputs.deployment-mode == 'current'
@@ -190,7 +190,7 @@ jobs:
         with:
           operation: verify-composition
           consumer-revision: "${{ steps.identity.outputs.represented-revision }}"
-          relay-revision: "9a6315978766c336566b9fa7139b800fa8789ba5"
+          relay-revision: "04bd32c8ef492418f47d6df6faee425d6888f341"
           required-routes: >-
             ["/","/intelligence/","/intelligence/compare/",
             "/intelligence/dashboard/","/intelligence/decisions/",
@@ -380,7 +380,7 @@ jobs:
         with:
           operation: record-receipt
           consumer-revision: "${{ needs.build.outputs.represented-revision }}"
-          relay-revision: "9a6315978766c336566b9fa7139b800fa8789ba5"
+          relay-revision: "04bd32c8ef492418f47d6df6faee425d6888f341"
           workflow-run-id: "${{ github.run_id }}"
           workflow-run-attempt: "${{ github.run_attempt }}"
           deployment-environment: github-pages
