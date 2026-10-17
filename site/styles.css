@@ -341,7 +341,7 @@ body.map-expanded { overflow: hidden; }
 .collection-guide-content ul, .collection-guide-content ol { margin: 12px 0; padding-left: 24px; }
 .collection-guide-content li + li { margin-top: 8px; }
 .guide-warning { margin: 0 0 17px; padding: 15px 17px; border: 1px solid color-mix(in srgb, var(--pink), transparent 57%); border-radius: 13px; background: color-mix(in srgb, var(--pink), transparent 92%); color: var(--text); }
-.guide-table-wrap { max-width: 100%; overflow-x: auto; margin: 14px 0 20px; border: 1px solid var(--line); border-radius: 13px; }
+.guide-table-wrap { position: relative; max-width: 100%; overflow-x: auto; margin: 14px 0 20px; border: 1px solid var(--line); border-radius: 13px; }
 .guide-table-wrap:focus-visible { outline-offset: 2px; }
 .guide-table-wrap table { width: 100%; min-width: 700px; border-collapse: collapse; }
 .guide-table-wrap th, .guide-table-wrap td { padding: 12px 13px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
@@ -676,6 +676,7 @@ footer { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items:
   .catalog-context { border-color: #bbb; background: transparent; }
   .collection-guide { --text: #111; --muted: #333; --pink: #111; --surface-solid: #fff; --line: #bbb; break-inside: avoid; border-color: #bbb; background: #fff; color: #111; box-shadow: none; }
   .collection-guide > summary { display: none; }
+  .collection-guide::details-content { content-visibility: visible; }
   .collection-guide .collection-guide-panel { display: block !important; }
   .collection-guide-meta { display: none; }
   .guide-warning { border-color: #999; background: #f5f5f5; color: #111; }
