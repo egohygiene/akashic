@@ -24,6 +24,7 @@ A practical order is to stabilize essentials and benefits, recover money already
 - [Paid Research and Flexible Income](#paid-research-and-flexible-income)
 - [Employment and Education](#employment-and-education)
 - [Identity Documents and Civic Paperwork](#identity-documents-and-civic-paperwork)
+- [Massachusetts Licenses and Permits](#massachusetts-licenses-and-permits)
 - [Massachusetts RMV and Civic Paperwork](#massachusetts-rmv-and-civic-paperwork)
 - [Government, Civics, and Culture](#government-civics-and-culture)
 - [Health Care and Medication](#health-care-and-medication)
@@ -115,6 +116,10 @@ For household alerts, evacuation preparation, and recovery, use the separate [Em
 ### Massachusetts RMV and moving
 
 **I moved, lost my ID, or need a vehicle transaction:** Use the [RMV task hub and printable moving checklist](https://akashic.egohygiene.io/civic.html), also available as [canonical Markdown](../../docs/civic/ma-rmv.md). Start with the record on file, then decide whether a new card or document is needed. The hub separates license and Mass ID replacement, renewals, REAL ID, vehicle/title tasks, disability parking, reinstatement, and permit/road-test routes. Sources checked **2026-09-27**; human review is pending. Check current agency instructions before submitting or paying, and keep personal identifiers and submitted forms out of public reports.
+
+### Massachusetts licenses and permits
+
+**I need to identify an authority, check a license record, or separate an update from replacement/renewal:** Use the [Massachusetts and federal licensing guide](https://akashic.egohygiene.io/licensing.html), also available as [canonical Markdown](../../docs/civic/ma-licenses-permits.md). It covers LTC/FID navigation and a bounded professional/business permit cross-section. Sources checked **2026-10-17**; human/legal review is pending. It does not determine eligibility, validity, or interstate permission. Keep personal licensing records out of public reports.
 
 ### U.S. identity documents and civic paperwork
 
@@ -211,6 +216,13 @@ Use the [ten-task guide](../../docs/civic/us-identity.md) to separate a record c
 - [SSA Change Name with Social Security](https://www.ssa.gov/life-events/change-name) - Official public instructions for changing the name on a Social Security record and requesting a corrected card when eligible; SSA charges no card fee, while legal evidence, online eligibility, appointments, and status-specific limits vary. <!-- akashic-meta: {"id":"ssa-change-name","resourceType":"website","role":"reference","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","privacy"],"linkStatus":"ok","linkChecked":"2026-09-27","programChecked":"2026-09-27"} -->
 - [SSA Replace Social Security Card](https://www.ssa.gov/number-card/replace-card) - Official public replacement-card guidance and eligibility questions; replacement is free, a physical card is not always needed, and online completion or an office appointment depends on identity verification and eligibility. <!-- akashic-meta: {"id":"ssa-replace-card","resourceType":"website","role":"reference","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","privacy"],"linkStatus":"ok","linkChecked":"2026-09-27","programChecked":"2026-09-27"} -->
 - [USA.gov Vital Records and ID Cards](https://www.usa.gov/request-documents) - Official discovery guide for birth, marriage, death, and divorce records and government identification; distinguishes records and directs readers to issuing agencies, whose fees, evidence rules, and online or offline services vary. <!-- akashic-meta: {"id":"usagov-vital-records-and-id","resourceType":"website","role":"discovery","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","privacy"],"linkStatus":"ok","linkChecked":"2026-09-27","programChecked":"2026-09-27"} -->
+
+## Massachusetts Licenses and Permits
+
+Use the [nine-task licensing guide](../../docs/civic/ma-licenses-permits.md) and its [printable portal](https://akashic.egohygiene.io/licensing.html) to identify the authority and distinguish an agency record, a printed document, validity, renewal, and separate reporting requirements. Public references are free to read; agency transactions may require accounts, evidence, fees, and separate legal review. [Business permit gateways](../business-and-entrepreneurship/README.md#register-identify-and-license), [legal help](../legal-help-and-law/README.md), and the RMV tasks below retain their existing homes.
+
+- [Massachusetts DOL License Lookup](https://www.mass.gov/info-details/division-of-occupational-licensure-check-a-license) - Official gateway to individual and business license lookup for Division of Occupational Licensure boards, with separate systems for some credentials; other professions have different regulators. <!-- akashic-meta: {"id":"ma-dol-license-lookup","resourceType":"documentation","role":"reference","authority":"official","access":["free"],"geography":["us-ma"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","privacy"],"programChecked":"2026-10-17","linkStatus":"ok","linkChecked":"2026-10-17"} -->
+- [Massachusetts Firearms Services](https://www.mass.gov/firearms-services) - Official DCJIS gateway to firearms licensing, address changes, application inquiries, and current guidance; public information does not determine personal eligibility or permission in another jurisdiction. <!-- akashic-meta: {"id":"ma-firearms-services","resourceType":"documentation","role":"reference","authority":"official","access":["free"],"geography":["us-ma"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["legal","privacy"],"programChecked":"2026-10-17","linkStatus":"ok","linkChecked":"2026-10-17"} -->
 
 ## Massachusetts RMV and Civic Paperwork
 

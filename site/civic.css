@@ -53,6 +53,7 @@
   .civic-task { border: 1px solid #777; background: #fff; padding: 10px; margin-block: 12px; break-inside: avoid; }
   .civic-page :is(a, .civic-intent, .civic-provenance, dt, summary, .civic-kicker) { color: #000; }
   .civic-next, .civic-main th { background: #fff; }
+  .civic-main th { color: #000; }
   .civic-print-state, .civic-print-context { display: block; }
   .civic-main .guide-table-wrap { overflow: visible; }
   .civic-task h2 { font-size: 13pt; margin-bottom: 6px; }

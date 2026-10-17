@@ -120,8 +120,33 @@ test("each chapter keeps its own fragments, source links, and printable checklis
     assert.doesNotMatch(html, new RegExp(`href="https://github.com/egohygiene/akashic/blob/main/${source}#`));
     const otherSource = CIVIC_CHAPTERS.find((other) => other.source !== source).source;
     assert.ok(html.includes(`href="https://github.com/egohygiene/akashic/blob/main/${otherSource}"`));
-    assert.throws(() => parseCivicMarkdown(text.replace(`## ${checklist === "paperwork-checklist" ? "Paperwork checklist" : "I moved checklist"}`, "## Renamed checklist"), { source }), /broken local link|missing chapter section/);
+    const checklistHeading = html.match(new RegExp(`<section id="${checklist}" class="civic-checklist"><h2>([^<]+)</h2>`))?.[1];
+    assert.ok(checklistHeading);
+    const renamedChecklist = text.replace(`## ${checklistHeading}`, "## Renamed checklist");
+    assert.notEqual(renamedChecklist, text);
+    assert.throws(() => parseCivicMarkdown(renamedChecklist, { source }), /broken local link|missing chapter section/);
   }
+});
+
+test("chapter templates keep reciprocal navigation and the shared private-by-default enhancement", async () => {
+  for (const { source, page } of CIVIC_CHAPTERS) {
+    const template = await readFile(new URL(`../site/${page}`, import.meta.url), "utf8");
+    assert.ok(template.includes(`href="https://akashic.egohygiene.io/${page}"`));
+    assert.ok(template.includes(`href="https://github.com/egohygiene/akashic/blob/main/${source}"`));
+    for (const other of CIVIC_CHAPTERS.filter((config) => config.page !== page)) {
+      assert.ok(template.includes(`href="./${other.page}"`));
+    }
+    assert.ok(template.includes('<meta name="referrer" content="no-referrer">'));
+    assert.ok(template.includes('<link rel="stylesheet" href="./civic.css">'));
+    assert.deepEqual([...template.matchAll(/<script\b[^>]*src="([^"]+)"/g)].map((match) => match[1]), ["./civic.js"]);
+    assert.equal((template.match(/<script\b/g) || []).length, 1);
+    assert.doesNotMatch(template, /<(?:form|input|textarea|iframe)\b/i);
+    assert.equal((template.match(/<!-- civic-hub -->/g) || []).length, 1);
+  }
+  const licensing = await readFile(new URL("../site/licensing.html", import.meta.url), "utf8");
+  assert.ok(licensing.includes('href="./atlas.html?place=us-ma"'));
+  assert.match(licensing, /Human legal review is pending/);
+  assert.match(licensing, /does not determine eligibility, legal obligations, or permission to operate/);
 });
 
 test("chapter selection rejects unknown sources and missing router sections", () => {

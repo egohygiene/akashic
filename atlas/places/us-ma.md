@@ -42,6 +42,8 @@ Already applied? Use the [SNAP interview, proofs, and DTA Connect checklist](../
 
 Moved, lost a credential, or need a vehicle transaction? Use the [Massachusetts RMV task hub and moving checklist](../../docs/civic/ma-rmv.md) to distinguish a record update from a replacement document, with official sources and dated verification. The [printable portal chapter](https://akashic.egohygiene.io/civic.html) contains the same task cards.
 
+For LTC/FID, occupational licenses, or local/federal business permit discovery, use the [Massachusetts and federal licensing guide](../../docs/civic/ma-licenses-permits.md) and [printable portal](https://akashic.egohygiene.io/licensing.html). It separates agency records, document printing, validity, and jurisdiction; Atlas placement does not establish which rules apply.
+
 - [Commonwealth Catalog](https://mblc.state.ma.us/resource-sharing/commonwealth-catalog.php) - Search and request materials from participating library networks for delivery to a local library; a participating library account is required to request. <!-- atlas-role: index -->
 - [Massachusetts Libraries Statewide Databases](https://mblc.state.ma.us/resource-sharing/database-licensing.php) - Access research and reference databases licensed for Massachusetts residents, with availability varying by library and database.
 - [ORI Community Partners Directory](https://www.mass.gov/info-details/ori-community-partners-directory) - Find refugee and immigrant service providers by community, population served, language, and program. <!-- atlas-role: index -->

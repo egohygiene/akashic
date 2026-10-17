@@ -5,6 +5,7 @@ export const CIVIC_SOURCE = "docs/civic/ma-rmv.md";
 export const CIVIC_CHAPTERS = Object.freeze([
   Object.freeze({ source: CIVIC_SOURCE, page: "civic.html", data: "civic-tasks.json", checklist: "i-moved-checklist" }),
   Object.freeze({ source: "docs/civic/us-identity.md", page: "identity.html", data: "identity-tasks.json", checklist: "paperwork-checklist" }),
+  Object.freeze({ source: "docs/civic/ma-licenses-permits.md", page: "licensing.html", data: "licensing-tasks.json", checklist: "licensing-checklist" }),
 ]);
 export const CIVIC_FIELDS = Object.freeze({
   first_check: "First check",
