@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "suite": "weighted-lexical-performance-v1",
   "searchAlgorithm": "weighted-lexical-v2",
-  "catalogResourceCount": 5376,
+  "catalogResourceCount": 5395,
   "inputs": {
     "algorithmSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669",
     "budgetSha256": "9b3937417775cf8be8d7913ad0d3392add2bf44dcc574d89a43d1d4629c656f7",
-    "catalogSha256": "decfd39edba040055df605d1395f575f530e56a455baf809b475116e4f34540e",
+    "catalogSha256": "c9c2d489938fa48f3177dc01e9d3979bacfad69f1147e392ba03a652bb3ae8c9",
     "fixtureSha256": "e62602a56190de45ad27adf4b9c4d0ed852c144d9304aab088b18bc4c06118fa",
     "runnerSha256": "38d7484da8794a967656f6e6e5e3caaef7cbe9728431867a1be4b016fa5d9a87",
     "decoderSha256": "65b924004c0431ea996c009c3dcf17f7db238cb1a7421a7bf47f652e3a0f8884"
@@ -46,10 +46,10 @@
     },
     {
       "path": "dist/data/catalog-v3.json",
-      "sha256": "decfd39edba040055df605d1395f575f530e56a455baf809b475116e4f34540e",
-      "rawBytes": 2728707,
-      "gzipBytes": 498027,
-      "brotliBytes": 388297
+      "sha256": "c9c2d489938fa48f3177dc01e9d3979bacfad69f1147e392ba03a652bb3ae8c9",
+      "rawBytes": 2753608,
+      "gzipBytes": 501529,
+      "brotliBytes": 390917
     },
     {
       "path": "dist/data/search-evaluation-v2.json",
@@ -81,10 +81,10 @@
     },
     {
       "path": "dist/index.html",
-      "sha256": "de4e7271781443a2ddec7327c769e8785e3a3e577798e727efbd9eea6076089e",
-      "rawBytes": 231424,
-      "gzipBytes": 61245,
-      "brotliBytes": 49979
+      "sha256": "de48413545d84d340e9a8969a6db5757759443e909e280adfcd899641ff6283c",
+      "rawBytes": 272020,
+      "gzipBytes": 71939,
+      "brotliBytes": 58547
     },
     {
       "path": "dist/mind-map.js",
@@ -158,10 +158,10 @@
     },
     {
       "path": "dist/styles.css",
-      "sha256": "f73700c3bcf5c3f299e1c506790ee0f408fe2bf3c151ae291d43430e4ac3eb44",
-      "rawBytes": 73248,
-      "gzipBytes": 12847,
-      "brotliBytes": 10796
+      "sha256": "bf69155ee83676bbdf5f80cb65cae14320de789269538ac8ec3457ec427da482",
+      "rawBytes": 73500,
+      "gzipBytes": 12909,
+      "brotliBytes": 10841
     }
   ],
   "transferGroups": [
@@ -174,27 +174,27 @@
         "dist/search/concepts-v1.js",
         "dist/search/weighted-lexical-v2.js"
       ],
-      "rawBytes": 2752325,
-      "gzipBytes": 505260,
-      "brotliBytes": 394465,
+      "rawBytes": 2777226,
+      "gzipBytes": 508762,
+      "brotliBytes": 397085,
       "checks": [
         {
           "id": "raw-bytes",
-          "actual": 2752325,
+          "actual": 2777226,
           "operator": "<=",
           "maximum": 3600000,
           "passed": true
         },
         {
           "id": "gzip-bytes",
-          "actual": 505260,
+          "actual": 508762,
           "operator": "<=",
           "maximum": 600000,
           "passed": true
         },
         {
           "id": "brotli-bytes",
-          "actual": 394465,
+          "actual": 397085,
           "operator": "<=",
           "maximum": 475000,
           "passed": true
@@ -222,27 +222,27 @@
         "dist/catalog-data.js",
         "dist/assets/favicon.svg"
       ],
-      "rawBytes": 3177288,
-      "gzipBytes": 610234,
-      "brotliBytes": 481659,
+      "rawBytes": 3243037,
+      "gzipBytes": 624492,
+      "brotliBytes": 492892,
       "checks": [
         {
           "id": "raw-bytes",
-          "actual": 3177288,
+          "actual": 3243037,
           "operator": "<=",
           "maximum": 3900000,
           "passed": true
         },
         {
           "id": "gzip-bytes",
-          "actual": 610234,
+          "actual": 624492,
           "operator": "<=",
           "maximum": 675000,
           "passed": true
         },
         {
           "id": "brotli-bytes",
-          "actual": 481659,
+          "actual": 492892,
           "operator": "<=",
           "maximum": 525000,
           "passed": true
@@ -266,27 +266,27 @@
         "dist/data/search-evaluation-v2.json",
         "dist/assets/favicon.svg"
       ],
-      "rawBytes": 2915317,
-      "gzipBytes": 540500,
-      "brotliBytes": 423996,
+      "rawBytes": 2940470,
+      "gzipBytes": 544064,
+      "brotliBytes": 426661,
       "checks": [
         {
           "id": "raw-bytes",
-          "actual": 2915317,
+          "actual": 2940470,
           "operator": "<=",
           "maximum": 3900000,
           "passed": true
         },
         {
           "id": "gzip-bytes",
-          "actual": 540500,
+          "actual": 544064,
           "operator": "<=",
           "maximum": 650000,
           "passed": true
         },
         {
           "id": "brotli-bytes",
-          "actual": 423996,
+          "actual": 426661,
           "operator": "<=",
           "maximum": 500000,
           "passed": true
