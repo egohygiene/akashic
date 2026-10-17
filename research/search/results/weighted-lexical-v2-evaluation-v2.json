@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "suite": "akashic-natural-language-v2",
   "searchAlgorithm": "weighted-lexical-v2",
-  "catalogResourceCount": 5395,
+  "catalogResourceCount": 5396,
   "inputs": {
-    "catalogSha256": "83e27cc8bd5de85c614345237313340c7a38fae3f7245b054abc1b18cfbf2424",
+    "catalogSha256": "de109d11c935eeafd6dbf67de0a8706ec5d6e91a0b8b9b348d3fb070fd48cd63",
     "fixtureSha256": "e62602a56190de45ad27adf4b9c4d0ed852c144d9304aab088b18bc4c06118fa",
     "implementationSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669"
   },
@@ -457,7 +457,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 217,
+      "resultCount": 218,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -718,7 +718,7 @@
         "subqueries": [
           {
             "query": "no money landlord need leave friday",
-            "resultCount": 217,
+            "resultCount": 218,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -729,7 +729,7 @@
           },
           {
             "query": "housing or eviction help",
-            "resultCount": 110,
+            "resultCount": 111,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -740,7 +740,7 @@
           },
           {
             "query": "help with no income",
-            "resultCount": 361,
+            "resultCount": 362,
             "candidateCount": 10,
             "relevantFoundAtK": 1,
             "recallAtK": 0.25,
@@ -751,7 +751,7 @@
           },
           {
             "query": "housing or eviction help free",
-            "resultCount": 342,
+            "resultCount": 343,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -762,7 +762,7 @@
           },
           {
             "query": "help with no income free",
-            "resultCount": 519,
+            "resultCount": 520,
             "candidateCount": 10,
             "relevantFoundAtK": 1,
             "recallAtK": 0.25,
@@ -2513,7 +2513,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 334,
+      "resultCount": 335,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -2820,7 +2820,7 @@
         "subqueries": [
           {
             "query": "cannot afford vpn renewal no income",
-            "resultCount": 334,
+            "resultCount": 335,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -2842,7 +2842,7 @@
           },
           {
             "query": "help with no income",
-            "resultCount": 361,
+            "resultCount": 362,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -2853,7 +2853,7 @@
           },
           {
             "query": "help with no income free",
-            "resultCount": 519,
+            "resultCount": 520,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -6567,7 +6567,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 306,
+      "resultCount": 307,
       "relevantCount": 2,
       "relevantFoundAtK": 0,
       "recallAtK": 0,
@@ -6576,7 +6576,7 @@
       "firstRelevantRank": 16,
       "relevantRanks": [
         16,
-        305
+        306
       ],
       "knownIrrelevantCount": 1,
       "knownIrrelevantFoundAtK": 1,
@@ -6856,7 +6856,7 @@
         "subqueries": [
           {
             "query": "need child care cannot afford",
-            "resultCount": 306,
+            "resultCount": 307,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -6867,7 +6867,7 @@
           },
           {
             "query": "help with no income",
-            "resultCount": 361,
+            "resultCount": 362,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -6878,7 +6878,7 @@
           },
           {
             "query": "help with no income free",
-            "resultCount": 519,
+            "resultCount": 520,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -6907,7 +6907,7 @@
       ],
       "targetStatus": "catalog-covered",
       "evaluable": true,
-      "resultCount": 225,
+      "resultCount": 226,
       "relevantCount": 1,
       "relevantFoundAtK": 0,
       "recallAtK": 0,
@@ -7181,7 +7181,7 @@
         "subqueries": [
           {
             "query": "need wheelchair cannot afford one",
-            "resultCount": 225,
+            "resultCount": 226,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -7192,7 +7192,7 @@
           },
           {
             "query": "help with no income",
-            "resultCount": 361,
+            "resultCount": 362,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -7203,7 +7203,7 @@
           },
           {
             "query": "help with no income free wheelchair accessible",
-            "resultCount": 726,
+            "resultCount": 727,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,

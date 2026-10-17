@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "suite": "akashic-natural-language-v1",
   "searchAlgorithm": "weighted-lexical-v2",
-  "catalogResourceCount": 5395,
+  "catalogResourceCount": 5396,
   "inputs": {
-    "catalogSha256": "83e27cc8bd5de85c614345237313340c7a38fae3f7245b054abc1b18cfbf2424",
+    "catalogSha256": "de109d11c935eeafd6dbf67de0a8706ec5d6e91a0b8b9b348d3fb070fd48cd63",
     "fixtureSha256": "f12c8aefc8f59b3f34e574c2529e1fcf2db315edaa99ec04693091f84b2e200a",
     "implementationSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669"
   },
@@ -346,7 +346,7 @@
       "id": "eviction-notice-no-money",
       "query": "I have no money and my landlord says I need to leave Friday",
       "kind": "natural-language",
-      "resultCount": 217,
+      "resultCount": 218,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -576,7 +576,7 @@
         "subqueries": [
           {
             "query": "no money landlord need leave friday",
-            "resultCount": 217,
+            "resultCount": 218,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -587,7 +587,7 @@
           },
           {
             "query": "housing or eviction help",
-            "resultCount": 110,
+            "resultCount": 111,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -598,7 +598,7 @@
           },
           {
             "query": "help with no income",
-            "resultCount": 361,
+            "resultCount": 362,
             "candidateCount": 10,
             "relevantFoundAtK": 1,
             "recallAtK": 0.25,
@@ -609,7 +609,7 @@
           },
           {
             "query": "housing or eviction help free",
-            "resultCount": 342,
+            "resultCount": 343,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -620,7 +620,7 @@
           },
           {
             "query": "help with no income free",
-            "resultCount": 519,
+            "resultCount": 520,
             "candidateCount": 10,
             "relevantFoundAtK": 1,
             "recallAtK": 0.25,
@@ -2143,7 +2143,7 @@
       "id": "vpn-renewal-no-income",
       "query": "I cannot afford my VPN renewal and have no income",
       "kind": "natural-language",
-      "resultCount": 334,
+      "resultCount": 335,
       "relevantCount": 4,
       "relevantFoundAtK": 4,
       "recallAtK": 1,
@@ -2419,7 +2419,7 @@
         "subqueries": [
           {
             "query": "cannot afford vpn renewal no income",
-            "resultCount": 334,
+            "resultCount": 335,
             "candidateCount": 10,
             "relevantFoundAtK": 4,
             "recallAtK": 1,
@@ -2441,7 +2441,7 @@
           },
           {
             "query": "help with no income",
-            "resultCount": 361,
+            "resultCount": 362,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,
@@ -2452,7 +2452,7 @@
           },
           {
             "query": "help with no income free",
-            "resultCount": 519,
+            "resultCount": 520,
             "candidateCount": 10,
             "relevantFoundAtK": 0,
             "recallAtK": 0,

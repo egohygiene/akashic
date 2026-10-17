@@ -1,5 +1,5 @@
 export const NEED_PATHS = Object.freeze([
-  { id: "no-income", glyph: "◇", query: "help with no income", titleKey: "runtime.need.noIncome.title", copyKey: "runtime.need.noIncome.copy" },
+  { id: "no-income", glyph: "◇", query: "help with no income", guideCategory: "financial-relief-and-assistance", titleKey: "runtime.need.noIncome.title", copyKey: "runtime.need.noIncome.copy" },
   { id: "food-today", glyph: "◉", query: "food today", titleKey: "runtime.need.foodToday.title", copyKey: "runtime.need.foodToday.copy" },
   { id: "housing-risk", glyph: "⌂", query: "housing or eviction help", titleKey: "runtime.need.housingRisk.title", copyKey: "runtime.need.housingRisk.copy" },
   { id: "court-papers", glyph: "§", query: "court paper legal help", titleKey: "runtime.need.courtPapers.title", copyKey: "runtime.need.courtPapers.copy" },

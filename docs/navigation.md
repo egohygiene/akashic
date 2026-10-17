@@ -58,6 +58,8 @@ Internal Markdown links under `## Related Akashic Collections` are converted int
 
 The initial paths cover no income, food today, housing risk, court papers, lost identification, health care, work, caregiving, creating, business, and relocation.
 
+A need may also name a canonical `guideCategory`. The no-income path runs its ordinary shared-search query in Financial Relief and Assistance and opens that collection's Markdown-generated “If You're Broke” guide, with keyboard focus on the disclosure. It clears prior branch, topic, domain, saved-only, and metadata restrictions so an unrelated earlier filter cannot hide the starting route. Collection state remains URL-backed; the query remains private in memory under the same rules as other searches. This adds orientation, not a second set of resource IDs or eligibility logic. Other need paths retain their shared-search behavior.
+
 ## Native Taxonomy Navigation
 
 Collection, branch, and topic selects operate on the same URL-backed `collection`, `branch`, and `section` state as cards, filters, the mind map, browser history, and related paths. Resource-card taxonomy labels are buttons that enter those same filters. Every generated topic must remain reachable without using the visual mind map.
