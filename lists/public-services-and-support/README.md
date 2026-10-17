@@ -10,6 +10,8 @@ Financial, legal, tax, benefits, work, and directory information is educational,
 
 A practical order is to stabilize essentials and benefits, recover money already owed, reduce banking, credit, tax, and debt friction, add earned income, and only then take on investment risk or recurring giving. For no-cost tax filing, credit reports, benefits screening, job centers, and everyday assistance, also see [Awesome Public Programs and Services](../awesome-abundance/public-programs-and-services/README.md). For civil legal aid, courts, lawyers, complaints, rights, and legal research, use [Legal Help and Law](../legal-help-and-law/README.md).
 
+Need help covering essentials? Use [If you're broke](../../docs/if-youre-broke.md) to choose one manageable next step, or begin with the [Financial Relief quick start](../financial-relief-and-assistance/README.md#if-youre-broke).
+
 ## Contents
 
 - [Benefits and Emergency Assistance](#benefits-and-emergency-assistance)

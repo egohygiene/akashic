@@ -220,7 +220,7 @@ function applyState(next, options = {}) {
 }
 
 function renderNeedPaths() {
-  elements.needs.innerHTML = NEED_PATHS.map((need) => `<button type="button" data-need-query="${escapeHtml(need.query)}"><span aria-hidden="true">${need.glyph}</span><span><strong>${escapeHtml(t(need.titleKey))}</strong><small>${escapeHtml(t(need.copyKey))}</small></span><b aria-hidden="true">→</b></button>`).join("");
+  elements.needs.innerHTML = NEED_PATHS.map((need) => `<button type="button" data-need-query="${escapeHtml(need.query)}"${need.guideCategory ? ` data-need-guide="${escapeHtml(need.guideCategory)}"` : ""}><span aria-hidden="true">${need.glyph}</span><span><strong>${escapeHtml(t(need.titleKey))}</strong><small>${escapeHtml(t(need.copyKey))}</small></span><b aria-hidden="true">→</b></button>`).join("");
 }
 
 function renderCollections() {
@@ -609,10 +609,19 @@ function submitSearch(value, focusTarget = false) {
   applyState({ query: value.trim() }, { historyMode: "push", hash: "#catalog", scroll: "#catalog", focusTarget });
 }
 
+function revealCollectionGuide() {
+  elements.guide.open = true;
+  window.setTimeout(() => elements.guide.querySelector("summary")?.focus({ preventScroll: true }), prefersReducedMotion.matches ? 0 : 420);
+}
+
 function initializeEvents() {
   elements.needs.addEventListener("click", (event) => {
     const button = event.target.closest("[data-need-query]");
-    if (button) submitSearch(button.dataset.needQuery, true);
+    if (!button) return;
+    if (button.dataset.needGuide) {
+      applyState({ query: button.dataset.needQuery, category: button.dataset.needGuide, group: "", section: "", domain: "", savedOnly: false, facets: emptyMetadataFacets() }, { historyMode: "push", hash: "#catalog", scroll: "#collection-guide" });
+      revealCollectionGuide();
+    } else submitSearch(button.dataset.needQuery, true);
   });
   elements.collections.addEventListener("click", (event) => {
     const browse = event.target.closest("[data-browse-category]");
@@ -623,8 +632,7 @@ function initializeEvents() {
     const catalogIntent = browse || guide;
     applyState({ category: slug, group: "", section: "", savedOnly: false }, { historyMode: "push", hash: catalogIntent ? "#catalog" : "#mind-map", scroll: catalogIntent ? (guide ? "#collection-guide" : "#catalog") : "#mind-map", focusTarget: true });
     if (guide) {
-      elements.guide.open = true;
-      window.setTimeout(() => elements.guide.querySelector("summary")?.focus({ preventScroll: true }), prefersReducedMotion.matches ? 0 : 420);
+      revealCollectionGuide();
     }
   });
   elements.filters.addEventListener("click", (event) => {

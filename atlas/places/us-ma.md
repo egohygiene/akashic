@@ -1,6 +1,8 @@
 <!-- atlas-location: us-ma -->
 # Massachusetts
 
+Need help covering essentials? Start with [If you're broke](../../docs/if-youre-broke.md) to choose one manageable next step, or use the [Financial Relief quick start](../../lists/financial-relief-and-assistance/README.md#if-youre-broke) before browsing the statewide resources below.
+
 ## Start here: statewide finders
 
 - [Mass.gov](https://www.mass.gov/) - Official Commonwealth portal for benefits, licenses, taxes, health, housing, transportation, work, and state agencies. <!-- atlas-role: index -->

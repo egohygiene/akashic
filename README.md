@@ -9,6 +9,8 @@
 
 **akashic** is the Ego Hygiene knowledge collection: a growing set of focused lists spanning technology, science, public resources, creativity, well-being, and the deeper questions people use to understand their lives and world. Each list follows the Awesome framework while retaining its own narrow scope and curation standards.
 
+Need help covering essentials? Start with [If you're broke](docs/if-youre-broke.md) to choose one manageable next step, or use the [Financial Relief quick start](lists/financial-relief-and-assistance/README.md#if-youre-broke).
+
 ## Contents
 
 - [Explore the Collection](#explore-the-collection)
@@ -31,7 +33,7 @@
 - [Developer Tools](lists/developer-tools/README.md) - Application development, databases, documentation, knowledge management, shell environments, and developer utilities. **161 resources.**
 - [Digital Forensics and Incident Evidence](lists/digital-forensics-and-incident-evidence/README.md) - Authorized acquisition, preservation, artifact examination, timelines, validation, case handling, reporting, datasets, and training. **62 resources.**
 - [Family, Caregiving, and Aging](lists/family-caregiving-and-aging/README.md) - U.S. family support, caregiving, aging in place, dementia, end-of-life planning, and practical tasks after a death. **15 resources.**
-- [Financial Relief and Assistance](lists/financial-relief-and-assistance/README.md) - U.S. assistance discovery for food, housing, utilities, health, prescriptions, income disruption, payment hardship, student loans, transportation, taxes, and local help. **58 resources.**
+- [Financial Relief and Assistance](lists/financial-relief-and-assistance/README.md) - U.S. assistance discovery for food, housing, utilities, health, prescriptions, income disruption, payment hardship, student loans, transportation, taxes, and local help. **59 resources.**
 - [Gaming Ecosystem and Preservation](lists/gaming-ecosystem-and-preservation/README.md) - Open play and creation, modding, accessibility, preservation, research, community well-being, and consumer safety. **66 resources.**
 - [Hacking and Cybersecurity](lists/hacking-and-cybersecurity/README.md) - Permission-centered security learning, isolated labs, defensive assessment, monitoring, hardening, disclosure, standards, and career pathways. **64 resources.**
 - [Health and Well-Being](lists/health-and-well-being/README.md) - Everyday, reproductive, and maternal care access, patient navigation, mental health, trauma recovery, digital health, supplements, pharmacology, and evidence-aware treatment resources. **175 resources.**
