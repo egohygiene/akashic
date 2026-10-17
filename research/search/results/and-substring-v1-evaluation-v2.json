@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "suite": "akashic-natural-language-v2",
   "searchAlgorithm": "and-substring-v1",
-  "catalogResourceCount": 5396,
+  "catalogResourceCount": 5403,
   "inputs": {
-    "catalogSha256": "de109d11c935eeafd6dbf67de0a8706ec5d6e91a0b8b9b348d3fb070fd48cd63",
+    "catalogSha256": "75ebedaf97fe1af4d4832879307d8b25b815afba59e1add24f46d7f96f6fe300",
     "fixtureSha256": "e62602a56190de45ad27adf4b9c4d0ed852c144d9304aab088b18bc4c06118fa",
     "implementationSha256": "ab5383002697e81edc6c424774f68c9644deace3feb69d4f85d0ebfc14907c71"
   },

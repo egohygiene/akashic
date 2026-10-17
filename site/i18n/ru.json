@@ -369,6 +369,8 @@
     "runtime.app.errorCopy": "Полную коллекцию по-прежнему можно просмотреть на GitHub.",
     "runtime.need.noIncome.title": "У меня нет дохода",
     "runtime.need.noIncome.copy": "Найдите бесплатную помощь, пособия, государственные услуги и первые срочные шаги.",
+    "runtime.need.paidWork.title": "Мне нужна подработка",
+    "runtime.need.paidWork.copy": "Сравните экспертные задания, небольшие услуги, затраты на отбор и условия выплат.",
     "runtime.need.foodToday.title": "Мне нужна еда сегодня",
     "runtime.need.foodToday.copy": "Начните с поиска доступной еды и официальных программ помощи.",
     "runtime.need.housingRisk.title": "Я рискую потерять жильё",

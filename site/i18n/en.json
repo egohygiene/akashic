@@ -369,6 +369,8 @@
     "runtime.app.errorCopy": "You can still browse the complete collection on GitHub.",
     "runtime.need.noIncome.title": "I have no income",
     "runtime.need.noIncome.copy": "Find no-cost help, benefits, public services, and immediate starting points.",
+    "runtime.need.paidWork.title": "I need paid work soon",
+    "runtime.need.paidWork.copy": "Compare expert tasks, small services, screening effort, and payout conditions.",
     "runtime.need.foodToday.title": "I need food today",
     "runtime.need.foodToday.copy": "Start with immediate food locators and official assistance pathways.",
     "runtime.need.housingRisk.title": "My housing is at risk",
