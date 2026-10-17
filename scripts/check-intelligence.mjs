@@ -78,7 +78,7 @@ if (
   || provenance.generator?.version !== "1.6.0"
   || provenance.generator?.repository !== "egohygiene/relay"
   || provenance.generator?.immutable !== true
-  || provenance.generator?.source_commit !== "9a6315978766c336566b9fa7139b800fa8789ba5"
+  || provenance.generator?.source_commit !== "04bd32c8ef492418f47d6df6faee425d6888f341"
   || provenance.generator?.source_ref !== provenance.generator?.source_commit
 ) {
   throw new Error("The repository intelligence generator provenance is not the reviewed immutable Relay v1.6 package.");
@@ -96,7 +96,7 @@ if (
   buildManifest.consumer?.repository !== "egohygiene/akashic"
   || buildManifest.consumer?.revision !== sourceCommit
   || buildManifest.generator?.repository !== "egohygiene/relay"
-  || buildManifest.generator?.revision !== "9a6315978766c336566b9fa7139b800fa8789ba5"
+  || buildManifest.generator?.revision !== "04bd32c8ef492418f47d6df6faee425d6888f341"
   || buildManifest.generator?.version !== "1.6.0"
 ) {
   throw new Error("The deterministic build manifest identities are inconsistent.");
