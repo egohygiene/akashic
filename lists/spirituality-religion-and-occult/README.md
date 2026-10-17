@@ -10,6 +10,8 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 This collection approaches religion, spirituality, and esoteric traditions through academic scholarship, primary texts, material history, community self-representation, and lived practice. Compare translations and interpretations, distinguish devotional claims from empirical evidence, and follow community-specific rules for sacred, secret, gender-restricted, seasonal, or otherwise sensitive knowledge.
 
+For philosophical arguments about knowledge, values, reality, and the good life, use [Philosophy and Practical Wisdom](../philosophy-and-practical-wisdom/README.md); this collection retains religious experience, tradition-specific texts, and living practice.
+
 ## Contents
 
 - [Academic Study and Religious Literacy](#academic-study-and-religious-literacy)
@@ -45,7 +47,7 @@ This collection approaches religion, spirituality, and esoteric traditions throu
 
 ## Primary Texts and Tradition-Specific Libraries
 
-Translations, commentaries, and textual boundaries reflect editorial or community choices. Check each item's provenance, edition, and license before reuse. See also the collection's existing entries for the [Internet Sacred Text Archive](../awesome-abundance/books-knowledge-and-archives/README.md#open-access-books-and-monographs) and [Perseus Digital Library](../awesome-abundance/books-knowledge-and-archives/README.md#open-access-books-and-monographs).
+Translations, commentaries, and textual boundaries reflect editorial or community choices. Check each item's provenance, edition, and license before reuse. See also the collection's existing entries for the [Internet Sacred Text Archive](../awesome-abundance/books-knowledge-and-archives/README.md#books-and-long-form-reading) and [Perseus Digital Library](../awesome-abundance/books-knowledge-and-archives/README.md#books-and-long-form-reading).
 
 - [84000: Translating the Words of the Buddha](https://84000.co/) - Provides free translations of the Tibetan Buddhist canon with introductions, glossaries, and scholarly reading tools.
 - [Altafsir.com](https://www.altafsir.com/) - Collects Qur'anic commentaries from multiple periods and schools through the Royal Aal al-Bayt Institute; translation coverage varies.

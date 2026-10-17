@@ -18,7 +18,7 @@
 
 ## Explore the Collection
 
-- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **886 resources.**
+- [Awesome Abundance](lists/awesome-abundance/README.md) - Legitimate no-cost resources, open knowledge, public programs, community sharing, free and open-source software, and overlooked forms of abundance. **884 resources.**
 - [Artificial Intelligence](lists/artificial-intelligence/README.md) - Agent engineering, models, providers, memory systems, evaluation, safety, and AI research. **140 resources.**
 - [Business and Entrepreneurship](lists/business-and-entrepreneurship/README.md) - Business structures, financial safety, registration, taxes, selling, operations, public support, and optional consolidation services. **210 resources.**
 - [Claims, Conspiracies, and Epistemic Navigation](lists/claims-conspiracies-and-epistemic-navigation/README.md) - Method-first claim tracing, primary records, verification, propaganda analysis, documented cases, uncertainty, and compassionate support. **55 resources.**
@@ -41,6 +41,7 @@
 - [Open Source](lists/open-source/README.md) - Open source collections, community governance, foundations, history, licensing, and general programs. **156 resources.**
 - [Open Source Sustainability and Support](lists/open-source-sustainability-and-support/README.md) - Grants, sponsorship, fiscal hosting, infrastructure, maintenance, advertising, pledges, legal help, and patent defense. **41 resources.**
 - [Personal Finance and Insurance](lists/personal-finance-and-insurance/README.md) - U.S. everyday money, savings, investing, retirement, insurance decisions, and consumer help. **22 resources.**
+- [Philosophy and Practical Wisdom](lists/philosophy-and-practical-wisdom/README.md) - Philosophical reasoning, values, knowledge, reality, mind, politics, art, meaning, primary texts, and multiple traditions for ordinary life. **17 resources.**
 - [Psychedelics](lists/psychedelics/README.md) - Evidence-forward research, open data, safety, regulated access, professional education, ethics, and cultural context. **74 resources.**
 - [Public Services and Support](lists/public-services-and-support/README.md) - Benefits, emergency assistance, unclaimed money, financial resilience, legitimate flexible income, volunteering, giving, and government services. **132 resources.**
 - [Recipes, Cooking, and Food Data](lists/recipes-cooking-and-food-data/README.md) - Open recipe data and tools, practical cooking knowledge, affordability, accessibility, safety, preservation, and food history. **55 resources.**

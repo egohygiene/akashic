@@ -25,6 +25,7 @@ export const CATEGORY_IDENTITIES = Object.freeze({
   "open-source": { color: "#6847bd", glyph: "∞" },
   "open-source-sustainability-and-support": { color: "#9b5a2b", glyph: "♲" },
   "personal-finance-and-insurance": { color: "#35756a", glyph: "◴" },
+  "philosophy-and-practical-wisdom": { color: "#7560aa", glyph: "φ" },
   psychedelics: { color: "#087c76", glyph: "⚗" },
   "public-services-and-support": { color: "#bd4b2a", glyph: "◈" },
   "recipes-cooking-and-food-data": { color: "#a85f1f", glyph: "♨" },

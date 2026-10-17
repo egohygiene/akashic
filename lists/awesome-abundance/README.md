@@ -16,7 +16,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 
 ## Explore Awesome Abundance
 
-- [Books, Knowledge, and Archives](books-knowledge-and-archives/README.md) - Public-domain books, open-access monographs, reference works, historical collections, newspapers, and government archives. **54 resources.**
+- [Books, Knowledge, and Archives](books-knowledge-and-archives/README.md) - Public-domain books, open-access monographs, reference works, historical collections, newspapers, and government archives. **52 resources.**
 - [Community Sharing and Material Resources](community-sharing-and-material-resources/README.md) - Local gifting, reuse networks, food sharing, repair help, lending libraries, clothing, and essential goods. **45 resources.**
 - [Creative Commons and Media](creative-commons-and-media/README.md) - Reusable images, art, audio, music, video, fonts, icons, 3D assets, and cultural collections. **85 resources.**
 - [Creative Tools and Production](creative-tools-and-production/README.md) - Legitimate no-cost paths for music, audio, video, animation, images, books, games, 3D work, publishing, accessible creation, and community equipment. **160 resources.**
@@ -103,6 +103,7 @@ Centers for Independent Living are disability-led, nonresidential organizations,
 
 - [Awesome Legal Help and Law](../legal-help-and-law/README.md) - Civil legal aid, lawyer verification, courts, rights, research, legal news, professional systems, and access-to-justice tools.
 - [Awesome Open Source](../open-source/README.md) - Foundations, governance, licensing, contributor programs, project discovery, and open-source community infrastructure.
+- [Awesome Philosophy and Practical Wisdom](../philosophy-and-practical-wisdom/README.md) - Philosophical orientation, expert encyclopedias, free courses, primary editions, values, and reflective reading paths.
 - [Awesome Public Services and Support](../public-services-and-support/README.md) - Broader public-service, emergency-assistance, finance, employment, government, and health-care resources.
 - [Awesome Scientific Research](../scientific-research/README.md) - Scientific organizations, data, computing, scholarly publishing, and research infrastructure.
 - [Awesome Self-Hosting and Homelab](../self-hosting-and-homelab/README.md) - Services and applications that can be operated on infrastructure you control.
