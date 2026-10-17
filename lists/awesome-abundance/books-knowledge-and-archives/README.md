@@ -46,8 +46,8 @@ Part of [Awesome Abundance](../README.md) and [akashic](../../../README.md), the
 
 ## Reference and Primary Sources
 
-- [Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/) - Free, continuously updated scholarly reference work whose entries are written and reviewed by subject experts.
-- [Internet Encyclopedia of Philosophy](https://iep.utm.edu/) - Free peer-reviewed reference work covering philosophers, movements, concepts, and problems across philosophy.
+Stanford Encyclopedia of Philosophy and Internet Encyclopedia of Philosophy now have their canonical entries in [Philosophy and Practical Wisdom](../../philosophy-and-practical-wisdom/README.md#reference-and-short-introductions), alongside an orientation to arguments, reading paths, and primary-text editions.
+
 - [Wiktionary](https://www.wiktionary.org/) - Multilingual, collaboratively edited dictionary released under open licenses and available without an account.
 - [Wikibooks](https://www.wikibooks.org/) - Community library of openly licensed textbooks, manuals, and instructional books that can be read and adapted freely.
 - [Avalon Project](https://avalon.law.yale.edu/) - Yale Law School collection of freely accessible historical documents in law, diplomacy, politics, economics, and government.

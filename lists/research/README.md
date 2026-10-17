@@ -38,6 +38,8 @@ Free search does not necessarily mean free full text. Verify AI-generated synthe
 
 ## Field-Specific Sources and Registries
 
+For philosophical orientation, arguments, primary texts, and reflective reading paths, use [Philosophy and Practical Wisdom](../philosophy-and-practical-wisdom/README.md). PhilPapers remains the bibliography and research-discovery entry here.
+
 - [ClinicalTrials.gov](https://clinicaltrials.gov/) - Provides a free United States government registry and results database for clinical studies conducted worldwide.
 - [dblp computer science bibliography](https://dblp.org/) - Curates open bibliographic records for computer-science journals, conferences, authors, and venues.
 - [ERIC](https://eric.ed.gov/) - Indexes education research, reports, journal articles, and policy literature through the United States Department of Education.

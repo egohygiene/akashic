@@ -211,6 +211,8 @@ For United States crisis support, treatment locators, NAMI, and broader mental-h
 
 [Legal Help and Law](../legal-help-and-law/README.md) covers evidence preservation, public-records law, courts, legal research, privacy, and qualified help.
 
+[Philosophy and Practical Wisdom](../philosophy-and-practical-wisdom/README.md) covers arguments, knowledge, values, and reflective reading across philosophical traditions.
+
 [Research](../research/README.md) covers scholarly discovery, source management, systematic review, reproducibility, corrections, and research integrity.
 
 [Security](../security/README.md) covers account defense, harassment safety, privacy, and defensive investigation practices.

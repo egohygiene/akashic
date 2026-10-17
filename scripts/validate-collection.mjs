@@ -45,6 +45,7 @@ const EXPECTED_TOP_LEVEL_LISTS = [
   "open-source",
   "open-source-sustainability-and-support",
   "personal-finance-and-insurance",
+  "philosophy-and-practical-wisdom",
   "psychedelics",
   "public-services-and-support",
   "recipes-cooking-and-food-data",
