@@ -18,6 +18,8 @@ You do not need to complete this guide. Pick the need with the earliest conseque
 | Legal deadlines | [Find qualified legal help](../lists/legal-help-and-law/README.md#start-here); keep the actual notice and envelope. | “What is the earliest deadline, and can someone advise or represent me before it?” Intake, complaints, negotiations, and aid requests generally do not pause other deadlines. Court procedural help and a lawyer's representation are different services. |
 | Transport, phone, and internet | [Local ride routes](../lists/financial-relief-and-assistance/README.md#transportation), [Lifeline](../lists/financial-relief-and-assistance/README.md#utilities-and-communications), and [library access](../lists/awesome-abundance/libraries-and-local-access/README.md#find-libraries-and-materials). | “Can I reach the appointment or complete this application? What fare, booking, eligibility, device, or remaining service charge applies?” A discount is not necessarily free service. Ask about accessible rides, a phone application, or a person who can help. |
 
+For a small paid engagement using skills you already have, use the [remote paid-work navigator](remote-paid-work.md). It separates application and screening effort from assigned work and payment received; keep using assistance routes while potential income is uncertain.
+
 Outside Massachusetts, follow the state or local administrator from these collections. A national directory does not process your case or prove that a program is available where you live.
 
 ## Today, this week, and later
