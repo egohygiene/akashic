@@ -110,7 +110,7 @@ jobs:
       - name: Capture consumer routes before composition
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence-deployment-provenance v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@9a6315978766c336566b9fa7139b800fa8789ba5
+        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@04bd32c8ef492418f47d6df6faee425d6888f341
         with:
           operation: capture-baseline
           consumer-revision: "${{ steps.identity.outputs.represented-revision }}"
@@ -186,7 +186,7 @@ jobs:
         id: composition
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence-deployment-provenance v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@9a6315978766c336566b9fa7139b800fa8789ba5
+        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@04bd32c8ef492418f47d6df6faee425d6888f341
         with:
           operation: verify-composition
           consumer-revision: "${{ steps.identity.outputs.represented-revision }}"
@@ -376,7 +376,7 @@ jobs:
           ${{ needs.build.outputs.deployment-mode == 'current' &&
           steps.download_provenance.outcome == 'success' }}
         # egohygiene/relay repository-intelligence-deployment-provenance v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@9a6315978766c336566b9fa7139b800fa8789ba5
+        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@04bd32c8ef492418f47d6df6faee425d6888f341
         with:
           operation: record-receipt
           consumer-revision: "${{ needs.build.outputs.represented-revision }}"
