@@ -12,10 +12,13 @@ Dietary tags are discovery aids, not guarantees that a recipe is safe for a part
 
 Where a source publishes them, descriptions call out cost, account, equipment, skill, dietary, language, regional, and reuse constraints so those dimensions remain searchable and can support future catalog filters. This first edition was reviewed on **2026-09-02**.
 
-This collection covers finding, preparing, storing, documenting, and reusing food knowledge. Food-benefit eligibility, emergency groceries, and other food-access programs belong in [Public Services and Support](../public-services-and-support/README.md); general clinical nutrition and health guidance belongs in [Health and Well-Being](../health-and-well-being/README.md).
+This collection covers finding, preparing, storing, documenting, and reusing food knowledge. Food-benefit and assistance navigation belongs in [Financial Relief and Assistance](../financial-relief-and-assistance/README.md#food-access-to-meals), with urgent gateways in [Public Services and Support](../public-services-and-support/README.md#benefits-and-emergency-assistance) and community food in [Awesome Abundance](../awesome-abundance/community-sharing-and-material-resources/README.md#food-and-household-essentials). General clinical nutrition and health guidance belongs in [Health and Well-Being](../health-and-well-being/README.md).
+
+<!-- site-guide:start -->
 
 ## Contents
 
+- [From Food Access to a Meal](#from-food-access-to-a-meal)
 - [Open Data, Standards, and Reuse](#open-data-standards-and-reuse)
 - [Open Recipe and Kitchen Tools](#open-recipe-and-kitchen-tools)
 - [Techniques, Measurements, and Scaling](#techniques-measurements-and-scaling)
@@ -24,6 +27,46 @@ This collection covers finding, preparing, storing, documenting, and reusing foo
 - [Food Safety](#food-safety)
 - [Preservation and Food-Waste Reduction](#preservation-and-food-waste-reduction)
 - [Culture, History, and Attribution](#culture-history-and-attribution)
+
+## From Food Access to a Meal
+
+Start with one meal you can actually obtain, store, and prepare. If you need food, use [Food Access to Meals](../financial-relief-and-assistance/README.md#food-access-to-meals) for food today, SNAP/WIC, school meals, and older-adult support. You can seek food today while a benefit application is pending.
+
+### Match the food to your situation
+
+| What you have available             | A practical next step                                                                                                                                                                                                                             |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| No stove or only a microwave        | Try EatFresh's Limited Kitchen or No-cook filters in [Affordable and Accessible Cooking](#affordable-and-accessible-cooking). Check the actual tools, safe water, refrigeration, and instructions; no-cook does not mean no equipment or storage. |
+| No reliable refrigerator            | Ask for unopened, shelf-stable, ready-to-eat food in portions you can use. Read storage and after-opening instructions; a shelf-stable package may need refrigeration once opened.                                                                |
+| Little energy, time, money, or help | Choose a simple meal from ready-to-eat components, a short recipe, or a community meal. Start with what you can use safely; weekly batch cooking is optional.                                                                                     |
+| No safe water or preparation space  | Ask a pantry, meal provider, or 211 for a prepared meal or food suited to these limits. Tell them about transport and accessibility needs before a trip.                                                                                          |
+
+### Obtain → store safely → prepare → stretch
+
+| Step         | Small checklist                                                                                                                                                                                                                                                                                                                             |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Obtain       | Confirm pickup or delivery, hours, cost, and what food is available. Ask about ingredients and storage history when relevant. Choose food you can carry, open, and use with your equipment; an unsuitable donation is not a usable meal.                                                                                                    |
+| Store safely | Follow labels and food-specific storage guidance. Keep the refrigerator at 40°F / 4°C or below. Refrigerate perishables within two hours total out of safe temperature control, or one hour above 90°F / 32°C; include travel time. If safe cold storage is unavailable, ask for a suitable alternative.                                    |
+| Prepare      | Clean hands, surfaces, and tools; separate raw meat, poultry, seafood, and eggs from ready-to-eat food. Follow the recipe and use a food thermometer with the food-specific temperature chart. Cooking does not remove allergen cross-contact.                                                                                              |
+| Stretch      | Plan the next use before making extra. Divide perishable extras into shallow containers and refrigerate promptly, label dates, and use food-specific storage limits. Freeze suitable portions while still safe only if you have reliable freezer space. Count package costs, transport, utilities, and likely waste when comparing options. |
+
+Safety sources: [Four Steps to Food Safety](https://www.foodsafety.gov/keep-food-safe/4-steps-to-food-safety), [safe minimum temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures), and [cold-food storage charts](https://www.foodsafety.gov/food-safety-charts/cold-food-storage-charts). Do not use taste, smell, or appearance to decide whether food is safe after [a power outage](https://www.foodsafety.gov/food-safety-charts/food-safety-during-power-outage). FoodKeeper in [Food Safety](#food-safety) offers item-specific storage guidance; its browser tool needs JavaScript.
+
+> **Allergy check:** filters cannot establish safety. Read each product label and ask the provider about ingredients, shared equipment, and handling; [FDA labeling guidance](https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/food-allergies) and [FARE's cross-contact guidance](https://www.foodallergy.org/resources/avoiding-cross-contact) explain the limits. If ingredients or cross-contact controls cannot be confirmed for your allergy, ask for a suitable alternative rather than guessing. Ask a qualified health professional about an individual medical diet.
+
+### One-meal planning note
+
+Use this blank note privately, on paper or in a tool you already have. It is a planning prompt, not a required application or nutrition prescription.
+
+| Food I have and can use safely | One next meal | Tools, water, and storage needed | Missing items and actual cost | Safe storage / next use | Low-effort fallback or person to ask |
+| ------------------------------ | ------------- | -------------------------------- | ----------------------------- | ----------------------- | ------------------------------------ |
+| Fill in                        | Fill in       | Fill in                          | Fill in                       | Fill in                 | Fill in                              |
+
+For ideas, use the existing EatFresh, Food Hero, The Food Trust, and Spend Smart. Eat Smart. entries in [Affordable and Accessible Cooking](#affordable-and-accessible-cooking). Adapt to available food and verified allergy needs rather than assuming a pantry will supply a recipe's ingredients. If a plan is too demanding, ask a trusted person, pantry worker, or [211](../public-services-and-support/README.md#benefits-and-emergency-assistance) for help finding a suitable meal.
+
+**United States edition; sources checked 2026-10-17.** This is an agent source check, not a human truth review. Recheck food safety at use time and service availability before travel. Preparation guidance is due for quarterly review by 2027-01-17; assistance routes follow the monthly schedule. See the [source and overlap audit](../../docs/food-access-to-meals-curation.md) for evidence, access limits, and ownership.
+
+<!-- site-guide:end -->
 
 ## Open Data, Standards, and Reuse
 
@@ -59,18 +102,18 @@ This collection covers finding, preparing, storing, documenting, and reusing foo
 ## Affordable and Accessible Cooking
 
 - [Accessible Chef](https://accessiblechef.com/) - Free visual recipes and cooking-skill resources designed for people with intellectual disabilities and other learners who benefit from step-by-step images.
-- [Cooking Matters Recipe Finder](https://cookingmatters.org/recipe-finder/) - Free recipe search from Share Our Strength with time, family, and dietary filters for affordable home cooking.
-- [EatFresh](https://eatfresh.org/find-a-recipe/) - Free budget-conscious recipes and meal plans with limited-kitchen, time, cuisine, and dietary filters; saving items requires an account.
-- [Food Hero Healthy Recipes](https://foodhero.org/healthy-recipes) - Oregon State University Extension recipes emphasizing low cost, short preparation, limited ingredients, bilingual access, and community-contributed food traditions.
+- [EatFresh](https://eatfresh.org/find-a-recipe/) - Free Leah's Pantry recipes and meal plans with Limited Kitchen, No-cook, time, ingredient, and cuisine filters; browsing needs no account, while saving items requires a free account. Copyrighted content; check each recipe's tools and storage needs. <!-- akashic-meta: {"id":"eatfresh-11c64485f3","resourceType":"website","role":"education","authority":"nonprofit","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"optional","license":"proprietary","status":"active","volatility":"medium","reviewTier":"quarterly","linkStatus":"ok","linkChecked":"2026-10-17"} -->
+- [Food Hero Healthy Recipes](https://foodhero.org/healthy-recipes) - Free Oregon State University Extension recipes emphasizing short preparation, limited ingredients, basic tools, and English/Spanish access; browsing needs no account, with optional accounts for favorites. No blanket reuse license verified. <!-- akashic-meta: {"id":"food-hero-healthy-recipes-db83845135","resourceType":"website","role":"education","authority":"academic","access":["free"],"geography":["us"],"language":["en","es"],"platform":["web"],"account":"optional","license":"unknown","status":"active","volatility":"medium","reviewTier":"quarterly","linkStatus":"ok","linkChecked":"2026-10-17"} -->
 - [Good and Cheap](https://leannebrown.com/good-and-cheap-2/) - Budget-focused cookbook with a free email-gated PDF; the first edition is reusable under CC BY-NC-SA 4.0, while later editions may have different terms.
 - [SNAP-Ed Recipes](https://snaped.fns.usda.gov/resources/recipes-and-menus/snap-ed-recipes) - USDA SNAP-Ed gateway to seasonal, budget-aware recipes and menus from public nutrition-education programs.
-- [Spend Smart. Eat Smart.](https://spendsmart.extension.iastate.edu/) - Iowa State University Extension recipes, meal planning, shopping tools, food-waste guidance, and a grocery-budget calculator based on USDA food plans.
+- [Spend Smart. Eat Smart.](https://spendsmart.extension.iastate.edu/) - Free Iowa State University Extension guidance on recipes, meal planning, shopping, unit pricing, and food-waste reduction; public guidance needs no account, and copyrighted content does not grant open reuse rights. <!-- akashic-meta: {"id":"spend-smart-eat-smart-8b2d4665b5","resourceType":"website","role":"education","authority":"academic","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"proprietary","status":"active","volatility":"medium","reviewTier":"quarterly","linkStatus":"ok","linkChecked":"2026-10-17"} -->
+- [The Food Trust Recipe Explorer](https://learning.thefoodtrust.org/recipes/) - Free public recipe search with ingredient, meal-type, and dietary filters from the nonprofit that acquired Cooking Matters in 2024; no account needed to browse, and copyrighted recipes remain subject to its terms. <!-- akashic-meta: {"id":"cooking-matters-recipe-finder-b4e71e3424","resourceType":"website","role":"education","authority":"nonprofit","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"proprietary","status":"active","volatility":"medium","reviewTier":"quarterly","linkStatus":"ok","linkChecked":"2026-10-17","aliases":["https://cookingmatters.org/recipe-finder/"]} -->
 
 ## Allergens and Dietary Information
 
 - [Codex Alimentarius Standards](https://www.fao.org/fao-who-codexalimentarius/codex-texts/list-standards/en/) - Searchable FAO/WHO food standards, including international labeling and special-diet references; implementation depends on national law.
-- [FARE Avoiding Cross-Contact](https://www.foodallergy.org/resources/avoiding-cross-contact) - Consumer guidance from Food Allergy Research and Education on preventing unintended allergen transfer during preparation and service.
-- [FDA Food Allergies](https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/food-allergies) - U.S. regulator overview of major allergens, packaged-food labeling requirements, recalls, and consumer reporting.
+- [FARE Avoiding Cross-Contact](https://www.foodallergy.org/resources/avoiding-cross-contact) - Consumer guidance from Food Allergy Research and Education on preventing unintended allergen transfer during preparation and service. <!-- akashic-meta: {"id":"fare-avoiding-cross-contact-58a42675f7","resourceType":"website","role":"education","authority":"nonprofit","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"medium","reviewTier":"quarterly","linkStatus":"ok","linkChecked":"2026-10-17","sensitive":["medical"]} -->
+- [FDA Food Allergies](https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/food-allergies) - U.S. regulator overview of major allergens, packaged-food labeling requirements, recalls, and consumer reporting. <!-- akashic-meta: {"id":"fda-food-allergies-0ffb363663","resourceType":"website","role":"education","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"medium","reviewTier":"quarterly","linkStatus":"ok","linkChecked":"2026-10-17","sensitive":["medical"]} -->
 - [Food Allergies: The Big 9](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/food-allergies-big-9) - USDA guidance on the nine major U.S. allergens and the meat, poultry, and egg products regulated by FSIS.
 - [NIDDK Eating, Diet, and Nutrition for Celiac Disease](https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease/eating-diet-nutrition) - U.S. clinical guidance on gluten sources, cross-contact, labeling, diagnostic timing, and working with qualified health professionals.
 - [UK Food Allergy and Intolerance Advice](https://www.gov.uk/government/publications/food-allergy-and-intolerance-advice-for-consumers) - Food Standards Agency consumer guidance for England, Northern Ireland, and Wales, available in English and Welsh under the Open Government Licence.
@@ -79,10 +122,10 @@ This collection covers finding, preparing, storing, documenting, and reusing foo
 
 - [CDC Food Safety](https://www.cdc.gov/food-safety/) - U.S. public-health guidance on prevention, symptoms, outbreaks, recalls, higher-risk groups, and when to seek care.
 - [FDA Food Code](https://www.fda.gov/food/retail-food-protection/fda-food-code) - Model science-based code for U.S. retail and food-service regulation; adoption and amendments vary by jurisdiction.
-- [FoodKeeper App](https://www.foodsafety.gov/keep-food-safe/foodkeeper-app) - USDA-developed browser and mobile reference for food and beverage storage times and quality; guidance should be paired with current recall and safety notices.
-- [Four Steps to Food Safety](https://www.foodsafety.gov/keep-food-safe/4-steps-to-food-safety) - U.S. consumer guidance organized around cleaning, separating, cooking, and chilling food.
+- [FoodKeeper App](https://www.foodsafety.gov/keep-food-safe/foodkeeper-app) - USDA-developed browser and mobile reference for food and beverage storage times and quality; guidance should be paired with current recall and safety notices. <!-- akashic-meta: {"id":"foodkeeper-app-d9ceff4f80","resourceType":"website","role":"education","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"medium","reviewTier":"quarterly","linkStatus":"ok","linkChecked":"2026-10-17","sensitive":["medical"]} -->
+- [Four Steps to Food Safety](https://www.foodsafety.gov/keep-food-safe/4-steps-to-food-safety) - U.S. consumer guidance organized around cleaning, separating, cooking, and chilling food. <!-- akashic-meta: {"id":"four-steps-to-food-safety-943f20dcf0","resourceType":"website","role":"education","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"medium","reviewTier":"quarterly","linkStatus":"ok","linkChecked":"2026-10-17","sensitive":["medical"]} -->
 - [Leftovers and Food Safety](https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety) - USDA instructions for cooking, cooling, storing, thawing, and reheating leftovers safely.
-- [Safe Minimum Internal Temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures) - U.S. temperature and rest-time chart for meat, poultry, seafood, eggs, casseroles, and leftovers.
+- [Safe Minimum Internal Temperatures](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures) - U.S. temperature and rest-time chart for meat, poultry, seafood, eggs, casseroles, and leftovers. <!-- akashic-meta: {"id":"safe-minimum-internal-temperatures-ba53e6cf7a","resourceType":"website","role":"education","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","license":"unknown","status":"active","volatility":"medium","reviewTier":"quarterly","linkStatus":"ok","linkChecked":"2026-10-17","sensitive":["medical"]} -->
 - [WHO Five Keys to Safer Food](https://www.who.int/activities/promoting-safe-food-handling/five-key-to-safer-food) - Global food-handling framework with posters and educational material in many languages.
 
 ## Preservation and Food-Waste Reduction

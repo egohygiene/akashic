@@ -13,6 +13,7 @@ Part of [akashic](../../README.md), the Ego Hygiene knowledge collection.
 ## Contents
 
 - [Start Here](#start-here)
+- [Food Access to Meals](#food-access-to-meals)
 - [SNAP, EBT, and OTC Benefits](#snap-ebt-and-otc-benefits)
 - [COBRA After a Job Change](#cobra-after-a-job-change)
 - [Massachusetts Health Coverage Transition](#massachusetts-health-coverage-transition)
@@ -79,6 +80,31 @@ Use the agency's own application route or an independently verified provider. Re
 Share only required information through verified channels; keep identifiers, financial records, and medical details out of public posts. Ask directories how referrals share information. Prescription discount cards are not insurance; compare pharmacy prices and plan rules. Paid during an authorization delay? Use the [reimbursement checklist](../../docs/prescription-reimbursement.md).
 
 **Source-check date: 2026-09-17.** This records checks of the linked primary pages, not a human truth review or a promise that funds remain available. Recheck at the point of use. Curators follow the [monthly review and metadata policy](../../docs/financial-relief-curation.md); automated link checks cannot establish eligibility or continued funding.
+
+## Food Access to Meals
+
+**Need food today?** Start with the [community food finders](../awesome-abundance/community-sharing-and-material-resources/README.md#food-and-household-essentials) or call [211](../public-services-and-support/README.md#benefits-and-emergency-assistance). Ask for a prepared meal if you cannot safely cook or store groceries. A food-bank warehouse may refer you to a pantry or meal site rather than distribute directly. A referral does not reserve food; confirm with the provider before travelling when possible.
+
+| Need                                         | Existing starting point                                                                                                                                                                                                                                                                             | Confirm the next action                                                                                                                                                                      |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Food today                                   | Feeding America, FoodFinder, and community meals in [Food and Household Essentials](../awesome-abundance/community-sharing-and-material-resources/README.md#food-and-household-essentials); [emergency food gateways](../public-services-and-support/README.md#benefits-and-emergency-assistance).  | A site serving your area today, groceries versus ready-to-eat meals, pickup/delivery, and food suited to your kitchen and storage.                                                           |
+| Ongoing grocery support                      | [SNAP and the state directory](#food-and-nutrition); use [SNAP, EBT, and OTC Benefits](#snap-ebt-and-otc-benefits) for card and purchase distinctions.                                                                                                                                              | Current state application, eligibility, interview, documents, processing, and renewal. An application is not approval or food for today; benefits may not cover every food need or purchase. |
+| Pregnancy, postpartum, or a child under five | [WIC state-agency contacts](#food-and-nutrition).                                                                                                                                                                                                                                                   | Local screening and appointment, applicant/category and local eligibility requirements, required information, and available nutrition support.                                               |
+| School breakfast or lunch                    | USDA School Meals in [public food programs](../awesome-abundance/public-programs-and-services/README.md#food-and-nutrition).                                                                                                                                                                        | Ask the school/district nutrition office about current meals, an application or universal-meal arrangement, schedules, costs, and accommodations.                                            |
+| Summer child meals                           | USDA Summer Meals for Kids Site Finder in [community food resources](../awesome-abundance/community-sharing-and-material-resources/README.md#food-and-household-essentials).                                                                                                                        | Seasonal operating dates, hours, ages, and on-site or pickup rules. The map is incomplete and excludes delivery sites; ask 211 or the school if no site appears.                             |
+| Older-adult meals or meal delivery           | Meals on Wheels in [community food resources](../awesome-abundance/community-sharing-and-material-resources/README.md#food-and-household-essentials), or Eldercare Locator in [Health and Family Programs](../awesome-abundance/public-programs-and-services/README.md#health-and-family-programs). | Local age/eligibility rules, service area, assessment/referral, delivery or shared meal sites, capacity/waitlists, costs or suggested contributions, and transportation options.             |
+
+For Massachusetts applications and follow-through, use [Massachusetts SNAP](#massachusetts-snap) and the [existing private-record checklist](../../docs/massachusetts-snap-follow-through.md). Outside Massachusetts, ask the administering agency for its own process. Food today and a longer-term application can proceed together.
+
+### Before a trip or referral
+
+Ask: “Are you serving today, and do you serve my area? Is this groceries or a prepared meal? Do I need an appointment, referral, or particular information, and what alternatives are accepted if I lack it? Can I reach and enter the site, or is pickup, delivery, or transport help available? Can the food fit my allergies, dietary needs, equipment, and storage? Are there charges, contributions, or visit limits?” Local rules differ; do not assume every pantry requires the same documents or can handle every allergy.
+
+Keep personal documents and household or medical details in verified private channels. If the online route is inaccessible, ask 211, the school office, a local aging agency, or a trusted helper to make the next contact with you. Local options can also be explored through [Atlas](../../atlas/README.md); a place listing does not establish food-program eligibility or current availability.
+
+Once you know what food you can get, use [From Food Access to a Meal](../recipes-cooking-and-food-data/README.md#from-food-access-to-a-meal) for a short obtain → store safely → prepare → stretch checklist and a one-meal planning note.
+
+**Sources checked 2026-10-17; monthly review due 2026-11-17.** This is an agent source check, not human review or confirmation of a local provider's stock. The [source audit](../../docs/food-access-to-meals-curation.md) records primary evidence and blocked USDA retrievals; existing benefit entries retain their own check dates. Recheck hours, intake, rules, costs, and capacity at use time.
 
 ## SNAP, EBT, and OTC Benefits
 
@@ -288,6 +314,8 @@ Use the canonical [TOP, MassHire, and training-search resources](../work-and-lea
 - [USA.gov Benefit Finder](https://www.usa.gov/benefit-finder) - **Navigation · United States · Free.** USAGov category-based finder for household benefits, including food, health, housing, disability, and income support; follow the relevant agency's application link. Results indicate possibilities, not eligibility, and the agency supplies its document checklist and deadlines. <!-- akashic-meta: {"id":"usa-gov-benefit-finder-e143412b0c","resourceType":"tool","role":"discovery","authority":"official","access":["free"],"geography":["us"],"language":["en"],"platform":["web"],"account":"none","costModel":["no-fee"],"license":"unknown","status":"active","volatility":"high","reviewTier":"monthly","sensitive":["financial"],"programChecked":"2026-09-17","linkStatus":"ok","linkChecked":"2026-09-17"} -->
 
 ## Food and Nutrition
+
+Use [Food Access to Meals](#food-access-to-meals) to choose food today, household or school nutrition support, and older-adult meals, then connect to practical cooking guidance.
 
 For food today, use the existing [Feeding America locator and community food resources](../awesome-abundance/community-sharing-and-material-resources/README.md#food-and-household-essentials) and [emergency-food and TEFAP routes](../public-services-and-support/README.md#benefits-and-emergency-assistance). Pantry hours, delivery, and intake differ; benefits applications may take longer.
 
