@@ -8,7 +8,7 @@ Akashic owns the composition and deployment of its GitHub Pages site. Relay is a
 
 Akashic has file/directory prefix siblings such as `i18n.js` with `i18n/` and `search-lab.js` with `search/`. After Relay captures the baseline, the consumer workflow canonically sorts only the baseline's file records by their public relative paths. This semantics-preserving compatibility step satisfies Relay v1.6's closed verifier ordering without changing captured bytes, digests, routes, or deployed content.
 
-The workflow uses Relay revision `9a6315978766c336566b9fa7139b800fa8789ba5` (v1.6.0). Every external action is pinned to a full commit SHA.
+The current workflow pins Relay to reviewed revision `04bd32c8ef492418f47d6df6faee425d6888f341`, advancing from the v1.6.0 release pin `9a6315978766c336566b9fa7139b800fa8789ba5`. Read-only review, current composition and provenance verification use the same current revision; the fixed rollback retains its separate v1.3 pin. Every external action is pinned to a full commit SHA.
 
 Pull requests run with read-only repository and Pages access. They build and validate the complete composed site and retain `akashic-composed-site-<revision>-<attempt>` plus `akashic-composition-evidence-<revision>-<attempt>` for 30 days. The deploy and live-verification jobs are structurally excluded from pull requests, including untrusted forks.
 
