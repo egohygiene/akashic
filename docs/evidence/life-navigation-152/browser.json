@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "5ad0c03b12b7d55a96e80c5a09b6f213ea5bf2ad",
+  "scope": "Local build; assets reproduced byte-for-byte after the closeout documentation and cross-link corrections.",
+  "browser": "Chromium 155.0.8059.84",
+  "startedAtUtc": "2026-10-18T03:30:11.069Z",
+  "finishedAtUtc": "2026-10-18T03:32:05.265Z",
+  "method": "Headless Playwright browser contexts; consolidated passing outcomes after correcting transient harness selectors and native-fragment URL expectations. No product changes were needed.",
+  "scenarioCount": 35,
+  "requestSummary": {
+    "localGetRequests": 552,
+    "failedRequests": 0,
+    "automaticExternalRequests": 0
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "limitations": [
+    "Viewport and touch emulation, not physical-device testing.",
+    "Keyboard, focus, native controls and DOM inspection, not a screen-reader session or accessibility conformance certification.",
+    "English canonical content journeys; six-locale generation is checked separately without asserting external-resource translation.",
+    "No network navigation to service providers, applications, transactions or verification of provider availability.",
+    "No-JavaScript portal fallback is canonical GitHub/Markdown; civic and identity chapters have static native HTML."
+  ],
+  "status": "passed",
+  "passedScenarios": [
+    "housing-home-desktop1440-dark",
+    "housing-home-phone390-light-reduced",
+    "finance-insurance-desktop1440-dark",
+    "finance-insurance-phone390-light-reduced",
+    "health-desktop1440-dark",
+    "health-phone390-light-reduced",
+    "work-desktop1440-dark",
+    "work-phone390-light-reduced",
+    "family-caregiving-desktop1440-dark",
+    "family-caregiving-phone390-light-reduced",
+    "disability-access-desktop1440-dark",
+    "disability-access-phone390-light-reduced",
+    "education-desktop1440-dark",
+    "education-phone390-light-reduced",
+    "digital-access-desktop1440-dark",
+    "digital-access-phone390-light-reduced",
+    "news-literacy-desktop1440-dark",
+    "news-literacy-phone390-light-reduced",
+    "food-access-desktop1440-dark",
+    "food-access-phone390-light-reduced",
+    "food-preparation-desktop1440-dark",
+    "food-preparation-phone390-light-reduced",
+    "civic-paperwork-desktop1440-dark",
+    "civic-paperwork-phone390-light-reduced",
+    "emergency-community-desktop1440-dark",
+    "emergency-community-phone390-light-reduced",
+    "disability-access-phone320-dark-reduced",
+    "food-access-phone320-dark-reduced",
+    "civic-paperwork-phone320-dark-reduced",
+    "root-no-js-phone390",
+    "civic-no-js-phone390",
+    "identity-no-js-phone390",
+    "need-financial-relief-and-assistance-phone390",
+    "need-work-and-learning-phone390",
+    "native-filter-history-source-phone390"
+  ],
+  "guidePaths": [
+    {
+      "name": "housing-home-desktop1440-dark",
+      "selectedTopic": "Home Repairs and Adaptations",
+      "canonicalLinks": 20
+    },
+    {
+      "name": "finance-insurance-desktop1440-dark",
+      "selectedTopic": "Insurance Decisions",
+      "canonicalLinks": 8
+    },
+    {
+      "name": "health-desktop1440-dark",
+      "selectedTopic": "Everyday Care and Prevention",
+      "canonicalLinks": 33
+    },
+    {
+      "name": "work-desktop1440-dark",
+      "selectedTopic": "Career Platforms and Job Search",
+      "canonicalLinks": 45
+    },
+    {
+      "name": "family-caregiving-desktop1440-dark",
+      "selectedTopic": "Aging in Place",
+      "canonicalLinks": 50
+    },
+    {
+      "name": "disability-access-desktop1440-dark",
+      "selectedTopic": "Assistive Technology and Disability Services",
+      "canonicalLinks": 17
+    },
+    {
+      "name": "education-desktop1440-dark",
+      "selectedTopic": "Education Verification",
+      "canonicalLinks": 45
+    },
+    {
+      "name": "digital-access-desktop1440-dark",
+      "selectedTopic": "Account Security and Incident Readiness",
+      "canonicalLinks": 1
+    },
+    {
+      "name": "news-literacy-desktop1440-dark",
+      "selectedTopic": "Claim and Source Tracing",
+      "canonicalLinks": 11
+    },
+    {
+      "name": "food-access-desktop1440-dark",
+      "selectedTopic": "Food and Nutrition",
+      "canonicalLinks": 83
+    },
+    {
+      "name": "food-preparation-desktop1440-dark",
+      "selectedTopic": "Affordable and Accessible Cooking",
+      "canonicalLinks": 6
+    },
+    {
+      "name": "civic-paperwork-desktop1440-dark",
+      "selectedTopic": "Identity Documents and Civic Paperwork",
+      "canonicalLinks": 11
+    },
+    {
+      "name": "emergency-community-desktop1440-dark",
+      "selectedTopic": "Emergency Preparedness and Disaster Recovery",
+      "canonicalLinks": 11
+    }
+  ],
+  "disabilityMeasurements": [
+    {
+      "name": "disability-access-phone390-light-reduced",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "guideDimensions": {
+        "width": 390,
+        "scrollWidth": 390,
+        "innerWidth": 390
+      },
+      "tables": [
+        {
+          "width": 326,
+          "scrollWidth": 700,
+          "arrowRightScroll": 2,
+          "reachedEnd": true
+        },
+        {
+          "width": 326,
+          "scrollWidth": 700,
+          "arrowRightScroll": 3,
+          "reachedEnd": true
+        }
+      ]
+    },
+    {
+      "name": "disability-access-phone320-dark-reduced",
+      "viewport": {
+        "width": 320,
+        "height": 740
+      },
+      "guideDimensions": {
+        "width": 320,
+        "scrollWidth": 320,
+        "innerWidth": 320
+      },
+      "tables": [
+        {
+          "width": 256,
+          "scrollWidth": 700,
+          "arrowRightScroll": 3,
+          "reachedEnd": true
+        },
+        {
+          "width": 256,
+          "scrollWidth": 700,
+          "arrowRightScroll": 1,
+          "reachedEnd": true
+        }
+      ]
+    }
+  ],
+  "additionalBehavior": [
+    {
+      "name": "root-no-js-phone390",
+      "status": "passed",
+      "fallback": "Native GitHub root link; canonical README points to all representative Markdown lists. JS guide content is not displayed without JS.",
+      "size": {
+        "width": 390,
+        "scrollWidth": 390,
+        "innerWidth": 390
+      }
+    },
+    {
+      "name": "civic-no-js-phone390",
+      "status": "passed",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "nativeFragment": "change-address",
+      "source": "https://github.com/egohygiene/akashic/blob/main/docs/civic/ma-rmv.md",
+      "size": {
+        "width": 390,
+        "scrollWidth": 390,
+        "innerWidth": 390
+      }
+    },
+    {
+      "name": "identity-no-js-phone390",
+      "status": "passed",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "nativeFragment": "replace-birth-certificate",
+      "source": "https://github.com/egohygiene/akashic/blob/main/docs/civic/us-identity.md",
+      "size": {
+        "width": 390,
+        "scrollWidth": 390,
+        "innerWidth": 390
+      }
+    },
+    {
+      "name": "need-financial-relief-and-assistance-phone390",
+      "status": "passed",
+      "guideOpen": true,
+      "keyboardFocusHandoff": true,
+      "url": "/?collection=financial-relief-and-assistance&view=cards#catalog",
+      "queryOnlyInMemory": true,
+      "size": {
+        "width": 390,
+        "scrollWidth": 390,
+        "innerWidth": 390
+      }
+    },
+    {
+      "name": "need-work-and-learning-phone390",
+      "status": "passed",
+      "guideOpen": true,
+      "keyboardFocusHandoff": true,
+      "url": "/?collection=work-and-learning&view=cards#catalog",
+      "queryOnlyInMemory": true,
+      "size": {
+        "width": 390,
+        "scrollWidth": 390,
+        "innerWidth": 390
+      }
+    },
+    {
+      "name": "native-filter-history-source-phone390",
+      "status": "passed",
+      "backForward": "Collection/topic/results/source restored",
+      "size": {
+        "width": 390,
+        "scrollWidth": 390,
+        "innerWidth": 390
+      }
+    }
+  ]
+}

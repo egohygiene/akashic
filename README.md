@@ -64,6 +64,7 @@ Need help covering essentials? Start with [If you're broke](docs/if-youre-broke.
 - [Versioned Legal-Source Snapshots](research/legal/README.md) - Public-only source, acquisition, rights, integrity, transformation, lifecycle, and review contracts for reproducible offline legal research.
 - [Browser-Native Search and Akashic Navigator Research](research/search/README.md) - Reproducible architecture, bibliography, human-judged evaluation queries, and experiments for browser-native semantic search and optional local agent guidance from a static GitHub Pages deployment.
 - [Need-First Navigation and Collection Guides](docs/navigation.md) - Markdown-owned orientation guides, situation paths, native taxonomy controls, versioned lexical search, and cognition/accessibility contracts.
+- [Life-Navigation Coverage](docs/life-navigation-coverage.md) - First-edition coverage, canonical ownership, reader-journey evidence, and maintenance limits for the thirteen everyday-life domains.
 - [Localization Architecture](docs/localization.md) - English-default static routing, Russian reference translation, stable message catalogs, browser-native formatting, accessible language boundaries, and the workflow for adding reviewed locales without duplicating the canonical catalog.
 - [Repository Intelligence Publication](docs/repository-intelligence-publication.md) - Immutable Relay generation, Akashic-owned composition and deployment, deterministic manifests, separate deployment receipts, live-route evidence, and tested rollback.
 
