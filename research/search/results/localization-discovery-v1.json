@@ -1,0 +1,719 @@
+{
+  "schemaVersion": 1,
+  "suite": "akashic-localization-discovery-v1",
+  "mode": "controlled-publication-fixture",
+  "publicationNotice": "Controlled test-only hypothetical published aliases. Actual AI-authored translations require human review; this report does not confer review or publish translations.",
+  "searchAlgorithm": "weighted-lexical-v2",
+  "catalogResourceCount": 5403,
+  "topK": 10,
+  "inputs": {
+    "catalogSha256": "75ebedaf97fe1af4d4832879307d8b25b815afba59e1add24f46d7f96f6fe300",
+    "fixtureSha256": "69167a7c15be6fd38b1799496b47b6ca8f1d41314f2759ff63ae58e1a4f03b27",
+    "authoredOverlaysSha256": "bf6dd43c1e571d11a36a5081b44bc7f7d3c8d8aa9943a0dc260c4ff55efd5bd4",
+    "implementationSha256": "59e27362cde31daa789d076095815ec3abd4ae9383579dbdfb847f3aaa67fe15",
+    "rankerSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669",
+    "conceptsSha256": "c720d9a0b1b6d7ad4bf9651cd10e85f6b6ace074dc184ed681a8e3291649199f",
+    "needsSha256": "d355f97f4db5df9f9515e652c09f0c58b2660e67dd746348c7f384914d0959cb"
+  },
+  "actualPublication": {
+    "counts": {
+      "total": 180,
+      "published": 0,
+      "draft": 180,
+      "stale": 0,
+      "withdrawn": 0,
+      "orphaned": 0
+    },
+    "aliasEntryCount": 0,
+    "excludedEntryCount": 180,
+    "excludedEntriesPublished": 0,
+    "changedEvaluationCaseIds": []
+  },
+  "englishRegression": [
+    {
+      "suite": "akashic-natural-language-v1",
+      "fixtureSha256": "209f67722794fc103e69cdce20b1c6bdcc8e40187fafd1ab0da18f0b9f8de066",
+      "englishCaseCount": 17,
+      "completeRankingBeforeSha256": "281375ae9635aca765a986d1d1ef947ac08a416696be1b2292a24065ee399d2d",
+      "completeRankingAfterSha256": "281375ae9635aca765a986d1d1ef947ac08a416696be1b2292a24065ee399d2d",
+      "unchanged": true
+    },
+    {
+      "suite": "akashic-natural-language-v2",
+      "fixtureSha256": "38f646df74a1b451a102609f75feb722bcc42d380f90a2a4828b55884bfe408c",
+      "englishCaseCount": 29,
+      "completeRankingBeforeSha256": "663e511a1126676a7c3b39f8684a71945ee4696cfcfe01132aef51055f40964c",
+      "completeRankingAfterSha256": "663e511a1126676a7c3b39f8684a71945ee4696cfcfe01132aef51055f40964c",
+      "unchanged": true
+    }
+  ],
+  "summary": {
+    "caseCount": 12,
+    "mappedCaseCount": 9,
+    "guardedCaseCount": 3,
+    "relevantResourceJudgmentCount": 10,
+    "relevantFoundAtKBefore": 3,
+    "relevantFoundAtKAfter": 10,
+    "knownIrrelevantResourceJudgmentCount": 10,
+    "knownIrrelevantFoundAtKBefore": 0,
+    "knownIrrelevantFoundAtKAfter": 2,
+    "limitation": "Canonical query expansion inherits the frozen ranker's broad-query false positives. Known negatives are reported, not suppressed or treated as a production quality pass."
+  },
+  "cases": [
+    {
+      "id": "ru-work-collection",
+      "query": "работа и обучение",
+      "resolvedQuery": "Work and Learning",
+      "status": "mapped",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "note": "Canonical collection vocabulary bridge; broad collection search retains the frozen ranker behavior.",
+      "before": {
+        "resultCount": 0,
+        "topResourceIds": [],
+        "relevant": [
+          {
+            "id": "work-at-a-startup-8c6486c905",
+            "rank": null
+          }
+        ],
+        "relevantFoundAtK": 0,
+        "knownIrrelevant": [
+          {
+            "id": "audacity-3ec3a0ad4c",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 469,
+        "topResourceIds": [
+          "work-at-a-startup-8c6486c905",
+          "we-work-remotely-4e512367fa",
+          "work-for-good-bceabdbaec",
+          "samio-learning-ac81beca7a",
+          "fezibo-triple-motor-l-shaped-standing-desk-26604c7904",
+          "codementor",
+          "contra",
+          "dataannotation",
+          "glg-expert-network",
+          "outlier"
+        ],
+        "relevant": [
+          {
+            "id": "work-at-a-startup-8c6486c905",
+            "rank": 1
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "audacity-3ec3a0ad4c",
+            "rank": 253
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      }
+    },
+    {
+      "id": "ru-abundance-collection",
+      "query": "бесплатные ресурсы",
+      "resolvedQuery": "Awesome Abundance",
+      "status": "mapped",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "note": "Deliberately records a known out-of-collection top result of the frozen broad collection query; not a quality-pass claim.",
+      "before": {
+        "resultCount": 0,
+        "topResourceIds": [],
+        "relevant": [
+          {
+            "id": "ask-a-librarian-604aa6dbd8",
+            "rank": null
+          }
+        ],
+        "relevantFoundAtK": 0,
+        "knownIrrelevant": [
+          {
+            "id": "irs-checklist-for-starting-a-business-b87a391672",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 1004,
+        "topResourceIds": [
+          "irs-checklist-for-starting-a-business-b87a391672",
+          "nps-find-a-park-9ffa68ca7e",
+          "give-kids-a-smile-caa9431c26",
+          "ask-a-librarian-604aa6dbd8",
+          "irs-forming-a-corporation-59f4dc5aa0",
+          "irs-llc-filing-as-a-corporation-or-partnership-086533e3be",
+          "irs-when-to-get-a-new-ein-3c705a3f4b",
+          "massachusetts-start-a-business-dbde52462e",
+          "massachusetts-start-a-corporation-d7f09eeb23",
+          "massachusetts-start-a-sole-proprietorship-296bf108a6"
+        ],
+        "relevant": [
+          {
+            "id": "ask-a-librarian-604aa6dbd8",
+            "rank": 4
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "irs-checklist-for-starting-a-business-b87a391672",
+            "rank": 1
+          }
+        ],
+        "knownIrrelevantFoundAtK": 1
+      }
+    },
+    {
+      "id": "ru-job-topic",
+      "query": "платформы поиска работы",
+      "resolvedQuery": "Career Platforms and Job Search",
+      "status": "mapped",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "note": "Exact Russian topic alias; no query substring replacement.",
+      "before": {
+        "resultCount": 0,
+        "topResourceIds": [],
+        "relevant": [
+          {
+            "id": "indeed-jobs-1bcc5b9c69",
+            "rank": null
+          }
+        ],
+        "relevantFoundAtK": 0,
+        "knownIrrelevant": [
+          {
+            "id": "audacity-3ec3a0ad4c",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 384,
+        "topResourceIds": [
+          "work-at-a-startup-8c6486c905",
+          "indeed-jobs-1bcc5b9c69",
+          "welcome-to-the-jungle-jobs-7cf9ee2886",
+          "built-in-jobs-c46a018490",
+          "dice-jobs-aea5cf5c66",
+          "linkedin-jobs-d6f2662775",
+          "wellfound-jobs-8d630aa053",
+          "hiringcafe-102dd7346c",
+          "intch-fcc2347184",
+          "product-testing-com-3cee044702"
+        ],
+        "relevant": [
+          {
+            "id": "indeed-jobs-1bcc5b9c69",
+            "rank": 2
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "audacity-3ec3a0ad4c",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      }
+    },
+    {
+      "id": "mixed-remote-paid-topic",
+      "query": "удалённая paid work",
+      "resolvedQuery": "Remote Paid Work and Expert Services",
+      "status": "mapped",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "note": "Explicit registered Cyrillic/Latin phrase; no transliteration or inferred translation.",
+      "before": {
+        "resultCount": 38,
+        "topResourceIds": [
+          "irs-gig-work-tax-guide-e69e29c215",
+          "codementor",
+          "contra",
+          "dataannotation",
+          "glg-expert-network",
+          "outlier",
+          "upwork",
+          "wyzant",
+          "we-work-remotely-4e512367fa",
+          "helpx-f469871085"
+        ],
+        "relevant": [
+          {
+            "id": "dataannotation",
+            "rank": 4
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "audacity-3ec3a0ad4c",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 146,
+        "topResourceIds": [
+          "glg-expert-network",
+          "codementor",
+          "contra",
+          "dataannotation",
+          "outlier",
+          "upwork",
+          "wyzant",
+          "estonia-e-residency-87d554ddd1",
+          "u-s-citizens-and-resident-aliens-abroad-6ceae50fd5",
+          "we-work-remotely-4e512367fa"
+        ],
+        "relevant": [
+          {
+            "id": "dataannotation",
+            "rank": 4
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "audacity-3ec3a0ad4c",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      }
+    },
+    {
+      "id": "ru-music-topic",
+      "query": "создание и запись музыки",
+      "resolvedQuery": "Music Production and Recording",
+      "status": "mapped",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "note": "Canonical topic title avoids creative-tool ancestor terms broadening unrelated video searches.",
+      "before": {
+        "resultCount": 0,
+        "topResourceIds": [],
+        "relevant": [
+          {
+            "id": "cakewalk-sonar-free-tier-98e9770b00",
+            "rank": null
+          }
+        ],
+        "relevantFoundAtK": 0,
+        "knownIrrelevant": [
+          {
+            "id": "indeed-jobs-1bcc5b9c69",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 96,
+        "topResourceIds": [
+          "cakewalk-sonar-free-tier-98e9770b00",
+          "bandlab-studio-2c86b2a976",
+          "lmms-fb72a2c607",
+          "audacity-3ec3a0ad4c",
+          "pro-tools-intro-7cdd11b165",
+          "luna-970ec274ca",
+          "openmpt",
+          "plugdata",
+          "waveform-free-8f40d36081",
+          "beepbox-25dfe29075"
+        ],
+        "relevant": [
+          {
+            "id": "cakewalk-sonar-free-tier-98e9770b00",
+            "rank": 1
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "indeed-jobs-1bcc5b9c69",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      }
+    },
+    {
+      "id": "ru-video-topic",
+      "query": "видео и анимация",
+      "resolvedQuery": "Video, Motion, and Animation",
+      "status": "mapped",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "note": "Canonical section title is resolved by the complete stable topic tuple.",
+      "before": {
+        "resultCount": 0,
+        "topResourceIds": [],
+        "relevant": [
+          {
+            "id": "avidemux-b9eca0e22d",
+            "rank": null
+          }
+        ],
+        "relevantFoundAtK": 0,
+        "knownIrrelevant": [
+          {
+            "id": "cakewalk-sonar-free-tier-98e9770b00",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 24,
+        "topResourceIds": [
+          "vsdc-free-video-editor-3c9356777f",
+          "avidemux-b9eca0e22d",
+          "cavalry-83d0fd83c9",
+          "davinci-resolve-733a313386",
+          "friction-b0de598f2e",
+          "glaxnimate-361d2f173b",
+          "losslesscut-c268d00f14",
+          "maxon-autograph-d79644bbea",
+          "opentoonz-ccf5f12416",
+          "pencil2d-c59f644847"
+        ],
+        "relevant": [
+          {
+            "id": "avidemux-b9eca0e22d",
+            "rank": 2
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "cakewalk-sonar-free-tier-98e9770b00",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      }
+    },
+    {
+      "id": "ru-work-need",
+      "query": "мне нужна работа",
+      "resolvedQuery": "find work or job support",
+      "status": "mapped",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "note": "Need aliases use the existing canonical NEED_PATHS.query without rewriting state.",
+      "before": {
+        "resultCount": 0,
+        "topResourceIds": [],
+        "relevant": [
+          {
+            "id": "careeronestop-29557d020b",
+            "rank": null
+          }
+        ],
+        "relevantFoundAtK": 0,
+        "knownIrrelevant": [
+          {
+            "id": "avidemux-b9eca0e22d",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 578,
+        "topResourceIds": [
+          "work-at-a-startup-8c6486c905",
+          "iarpa-work-with-us-6e62e614da",
+          "u-s-citizens-and-resident-aliens-abroad-6ceae50fd5",
+          "careeronestop-29557d020b",
+          "welcome-to-the-jungle-jobs-7cf9ee2886",
+          "usagov-disability-employment-and-training",
+          "indeed-jobs-1bcc5b9c69",
+          "built-in-jobs-c46a018490",
+          "dice-jobs-aea5cf5c66",
+          "linkedin-jobs-d6f2662775"
+        ],
+        "relevant": [
+          {
+            "id": "careeronestop-29557d020b",
+            "rank": 4
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "avidemux-b9eca0e22d",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      }
+    },
+    {
+      "id": "mixed-creative-need",
+      "query": "бесплатные creative tools",
+      "resolvedQuery": "free creative tools",
+      "status": "mapped",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "note": "Explicit mixed-script alias only; unsupported mixed input is not guessed.",
+      "before": {
+        "resultCount": 287,
+        "topResourceIds": [
+          "cakewalk-sonar-free-tier-98e9770b00",
+          "bandlab-studio-2c86b2a976",
+          "lmms-fb72a2c607",
+          "audacity-3ec3a0ad4c",
+          "pro-tools-intro-7cdd11b165",
+          "luna-970ec274ca",
+          "openmpt",
+          "plugdata",
+          "waveform-free-8f40d36081",
+          "scientist-engineer-guide-dsp"
+        ],
+        "relevant": [
+          {
+            "id": "cakewalk-sonar-free-tier-98e9770b00",
+            "rank": 1
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "indeed-jobs-1bcc5b9c69",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 514,
+        "topResourceIds": [
+          "cakewalk-sonar-free-tier-98e9770b00",
+          "bandlab-studio-2c86b2a976",
+          "lmms-fb72a2c607",
+          "audacity-3ec3a0ad4c",
+          "waveform-free-8f40d36081",
+          "vsdc-free-video-editor-3c9356777f",
+          "library-of-congress-free-to-use-aba5fc951b",
+          "berklee-free-music-resources",
+          "kvr-free-plugin-database",
+          "vcv-rack-free-41e9310691"
+        ],
+        "relevant": [
+          {
+            "id": "cakewalk-sonar-free-tier-98e9770b00",
+            "rank": 1
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "indeed-jobs-1bcc5b9c69",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      }
+    },
+    {
+      "id": "ru-food-today-need",
+      "query": "нужна еда сегодня",
+      "resolvedQuery": "food today",
+      "status": "mapped",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "note": "Records the frozen canonical food query including its known business-registration negative; no ranker adjustment.",
+      "before": {
+        "resultCount": 0,
+        "topResourceIds": [],
+        "relevant": [
+          {
+            "id": "usa-gov-emergency-food-assistance-97127bce94",
+            "rank": null
+          }
+        ],
+        "relevantFoundAtK": 0,
+        "knownIrrelevant": [
+          {
+            "id": "fda-how-to-start-a-food-business-66f9d37d05",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 176,
+        "topResourceIds": [
+          "usa-gov-emergency-food-assistance-97127bce94",
+          "feeding-america-food-bank-locator-67e42f4edf",
+          "usda-national-hunger-hotline-444a52e5c9",
+          "211-093434a3ee",
+          "fda-how-to-start-a-food-business-66f9d37d05",
+          "four-steps-to-food-safety-943f20dcf0",
+          "who-five-keys-to-safer-food-a728cb32a3",
+          "usda-complete-guide-to-home-canning-8ad69a322c",
+          "usda-snap-eligibility",
+          "usda-state-directory-35b28f7f7e"
+        ],
+        "relevant": [
+          {
+            "id": "usa-gov-emergency-food-assistance-97127bce94",
+            "rank": 1
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "fda-how-to-start-a-food-business-66f9d37d05",
+            "rank": 5
+          }
+        ],
+        "knownIrrelevantFoundAtK": 1
+      }
+    },
+    {
+      "id": "ru-ambiguous-alias",
+      "query": "ресурсы",
+      "resolvedQuery": "ресурсы",
+      "status": "ambiguous",
+      "note": "Synthetic alias collision across collections must preserve the original phrase; the offline validator rejects such reviewed collisions.",
+      "before": {
+        "resultCount": 0,
+        "topResourceIds": [],
+        "relevant": [],
+        "relevantFoundAtK": 0,
+        "knownIrrelevant": [],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 0,
+        "topResourceIds": [],
+        "relevant": [],
+        "relevantFoundAtK": 0,
+        "knownIrrelevant": [],
+        "knownIrrelevantFoundAtK": 0
+      }
+    },
+    {
+      "id": "exact-resource-identifier",
+      "query": "dataannotation",
+      "resolvedQuery": "dataannotation",
+      "status": "protected",
+      "note": "Synthetic collision with a stable resource identifier must preserve the exact identifier.",
+      "before": {
+        "resultCount": 255,
+        "topResourceIds": [
+          "dataannotation",
+          "pure-data-ee054f3473",
+          "world-bank-open-data-08eb669e02",
+          "usgs-science-data-catalog-db0819811a",
+          "data-europa-eu-63d445dd0a",
+          "registry-of-open-data-on-aws-5adde6102e",
+          "our-world-in-data-6f10d89874",
+          "rcsb-protein-data-bank-caeba9940d",
+          "chainlink-data-feeds-documentation",
+          "data-warehouse-systems-22c695cc85"
+        ],
+        "relevant": [
+          {
+            "id": "dataannotation",
+            "rank": 1
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "avidemux-b9eca0e22d",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 255,
+        "topResourceIds": [
+          "dataannotation",
+          "pure-data-ee054f3473",
+          "world-bank-open-data-08eb669e02",
+          "usgs-science-data-catalog-db0819811a",
+          "data-europa-eu-63d445dd0a",
+          "registry-of-open-data-on-aws-5adde6102e",
+          "our-world-in-data-6f10d89874",
+          "rcsb-protein-data-bank-caeba9940d",
+          "chainlink-data-feeds-documentation",
+          "data-warehouse-systems-22c695cc85"
+        ],
+        "relevant": [
+          {
+            "id": "dataannotation",
+            "rank": 1
+          }
+        ],
+        "relevantFoundAtK": 1,
+        "knownIrrelevant": [
+          {
+            "id": "avidemux-b9eca0e22d",
+            "rank": null
+          }
+        ],
+        "knownIrrelevantFoundAtK": 0
+      }
+    },
+    {
+      "id": "mixed-unregistered-location",
+      "query": "еда Boston сегодня",
+      "resolvedQuery": "еда Boston сегодня",
+      "status": "unchanged",
+      "note": "Unsupported phrase and explicit place remain intact; no inferred geography, applicability, or partial-alias rewrite.",
+      "before": {
+        "resultCount": 0,
+        "topResourceIds": [],
+        "relevant": [],
+        "relevantFoundAtK": 0,
+        "knownIrrelevant": [],
+        "knownIrrelevantFoundAtK": 0
+      },
+      "after": {
+        "resultCount": 0,
+        "topResourceIds": [],
+        "relevant": [],
+        "relevantFoundAtK": 0,
+        "knownIrrelevant": [],
+        "knownIrrelevantFoundAtK": 0
+      }
+    }
+  ]
+}

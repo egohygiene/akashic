@@ -479,6 +479,10 @@
     "runtime.unit.topic.zero": "{count} tópicos",
     "runtime.unit.topic.two": "{count} tópicos",
     "runtime.unit.branch.zero": "{count} ramos",
-    "runtime.unit.branch.two": "{count} ramos"
+    "runtime.unit.branch.two": "{count} ramos",
+    "runtime.atlas.sourceLanguageLabel": "Idioma da fonte",
+    "runtime.atlas.sourceLanguageUnknown": "Não registrado",
+    "runtime.atlas.sourceLanguageNotice": "A tradução dos nomes dos lugares não traduz os recursos vinculados. Os idiomas das fontes só são exibidos quando estão registrados explicitamente.",
+    "runtime.contentCoverage.copy": "Alguns rótulos de navegação têm traduções revisadas. Os demais rótulos e textos dos recursos permanecem no inglês original. Um rótulo traduzido não altera o idioma do recurso vinculado."
   }
 }

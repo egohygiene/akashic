@@ -479,6 +479,10 @@
     "runtime.unit.topic.zero": "{count} тем",
     "runtime.unit.topic.two": "{count} темы",
     "runtime.unit.branch.zero": "{count} ветвей",
-    "runtime.unit.branch.two": "{count} ветви"
+    "runtime.unit.branch.two": "{count} ветви",
+    "runtime.atlas.sourceLanguageLabel": "Язык источника",
+    "runtime.atlas.sourceLanguageUnknown": "Не указан",
+    "runtime.atlas.sourceLanguageNotice": "Перевод названий мест не переводит связанные ресурсы. Язык источника указан только при наличии явных сведений о нём.",
+    "runtime.contentCoverage.copy": "Для некоторых навигационных названий есть проверенные переводы. Остальные названия и тексты ресурсов остаются на английском языке. Перевод названия не меняет язык связанного ресурса."
   }
 }

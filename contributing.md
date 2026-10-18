@@ -160,7 +160,7 @@ English is the canonical source language. Russian is the reference locale, and n
 - Preserve every message key and named placeholder across locale catalogs.
 - Use native language names in navigation, not country flags.
 - Keep machine-generated translation in draft status until a person reviews it in context.
-- Do not translate resource facts or geographic names directly in JavaScript. Future reviewed content overlays will be keyed to stable canonical identifiers.
+- Do not translate resource facts or geographic names directly in JavaScript. Content navigation labels use the source-bound overlay and human review workflow in [Localization architecture](docs/localization.md) and the [bounded pilot](docs/localization-pilot.md); draft candidates are not public translations.
 - Test generated locale routes at narrow and wide widths, including keyboard navigation, both themes, and language changes for assistive technology.
 
 ## Publishing Collection Guidance

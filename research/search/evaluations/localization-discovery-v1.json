@@ -1,0 +1,296 @@
+{
+  "schemaVersion": 1,
+  "id": "akashic-localization-discovery-v1",
+  "locale": "ru",
+  "topK": 10,
+  "mode": "controlled-publication-fixture",
+  "description": "Test-only hypothetical publication projection of bounded AI-draft aliases, with synthetic ambiguity and identifier-collision probes. This is not a human review, production publication, or launch-quality assessment. Actual authored translations remain subject to the independent review gate.",
+  "controlledAliases": [
+    {
+      "locale": "ru",
+      "kind": "collection",
+      "id": "work-and-learning",
+      "field": "aliases",
+      "value": [
+        "работа и обучение",
+        "карьера и образование",
+        "ресурсы"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "collection",
+      "id": "awesome-abundance",
+      "field": "aliases",
+      "value": [
+        "бесплатные ресурсы",
+        "ресурсы без оплаты",
+        "ресурсы"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "topic",
+      "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]",
+      "field": "aliases",
+      "value": [
+        "платформы поиска работы",
+        "вакансии и резюме"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "topic",
+      "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]",
+      "field": "aliases",
+      "value": [
+        "удалённая оплачиваемая работа",
+        "экспертные услуги онлайн",
+        "удалённая paid work"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "topic",
+      "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]",
+      "field": "aliases",
+      "value": [
+        "международная удалённая работа",
+        "работа за рубежом онлайн"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "topic",
+      "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]",
+      "field": "aliases",
+      "value": [
+        "обучение для карьеры",
+        "профессиональное развитие"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "topic",
+      "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]",
+      "field": "aliases",
+      "value": [
+        "продукты и бытовые товары",
+        "предметы первой необходимости для дома"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "topic",
+      "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]",
+      "field": "aliases",
+      "value": [
+        "создание и запись музыки",
+        "музыкальный продакшен"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "topic",
+      "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]",
+      "field": "aliases",
+      "value": [
+        "видео и анимация",
+        "моушн-дизайн"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "topic",
+      "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]",
+      "field": "aliases",
+      "value": [
+        "общее обучение",
+        "самообразование"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "need",
+      "id": "work",
+      "field": "aliases",
+      "value": [
+        "мне нужна работа",
+        "помощь с трудоустройством",
+        "dataannotation"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "need",
+      "id": "creating",
+      "field": "aliases",
+      "value": [
+        "хочу творить",
+        "бесплатные инструменты для творчества",
+        "бесплатные creative tools"
+      ],
+      "sourceLanguage": "en"
+    },
+    {
+      "locale": "ru",
+      "kind": "need",
+      "id": "food-today",
+      "field": "aliases",
+      "value": [
+        "нужна еда сегодня",
+        "где получить еду сегодня"
+      ],
+      "sourceLanguage": "en"
+    }
+  ],
+  "cases": [
+    {
+      "id": "ru-work-collection",
+      "query": "работа и обучение",
+      "expectedStatus": "mapped",
+      "relevantResourceIds": [
+        "work-at-a-startup-8c6486c905"
+      ],
+      "knownIrrelevantResourceIds": [
+        "audacity-3ec3a0ad4c"
+      ],
+      "note": "Canonical collection vocabulary bridge; broad collection search retains the frozen ranker behavior."
+    },
+    {
+      "id": "ru-abundance-collection",
+      "query": "бесплатные ресурсы",
+      "expectedStatus": "mapped",
+      "relevantResourceIds": [
+        "ask-a-librarian-604aa6dbd8"
+      ],
+      "knownIrrelevantResourceIds": [
+        "irs-checklist-for-starting-a-business-b87a391672"
+      ],
+      "note": "Deliberately records a known out-of-collection top result of the frozen broad collection query; not a quality-pass claim."
+    },
+    {
+      "id": "ru-job-topic",
+      "query": "платформы поиска работы",
+      "expectedStatus": "mapped",
+      "relevantResourceIds": [
+        "indeed-jobs-1bcc5b9c69"
+      ],
+      "knownIrrelevantResourceIds": [
+        "audacity-3ec3a0ad4c"
+      ],
+      "note": "Exact Russian topic alias; no query substring replacement."
+    },
+    {
+      "id": "mixed-remote-paid-topic",
+      "query": "удалённая paid work",
+      "expectedStatus": "mapped",
+      "relevantResourceIds": [
+        "dataannotation"
+      ],
+      "knownIrrelevantResourceIds": [
+        "audacity-3ec3a0ad4c"
+      ],
+      "note": "Explicit registered Cyrillic/Latin phrase; no transliteration or inferred translation."
+    },
+    {
+      "id": "ru-music-topic",
+      "query": "создание и запись музыки",
+      "expectedStatus": "mapped",
+      "relevantResourceIds": [
+        "cakewalk-sonar-free-tier-98e9770b00"
+      ],
+      "knownIrrelevantResourceIds": [
+        "indeed-jobs-1bcc5b9c69"
+      ],
+      "note": "Canonical topic title avoids creative-tool ancestor terms broadening unrelated video searches."
+    },
+    {
+      "id": "ru-video-topic",
+      "query": "видео и анимация",
+      "expectedStatus": "mapped",
+      "relevantResourceIds": [
+        "avidemux-b9eca0e22d"
+      ],
+      "knownIrrelevantResourceIds": [
+        "cakewalk-sonar-free-tier-98e9770b00"
+      ],
+      "note": "Canonical section title is resolved by the complete stable topic tuple."
+    },
+    {
+      "id": "ru-work-need",
+      "query": "мне нужна работа",
+      "expectedStatus": "mapped",
+      "relevantResourceIds": [
+        "careeronestop-29557d020b"
+      ],
+      "knownIrrelevantResourceIds": [
+        "avidemux-b9eca0e22d"
+      ],
+      "note": "Need aliases use the existing canonical NEED_PATHS.query without rewriting state."
+    },
+    {
+      "id": "mixed-creative-need",
+      "query": "бесплатные creative tools",
+      "expectedStatus": "mapped",
+      "relevantResourceIds": [
+        "cakewalk-sonar-free-tier-98e9770b00"
+      ],
+      "knownIrrelevantResourceIds": [
+        "indeed-jobs-1bcc5b9c69"
+      ],
+      "note": "Explicit mixed-script alias only; unsupported mixed input is not guessed."
+    },
+    {
+      "id": "ru-food-today-need",
+      "query": "нужна еда сегодня",
+      "expectedStatus": "mapped",
+      "relevantResourceIds": [
+        "usa-gov-emergency-food-assistance-97127bce94"
+      ],
+      "knownIrrelevantResourceIds": [
+        "fda-how-to-start-a-food-business-66f9d37d05"
+      ],
+      "note": "Records the frozen canonical food query including its known business-registration negative; no ranker adjustment."
+    },
+    {
+      "id": "ru-ambiguous-alias",
+      "query": "ресурсы",
+      "expectedStatus": "ambiguous",
+      "relevantResourceIds": [],
+      "knownIrrelevantResourceIds": [],
+      "note": "Synthetic alias collision across collections must preserve the original phrase; the offline validator rejects such reviewed collisions."
+    },
+    {
+      "id": "exact-resource-identifier",
+      "query": "dataannotation",
+      "expectedStatus": "protected",
+      "relevantResourceIds": [
+        "dataannotation"
+      ],
+      "knownIrrelevantResourceIds": [
+        "avidemux-b9eca0e22d"
+      ],
+      "note": "Synthetic collision with a stable resource identifier must preserve the exact identifier."
+    },
+    {
+      "id": "mixed-unregistered-location",
+      "query": "еда Boston сегодня",
+      "expectedStatus": "unchanged",
+      "relevantResourceIds": [],
+      "knownIrrelevantResourceIds": [],
+      "note": "Unsupported phrase and explicit place remain intact; no inferred geography, applicability, or partial-alias rewrite."
+    }
+  ]
+}

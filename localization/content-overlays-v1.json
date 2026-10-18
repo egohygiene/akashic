@@ -1,0 +1,4351 @@
+{
+  "schemaVersion": 1,
+  "sourceLanguage": "en",
+  "entries": [
+    {
+      "id": "ru-collection-work-and-learning-label",
+      "locale": "ru",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "label",
+      "value": "Работа и обучение",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Work and Learning"
+        },
+        "fingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-collection-work-and-learning-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "aliases",
+      "value": [
+        "работа и обучение",
+        "карьера и образование"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Work and Learning"
+        },
+        "fingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-collection-awesome-abundance-label",
+      "locale": "ru",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "label",
+      "value": "Изобилие бесплатных ресурсов",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Awesome Abundance"
+        },
+        "fingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-collection-awesome-abundance-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "aliases",
+      "value": [
+        "бесплатные ресурсы",
+        "ресурсы без оплаты"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Awesome Abundance"
+        },
+        "fingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-career-platforms-and-job-search-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "label",
+      "value": "Карьерные платформы и поиск работы",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Career Platforms and Job Search"
+        },
+        "fingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-career-platforms-and-job-search-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "платформы поиска работы",
+        "вакансии и резюме"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Career Platforms and Job Search"
+        },
+        "fingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-remote-paid-work-and-expert-services-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "label",
+      "value": "Удалённая оплачиваемая работа и экспертные услуги",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote Paid Work and Expert Services"
+        },
+        "fingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-remote-paid-work-and-expert-services-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "удалённая оплачиваемая работа",
+        "экспертные услуги онлайн"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote Paid Work and Expert Services"
+        },
+        "fingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-remote-and-international-work-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "label",
+      "value": "Удалённая и международная работа",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote and International Work"
+        },
+        "fingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-remote-and-international-work-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "международная удалённая работа",
+        "работа за рубежом онлайн"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote and International Work"
+        },
+        "fingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-learning-and-careers-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "label",
+      "value": "Обучение и карьера",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Learning and Careers"
+        },
+        "fingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-learning-and-careers-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "обучение для карьеры",
+        "профессиональное развитие"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Learning and Careers"
+        },
+        "fingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-food-and-household-essentials-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "label",
+      "value": "Продукты и товары первой необходимости для дома",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "community-sharing-and-material-resources",
+          "title": "Food and Household Essentials"
+        },
+        "fingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-food-and-household-essentials-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "продукты и бытовые товары",
+        "предметы первой необходимости для дома"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "community-sharing-and-material-resources",
+          "title": "Food and Household Essentials"
+        },
+        "fingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-music-production-and-recording-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "label",
+      "value": "Создание и запись музыки",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Music Production and Recording"
+        },
+        "fingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-music-production-and-recording-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "создание и запись музыки",
+        "музыкальный продакшен"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Music Production and Recording"
+        },
+        "fingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-video-motion-and-animation-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "label",
+      "value": "Видео, моушн-дизайн и анимация",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Video, Motion, and Animation"
+        },
+        "fingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-video-motion-and-animation-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "видео и анимация",
+        "моушн-дизайн"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Video, Motion, and Animation"
+        },
+        "fingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-general-learning-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "label",
+      "value": "Общее обучение",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "education-and-learning",
+          "title": "General Learning"
+        },
+        "fingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-topic-general-learning-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "общее обучение",
+        "самообразование"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "education-and-learning",
+          "title": "General Learning"
+        },
+        "fingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-need-work-label",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "label",
+      "value": "Мне нужна работа",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need work",
+          "query": "find work or job support"
+        },
+        "fingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-need-work-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "aliases",
+      "value": [
+        "мне нужна работа",
+        "помощь с трудоустройством"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need work",
+          "query": "find work or job support"
+        },
+        "fingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-need-creating-label",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "label",
+      "value": "Я хочу творить",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I want to create",
+          "query": "free creative tools"
+        },
+        "fingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-need-creating-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "aliases",
+      "value": [
+        "хочу творить",
+        "бесплатные инструменты для творчества"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I want to create",
+          "query": "free creative tools"
+        },
+        "fingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-need-food-today-label",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "label",
+      "value": "Мне нужна еда сегодня",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need food today",
+          "query": "food today"
+        },
+        "fingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-need-food-today-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "aliases",
+      "value": [
+        "нужна еда сегодня",
+        "где получить еду сегодня"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need food today",
+          "query": "food today"
+        },
+        "fingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-place-world-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "label",
+      "value": "Мир",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "World"
+        },
+        "fingerprint": "sha256:afc3ca99a234b503e0129cbb090e7f1b3c2b3fa4bf9a9a6b38ae07a02678fdff"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-place-world-short-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "shortLabel",
+      "value": "Мир",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "World"
+        },
+        "fingerprint": "sha256:08bf20c5c8fbbfcbfa88eabb2f4275bd8d045d5eb268028c7b61e65eb10b1e4d"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-place-us-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "label",
+      "value": "Соединённые Штаты",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "United States"
+        },
+        "fingerprint": "sha256:e45caa0e9d65f43975448e5348a883c237f4c8c9410f9a730cc19f7ac57d94eb"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-place-us-short-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "shortLabel",
+      "value": "Соединённые Штаты",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "United States"
+        },
+        "fingerprint": "sha256:e51cdf372712c2b551f5dc5a5ee000ee407270d1229720103fd31df0b8f30987"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-place-us-ca-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "label",
+      "value": "Калифорния",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "California"
+        },
+        "fingerprint": "sha256:b67183864561e2b941e8da665e00ce1728dcbec90a0cda514d64c06ababaee9c"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-place-us-ca-short-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "shortLabel",
+      "value": "Калифорния",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "California"
+        },
+        "fingerprint": "sha256:c21a948080675f5ba4f3697a474b253b021d3795a34ed188045fd5b19cf3565b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-place-us-ma-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "label",
+      "value": "Массачусетс",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "Massachusetts"
+        },
+        "fingerprint": "sha256:bd76038378d8f113107dc7ecc0257412c3530d6ff4eccbf96f3efe8a73d5fff4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-place-us-ma-short-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "shortLabel",
+      "value": "Массачусетс",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "Massachusetts"
+        },
+        "fingerprint": "sha256:887f116d59381aecc9b02cd1038f26ed2e41bd9a10766ffe4eabdb255f30b12f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-place-us-ma-wilmington-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "label",
+      "value": "Уилмингтон, Массачусетс",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "Wilmington, Massachusetts"
+        },
+        "fingerprint": "sha256:f669eaff9971e8fb1b52750fcf88145a2ee2feaa1b5651c365158a80a32d4f15"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ru-place-us-ma-wilmington-short-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "shortLabel",
+      "value": "Уилмингтон",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "Wilmington"
+        },
+        "fingerprint": "sha256:b9496ef31233e68ac11cf9c2abdb55c79306a6d3e46b22205227f6c0c708c29e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-collection-work-and-learning-label",
+      "locale": "es",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "label",
+      "value": "Trabajo y aprendizaje",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Work and Learning"
+        },
+        "fingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-collection-work-and-learning-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "aliases",
+      "value": [
+        "trabajo y aprendizaje",
+        "carrera y formación"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Work and Learning"
+        },
+        "fingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-collection-awesome-abundance-label",
+      "locale": "es",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "label",
+      "value": "Abundancia de recursos gratuitos",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Awesome Abundance"
+        },
+        "fingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-collection-awesome-abundance-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "aliases",
+      "value": [
+        "recursos gratuitos",
+        "recursos sin costo"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Awesome Abundance"
+        },
+        "fingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-career-platforms-and-job-search-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "label",
+      "value": "Plataformas profesionales y búsqueda de empleo",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Career Platforms and Job Search"
+        },
+        "fingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-career-platforms-and-job-search-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "plataformas de búsqueda de empleo",
+        "vacantes y currículums"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Career Platforms and Job Search"
+        },
+        "fingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-remote-paid-work-and-expert-services-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "label",
+      "value": "Trabajo remunerado a distancia y servicios especializados",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote Paid Work and Expert Services"
+        },
+        "fingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-remote-paid-work-and-expert-services-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "trabajo remoto remunerado",
+        "servicios de expertos en línea"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote Paid Work and Expert Services"
+        },
+        "fingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-remote-and-international-work-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "label",
+      "value": "Trabajo remoto e internacional",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote and International Work"
+        },
+        "fingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-remote-and-international-work-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "trabajo remoto internacional",
+        "trabajo a distancia en el extranjero"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote and International Work"
+        },
+        "fingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-learning-and-careers-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "label",
+      "value": "Aprendizaje y desarrollo profesional",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Learning and Careers"
+        },
+        "fingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-learning-and-careers-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "aprendizaje profesional",
+        "desarrollo de carrera"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Learning and Careers"
+        },
+        "fingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-food-and-household-essentials-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "label",
+      "value": "Alimentos y artículos esenciales para el hogar",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "community-sharing-and-material-resources",
+          "title": "Food and Household Essentials"
+        },
+        "fingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-food-and-household-essentials-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "alimentos y productos del hogar",
+        "artículos básicos para el hogar"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "community-sharing-and-material-resources",
+          "title": "Food and Household Essentials"
+        },
+        "fingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-music-production-and-recording-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "label",
+      "value": "Producción y grabación musical",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Music Production and Recording"
+        },
+        "fingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-music-production-and-recording-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "producción y grabación de música",
+        "producción musical"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Music Production and Recording"
+        },
+        "fingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-video-motion-and-animation-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "label",
+      "value": "Video, diseño de movimiento y animación",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Video, Motion, and Animation"
+        },
+        "fingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-video-motion-and-animation-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "video y animación",
+        "diseño de movimiento"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Video, Motion, and Animation"
+        },
+        "fingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-general-learning-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "label",
+      "value": "Aprendizaje general",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "education-and-learning",
+          "title": "General Learning"
+        },
+        "fingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-topic-general-learning-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "aprendizaje general",
+        "autoaprendizaje"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "education-and-learning",
+          "title": "General Learning"
+        },
+        "fingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-need-work-label",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "label",
+      "value": "Necesito trabajo",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need work",
+          "query": "find work or job support"
+        },
+        "fingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-need-work-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "aliases",
+      "value": [
+        "necesito trabajo",
+        "ayuda para encontrar empleo"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need work",
+          "query": "find work or job support"
+        },
+        "fingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-need-creating-label",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "label",
+      "value": "Quiero crear",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I want to create",
+          "query": "free creative tools"
+        },
+        "fingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-need-creating-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "aliases",
+      "value": [
+        "quiero crear",
+        "herramientas creativas gratuitas"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I want to create",
+          "query": "free creative tools"
+        },
+        "fingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-need-food-today-label",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "label",
+      "value": "Necesito comida hoy",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need food today",
+          "query": "food today"
+        },
+        "fingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-need-food-today-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "aliases",
+      "value": [
+        "necesito comida hoy",
+        "dónde conseguir comida hoy"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need food today",
+          "query": "food today"
+        },
+        "fingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-place-world-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "label",
+      "value": "Mundo",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "World"
+        },
+        "fingerprint": "sha256:afc3ca99a234b503e0129cbb090e7f1b3c2b3fa4bf9a9a6b38ae07a02678fdff"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-place-world-short-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "shortLabel",
+      "value": "Mundo",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "World"
+        },
+        "fingerprint": "sha256:08bf20c5c8fbbfcbfa88eabb2f4275bd8d045d5eb268028c7b61e65eb10b1e4d"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-place-us-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "label",
+      "value": "Estados Unidos",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "United States"
+        },
+        "fingerprint": "sha256:e45caa0e9d65f43975448e5348a883c237f4c8c9410f9a730cc19f7ac57d94eb"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-place-us-short-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "shortLabel",
+      "value": "Estados Unidos",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "United States"
+        },
+        "fingerprint": "sha256:e51cdf372712c2b551f5dc5a5ee000ee407270d1229720103fd31df0b8f30987"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-place-us-ca-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "label",
+      "value": "California",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "California"
+        },
+        "fingerprint": "sha256:b67183864561e2b941e8da665e00ce1728dcbec90a0cda514d64c06ababaee9c"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-place-us-ca-short-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "shortLabel",
+      "value": "California",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "California"
+        },
+        "fingerprint": "sha256:c21a948080675f5ba4f3697a474b253b021d3795a34ed188045fd5b19cf3565b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-place-us-ma-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "label",
+      "value": "Massachusetts",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "Massachusetts"
+        },
+        "fingerprint": "sha256:bd76038378d8f113107dc7ecc0257412c3530d6ff4eccbf96f3efe8a73d5fff4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-place-us-ma-short-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "shortLabel",
+      "value": "Massachusetts",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "Massachusetts"
+        },
+        "fingerprint": "sha256:887f116d59381aecc9b02cd1038f26ed2e41bd9a10766ffe4eabdb255f30b12f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-place-us-ma-wilmington-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "label",
+      "value": "Wilmington, Massachusetts",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "Wilmington, Massachusetts"
+        },
+        "fingerprint": "sha256:f669eaff9971e8fb1b52750fcf88145a2ee2feaa1b5651c365158a80a32d4f15"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "es-place-us-ma-wilmington-short-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "shortLabel",
+      "value": "Wilmington",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "Wilmington"
+        },
+        "fingerprint": "sha256:b9496ef31233e68ac11cf9c2abdb55c79306a6d3e46b22205227f6c0c708c29e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-collection-work-and-learning-label",
+      "locale": "fr",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "label",
+      "value": "Travail et apprentissage",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Work and Learning"
+        },
+        "fingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-collection-work-and-learning-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "aliases",
+      "value": [
+        "travail et apprentissage",
+        "carrière et formation"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Work and Learning"
+        },
+        "fingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-collection-awesome-abundance-label",
+      "locale": "fr",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "label",
+      "value": "Ressources gratuites en abondance",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Awesome Abundance"
+        },
+        "fingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-collection-awesome-abundance-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "aliases",
+      "value": [
+        "ressources gratuites",
+        "ressources sans frais"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Awesome Abundance"
+        },
+        "fingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-career-platforms-and-job-search-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "label",
+      "value": "Plateformes de carrière et recherche d’emploi",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Career Platforms and Job Search"
+        },
+        "fingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-career-platforms-and-job-search-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "plateformes de recherche d’emploi",
+        "offres d’emploi et CV"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Career Platforms and Job Search"
+        },
+        "fingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-remote-paid-work-and-expert-services-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "label",
+      "value": "Travail rémunéré à distance et services spécialisés",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote Paid Work and Expert Services"
+        },
+        "fingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-remote-paid-work-and-expert-services-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "travail à distance rémunéré",
+        "services d’experts en ligne"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote Paid Work and Expert Services"
+        },
+        "fingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-remote-and-international-work-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "label",
+      "value": "Travail à distance et à l’international",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote and International Work"
+        },
+        "fingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-remote-and-international-work-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "travail à distance international",
+        "travail en ligne à l’étranger"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote and International Work"
+        },
+        "fingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-learning-and-careers-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "label",
+      "value": "Apprentissage et carrières",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Learning and Careers"
+        },
+        "fingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-learning-and-careers-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "apprentissage professionnel",
+        "développement de carrière"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Learning and Careers"
+        },
+        "fingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-food-and-household-essentials-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "label",
+      "value": "Alimentation et produits essentiels pour la maison",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "community-sharing-and-material-resources",
+          "title": "Food and Household Essentials"
+        },
+        "fingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-food-and-household-essentials-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "alimentation et produits ménagers",
+        "produits de première nécessité pour la maison"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "community-sharing-and-material-resources",
+          "title": "Food and Household Essentials"
+        },
+        "fingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-music-production-and-recording-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "label",
+      "value": "Production et enregistrement musicaux",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Music Production and Recording"
+        },
+        "fingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-music-production-and-recording-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "production et enregistrement de musique",
+        "production musicale"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Music Production and Recording"
+        },
+        "fingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-video-motion-and-animation-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "label",
+      "value": "Vidéo, graphisme animé et animation",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Video, Motion, and Animation"
+        },
+        "fingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-video-motion-and-animation-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "vidéo et animation",
+        "graphisme animé"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Video, Motion, and Animation"
+        },
+        "fingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-general-learning-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "label",
+      "value": "Apprentissage général",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "education-and-learning",
+          "title": "General Learning"
+        },
+        "fingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-topic-general-learning-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "apprentissage général",
+        "autoformation"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "education-and-learning",
+          "title": "General Learning"
+        },
+        "fingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-need-work-label",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "label",
+      "value": "J’ai besoin de travail",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need work",
+          "query": "find work or job support"
+        },
+        "fingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-need-work-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "aliases",
+      "value": [
+        "j’ai besoin de travail",
+        "aide pour trouver un emploi"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need work",
+          "query": "find work or job support"
+        },
+        "fingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-need-creating-label",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "label",
+      "value": "J’ai envie de créer",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I want to create",
+          "query": "free creative tools"
+        },
+        "fingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-need-creating-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "aliases",
+      "value": [
+        "j’ai envie de créer",
+        "outils créatifs gratuits"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I want to create",
+          "query": "free creative tools"
+        },
+        "fingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-need-food-today-label",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "label",
+      "value": "J’ai besoin de nourriture aujourd’hui",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need food today",
+          "query": "food today"
+        },
+        "fingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-need-food-today-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "aliases",
+      "value": [
+        "besoin de nourriture aujourd’hui",
+        "où trouver à manger aujourd’hui"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need food today",
+          "query": "food today"
+        },
+        "fingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-place-world-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "label",
+      "value": "Monde",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "World"
+        },
+        "fingerprint": "sha256:afc3ca99a234b503e0129cbb090e7f1b3c2b3fa4bf9a9a6b38ae07a02678fdff"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-place-world-short-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "shortLabel",
+      "value": "Monde",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "World"
+        },
+        "fingerprint": "sha256:08bf20c5c8fbbfcbfa88eabb2f4275bd8d045d5eb268028c7b61e65eb10b1e4d"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-place-us-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "label",
+      "value": "États-Unis",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "United States"
+        },
+        "fingerprint": "sha256:e45caa0e9d65f43975448e5348a883c237f4c8c9410f9a730cc19f7ac57d94eb"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-place-us-short-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "shortLabel",
+      "value": "États-Unis",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "United States"
+        },
+        "fingerprint": "sha256:e51cdf372712c2b551f5dc5a5ee000ee407270d1229720103fd31df0b8f30987"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-place-us-ca-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "label",
+      "value": "Californie",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "California"
+        },
+        "fingerprint": "sha256:b67183864561e2b941e8da665e00ce1728dcbec90a0cda514d64c06ababaee9c"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-place-us-ca-short-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "shortLabel",
+      "value": "Californie",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "California"
+        },
+        "fingerprint": "sha256:c21a948080675f5ba4f3697a474b253b021d3795a34ed188045fd5b19cf3565b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-place-us-ma-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "label",
+      "value": "Massachusetts",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "Massachusetts"
+        },
+        "fingerprint": "sha256:bd76038378d8f113107dc7ecc0257412c3530d6ff4eccbf96f3efe8a73d5fff4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-place-us-ma-short-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "shortLabel",
+      "value": "Massachusetts",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "Massachusetts"
+        },
+        "fingerprint": "sha256:887f116d59381aecc9b02cd1038f26ed2e41bd9a10766ffe4eabdb255f30b12f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-place-us-ma-wilmington-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "label",
+      "value": "Wilmington, Massachusetts",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "Wilmington, Massachusetts"
+        },
+        "fingerprint": "sha256:f669eaff9971e8fb1b52750fcf88145a2ee2feaa1b5651c365158a80a32d4f15"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "fr-place-us-ma-wilmington-short-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "shortLabel",
+      "value": "Wilmington",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "Wilmington"
+        },
+        "fingerprint": "sha256:b9496ef31233e68ac11cf9c2abdb55c79306a6d3e46b22205227f6c0c708c29e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-collection-work-and-learning-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "label",
+      "value": "Trabalho e aprendizado",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Work and Learning"
+        },
+        "fingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-collection-work-and-learning-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "aliases",
+      "value": [
+        "trabalho e aprendizado",
+        "carreira e formação"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Work and Learning"
+        },
+        "fingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-collection-awesome-abundance-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "label",
+      "value": "Abundância de recursos gratuitos",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Awesome Abundance"
+        },
+        "fingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-collection-awesome-abundance-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "aliases",
+      "value": [
+        "recursos gratuitos",
+        "recursos sem custo"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Awesome Abundance"
+        },
+        "fingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-career-platforms-and-job-search-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "label",
+      "value": "Plataformas de carreira e busca de emprego",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Career Platforms and Job Search"
+        },
+        "fingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-career-platforms-and-job-search-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "plataformas de busca de emprego",
+        "vagas e currículos"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Career Platforms and Job Search"
+        },
+        "fingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-remote-paid-work-and-expert-services-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "label",
+      "value": "Trabalho remoto remunerado e serviços especializados",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote Paid Work and Expert Services"
+        },
+        "fingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-remote-paid-work-and-expert-services-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "trabalho remoto remunerado",
+        "serviços de especialistas online"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote Paid Work and Expert Services"
+        },
+        "fingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-remote-and-international-work-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "label",
+      "value": "Trabalho remoto e internacional",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote and International Work"
+        },
+        "fingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-remote-and-international-work-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "trabalho remoto internacional",
+        "trabalho online no exterior"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote and International Work"
+        },
+        "fingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-learning-and-careers-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "label",
+      "value": "Aprendizado e carreira",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Learning and Careers"
+        },
+        "fingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-learning-and-careers-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "aprendizado profissional",
+        "desenvolvimento de carreira"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Learning and Careers"
+        },
+        "fingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-food-and-household-essentials-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "label",
+      "value": "Alimentos e itens essenciais para a casa",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "community-sharing-and-material-resources",
+          "title": "Food and Household Essentials"
+        },
+        "fingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-food-and-household-essentials-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "alimentos e produtos domésticos",
+        "itens básicos para a casa"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "community-sharing-and-material-resources",
+          "title": "Food and Household Essentials"
+        },
+        "fingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-music-production-and-recording-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "label",
+      "value": "Produção e gravação musical",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Music Production and Recording"
+        },
+        "fingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-music-production-and-recording-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "produção e gravação de música",
+        "produção musical"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Music Production and Recording"
+        },
+        "fingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-video-motion-and-animation-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "label",
+      "value": "Vídeo, design de movimento e animação",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Video, Motion, and Animation"
+        },
+        "fingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-video-motion-and-animation-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "vídeo e animação",
+        "design de movimento"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Video, Motion, and Animation"
+        },
+        "fingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-general-learning-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "label",
+      "value": "Aprendizado geral",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "education-and-learning",
+          "title": "General Learning"
+        },
+        "fingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-topic-general-learning-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "aprendizado geral",
+        "aprendizado autodidata"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "education-and-learning",
+          "title": "General Learning"
+        },
+        "fingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-need-work-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "label",
+      "value": "Preciso de trabalho",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need work",
+          "query": "find work or job support"
+        },
+        "fingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-need-work-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "aliases",
+      "value": [
+        "preciso de trabalho",
+        "ajuda para encontrar emprego"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need work",
+          "query": "find work or job support"
+        },
+        "fingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-need-creating-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "label",
+      "value": "Quero criar",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I want to create",
+          "query": "free creative tools"
+        },
+        "fingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-need-creating-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "aliases",
+      "value": [
+        "quero criar",
+        "ferramentas criativas gratuitas"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I want to create",
+          "query": "free creative tools"
+        },
+        "fingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-need-food-today-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "label",
+      "value": "Preciso de comida hoje",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need food today",
+          "query": "food today"
+        },
+        "fingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-need-food-today-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "aliases",
+      "value": [
+        "preciso de comida hoje",
+        "onde conseguir comida hoje"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need food today",
+          "query": "food today"
+        },
+        "fingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-place-world-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "label",
+      "value": "Mundo",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "World"
+        },
+        "fingerprint": "sha256:afc3ca99a234b503e0129cbb090e7f1b3c2b3fa4bf9a9a6b38ae07a02678fdff"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-place-world-short-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "shortLabel",
+      "value": "Mundo",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "World"
+        },
+        "fingerprint": "sha256:08bf20c5c8fbbfcbfa88eabb2f4275bd8d045d5eb268028c7b61e65eb10b1e4d"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-place-us-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "label",
+      "value": "Estados Unidos",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "United States"
+        },
+        "fingerprint": "sha256:e45caa0e9d65f43975448e5348a883c237f4c8c9410f9a730cc19f7ac57d94eb"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-place-us-short-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "shortLabel",
+      "value": "Estados Unidos",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "United States"
+        },
+        "fingerprint": "sha256:e51cdf372712c2b551f5dc5a5ee000ee407270d1229720103fd31df0b8f30987"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-place-us-ca-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "label",
+      "value": "Califórnia",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "California"
+        },
+        "fingerprint": "sha256:b67183864561e2b941e8da665e00ce1728dcbec90a0cda514d64c06ababaee9c"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-place-us-ca-short-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "shortLabel",
+      "value": "Califórnia",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "California"
+        },
+        "fingerprint": "sha256:c21a948080675f5ba4f3697a474b253b021d3795a34ed188045fd5b19cf3565b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-place-us-ma-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "label",
+      "value": "Massachusetts",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "Massachusetts"
+        },
+        "fingerprint": "sha256:bd76038378d8f113107dc7ecc0257412c3530d6ff4eccbf96f3efe8a73d5fff4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-place-us-ma-short-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "shortLabel",
+      "value": "Massachusetts",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "Massachusetts"
+        },
+        "fingerprint": "sha256:887f116d59381aecc9b02cd1038f26ed2e41bd9a10766ffe4eabdb255f30b12f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-place-us-ma-wilmington-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "label",
+      "value": "Wilmington, Massachusetts",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "Wilmington, Massachusetts"
+        },
+        "fingerprint": "sha256:f669eaff9971e8fb1b52750fcf88145a2ee2feaa1b5651c365158a80a32d4f15"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "pt-br-place-us-ma-wilmington-short-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "shortLabel",
+      "value": "Wilmington",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "Wilmington"
+        },
+        "fingerprint": "sha256:b9496ef31233e68ac11cf9c2abdb55c79306a6d3e46b22205227f6c0c708c29e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-collection-work-and-learning-label",
+      "locale": "ar",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "label",
+      "value": "العمل والتعلّم",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Work and Learning"
+        },
+        "fingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-collection-work-and-learning-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "aliases",
+      "value": [
+        "العمل والتعلّم",
+        "المسار المهني والتعليم"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Work and Learning"
+        },
+        "fingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-collection-awesome-abundance-label",
+      "locale": "ar",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "label",
+      "value": "وفرة من الموارد المجانية",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Awesome Abundance"
+        },
+        "fingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-collection-awesome-abundance-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "aliases",
+      "value": [
+        "موارد مجانية",
+        "موارد دون تكلفة"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "Awesome Abundance"
+        },
+        "fingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-career-platforms-and-job-search-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "label",
+      "value": "منصات التوظيف والبحث عن عمل",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Career Platforms and Job Search"
+        },
+        "fingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-career-platforms-and-job-search-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "منصات البحث عن عمل",
+        "فرص العمل والسير الذاتية"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Career Platforms and Job Search"
+        },
+        "fingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-remote-paid-work-and-expert-services-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "label",
+      "value": "العمل المأجور عن بُعد والخدمات المتخصصة",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote Paid Work and Expert Services"
+        },
+        "fingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-remote-paid-work-and-expert-services-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "عمل مأجور عن بُعد",
+        "خدمات الخبراء عبر الإنترنت"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote Paid Work and Expert Services"
+        },
+        "fingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-remote-and-international-work-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "label",
+      "value": "العمل عن بُعد والعمل الدولي",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote and International Work"
+        },
+        "fingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-remote-and-international-work-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "عمل دولي عن بُعد",
+        "عمل عبر الإنترنت في الخارج"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Remote and International Work"
+        },
+        "fingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-learning-and-careers-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "label",
+      "value": "التعلّم والمسارات المهنية",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Learning and Careers"
+        },
+        "fingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-learning-and-careers-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "التعلّم المهني",
+        "التطوير المهني"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "work-and-learning",
+          "groupSlug": "",
+          "title": "Learning and Careers"
+        },
+        "fingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-food-and-household-essentials-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "label",
+      "value": "الغذاء والاحتياجات المنزلية الأساسية",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "community-sharing-and-material-resources",
+          "title": "Food and Household Essentials"
+        },
+        "fingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-food-and-household-essentials-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "الغذاء والمستلزمات المنزلية",
+        "الاحتياجات الأساسية للمنزل"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "community-sharing-and-material-resources",
+          "title": "Food and Household Essentials"
+        },
+        "fingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-music-production-and-recording-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "label",
+      "value": "إنتاج الموسيقى وتسجيلها",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Music Production and Recording"
+        },
+        "fingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-music-production-and-recording-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "إنتاج الموسيقى وتسجيلها",
+        "الإنتاج الموسيقي"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Music Production and Recording"
+        },
+        "fingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-video-motion-and-animation-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "label",
+      "value": "الفيديو والتصميم الحركي والرسوم المتحركة",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Video, Motion, and Animation"
+        },
+        "fingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-video-motion-and-animation-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "الفيديو والرسوم المتحركة",
+        "التصميم الحركي"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "creative-tools-and-production",
+          "title": "Video, Motion, and Animation"
+        },
+        "fingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-general-learning-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "label",
+      "value": "التعلّم العام",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "education-and-learning",
+          "title": "General Learning"
+        },
+        "fingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-topic-general-learning-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "aliases",
+      "value": [
+        "التعلّم العام",
+        "التعلّم الذاتي"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "collectionSlug": "awesome-abundance",
+          "groupSlug": "education-and-learning",
+          "title": "General Learning"
+        },
+        "fingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-need-work-label",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "label",
+      "value": "أحتاج إلى عمل",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need work",
+          "query": "find work or job support"
+        },
+        "fingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-need-work-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "aliases",
+      "value": [
+        "أحتاج إلى عمل",
+        "مساعدة في العثور على وظيفة"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need work",
+          "query": "find work or job support"
+        },
+        "fingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-need-creating-label",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "label",
+      "value": "أريد أن أبدع",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I want to create",
+          "query": "free creative tools"
+        },
+        "fingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-need-creating-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "aliases",
+      "value": [
+        "أريد أن أبدع",
+        "أدوات إبداعية مجانية"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I want to create",
+          "query": "free creative tools"
+        },
+        "fingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-need-food-today-label",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "label",
+      "value": "أحتاج إلى طعام اليوم",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need food today",
+          "query": "food today"
+        },
+        "fingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-need-food-today-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "aliases",
+      "value": [
+        "أحتاج إلى طعام اليوم",
+        "أين أجد طعاما اليوم"
+      ],
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "title": "I need food today",
+          "query": "food today"
+        },
+        "fingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-place-world-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "label",
+      "value": "العالم",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "World"
+        },
+        "fingerprint": "sha256:afc3ca99a234b503e0129cbb090e7f1b3c2b3fa4bf9a9a6b38ae07a02678fdff"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-place-world-short-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "shortLabel",
+      "value": "العالم",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "World"
+        },
+        "fingerprint": "sha256:08bf20c5c8fbbfcbfa88eabb2f4275bd8d045d5eb268028c7b61e65eb10b1e4d"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-place-us-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "label",
+      "value": "الولايات المتحدة",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "United States"
+        },
+        "fingerprint": "sha256:e45caa0e9d65f43975448e5348a883c237f4c8c9410f9a730cc19f7ac57d94eb"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-place-us-short-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "shortLabel",
+      "value": "الولايات المتحدة",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "United States"
+        },
+        "fingerprint": "sha256:e51cdf372712c2b551f5dc5a5ee000ee407270d1229720103fd31df0b8f30987"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-place-us-ca-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "label",
+      "value": "كاليفورنيا",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "California"
+        },
+        "fingerprint": "sha256:b67183864561e2b941e8da665e00ce1728dcbec90a0cda514d64c06ababaee9c"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-place-us-ca-short-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "shortLabel",
+      "value": "كاليفورنيا",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "California"
+        },
+        "fingerprint": "sha256:c21a948080675f5ba4f3697a474b253b021d3795a34ed188045fd5b19cf3565b"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-place-us-ma-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "label",
+      "value": "ماساتشوستس",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "Massachusetts"
+        },
+        "fingerprint": "sha256:bd76038378d8f113107dc7ecc0257412c3530d6ff4eccbf96f3efe8a73d5fff4"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-place-us-ma-short-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "shortLabel",
+      "value": "ماساتشوستس",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "Massachusetts"
+        },
+        "fingerprint": "sha256:887f116d59381aecc9b02cd1038f26ed2e41bd9a10766ffe4eabdb255f30b12f"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-place-us-ma-wilmington-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "label",
+      "value": "ويلمنغتون، ماساتشوستس",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "name": "Wilmington, Massachusetts"
+        },
+        "fingerprint": "sha256:f669eaff9971e8fb1b52750fcf88145a2ee2feaa1b5651c365158a80a32d4f15"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    },
+    {
+      "id": "ar-place-us-ma-wilmington-short-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "shortLabel",
+      "value": "ويلمنغتون",
+      "source": {
+        "revision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+        "fields": {
+          "shortName": "Wilmington"
+        },
+        "fingerprint": "sha256:b9496ef31233e68ac11cf9c2abdb55c79306a6d3e46b22205227f6c0c708c29e"
+      },
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "status": "draft"
+    }
+  ]
+}

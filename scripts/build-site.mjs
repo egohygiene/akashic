@@ -12,6 +12,9 @@ import { parseAtlasResourceEntry, parseResourceEntry } from "./lib/resource-pars
 import { loadEvaluationFixture } from "./lib/search-evaluation.mjs";
 import { urlIdentity } from "./lib/url-identity.mjs";
 import { buildCivicPage, CIVIC_CHAPTERS, parseCivicMarkdown } from "./lib/civic-tasks.mjs";
+import { createContentSources, validateContentOverlays } from "./lib/content-overlays.mjs";
+import { createContentLocalization } from "../site/content-localization.js";
+import { NEED_PATHS } from "../site/needs.js";
 
 const root = process.cwd();
 const sourceDirectory = path.join(root, "site");
@@ -80,7 +83,7 @@ function fundingMarkup(funding, messages) {
   return funding.sources.map((source) => `<a class="funding-badge funding-badge-${escapeHtml(source.platform)}" href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(interpolate(messages["runtime.funding.aria"], { label: source.label }))}"><span aria-hidden="true">${escapeHtml(source.glyph)}</span><strong>${escapeHtml(source.label)}</strong><b aria-hidden="true">↗</b></a>`).join("");
 }
 
-async function buildLocalizedPages(locales, funding, guideTemplates) {
+async function buildLocalizedPages(locales, funding, guideTemplates, atlas) {
   const pages = ["index.html", "dashboard.html", "atlas.html"];
   for (const locale of locales.locales) {
     const localeDirectory = locale.code === locales.defaultLocale ? outputDirectory : path.join(outputDirectory, locale.route.replace(/^\//, ""));
@@ -89,9 +92,20 @@ async function buildLocalizedPages(locales, funding, guideTemplates) {
     for (const page of pages) {
       const sourceHtml = await readFile(path.join(sourceDirectory, page), "utf8");
       if (page === "index.html" && sourceHtml.split(SITE_GUIDE_TEMPLATES).length !== 2) throw new Error("The catalog page needs exactly one guide-template marker.");
-      const localized = localizeHtml(sourceHtml, locale, page, locales)
+      let localized = localizeHtml(sourceHtml, locale, page, locales)
         .replace(FUNDING_PLACEHOLDER, fundingMarkup(funding, messages))
         .replace(SITE_GUIDE_TEMPLATES, () => guideTemplates);
+      if (page === "atlas.html") {
+        localized = localized.replace(/<p\b[^>]*\bid="atlas-source-language-notice"[^>]*>[\s\S]*?<\/p>/, () => `<p class="atlas-source-language-notice" id="atlas-source-language-notice" lang="${locale.code}">${escapeHtml(messages["runtime.atlas.sourceLanguageNotice"])}</p>`);
+        const content = createContentLocalization(locale.code, locales.contentOverlays);
+        const links = atlas.locations.map((place) => {
+          const label = content.label("place", place.id, place.name);
+          const params = new URLSearchParams({ place: place.id });
+          const source = atlas.resources.find((resource) => resource.locationId === place.id && resource.provenance?.kind === "place-file")?.source || place.source;
+          return `<li><a href="${escapeHtml(`${locale.route}atlas.html?${params}`)}" data-location-id="${escapeHtml(place.id)}"><span class="atlas-place-directory-identity"><strong lang="${label.lang}">${escapeHtml(label.text)}</strong></span></a><noscript><a href="https://github.com/egohygiene/akashic/blob/main/${source}">${escapeHtml(messages["runtime.action.readSource"])}</a></noscript></li>`;
+        }).join("");
+        localized = localized.replace(/(<ol\b[^>]*\bid="atlas-place-directory-list"[^>]*>)[\s\S]*?<\/ol>/, (_, opening) => `${opening}${links}</ol>`);
+      }
       if (localized.includes(FUNDING_PLACEHOLDER)) throw new Error(`Funding badges were not generated for ${locale.code}/${page}.`);
       await writeFile(path.join(localeDirectory, page), localized);
     }
@@ -478,6 +492,10 @@ async function build() {
   const funding = buildFunding(await readFile(fundingFile, "utf8"));
   const searchEvaluation = await loadEvaluationFixture(searchEvaluationFile);
   const locales = await loadLocales(sourceDirectory);
+  const contentDocument = JSON.parse(await readFile(path.join(root, "localization", "content-overlays-v1.json"), "utf8"));
+  const contentSources = createContentSources({ catalog, atlas, needs: NEED_PATHS, englishMessages: locales.catalogs.get("en") });
+  const contentOverlays = validateContentOverlays(contentDocument, { sources: contentSources, locales });
+  locales.contentOverlays = contentOverlays.published;
 
   await rm(outputDirectory, { recursive: true, force: true });
   await cp(sourceDirectory, outputDirectory, { recursive: true });
@@ -489,7 +507,7 @@ async function build() {
   await writeFile(path.join(outputDirectory, "data", "overview.json"), `${JSON.stringify(overview)}\n`);
   await writeFile(path.join(outputDirectory, "data", "funding.json"), `${JSON.stringify({ schemaVersion: 1, sources: funding.sources })}\n`);
   await writeFile(path.join(outputDirectory, "data", "search-evaluation-v2.json"), `${JSON.stringify(searchEvaluation)}\n`);
-  await buildLocalizedPages(locales, funding, guideTemplates.html);
+  await buildLocalizedPages(locales, funding, guideTemplates.html, atlas);
   for (const { page, data, chapter } of civicChapters) {
     await writeFile(path.join(outputDirectory, page), buildCivicPage(await readFile(path.join(sourceDirectory, page), "utf8"), chapter));
     await writeFile(path.join(outputDirectory, "data", data), `${JSON.stringify({ schemaVersion: chapter.schemaVersion, source: chapter.source, tasks: chapter.tasks })}\n`);

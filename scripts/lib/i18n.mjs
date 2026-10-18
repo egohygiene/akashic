@@ -141,7 +141,9 @@ function localeConfiguration(locales, activeLocale, page) {
   }
   const messages = locales.catalogs.get(activeLocale.code);
   const fallbackMessages = fallbackCatalogs.length ? Object.assign({}, ...fallbackCatalogs.reverse()) : messages;
-  return `<script type="application/json" id="akashic-locale-config">${scriptJson(config)}</script>\n    <script type="application/json" id="akashic-i18n-messages">${scriptJson({ locale: activeLocale.code, messages, fallbackMessages })}</script>`;
+  const content = (locales.contentOverlays || []).filter((entry) => entry.locale === activeLocale.code);
+  const contentScript = content.length ? `\n    <script type="application/json" id="akashic-content-overlays">${scriptJson(content)}</script>` : "";
+  return `<script type="application/json" id="akashic-locale-config">${scriptJson(config)}</script>\n    <script type="application/json" id="akashic-i18n-messages">${scriptJson({ locale: activeLocale.code, messages, fallbackMessages })}</script>${contentScript}`;
 }
 
 function languageSwitcher(locales, activeLocale, page) {
@@ -159,7 +161,9 @@ function coverageNotice(locale, locales) {
   const suggestion = '<aside class="locale-suggestion" id="locale-suggestion" hidden></aside>';
   if (locale.code === locales.defaultLocale) return suggestion;
   const messages = locales.catalogs.get(locale.code);
-  const coverage = `<aside class="locale-coverage" id="locale-coverage"><strong>${escapeHtml(messages["static.localeCoverage.title"])}</strong><p>${escapeHtml(messages["static.localeCoverage.copy"])}</p></aside>`;
+  const hasContent = (locales.contentOverlays || []).some((entry) => entry.locale === locale.code);
+  const coverageCopy = messages[hasContent ? "runtime.contentCoverage.copy" : "static.localeCoverage.copy"];
+  const coverage = `<aside class="locale-coverage" id="locale-coverage"><strong>${escapeHtml(messages["static.localeCoverage.title"])}</strong><p>${escapeHtml(coverageCopy)}</p></aside>`;
   const draft = locale.status === "draft" ? `<aside class="locale-draft" id="locale-draft"><strong>${escapeHtml(messages["runtime.locale.draftTitle"])}</strong><p>${escapeHtml(messages["runtime.locale.draftCopy"])}</p></aside>` : "";
   return `${suggestion}${coverage}${draft}`;
 }

@@ -3,7 +3,8 @@ import { createMindMap } from "./mind-map.js";
 import { NEED_PATHS } from "./needs.js";
 import { buildSearchIndex, searchResources, suggestedQueries } from "./search.js";
 import { createSearchShareUrl, readSharedSearchQuery, sharedSearchAnchor } from "./search-query-state.js";
-import { canonicalContentLanguage, number, percent, plural, t } from "./i18n.js";
+import { canonicalContentLanguage, contentAliases, contentLabel, contentTopicId, locale, number, percent, plural, t } from "./i18n.js";
+import { createDiscoveryResolver } from "./discovery-search.js";
 import { FAVORITES_KEY, migrateFavoriteTokens, parseFavoriteTokens, URL_FAVORITES_KEYS } from "./favorites.js";
 import { activeMetadataFacetCount, emptyMetadataFacets, formatMetadataValue, humanizeMetadataValue, matchesMetadataFacets, METADATA_FACETS, metadataFacetValues } from "./catalog-metadata.js";
 
@@ -52,6 +53,7 @@ const state = {
 let mindMap;
 let searchTimer;
 let categoryBySlug = new Map();
+let resolveDiscoveryQuery = query => ({ query, status: "unchanged" });
 
 const elements = {
   catalogAdvisory: document.querySelector("#catalog-advisory"),
@@ -103,6 +105,16 @@ const elements = {
 
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
 const canonicalLanguageAttribute = canonicalContentLanguage ? ` lang="${canonicalContentLanguage}"` : "";
+const collectionLabel = (category) => contentLabel("collection", category.slug, category.title);
+const topicLabel = (category, group, section) => contentLabel("topic", contentTopicId(category, group, section), section);
+const labelAttributes = (label, canonical) => ` lang="${escapeHtml(label.lang)}"${label.translated ? ` title="${escapeHtml(canonical)}"` : ""}`;
+function applyContentLabel(element, label, canonical) {
+  element.textContent = label.text;
+  element.lang = label.lang;
+  if (label.translated && canonical !== label.text) element.title = canonical;
+  else element.removeAttribute("title");
+}
+
 const headingSlug = (value) => value.toLocaleLowerCase("en-US").replace(/[^\p{Letter}\p{Number}\s-]/gu, "").trim().replace(/\s+/g, "-");
 
 function sourceUrl(source, section = "") {
@@ -220,16 +232,21 @@ function applyState(next, options = {}) {
 }
 
 function renderNeedPaths() {
-  elements.needs.innerHTML = NEED_PATHS.map((need) => `<button type="button" data-need-query="${escapeHtml(need.query)}"${need.guideCategory ? ` data-need-guide="${escapeHtml(need.guideCategory)}"` : ""}><span aria-hidden="true">${need.glyph}</span><span><strong>${escapeHtml(t(need.titleKey))}</strong><small>${escapeHtml(t(need.copyKey))}</small></span><b aria-hidden="true">→</b></button>`).join("");
+  elements.needs.innerHTML = NEED_PATHS.map((need) => {
+    const label = contentLabel("need", need.id, t(need.titleKey));
+    return `<button type="button" data-need-query="${escapeHtml(need.query)}"${need.guideCategory ? ` data-need-guide="${escapeHtml(need.guideCategory)}"` : ""}><span aria-hidden="true">${need.glyph}</span><span><strong${label.translated ? ` lang="${escapeHtml(label.lang)}"` : ""}>${escapeHtml(label.text)}</strong><small>${escapeHtml(t(need.copyKey))}</small></span><b aria-hidden="true">→</b></button>`;
+  }).join("");
 }
 
 function renderCollections() {
-  elements.collections.innerHTML = state.catalog.categories.map((category, index) => `
-    <article class="collection-path" style="--card-color:${category.color};--card-delay:${Math.min(index, 18) * 14}ms">
-      <div class="collection-path-heading"><span class="collection-icon" aria-hidden="true">${category.glyph}</span><div><span class="collection-number">${String(index + 1).padStart(2, "0")}</span><h3${canonicalLanguageAttribute}>${escapeHtml(category.title)}</h3></div></div>
+  elements.collections.innerHTML = state.catalog.categories.map((category, index) => {
+    const label = collectionLabel(category);
+    return `<article class="collection-path" style="--card-color:${category.color};--card-delay:${Math.min(index, 18) * 14}ms">
+      <div class="collection-path-heading"><span class="collection-icon" aria-hidden="true">${category.glyph}</span><div><span class="collection-number">${String(index + 1).padStart(2, "0")}</span><h3${labelAttributes(label, category.title)}>${escapeHtml(label.text)}</h3></div></div>
       <p${canonicalLanguageAttribute}>${escapeHtml(category.description)}</p>
-      <div class="collection-path-footer"><div class="collection-meta"><span>${plural("runtime.unit.resource", category.count)}</span><span>${plural("runtime.unit.branch", category.groups.length > 1 ? category.groups.length : category.sections.length)}</span></div><div class="collection-actions">${category.guide ? `<button type="button" data-guide-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.guideAria", { title: category.title }))}">${escapeHtml(t("runtime.action.guide"))} <span aria-hidden="true">↓</span></button>` : ""}<button type="button" data-browse-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.browseAria", { title: category.title }))}">${escapeHtml(t("runtime.action.browse"))} <span aria-hidden="true">→</span></button><button type="button" data-map-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.mapAria", { title: category.title }))}">${escapeHtml(t("runtime.action.map"))} <span aria-hidden="true">⌁</span></button></div></div>
-    </article>`).join("");
+      <div class="collection-path-footer"><div class="collection-meta"><span>${plural("runtime.unit.resource", category.count)}</span><span>${plural("runtime.unit.branch", category.groups.length > 1 ? category.groups.length : category.sections.length)}</span></div><div class="collection-actions">${category.guide ? `<button type="button" data-guide-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.guideAria", { title: label.text }))}">${escapeHtml(t("runtime.action.guide"))} <span aria-hidden="true">↓</span></button>` : ""}<button type="button" data-browse-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.browseAria", { title: label.text }))}">${escapeHtml(t("runtime.action.browse"))} <span aria-hidden="true">→</span></button><button type="button" data-map-category="${escapeHtml(category.slug)}" aria-label="${escapeHtml(t("runtime.app.mapAria", { title: label.text }))}">${escapeHtml(t("runtime.action.map"))} <span aria-hidden="true">⌁</span></button></div></div>
+    </article>`;
+  }).join("");
 }
 
 function renderOverviewPreview() {
@@ -258,27 +275,30 @@ function renderOverviewPreview() {
 
   const ranked = [...categories].sort((left, right) => right.count - left.count || left.title.localeCompare(right.title));
   const largest = ranked[0];
-  elements.overviewDonut.setAttribute("aria-label", t("runtime.app.donutAria", { resources: plural("runtime.unit.resource", resourceCount), collections: plural("runtime.unit.collection", categories.length), title: largest.title, largest: plural("runtime.unit.resource", largest.count) }));
+  elements.overviewDonut.setAttribute("aria-label", t("runtime.app.donutAria", { resources: plural("runtime.unit.resource", resourceCount), collections: plural("runtime.unit.collection", categories.length), title: collectionLabel(largest).text, largest: plural("runtime.unit.resource", largest.count) }));
   const visible = ranked.slice(0, 6);
   const maximum = visible[0]?.count || 1;
   elements.overviewBarsCount.textContent = t("runtime.app.top", { count: number(visible.length) });
   elements.overviewBars.innerHTML = visible.map((category, index) => {
     const label = percent(resourceCount ? category.count / resourceCount : 0);
+    const title = collectionLabel(category);
     const params = new URLSearchParams({ collection: category.slug, view: state.view });
     return `<li><a class="overview-bar-row" href="index.html?${params}#catalog" style="--bar-color:${category.color};--bar-width:${category.count / maximum * 100}%">
-      <span class="overview-bar-rank">${String(index + 1).padStart(2, "0")}</span><span class="overview-bar-glyph" aria-hidden="true">${category.glyph}</span><span class="overview-bar-copy"${canonicalLanguageAttribute}><strong>${escapeHtml(category.title)}</strong><i aria-hidden="true"><b></b></i></span><span class="overview-bar-value"><strong>${number(category.count)}</strong><small>${label}</small></span><span aria-hidden="true">→</span>
+      <span class="overview-bar-rank">${String(index + 1).padStart(2, "0")}</span><span class="overview-bar-glyph" aria-hidden="true">${category.glyph}</span><span class="overview-bar-copy"${labelAttributes(title, category.title)}><strong>${escapeHtml(title.text)}</strong><i aria-hidden="true"><b></b></i></span><span class="overview-bar-value"><strong>${number(category.count)}</strong><small>${label}</small></span><span aria-hidden="true">→</span>
     </a></li>`;
   }).join("");
 }
 
 function renderFilterControls() {
   const options = [{ slug: "all", title: t("runtime.action.allCollections"), color: "#d1459f" }, ...state.catalog.categories];
-  elements.filters.innerHTML = options.map((category) => `<button class="filter-chip" type="button" data-filter="${escapeHtml(category.slug)}" aria-pressed="false" style="--chip-color:${category.color}"${category.slug === "all" ? "" : canonicalLanguageAttribute}>${escapeHtml(category.title)}</button>`).join("");
+  elements.filters.innerHTML = options.map((category) => {
+    const label = category.slug === "all" ? null : collectionLabel(category);
+    return `<button class="filter-chip" type="button" data-filter="${escapeHtml(category.slug)}" aria-pressed="false" style="--chip-color:${category.color}"${label ? labelAttributes(label, category.title) : ""}>${escapeHtml(label?.text || category.title)}</button>`;
+  }).join("");
   for (const category of state.catalog.categories) {
     const option = document.createElement("option");
     option.value = category.slug;
-    option.textContent = category.title;
-    if (canonicalContentLanguage) option.lang = canonicalContentLanguage;
+    applyContentLabel(option, collectionLabel(category), category.title);
     elements.catalogCollection.append(option);
   }
 }
@@ -295,7 +315,9 @@ function replaceSelectOptions(select, options, value, disabled = false) {
     const option = document.createElement("option");
     option.value = item.value;
     option.textContent = item.label;
-    if (item.canonical && canonicalContentLanguage) option.lang = canonicalContentLanguage;
+    if (item.lang) option.lang = item.lang;
+    else if (item.canonical && canonicalContentLanguage) option.lang = canonicalContentLanguage;
+    if (item.title) option.title = item.title;
     return option;
   }));
   select.disabled = disabled;
@@ -313,10 +335,14 @@ function updateTaxonomyControls() {
   const hasBranches = category.groups.length > 1;
   const branchOptions = hasBranches
     ? [{ value: "", label: t("runtime.action.allBranches") }, ...category.groups.map((group) => ({ value: group.slug, label: `${group.title} · ${number(group.count)}`, canonical: true }))]
-    : [{ value: "", label: category.groups[0]?.title || category.title, canonical: true }];
+    : [{ value: "", label: collectionLabel(category).text, lang: collectionLabel(category).lang, title: category.title }];
   replaceSelectOptions(elements.catalogBranch, branchOptions, state.group, !hasBranches);
   const topics = currentGroup()?.sections || category.sections;
-  const topicOptions = [{ value: "", label: t("runtime.action.allTopics") }, ...topics.map((topic) => ({ value: topic.title, label: `${topic.title} · ${number(topic.count)}`, canonical: true }))];
+  const topicOptions = [{ value: "", label: t("runtime.action.allTopics") }, ...topics.map((topic) => {
+    const group = currentGroup() || category.groups.find((item) => item.sections.some((section) => section.title === topic.title));
+    const label = topicLabel(category.slug, group?.slug || "", topic.title);
+    return { value: topic.title, label: `${label.text} · ${number(topic.count)}`, lang: label.lang, title: label.translated ? topic.title : "" };
+  })];
   replaceSelectOptions(elements.catalogTopic, topicOptions, state.section, false);
 }
 
@@ -344,7 +370,7 @@ function filteredResources() {
     if (!matchesMetadataFacets(resource, state.facets)) return false;
     return true;
   });
-  const matches = state.query ? searchResources(filtered, state.query) : filtered;
+  const matches = state.query ? searchResources(filtered, resolveDiscoveryQuery(state.query).query) : filtered;
   if (state.sort === "az") matches.sort((a, b) => a.title.localeCompare(b.title));
   if (state.sort === "za") matches.sort((a, b) => b.title.localeCompare(a.title));
   return matches;
@@ -383,24 +409,27 @@ function resourceCard(resource, index) {
     ? `<details class="resource-provenance"><summary>${escapeHtml(t("runtime.metadata.details"))}<span aria-hidden="true">＋</span></summary><dl>${metadataRows.map(([label, value, humanize, canonical]) => `<div><dt>${escapeHtml(label)}</dt><dd${canonical ? canonicalLanguageAttribute : ""}>${escapeHtml(humanize ? humanizeMetadataValue(value) : value)}</dd></div>`).join("")}</dl></details>`
     : "";
   const signals = accessLabels || structuredLabels || provenance ? `<div class="resource-signals">${accessLabels}${structuredLabels}${provenance}</div>` : "";
+  const collection = contentLabel("collection", resource.categorySlug, resource.category);
+  const topic = topicLabel(resource.categorySlug, resource.groupSlug, resource.section);
   const taxonomy = [
-    `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" aria-label="${escapeHtml(t("runtime.app.filterCollectionAria", { title: resource.category }))}">${escapeHtml(resource.category)}</button>`,
-    resource.groupSlug ? `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" data-taxonomy-group="${escapeHtml(resource.groupSlug)}" aria-label="${escapeHtml(t("runtime.app.filterBranchAria", { title: resource.groupTitle }))}">${escapeHtml(resource.groupTitle)}</button>` : "",
-    `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" data-taxonomy-group="${escapeHtml(resource.groupSlug)}" data-taxonomy-section="${escapeHtml(resource.section)}" aria-label="${escapeHtml(t("runtime.app.filterTopicAria", { title: resource.section }))}">${escapeHtml(resource.section)}</button>`,
+    `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" aria-label="${escapeHtml(t("runtime.app.filterCollectionAria", { title: collection.text }))}"><span${labelAttributes(collection, resource.category)}>${escapeHtml(collection.text)}</span></button>`,
+    resource.groupSlug ? `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" data-taxonomy-group="${escapeHtml(resource.groupSlug)}" aria-label="${escapeHtml(t("runtime.app.filterBranchAria", { title: resource.groupTitle }))}"><span${canonicalLanguageAttribute}>${escapeHtml(resource.groupTitle)}</span></button>` : "",
+    `<button type="button" data-taxonomy-category="${escapeHtml(resource.categorySlug)}" data-taxonomy-group="${escapeHtml(resource.groupSlug)}" data-taxonomy-section="${escapeHtml(resource.section)}" aria-label="${escapeHtml(t("runtime.app.filterTopicAria", { title: topic.text }))}"><span${labelAttributes(topic, resource.section)}>${escapeHtml(topic.text)}</span></button>`,
   ].filter(Boolean).join("");
   return `<article class="resource-card" style="--category-color:${category?.color || "#7656d8"};--card-delay:${Math.min(index, 12) * 20}ms">
     <div class="resource-top"><span class="resource-domain">${escapeHtml(resource.domain)}</span><button class="favorite" type="button" data-favorite="${escapeHtml(resource.id)}" data-resource-title="${escapeHtml(resource.title)}" aria-label="${escapeHtml(t(favorite ? "runtime.app.favoriteRemove" : "runtime.app.favoriteAdd", { title: resource.title }))}" aria-pressed="${favorite}">${favorite ? "♥" : "♡"}</button></div>
     <h3${canonicalLanguageAttribute}><a href="${escapeHtml(resource.url)}" target="_blank" rel="noreferrer">${escapeHtml(resource.title)}<span class="sr-only">${escapeHtml(t("runtime.newTab"))}</span></a></h3>${signals}<p${canonicalLanguageAttribute}>${escapeHtml(resource.description)}</p>
-    <div class="resource-footer"><div class="resource-taxonomy"${canonicalLanguageAttribute}>${taxonomy}</div><span class="visit-link" aria-hidden="true">↗</span></div>
+    <div class="resource-footer"><div class="resource-taxonomy">${taxonomy}</div><span class="visit-link" aria-hidden="true">↗</span></div>
   </article>`;
 }
 
-function addContextButton(parent, label, title, handler, { canonical = false } = {}) {
+function addContextButton(parent, label, title, handler, { canonical = false, language = "" } = {}) {
   const button = document.createElement("button");
   button.type = "button";
   button.title = title;
   button.textContent = label;
-  if (canonical && canonicalContentLanguage) button.lang = canonicalContentLanguage;
+  if (language) button.lang = language;
+  else if (canonical && canonicalContentLanguage) button.lang = canonicalContentLanguage;
   button.addEventListener("click", handler);
   parent.append(button);
 }
@@ -445,9 +474,13 @@ function renderContext() {
   label.textContent = t("runtime.action.viewing");
   path.append(label);
   if (category) {
-    addContextButton(path, category.title, t("runtime.action.showEveryCollection"), () => applyState({ category: "all", group: "", section: "" }, { historyMode: "push" }), { canonical: true });
+    const collection = collectionLabel(category);
+    addContextButton(path, collection.text, t("runtime.action.showEveryCollection"), () => applyState({ category: "all", group: "", section: "" }, { historyMode: "push" }), { language: collection.lang });
     if (group?.slug) addContextButton(path, group.title, t("runtime.action.viewAllCategory", { title: category.title }), () => applyState({ category: category.slug, group: "", section: "" }, { historyMode: "push" }), { canonical: true });
-    if (state.section) addContextButton(path, state.section, t("runtime.action.clearTopic"), () => applyState({ category: category.slug, group: state.group, section: "" }, { historyMode: "push" }), { canonical: true });
+    if (state.section) {
+      const topic = topicLabel(category.slug, state.group, state.section);
+      addContextButton(path, topic.text, t("runtime.action.clearTopic"), () => applyState({ category: category.slug, group: state.group, section: "" }, { historyMode: "push" }), { language: topic.lang });
+    }
   }
   if (state.query) addContextButton(path, `“${state.query}”`, t("runtime.action.clearSearch"), () => applyState({ query: "" }, { historyMode: "push" }));
   if (state.domain) addContextButton(path, state.domain, t("runtime.action.showEveryDomain"), () => applyState({ domain: "" }, { historyMode: "push" }));
@@ -492,8 +525,7 @@ function renderCollectionGuide() {
   const changed = elements.guide.dataset.category !== category.slug;
   elements.guide.dataset.category = category.slug;
   if (changed) elements.guide.open = false;
-  elements.guideTitle.textContent = category.title;
-  if (canonicalContentLanguage) elements.guideTitle.lang = canonicalContentLanguage;
+  applyContentLabel(elements.guideTitle, collectionLabel(category), category.title);
   const template = guide.templateId ? document.getElementById(guide.templateId) : null;
   if (template instanceof HTMLTemplateElement) elements.guideContent.replaceChildren(template.content.cloneNode(true));
   else elements.guideContent.innerHTML = guide.html;
@@ -502,29 +534,46 @@ function renderCollectionGuide() {
   if (report) report.href = reportUrl(category.title);
   const related = category.relatedPaths || [];
   elements.relatedPaths.hidden = related.length === 0;
-  elements.relatedPaths.querySelector("div").innerHTML = related.map((path) => `<button type="button" data-related-category="${escapeHtml(path.categorySlug)}" data-related-group="${escapeHtml(path.groupSlug)}" data-related-section="${escapeHtml(path.section)}"${canonicalLanguageAttribute}>${escapeHtml(path.title)} <span aria-hidden="true">→</span></button>`).join("");
+  elements.relatedPaths.querySelector("div").innerHTML = related.map((path) => {
+    const label = path.section ? topicLabel(path.categorySlug, path.groupSlug, path.section)
+      : path.groupSlug ? { text: path.title, lang: "en", translated: false }
+      : contentLabel("collection", path.categorySlug, path.title);
+    return `<button type="button" data-related-category="${escapeHtml(path.categorySlug)}" data-related-group="${escapeHtml(path.groupSlug)}" data-related-section="${escapeHtml(path.section)}"${labelAttributes(label, path.title)}>${escapeHtml(label.text)} <span aria-hidden="true">→</span></button>`;
+  }).join("");
 }
 
 function resultDescription(count, visibleCount) {
   const parts = [];
   if (state.savedOnly) parts.push(t("runtime.action.saved").toLocaleLowerCase());
-  if (currentCategory()) parts.push(currentCategory().title);
-  if (currentGroup()?.slug) parts.push(currentGroup().title);
-  if (state.section) parts.push(state.section);
+  if (currentCategory()) parts.push(collectionLabel(currentCategory()));
+  if (currentGroup()?.slug) parts.push({ text: currentGroup().title, lang: "en", translated: false });
+  if (state.section) parts.push(topicLabel(state.category, state.group, state.section));
   if (state.query) parts.push(t("runtime.app.matching", { query: state.query }));
   if (state.domain) parts.push(t("runtime.app.fromDomain", { domain: state.domain }));
   if (activeMetadataFacetCount(state.facets)) parts.push(t("runtime.metadata.active", { count: number(activeMetadataFacetCount(state.facets)) }));
   const total = plural("runtime.unit.resource", count);
   const amount = visibleCount < count ? t("runtime.app.showing", { visible: number(visibleCount), total }) : total;
-  return `${amount}${parts.length ? ` · ${parts.join(" · ")}` : ""}`;
+  const description = document.createDocumentFragment();
+  description.append(amount);
+  for (const part of parts) {
+    description.append(" · ");
+    if (typeof part === "string") description.append(part);
+    else {
+      const label = document.createElement("span");
+      applyContentLabel(label, part, part.text);
+      description.append(label);
+    }
+  }
+  return description;
 }
 
 function renderEmptySuggestions() {
   const suggestions = suggestedQueries(state.query);
   elements.emptySuggestions.innerHTML = suggestions.map((query) => {
     const need = NEED_PATHS.find((candidate) => candidate.query === query);
-    const label = need ? t(need.titleKey) : query;
-    return `<button type="button" data-suggested-query="${escapeHtml(query)}"${need || !canonicalContentLanguage ? "" : canonicalLanguageAttribute}>${escapeHtml(label)} <span aria-hidden="true">→</span></button>`;
+    const label = need ? contentLabel("need", need.id, t(need.titleKey)) : null;
+    const language = label?.translated ? ` lang="${escapeHtml(label.lang)}"` : need || !canonicalContentLanguage ? "" : canonicalLanguageAttribute;
+    return `<button type="button" data-suggested-query="${escapeHtml(query)}"${language}>${escapeHtml(label?.text || query)} <span aria-hidden="true">→</span></button>`;
   }).join("");
 }
 
@@ -540,7 +589,7 @@ function renderCatalog(options = {}) {
   elements.loadMore.hidden = visible.length >= matches.length;
   const remaining = Math.min(PAGE_SIZE, matches.length - visible.length);
   elements.loadMore.textContent = remaining > 0 ? t("runtime.action.showMore", { count: number(remaining) }) : t("runtime.action.showMoreResources");
-  elements.summary.textContent = resultDescription(matches.length, visible.length);
+  elements.summary.replaceChildren(resultDescription(matches.length, visible.length));
   const advisory = currentCategory()?.advisory || "";
   elements.catalogAdvisory.textContent = advisory;
   elements.catalogAdvisory.hidden = !advisory;
@@ -721,6 +770,7 @@ async function initialize() {
   const response = await fetch(new URL("./data/catalog-v3.json", import.meta.url));
   if (!response.ok) throw new Error(`Catalog request failed: ${response.status}`);
   state.catalog = decodeCatalog(await response.json());
+  resolveDiscoveryQuery = createDiscoveryResolver({ locale, aliases: contentAliases(), catalog: state.catalog, needs: NEED_PATHS });
   state.favorites = loadFavorites(state.catalog.resources);
   categoryBySlug = new Map(state.catalog.categories.map((category) => [category.slug, category]));
   for (const resource of state.catalog.resources) resource.searchIndex = buildSearchIndex(resource);
@@ -767,7 +817,7 @@ async function initialize() {
         scroll: next.intent === "browse" ? "#catalog" : undefined, focusTarget: next.intent === "browse",
       });
     },
-    i18n: { canonicalContentLanguage, number, plural, t },
+    i18n: { canonicalContentLanguage, contentLabel, contentTopicId, number, plural, t },
   });
   if (canonicalContentLanguage) {
     elements.catalogAdvisory.lang = canonicalContentLanguage;

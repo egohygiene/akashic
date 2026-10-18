@@ -49,7 +49,16 @@ export function createMindMap({
   catalog, container, select, topicSelect, back, status, advisory, zoomIn, zoomOut, reset,
   expand, zoomLevel, breadcrumb, branchList, shell, detail, initialSelection, onSelection, i18n,
 }) {
-  const { canonicalContentLanguage, number, plural, t } = i18n;
+  const { canonicalContentLanguage, contentLabel, contentTopicId, number, plural, t } = i18n;
+  const collectionLabel = (category) => contentLabel("collection", category.slug, category.title);
+  const topicLabel = (category, group, section) => contentLabel("topic", contentTopicId(category.slug, group?.slug || "", section), section);
+  const canonicalLabel = (text) => ({ text, lang: "en", translated: false });
+  function setLabel(element, label, canonical = label.text) {
+    element.textContent = label.text;
+    element.lang = label.lang;
+    if (label.translated && canonical !== label.text) element.setAttribute("title", canonical);
+    else element.removeAttribute("title");
+  }
   const svg = svgElement("svg", {
     viewBox: `0 0 ${DESKTOP.width} ${DESKTOP.height}`,
     role: "group",
@@ -76,8 +85,8 @@ export function createMindMap({
   for (const category of catalog.categories) {
     const option = document.createElement("option");
     option.value = category.slug;
-    option.textContent = `${category.title} (${number(category.count)})`;
-    if (canonicalContentLanguage) option.lang = canonicalContentLanguage;
+    const label = collectionLabel(category);
+    setLabel(option, { ...label, text: `${label.text} (${number(category.count)})` }, category.title);
     select.append(option);
   }
 
@@ -149,13 +158,13 @@ export function createMindMap({
     detail.kicker.textContent = item.kicker || t("runtime.mindMap.kicker");
     detail.glyph.textContent = item.glyph || "✦";
     detail.glyph.style.setProperty("--detail-color", item.color || "#d1459f");
-    detail.title.textContent = item.title;
+    setLabel(detail.title, item.titleLabel || canonicalLabel(item.title), item.canonicalTitle || item.title);
     detail.copy.textContent = item.description || t("runtime.mindMap.followBranch");
     detail.count.textContent = number(Number(item.count || 0));
     detail.branches.textContent = number(Number(item.branches || 0));
     if (canonicalContentLanguage) {
-      detail.title.lang = canonicalContentLanguage;
-      if (item.canonicalKicker) detail.kicker.lang = canonicalContentLanguage;
+      if (item.kickerLabel) detail.kicker.lang = item.kickerLabel.lang;
+      else if (item.canonicalKicker) detail.kicker.lang = canonicalContentLanguage;
       else detail.kicker.removeAttribute("lang");
       if (item.canonicalDescription) detail.copy.lang = canonicalContentLanguage;
       else detail.copy.removeAttribute("lang");
@@ -174,7 +183,7 @@ export function createMindMap({
     showDetail(item);
   }
 
-  function node({ x, y, radius, title, subtitle, color, className = "", action, selected = false, index = -1, detailItem }) {
+  function node({ x, y, radius, title, titleLabel, subtitle, color, className = "", action, selected = false, index = -1, detailItem }) {
     const attributes = {
       class: `map-node ${action ? "is-actionable" : ""} ${selected ? "is-selected" : ""} ${className}`.trim(),
       transform: `translate(${x} ${y})`,
@@ -202,7 +211,7 @@ export function createMindMap({
       x: 0,
       y: -((label.lines.length - 1) * lineHeight) / 2 - (subtitle ? label.fontSize * 0.22 : 0),
       style: `--map-label-size:${label.fontSize}px`,
-      ...(canonicalContentLanguage ? { lang: canonicalContentLanguage } : {}),
+      lang: titleLabel?.lang || "en",
     });
     label.lines.forEach((line, lineIndex) => {
       const span = svgElement("tspan", { x: 0, dy: lineIndex ? lineHeight : 0 });
@@ -307,7 +316,7 @@ export function createMindMap({
       const point = points[index];
       edge(dimensions.width / 2, dimensions.height / 2, rootRadius, point.x, point.y, point.radius, root.color, index);
       node({
-        x: point.x, y: point.y, radius: point.radius, title: item.title, subtitle: number(item.count),
+        x: point.x, y: point.y, radius: point.radius, title: item.displayLabel?.text || item.title, titleLabel: item.displayLabel, subtitle: number(item.count),
         color: root.color, className: item.className, selected: item.selected, index,
         action: () => itemAction(item), detailItem: item.detail,
       });
@@ -339,23 +348,26 @@ export function createMindMap({
       showDetail({ kicker: t("runtime.mindMap.fullConstellation"), glyph: "∞", color: "#d1459f", title: "akashic", description: t("runtime.mindMap.rootCopy"), count: catalog.resourceCount, branches: catalog.categories.length });
       return;
     }
+    const collection = collectionLabel(category);
+    const parent = group?.slug ? canonicalLabel(group.title) : collection;
     if (section) {
-      const parent = group?.slug ? `${group.title}, ${category.title}` : category.title;
-      showDetail({ kicker: group?.slug ? group.title : category.title, canonicalKicker: true, glyph: category.glyph, color: category.color, title: section.title, description: t("runtime.mindMap.focusedTopic", { parent }), count: section.count, branches: 1, action: browseCurrent, actionLabel: `${t("runtime.action.exploreResources")} ` });
+      const topic = topicLabel(category, group, section.title);
+      showDetail({ kicker: parent.text, kickerLabel: parent, glyph: category.glyph, color: category.color, title: topic.text, titleLabel: topic, canonicalTitle: section.title, description: t("runtime.mindMap.focusedTopic", { parent: group?.slug ? `${group.title}, ${collection.text}` : collection.text }), count: section.count, branches: 1, action: browseCurrent, actionLabel: `${t("runtime.action.exploreResources")} ` });
       return;
     }
     if (group?.slug) {
-      showDetail({ kicker: category.title, canonicalKicker: true, glyph: category.glyph, color: category.color, title: group.title, description: t("runtime.mindMap.focusedGroup", { category: category.title, topics: plural("runtime.unit.topic", group.sections.length) }), count: group.count, branches: group.sections.length, action: browseCurrent, actionLabel: `${t("runtime.action.exploreResources")} ` });
+      showDetail({ kicker: collection.text, kickerLabel: collection, glyph: category.glyph, color: category.color, title: group.title, description: t("runtime.mindMap.focusedGroup", { category: collection.text, topics: plural("runtime.unit.topic", group.sections.length) }), count: group.count, branches: group.sections.length, action: browseCurrent, actionLabel: `${t("runtime.action.exploreResources")} ` });
       return;
     }
-    showDetail({ kicker: t("runtime.mindMap.collection"), glyph: category.glyph, color: category.color, title: category.title, description: category.description, canonicalDescription: true, count: category.count, branches: category.groups.length > 1 ? category.groups.length : category.sections.length, action: browseCurrent, actionLabel: `${t("runtime.action.exploreResources")} ` });
+    showDetail({ kicker: t("runtime.mindMap.collection"), glyph: category.glyph, color: category.color, title: collection.text, titleLabel: collection, canonicalTitle: category.title, description: category.description, canonicalDescription: true, count: category.count, branches: category.groups.length > 1 ? category.groups.length : category.sections.length, action: browseCurrent, actionLabel: `${t("runtime.action.exploreResources")} ` });
   }
 
   function renderOverview() {
     const items = catalog.categories.map((category) => ({
       ...category,
+      displayLabel: collectionLabel(category),
       className: "map-category-node",
-      detail: { kicker: t("runtime.mindMap.collection"), glyph: category.glyph, color: category.color, title: category.title, description: category.description, canonicalDescription: true, count: category.count, branches: category.groups.length > 1 ? category.groups.length : category.sections.length, action: () => applySelection({ categorySlug: category.slug }, { emit: true }), actionLabel: t("runtime.action.openCollection") },
+      detail: { kicker: t("runtime.mindMap.collection"), glyph: category.glyph, color: category.color, title: collectionLabel(category).text, titleLabel: collectionLabel(category), canonicalTitle: category.title, description: category.description, canonicalDescription: true, count: category.count, branches: category.groups.length > 1 ? category.groups.length : category.sections.length, action: () => applySelection({ categorySlug: category.slug }, { emit: true }), actionLabel: t("runtime.action.openCollection") },
     }));
     renderChildren(items, { color: "#d1459f" }, (category) => applySelection({ categorySlug: category.slug }, { emit: true }));
     node({ x: dimensions.width / 2, y: dimensions.height / 2, radius: dimensions === MOBILE ? 54 : 80, title: "akashic", subtitle: number(catalog.resourceCount), color: "#d1459f", className: "map-root-node" });
@@ -366,25 +378,29 @@ export function createMindMap({
     const group = groupFor(category);
     const showingGroups = category.groups.length > 1 && !selection.groupSlug;
     const children = showingGroups ? category.groups : (group?.sections || category.sections);
+    const collection = collectionLabel(category);
+    const parent = group?.slug ? canonicalLabel(group.title) : collection;
     const items = children.map((item) => {
+      const label = showingGroups ? canonicalLabel(item.title) : topicLabel(category, group, item.title);
       const selected = !showingGroups && item.title === selection.section;
       return {
         ...item,
+        displayLabel: label,
         selected,
         className: showingGroups ? "map-group-node" : "map-section-node",
         detail: showingGroups
-          ? { kicker: category.title, canonicalKicker: true, glyph: category.glyph, color: category.color, title: item.title, description: t("runtime.mindMap.groupCopy", { topics: plural("runtime.unit.topic", item.sections.length), category: category.title }), count: item.count, branches: item.sections.length, action: () => applySelection({ categorySlug: category.slug, groupSlug: item.slug }, { emit: true }), actionLabel: t("runtime.action.openBranch") }
-          : { kicker: group?.slug ? group.title : category.title, canonicalKicker: true, glyph: category.glyph, color: category.color, title: item.title, description: t("runtime.mindMap.focusedTopic", { parent: category.title }), count: item.count, branches: 1, action: () => applySelection({ categorySlug: category.slug, groupSlug: group?.slug || "", section: item.title }, { emit: true, browse: true }), actionLabel: `${t("runtime.action.exploreResources")} ` },
+          ? { kicker: collection.text, kickerLabel: collection, glyph: category.glyph, color: category.color, title: label.text, titleLabel: label, canonicalTitle: item.title, description: t("runtime.mindMap.groupCopy", { topics: plural("runtime.unit.topic", item.sections.length), category: collection.text }), count: item.count, branches: item.sections.length, action: () => applySelection({ categorySlug: category.slug, groupSlug: item.slug }, { emit: true }), actionLabel: t("runtime.action.openBranch") }
+          : { kicker: parent.text, kickerLabel: parent, glyph: category.glyph, color: category.color, title: label.text, titleLabel: label, canonicalTitle: item.title, description: t("runtime.mindMap.focusedTopic", { parent: collection.text }), count: item.count, branches: 1, action: () => applySelection({ categorySlug: category.slug, groupSlug: group?.slug || "", section: item.title }, { emit: true, browse: true }), actionLabel: `${t("runtime.action.exploreResources")} ` },
       };
     });
     renderChildren(items, category, (item) => {
       if (showingGroups) applySelection({ categorySlug: category.slug, groupSlug: item.slug }, { emit: true });
       else applySelection({ categorySlug: category.slug, groupSlug: group?.slug || "", section: item.title }, { emit: true, browse: true });
     });
-    const rootTitle = group?.slug ? group.title : category.title;
+    const rootTitle = parent.text;
     const rootCount = group?.slug ? group.count : category.count;
-    node({ x: dimensions.width / 2, y: dimensions.height / 2, radius: dimensions === MOBILE ? 56 : 82, title: rootTitle, subtitle: number(rootCount), color: category.color, className: "map-root-node", action: browseRoot, detailItem: { title: rootTitle, count: rootCount, branches: children.length, color: category.color, glyph: category.glyph } });
-    status.textContent = showingGroups ? t("runtime.mindMap.groupStatus", { category: category.title, branches: plural("runtime.unit.branch", children.length) }) : t("runtime.mindMap.topicStatus", { title: rootTitle, topics: plural("runtime.unit.topic", children.length) });
+    node({ x: dimensions.width / 2, y: dimensions.height / 2, radius: dimensions === MOBILE ? 56 : 82, title: rootTitle, titleLabel: parent, subtitle: number(rootCount), color: category.color, className: "map-root-node", action: browseRoot, detailItem: { title: rootTitle, titleLabel: parent, canonicalTitle: group?.slug ? group.title : category.title, count: rootCount, branches: children.length, color: category.color, glyph: category.glyph } });
+    status.textContent = showingGroups ? t("runtime.mindMap.groupStatus", { category: collection.text, branches: plural("runtime.unit.branch", children.length) }) : t("runtime.mindMap.topicStatus", { title: rootTitle, topics: plural("runtime.unit.topic", children.length) });
   }
 
   function populateTopics(category) {
@@ -400,8 +416,8 @@ export function createMindMap({
       for (const section of group.sections) {
         const option = document.createElement("option");
         option.value = valueForTopic(group.slug, section.title);
-        option.textContent = `${section.title} (${number(section.count)})`;
-        if (canonicalContentLanguage) option.lang = canonicalContentLanguage;
+        const label = topicLabel(category, group, section.title);
+        setLabel(option, { ...label, text: `${label.text} (${number(section.count)})` }, section.title);
         parent.append(option);
       }
       if (parent !== topicSelect) topicSelect.append(parent);
@@ -412,7 +428,7 @@ export function createMindMap({
 
   function renderBreadcrumb() {
     breadcrumb.replaceChildren();
-    const addSegment = (label, nextSelection, current = false) => {
+    const addSegment = (label, nextSelection, current = false, canonical = label.text) => {
       if (breadcrumb.childElementCount) {
         const divider = document.createElement("span");
         divider.textContent = "/";
@@ -421,14 +437,12 @@ export function createMindMap({
       }
       if (current) {
         const text = document.createElement("strong");
-        text.textContent = label;
-        if (canonicalContentLanguage && label !== "akashic") text.lang = canonicalContentLanguage;
+        setLabel(text, label, canonical);
         breadcrumb.append(text);
       } else {
         const button = document.createElement("button");
         button.type = "button";
-        button.textContent = label;
-        if (canonicalContentLanguage && label !== "akashic") button.lang = canonicalContentLanguage;
+        setLabel(button, label, canonical);
         button.addEventListener("click", (event) => {
           applySelection(nextSelection, { emit: true });
           if (event.detail === 0) window.setTimeout(() => (back.hidden ? select : back).focus(), 0);
@@ -437,10 +451,10 @@ export function createMindMap({
       }
     };
     const { category, group } = currentContext();
-    addSegment("akashic", {}, !category);
-    if (category) addSegment(category.title, { categorySlug: category.slug }, !group?.slug && !selection.section);
-    if (group?.slug) addSegment(group.title, { categorySlug: category.slug, groupSlug: group.slug }, !selection.section);
-    if (selection.section) addSegment(selection.section, selection, true);
+    addSegment(canonicalLabel("akashic"), {}, !category);
+    if (category) addSegment(collectionLabel(category), { categorySlug: category.slug }, !group?.slug && !selection.section, category.title);
+    if (group?.slug) addSegment(canonicalLabel(group.title), { categorySlug: category.slug, groupSlug: group.slug }, !selection.section);
+    if (selection.section) addSegment(topicLabel(category, group, selection.section), selection, true, selection.section);
   }
 
   function renderBranches() {
@@ -456,8 +470,7 @@ export function createMindMap({
       const button = document.createElement("button");
       button.type = "button";
       const title = document.createElement("span");
-      title.textContent = item.title;
-      if (canonicalContentLanguage) title.lang = canonicalContentLanguage;
+      setLabel(title, isCategory ? collectionLabel(item) : isGroup ? canonicalLabel(item.title) : topicLabel(category, group, item.title), item.title);
       const count = document.createElement("b");
       count.textContent = number(item.count);
       button.append(title, count);

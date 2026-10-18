@@ -479,6 +479,10 @@
     "runtime.unit.topic.zero": "لا موضوعات ({count})",
     "runtime.unit.topic.two": "موضوعان ({count})",
     "runtime.unit.branch.zero": "لا فروع ({count})",
-    "runtime.unit.branch.two": "فرعان ({count})"
+    "runtime.unit.branch.two": "فرعان ({count})",
+    "runtime.atlas.sourceLanguageLabel": "لغة المصدر",
+    "runtime.atlas.sourceLanguageUnknown": "غير مسجّلة",
+    "runtime.atlas.sourceLanguageNotice": "ترجمة أسماء الأماكن لا تترجم الموارد المرتبطة بها. تُعرض لغات المصادر فقط عندما تكون مسجّلة صراحةً.",
+    "runtime.contentCoverage.copy": "تتوفر ترجمات مراجَعة لبعض تسميات التنقل. وتبقى التسميات الأخرى ونصوص الموارد بالإنجليزية الأصلية. لا تغيّر ترجمة التسمية لغة المورد المرتبط بها."
   }
 }
