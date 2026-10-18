@@ -195,7 +195,7 @@ Trip cancellation or interruption, emergency medical coverage, evacuation, a tra
 
 ## Maps, Language, Money, Time, and Weather
 
-For open, privacy-oriented offline navigation, use the canonical [Organic Maps and OsmAnd entries](../awesome-abundance/free-and-open-source-software/README.md#internet-communication-and-media); the underlying open geographic database is cataloged with [OpenStreetMap](../scientific-research/README.md#geospatial-data-and-mapping). Download critical areas before departure and carry the address in the local script when possible.
+For open, privacy-oriented offline navigation, use the canonical [Organic Maps and OsmAnd entries](../awesome-abundance/free-and-open-source-software/README.md#internet-communication-and-media); the underlying open geographic database is cataloged with [OpenStreetMap](../scientific-research/README.md#geospatial-data-mapping-and-lidar). Download critical areas before departure and carry the address in the local script when possible.
 
 - [Avenza Maps](https://www.avenzamaps.com/) - Freemium offline geospatial-PDF map app and map store useful for parks, trails, and specialist maps; individual map prices and licenses vary.
 - [Citymapper](https://citymapper.com/) - Freemium urban journey planner combining participating public-transport, walking, cycling, and micromobility data in supported cities.
