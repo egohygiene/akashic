@@ -5,7 +5,7 @@
   "catalogResourceCount": 5403,
   "inputs": {
     "algorithmSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669",
-    "budgetSha256": "9b3937417775cf8be8d7913ad0d3392add2bf44dcc574d89a43d1d4629c656f7",
+    "budgetSha256": "afba1d2ae7351405a192e6bbe12a48261aa77b53a2bd95d8840965039fe91d44",
     "catalogSha256": "29147771c6221aab1a1e941b9c68baa2703b15dc628921790dd8af0aeb0dbfd7",
     "fixtureSha256": "e62602a56190de45ad27adf4b9c4d0ed852c144d9304aab088b18bc4c06118fa",
     "runnerSha256": "38d7484da8794a967656f6e6e5e3caaef7cbe9728431867a1be4b016fa5d9a87",
@@ -18,10 +18,10 @@
   "assets": [
     {
       "path": "dist/app.js",
-      "sha256": "3adc88f7747efa53077d331b4cc9c09235e3648c00c2f8bd40f9320a87354c61",
-      "rawBytes": 47649,
-      "gzipBytes": 11302,
-      "brotliBytes": 9706
+      "sha256": "fb3490c91562ac386515a2c03891634435ae2fe7f4be9845f8e61a43ba1454bc",
+      "rawBytes": 47544,
+      "gzipBytes": 11257,
+      "brotliBytes": 9673
     },
     {
       "path": "dist/assets/favicon.svg",
@@ -67,24 +67,31 @@
     },
     {
       "path": "dist/i18n.js",
-      "sha256": "70f522e70135f762583ec4b553338e2a0bdb149d83e3ce651d56cddae137f8be",
-      "rawBytes": 2347,
-      "gzipBytes": 951,
-      "brotliBytes": 791
+      "sha256": "5af695291f975fd47201c05436c58c278f134bc11350fa753355a84e09c85e18",
+      "rawBytes": 5403,
+      "gzipBytes": 1773,
+      "brotliBytes": 1506
     },
     {
       "path": "dist/i18n/en.json",
-      "sha256": "615eb353c58bd807de21b8f125c9a5415eb3b6096b1be66e842fa3ec58f597e1",
-      "rawBytes": 31787,
-      "gzipBytes": 8332,
-      "brotliBytes": 6973
+      "sha256": "831fb7dcdebb42707416d432b6283a3dbc88a4cfd96d8ebb65498c511e557eb8",
+      "rawBytes": 32740,
+      "gzipBytes": 8523,
+      "brotliBytes": 7143
     },
     {
       "path": "dist/index.html",
-      "sha256": "93c2ea9356a96f07caf57098a41875b322aa7a74c99fa3cab567fa83ba5f363a",
-      "rawBytes": 287710,
-      "gzipBytes": 75323,
-      "brotliBytes": 61203
+      "sha256": "e6b431b41578db711c9388f81969134354d9a2b95640e8eac0dc3dbb57491cad",
+      "rawBytes": 350622,
+      "gzipBytes": 84349,
+      "brotliBytes": 68364
+    },
+    {
+      "path": "dist/locale-navigation.js",
+      "sha256": "c713cf448c75f66edf4108afded31408284edef330592a3eb95c497ab8313569",
+      "rawBytes": 3340,
+      "gzipBytes": 1326,
+      "brotliBytes": 1134
     },
     {
       "path": "dist/mind-map.js",
@@ -158,10 +165,10 @@
     },
     {
       "path": "dist/styles.css",
-      "sha256": "bf69155ee83676bbdf5f80cb65cae14320de789269538ac8ec3457ec427da482",
-      "rawBytes": 73500,
-      "gzipBytes": 12909,
-      "brotliBytes": 10841
+      "sha256": "a69e58ecc937aafdf26ea90cf52229e23f2d29c46628e8fa3f90bf19a7316e42",
+      "rawBytes": 78703,
+      "gzipBytes": 13873,
+      "brotliBytes": 11606
     }
   ],
   "transferGroups": [
@@ -213,6 +220,7 @@
         "dist/search.js",
         "dist/search-query-state.js",
         "dist/i18n.js",
+        "dist/locale-navigation.js",
         "dist/favorites.js",
         "dist/catalog-metadata.js",
         "dist/search/concepts-v1.js",
@@ -222,27 +230,27 @@
         "dist/catalog-data.js",
         "dist/assets/favicon.svg"
       ],
-      "rawBytes": 3269730,
-      "gzipBytes": 629639,
-      "brotliBytes": 496979,
+      "rawBytes": 3345089,
+      "gzipBytes": 641923,
+      "brotliBytes": 506891,
       "checks": [
         {
           "id": "raw-bytes",
-          "actual": 3269730,
+          "actual": 3345089,
           "operator": "<=",
           "maximum": 3900000,
           "passed": true
         },
         {
           "id": "gzip-bytes",
-          "actual": 629639,
+          "actual": 641923,
           "operator": "<=",
           "maximum": 675000,
           "passed": true
         },
         {
           "id": "brotli-bytes",
-          "actual": 496979,
+          "actual": 506891,
           "operator": "<=",
           "maximum": 525000,
           "passed": true
@@ -266,27 +274,27 @@
         "dist/data/search-evaluation-v2.json",
         "dist/assets/favicon.svg"
       ],
-      "rawBytes": 2950581,
-      "gzipBytes": 545623,
-      "brotliBytes": 427925,
+      "rawBytes": 2955784,
+      "gzipBytes": 546587,
+      "brotliBytes": 428690,
       "checks": [
         {
           "id": "raw-bytes",
-          "actual": 2950581,
+          "actual": 2955784,
           "operator": "<=",
           "maximum": 3900000,
           "passed": true
         },
         {
           "id": "gzip-bytes",
-          "actual": 545623,
+          "actual": 546587,
           "operator": "<=",
           "maximum": 650000,
           "passed": true
         },
         {
           "id": "brotli-bytes",
-          "actual": 427925,
+          "actual": 428690,
           "operator": "<=",
           "maximum": 500000,
           "passed": true

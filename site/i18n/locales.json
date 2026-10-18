@@ -19,6 +19,42 @@
       "route": "/ru/",
       "status": "reference",
       "fallback": "en"
+    },
+    {
+      "code": "es",
+      "name": "Spanish",
+      "nativeName": "Español",
+      "direction": "ltr",
+      "route": "/es/",
+      "status": "draft",
+      "fallback": "en"
+    },
+    {
+      "code": "fr",
+      "name": "French",
+      "nativeName": "Français",
+      "direction": "ltr",
+      "route": "/fr/",
+      "status": "draft",
+      "fallback": "en"
+    },
+    {
+      "code": "pt-BR",
+      "name": "Brazilian Portuguese",
+      "nativeName": "Português (Brasil)",
+      "direction": "ltr",
+      "route": "/pt-br/",
+      "status": "draft",
+      "fallback": "en"
+    },
+    {
+      "code": "ar",
+      "name": "Arabic",
+      "nativeName": "العربية",
+      "direction": "rtl",
+      "route": "/ar/",
+      "status": "draft",
+      "fallback": "en"
     }
   ]
 }

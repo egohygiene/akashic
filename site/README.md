@@ -10,7 +10,7 @@ Creative Tools entries may begin their description with a bold access block such
 
 The repository-local `.github/FUNDING.yml` is the canonical funding configuration. During the build, active entries become `dist/data/funding.json` and locally styled footer links on the Portal, Observatory, and Atlas. No remote badge images, scripts, or trackers are used.
 
-English is the canonical and default portal language. The build also publishes a complete Russian reference interface under `/ru/` from stable-key catalogs in `site/i18n/`; it reuses the root scripts, styles, generated JSON, and geometry instead of duplicating the catalog. Locale-aware modules load messages relative to their own module URL, format numbers and plurals through browser-native `Intl` APIs, preserve explicit language choices and URL state, and fall back to English. Canonical resource and Atlas content remains English and is marked as such on Russian pages. See [`docs/localization.md`](../docs/localization.md) for the extension and review contract.
+English is the canonical and default portal language. The registry in `site/i18n/locales.json` also publishes the Russian reference interface and AI-draft Spanish, French, Brazilian Portuguese, and Arabic interfaces from stable-key catalogs. Every locale reuses the root scripts, styles, generated resource JSON, and geometry. Each page embeds its interface messages and validated fallback chain; browser-native `Intl` APIs format counts, percentages, and plurals. Native language controls preserve explicit choices and URL state, while supported browser preferences produce an optional language offer. Canonical resource and Atlas content remains English and is marked as such on translated pages. See [`docs/localization.md`](../docs/localization.md) for the routing, privacy, RTL, and human-review contract.
 
 The browser imports its active matcher through `site/search.js`. The preserved baseline implementation lives in `site/search/and-substring-v1.js`, so the browser and deterministic research runner exercise the same code without allowing later algorithms to rewrite v1. Browser-native semantic-search and optional local-agent research, fixtures, and baseline results live under `research/search/`; after building the site, verify the historical baseline with `node scripts/evaluate-search.mjs --fixture research/search/evaluations/natural-language-v1.json --verify research/search/results/and-substring-v1.json`.
 
@@ -24,7 +24,7 @@ The browser imports its active matcher through `site/search.js`. The preserved b
     node scripts/check-site.mjs
     python3 -m http.server 8000 --directory dist
 
-Open `http://localhost:8000` for English, `http://localhost:8000/ru/` for Russian, or `http://localhost:8000/search-lab.html` for the Search Lab. Changes to any list, Atlas place, search evaluation, or locale catalog will appear after running the build command again.
+Open `http://localhost:8000` and use the language selector, or preview `/ru/`, `/es/`, `/fr/`, `/pt-br/`, and `/ar/` directly. The English Search Lab remains at `http://localhost:8000/search-lab.html`. Changes to any list, Atlas place, search evaluation, or locale catalog will appear after running the build command again.
 
 ## Deployment
 

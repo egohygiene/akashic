@@ -3,7 +3,7 @@ import { createMindMap } from "./mind-map.js";
 import { NEED_PATHS } from "./needs.js";
 import { buildSearchIndex, searchResources, suggestedQueries } from "./search.js";
 import { createSearchShareUrl, readSharedSearchQuery, sharedSearchAnchor } from "./search-query-state.js";
-import { canonicalContentLanguage, number, plural, t } from "./i18n.js";
+import { canonicalContentLanguage, number, percent, plural, t } from "./i18n.js";
 import { FAVORITES_KEY, migrateFavoriteTokens, parseFavoriteTokens, URL_FAVORITES_KEYS } from "./favorites.js";
 import { activeMetadataFacetCount, emptyMetadataFacets, formatMetadataValue, humanizeMetadataValue, matchesMetadataFacets, METADATA_FACETS, metadataFacetValues } from "./catalog-metadata.js";
 
@@ -263,8 +263,7 @@ function renderOverviewPreview() {
   const maximum = visible[0]?.count || 1;
   elements.overviewBarsCount.textContent = t("runtime.app.top", { count: number(visible.length) });
   elements.overviewBars.innerHTML = visible.map((category, index) => {
-    const percentage = resourceCount ? category.count / resourceCount * 100 : 0;
-    const label = percentage > 0 && percentage < 1 ? "<1%" : `${percentage.toFixed(percentage < 10 ? 1 : 0)}%`;
+    const label = percent(resourceCount ? category.count / resourceCount : 0);
     const params = new URLSearchParams({ collection: category.slug, view: state.view });
     return `<li><a class="overview-bar-row" href="index.html?${params}#catalog" style="--bar-color:${category.color};--bar-width:${category.count / maximum * 100}%">
       <span class="overview-bar-rank">${String(index + 1).padStart(2, "0")}</span><span class="overview-bar-glyph" aria-hidden="true">${category.glyph}</span><span class="overview-bar-copy"${canonicalLanguageAttribute}><strong>${escapeHtml(category.title)}</strong><i aria-hidden="true"><b></b></i></span><span class="overview-bar-value"><strong>${number(category.count)}</strong><small>${label}</small></span><span aria-hidden="true">→</span>
