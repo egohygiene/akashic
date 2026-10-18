@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "sourceLanguage": "en",
+  "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+  "recordedOn": "2026-10-18",
+  "stage": "inventory-before-translation",
+  "locales": [
+    "ru",
+    "es",
+    "fr",
+    "pt-BR",
+    "ar"
+  ],
+  "rationale": "A bounded pilot of 18 existing entities per locale covers two collections, eight topics, three need paths, and the five existing Atlas places. It expands the original Russian pilot across the five already supported non-English locales at the user's request; it adds no locales or resource translations.",
+  "translationPolicy": "AI-assisted candidates remain draft until an identifiable person reviews each exact source-bound translation. Draft entries and aliases must not enter public discovery or Atlas output.",
+  "exclusions": [
+    "Resource titles and descriptions",
+    "Resource facts, access, eligibility, language, and authority claims",
+    "Collection descriptions, guides, and advisories",
+    "Atlas themes, geography, hierarchy, jurisdiction, and applicability",
+    "New resources, collections, topics, need paths, places, or locales"
+  ],
+  "targets": [
+    {
+      "kind": "collection",
+      "id": "work-and-learning",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "README.md",
+      "reason": "Job search and learning are a bounded, useful entry point for multilingual discovery."
+    },
+    {
+      "kind": "collection",
+      "id": "awesome-abundance",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "README.md",
+      "reason": "No-cost material, creative, and educational resources exercise a nested collection without translating access claims."
+    },
+    {
+      "kind": "topic",
+      "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "lists/work-and-learning/README.md",
+      "reason": "Cover a useful, existing work, material-support, creative, or learning branch while retaining its exact canonical topic tuple."
+    },
+    {
+      "kind": "topic",
+      "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "lists/work-and-learning/README.md",
+      "reason": "Cover a useful, existing work, material-support, creative, or learning branch while retaining its exact canonical topic tuple."
+    },
+    {
+      "kind": "topic",
+      "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "lists/work-and-learning/README.md",
+      "reason": "Cover a useful, existing work, material-support, creative, or learning branch while retaining its exact canonical topic tuple."
+    },
+    {
+      "kind": "topic",
+      "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "lists/work-and-learning/README.md",
+      "reason": "Cover a useful, existing work, material-support, creative, or learning branch while retaining its exact canonical topic tuple."
+    },
+    {
+      "kind": "topic",
+      "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "lists/awesome-abundance/community-sharing-and-material-resources/README.md",
+      "reason": "Cover a useful, existing work, material-support, creative, or learning branch while retaining its exact canonical topic tuple."
+    },
+    {
+      "kind": "topic",
+      "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "lists/awesome-abundance/creative-tools-and-production/README.md",
+      "reason": "Cover a useful, existing work, material-support, creative, or learning branch while retaining its exact canonical topic tuple."
+    },
+    {
+      "kind": "topic",
+      "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "lists/awesome-abundance/creative-tools-and-production/README.md",
+      "reason": "Cover a useful, existing work, material-support, creative, or learning branch while retaining its exact canonical topic tuple."
+    },
+    {
+      "kind": "topic",
+      "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "lists/awesome-abundance/education-and-learning/README.md",
+      "reason": "Cover a useful, existing work, material-support, creative, or learning branch while retaining its exact canonical topic tuple."
+    },
+    {
+      "kind": "need",
+      "id": "work",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "site/needs.js",
+      "reason": "Connect a translated need label and discovery phrase only to the existing canonical need query."
+    },
+    {
+      "kind": "need",
+      "id": "creating",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "site/needs.js",
+      "reason": "Connect a translated need label and discovery phrase only to the existing canonical need query."
+    },
+    {
+      "kind": "need",
+      "id": "food-today",
+      "fields": [
+        "label",
+        "aliases"
+      ],
+      "sourcePath": "site/needs.js",
+      "reason": "Connect a translated need label and discovery phrase only to the existing canonical need query."
+    },
+    {
+      "kind": "place",
+      "id": "world",
+      "fields": [
+        "label",
+        "shortLabel"
+      ],
+      "sourcePath": "atlas/locations.json",
+      "reason": "Exercise world, country, state, and locality labels in the existing five-place Atlas without changing identity, geography, hierarchy, or applicability."
+    },
+    {
+      "kind": "place",
+      "id": "us",
+      "fields": [
+        "label",
+        "shortLabel"
+      ],
+      "sourcePath": "atlas/locations/us.json",
+      "reason": "Exercise world, country, state, and locality labels in the existing five-place Atlas without changing identity, geography, hierarchy, or applicability."
+    },
+    {
+      "kind": "place",
+      "id": "us-ca",
+      "fields": [
+        "label",
+        "shortLabel"
+      ],
+      "sourcePath": "atlas/locations/us.json",
+      "reason": "Exercise world, country, state, and locality labels in the existing five-place Atlas without changing identity, geography, hierarchy, or applicability."
+    },
+    {
+      "kind": "place",
+      "id": "us-ma",
+      "fields": [
+        "label",
+        "shortLabel"
+      ],
+      "sourcePath": "atlas/locations/us.json",
+      "reason": "Exercise world, country, state, and locality labels in the existing five-place Atlas without changing identity, geography, hierarchy, or applicability."
+    },
+    {
+      "kind": "place",
+      "id": "us-ma-wilmington",
+      "fields": [
+        "label",
+        "shortLabel"
+      ],
+      "sourcePath": "atlas/locations/us.json",
+      "reason": "Exercise world, country, state, and locality labels in the existing five-place Atlas without changing identity, geography, hierarchy, or applicability."
+    }
+  ]
+}

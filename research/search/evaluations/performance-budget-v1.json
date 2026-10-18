@@ -33,6 +33,8 @@
         "dist/search-query-state.js",
         "dist/i18n.js",
         "dist/locale-navigation.js",
+        "dist/content-localization.js",
+        "dist/discovery-search.js",
         "dist/favorites.js",
         "dist/catalog-metadata.js",
         "dist/search/concepts-v1.js",

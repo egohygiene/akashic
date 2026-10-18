@@ -1,0 +1,3614 @@
+{
+  "schemaVersion": 1,
+  "sourceLanguage": "en",
+  "counts": {
+    "total": 180,
+    "published": 0,
+    "draft": 180,
+    "stale": 0,
+    "withdrawn": 0,
+    "orphaned": 0
+  },
+  "entries": [
+    {
+      "id": "ar-collection-awesome-abundance-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a",
+      "translationFingerprint": "sha256:53c158ec6ea241bd35701de19dc959cf80663152791d0d78eb5cf12a176d3450",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-collection-awesome-abundance-label",
+      "locale": "ar",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a",
+      "translationFingerprint": "sha256:7bffa91c06b6a3472a365669734befd540b6b5caa3a9fd7a9f23b12a5e726f43",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-collection-work-and-learning-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3",
+      "translationFingerprint": "sha256:87b260ec8148d5b54b02f78619acce2afc0f6c37868556df234456fc90cc1d97",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-collection-work-and-learning-label",
+      "locale": "ar",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3",
+      "translationFingerprint": "sha256:2784f1b430a313c7f302a200c47c53a714f755277ddfe8e60465f0cc3da03310",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-need-creating-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf",
+      "translationFingerprint": "sha256:e35a391189f4cac4b655b4d75cb39f246e0e05cb7a69c0b40ecc0e3a7054b1c0",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-need-creating-label",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf",
+      "translationFingerprint": "sha256:d8fc1fb6452cfa09e5e288da0e9006e9d9fb33203cdb41a03f6072c8d665870f",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-need-food-today-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc",
+      "translationFingerprint": "sha256:f44e5b0a403f3828c9ed3b445c9670b5faa04abd3d2e4e083e9055651858f532",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-need-food-today-label",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc",
+      "translationFingerprint": "sha256:8d212e368dc62700ead9568aedd8f749df066f94fd7624ebf1027d73ddab3716",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-need-work-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1",
+      "translationFingerprint": "sha256:9da5e93adfb32f8b64517a05a43d22deaaa98e424db3fc268ac73862e5fbb2e0",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-need-work-label",
+      "locale": "ar",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1",
+      "translationFingerprint": "sha256:cd69a9c14a78721f5ae944e14b44ada681e50affad284b37790b4c279b0771a4",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-place-us-ca-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b67183864561e2b941e8da665e00ce1728dcbec90a0cda514d64c06ababaee9c",
+      "translationFingerprint": "sha256:99a2cbe10370f16d3c7d02352622f2e6bb01cc3d632121cd4caddf7d688d3ecf",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-place-us-ca-short-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:c21a948080675f5ba4f3697a474b253b021d3795a34ed188045fd5b19cf3565b",
+      "translationFingerprint": "sha256:d2b13018d779b25d00b264ddcfee514844b614d21426c89347a35e0a79d6d7bb",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-place-us-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e45caa0e9d65f43975448e5348a883c237f4c8c9410f9a730cc19f7ac57d94eb",
+      "translationFingerprint": "sha256:67e24e6fa5367bfdc643fccbd3911afb3bbce2b7f1206596e611ac95ea956561",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-place-us-ma-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:bd76038378d8f113107dc7ecc0257412c3530d6ff4eccbf96f3efe8a73d5fff4",
+      "translationFingerprint": "sha256:065c5e321d0b2f299ea40b61d85dad9ba195023f6b5bea530ac03988a8d2f549",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-place-us-ma-short-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:887f116d59381aecc9b02cd1038f26ed2e41bd9a10766ffe4eabdb255f30b12f",
+      "translationFingerprint": "sha256:e320f25c515484e8b09a5d67e3e90368ad04e6a07cec7a837b9a70fc46705353",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-place-us-ma-wilmington-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:f669eaff9971e8fb1b52750fcf88145a2ee2feaa1b5651c365158a80a32d4f15",
+      "translationFingerprint": "sha256:451a96d56c5b85f592cc80a64df48f6b293ed8934d7dab1515a15a9017105a89",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-place-us-ma-wilmington-short-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b9496ef31233e68ac11cf9c2abdb55c79306a6d3e46b22205227f6c0c708c29e",
+      "translationFingerprint": "sha256:7378460a01ce4f3597f76c0b13f578db6be9c6fa8d5017bf8df4aecf5298e876",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-place-us-short-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e51cdf372712c2b551f5dc5a5ee000ee407270d1229720103fd31df0b8f30987",
+      "translationFingerprint": "sha256:aca6247e2b1043f1867c5d1bf004d718416ffcf815dabdf96c25b47f5ad59f82",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-place-world-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:afc3ca99a234b503e0129cbb090e7f1b3c2b3fa4bf9a9a6b38ae07a02678fdff",
+      "translationFingerprint": "sha256:706d8e4ef966a79c6ee798620b44a372f7de5b1e8a333aaa685d5c33a9e9b161",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-place-world-short-label",
+      "locale": "ar",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:08bf20c5c8fbbfcbfa88eabb2f4275bd8d045d5eb268028c7b61e65eb10b1e4d",
+      "translationFingerprint": "sha256:0bd2464876c09effdd2db0e99844433a2eaf8cd5ce678c962b46183a6217eb09",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-career-platforms-and-job-search-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53",
+      "translationFingerprint": "sha256:4e6c45e85b5c7283eb4a1c85c9fc966d4af0c399bf10eabca56f187e497ee28a",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-career-platforms-and-job-search-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53",
+      "translationFingerprint": "sha256:d0dc1a24891c2812e1427e308fe7fa74dc1475e9c3a993315dedfe96f7bec6dc",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-food-and-household-essentials-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29",
+      "translationFingerprint": "sha256:1726bb612e52329b34d12b8aeea4e2a1f4070bb97773ebf634845a2e8317886d",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-food-and-household-essentials-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29",
+      "translationFingerprint": "sha256:63097a5c1cb6222de420b5894f33d9a10ba3f9282676952c17b397cb41754649",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-general-learning-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173",
+      "translationFingerprint": "sha256:2416abc4e3282df62d38a3bb31013444cd614f798d038f90fd1274505f55ce25",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-general-learning-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173",
+      "translationFingerprint": "sha256:3c05737287e0388ce0cd573572f54c76b2e8232103ed1d62e2964c9a4fd94bc7",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-learning-and-careers-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010",
+      "translationFingerprint": "sha256:ca41e67d19856b4a8b520392c7c4fb0705c66079ac4897760737fd22ea6deffb",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-learning-and-careers-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010",
+      "translationFingerprint": "sha256:c6453c51a17c59d6c93bc084b3ce659e021faab007c6a53b65f4a239c2970e2b",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-music-production-and-recording-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f",
+      "translationFingerprint": "sha256:820bb77b64aedd67422f514198cf2f7ce838a97fec26bba99fdbb7efc3d6e86d",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-music-production-and-recording-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f",
+      "translationFingerprint": "sha256:2d081e1683b59403c4c6d3477cb931aac81e065e3a4e6a692aa225fc53bcafff",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-remote-and-international-work-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e",
+      "translationFingerprint": "sha256:36707c070c4851c32ff2a51765b1d49c97dca787991ff4dbe2fa1ade9841d11e",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-remote-and-international-work-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e",
+      "translationFingerprint": "sha256:c95e37e5a772422751c11d877bf48ea23118a0fb3fba112b0b55f2418cd41988",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-remote-paid-work-and-expert-services-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b",
+      "translationFingerprint": "sha256:c9b4a84d87c33d4753b98c938b655a38385365a9a0a7f398126e84a6410bb1ad",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-remote-paid-work-and-expert-services-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b",
+      "translationFingerprint": "sha256:22e50a786c326426184445a07197a064c71270858d6f6b90e9b78b763b295ffc",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-video-motion-and-animation-aliases",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4",
+      "translationFingerprint": "sha256:2860eb5a3c1200230f7c28a1a545786fff760bfd5ea8cc4da7807c879163c661",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ar-topic-video-motion-and-animation-label",
+      "locale": "ar",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4",
+      "translationFingerprint": "sha256:d047711369ccc712f08bb1d509930540fda73082fcace59b8c33b5b4a113de94",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-collection-awesome-abundance-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a",
+      "translationFingerprint": "sha256:16be4175ad4b52bc2a47db420b0dca45428c1027687e5c98c00da2304a82e0f2",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-collection-awesome-abundance-label",
+      "locale": "es",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a",
+      "translationFingerprint": "sha256:5feeacb85ac63b6a8809264eedd267e19f8a006c450a187e91d7c182f61f840d",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-collection-work-and-learning-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3",
+      "translationFingerprint": "sha256:f8121b4c1d00aa3faf96641716246b76164c9378969cbd0d8622bb451b4e9979",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-collection-work-and-learning-label",
+      "locale": "es",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3",
+      "translationFingerprint": "sha256:2fe801fb269fab8fa9b419e522b0c68ab5fd74a06a6b1384cda46a7f599ae093",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-need-creating-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf",
+      "translationFingerprint": "sha256:6e21da556557528579a88793c6a15e69ce5a264af3ed2da12729f41c3a2989cc",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-need-creating-label",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf",
+      "translationFingerprint": "sha256:428ec874b5e881c64541f97b5760eaaf92b6e1c1ec14e84f70971db0ba30aa7f",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-need-food-today-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc",
+      "translationFingerprint": "sha256:d50385e561b2b37fffa1a1c54c39f0fbaaaac8afec32202298153da79a427a39",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-need-food-today-label",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc",
+      "translationFingerprint": "sha256:7fd9c5b56145de21e867755f74453154d6ff36bff2694c5615ceafa8daa415a1",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-need-work-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1",
+      "translationFingerprint": "sha256:33f5ef81a6d0dcf5d9a57dbb64be348e5c66425fb123e4bccee2c71186bba449",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-need-work-label",
+      "locale": "es",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1",
+      "translationFingerprint": "sha256:4ecd6d82e37152e0e62043c830b44e3f0961f51ce650ad4be6a7fbcee365906e",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-place-us-ca-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b67183864561e2b941e8da665e00ce1728dcbec90a0cda514d64c06ababaee9c",
+      "translationFingerprint": "sha256:c68720caea5ccf75d45a26af8d940e1cda43ae55f09147d8739226fd52f5826a",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-place-us-ca-short-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:c21a948080675f5ba4f3697a474b253b021d3795a34ed188045fd5b19cf3565b",
+      "translationFingerprint": "sha256:c312364af467a586af4bbf6565f3ed975b08983b74a5dbe00435b474cd3b2e82",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-place-us-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e45caa0e9d65f43975448e5348a883c237f4c8c9410f9a730cc19f7ac57d94eb",
+      "translationFingerprint": "sha256:56a1b95a7bf666a85e9d6ea549ef45c8e23a1da9e0ed9f15aedb3994a8db1aca",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-place-us-ma-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:bd76038378d8f113107dc7ecc0257412c3530d6ff4eccbf96f3efe8a73d5fff4",
+      "translationFingerprint": "sha256:70c02dff00e6a7db899599582470d653ea54f59db93b35f7400ac7417a4ce456",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-place-us-ma-short-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:887f116d59381aecc9b02cd1038f26ed2e41bd9a10766ffe4eabdb255f30b12f",
+      "translationFingerprint": "sha256:0ffcb9fb8c2b864ac85e1f7c2957cdc4ff03b65c935484c539d655240ededfa9",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-place-us-ma-wilmington-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:f669eaff9971e8fb1b52750fcf88145a2ee2feaa1b5651c365158a80a32d4f15",
+      "translationFingerprint": "sha256:f0e5a5d5af43a4cb61216567401135a4289e486372fa0c64a3b80e5eb72ca516",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-place-us-ma-wilmington-short-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b9496ef31233e68ac11cf9c2abdb55c79306a6d3e46b22205227f6c0c708c29e",
+      "translationFingerprint": "sha256:e3732472562a885974ba68933a8e601eb91f56c003167f559bcb27cf64c9e855",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-place-us-short-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e51cdf372712c2b551f5dc5a5ee000ee407270d1229720103fd31df0b8f30987",
+      "translationFingerprint": "sha256:06d38fa9796e8d63636bf5c12f0c6a07b61563b33caed546ea80046444e3cddf",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-place-world-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:afc3ca99a234b503e0129cbb090e7f1b3c2b3fa4bf9a9a6b38ae07a02678fdff",
+      "translationFingerprint": "sha256:7026a335a365b70aeaaad080f6feded127cbfabb150a18af83afc03144d527cb",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-place-world-short-label",
+      "locale": "es",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:08bf20c5c8fbbfcbfa88eabb2f4275bd8d045d5eb268028c7b61e65eb10b1e4d",
+      "translationFingerprint": "sha256:fab07f737f6b02c9d3e1b002fdc8b6f728b1d05d854618626f1aa4df4a29487a",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-career-platforms-and-job-search-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53",
+      "translationFingerprint": "sha256:3c74e19aa584cae915e7572e68e200bebe92f59eda9edfe68fecf1ea18e6615f",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-career-platforms-and-job-search-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53",
+      "translationFingerprint": "sha256:9a3c20035466d952ba48f9e7ff66d73f0df2e82cbedac67be62b85873f6be65c",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-food-and-household-essentials-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29",
+      "translationFingerprint": "sha256:06afecd28ded184a3eb4f79eeb68667595df3c10a2c5fd1ac97469b8b563fc07",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-food-and-household-essentials-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29",
+      "translationFingerprint": "sha256:bc15e7a25c4801031fd43227d7de7bfa4eede7ad3c16f9592317a34393f5d68c",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-general-learning-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173",
+      "translationFingerprint": "sha256:56b368927e486ec4ddae670c07ea14cefb2c8c74a82db7bdc4839df9614ef2ea",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-general-learning-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173",
+      "translationFingerprint": "sha256:8e856acf3e173f7cdc291d64f950ab7ef9761016ec5b0d3a2b3bd7d41203683c",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-learning-and-careers-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010",
+      "translationFingerprint": "sha256:28483ac83aa3df450e785a63389351f49dab7f241f5796ae3af1afbc84ab5d82",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-learning-and-careers-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010",
+      "translationFingerprint": "sha256:81663cb40e90681b218d5cf753b602c155a038d14c26639eade46fa915e6d810",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-music-production-and-recording-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f",
+      "translationFingerprint": "sha256:71076fff8e8d5dfda5e17b615e9743d9d1dfd62b35c7fe5211a07b66d695ba7c",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-music-production-and-recording-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f",
+      "translationFingerprint": "sha256:414d73fda4cecd6b752763bab19f8a8a55bae23f5a497412c80e8ae591db865c",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-remote-and-international-work-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e",
+      "translationFingerprint": "sha256:c422867707c863f6de080379b2ba68939993b34dadae38585a301af5a85e30cf",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-remote-and-international-work-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e",
+      "translationFingerprint": "sha256:ddd459c6ec0ffae3f9d07356789fd40531c3a1d3e72b0d0d18eebd915ce3ffea",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-remote-paid-work-and-expert-services-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b",
+      "translationFingerprint": "sha256:fc9c2141737b25e4ae8fc59b8cac7048ff09fe09598bff31ca44543d3fc18485",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-remote-paid-work-and-expert-services-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b",
+      "translationFingerprint": "sha256:3242264885831e79a6c5d2edb262fa6e3e0491f2f7e75b51d50c8ca4e14f4bf1",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-video-motion-and-animation-aliases",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4",
+      "translationFingerprint": "sha256:603a1601ce0801e1d99169858e860720f40782676729948cfbea91b373bd7bca",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "es-topic-video-motion-and-animation-label",
+      "locale": "es",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4",
+      "translationFingerprint": "sha256:31f8ee70576ad6ff5dca6d19a9f49b636f2fcf706f9738013a55f2c6cdff6335",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-collection-awesome-abundance-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a",
+      "translationFingerprint": "sha256:35adb90736e7f2bf995354121c2be8f0356aa2acb75e846ea1cc15d9485539ce",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-collection-awesome-abundance-label",
+      "locale": "fr",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a",
+      "translationFingerprint": "sha256:c7a2b1a72a18f374575a2a04d986fb0abeb09c23ec84fa9a5b177512180d2531",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-collection-work-and-learning-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3",
+      "translationFingerprint": "sha256:2422e027ad4044566f936fd294e26d383cd48055679583bbf65cb961f7d07325",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-collection-work-and-learning-label",
+      "locale": "fr",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3",
+      "translationFingerprint": "sha256:7bc79c02d7ba3639d96ed5b82bd9b57b4093d8c2a2380fa4061c4277be839572",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-need-creating-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf",
+      "translationFingerprint": "sha256:6994a2c843e7814992fbcc4ebaa24cfd20703ee9bbc0f1d2260e0ba3809f3748",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-need-creating-label",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf",
+      "translationFingerprint": "sha256:25260db8a0c731c431a29b185148646c0920abcb233e07d1d5f47cba6b4deb10",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-need-food-today-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc",
+      "translationFingerprint": "sha256:5a1514d3e7678eed00692f3ed23b6a93e3b6eba5f8496c945ee3dae60b8aff17",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-need-food-today-label",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc",
+      "translationFingerprint": "sha256:5bf3e5562afb492f1e1091d59964b74caf366bc1cf183cf536f9cb5bcdbcefed",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-need-work-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1",
+      "translationFingerprint": "sha256:264e41aced67404ee51dd3ce48a143b11038cf62d7041b156a018891ad8b1ad9",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-need-work-label",
+      "locale": "fr",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1",
+      "translationFingerprint": "sha256:9c90b237789d22f705d5e300ff60dd65908281a60fd8d4ef0d1b7648b275c0a4",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-place-us-ca-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b67183864561e2b941e8da665e00ce1728dcbec90a0cda514d64c06ababaee9c",
+      "translationFingerprint": "sha256:a270bf211361e723449b3530edaf080f649d357b963b05db0c5b63379bf0f901",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-place-us-ca-short-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:c21a948080675f5ba4f3697a474b253b021d3795a34ed188045fd5b19cf3565b",
+      "translationFingerprint": "sha256:2f93df7453e1e6a608c048ee441a323e9dd24b4aa314aa494bf33edd0ff23973",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-place-us-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e45caa0e9d65f43975448e5348a883c237f4c8c9410f9a730cc19f7ac57d94eb",
+      "translationFingerprint": "sha256:ff4067b886e6e0d2a70b621f43308a15ab41f28f4d24e4b3a9a5476ed262115b",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-place-us-ma-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:bd76038378d8f113107dc7ecc0257412c3530d6ff4eccbf96f3efe8a73d5fff4",
+      "translationFingerprint": "sha256:353c47d7dc117bb9c80a75ef5dc1bfe0bd991948bb0408c9e01d664dc2f9e382",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-place-us-ma-short-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:887f116d59381aecc9b02cd1038f26ed2e41bd9a10766ffe4eabdb255f30b12f",
+      "translationFingerprint": "sha256:82e032313d0d6ed366aba0d58a9490ef5e42a74ae6279bdf8c9f932076d07110",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-place-us-ma-wilmington-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:f669eaff9971e8fb1b52750fcf88145a2ee2feaa1b5651c365158a80a32d4f15",
+      "translationFingerprint": "sha256:c46c70166ad04437d621688442b0afeef566d204ccf4b581fcfd7a3f3f853674",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-place-us-ma-wilmington-short-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b9496ef31233e68ac11cf9c2abdb55c79306a6d3e46b22205227f6c0c708c29e",
+      "translationFingerprint": "sha256:34ec479027ffb42994232f760a38354a6ec79f2c35ce4d511f607a144502beee",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-place-us-short-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e51cdf372712c2b551f5dc5a5ee000ee407270d1229720103fd31df0b8f30987",
+      "translationFingerprint": "sha256:edea2540286e08dd80150d24c8b90607b74a8e4702d53576d551b8785dae28be",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-place-world-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:afc3ca99a234b503e0129cbb090e7f1b3c2b3fa4bf9a9a6b38ae07a02678fdff",
+      "translationFingerprint": "sha256:24232056a05a33ae4a883f5e08142de085c23f58cf34273983dc8814a78fc186",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-place-world-short-label",
+      "locale": "fr",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:08bf20c5c8fbbfcbfa88eabb2f4275bd8d045d5eb268028c7b61e65eb10b1e4d",
+      "translationFingerprint": "sha256:ca628befc1867e7701c13c0902a56131ac0a9a6c3f7c2590bb5bf217da596fd4",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-career-platforms-and-job-search-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53",
+      "translationFingerprint": "sha256:ffc4a58985119eaf6e36e522a28b9ad23f3c6fb4d12ddeba5a52fa703f1e59a1",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-career-platforms-and-job-search-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53",
+      "translationFingerprint": "sha256:b63ace47fd86ff0051a5dc5a73f8160c7f4a7120596ae140f00f63d5e75f2e55",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-food-and-household-essentials-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29",
+      "translationFingerprint": "sha256:f1e10ed87c84f56b37354c5c907bb2c1bb721a031c7be36b4462fcbc225917b3",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-food-and-household-essentials-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29",
+      "translationFingerprint": "sha256:03d480a874b712832261049f069b2065dbd2e81d4584d247366d048ac9f44616",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-general-learning-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173",
+      "translationFingerprint": "sha256:6108410d5bc8a3cd6420900ea1da3ad00839172868fba1d3b75d963ee928770a",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-general-learning-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173",
+      "translationFingerprint": "sha256:70c0359cf765774a462d55a388956588ac5565773fe7b13761b95ff53067870e",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-learning-and-careers-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010",
+      "translationFingerprint": "sha256:bbaf73fff759352db8d075b133257552d325e3ff2581d430a08074d040ef94f8",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-learning-and-careers-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010",
+      "translationFingerprint": "sha256:209799957e2bb6b2bee7f87cb193285eed5258a3d3806cf255fa8c3fe093811f",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-music-production-and-recording-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f",
+      "translationFingerprint": "sha256:e5d3bcf62ac9ffe4adfa065a189ade488c928408cb3e60056ecb81f828e01476",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-music-production-and-recording-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f",
+      "translationFingerprint": "sha256:05639362c1328ca0c0ca6aaea791ca59271d532e42c6faa0fddf04da5974e3e4",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-remote-and-international-work-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e",
+      "translationFingerprint": "sha256:43bab78e21ad8c190be89d98ed3deb8bd822b2df386de0a784e0adf0af8a0a81",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-remote-and-international-work-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e",
+      "translationFingerprint": "sha256:f06e450a464df45ff5352351bd42f7d333e9397a1c249951788f8fd9daefc81e",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-remote-paid-work-and-expert-services-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b",
+      "translationFingerprint": "sha256:8038727c61f31ef8b7a32e35b68855de27af2ff12c02ddd3f27ff0e9f72c52b4",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-remote-paid-work-and-expert-services-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b",
+      "translationFingerprint": "sha256:dc7a95738d6bd2afb783a0056c5ee2ea1dc9a2dbb1383a372c1907df1c764b18",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-video-motion-and-animation-aliases",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4",
+      "translationFingerprint": "sha256:54ef20b1a847472b9417bde0db9754361bfc8af1224199d101164f99ddd942ba",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "fr-topic-video-motion-and-animation-label",
+      "locale": "fr",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4",
+      "translationFingerprint": "sha256:9bb2ee8fbe027db9fe483aed42809254f15d92a11a35c4d480973fc0dfbbce45",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-collection-awesome-abundance-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a",
+      "translationFingerprint": "sha256:b771bf8164e26965a8def23442492ed5a8e0fa55d2916ec6c1f021791be4595d",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-collection-awesome-abundance-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a",
+      "translationFingerprint": "sha256:88a9cf26e1847d608bdf821fc67424a5a6231d3157e4516752cb2c5e1b4dd676",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-collection-work-and-learning-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3",
+      "translationFingerprint": "sha256:b3dbafdae930d07498eda9f1a5cdb69c9ede1baf3b7148c6159a9f0882cecaa7",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-collection-work-and-learning-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3",
+      "translationFingerprint": "sha256:031468ef72c81b21ddaaf26d0af67ac43b6379bcb32896704352012be5f0d287",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-need-creating-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf",
+      "translationFingerprint": "sha256:49a1073babe322a7771e480e9549621aad796de949a2ebcd5363995ba7295296",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-need-creating-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf",
+      "translationFingerprint": "sha256:d6b309ef57fbdc272ddcba404d6aae20bb415a15ad738c81b0331d1e0a0626c5",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-need-food-today-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc",
+      "translationFingerprint": "sha256:988958e0c939f3ce9d5484f2a6d413cdcb1496a1dfc550ef7e19f663fee5b013",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-need-food-today-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc",
+      "translationFingerprint": "sha256:73a3eb7556d667504b6dea5ad139e8a566c1dea3a32affefbc3d67df79f8ea90",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-need-work-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1",
+      "translationFingerprint": "sha256:ea55641732a2f4cfd5f395fa53166b425182b8f9080683225a559879b9eb32a5",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-need-work-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1",
+      "translationFingerprint": "sha256:5731d4f1bdc8e6b7b9a1e36ecf5a4d49d85df6434f94b5c55130ba6a0bd9b0da",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-place-us-ca-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b67183864561e2b941e8da665e00ce1728dcbec90a0cda514d64c06ababaee9c",
+      "translationFingerprint": "sha256:bda6c1a521e15767dcf8250a055290aec550541291a1f1be1a20a0c46eb73c3f",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-place-us-ca-short-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:c21a948080675f5ba4f3697a474b253b021d3795a34ed188045fd5b19cf3565b",
+      "translationFingerprint": "sha256:d018bb13e2c7b66f0c3f1d3ca2f045d079e5bf10c6f3060dda0394ff8443ebb1",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-place-us-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e45caa0e9d65f43975448e5348a883c237f4c8c9410f9a730cc19f7ac57d94eb",
+      "translationFingerprint": "sha256:3298e4283ea6a46a7afd107c076f652132879726ada6a738db7cbfe47e683afd",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-place-us-ma-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:bd76038378d8f113107dc7ecc0257412c3530d6ff4eccbf96f3efe8a73d5fff4",
+      "translationFingerprint": "sha256:d9c749d1fbf56a45d3a135fb462b2bcb641f273badf6d4a9dcf1223ac3be79e7",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-place-us-ma-short-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:887f116d59381aecc9b02cd1038f26ed2e41bd9a10766ffe4eabdb255f30b12f",
+      "translationFingerprint": "sha256:56a8127903a3638eb4ae8cd2126bc9ea54d0b9f634347e577fd67f945c1e02a7",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-place-us-ma-wilmington-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:f669eaff9971e8fb1b52750fcf88145a2ee2feaa1b5651c365158a80a32d4f15",
+      "translationFingerprint": "sha256:06fa311a1f1a25fca44b21091f4dc1d0c57e39f0e92f1fe4990cf435f4621859",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-place-us-ma-wilmington-short-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b9496ef31233e68ac11cf9c2abdb55c79306a6d3e46b22205227f6c0c708c29e",
+      "translationFingerprint": "sha256:260a8102ad6c62f53862607658617f11c15f8ea57217a591be316b266cc7614b",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-place-us-short-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e51cdf372712c2b551f5dc5a5ee000ee407270d1229720103fd31df0b8f30987",
+      "translationFingerprint": "sha256:e4b4e200fc670fddf72ce869fff017abc00fde2e3c4c541d6001b8b1bbfcb095",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-place-world-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:afc3ca99a234b503e0129cbb090e7f1b3c2b3fa4bf9a9a6b38ae07a02678fdff",
+      "translationFingerprint": "sha256:7b5c5acc2e5f99ed6caaf2a354059c730c08d44b059ece870fd25da749cbd750",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-place-world-short-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:08bf20c5c8fbbfcbfa88eabb2f4275bd8d045d5eb268028c7b61e65eb10b1e4d",
+      "translationFingerprint": "sha256:8c736a64e645e3756f57620df4dbb3ac56efd28298d24e0ee5aa049880334990",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-career-platforms-and-job-search-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53",
+      "translationFingerprint": "sha256:441359251f813a9eb58679da3a3cee13920671311f9099fd2ee6055c93493f86",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-career-platforms-and-job-search-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53",
+      "translationFingerprint": "sha256:3a308761102e23a0d0d3c836f6bb0cf4794e0b10bec1c153a28f07ecddc3e398",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-food-and-household-essentials-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29",
+      "translationFingerprint": "sha256:d044fbb2ad87c48ed3e9cbc548e84bc2d440441769f0f487bf9fe4781067b9a3",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-food-and-household-essentials-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29",
+      "translationFingerprint": "sha256:8abbc36dd0eb4001e6c8ef9ed74140e2b1c0873bd49dd75672476feac8774be3",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-general-learning-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173",
+      "translationFingerprint": "sha256:1c4dd091ba198faa80a5399364b407cbaea72786c74da77402ad251ff816b1de",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-general-learning-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173",
+      "translationFingerprint": "sha256:cf8641a6292824b98b9c17509d03855e67f52fbc69450d2e42bf2f0c0baa1304",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-learning-and-careers-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010",
+      "translationFingerprint": "sha256:abb50c6240817e08f1d882f84d4df5c87e282a6e4932d56ba3de836d96767de2",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-learning-and-careers-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010",
+      "translationFingerprint": "sha256:56a7ff8a5073c716f11042d4f759ccb2dce2ec202f64ff18775aab41cb1e9cc6",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-music-production-and-recording-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f",
+      "translationFingerprint": "sha256:cb8e4bf62a8ae76f6c099141d2828920ed924404ba2427f3a9a44dc8e3ed213b",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-music-production-and-recording-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f",
+      "translationFingerprint": "sha256:f8bb2074bdeb6d250d4cd773ac6bcf9898b5516596d419d50c53f5a59201bbbb",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-remote-and-international-work-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e",
+      "translationFingerprint": "sha256:e0c840b3b04f02f2f2b240f596467ef3aee41e76dd7871835bf44c9e82da0180",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-remote-and-international-work-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e",
+      "translationFingerprint": "sha256:618d49a16219d3f75cf954c3ed65e4d155a7ff4d30e4a023d12e2a4ef86c058c",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-remote-paid-work-and-expert-services-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b",
+      "translationFingerprint": "sha256:a03a0c43f41d762f161dd3939a60dcc95414efcf2f51cc4fb77e6aed915a2e5f",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-remote-paid-work-and-expert-services-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b",
+      "translationFingerprint": "sha256:204646c16bc805a53db533a41e022e59632956e62ad0c85377e2a068a5dff722",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-video-motion-and-animation-aliases",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4",
+      "translationFingerprint": "sha256:0cc968462c89bfb4ab7f6bca9de66b82eb43dbf552bc6456c90bb274cf0d16cf",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "pt-br-topic-video-motion-and-animation-label",
+      "locale": "pt-BR",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4",
+      "translationFingerprint": "sha256:a856b8d0d3f151cc1a7a15bbc30afd085185b2933b9be8c6671550f19e8f845e",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-collection-awesome-abundance-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a",
+      "translationFingerprint": "sha256:8e53bfd3ba98ea945364814af985c34ec5a6e92a454a802099a9ec418b7a4e48",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-collection-awesome-abundance-label",
+      "locale": "ru",
+      "target": {
+        "kind": "collection",
+        "id": "awesome-abundance"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:30382ae5e261af0e14637812cb1b539554f8176835fd49c4150fac8a6a8fbf6a",
+      "translationFingerprint": "sha256:f5bafa38bb1416c00600163c1216157bd8e708ff62a71e9d7462b12f7d03e4be",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-collection-work-and-learning-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3",
+      "translationFingerprint": "sha256:d2a7210bb752b3e7fbda20284400f98f17787f1054fa4a4d4bf6e4442c92a3ca",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-collection-work-and-learning-label",
+      "locale": "ru",
+      "target": {
+        "kind": "collection",
+        "id": "work-and-learning"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:247b4d6be41df633cb097c7ce41967d50c488ea428fa682d4a9a732e464542e3",
+      "translationFingerprint": "sha256:891154efdbc7afade538bc52a89b40ab890f2b2731709916e53e306740c1df9e",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-need-creating-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf",
+      "translationFingerprint": "sha256:d19952d59ee2e56232a7173d1cefef033f1b161ff8b099ed23cbdbabefc6e174",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-need-creating-label",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "creating"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:6ca39e2aa548e687a38a09061726a1097e5f2fe33670cbeac1a3222ccda1acdf",
+      "translationFingerprint": "sha256:b1e8db851b7ecdc074dcbf9b55df9b0ce790408e7be28e33eb7303bf7a4fb41b",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-need-food-today-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc",
+      "translationFingerprint": "sha256:14969789213edd3899d30bd41adb13b662b4858228f9df2a17d65db14e483604",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-need-food-today-label",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "food-today"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:959bdea5c476966196855f06a598aaa8fce439fa083d6c3e238b9e05fa9d35dc",
+      "translationFingerprint": "sha256:27ab8faed97c4062d31f2cc7eada037bbaab67d3f2b46820b583dc45d3c352df",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-need-work-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1",
+      "translationFingerprint": "sha256:7f7492917d6e3a3d4113e45ab4b5afdd14593b657a391d1f4ea65c4822cc8bf4",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-need-work-label",
+      "locale": "ru",
+      "target": {
+        "kind": "need",
+        "id": "work"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:0671f85ac14aaf53164e3449a2be63e58965480e39e3b1c51b79c36e6522c9d1",
+      "translationFingerprint": "sha256:9fe7ebd750f8b151fd01df76e9603967cac37a25263dadf7717fcc0c502d17b3",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-place-us-ca-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b67183864561e2b941e8da665e00ce1728dcbec90a0cda514d64c06ababaee9c",
+      "translationFingerprint": "sha256:32427a2dc372789e964cb8947eadb761146c1cc59e40f3bb91152f6a928c7715",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-place-us-ca-short-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ca"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:c21a948080675f5ba4f3697a474b253b021d3795a34ed188045fd5b19cf3565b",
+      "translationFingerprint": "sha256:80f51892b39708dcc7c49907987d0718ba755a06201ac0fdc890d5646219c885",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-place-us-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e45caa0e9d65f43975448e5348a883c237f4c8c9410f9a730cc19f7ac57d94eb",
+      "translationFingerprint": "sha256:598ff22c9da4425ec81a9a6967388019c6002baa7848d5234c68b2101a4cc9a7",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-place-us-ma-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:bd76038378d8f113107dc7ecc0257412c3530d6ff4eccbf96f3efe8a73d5fff4",
+      "translationFingerprint": "sha256:340f736855ab10534f586397f40ca1c65d63ec34cafc2c2a4a80594b0ad1c7db",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-place-us-ma-short-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ma"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:887f116d59381aecc9b02cd1038f26ed2e41bd9a10766ffe4eabdb255f30b12f",
+      "translationFingerprint": "sha256:d4cdac973a363901dfade7d5eb63265236b88fb86613929866929257bb2e1109",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-place-us-ma-wilmington-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:f669eaff9971e8fb1b52750fcf88145a2ee2feaa1b5651c365158a80a32d4f15",
+      "translationFingerprint": "sha256:753936bfba6a4de077746bf44b94959f4f408d7592b9ae7e72a4e9af0f806aa5",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-place-us-ma-wilmington-short-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us-ma-wilmington"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b9496ef31233e68ac11cf9c2abdb55c79306a6d3e46b22205227f6c0c708c29e",
+      "translationFingerprint": "sha256:508268e7efff3a7d7b74c13495dff8687130cf2ed18471f7dbcf7ce3b1765907",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-place-us-short-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "us"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e51cdf372712c2b551f5dc5a5ee000ee407270d1229720103fd31df0b8f30987",
+      "translationFingerprint": "sha256:906935bee8a6d47caadb96d43cd0a35a2c93b340abd473dcdbcab5c5f0f03f2f",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-place-world-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:afc3ca99a234b503e0129cbb090e7f1b3c2b3fa4bf9a9a6b38ae07a02678fdff",
+      "translationFingerprint": "sha256:61739bc1690fc95eafc70e70eee0b9605c0771ab1fb43a438f48f22c9c03b23d",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-place-world-short-label",
+      "locale": "ru",
+      "target": {
+        "kind": "place",
+        "id": "world"
+      },
+      "field": "shortLabel",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:08bf20c5c8fbbfcbfa88eabb2f4275bd8d045d5eb268028c7b61e65eb10b1e4d",
+      "translationFingerprint": "sha256:3f424f9c73ea7a2b50b179e6a05141c2cd1b965dc9ceb20b7f58299006fa2947",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-career-platforms-and-job-search-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53",
+      "translationFingerprint": "sha256:e0090f15b5f5d77c6c2d4e1e8bde1d90680d1ef31280fe9836f1b800d9e766f0",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-career-platforms-and-job-search-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Career Platforms and Job Search\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:394958a6242df85556fb5634ded5e6123dfa805e3d321b0a509a3b05d0a7ac53",
+      "translationFingerprint": "sha256:4aeb0bc29755b0525eeaa5faecdf7fc2949df871acec1f781272558fbddb6008",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-food-and-household-essentials-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29",
+      "translationFingerprint": "sha256:5f72cb8d5f0179086895146809221169a40f22ad7c70f2b526af5939aaea1a25",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-food-and-household-essentials-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"community-sharing-and-material-resources\",\"Food and Household Essentials\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:cbb20eb7c9e71619612300c23dbacc2face47b022dd99feb973f50cbd6252f29",
+      "translationFingerprint": "sha256:c065e3c8b050994a76b1c87c0cb8f7584cc818ba83cdf54b49343e2bd3b08ce4",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-general-learning-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173",
+      "translationFingerprint": "sha256:cd1a3e95b36d063411540b40498f1758eaff4904640099b523bbfc06baebae93",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-general-learning-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"education-and-learning\",\"General Learning\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:57466071fdb4386b37a20fab1ef7c9d5ae2b0e914beaec4877ed29101633a173",
+      "translationFingerprint": "sha256:ed4a28a1b6725e01e1bb15c09343a9a2017c1ea25c3819df126816c10f138ca4",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-learning-and-careers-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010",
+      "translationFingerprint": "sha256:8a4aba234c29fe2a5e39a470250d80134ac7c374cb9558b5ffa62265d8bfcc18",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-learning-and-careers-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Learning and Careers\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:48e6c3919cbfd1c6f38634dca591a0b69e60a4e4acc4e20595f82b9e5be5f010",
+      "translationFingerprint": "sha256:493e0908d10efdbad4938e16a45d42c583d8912f47eb10029f845cd9aef47db0",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-music-production-and-recording-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f",
+      "translationFingerprint": "sha256:c37ba8a23069537aa06b5dcc66bb26ec08b18e04e1f56d294ef2ed5a0c666e68",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-music-production-and-recording-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Music Production and Recording\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:ba0e3f178c39737db40f2ee5e88cace3d9a36852c53225dd94373c930be91f2f",
+      "translationFingerprint": "sha256:06715b6b50738424bf83ccabc5e62596a3135d16515c1e01733d8fecfea10538",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-remote-and-international-work-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e",
+      "translationFingerprint": "sha256:71bb39b2df58f4cc1547850ea41388b1d352043c19b7dabdd2a8f5dd7006405c",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-remote-and-international-work-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote and International Work\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:b163a977b9d0862c90769f24ba188904d71642f15cf618b92dd122357cced68e",
+      "translationFingerprint": "sha256:b427c0f751a9a528ca0a498f8fd17067f5aca381a157ad8b8094146d024b9ac0",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-remote-paid-work-and-expert-services-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b",
+      "translationFingerprint": "sha256:e840dcb9d099eaf74e8eaa971ea8262a5f0cef4807367ea63d0272795056b6c0",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-remote-paid-work-and-expert-services-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"work-and-learning\",\"\",\"Remote Paid Work and Expert Services\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:e3584edb88e63b487724d0f905c831f9142cbdfcb4e7ef3ba376d7ba3293ab2b",
+      "translationFingerprint": "sha256:a5e692fbf07990e09bd415cbc64f0ceaa146c364cc018b77ade90477029ef928",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-video-motion-and-animation-aliases",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "aliases",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4",
+      "translationFingerprint": "sha256:ea21d1725aebdfaff3bcff6982d87b64697231886ee655692da707479d2a939c",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    },
+    {
+      "id": "ru-topic-video-motion-and-animation-label",
+      "locale": "ru",
+      "target": {
+        "kind": "topic",
+        "id": "[\"awesome-abundance\",\"creative-tools-and-production\",\"Video, Motion, and Animation\"]"
+      },
+      "field": "label",
+      "sourceRevision": "ecb665fc49e302fdbae83a6016355b1a51a6edac",
+      "sourceFingerprint": "sha256:309f12962342aa1048bcdaec7fa043cfc7a6f550e00e16e88a31b3f3a2b461b4",
+      "translationFingerprint": "sha256:109cd8fef16b297f09bb51195fcd7085b1405ab7d4afae33cdc2ebe4bfac6959",
+      "translator": {
+        "kind": "ai",
+        "name": "OpenAI Codex"
+      },
+      "review": null,
+      "declaredStatus": "draft",
+      "effectiveStatus": "draft",
+      "issues": []
+    }
+  ]
+}

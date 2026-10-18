@@ -81,3 +81,8 @@ jobs:
 
       - name: Verify generated portal
         run: node scripts/check-site.mjs
+
+      - name: Verify content translation review and discovery pilot
+        run: |
+          node scripts/validate-content-overlays.mjs --verify
+          node scripts/evaluate-localization.mjs --verify-report research/search/results/localization-discovery-v1.json

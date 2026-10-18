@@ -479,6 +479,10 @@
     "runtime.unit.topic.zero": "{count} topics",
     "runtime.unit.topic.two": "{count} topics",
     "runtime.unit.branch.zero": "{count} branches",
-    "runtime.unit.branch.two": "{count} branches"
+    "runtime.unit.branch.two": "{count} branches",
+    "runtime.atlas.sourceLanguageLabel": "Source language",
+    "runtime.atlas.sourceLanguageUnknown": "Not recorded",
+    "runtime.atlas.sourceLanguageNotice": "Translated place names do not translate linked resources. Source languages are shown only when explicitly recorded.",
+    "runtime.contentCoverage.copy": "Some navigation labels have reviewed translations. Other labels and resource text remain in canonical English. A translated label does not change the language of a linked resource."
   }
 }

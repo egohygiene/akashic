@@ -5,7 +5,7 @@
   "catalogResourceCount": 5403,
   "inputs": {
     "algorithmSha256": "cdca9e2b0bd73aa09ee726984109277978a06e7d49071483d918c12f03b0a669",
-    "budgetSha256": "afba1d2ae7351405a192e6bbe12a48261aa77b53a2bd95d8840965039fe91d44",
+    "budgetSha256": "356f8f7c05ddd41c2f5a6546fab47b15ea031aef789b265a37f11d5a2dd3b9f1",
     "catalogSha256": "29147771c6221aab1a1e941b9c68baa2703b15dc628921790dd8af0aeb0dbfd7",
     "fixtureSha256": "e62602a56190de45ad27adf4b9c4d0ed852c144d9304aab088b18bc4c06118fa",
     "runnerSha256": "38d7484da8794a967656f6e6e5e3caaef7cbe9728431867a1be4b016fa5d9a87",
@@ -18,10 +18,10 @@
   "assets": [
     {
       "path": "dist/app.js",
-      "sha256": "fb3490c91562ac386515a2c03891634435ae2fe7f4be9845f8e61a43ba1454bc",
-      "rawBytes": 47544,
-      "gzipBytes": 11257,
-      "brotliBytes": 9673
+      "sha256": "606d0e9afd647fdd4f82e96f9d9525f36857b037f66543060733ab46672e71c2",
+      "rawBytes": 50521,
+      "gzipBytes": 11975,
+      "brotliBytes": 10318
     },
     {
       "path": "dist/assets/favicon.svg",
@@ -45,6 +45,13 @@
       "brotliBytes": 632
     },
     {
+      "path": "dist/content-localization.js",
+      "sha256": "08a79c893ce14865bdd3a260522424cd0d5ac588c498a90e80c35ecd9e009896",
+      "rawBytes": 1952,
+      "gzipBytes": 822,
+      "brotliBytes": 667
+    },
+    {
       "path": "dist/data/catalog-v3.json",
       "sha256": "29147771c6221aab1a1e941b9c68baa2703b15dc628921790dd8af0aeb0dbfd7",
       "rawBytes": 2763719,
@@ -59,6 +66,13 @@
       "brotliBytes": 6548
     },
     {
+      "path": "dist/discovery-search.js",
+      "sha256": "59e27362cde31daa789d076095815ec3abd4ae9383579dbdfb847f3aaa67fe15",
+      "rawBytes": 3649,
+      "gzipBytes": 1373,
+      "brotliBytes": 1144
+    },
+    {
       "path": "dist/favorites.js",
       "sha256": "b296112ae9325e78b2e5a127379371aa7457ff527babc180082a7a919d4a18c2",
       "rawBytes": 1357,
@@ -67,24 +81,24 @@
     },
     {
       "path": "dist/i18n.js",
-      "sha256": "5af695291f975fd47201c05436c58c278f134bc11350fa753355a84e09c85e18",
-      "rawBytes": 5403,
-      "gzipBytes": 1773,
-      "brotliBytes": 1506
+      "sha256": "cad06009956d44598330d6786d23bcc2ded8f6ba079e48abf4da5eefca8e2f46",
+      "rawBytes": 5702,
+      "gzipBytes": 1854,
+      "brotliBytes": 1562
     },
     {
       "path": "dist/i18n/en.json",
-      "sha256": "831fb7dcdebb42707416d432b6283a3dbc88a4cfd96d8ebb65498c511e557eb8",
-      "rawBytes": 32740,
-      "gzipBytes": 8523,
-      "brotliBytes": 7143
+      "sha256": "3bdc91a2db361989a60145935ecd240e3dc81ffacc904244841cf66ef65c0ba5",
+      "rawBytes": 33240,
+      "gzipBytes": 8668,
+      "brotliBytes": 7255
     },
     {
       "path": "dist/index.html",
-      "sha256": "e6b431b41578db711c9388f81969134354d9a2b95640e8eac0dc3dbb57491cad",
-      "rawBytes": 350622,
-      "gzipBytes": 84349,
-      "brotliBytes": 68364
+      "sha256": "b1e9f079887616847627786a5d930f6a137fb0bccf52aecbb8a9d1f1e976201e",
+      "rawBytes": 351574,
+      "gzipBytes": 84470,
+      "brotliBytes": 68501
     },
     {
       "path": "dist/locale-navigation.js",
@@ -95,10 +109,10 @@
     },
     {
       "path": "dist/mind-map.js",
-      "sha256": "62dcc75bf7139acc9f2ae98fdf026649f4d3bc5cc4772a6f1cf82ce8e14289e0",
-      "rawBytes": 32297,
-      "gzipBytes": 7857,
-      "brotliBytes": 6863
+      "sha256": "3fbed931ff142ae1dd0694ebe77cbb66ad5cf2b16def83d9dc4bd7da480b4900",
+      "rawBytes": 33819,
+      "gzipBytes": 8206,
+      "brotliBytes": 7194
     },
     {
       "path": "dist/needs.js",
@@ -221,6 +235,8 @@
         "dist/search-query-state.js",
         "dist/i18n.js",
         "dist/locale-navigation.js",
+        "dist/content-localization.js",
+        "dist/discovery-search.js",
         "dist/favorites.js",
         "dist/catalog-metadata.js",
         "dist/search/concepts-v1.js",
@@ -230,27 +246,27 @@
         "dist/catalog-data.js",
         "dist/assets/favicon.svg"
       ],
-      "rawBytes": 3345089,
-      "gzipBytes": 641923,
-      "brotliBytes": 506891,
+      "rawBytes": 3356940,
+      "gzipBytes": 645532,
+      "brotliBytes": 509983,
       "checks": [
         {
           "id": "raw-bytes",
-          "actual": 3345089,
+          "actual": 3356940,
           "operator": "<=",
           "maximum": 3900000,
           "passed": true
         },
         {
           "id": "gzip-bytes",
-          "actual": 641923,
+          "actual": 645532,
           "operator": "<=",
           "maximum": 675000,
           "passed": true
         },
         {
           "id": "brotli-bytes",
-          "actual": 506891,
+          "actual": 509983,
           "operator": "<=",
           "maximum": 525000,
           "passed": true

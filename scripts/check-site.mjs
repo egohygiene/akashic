@@ -11,6 +11,8 @@ import { parseSiteGuide, SITE_GUIDE_TEMPLATES } from "./lib/guide.mjs";
 import { urlIdentity } from "./lib/url-identity.mjs";
 import { decodeCatalog } from "../site/catalog-data.js";
 import { buildCivicPage, CIVIC_CHAPTERS, parseCivicMarkdown } from "./lib/civic-tasks.mjs";
+import { createContentSources, validateContentOverlays } from "./lib/content-overlays.mjs";
+import { NEED_PATHS } from "../site/needs.js";
 
 const root = process.cwd();
 const output = path.join(root, "dist");
@@ -254,6 +256,11 @@ for (const source of funding.sources) {
   fundingUrls.add(source.url);
 }
 const locales = await loadLocales(output);
+for (const module of ["content-localization.js", "discovery-search.js", "atlas-language.js"]) await access(path.join(output, module));
+const contentDocument = JSON.parse(await readFile(path.join(root, "localization", "content-overlays-v1.json"), "utf8"));
+const contentSources = createContentSources({ catalog, atlas, needs: NEED_PATHS, englishMessages: locales.catalogs.get("en") });
+const contentOverlays = validateContentOverlays(contentDocument, { sources: contentSources, locales });
+deepStrictEqual(JSON.parse(await readFile(path.join(root, "localization", "review-report-v1.json"), "utf8")), contentOverlays.report, "The translation review report must match current canonical sources and candidates.");
 const pages = ["index.html", "dashboard.html", "atlas.html"];
 for (const locale of locales.locales) {
   await access(path.join(output, "i18n", `${locale.code}.json`));
@@ -283,6 +290,19 @@ for (const locale of locales.locales) {
       return JSON.parse(matches[0][1]);
     };
     const config = embeddedJson("akashic-locale-config");
+    const publishedContent = contentOverlays.published.filter((entry) => entry.locale === locale.code);
+    if (publishedContent.length) deepStrictEqual(embeddedJson("akashic-content-overlays"), publishedContent, `Only reviewed-current content may publish in ${relativePath}.`);
+    else if (html.includes('id="akashic-content-overlays"')) throw new Error(`Empty or unreviewed content must not add a translation payload in ${relativePath}.`);
+    if (fileName === "atlas.html") {
+      const notice = `<p class="atlas-source-language-notice" id="atlas-source-language-notice" lang="${locale.code}">${escapeHtml(locales.catalogs.get(locale.code)["runtime.atlas.sourceLanguageNotice"])}</p>`;
+      if (!html.includes(notice)) throw new Error(`The complete localized Atlas source-language disclosure is missing in ${relativePath}.`);
+      for (const place of atlas.locations) {
+        if (!html.includes(`data-location-id="${place.id}"`)) throw new Error(`Native place fallback ${place.id} is missing in ${relativePath}.`);
+        const source = atlas.resources.find((resource) => resource.locationId === place.id && resource.provenance?.kind === "place-file")?.source || place.source;
+        await access(path.join(root, source));
+        if (!html.includes(`href="https://github.com/egohygiene/akashic/blob/main/${source}"`)) throw new Error(`No-JavaScript place source ${place.id} is missing in ${relativePath}.`);
+      }
+    }
     if (config.defaultLocale !== locales.defaultLocale || config.activeLocale !== locale.code || config.page !== fileName || JSON.stringify(config.locales.map((entry) => entry.code)) !== JSON.stringify(locales.locales.map((entry) => entry.code))) throw new Error(`The locale configuration is inconsistent in ${relativePath}.`);
     const embeddedMessages = embeddedJson("akashic-i18n-messages");
     strictEqual(embeddedMessages.locale, locale.code, `The embedded locale differs in ${relativePath}.`);
@@ -298,7 +318,8 @@ for (const locale of locales.locales) {
     if (html.includes("<!-- akashic-locale-") || html.includes("<!-- akashic-language-switcher -->")) throw new Error(`Locale placeholders remain in ${relativePath}.`);
     if (locale.code === locales.defaultLocale && html.includes('class="locale-coverage"')) throw new Error(`The canonical locale should not show a translation-coverage warning in ${relativePath}.`);
     if (locale.code !== locales.defaultLocale) {
-      if (!html.includes('class="locale-coverage"') || !html.includes(escapeHtml(locales.catalogs.get(locale.code)["static.localeCoverage.copy"]))) throw new Error(`The translation coverage notice is incomplete in ${relativePath}.`);
+      const coverageKey = publishedContent.length ? "runtime.contentCoverage.copy" : "static.localeCoverage.copy";
+      if (!html.includes('class="locale-coverage"') || !html.includes(escapeHtml(locales.catalogs.get(locale.code)[coverageKey]))) throw new Error(`The translation coverage notice is incomplete in ${relativePath}.`);
       if (!html.includes('href="../styles.css"') || !html.includes('src="../')) throw new Error(`Localized routes do not reuse root assets in ${relativePath}.`);
     }
     if ((locale.status === "draft") !== html.includes('id="locale-draft"')) throw new Error(`The AI draft disclosure is inconsistent in ${relativePath}.`);

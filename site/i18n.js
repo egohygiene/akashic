@@ -1,4 +1,5 @@
 import { createLocaleUrl, createTranslator, preferredLocale, shouldRestoreLocale, supportedLocale } from "./locale-navigation.js";
+import { contentTopicId, createContentLocalization } from "./content-localization.js";
 
 const LOCALE_STORAGE_KEY = "akashic-locale";
 function readJson(id) {
@@ -34,6 +35,10 @@ export const number = translator.number;
 export const percent = translator.percent;
 export const locale = activeLocale;
 export const canonicalContentLanguage = activeLocale === defaultLocale ? "" : defaultLocale;
+const content = createContentLocalization(activeLocale, readJson("akashic-content-overlays"));
+export const contentLabel = content.label;
+export const contentAliases = content.aliases;
+export { contentTopicId };
 
 const locales = config?.locales || [];
 const active = supportedLocale(activeLocale, locales);

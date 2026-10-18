@@ -19,6 +19,7 @@ Protect both products. A change is incomplete when the Markdown is correct but t
 - Files under `site/` are the canonical portal source.
 - Task chapters registered in `scripts/lib/civic-tasks.mjs` under `docs/civic/` are canonical; `schemas/civic-task-v1.schema.json` and `docs/civic-tasks.md` define its derived record and privacy/freshness contracts. Keep task facts in Markdown, never in generated HTML or a second authored catalog.
 - `site/i18n/locales.json` and `site/i18n/*.json` are the canonical locale registry and interface message catalogs.
+- `localization/content-overlays-v1.json` owns source-bound content translation candidates and human language review records; `localization/pilot-inventory-v1.json` records their bounded targets. `localization/review-report-v1.json` is a deterministic derived review report, never a second resource catalog.
 - `atlas/locations.json`, `atlas/locations/*.json`, `atlas/identifiers/*.json`, `atlas/jurisdictions.json`, `atlas/jurisdiction-sources.json`, `atlas/applicability.json`, and `atlas/places/*.md` are the canonical Atlas hierarchy manifest, country location sources, identifiers, legal-jurisdiction model, jurisdiction-source coverage, main-catalog associations, and place resources.
 - Files under `scripts/` define collection validation and portal generation.
 - Files under `dist/` are generated output. Never hand-edit them, and do not include regenerated output in a change unless explicitly requested.
@@ -261,6 +262,7 @@ For every interface change:
 - Mark canonical English resource, taxonomy, advisory, place, and theme content with `lang="en"` when it appears inside a non-English document.
 - Never infer locale from IP address or use flags as language labels. Preserve a user's explicit language choice and URL state.
 - Treat machine translation as a draft requiring human review. Follow `docs/localization.md` when adding a locale or expanding the translation boundary.
+- Publish content overlays only through `scripts/lib/content-overlays.mjs`: reviewed status, an exact translation review fingerprint, and current canonical source bindings are all required. Draft, stale, withdrawn, and orphaned candidates fall back without changing canonical identity or source facts. After building, verify `node scripts/validate-content-overlays.mjs --verify` and `node scripts/evaluate-localization.mjs --verify-report research/search/results/localization-discovery-v1.json`.
 
 ### Need-first navigation and guides
 

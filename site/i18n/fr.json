@@ -479,6 +479,10 @@
     "runtime.unit.topic.zero": "{count} thème",
     "runtime.unit.topic.two": "{count} thèmes",
     "runtime.unit.branch.zero": "{count} branche",
-    "runtime.unit.branch.two": "{count} branches"
+    "runtime.unit.branch.two": "{count} branches",
+    "runtime.atlas.sourceLanguageLabel": "Langue de la source",
+    "runtime.atlas.sourceLanguageUnknown": "Non renseignée",
+    "runtime.atlas.sourceLanguageNotice": "La traduction des noms de lieux ne traduit pas les ressources liées. Les langues des sources ne sont affichées que si elles sont explicitement renseignées.",
+    "runtime.contentCoverage.copy": "Certaines étiquettes de navigation ont des traductions relues. Les autres étiquettes et les textes des ressources restent dans leur version anglaise de référence. Une étiquette traduite ne change pas la langue de la ressource liée."
   }
 }

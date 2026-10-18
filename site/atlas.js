@@ -1,5 +1,6 @@
-import { canonicalContentLanguage, number, plural, t } from "./i18n.js";
+import { canonicalContentLanguage, contentLabel, locale, number, plural, t } from "./i18n.js";
 import { createAtlasRendererRegistry } from "./atlas-renderers.js";
+import { atlasPlaceLabel, atlasSourceLanguages } from "./atlas-language.js";
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 const ATLAS_SCHEMA_VERSION = 3;
@@ -30,6 +31,7 @@ const selectors = {
   availableResourceCount: document.querySelector("#atlas-available-resource-count"),
   resourceNav: document.querySelector("#atlas-resource-nav"),
   resourceGroups: document.querySelector("#atlas-resource-groups"),
+  sourceLanguageNotice: document.querySelector("#atlas-source-language-notice"),
   empty: document.querySelector("#atlas-empty"),
   zoomOut: document.querySelector("#atlas-zoom-out"),
   zoomIn: document.querySelector("#atlas-zoom-in"),
@@ -77,6 +79,7 @@ const state = {
   themes: null,
   geometryByDataset: new Map(),
   geometryReady: false,
+  directoryReady: false,
   locationById: null,
   inheritanceById: null,
   resourceByAssociationId: null,
@@ -97,6 +100,37 @@ function svgElement(name, attributes = {}) {
   const element = document.createElementNS(SVG_NS, name);
   for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, String(value));
   return element;
+}
+
+function placeLabel(location, field = "label") {
+  return atlasPlaceLabel(location, field, contentLabel);
+}
+
+function setLabel(node, label) {
+  node.textContent = label.text;
+  node.setAttribute("lang", label.lang);
+  node.setAttribute("dir", "auto");
+}
+
+// Keep the interface sentence in its language while isolating each content
+// label. A partially reviewed overlay can contain both translated and English
+// names; flattening the sentence would lose their individual language tags.
+function setMessage(node, key, values) {
+  const substitutions = Object.fromEntries(Object.entries(values).map(([name, value]) => [name, typeof value === "object" ? `{${name}}` : value]));
+  const message = t(key, substitutions);
+  const parts = [];
+  let offset = 0;
+  for (const match of message.matchAll(/\{([a-z][a-z0-9]*)\}/gi)) {
+    const label = values[match[1]];
+    if (!label || typeof label !== "object") continue;
+    parts.push(document.createTextNode(message.slice(offset, match.index)));
+    const span = document.createElement("bdi");
+    setLabel(span, label);
+    parts.push(span);
+    offset = match.index + match[0].length;
+  }
+  parts.push(document.createTextNode(message.slice(offset)));
+  node.replaceChildren(...parts);
 }
 
 function locationMap() {
@@ -149,8 +183,9 @@ function updatePlaceDirectoryLinks() {
 
 function renderPlaceDirectory(current) {
   const entries = directoryEntries();
-  selectors.directorySummary.textContent = t("runtime.atlas.placeDirectorySummary", { count: number(entries.length), name: current.name });
-  if (selectors.directoryList.childElementCount === 0) {
+  setMessage(selectors.directorySummary, "runtime.atlas.placeDirectorySummary", { count: number(entries.length), name: placeLabel(current) });
+  if (!state.directoryReady) {
+    selectors.directoryList.replaceChildren();
     for (const entry of entries) {
       const item = document.createElement("li");
       const link = document.createElement("a");
@@ -168,13 +203,16 @@ function renderPlaceDirectory(current) {
       const kind = document.createElement("small");
       kind.textContent = t(`runtime.atlas.kind.${entry.location.kind}`);
       const name = document.createElement("strong");
-      name.textContent = entry.location.name;
-      if (canonicalContentLanguage) name.lang = canonicalContentLanguage;
+      setLabel(name, placeLabel(entry.location));
       identity.append(kind, name);
       if (entry.path.length > 1) {
         const path = document.createElement("span");
-        path.textContent = entry.path.slice(0, -1).map((location) => location.shortName).join(" › ");
-        if (canonicalContentLanguage) path.lang = canonicalContentLanguage;
+        for (const [index, location] of entry.path.slice(0, -1).entries()) {
+          if (index) path.append(document.createTextNode(" › "));
+          const label = document.createElement("bdi");
+          setLabel(label, placeLabel(location, "shortLabel"));
+          path.append(label);
+        }
         identity.append(path);
       }
 
@@ -192,6 +230,7 @@ function renderPlaceDirectory(current) {
       item.append(link);
       selectors.directoryList.append(item);
     }
+    state.directoryReady = true;
   }
   for (const link of selectors.directoryList.querySelectorAll("a")) {
     link.href = placeHref(link.dataset.locationId);
@@ -225,8 +264,11 @@ function provenanceText(provenance, { inheritance = false } = {}) {
 function option(value, label, { canonical = false } = {}) {
   const node = document.createElement("option");
   node.value = value;
-  node.textContent = label;
-  if (canonical && canonicalContentLanguage) node.lang = canonicalContentLanguage;
+  if (typeof label === "object") setLabel(node, label);
+  else {
+    node.textContent = label;
+    if (canonical && canonicalContentLanguage) node.lang = canonicalContentLanguage;
+  }
   return node;
 }
 
@@ -239,17 +281,17 @@ function populatePlaceSelectors(location) {
   const root = byId.get(state.atlas.rootId);
 
   selectors.country.replaceChildren(option("", t("static.atlas.chooseCountry")));
-  for (const id of root.children) selectors.country.append(option(id, byId.get(id).name, { canonical: true }));
+  for (const id of root.children) selectors.country.append(option(id, placeLabel(byId.get(id))));
   selectors.country.value = selectedCountry?.id || "";
 
   selectors.region.replaceChildren(option("", selectedCountry ? t("runtime.atlas.chooseState") : t("static.atlas.chooseCountryFirst")));
   selectors.region.disabled = !selectedCountry;
-  for (const id of selectedCountry?.children || []) selectors.region.append(option(id, byId.get(id).name, { canonical: true }));
+  for (const id of selectedCountry?.children || []) selectors.region.append(option(id, placeLabel(byId.get(id))));
   selectors.region.value = selectedRegion?.id || "";
 
   selectors.locality.replaceChildren(option("", selectedRegion ? t("runtime.atlas.chooseCity") : t("static.atlas.chooseRegionFirst")));
   selectors.locality.disabled = !selectedRegion;
-  for (const id of selectedRegion?.children || []) selectors.locality.append(option(id, byId.get(id).shortName, { canonical: true }));
+  for (const id of selectedRegion?.children || []) selectors.locality.append(option(id, placeLabel(byId.get(id), "shortLabel")));
   selectors.locality.value = selectedLocality?.id || "";
 }
 
@@ -260,8 +302,7 @@ function renderBreadcrumb(location) {
     if (index) selectors.breadcrumb.append(Object.assign(document.createElement("i"), { textContent: "›" }));
     const button = document.createElement("button");
     button.type = "button";
-    button.textContent = item.shortName;
-    if (canonicalContentLanguage) button.lang = canonicalContentLanguage;
+    setLabel(button, placeLabel(item, "shortLabel"));
     if (item.id === location.id) button.setAttribute("aria-current", "location");
     else button.addEventListener("click", () => setLocation(item.id, { focus: true }));
     selectors.breadcrumb.append(button);
@@ -327,17 +368,25 @@ function normalizedGeometryId(definition, id) {
   return String(id).padStart(definition.idWidth, "0");
 }
 
-function addTitle(element, text) {
+function addTitle(element, label) {
   const title = svgElement("title");
-  title.textContent = text;
+  if (typeof label === "object") setLabel(title, label);
+  else {
+    title.textContent = label;
+    title.setAttribute("lang", "en");
+  }
   element.append(title);
+  return title;
 }
 
-function makeInteractive(element, locationId, name) {
+function makeInteractive(element, locationId, label) {
   element.classList.add("has-coverage");
   element.setAttribute("role", "button");
   element.setAttribute("tabindex", "0");
-  element.setAttribute("aria-label", t("runtime.atlas.open", { name }));
+  const title = element.querySelector("title") || addTitle(element, label);
+  setLabel(title, label);
+  title.id = `atlas-place-map-label-${locationId}`;
+  element.setAttribute("aria-labelledby", title.id);
   const activate = () => setLocation(locationId, { focus: true });
   element.addEventListener("click", activate);
   element.addEventListener("keydown", (event) => {
@@ -400,10 +449,10 @@ function drawBoundaryOverview(location, datasetId) {
       class: "atlas-shape",
       d: pathFromRings(ringsForGeometry(topology, geometry), definition.project, definition.splitWidth),
     });
-    const name = geometry.properties?.name || `${definition.featureLabel} ${geometry.id}`;
-    addTitle(path, name);
     const child = childrenByGeometryId.get(normalizedGeometryId(definition, geometry.id));
-    if (child) makeInteractive(path, child.id, child.name);
+    const label = child ? placeLabel(child) : { text: geometry.properties?.name || `${definition.featureLabel} ${geometry.id}`, lang: "en" };
+    addTitle(path, label);
+    if (child) makeInteractive(path, child.id, label);
     selectors.map.append(path);
   }
   return true;
@@ -448,7 +497,7 @@ function drawRegion(location) {
   setBaseViewBox(bbox.minX - padding, bbox.minY - padding, bbox.width + padding * 2, bbox.height + padding * 2);
   selectors.map.append(svgElement("rect", { class: "atlas-ocean", x: bbox.minX - padding, y: bbox.minY - padding, width: bbox.width + padding * 2, height: bbox.height + padding * 2 }));
   const path = svgElement("path", { class: "atlas-shape has-coverage is-selected", d: pathFromRings(rings) });
-  addTitle(path, region.name);
+  addTitle(path, placeLabel(region));
   selectors.map.append(path);
 
   for (const childId of region.children) {
@@ -470,10 +519,11 @@ function drawLocalityMarker(location, bbox, selected) {
   marker.append(svgElement("circle", { class: "marker-ring", r: radius * 1.35 }));
   marker.append(svgElement("circle", { class: "marker-core", r: radius * .46 }));
   const label = svgElement("text", { x: radius * 2.2, y: -radius * 1.7, "font-size": radius * 2.3, "stroke-width": radius * .55 });
-  label.textContent = location.shortName;
+  setLabel(label, placeLabel(location, "shortLabel"));
   marker.append(label);
-  addTitle(marker, selected ? t("runtime.atlas.selected", { name: location.name }) : location.name);
-  if (!selected) makeInteractive(marker, location.id, location.name);
+  addTitle(marker, placeLabel(location));
+  if (selected) marker.setAttribute("aria-current", "location");
+  if (!selected) makeInteractive(marker, location.id, placeLabel(location));
   selectors.map.append(marker);
 }
 
@@ -505,17 +555,21 @@ function renderMap(location) {
   selectors.theme.disabled = !available;
   const kind = t(`runtime.atlas.kind.${location.kind}`);
   selectors.level.textContent = t("runtime.atlas.view", { kind });
-  selectors.title.textContent = location.kind === "world" ? t("static.atlas.exploreMap") : location.name;
-  if (canonicalContentLanguage && location.kind !== "world") selectors.title.lang = canonicalContentLanguage;
-  else selectors.title.removeAttribute("lang");
+  if (location.kind === "world") {
+    selectors.title.textContent = t("static.atlas.exploreMap");
+    selectors.title.removeAttribute("lang");
+    selectors.title.removeAttribute("dir");
+  } else setLabel(selectors.title, placeLabel(location));
 }
 
 function renderPlacePanel(location) {
   const children = childLocations(location);
   selectors.placeKind.textContent = t(`runtime.atlas.kind.${location.kind}`);
-  selectors.placeTitle.textContent = location.kind === "world" ? t("static.atlas.growing") : location.name;
-  if (canonicalContentLanguage && location.kind !== "world") selectors.placeTitle.lang = canonicalContentLanguage;
-  else selectors.placeTitle.removeAttribute("lang");
+  if (location.kind === "world") {
+    selectors.placeTitle.textContent = t("static.atlas.growing");
+    selectors.placeTitle.removeAttribute("lang");
+    selectors.placeTitle.removeAttribute("dir");
+  } else setLabel(selectors.placeTitle, placeLabel(location));
   selectors.placeCopy.textContent = copyByKind[location.kind] || copyByKind.locality;
   // This is an explicitly scoped editorial chapter, not an applicability edge.
   selectors.civicGuide.hidden = location.id !== "us-ma";
@@ -524,7 +578,10 @@ function renderPlacePanel(location) {
   selectors.childCount.textContent = number(children.length);
   selectors.openChild.hidden = children.length !== 1;
   if (children.length === 1) {
-    selectors.openChild.firstChild.textContent = t("runtime.atlas.openChild", { name: children[0].shortName });
+    const arrow = selectors.openChild.querySelector("span[aria-hidden]");
+    const label = document.createElement("span");
+    setMessage(label, "runtime.atlas.openChild", { name: placeLabel(children[0], "shortLabel") });
+    selectors.openChild.replaceChildren(label, document.createTextNode(" "), arrow);
     selectors.openChild.onclick = () => setLocation(children[0].id, { focus: true });
   }
 }
@@ -564,13 +621,13 @@ function renderResourceGroups(location) {
   const visibleViews = state.resourceSection ? views.filter(({ resource }) => resource.section === state.resourceSection) : views;
   selectors.resourceGroups.replaceChildren();
   selectors.empty.hidden = views.length > 0;
-  selectors.resourceSummary.textContent = views.length
-    ? state.resourceSection
-      ? t("runtime.atlas.summaryFiltered", { visible: number(visibleViews.length), total: number(views.length), name: location.name })
-      : state.resourceScope === "local"
-        ? t("runtime.atlas.summaryLocal", { resources: plural("runtime.unit.resource", views.length), name: location.name })
-        : t("runtime.atlas.summaryAvailable", { resources: plural("runtime.unit.resource", views.length), name: location.name, inherited: number(location.inheritedResourceCount) })
-    : t(state.resourceScope === "local" ? "runtime.atlas.summaryEmptyLocal" : "runtime.atlas.summaryEmpty", { kind: t(`runtime.atlas.kind.${location.kind}`), name: location.name });
+  const summaryKey = views.length
+    ? state.resourceSection ? "runtime.atlas.summaryFiltered" : state.resourceScope === "local" ? "runtime.atlas.summaryLocal" : "runtime.atlas.summaryAvailable"
+    : state.resourceScope === "local" ? "runtime.atlas.summaryEmptyLocal" : "runtime.atlas.summaryEmpty";
+  setMessage(selectors.resourceSummary, summaryKey, {
+    visible: number(visibleViews.length), total: number(views.length), name: placeLabel(location),
+    resources: plural("runtime.unit.resource", views.length), inherited: number(location.inheritedResourceCount), kind: t(`runtime.atlas.kind.${location.kind}`),
+  });
   for (const button of selectors.resourceNav.querySelectorAll("button")) button.setAttribute("aria-pressed", String(button.dataset.section === state.resourceSection));
   const grouped = new Map();
   for (const view of visibleViews) {
@@ -578,6 +635,7 @@ function renderResourceGroups(location) {
     if (!grouped.has(key)) grouped.set(key, []);
     grouped.get(key).push(view);
   }
+  let cardIndex = 0;
   for (const [key, entries] of grouped) {
     const [sourceLocationId, section] = key.split("\u0000");
     const inherited = entries[0].placement.relationship === "inherited";
@@ -585,8 +643,11 @@ function renderResourceGroups(location) {
     const group = document.createElement("section");
     group.className = "atlas-resource-group";
     const heading = document.createElement("h3");
-    heading.textContent = inherited ? t("runtime.atlas.inheritedGroup", { name: sourceLocation.name, section }) : section;
-    if (canonicalContentLanguage) heading.lang = canonicalContentLanguage;
+    if (inherited) {
+      const label = document.createElement("span");
+      setMessage(label, "runtime.atlas.inheritedGroup", { name: placeLabel(sourceLocation), section: { text: section, lang: "en" } });
+      heading.append(label);
+    } else setLabel(heading, { text: section, lang: "en" });
     const hasIndexes = entries.some(({ resource }) => resource.role === "index");
     if (hasIndexes) group.classList.add("has-indexes");
     if (inherited) group.classList.add("is-inherited");
@@ -599,6 +660,8 @@ function renderResourceGroups(location) {
       card.href = resource.url;
       card.target = "_blank";
       card.rel = "noreferrer";
+      const languages = atlasSourceLanguages(resource, locale, t("runtime.atlas.sourceLanguageUnknown"));
+      if (languages.linkLanguage) card.hreflang = languages.linkLanguage;
       const domain = document.createElement("span");
       const labels = [];
       if (resource.role === "index") labels.push(t("runtime.atlas.directory"));
@@ -609,7 +672,7 @@ function renderResourceGroups(location) {
       context.className = "atlas-resource-context";
       const scope = document.createElement("span");
       scope.className = `atlas-resource-scope is-${placement.relationship}`;
-      scope.textContent = t(`runtime.atlas.scope.${placement.relationship}`, { name: sourceLocation.name });
+      setMessage(scope, `runtime.atlas.scope.${placement.relationship}`, { name: placeLabel(sourceLocation) });
       const provenanceLabels = [provenanceText(resource.provenance)];
       if (placement.relationship === "inherited") {
         const inheritanceProvenance = new Map(placement.inheritancePath
@@ -625,13 +688,19 @@ function renderResourceGroups(location) {
         provenance.textContent = label;
         context.append(provenance);
       }
-      card.setAttribute("aria-label", t("runtime.atlas.resourceAria", { title: resource.title, scope: scope.textContent, provenance: provenanceLabels.join("; ") }));
+      const sourceLanguage = document.createElement("span");
+      sourceLanguage.className = "atlas-source-language";
+      sourceLanguage.textContent = `${t("runtime.atlas.sourceLanguageLabel")}: ${languages.labels.join(", ")}`;
+      context.append(sourceLanguage);
       const title = document.createElement("strong");
-      title.textContent = resource.title;
-      if (canonicalContentLanguage) title.lang = canonicalContentLanguage;
+      setLabel(title, { text: resource.title, lang: "en" });
+      title.id = `atlas-resource-title-${cardIndex}`;
+      context.id = `atlas-resource-context-${cardIndex}`;
+      cardIndex += 1;
+      card.setAttribute("aria-labelledby", title.id);
+      card.setAttribute("aria-describedby", context.id);
       const description = document.createElement("p");
-      description.textContent = resource.description;
-      if (canonicalContentLanguage) description.lang = canonicalContentLanguage;
+      setLabel(description, { text: resource.description, lang: "en" });
       const visit = document.createElement("span");
       visit.textContent = t(resource.role === "index" ? "runtime.atlas.exploreDirectory" : "runtime.atlas.visitResource");
       card.append(domain, context, title, description, visit);
@@ -761,6 +830,10 @@ function bindEvents() {
 
 async function initialize() {
   setupPageTheme();
+  if (selectors.sourceLanguageNotice) {
+    selectors.sourceLanguageNotice.textContent = t("runtime.atlas.sourceLanguageNotice");
+    selectors.sourceLanguageNotice.removeAttribute("lang");
+  }
   try {
     const [atlas, themes] = await Promise.all([
       fetch(new URL("./data/atlas.json", import.meta.url)).then((response) => response.ok ? response.json() : Promise.reject(new Error("Atlas data did not load."))),

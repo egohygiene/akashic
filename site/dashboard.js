@@ -1,4 +1,4 @@
-import { canonicalContentLanguage, number, percent, plural, t } from "./i18n.js";
+import { canonicalContentLanguage, contentLabel, contentTopicId, number, percent, plural, t } from "./i18n.js";
 
 const THEME_KEY = "akashic-theme";
 const LEGACY_THEME_KEY = "ego-awesome-theme";
@@ -33,6 +33,10 @@ const elements = {
 const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
 const formatNumber = (value) => number(Number(value));
 const canonicalLanguageAttribute = canonicalContentLanguage ? ` lang="${canonicalContentLanguage}"` : "";
+const collectionLabel = (category) => contentLabel("collection", category.slug, category.title);
+const topicLabel = (category, group, section) => contentLabel("topic", contentTopicId(category, group, section), section);
+const labelAttributes = (label, canonical) => ` lang="${escapeHtml(label.lang)}"${label.translated ? ` title="${escapeHtml(canonical)}"` : ""}`;
+
 
 function readStorage(key) {
   try { return localStorage.getItem(key); } catch { return null; }
@@ -107,7 +111,7 @@ function renderDonut() {
   elements.donut.style.background = `conic-gradient(from -90deg, ${stops.join(", ")})`;
   elements.donutTotal.textContent = formatNumber(state.overview.resourceCount);
   const largest = [...state.overview.categories].sort((left, right) => right.count - left.count)[0];
-  elements.donut.setAttribute("aria-label", t("runtime.app.donutAria", { resources: plural("runtime.unit.resource", state.overview.resourceCount), collections: plural("runtime.unit.collection", state.overview.collectionCount), title: largest.title, largest: plural("runtime.unit.resource", largest.count) }));
+  elements.donut.setAttribute("aria-label", t("runtime.app.donutAria", { resources: plural("runtime.unit.resource", state.overview.resourceCount), collections: plural("runtime.unit.collection", state.overview.collectionCount), title: collectionLabel(largest).text, largest: plural("runtime.unit.resource", largest.count) }));
 }
 
 function renderLandscape() {
@@ -116,14 +120,15 @@ function renderLandscape() {
   elements.landscapeCount.textContent = plural("runtime.unit.collection", ranked.length);
   elements.collectionLandscape.innerHTML = ranked.map((category, index) => {
     const selected = category.slug === state.categorySlug;
+    const label = collectionLabel(category);
     return `<div class="landscape-row${selected ? " is-selected" : ""}" role="listitem" style="--row-color:${category.color};--row-width:${category.count / maximum * 100}%">
-      <button type="button" data-select-category="${escapeHtml(category.slug)}" aria-pressed="${selected}" aria-label="${escapeHtml(t("runtime.dashboard.inspectAria", { title: category.title, resources: plural("runtime.unit.resource", category.count), percent: formatPercent(category.count, state.overview.resourceCount) }))}">
+      <button type="button" data-select-category="${escapeHtml(category.slug)}" aria-pressed="${selected}" aria-label="${escapeHtml(t("runtime.dashboard.inspectAria", { title: label.text, resources: plural("runtime.unit.resource", category.count), percent: formatPercent(category.count, state.overview.resourceCount) }))}">
         <span class="landscape-rank" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>
         <span class="landscape-glyph" aria-hidden="true">${escapeHtml(category.glyph)}</span>
-        <span class="landscape-name"${canonicalLanguageAttribute}><strong>${escapeHtml(category.title)}</strong><i aria-hidden="true"><b></b></i></span>
+        <span class="landscape-name"${labelAttributes(label, category.title)}><strong>${escapeHtml(label.text)}</strong><i aria-hidden="true"><b></b></i></span>
         <span class="landscape-value"><strong>${formatNumber(category.count)}</strong><small>${formatPercent(category.count, state.overview.resourceCount)}</small></span>
       </button>
-      <a href="${escapeHtml(catalogUrl({ categorySlug: category.slug }))}" aria-label="${escapeHtml(t("runtime.dashboard.browseAria", { title: category.title }))}"><span>${escapeHtml(t("runtime.action.browse"))}</span><b aria-hidden="true">→</b></a>
+      <a href="${escapeHtml(catalogUrl({ categorySlug: category.slug }))}" aria-label="${escapeHtml(t("runtime.dashboard.browseAria", { title: label.text }))}"><span>${escapeHtml(t("runtime.action.browse"))}</span><b aria-hidden="true">→</b></a>
     </div>`;
   }).join("");
 }
@@ -145,7 +150,10 @@ function renderBranchDirectory(category) {
     return `<details class="branch-card"${index === 0 ? " open" : ""} style="--branch-color:${category.color}">
       <summary><span><small>${escapeHtml(t(group.slug ? "runtime.dashboard.branch" : "runtime.dashboard.directory"))}</small><strong${category.groups.length === 1 ? "" : canonicalLanguageAttribute}>${escapeHtml(title)}</strong></span><span>${escapeHtml(plural("runtime.unit.resource", group.count))} <i aria-hidden="true">⌄</i></span></summary>
       <div class="topic-directory">
-        ${group.sections.map((section) => `<a href="${escapeHtml(catalogUrl({ categorySlug: category.slug, groupSlug: group.slug, section: section.title }))}"><span${canonicalLanguageAttribute}>${escapeHtml(section.title)}</span><strong>${formatNumber(section.count)}</strong></a>`).join("")}
+        ${group.sections.map((section) => {
+          const label = topicLabel(category.slug, group.slug, section.title);
+          return `<a href="${escapeHtml(catalogUrl({ categorySlug: category.slug, groupSlug: group.slug, section: section.title }))}"><span${labelAttributes(label, section.title)}>${escapeHtml(label.text)}</span><strong>${formatNumber(section.count)}</strong></a>`;
+        }).join("")}
       </div>
       <a class="branch-action" href="${escapeHtml(branchUrl)}">${escapeHtml(t(group.slug ? "runtime.dashboard.browseBranch" : "runtime.dashboard.browseCollection"))} <span aria-hidden="true">→</span></a>
     </details>`;
@@ -158,15 +166,18 @@ function renderCollectionProfile() {
   elements.profile.style.setProperty("--profile-color", category.color);
   elements.profileGlyph.style.setProperty("--profile-color", category.color);
   elements.profileGlyph.textContent = category.glyph;
-  elements.profileTitle.textContent = category.title;
-  elements.profileStatus.textContent = t("runtime.dashboard.profileStatus", { title: category.title, resources: plural("runtime.unit.resource", category.count) });
+  const label = collectionLabel(category);
+  elements.profileTitle.textContent = label.text;
+  elements.profileTitle.lang = label.lang;
+  if (label.translated) elements.profileTitle.title = category.title;
+  else elements.profileTitle.removeAttribute("title");
+  elements.profileStatus.textContent = t("runtime.dashboard.profileStatus", { title: label.text, resources: plural("runtime.unit.resource", category.count) });
   elements.profileCopy.textContent = category.description;
   if (canonicalContentLanguage) {
-    elements.profileTitle.lang = canonicalContentLanguage;
     elements.profileCopy.lang = canonicalContentLanguage;
   }
   elements.profileAction.href = catalogUrl({ categorySlug: category.slug });
-  elements.profileAction.setAttribute("aria-label", t("runtime.dashboard.exploreAllAria", { title: category.title }));
+  elements.profileAction.setAttribute("aria-label", t("runtime.dashboard.exploreAllAria", { title: label.text }));
   elements.collectionSelect.value = category.slug;
   renderProfileMetrics(category);
   renderBranchDirectory(category);
@@ -178,9 +189,10 @@ function renderSignalBars(container, items, options) {
     const href = options.href(item);
     const eyebrow = options.eyebrow(item);
     const title = options.title(item);
+    const titleLabel = options.titleLabel?.(item);
     return `<a class="signal-row" href="${escapeHtml(href)}" style="--signal-width:${item.count / maximum * 100}%;--signal-color:${escapeHtml(options.color(item))}">
       <span class="signal-rank">${String(index + 1).padStart(2, "0")}</span>
-      <span class="signal-copy"${options.canonical ? canonicalLanguageAttribute : ""}><small>${escapeHtml(eyebrow)}</small><strong>${escapeHtml(title)}</strong><i aria-hidden="true"><b></b></i></span>
+      <span class="signal-copy"><small>${Array.isArray(eyebrow) ? eyebrow.map((label) => `<span lang="${escapeHtml(label.lang)}">${escapeHtml(label.text)}</span>`).join(" · ") : escapeHtml(eyebrow)}</small><strong${titleLabel ? labelAttributes(titleLabel, title) : ""}>${escapeHtml(titleLabel?.text || title)}</strong><i aria-hidden="true"><b></b></i></span>
       <span class="signal-count">${formatNumber(item.count)}<small>${escapeHtml(t("runtime.metric.resources"))}</small></span>
       <span aria-hidden="true">→</span>
     </a>`;
@@ -190,17 +202,16 @@ function renderSignalBars(container, items, options) {
 function renderSignals() {
   renderSignalBars(elements.topicPaths, state.overview.topPaths, {
     href: (item) => catalogUrl({ categorySlug: item.categorySlug, groupSlug: item.groupSlug, section: item.title }),
-    eyebrow: (item) => item.groupSlug ? `${item.categoryTitle} · ${item.groupTitle}` : item.categoryTitle,
+    eyebrow: (item) => [contentLabel("collection", item.categorySlug, item.categoryTitle), ...(item.groupSlug ? [{ text: item.groupTitle, lang: "en" }] : [])],
     title: (item) => item.title,
+    titleLabel: (item) => topicLabel(item.categorySlug, item.groupSlug, item.title),
     color: (item) => item.categoryColor,
-    canonical: true,
   });
   renderSignalBars(elements.domainPaths, state.overview.topDomains, {
     href: (item) => catalogUrl({ domain: item.domain }),
     eyebrow: () => t("runtime.dashboard.sourceDomain"),
     title: (item) => item.domain,
     color: () => "var(--cyan)",
-    canonical: false,
   });
 }
 
@@ -246,8 +257,10 @@ async function initialize() {
   for (const category of state.overview.categories) {
     const option = document.createElement("option");
     option.value = category.slug;
-    option.textContent = `${category.title} · ${formatNumber(category.count)}`;
-    if (canonicalContentLanguage) option.lang = canonicalContentLanguage;
+    const label = collectionLabel(category);
+    option.textContent = `${label.text} · ${formatNumber(category.count)}`;
+    option.lang = label.lang;
+    if (label.translated) option.title = category.title;
     elements.collectionSelect.append(option);
   }
   renderMetrics();

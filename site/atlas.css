@@ -47,7 +47,7 @@
 .atlas-marker .marker-halo { fill: var(--atlas-marker); opacity: .15; transform-box: fill-box; transform-origin: center; animation: atlasPulse 2.4s ease-out infinite; }
 .atlas-marker .marker-ring { fill: var(--atlas-ocean); stroke: var(--atlas-marker); stroke-width: 3; vector-effect: non-scaling-stroke; }
 .atlas-marker .marker-core { fill: var(--atlas-marker); }
-.atlas-marker text { fill: var(--atlas-label); stroke: var(--atlas-ocean); paint-order: stroke; font-weight: 800; }
+.atlas-marker text { fill: var(--atlas-label); stroke: var(--atlas-ocean); paint-order: stroke; font-weight: 800; unicode-bidi: plaintext; }
 .atlas-marker:hover .marker-ring, .atlas-marker:focus .marker-ring { fill: var(--atlas-marker); outline: none; }
 .atlas-loading { position: absolute; inset: 0; display: grid; place-content: center; gap: 12px; background: var(--atlas-ocean); color: var(--atlas-label); text-align: center; }
 .atlas-loading span { color: var(--atlas-marker); font-size: 2rem; animation: atlasSpin 2.6s linear infinite; }
@@ -99,6 +99,7 @@
 .atlas-place-directory-metadata .is-current { border-color: color-mix(in srgb, var(--pink), transparent 45%); color: var(--pink); }
 
 .atlas-resources { padding: 120px 0 65px; }
+.atlas-source-language-notice { max-width: 780px; margin: 18px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.6; }
 .atlas-scope-filter { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 34px; padding: 12px; border: 1px solid var(--line); border-radius: 17px; background: var(--surface); }
 .atlas-scope-filter > p { margin-block: 0; margin-inline: 9px 0; color: var(--faint); font-size: .68rem; font-weight: 820; letter-spacing: .1em; text-transform: uppercase; }
 .atlas-scope-filter > div { display: flex; flex-wrap: wrap; gap: 7px; }
@@ -131,6 +132,8 @@
 .atlas-resource-card.is-index > span:first-child { color: var(--muted); font-weight: 780; }
 .atlas-resource-context { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
 .atlas-resource-context span { padding: 4px 7px; border: 1px solid var(--line); border-radius: 999px; color: var(--faint); font-size: .61rem; font-weight: 750; line-height: 1.2; }
+.atlas-resource-context bdi { unicode-bidi: isolate; }
+.atlas-resource-context .atlas-source-language { max-inline-size: 100%; overflow-wrap: anywhere; }
 .atlas-resource-context .atlas-resource-scope { border-color: color-mix(in srgb, var(--violet), transparent 58%); color: var(--muted); }
 .atlas-resource-context .atlas-resource-scope.is-inherited { border-color: color-mix(in srgb, var(--cyan), transparent 50%); color: color-mix(in srgb, var(--cyan), var(--text) 28%); }
 .atlas-resource-context .atlas-resource-scope.is-cross-associated { border-color: color-mix(in srgb, var(--pink), transparent 52%); color: color-mix(in srgb, var(--pink), var(--text) 28%); }
@@ -151,7 +154,7 @@
 .atlas-roadmap li > span { color: var(--pink); font-size: .7rem; font-weight: 850; }
 .atlas-roadmap strong { font-size: 1rem; }
 .atlas-roadmap p { margin: 7px 0 0; color: var(--muted); font-size: .82rem; line-height: 1.6; }
-:root[dir="rtl"] :is(.atlas-back > span, #atlas-open-child > span, .atlas-breadcrumb i) { display: inline-block; transform: scaleX(-1); }
+:root[dir="rtl"] :is(.atlas-back > span, #atlas-open-child > span[aria-hidden], .atlas-breadcrumb i) { display: inline-block; transform: scaleX(-1); }
 :root[dir="rtl"] .atlas-place-directory-list a[aria-current="location"] { box-shadow: inset -3px 0 0 var(--pink), var(--shadow-soft); }
 
 @keyframes atlasPulse { 0% { transform: scale(.72); opacity: .45; } 80%, 100% { transform: scale(1.65); opacity: 0; } }

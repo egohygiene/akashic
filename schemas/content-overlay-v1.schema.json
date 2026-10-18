@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/egohygiene/akashic/main/schemas/content-overlay-v1.schema.json",
+  "title": "Akashic offline content overlay v1",
+  "description": "Field-level translation drafts and human review provenance. The executable validator also resolves canonical identities, fingerprints, ambiguous aliases, and stale or removed sources. Only reviewed-current fields publish; machine output alone is never human review.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "sourceLanguage", "entries"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "sourceLanguage": { "const": "en" },
+    "entries": { "type": "array", "items": { "$ref": "#/$defs/entry" } }
+  },
+  "$defs": {
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240,
+      "description": "Trimmed single-line plain text. Markup, URLs, control characters and explicit bidi controls are rejected by executable validation."
+    },
+    "sourceText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240,
+      "description": "Exact trimmed canonical source evidence, not a display translation. Literal markup-like or URL-looking text is preserved for fingerprint comparison and never published as a label. Control and explicit bidi control characters are rejected."
+    },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "fields", "fingerprint"],
+      "properties": {
+        "revision": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "fingerprint": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+        "fields": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "title": { "$ref": "#/$defs/sourceText" },
+            "query": { "$ref": "#/$defs/sourceText" },
+            "collectionSlug": { "$ref": "#/$defs/slug" },
+            "groupSlug": { "type": "string", "pattern": "^(?:[a-z0-9]+(?:-[a-z0-9]+)*)?$" },
+            "name": { "$ref": "#/$defs/sourceText" },
+            "shortName": { "$ref": "#/$defs/sourceText" }
+          }
+        }
+      }
+    },
+    "translator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "name"],
+      "properties": {
+        "kind": { "enum": ["ai", "human"] },
+        "name": { "allOf": [{ "$ref": "#/$defs/text" }], "maxLength": 120 }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewer", "kind", "date", "fingerprint"],
+      "properties": {
+        "reviewer": { "allOf": [{ "$ref": "#/$defs/text" }], "maxLength": 120 },
+        "kind": { "const": "human" },
+        "date": { "type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "fingerprint": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$", "description": "fingerprintTranslation(entry), binding the entry ID, locale, canonical target, field, translated value, source snapshot/revision, and translator identity. Editing a bound value requires renewed human review." }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "locale", "target", "field", "value", "source", "translator", "status"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "locale": { "type": "string", "description": "Exact registered nondefault BCP 47 locale code; checked against site/i18n/locales.json." },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "id"],
+          "properties": {
+            "kind": { "enum": ["resource", "collection", "topic", "need", "place"] },
+            "id": { "type": "string", "minLength": 1, "description": "Stable entity ID. Resources require an explicit metadata ID. Topics use the exact JSON tuple [collectionSlug, groupSlug, sectionTitle], with an empty root group." }
+          }
+        },
+        "field": { "enum": ["label", "aliases", "shortLabel"] },
+        "value": {
+          "oneOf": [
+            { "$ref": "#/$defs/text" },
+            { "type": "array", "minItems": 1, "maxItems": 12, "uniqueItems": true, "items": { "allOf": [{ "$ref": "#/$defs/text" }], "maxLength": 120 } }
+          ]
+        },
+        "source": { "$ref": "#/$defs/source" },
+        "translator": { "$ref": "#/$defs/translator" },
+        "status": { "enum": ["draft", "reviewed", "stale", "withdrawn"] },
+        "review": { "$ref": "#/$defs/review" }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "const": "reviewed" } } }, "then": { "required": ["review"] } },
+        {
+          "if": { "properties": { "field": { "const": "aliases" } } },
+          "then": { "properties": { "value": { "type": "array" } } },
+          "else": { "properties": { "value": { "type": "string" } } }
+        },
+        {
+          "if": { "properties": { "target": { "properties": { "kind": { "const": "place" } } } } },
+          "then": { "properties": { "field": { "enum": ["label", "shortLabel"] } } },
+          "else": { "properties": { "field": { "enum": ["label", "aliases"] } } }
+        }
+      ]
+    }
+  }
+}
