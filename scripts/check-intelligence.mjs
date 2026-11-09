@@ -8,7 +8,8 @@ import {
   CURRENT_RELAY_REVISION,
   CURRENT_RELAY_VERSION,
   CURRENT_ROUTES,
-  ROUTE_REGISTRY
+  ROUTE_REGISTRY,
+  validateCurrentSourcePlan
 } from "./lib/intelligence-publication-profile.mjs";
 
 if (process.argv.length > 2) throw new Error("The intelligence check accepts no arguments.");
@@ -88,6 +89,8 @@ if (
 ) {
   throw new Error("The deterministic build manifest identities are inconsistent.");
 }
+
+validateCurrentSourcePlan(provenance, sourceCommit);
 
 const expectedContracts = {
   action_inputs: { schema: "egohygiene.relay.repository-intelligence-inputs/v1", version: 1 },

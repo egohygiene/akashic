@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 import process from "node:process";
 import { pathToFileURL } from "node:url";
-import { LEGACY_ROUTES, ROUTE_REGISTRY, publicationProfile } from "./lib/intelligence-publication-profile.mjs";
+import { LEGACY_ROUTES, ROUTE_REGISTRY, publicationProfile, validateCurrentSourcePlan } from "./lib/intelligence-publication-profile.mjs";
 
 // Historical inventory compatibility only; verification selects by exact pin.
 export const REQUIRED_ROUTES = Object.freeze([
@@ -207,6 +207,7 @@ export async function verifyPublicationOnce({ fallbackOrigin, origin, represente
   }
   const sourceBinding = { provenance_sha256: provenanceEvidence.sha256 };
   if (profile.manifest) {
+    validateCurrentSourcePlan(provenance, representedRevision);
     const manifestEvidence = await readPublicJson(origin, "intelligence/build-manifest.json", fetchImplementation);
     const manifest = manifestEvidence.document;
     if (
