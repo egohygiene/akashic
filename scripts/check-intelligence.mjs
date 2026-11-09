@@ -3,31 +3,18 @@ import { createHash } from "node:crypto";
 import { lstat, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
+import {
+  CURRENT_ENTRIES,
+  CURRENT_RELAY_REVISION,
+  CURRENT_RELAY_VERSION,
+  CURRENT_ROUTES,
+  ROUTE_REGISTRY
+} from "./lib/intelligence-publication-profile.mjs";
 
 if (process.argv.length > 2) throw new Error("The intelligence check accepts no arguments.");
 
 const intelligenceDirectory = path.join(process.cwd(), "dist", "intelligence");
-const expectedFiles = [
-  "build-manifest.json",
-  "compare",
-  "dashboard",
-  "decisions",
-  "dependencies",
-  "explorer.js",
-  "health",
-  "index.html",
-  "journey",
-  "now",
-  "provenance.json",
-  "releases",
-  "roadmap",
-  "search",
-  "site.css",
-  "site.js",
-  "styles.css",
-  "summary.json",
-  "work"
-];
+const expectedFiles = CURRENT_ENTRIES;
 const generatedFiles = (await readdir(intelligenceDirectory, { withFileTypes: true }))
   .map((entry) => entry.name)
   .sort();
@@ -75,13 +62,13 @@ if (
 
 if (
   provenance.generator?.name !== "egohygiene/relay/actions/repository-intelligence"
-  || provenance.generator?.version !== "1.6.0"
+  || provenance.generator?.version !== CURRENT_RELAY_VERSION
   || provenance.generator?.repository !== "egohygiene/relay"
   || provenance.generator?.immutable !== true
-  || provenance.generator?.source_commit !== "04bd32c8ef492418f47d6df6faee425d6888f341"
+  || provenance.generator?.source_commit !== CURRENT_RELAY_REVISION
   || provenance.generator?.source_ref !== provenance.generator?.source_commit
 ) {
-  throw new Error("The repository intelligence generator provenance is not the reviewed immutable Relay v1.6 package.");
+  throw new Error("The repository intelligence generator provenance is not the reviewed immutable Relay publisher.");
 }
 
 if (
@@ -96,8 +83,8 @@ if (
   buildManifest.consumer?.repository !== "egohygiene/akashic"
   || buildManifest.consumer?.revision !== sourceCommit
   || buildManifest.generator?.repository !== "egohygiene/relay"
-  || buildManifest.generator?.revision !== "04bd32c8ef492418f47d6df6faee425d6888f341"
-  || buildManifest.generator?.version !== "1.6.0"
+  || buildManifest.generator?.revision !== CURRENT_RELAY_REVISION
+  || buildManifest.generator?.version !== CURRENT_RELAY_VERSION
 ) {
   throw new Error("The deterministic build manifest identities are inconsistent.");
 }
@@ -122,22 +109,23 @@ if (!Number.isSafeInteger(buildManifest.source_epoch) || buildManifest.source_ep
   throw new Error("The deterministic build manifest source epoch is inconsistent.");
 }
 
-const expectedRoutes = [
-  "/intelligence/",
-  "/intelligence/compare/",
-  "/intelligence/dashboard/",
-  "/intelligence/decisions/",
-  "/intelligence/dependencies/",
-  "/intelligence/health/",
-  "/intelligence/journey/",
-  "/intelligence/now/",
-  "/intelligence/releases/",
-  "/intelligence/roadmap/",
-  "/intelligence/search/",
-  "/intelligence/work/"
-];
+const expectedRoutes = CURRENT_ROUTES;
 if (JSON.stringify(buildManifest.enabled_routes) !== JSON.stringify(expectedRoutes)) {
   throw new Error("The deterministic build manifest route inventory is incomplete.");
+}
+
+const routeManifest = JSON.parse(await readFile(path.join(intelligenceDirectory, "routes.json"), "utf8"));
+if (
+  routeManifest.schema !== "egohygiene.relay.repository-intelligence-routes/v1"
+  || routeManifest.schema_version !== 1
+  || routeManifest.profile !== "repository"
+  || routeManifest.repository !== "egohygiene/akashic"
+  || routeManifest.represented_commit !== sourceCommit
+  || Object.keys(ROUTE_REGISTRY).some((key) => routeManifest.registry?.[key] !== ROUTE_REGISTRY[key])
+  || !Array.isArray(routeManifest.routes)
+  || JSON.stringify(routeManifest.routes.map((route) => route?.canonical_route).sort()) !== JSON.stringify(expectedRoutes)
+) {
+  throw new Error("The repository route manifest does not match the reviewed source and registry profile.");
 }
 
 const manifestFiles = [];
@@ -177,4 +165,4 @@ if (
   throw new Error("The deterministic build manifest bundle digest is inconsistent.");
 }
 
-console.log("Verified the immutable, public-safe Relay v1.6 intelligence bundle for Akashic.");
+console.log("Verified the immutable, public-safe Relay repository-profile intelligence bundle for Akashic.");

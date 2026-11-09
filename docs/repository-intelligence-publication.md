@@ -8,7 +8,7 @@ Akashic owns the composition and deployment of its GitHub Pages site. Relay is a
 
 Akashic has file/directory prefix siblings such as `i18n.js` with `i18n/` and `search-lab.js` with `search/`. After Relay captures the baseline, the consumer workflow canonically sorts only the baseline's file records by their public relative paths. This semantics-preserving compatibility step satisfies Relay v1.6's closed verifier ordering without changing captured bytes, digests, routes, or deployed content.
 
-The current workflow pins Relay to reviewed revision `04bd32c8ef492418f47d6df6faee425d6888f341`, advancing from the v1.6.0 release pin `9a6315978766c336566b9fa7139b800fa8789ba5`. Read-only review, current composition and provenance verification use the same current revision; the fixed rollback retains its separate v1.3 pin. Every external action is pinned to a full commit SHA.
+The current workflow pins Relay to immutable candidate `49046d88ef6fe2e31e9a9f443a61157b598efb78` from [Relay #167](https://github.com/egohygiene/relay/pull/167), advancing from `04bd32c8ef492418f47d6df6faee425d6888f341`. Read-only review, controlled failure evidence, current composition and provenance verification use this same revision; the fixed rollback retains its separate v1.3 pin. Every external action is pinned to a full commit SHA. This pin adoption is a review candidate, not a new deployment or acceptance receipt.
 
 Pull requests run with read-only repository and Pages access. They build and validate the complete composed site and retain `akashic-composed-site-<revision>-<attempt>` plus `akashic-composition-evidence-<revision>-<attempt>` for 30 days. The deploy and live-verification jobs are structurally excluded from pull requests, including untrusted forks.
 
@@ -32,19 +32,39 @@ These retained files contain only public repository identifiers, immutable revis
 The composed site must retain `/` and all generated Repository Intelligence routes:
 
 - `/intelligence/`
+- `/intelligence/audits/`
 - `/intelligence/compare/`
 - `/intelligence/dashboard/`
 - `/intelligence/decisions/`
 - `/intelligence/dependencies/`
+- `/intelligence/diagnostics/`
+- `/intelligence/distribution/`
 - `/intelligence/health/`
+- `/intelligence/hygiene/`
+- `/intelligence/identity/`
 - `/intelligence/journey/`
 - `/intelligence/now/`
 - `/intelligence/releases/`
 - `/intelligence/roadmap/`
+- `/intelligence/sanity/`
 - `/intelligence/search/`
 - `/intelligence/work/`
 
 The canonical origin is `https://akashic.egohygiene.io/`. `https://egohygiene.github.io/akashic/` is a redirect-only fallback alias: every required route must redirect to its exact canonical counterpart rather than serving an independent mutable copy.
+
+The current bundle includes Relay's repository-profile `routes.json`, shared branding assets and graph enhancement. The six additional routes expose their explicit unsupported source boundaries; their presence does not establish conformance, ratification, audit completion, Identity adoption or channel delivery. `/intelligence/identity/` is the Intelligence evidence view; Relay does not take ownership of a consumer `/identity/` product. Declared aliases in the route manifest are metadata and do not create new redirects or overwrite Akashic routes.
+
+`scripts/lib/intelligence-publication-profile.mjs` binds the current 18-route inventory and current artifact entries to this exact Relay revision. The live verifier requires `--expected-relay-revision`: the current pin selects the registered repository profile, while only Relay `55587de4ff322931d401e964f5af0716633dd675` paired with Akashic `cfa0cb3a948cf57eac9503604c5d19fa42178b2b` selects the frozen 12-route recovery profile. Served provenance must identify that exact generator, source and version. Current publication also verifies the served build manifest and route registry binding. A current generator cannot satisfy the historical profile merely because its routes return HTTP 200. The live report records bounded evidence hashes and the manifest's declared bundle digest; the existing build-time checks remain responsible for complete payload inventory verification.
+
+## Current adoption checkpoint
+
+This change advances the shared publisher and its matching local admission metadata. It preserves the portal build, canonical and fallback origins, sole deployer, permissions, job conditions, deterministic double build, baseline sorting, evidence retention and frozen recovery inputs. It overlaps the older independent pin bumps in [Akashic #220](https://github.com/egohygiene/akashic/pull/220) and [#221](https://github.com/egohygiene/akashic/pull/221); those proposed `b4a88db` pins should be reconciled during review rather than merged over this newer candidate.
+
+Native collectors and external Observatory snapshots remain disabled. [Akashic #197](https://github.com/egohygiene/akashic/issues/197) still owns the reviewed roadmap source change: `AKA-Q03` is declared `ready` while its prerequisite `AKA-Q02` is `active`. This upgrade does not rewrite those states, populate unavailable semantic views, or establish roadmap acceptance. Reconcile that canonical declaration through human review before enabling roadmap collection.
+
+Validation for this adoption pass is limited to source review, JavaScript syntax and diff inspection. Tests, builds, CI, browser checks, hosted artifact review, current deployment and recovery rehearsal are deferred. Existing publication records remain historical evidence for their exact revisions.
+
+The deferred test pass must update the existing workflow pin constants and live-verifier fixtures for the mandatory expected Relay argument, exact current/recovery profile denials, and bounded provenance/manifest/routes responses. Existing fixtures still describe the previous publisher and HTTP-only verifier; no suite result is claimed for this candidate.
 
 ## Manual verification and controlled failure
 
