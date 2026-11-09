@@ -27,7 +27,7 @@ concurrency:
 env:
   CANONICAL_ORIGIN: "https://akashic.egohygiene.io/"
   FALLBACK_ORIGIN: "https://egohygiene.github.io/akashic/"
-  RELAY_REVISION: "9358083e6dd8b15a0f2a3bb23c0b1e2b3ea3b2ff"
+  RELAY_REVISION: "REVIEWED_INTELLIGENCE_RELAY_SHA"
   ROLLBACK_RELAY_REVISION: "55587de4ff322931d401e964f5af0716633dd675"
   ROLLBACK_REVISION: "cfa0cb3a948cf57eac9503604c5d19fa42178b2b"
   ROLLBACK_SITE_DIGEST: "sha256:969a3f82abf532ed936c2600fc73045f4df1775185d441168f74724754bcba28"
@@ -38,7 +38,7 @@ jobs:
     if: "${{ github.event_name != 'workflow_dispatch' || inputs.mode != 'rollback-v1.3' }}"
     permissions:
       contents: read
-    uses: egohygiene/relay/.github/workflows/repository-intelligence.yml@9358083e6dd8b15a0f2a3bb23c0b1e2b3ea3b2ff
+    uses: egohygiene/relay/.github/workflows/repository-intelligence.yml@REVIEWED_INTELLIGENCE_RELAY_SHA
     with:
       artifact-retention-days: 30
       max-depth: "10"
@@ -64,6 +64,10 @@ jobs:
     permissions:
       contents: read
       pages: read
+      actions: read
+      issues: read
+      pull-requests: read
+      checks: read
     outputs:
       deployment-mode: "${{ steps.identity.outputs.deployment-mode }}"
       represented-revision: "${{ steps.identity.outputs.represented-revision }}"
@@ -112,7 +116,7 @@ jobs:
       - name: Capture consumer routes before composition
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence-deployment-provenance v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@9358083e6dd8b15a0f2a3bb23c0b1e2b3ea3b2ff
+        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@REVIEWED_INTELLIGENCE_RELAY_SHA
         with:
           operation: capture-baseline
           consumer-revision: "${{ steps.identity.outputs.represented-revision }}"
@@ -143,14 +147,46 @@ jobs:
           )
           PYTHON
 
+      - name: Capture public Work, Health and Releases sources
+        id: public_sources
+        if: steps.identity.outputs.deployment-mode == 'current' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        uses: egohygiene/relay/actions/repository-intelligence-github-sources@REVIEWED_INTELLIGENCE_RELAY_SHA
+        with:
+          github-token: "${{ github.token }}"
+          include-titles: "true"
+
+      - name: Retain exact same-run source captures
+        id: source_capture_upload
+        if: steps.identity.outputs.deployment-mode == 'current' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        # Ordinary immutable source artifact; never a Pages upload.
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: "${{ steps.public_sources.outputs.artifact-name }}"
+          path: "${{ steps.public_sources.outputs.artifact-directory }}"
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Retain public source producer metadata
+        if: steps.identity.outputs.deployment-mode == 'current' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: "akashic-source-producer-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}"
+          path: "${{ steps.public_sources.outputs.producer-receipt }}"
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Generate current Repository Intelligence bundle
         id: intelligence_current_one
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence@9358083e6dd8b15a0f2a3bb23c0b1e2b3ea3b2ff
+        uses: egohygiene/relay/actions/repository-intelligence@REVIEWED_INTELLIGENCE_RELAY_SHA
         with:
           collect-journey: "true"
           search-attribution: "true"
+          collect-dependencies: "${{ steps.source_capture_upload.outputs.artifact-id != '' }}"
+          source-capture-artifact-id: "${{ steps.source_capture_upload.outputs.artifact-id }}"
+          source-capture-artifact-digest: "${{ steps.source_capture_upload.outputs.artifact-digest }}"
+          as-of: "${{ steps.public_sources.outputs.as-of }}"
 
       - name: Preserve first deterministic manifest
         if: steps.identity.outputs.deployment-mode == 'current'
@@ -163,10 +199,14 @@ jobs:
         id: intelligence_current_two
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence@9358083e6dd8b15a0f2a3bb23c0b1e2b3ea3b2ff
+        uses: egohygiene/relay/actions/repository-intelligence@REVIEWED_INTELLIGENCE_RELAY_SHA
         with:
           collect-journey: "true"
           search-attribution: "true"
+          collect-dependencies: "${{ steps.source_capture_upload.outputs.artifact-id != '' }}"
+          source-capture-artifact-id: "${{ steps.source_capture_upload.outputs.artifact-id }}"
+          source-capture-artifact-digest: "${{ steps.source_capture_upload.outputs.artifact-digest }}"
+          as-of: "${{ steps.public_sources.outputs.as-of }}"
 
       - name: Prove deterministic bundle reproduction
         if: steps.identity.outputs.deployment-mode == 'current'
@@ -188,17 +228,19 @@ jobs:
         uses: egohygiene/relay/actions/repository-intelligence@55587de4ff322931d401e964f5af0716633dd675
 
       - name: Verify complete Pages artifact
+        env:
+          REQUIRE_PUBLIC_SOURCE_CAPTURES: "${{ steps.identity.outputs.deployment-mode == 'current' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}"
         run: node scripts/check-intelligence.mjs
 
       - name: Verify current composition provenance and non-clobber boundary
         id: composition
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence-deployment-provenance v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@9358083e6dd8b15a0f2a3bb23c0b1e2b3ea3b2ff
+        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@REVIEWED_INTELLIGENCE_RELAY_SHA
         with:
           operation: verify-composition
           consumer-revision: "${{ steps.identity.outputs.represented-revision }}"
-          relay-revision: "9358083e6dd8b15a0f2a3bb23c0b1e2b3ea3b2ff"
+          relay-revision: "REVIEWED_INTELLIGENCE_RELAY_SHA"
           required-routes: >-
             ["/","/intelligence/","/intelligence/audits/","/intelligence/compare/",
             "/intelligence/dashboard/","/intelligence/decisions/",
@@ -386,11 +428,11 @@ jobs:
           ${{ needs.build.outputs.deployment-mode == 'current' &&
           steps.download_provenance.outcome == 'success' }}
         # egohygiene/relay repository-intelligence-deployment-provenance v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@9358083e6dd8b15a0f2a3bb23c0b1e2b3ea3b2ff
+        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@REVIEWED_INTELLIGENCE_RELAY_SHA
         with:
           operation: record-receipt
           consumer-revision: "${{ needs.build.outputs.represented-revision }}"
-          relay-revision: "9358083e6dd8b15a0f2a3bb23c0b1e2b3ea3b2ff"
+          relay-revision: "REVIEWED_INTELLIGENCE_RELAY_SHA"
           workflow-run-id: "${{ github.run_id }}"
           workflow-run-attempt: "${{ github.run_attempt }}"
           deployment-environment: github-pages
