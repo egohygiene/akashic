@@ -8,7 +8,7 @@ Akashic owns the composition and deployment of its GitHub Pages site. Relay is a
 
 Akashic has file/directory prefix siblings such as `i18n.js` with `i18n/` and `search-lab.js` with `search/`. After Relay captures the baseline, the consumer workflow canonically sorts only the baseline's file records by their public relative paths. This semantics-preserving compatibility step satisfies Relay v1.6's closed verifier ordering without changing captured bytes, digests, routes, or deployed content.
 
-The current workflow pins Relay to immutable candidate `49046d88ef6fe2e31e9a9f443a61157b598efb78` from [Relay #167](https://github.com/egohygiene/relay/pull/167), advancing from `04bd32c8ef492418f47d6df6faee425d6888f341`. Read-only review, controlled failure evidence, current composition and provenance verification use this same revision; the fixed rollback retains its separate v1.3 pin. Every external action is pinned to a full commit SHA. This pin adoption is a review candidate, not a new deployment or acceptance receipt.
+The current workflow pins Relay to immutable source `9358083e6dd8b15a0f2a3bb23c0b1e2b3ea3b2ff`, advancing from the portable-shell selection `49046d88ef6fe2e31e9a9f443a61157b598efb78` merged in [Akashic #223](https://github.com/egohygiene/akashic/pull/223). It adopts the merged Journey/Releases source composition in [Relay #169](https://github.com/egohygiene/relay/pull/169), the optional Search profile in [Relay #170](https://github.com/egohygiene/relay/pull/170), and their final shared action wiring. The source base for this consumer continuation is `4c7da1631d59ccc4f26fc6fdd7aee27bd719969f`. Read-only review, controlled failure evidence, current composition and provenance verification use this same exact Relay revision; frozen recovery retains its separate v1.3 pin. This adoption is a source-review candidate, not a new deployment or acceptance receipt.
 
 Pull requests run with read-only repository and Pages access. They build and validate the complete composed site and retain `akashic-composed-site-<revision>-<attempt>` plus `akashic-composition-evidence-<revision>-<attempt>` for 30 days. The deploy and live-verification jobs are structurally excluded from pull requests, including untrusted forks.
 
@@ -60,9 +60,39 @@ The current bundle includes Relay's repository-profile `routes.json`, shared bra
 
 This change advances the shared publisher and its matching local admission metadata. It preserves the portal build, canonical and fallback origins, sole deployer, permissions, job conditions, deterministic double build, baseline sorting, evidence retention and frozen recovery inputs. It overlaps the older independent pin bumps in [Akashic #220](https://github.com/egohygiene/akashic/pull/220) and [#221](https://github.com/egohygiene/akashic/pull/221); those proposed `b4a88db` pins should be reconciled during review rather than merged over this newer candidate.
 
-Native collectors and external Observatory snapshots remain disabled. [Akashic #197](https://github.com/egohygiene/akashic/issues/197) still owns the reviewed roadmap source change: `AKA-Q03` is declared `ready` while its prerequisite `AKA-Q02` is `active`. This upgrade does not rewrite those states, populate unavailable semantic views, or establish roadmap acceptance. Reconcile that canonical declaration through human review before enabling roadmap collection.
+The native source continuation selects only `collect-journey: true` and
+`search-attribution: true` in the current read-only review and both deterministic
+current builds. The same immutable Relay revision must appear in every current
+builder/provenance call and `CURRENT_RELAY_REVISION`. Generic Git commit titles
+and the represented commit's deterministic evaluation clock remain the defaults;
+the bounded 256-commit ancestry may be partial, and semantic history always is.
+Commit bodies, subjects, identities, paths and unresolved trailers do not become
+public graph or Search facts. Search attribution comes from the selected
+Observatory owner fields; opaque text is not reverse-engineered into a match.
+
+The current consumer check and current live profile require matching Journey
+and Search normalization receipts in public provenance. Original domain
+collector pins stay independent of the newer final Search normalization profile.
+The registered 18 routes and 30 top-level artifact entries remain unchanged;
+there is no additional Search asset. The exact frozen recovery profile bypasses
+these new adoption requirements and keeps its original generator and bytes.
+
+Roadmap, ADR, Work, Health and release/deployment captures, external snapshots and
+comparison inputs remain unselected. [Akashic #197](https://github.com/egohygiene/akashic/issues/197)
+still owns `AKA-Q03` ready versus prerequisite `AKA-Q02` active. This upgrade
+does not rewrite those declarations or establish roadmap acceptance. Retained
+Compare artifacts remain a later opt-in requiring two real compatible captures
+and an explicit baseline lease; this change supplies neither a baseline nor a
+synthetic comparison selection.
 
 Validation for this adoption pass is limited to source review, JavaScript syntax and diff inspection. Tests, builds, CI, browser checks, hosted artifact review, current deployment and recovery rehearsal are deferred. Existing publication records remain historical evidence for their exact revisions.
+
+Native Git trailer admission, the new normalization runtime, and the existing
+20-minute double-build budget remain unqualified until the deferred execution
+pass. A real native finding must fail the current build; this candidate does not
+weaken source validation or human authority to populate the pages. Existing main
+pushes may publish through the unchanged Akashic-owned Pages path if its gates
+succeed; a pin commit is not evidence that they did.
 
 The deferred test pass must update the existing workflow pin constants and live-verifier fixtures for the mandatory expected Relay argument, exact current/recovery profile denials, and bounded provenance/manifest/routes responses. Existing fixtures still describe the previous publisher and HTTP-only verifier; no suite result is claimed for this candidate.
 
