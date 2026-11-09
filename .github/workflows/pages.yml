@@ -27,7 +27,7 @@ concurrency:
 env:
   CANONICAL_ORIGIN: "https://akashic.egohygiene.io/"
   FALLBACK_ORIGIN: "https://egohygiene.github.io/akashic/"
-  RELAY_REVISION: "04bd32c8ef492418f47d6df6faee425d6888f341"
+  RELAY_REVISION: "49046d88ef6fe2e31e9a9f443a61157b598efb78"
   ROLLBACK_RELAY_REVISION: "55587de4ff322931d401e964f5af0716633dd675"
   ROLLBACK_REVISION: "cfa0cb3a948cf57eac9503604c5d19fa42178b2b"
   ROLLBACK_SITE_DIGEST: "sha256:969a3f82abf532ed936c2600fc73045f4df1775185d441168f74724754bcba28"
@@ -38,7 +38,7 @@ jobs:
     if: "${{ github.event_name != 'workflow_dispatch' || inputs.mode != 'rollback-v1.3' }}"
     permissions:
       contents: read
-    uses: egohygiene/relay/.github/workflows/repository-intelligence.yml@04bd32c8ef492418f47d6df6faee425d6888f341
+    uses: egohygiene/relay/.github/workflows/repository-intelligence.yml@49046d88ef6fe2e31e9a9f443a61157b598efb78
     with:
       artifact-retention-days: 30
       max-depth: "10"
@@ -110,7 +110,7 @@ jobs:
       - name: Capture consumer routes before composition
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence-deployment-provenance v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@04bd32c8ef492418f47d6df6faee425d6888f341
+        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@49046d88ef6fe2e31e9a9f443a61157b598efb78
         with:
           operation: capture-baseline
           consumer-revision: "${{ steps.identity.outputs.represented-revision }}"
@@ -145,7 +145,7 @@ jobs:
         id: intelligence_current_one
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence@04bd32c8ef492418f47d6df6faee425d6888f341
+        uses: egohygiene/relay/actions/repository-intelligence@49046d88ef6fe2e31e9a9f443a61157b598efb78
 
       - name: Preserve first deterministic manifest
         if: steps.identity.outputs.deployment-mode == 'current'
@@ -158,7 +158,7 @@ jobs:
         id: intelligence_current_two
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence@04bd32c8ef492418f47d6df6faee425d6888f341
+        uses: egohygiene/relay/actions/repository-intelligence@49046d88ef6fe2e31e9a9f443a61157b598efb78
 
       - name: Prove deterministic bundle reproduction
         if: steps.identity.outputs.deployment-mode == 'current'
@@ -186,18 +186,20 @@ jobs:
         id: composition
         if: steps.identity.outputs.deployment-mode == 'current'
         # egohygiene/relay repository-intelligence-deployment-provenance v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@04bd32c8ef492418f47d6df6faee425d6888f341
+        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@49046d88ef6fe2e31e9a9f443a61157b598efb78
         with:
           operation: verify-composition
           consumer-revision: "${{ steps.identity.outputs.represented-revision }}"
-          relay-revision: "04bd32c8ef492418f47d6df6faee425d6888f341"
+          relay-revision: "49046d88ef6fe2e31e9a9f443a61157b598efb78"
           required-routes: >-
-            ["/","/intelligence/","/intelligence/compare/",
+            ["/","/intelligence/","/intelligence/audits/","/intelligence/compare/",
             "/intelligence/dashboard/","/intelligence/decisions/",
-            "/intelligence/dependencies/","/intelligence/health/",
+            "/intelligence/dependencies/","/intelligence/diagnostics/",
+            "/intelligence/distribution/","/intelligence/health/",
+            "/intelligence/hygiene/","/intelligence/identity/",
             "/intelligence/journey/","/intelligence/now/",
             "/intelligence/releases/","/intelligence/roadmap/",
-            "/intelligence/search/","/intelligence/work/"]
+            "/intelligence/sanity/","/intelligence/search/","/intelligence/work/"]
           aliases: "[]"
 
       - name: Verify fixed rollback site digest
@@ -376,23 +378,25 @@ jobs:
           ${{ needs.build.outputs.deployment-mode == 'current' &&
           steps.download_provenance.outcome == 'success' }}
         # egohygiene/relay repository-intelligence-deployment-provenance v1.6.0
-        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@04bd32c8ef492418f47d6df6faee425d6888f341
+        uses: egohygiene/relay/actions/repository-intelligence-deployment-provenance@49046d88ef6fe2e31e9a9f443a61157b598efb78
         with:
           operation: record-receipt
           consumer-revision: "${{ needs.build.outputs.represented-revision }}"
-          relay-revision: "04bd32c8ef492418f47d6df6faee425d6888f341"
+          relay-revision: "49046d88ef6fe2e31e9a9f443a61157b598efb78"
           workflow-run-id: "${{ github.run_id }}"
           workflow-run-attempt: "${{ github.run_attempt }}"
           deployment-environment: github-pages
           deployment-url: "${{ needs.deploy.outputs.deployment-url || 'https://akashic.egohygiene.io/' }}"
           deployment-conclusion: "${{ needs.deploy.outputs.deployment-conclusion || needs.deploy.result }}"
           required-routes: >-
-            ["/","/intelligence/","/intelligence/compare/",
+            ["/","/intelligence/","/intelligence/audits/","/intelligence/compare/",
             "/intelligence/dashboard/","/intelligence/decisions/",
-            "/intelligence/dependencies/","/intelligence/health/",
+            "/intelligence/dependencies/","/intelligence/diagnostics/",
+            "/intelligence/distribution/","/intelligence/health/",
+            "/intelligence/hygiene/","/intelligence/identity/",
             "/intelligence/journey/","/intelligence/now/",
             "/intelligence/releases/","/intelligence/roadmap/",
-            "/intelligence/search/","/intelligence/work/"]
+            "/intelligence/sanity/","/intelligence/search/","/intelligence/work/"]
           aliases: "[]"
           rollback-revision: "cfa0cb3a948cf57eac9503604c5d19fa42178b2b"
           rollback-site-digest: "sha256:969a3f82abf532ed936c2600fc73045f4df1775185d441168f74724754bcba28"
@@ -460,6 +464,7 @@ jobs:
           --origin "${CANONICAL_ORIGIN}"
           --fallback-origin "${FALLBACK_ORIGIN}"
           --represented-revision "${{ needs.build.outputs.represented-revision }}"
+          --expected-relay-revision "${{ needs.build.outputs.deployment-mode == 'current' && env.RELAY_REVISION || env.ROLLBACK_RELAY_REVISION }}"
           --workflow-run-id "${{ github.run_id }}"
           --workflow-run-attempt "${{ github.run_attempt }}"
           --attempts 12
