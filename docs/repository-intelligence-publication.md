@@ -8,7 +8,16 @@ Akashic owns the composition and deployment of its GitHub Pages site. Relay is a
 
 Akashic has file/directory prefix siblings such as `i18n.js` with `i18n/` and `search-lab.js` with `search/`. After Relay captures the baseline, the consumer workflow canonically sorts only the baseline's file records by their public relative paths. This semantics-preserving compatibility step satisfies Relay v1.6's closed verifier ordering without changing captured bytes, digests, routes, or deployed content.
 
-The current workflow pins Relay to immutable source `9358083e6dd8b15a0f2a3bb23c0b1e2b3ea3b2ff`, advancing from the portable-shell selection `49046d88ef6fe2e31e9a9f443a61157b598efb78` merged in [Akashic #223](https://github.com/egohygiene/akashic/pull/223). It adopts the merged Journey/Releases source composition in [Relay #169](https://github.com/egohygiene/relay/pull/169), the optional Search profile in [Relay #170](https://github.com/egohygiene/relay/pull/170), and their final shared action wiring. The source base for this consumer continuation is `4c7da1631d59ccc4f26fc6fdd7aee27bd719969f`. Read-only review, controlled failure evidence, current composition and provenance verification use this same exact Relay revision; frozen recovery retains its separate v1.3 pin. This adoption is a source-review candidate, not a new deployment or acceptance receipt.
+The current workflow selects the reviewed immutable Relay source
+`981ddf4367c67fcd625e54321d95bab027f6c0f2`. This continuation starts from Akashic main
+`62b3f192bde17e74f48b7843c478f308a4ceb2d3`, which merged Journey/Search in
+[Akashic #224](https://github.com/egohygiene/akashic/pull/224). The
+[public-source handoff](repository-intelligence-sources.md) adds bounded
+Work/Health/Releases captures and declared Dependencies on current push/manual
+builds. Read-only review, controlled failure, current composition and provenance
+verification retain that same selected Relay source; frozen recovery keeps its
+separate v1.3 pin. This is an implementation candidate without deployment or
+acceptance proof.
 
 Pull requests run with read-only repository and Pages access. They build and validate the complete composed site and retain `akashic-composed-site-<revision>-<attempt>` plus `akashic-composition-evidence-<revision>-<attempt>` for 30 days. The deploy and live-verification jobs are structurally excluded from pull requests, including untrusted forks.
 
@@ -58,27 +67,35 @@ The current bundle includes Relay's repository-profile `routes.json`, shared bra
 
 ## Current adoption checkpoint
 
-This change advances the shared publisher and its matching local admission metadata. It preserves the portal build, canonical and fallback origins, sole deployer, permissions, job conditions, deterministic double build, baseline sorting, evidence retention and frozen recovery inputs. It overlaps the older independent pin bumps in [Akashic #220](https://github.com/egohygiene/akashic/pull/220) and [#221](https://github.com/egohygiene/akashic/pull/221); those proposed `b4a88db` pins should be reconciled during review rather than merged over this newer candidate.
+This change advances the shared publisher and its matching local admission metadata. It preserves the portal build, canonical and fallback origins, sole deployer, job conditions, deterministic double build, baseline sorting, existing evidence retention and frozen recovery inputs. The current build additionally has only the read permissions required for bounded source capture and exact artifact intake. It overlaps the older independent pin bumps in [Akashic #220](https://github.com/egohygiene/akashic/pull/220) and [#221](https://github.com/egohygiene/akashic/pull/221); those proposed `b4a88db` pins should be reconciled during review rather than merged over this newer candidate.
 
-The native source continuation selects only `collect-journey: true` and
-`search-attribution: true` in the current read-only review and both deterministic
-current builds. The same immutable Relay revision must appear in every current
-builder/provenance call and `CURRENT_RELAY_REVISION`. Generic Git commit titles
-and the represented commit's deterministic evaluation clock remain the defaults;
-the bounded 256-commit ancestry may be partial, and semantic history always is.
-Commit bodies, subjects, identities, paths and unresolved trailers do not become
-public graph or Search facts. Search attribution comes from the selected
-Observatory owner fields; opaque text is not reverse-engineered into a match.
+All current generators retain `collect-journey: true` and
+`search-attribution: true`. On actual current push/manual paths, the source
+producer supplies one exact same-run capture artifact and actual `as-of` to both
+generator calls; those paths also enable `collect-dependencies`. No-capture PR
+and read-only review paths retain their original Journey/Search-only selection.
+The same immutable Relay revision appears in every current builder/provenance
+call and `CURRENT_RELAY_REVISION`. Generic Git titles remain the default;
+bounded ancestry can be partial, and semantic history always is. Commit bodies,
+subjects, identities, paths and unresolved trailers do not become public graph
+or Search facts. Search attribution remains supplied by Observatory owner fields.
+The source producer's explicitly selected public issue/PR/release titles and
+check names use its separate bounded sanitization.
 
 The current consumer check and current live profile require matching Journey
-and Search normalization receipts in public provenance. Original domain
+and Search normalization receipts in public provenance. Captured build/live
+profiles additionally require exactly the five selected source receipts with
+matching source/evaluation bindings; no-capture paths still require Journey
+alone. Original domain
 collector pins stay independent of the newer final Search normalization profile.
 The registered 18 routes and 30 top-level artifact entries remain unchanged;
 there is no additional Search asset. The exact frozen recovery profile bypasses
 these new adoption requirements and keeps its original generator and bytes.
 
-Roadmap, ADR, Work, Health and release/deployment captures, external snapshots and
-comparison inputs remain unselected. [Akashic #197](https://github.com/egohygiene/akashic/issues/197)
+Roadmap, ADR, external snapshots and comparison inputs remain unselected.
+Deployments and install verification remain explicitly uncollected. Work,
+commit-matched Health and published Releases use the real bounded captures on
+current push/manual paths, with declared dependency scope kept separate. [Akashic #197](https://github.com/egohygiene/akashic/issues/197)
 still owns `AKA-Q03` ready versus prerequisite `AKA-Q02` active. This upgrade
 does not rewrite those declarations or establish roadmap acceptance. Retained
 Compare artifacts remain a later opt-in requiring two real compatible captures

@@ -207,7 +207,7 @@ export async function verifyPublicationOnce({ fallbackOrigin, origin, represente
   }
   const sourceBinding = { provenance_sha256: provenanceEvidence.sha256 };
   if (profile.manifest) {
-    validateCurrentSourcePlan(provenance, representedRevision);
+    validateCurrentSourcePlan(provenance, representedRevision, { requireCapturedSources: true });
     const manifestEvidence = await readPublicJson(origin, "intelligence/build-manifest.json", fetchImplementation);
     const manifest = manifestEvidence.document;
     if (

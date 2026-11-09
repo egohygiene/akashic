@@ -90,7 +90,13 @@ if (
   throw new Error("The deterministic build manifest identities are inconsistent.");
 }
 
-validateCurrentSourcePlan(provenance, sourceCommit);
+const captureRequirement = process.env.REQUIRE_PUBLIC_SOURCE_CAPTURES;
+if (captureRequirement !== undefined && !["true", "false"].includes(captureRequirement)) {
+  throw new Error("The source capture requirement must be an explicit boolean.");
+}
+validateCurrentSourcePlan(provenance, sourceCommit, {
+  requireCapturedSources: captureRequirement === "true"
+});
 
 const expectedContracts = {
   action_inputs: { schema: "egohygiene.relay.repository-intelligence-inputs/v1", version: 1 },
