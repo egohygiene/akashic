@@ -1,6 +1,6 @@
 // Consumer-owned admission profiles for the current publisher and frozen recovery.
 // A route profile is selected only by its reviewed immutable generator revision.
-export const CURRENT_RELAY_REVISION = "REVIEWED_INTELLIGENCE_RELAY_SHA";
+export const CURRENT_RELAY_REVISION = "981ddf4367c67fcd625e54321d95bab027f6c0f2";
 export const CURRENT_RELAY_VERSION = "1.6.0";
 export const CURRENT_SEARCH_OBSERVATORY_REVISION = "49a8031f2a5124ff7ab09adbda50a9a5dbe6dec2";
 export const ROLLBACK_RELAY_REVISION = "55587de4ff322931d401e964f5af0716633dd675";

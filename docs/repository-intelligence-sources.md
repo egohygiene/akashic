@@ -2,10 +2,9 @@
 
 This checkpoint starts from Akashic main
 `62b3f192bde17e74f48b7843c478f308a4ceb2d3`, which merged Journey and attributed
-Search in #224. The staged source selector `REVIEWED_INTELLIGENCE_RELAY_SHA`
-must be replaced with the final reviewed immutable Relay commit before PR
-handoff. Every current generator, producer, provenance helper and consumer
-profile must select that same source. This does not select a release tag or
+Search in #224. The reviewed immutable Relay source is
+`981ddf4367c67fcd625e54321d95bab027f6c0f2`. Every current generator, producer,
+provenance helper and consumer profile selects that same source. This does not select a release tag or
 establish consumer qualification.
 
 Refs [Relay #146](https://github.com/egohygiene/relay/issues/146),

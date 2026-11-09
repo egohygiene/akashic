@@ -16,7 +16,7 @@ jobs:
     name: Reject invalid input and retain sanitized evidence
     permissions:
       contents: read
-    uses: egohygiene/relay/.github/workflows/repository-intelligence.yml@REVIEWED_INTELLIGENCE_RELAY_SHA
+    uses: egohygiene/relay/.github/workflows/repository-intelligence.yml@981ddf4367c67fcd625e54321d95bab027f6c0f2
     with:
       artifact-retention-days: 30
       max-depth: "21"

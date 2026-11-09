@@ -8,9 +8,8 @@ Akashic owns the composition and deployment of its GitHub Pages site. Relay is a
 
 Akashic has file/directory prefix siblings such as `i18n.js` with `i18n/` and `search-lab.js` with `search/`. After Relay captures the baseline, the consumer workflow canonically sorts only the baseline's file records by their public relative paths. This semantics-preserving compatibility step satisfies Relay v1.6's closed verifier ordering without changing captured bytes, digests, routes, or deployed content.
 
-The current workflow selects the staged immutable source
-`REVIEWED_INTELLIGENCE_RELAY_SHA`, which must be replaced by the exact reviewed
-Relay commit before PR handoff. This continuation starts from Akashic main
+The current workflow selects the reviewed immutable Relay source
+`981ddf4367c67fcd625e54321d95bab027f6c0f2`. This continuation starts from Akashic main
 `62b3f192bde17e74f48b7843c478f308a4ceb2d3`, which merged Journey/Search in
 [Akashic #224](https://github.com/egohygiene/akashic/pull/224). The
 [public-source handoff](repository-intelligence-sources.md) adds bounded
