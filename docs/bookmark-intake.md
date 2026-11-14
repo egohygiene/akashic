@@ -46,4 +46,8 @@ Candidate classifications are deliberately conservative:
 - `needs-review`: the URL path without its query or normalized title resembles a catalog or Atlas resource.
 - `plausible-addition`: no local catalog match was found; this is not an endorsement.
 
-Live redirect and inaccessible classifications require observed freshness evidence and are outside this offline stage. Every candidate still needs human curation, source verification, placement, metadata, and the normal repository validations.
+Live redirect and inaccessible classifications require observed freshness evidence.
+The optional [freshness join](bookmark-freshness.md) consumes an explicit compatible
+reducer artifact offline without rewriting original URLs or treating availability
+as human truth. Every candidate still needs human curation, source verification,
+placement, metadata, and the normal repository validations.

@@ -294,5 +294,6 @@ export function bookmarkIntakeSummary(report) {
     totals: report.totals,
     batch: report.batch,
     notices: report.notices,
+    ...(report.freshness ? { freshness: report.freshness } : {}),
   };
 }
